@@ -1,0 +1,211 @@
+Sample ID	Methylation Subgroup (dkfz)	Methylation Subgroup (Noushmehr)	Gene Expression Subgroup (TCGA)	H3F3A Mutation Status	IDH 1 Mutation Status	TP53 Mutation Status	Chr. 7 Gain	Chr. 10 Loss	CDKN2A Deletion	EGFR Amplification	PDGFRA Amplification	Tumor Location	Age at Diagnosis (years)	Gender	Death	OS (months)	Progression	PFS (months)
+dkfz_11-001	G34	Cluster #3	NA	G34R	WT	MUT	0	0	0	0	0	temporal lobe	14	M	1	10	1	7
+dkfz_11-002	RTK I 'PDGFRA'	Cluster #3	NA	WT	WT	WT	1	NA	1	0	0	cerebellar	12	F	1	8	1	6
+dkfz_11-003	IDH	G-CIMP+	NA	WT	MUT	MUT	0	0	0	0	0	fronto-temporal	13	M	0	14	0	14
+dkfz_11-004	Mesenchymal	Cluster #3	Proneural	WT	WT	WT	1	1	1	0	0	frontal lobe	12	F	0	25	1	12
+dkfz_11-005	K27	Cluster #3	Classical	K27M	WT	WT	0	0	0	0	0	thalamic	11	M	1	5	1	4
+dkfz_11-006	K27	Cluster #3	Proneural	K27M	WT	MUT	0	0	0	0	0	thalamic	10	M	1	8	1	5
+dkfz_11-007	Mesenchymal	Cluster #3	NA	WT	WT	MUT	1	0	0	0	0	NA	20	M	NA	NA	1	12
+dkfz_11-008	K27	Cluster #3	NA	K27M	WT	WT	0	0	0	0	0	thalamic	11	M	1	32	1	25
+dkfz_11-009	IDH	G-CIMP+	NA	WT	MUT	MUT	0	1	0	0	0	temporal lobe	14	M	0	27	0	27
+dkfz_11-010	Mesenchymal	Cluster #3	NA	WT	WT	WT	0	0	0	0	0	NA	2	M	0	117	0	117
+dkfz_11-011	RTK I 'PDGFRA'	Cluster #3	NA	WT	WT	WT	0	0	0	0	0	frontal lobe	12	M	1	2	0	2
+dkfz_11-012	RTK I 'PDGFRA'	Cluster #3	NA	WT	WT	MUT	1	1	1	0	1	temporal lobe	12	M	1	17	1	15
+dkfz_11-013	K27	Cluster #3	Proneural	K27M	WT	MUT	0	0	0	0	1	ventricular	10	F	1	24	1	14
+dkfz_11-014	RTK I 'PDGFRA'	Cluster #3	Classical	WT	WT	MUT	0	0	1	0	0	frontal lobe	10	F	1	10	1	2
+dkfz_11-015	RTK I 'PDGFRA'	Cluster #3	NA	WT	WT	WT	0	0	1	0	1	frontal lobe	13	F	1	16	1	11
+dkfz_11-016	RTK I 'PDGFRA'	Cluster #3	NA	WT	WT	WT	1	1	1	1	0	parietal lobe	8	M	1	9	1	5
+dkfz_11-017	G34	Cluster #3	Classical	G34R	WT	MUT	0	0	0	1	0	temporal lobe	9	M	0	9	1	6
+dkfz_11-018	G34	Cluster #3	NA	G34R	WT	MUT	1	NA	0	0	0	temporal lobe	14	M	0	27	0	27
+dkfz_11-019	K27	Cluster #3	NA	K27M	WT	MUT	0	0	0	0	0	DIPG	13	F	1	13	1	5
+dkfz_11-020	G34	Cluster #3	Classical	G34R	WT	MUT	0	0	0	0	0	frontal lobe, praecentral	13	M	1	18	0	11
+dkfz_11-021	IDH	G-CIMP+	Proneural	WT	MUT	MUT	0	0	0	0	0	NA	15	M	NA	NA	NA	NA
+dkfz_11-022	RTK II 'Classic'	Cluster #2	NA	WT	WT	MUT	1	1	0	0	1	NA	66	F	NA	NA	NA	NA
+dkfz_11-023	Mesenchymal	Cluster #3	Mesenchymal	WT	WT	MUT	0	0	1	1	0	temporal lobe	14	M	1	14	1	5
+dkfz_11-024	K27	Cluster #3	Mesenchymal	K27M	WT	MUT	0	1	0	0	0	thalamic	6	F	1	12	1	7
+dkfz_11-025	RTK I 'PDGFRA'	Cluster #3	NA	WT	MUT	MUT	0	0	0	0	0	parietal lobe	8	M	NA	NA	NA	NA
+dkfz_11-026	K27	Cluster #3	Proneural	K27M	WT	WT	0	0	0	0	0	thalamic	11	F	1	19	1	11
+dkfz_11-027	Mesenchymal	Cluster #3	Mesenchymal	WT	WT	WT	0	0	0	0	0	parietal lobe	14	M	0	84	1	12
+dkfz_11-028	G34	Cluster #3	NA	G34R	WT	MUT	0	0	0	0	0	temporal lobe	24	M	NA	NA	NA	NA
+dkfz_11-029	G34	Cluster #3	Proneural	G34R	WT	MUT	0	0	0	0	0	parietal lobe	13	M	1	13	1	9
+dkfz_11-030	G34	Cluster #3	NA	G34R	WT	MUT	0	0	0	0	0	gyrus cinguli	26	M	NA	NA	NA	NA
+dkfz_11-031	Mesenchymal	Cluster #3	Mesenchymal	WT	WT	WT	0	1	0	0	0	frontal lobe	13	F	1	38	1	18
+dkfz_11-032	G34	Cluster #3	NA	G34R	WT	MUT	NA	NA	0	0	0	brain stem	21	F	NA	NA	NA	NA
+dkfz_11-033	Mesenchymal	Cluster #3	NA	WT	WT	MUT	1	NA	0	0	0	frontal lobe, praecentral	10	F	NA	NA	NA	NA
+dkfz_11-034	G34	G-CIMP+	NA	G34V	WT	MUT	1	1	0	0	0	occipital lobe	24	F	NA	NA	NA	NA
+dkfz_11-035	Mesenchymal	Cluster #3	Mesenchymal	WT	WT	WT	1	1	1	0	0	parietal lobe	14	F	1	14	1	12
+dkfz_11-036	K27	Cluster #3	NA	K27M	WT	MUT	0	0	0	0	0	NA	5	M	0	5,7	NA	NA
+dkfz_11-037	K27	Cluster #3	NA	K27M	WT	MUT	1	1	0	0	0	NA	8	F	NA	NA	NA	NA
+dkfz_11-038	RTK II 'Classic'	Cluster #2	Classical	WT	WT	MUT	1	1	0	1	0	NA	38	M	NA	NA	1	22
+dkfz_11-039	IDH	G-CIMP+	Proneural	WT	MUT	MUT	0	0	0	1	0	NA	40	F	NA	NA	0	31
+dkfz_11-040	IDH	G-CIMP+	Proneural	WT	MUT	MUT	0	0	0	0	0	NA	32	F	NA	NA	0	36
+dkfz_11-041	Mesenchymal	Cluster #3	Mesenchymal	WT	WT	WT	1	1	0	0	0	NA	46	F	NA	NA	1	9
+dkfz_11-042	Mesenchymal	Cluster #3	Mesenchymal	WT	MUT	WT	0	0	0	0	0	NA	34	M	NA	NA	0	33
+dkfz_11-043	RTK I 'PDGFRA'	Cluster #3	Mesenchymal	WT	WT	WT	0	0	0	0	0	fronto-temporal	20	F	NA	NA	0	8
+dkfz_11-044	RTK I 'PDGFRA'	Cluster #3	Proneural	WT	WT	WT	1	1	0	0	0	NA	36	M	NA	NA	0	10
+dkfz_11-045	RTK I 'PDGFRA'	Cluster #3	Proneural	WT	WT	WT	0	0	0	0	0	parietal lobe	19	M	NA	NA	1	8
+dkfz_11-046	IDH	G-CIMP+	NA	WT	MUT	WT	1	NA	1	0	0	NA	48	F	NA	NA	0	38
+dkfz_11-047	Mesenchymal	Cluster #3	Mesenchymal	WT	WT	WT	1	1	0	1	0	NA	36	M	NA	NA	0	7
+dkfz_11-048	K27	Cluster #3	Proneural	K27M	WT	MUT	0	1	0	0	0	thalamic	23	F	NA	NA	0	12
+dkfz_11-049	IDH	G-CIMP+	Proneural	WT	MUT	MUT	0	0	0	0	0	NA	33	M	NA	NA	0	38
+dkfz_11-050	RTK I 'PDGFRA'	Cluster #3	Proneural	WT	WT	WT	1	0	0	0	0	cerebellar	20	F	NA	NA	0	6
+dkfz_11-051	Mesenchymal	Cluster #3	Mesenchymal	WT	WT	WT	1	1	0	0	0	NA	38	M	NA	NA	0	7
+dkfz_11-052	IDH	G-CIMP+	Proneural	WT	MUT	MUT	1	0	0	0	0	NA	48	M	NA	NA	1	48
+dkfz_11-053	G34	Cluster #3	Proneural	G34R	WT	MUT	0	0	0	0	0	temporal lobe	42	F	1	14	1	12
+dkfz_11-054	RTK I 'PDGFRA'	Cluster #3	Proneural	WT	WT	MUT	0	1	0	0	1	NA	33	M	NA	NA	0	11
+dkfz_11-055	RTK II 'Classic'	Cluster #2	Classical	WT	WT	WT	1	1	0	1	0	NA	40	M	NA	NA	0	10
+dkfz_11-056	IDH	G-CIMP+	Proneural	WT	MUT	MUT	0	NA	0	0	0	NA	25	F	NA	NA	1	17
+dkfz_11-057	IDH	G-CIMP+	Proneural	WT	MUT	MUT	0	0	0	0	0	NA	38	M	NA	NA	1	16
+dkfz_11-058	IDH	G-CIMP+	Proneural	WT	MUT	MUT	0	0	0	0	0	frontal lobe	18	M	NA	NA	1	17
+dkfz_11-059	RTK II 'Classic'	Cluster #2	Classical	WT	WT	WT	1	1	1	1	0	NA	36	M	NA	NA	0	8
+dkfz_11-060	IDH	G-CIMP+	Proneural	WT	MUT	MUT	0	0	1	0	0	frontal lobe	17	M	NA	NA	NA	NA
+dkfz_11-061	RTK I 'PDGFRA'	Cluster #3	Proneural	WT	WT	MUT	1	1	0	0	0	parietal lobe	14	M	1	5	1	5
+dkfz_11-062	RTK I 'PDGFRA'	Cluster #3	Classical	WT	WT	MUT	1	0	0	1	0	temporal lobe	9	F	1	10	1	9
+dkfz_11-063	RTK I 'PDGFRA'	Cluster #3	Classical	WT	WT	WT	0	0	0	1	0	frontal lobe	9	M	1	12	1	10
+dkfz_11-064	K27	Cluster #3	Proneural	K27M	WT	MUT	0	NA	0	0	0	parietal lobe	5	M	1	6	1	4
+dkfz_11-065	K27	Cluster #3	NA	K27M	WT	MUT	0	0	0	0	0	temporal lobe	19	M	1	8	NA	NA
+dkfz_11-066	G34	Cluster #3	NA	G34R	WT	MUT	1	0	0	0	0	occipital lobe	23	F	0	10	0	10
+dkfz_11-067	G34	Cluster #3	NA	G34R	WT	MUT	0	0	0	0	1	temporal lobe	31	F	1	25	NA	NA
+dkfz_11-068	K27	Cluster #3	Proneural	K27M	WT	MUT	0	0	0	0	0	cerebellopontine angle	8	F	1	7	1	5
+dkfz_11-069	Mesenchymal	Cluster #3	NA	WT	WT	WT	0	0	0	0	0	frontal lobe, praecentral	7	F	1	12	1	8
+dkfz_11-070	RTK I 'PDGFRA'	Cluster #3	Proneural	WT	WT	WT	0	0	0	0	1	ventricular	16	F	1	27	1	18
+dkfz_11-071	Mesenchymal	Cluster #3	NA	WT	WT	WT	0	0	0	0	0	NA	4	M	1	11	1	10
+dkfz_11-072	G34	Cluster #3	Mesenchymal	G34R	WT	MUT	0	1	0	0	0	parietal lobe	15	M	0	17	0	17
+dkfz_11-073	K27	Cluster #3	NA	K27M	WT	NA	0	0	0	0	0	NA	19	F	NA	NA	NA	NA
+dkfz_11-074	IDH	G-CIMP+	NA	WT	MUT	MUT	0	0	0	0	0	NA	25	F	NA	NA	NA	NA
+dkfz_11-075	RTK I 'PDGFRA'	Cluster #3	NA	WT	WT	MUT	NA	NA	0	0	0	NA	11	M	NA	NA	NA	NA
+dkfz_11-091	K27	Cluster #3	NA	K27M	WT	MUT	0	0	0	0	0	thalamic	12	F	1	30	1	26
+dkfz_11-092	Mesenchymal	Cluster #3	NA	WT	WT	WT	0	0	0	0	0	NA	44	F	1	16	1	14
+dkfz_11-093	IDH	G-CIMP+	NA	WT	MUT	MUT	0	0	1	0	0	NA	49	M	0	48	0	48
+dkfz_11-094	RTK I 'PDGFRA'	Cluster #3	NA	WT	MUT	WT	0	0	0	0	0	NA	53	M	0	17	0	17
+dkfz_11-095	Mesenchymal	Cluster #3	NA	WT	WT	MUT	1	1	1	1	0	NA	52	F	1	12	1	8
+dkfz_11-096	RTK II 'Classic'	Cluster #2	NA	WT	WT	NA	0	1	1	1	0	NA	54	F	NA	NA	NA	NA
+dkfz_11-097	Mesenchymal	Cluster #3	NA	WT	WT	WT	0	1	1	1	0	NA	52	F	0	4	0	4
+dkfz_11-098	Mesenchymal	Cluster #3	NA	WT	WT	NA	1	1	1	0	0	NA	47	M	NA	NA	NA	NA
+dkfz_11-099	RTK I 'PDGFRA'	Cluster #3	NA	WT	WT	WT	1	1	0	1	0	NA	49	F	0	3	0	3
+dkfz_11-100	Mesenchymal	Cluster #3	NA	WT	WT	WT	1	1	1	0	0	NA	45	F	1	17	1	14
+dkfz_11-101	Mesenchymal	Cluster #3	NA	WT	WT	MUT	NA	1	0	0	0	NA	45	F	1	12	1	4
+dkfz_11-102	RTK II 'Classic'	Cluster #2	NA	WT	WT	NA	1	1	1	0	0	NA	48	F	1	14	1	12
+dkfz_11-103	RTK I 'PDGFRA'	Cluster #3	NA	WT	WT	NA	0	1	0	0	0	NA	49	F	NA	NA	NA	NA
+dkfz_11-104	Mesenchymal	Cluster #3	NA	WT	WT	WT	1	1	1	0	0	NA	40	F	1	10	1	8
+dkfz_11-105	RTK II 'Classic'	Cluster #2	NA	WT	WT	NA	0	1	1	1	0	NA	48	M	1	14	1	13
+dkfz_11-106	Mesenchymal	Cluster #3	NA	WT	WT	WT	0	0	1	0	0	NA	41	M	0	12	0	12
+dkfz_11-107	Mesenchymal	Cluster #3	NA	WT	WT	NA	1	1	1	1	0	NA	42	M	1	12	1	8
+dkfz_11-108	Mesenchymal	Cluster #3	NA	WT	WT	NA	1	1	1	0	0	NA	48	M	1	13	1	8
+dkfz_11-109	RTK II 'Classic'	Cluster #2	NA	WT	WT	NA	0	1	0	1	0	NA	48	F	NA	NA	NA	NA
+dkfz_11-110	Mesenchymal	Cluster #3	NA	WT	WT	MUT	0	0	0	0	0	NA	43	M	0	7	0	7
+dkfz_11-111	Mesenchymal	Cluster #3	NA	WT	WT	MUT	1	1	0	0	0	NA	44	F	1	12	1	8
+dkfz_11-112	RTK II 'Classic'	Cluster #2	NA	WT	WT	NA	1	1	1	1	0	NA	49	M	NA	NA	NA	NA
+dkfz_11-113	RTK II 'Classic'	Cluster #2	NA	WT	WT	WT	1	1	1	1	0	NA	39	M	1	16	1	8
+dkfz_11-114	RTK I 'PDGFRA'	Cluster #3	NA	WT	WT	NA	1	1	0	0	1	NA	44	M	NA	NA	NA	NA
+dkfz_11-115	Mesenchymal	Cluster #3	NA	WT	WT	WT	NA	NA	0	0	0	NA	33	M	0	12	0	12
+dkfz_11-116	IDH	G-CIMP+	NA	WT	MUT	MUT	0	0	0	0	0	NA	47	F	0	27	0	27
+dkfz_11-117	RTK I 'PDGFRA'	Cluster #3	NA	WT	WT	WT	1	1	1	1	0	NA	47	M	0	9	1	8
+dkfz_11-118	RTK II 'Classic'	Cluster #2	NA	WT	WT	NA	1	1	0	0	0	NA	49	M	0	5	0	5
+dkfz_11-119	Mesenchymal	Cluster #3	NA	WT	WT	NA	1	1	0	1	0	NA	54	M	NA	NA	NA	NA
+dkfz_11-120	Mesenchymal	Cluster #3	NA	WT	WT	WT	1	0	0	0	0	NA	50	F	1	12	1	8
+dkfz_11-121	IDH	G-CIMP+	NA	WT	MUT	MUT	1	0	0	0	0	NA	34	M	0	32	0	32
+dkfz_11-122	Mesenchymal	Cluster #3	NA	WT	WT	WT	1	1	1	1	0	NA	49	F	1	18	1	14
+dkfz_11-123	Mesenchymal	Cluster #3	NA	WT	WT	NA	1	1	1	1	0	NA	51	M	1	5	1	3
+dkfz_11-124	IDH	G-CIMP+	NA	WT	MUT	MUT	0	0	0	0	0	NA	47	M	0	22	0	22
+dkfz_11-125	Mesenchymal	Cluster #3	NA	WT	WT	WT	1	1	0	0	0	NA	52	F	1	7	1	3
+dkfz_11-126	RTK II 'Classic'	Cluster #2	NA	WT	WT	WT	1	1	1	1	0	NA	51	M	0	10	0	10
+dkfz_11-127	Mesenchymal	Cluster #3	NA	WT	WT	NA	1	1	0	1	0	NA	51	F	1	6	1	3
+dkfz_11-128	RTK II 'Classic'	Cluster #2	NA	WT	WT	WT	1	1	1	1	0	NA	47	F	1	15	1	12
+dkfz_11-129	RTK II 'Classic'	Cluster #2	NA	WT	WT	WT	1	1	1	0	0	parietal lobe	53	M	1	6,6	1	6,2
+dkfz_11-130	Mesenchymal	Cluster #3	NA	WT	WT	WT	0	1	0	0	0	parietal lobe	54	M	1	19,9	1	16,8
+dkfz_11-131	Mesenchymal	Cluster #3	NA	WT	WT	WT	1	1	1	0	0	frontal lobe	51	M	1	11,6	1	10,8
+dkfz_11-132	RTK II 'Classic'	Cluster #2	NA	WT	WT	NA	1	1	1	1	0	parietal lobe	52	M	1	6,3	0	NA
+dkfz_11-133	RTK II 'Classic'	Cluster #2	NA	WT	WT	WT	1	1	1	1	0	temporal lobe	52	W	1	16,1	1	8,3
+dkfz_11-134	RTK II 'Classic'	Cluster #2	NA	WT	WT	NA	1	1	0	1	0	occipital lobe	55	W	NA	NA	NA	NA
+dkfz_11-135	RTK II 'Classic'	Cluster #2	NA	WT	WT	WT	1	1	1	0	0	frontal lobe	69	M	NA	NA	NA	NA
+dkfz_11-136	IDH	G-CIMP+	NA	WT	MUT	NA	0	0	0	0	0	temporal lobe	71	W	NA	NA	NA	NA
+dkfz_11-137	IDH	G-CIMP+	NA	WT	MUT	MUT	0	0	0	0	0	parietal lobe	68	M	NA	NA	NA	NA
+dkfz_11-138	RTK II 'Classic'	Cluster #2	NA	WT	WT	NA	1	1	1	1	1	frontal lobe	75	W	NA	NA	NA	NA
+dkfz_11-139	RTK I 'PDGFRA'	Cluster #3	NA	WT	WT	NA	1	0	1	0	1	frontal lobe	71	W	NA	NA	NA	NA
+dkfz_11-140	RTK II 'Classic'	Cluster #3	NA	WT	WT	WT	1	1	1	1	0	temporal lobe	68	M	NA	NA	NA	NA
+dkfz_11-141	RTK II 'Classic'	Cluster #2	NA	WT	WT	NA	1	1	1	1	0	temporal lobe	72	W	NA	NA	NA	NA
+dkfz_11-142	RTK II 'Classic'	Cluster #3	NA	WT	WT	NA	1	1	0	0	0	frontal lobe	57	M	1	15	1	6
+dkfz_11-143	G34	Cluster #2	NA	G34R	WT	MUT	0	0	0	0	0	parietal lobe	22	F	0	19	0	NA
+dkfz_11-144	G34	Cluster #3	NA	G34R	WT	MUT	0	0	0	0	0	temporal lobe	19	F	1	60	1	46
+dkfz_11-145	K27	Cluster #3	Proneural	K27M	WT	MUT	0	1	0	0	0	thalamic	7	F	1	9	1	5
+dkfz_11-146	G34	Cluster #3	Classical	G34R	WT	MUT	NA	NA	0	0	1	frontal lobe	17	F	NA	NA	NA	NA
+dkfz_11-147	G34	Cluster #3	Classical	G34R	WT	MUT	0	0	1	0	0	NA	12	F	1	12	1	1
+dkfz_11-148	K27	Cluster #3	Proneural	K27M	WT	WT	0	0	0	0	0	DIPG	6	F	1	17	1	9
+dkfz_11-149	G34	Cluster #3	NA	G34R	WT	MUT	0	0	1	0	0	parietal lobe	17	F	NA	NA	1	NA
+dkfz_11-150	K27	Cluster #3	NA	K27M	WT	MUT	0	0	0	0	0	NA	16	M	NA	NA	NA	NA
+dkfz_11-151	Mesenchymal	Cluster #3	NA	WT	WT	NA	1	0	0	0	0	temporal lobe	9	M	NA	NA	NA	NA
+TCGA-06-0650	Mesenchymal	Cluster #3	Mesenchymal	NA	WT	WT	0	0	0	1	0	NA	39	F	1	23	1	11
+TCGA-06-1804	RTK II 'Classic'	Cluster #2	Classical	NA	WT	WT	1	1	0	0	0	NA	81	F	1	13	0	NA
+TCGA-06-5408	Mesenchymal	Cluster #2	Classical	NA	WT	MUT	1	1	0	1	1	NA	54	F	1	11	1	5
+TCGA-06-5410	Mesenchymal	Cluster #3	Mesenchymal	WT	NA	NA	0	0	0	0	0	NA	72	F	1	3	0	NA
+TCGA-06-5411	RTK I 'PDGFRA'	Cluster #3	Neural	NA	WT	WT	1	1	0	0	0	NA	51	M	1	8	1	6
+TCGA-06-5412	Mesenchymal	Cluster #3	Mesenchymal	NA	WT	WT	0	0	0	0	0	NA	78	F	1	4	1	2
+TCGA-06-5413	RTK II 'Classic'	Cluster #2	Neural	NA	WT	WT	1	1	0	1	0	NA	67	M	0	8	1	6
+TCGA-06-5414	RTK II 'Classic'	Cluster #2	Classical	NA	WT	WT	1	1	0	1	0	NA	61	M	0	8	1	5
+TCGA-06-5415	RTK II 'Classic'	Cluster #2	Classical	NA	WT	WT	1	1	1	1	0	NA	60	M	0	8	0	NA
+TCGA-06-5416	Mesenchymal	Cluster #3	Proneural	NA	NA	NA	0	0	0	0	0	NA	23	F	0	6	0	NA
+TCGA-06-5417	IDH	G-CIMP+	Proneural	NA	MUT	MUT	0	0	0	0	0	NA	45	F	0	5	0	NA
+TCGA-06-5418	Mesenchymal	Cluster #3	Mesenchymal	NA	WT	WT	1	1	1	0	0	NA	75	F	1	2	0	NA
+TCGA-06-5856	RTK II 'Classic'	Cluster #2	Classical	NA	WT	WT	1	1	0	1	0	NA	58	M	1	3	0	NA
+TCGA-06-5858	Mesenchymal	Cluster #3	Classical	WT	WT	MUT	1	0	0	0	0	NA	45	F	0	6	1	3
+TCGA-06-5859	RTK II 'Classic'	Cluster #2	Neural	WT	WT	WT	1	1	0	0	0	NA	63	M	0	4	0	NA
+TCGA-06-6389	IDH	G-CIMP+	Proneural	NA	MUT	MUT	0	0	0	0	0	NA	50	F	0	7	0	NA
+TCGA-06-6390	Mesenchymal	Cluster #3	Classical	NA	WT	WT	1	1	0	0	0	NA	58	M	1	5	0	NA
+TCGA-06-6391	RTK I 'PDGFRA'	Cluster #3	Proneural	NA	WT	WT	1	0	0	0	0	NA	44	F	1	1	0	NA
+TCGA-12-5295	RTK II 'Classic'	Cluster #2	Classical	NA	WT	WT	0	1	1	1	0	NA	60	F	1	14	1	13
+TCGA-12-5299	RTK II 'Classic'	Cluster #2	Classical	NA	WT	WT	1	1	1	1	0	NA	56	F	1	3	0	NA
+TCGA-12-5301	RTK II 'Classic'	Cluster #2	Neural	NA	WT	WT	1	1	1	0	0	NA	59	M	1	2	0	NA
+TCGA-14-0781	Mesenchymal	Cluster #3	Mesenchymal	NA	WT	WT	0	0	0	0	0	NA	49	M	1	0	0	NA
+TCGA-15-1444	IDH	G-CIMP+	Proneural	NA	MUT	MUT	0	0	0	0	0	NA	NA	NA	NA	NA	0	NA
+TCGA-19-5947	Mesenchymal	Cluster #3	Mesenchymal	NA	NA	NA	1	1	0	0	0	NA	47	F	1	6	1	1
+TCGA-19-5950	RTK II 'Classic'	Cluster #2	Classical	NA	NA	NA	1	1	NA	1	0	NA	52	F	0	11	0	NA
+TCGA-19-5951	RTK II 'Classic'	Cluster #2	Classical	NA	NA	NA	0	1	1	1	0	NA	76	M	1	8	0	NA
+TCGA-19-5952	Mesenchymal	Cluster #2	Classical	NA	NA	NA	1	1	1	1	0	NA	62	M	1	18	0	NA
+TCGA-19-5954	RTK II 'Classic'	Cluster #2	Classical	NA	NA	NA	1	1	1	1	0	NA	72	F	0	7	0	NA
+TCGA-19-5955	Mesenchymal	Cluster #2	Mesenchymal	NA	NA	NA	0	0	0	0	0	NA	83	M	1	1	0	NA
+TCGA-19-5956	RTK I 'PDGFRA'	Cluster #3	Proneural	NA	NA	NA	0	0	1	0	0	NA	53	F	0	6	0	NA
+TCGA-19-5958	RTK II 'Classic'	Cluster #2	Classical	NA	WT	WT	1	1	NA	0	0	NA	56	M	0	5	0	NA
+TCGA-19-5959	RTK II 'Classic'	Cluster #2	Classical	NA	WT	WT	1	1	1	1	0	NA	77	F	0	5	0	NA
+TCGA-19-5960	RTK II 'Classic'	Cluster #2	Proneural	NA	WT	WT	1	1	0	0	0	NA	56	M	0	5	0	NA
+TCGA-26-1442	IDH	G-CIMP+	Proneural	NA	MUT	MUT	0	0	1	0	0	NA	43	M	0	31	0	NA
+TCGA-26-5132	RTK II 'Classic'	Cluster #2	Classical	NA	WT	WT	1	1	0	1	1	NA	74	M	0	9	0	NA
+TCGA-26-5133	IDH	G-CIMP+	Proneural	NA	WT	MUT	0	1	0	0	0	NA	59	M	0	14	1	12
+TCGA-26-5134	RTK I 'PDGFRA'	Cluster #3	Proneural	NA	WT	WT	0	1	1	0	1	NA	74	M	0	5	0	NA
+TCGA-26-5135	RTK I 'PDGFRA'	Cluster #3	Proneural	NA	WT	WT	1	1	0	0	1	NA	72	F	1	8	0	NA
+TCGA-26-5136	Mesenchymal	Cluster #3	Mesenchymal	NA	WT	MUT	1	1	0	0	0	NA	78	F	0	1	0	NA
+TCGA-26-5139	RTK II 'Classic'	Cluster #2	Mesenchymal	NA	WT	WT	1	1	1	1	0	NA	65	F	0	1	0	NA
+TCGA-28-2501	Mesenchymal	Cluster #2	Mesenchymal	NA	WT	WT	0	0	0	1	0	NA	NA	NA	NA	NA	0	NA
+TCGA-28-2510	Mesenchymal	Cluster #3	Neural	NA	WT	WT	0	0	0	0	0	NA	NA	NA	NA	NA	0	NA
+TCGA-28-5204	RTK II 'Classic'	Cluster #2	Neural	NA	WT	WT	1	1	1	1	0	NA	72	M	1	14	0	NA
+TCGA-28-5207	Mesenchymal	Cluster #3	Mesenchymal	NA	WT	MUT	1	1	0	0	0	NA	71	M	1	11	0	NA
+TCGA-28-5208	RTK II 'Classic'	Cluster #2	Mesenchymal	NA	WT	WT	0	1	1	1	0	NA	52	M	0	15	1	4
+TCGA-28-5209	RTK II 'Classic'	Cluster #2	Mesenchymal	NA	WT	WT	1	1	1	1	0	NA	66	F	0	2	0	NA
+TCGA-28-5213	Mesenchymal	Cluster #3	Mesenchymal	NA	WT	WT	1	1	0	0	0	NA	72	M	0	9	0	NA
+TCGA-28-5214	RTK II 'Classic'	Cluster #2	Mesenchymal	NA	WT	WT	1	1	0	1	0	NA	53	M	0	14	1	8
+TCGA-28-5215	RTK I 'PDGFRA'	Cluster #3	Mesenchymal	NA	WT	MUT	NA	1	0	0	0	NA	62	F	1	10	1	5
+TCGA-28-5216	RTK I 'PDGFRA'	Cluster #3	Mesenchymal	NA	WT	MUT	0	1	NA	0	1	NA	52	M	0	13	0	NA
+TCGA-28-5218	Mesenchymal	Cluster #3	Mesenchymal	NA	WT	WT	1	0	0	0	0	NA	63	M	1	5	0	NA
+TCGA-28-5219	Mesenchymal	Cluster #3	Classical	NA	WT	MUT	1	1	0	0	0	NA	47	F	0	8	1	8
+TCGA-28-5220	RTK II 'Classic'	Cluster #2	Classical	NA	WT	WT	1	1	0	0	0	NA	67	M	0	10	1	8
+TCGA-28-6450	RTK II 'Classic'	Cluster #2	Classical	NA	WT	WT	1	1	1	0	0	NA	60	M	1	5	0	NA
+TCGA-32-1979	RTK II 'Classic'	Cluster #2	Neural	NA	WT	WT	1	1	1	1	0	NA	69	F	1	19	1	8
+TCGA-32-1980	Mesenchymal	Cluster #3	Neural	NA	NA	NA	0	0	0	0	0	NA	72	M	1	1	0	NA
+TCGA-32-5222	RTK II 'Classic'	Cluster #2	Proneural	NA	WT	WT	1	1	1	1	1	NA	66	M	0	5	1	3
+TCGA-41-5651	RTK II 'Classic'	Cluster #2	Proneural	NA	WT	MUT	1	1	0	0	0	NA	59	F	0	11	1	6
+TCGA-76-4925	RTK II 'Classic'	Cluster #2	Proneural	NA	WT	MUT	1	1	1	0	0	NA	76	M	1	4	1	2
+TCGA-76-4926	Mesenchymal	Cluster #3	Mesenchymal	NA	WT	WT	1	1	1	1	0	NA	68	M	1	4	1	1
+TCGA-76-4927	RTK II 'Classic'	Cluster #2	Classical	NA	WT	WT	1	1	0	1	0	NA	58	M	1	17	0	NA
+TCGA-76-4928	Mesenchymal	Cluster #3	Classical	NA	WT	WT	1	1	0	0	1	NA	85	F	1	3	0	NA
+TCGA-76-4929	RTK II 'Classic'	Cluster #2	Neural	NA	WT	MUT	1	1	NA	0	0	NA	76	F	1	3	0	NA
+TCGA-76-4931	RTK II 'Classic'	Cluster #2	Classical	NA	WT	WT	1	1	1	1	0	NA	NA	NA	NA	NA	0	NA
+TCGA-76-4932	RTK II 'Classic'	Cluster #2	Proneural	NA	WT	WT	1	1	1	1	0	NA	50	F	1	47	0	NA
+TCGA-76-4934	RTK I 'PDGFRA'	Cluster #3	Proneural	NA	WT	MUT	NA	1	1	0	1	NA	66	F	1	2	0	NA
+TCGA-76-4935	RTK I 'PDGFRA'	Cluster #3	Proneural	NA	WT	WT	1	1	1	0	1	NA	52	F	0	10	1	10
+TCGA-76-6191	RTK II 'Classic'	Cluster #2	Proneural	NA	WT	WT	1	1	1	0	0	NA	57	M	1	16	1	10
+TCGA-76-6192	Mesenchymal	Cluster #2	Proneural	NA	WT	WT	1	1	1	0	0	NA	74	M	1	3	1	2
+TCGA-76-6193	Mesenchymal	Cluster #2	Mesenchymal	NA	WT	MUT	0	0	0	0	1	NA	78	M	1	2	1	2
+TCGA-76-6282	Mesenchymal	Cluster #3	Mesenchymal	NA	WT	WT	1	1	0	1	0	NA	63	F	1	17	1	15
+TCGA-76-6285	RTK I 'PDGFRA'	Cluster #2	Proneural	NA	WT	WT	1	1	1	0	0	NA	64	F	1	8	0	NA
+TCGA-81-5910	RTK II 'Classic'	Cluster #2	Classical	NA	WT	WT	1	1	1	1	0	NA	64	M	1	1	0	NA
+TCGA-87-5896	RTK II 'Classic'	Cluster #2	Classical	NA	WT	WT	1	1	1	1	0	NA	50	F	0	0	0	NA

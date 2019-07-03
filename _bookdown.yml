@@ -1,0 +1,9 @@
+new_session: yes
+
+book_filename: "ComplexHeatmap-reference"
+language:
+  ui:
+    chapter_name: "Chapter "
+    
+before_chapter_script: "_common.R"
+output_dir: "book"

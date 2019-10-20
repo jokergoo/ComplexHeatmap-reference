@@ -795,7 +795,7 @@ ht_list = Heatmap(m, name = "mat1", top_annotation = ha1) +
 draw(ht_list, merge_legend = TRUE)
 ```
 
-The last thing to mention is that a continuous color mapping can have a
+A continuous color mapping can have a
 discrete legend by setting `color_bar = "discrete")`, both work for heatmap
 legends and annotation legends.
 
@@ -804,6 +804,21 @@ Heatmap(m, name = "mat", heatmap_legend_param = list(color_bar = "discrete"),
     top_annotation = HeatmapAnnotation(foo = 1:10,
         annotation_legend_param = list(
             foo = list(color_bar = "discrete"))))
+```
+
+If the `value` is a character vector, no matter it is an annotation or the one-row/one-column
+matrix for the heatmap, the default order of legend labels is `sort(unique(value))` and if `value`
+is a factor, the order of legend labels is `levels(value)`. Always remember the order can be
+fine-tuned by setting `at` and `labels` parameters in `heatmap_legend_param`/`annotation_legend_param`
+in `Heatmap()`/`HeamtapAnnotation()` functions respectively.
+
+```{r}
+chr = sample(letters[1:3], 10, replace = TRUE)
+chr
+fa1 = factor(chr)
+fa2 = factor(chr, levels = c("c", "a", "b"))
+Heatmap(m, top_annotation = HeatmapAnnotation(chr = chr, fa1 = fa1, fa2 = fa2, fa3 = fa2,
+    annotation_legend_param = list(fa3 = list(at = c("b", "c", "a")))))
 ```
 
 ## Add customized legends {#add-customized-legends}

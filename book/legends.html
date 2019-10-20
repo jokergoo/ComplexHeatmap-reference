@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Legends | ComplexHeatmap Complete Reference</title>
-  <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Legends | ComplexHeatmap Complete Reference" />
   <meta property="og:type" content="book" />
@@ -22,17 +21,17 @@
   <meta name="twitter:description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
   <meta name="twitter:image" content="https://jokergoo.github.io/ComplexHeatmap-reference/bookcomplexheatmap-cover.jpg" />
 
-<meta name="author" content="Zuguang Gu">
+<meta name="author" content="Zuguang Gu" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="a-list-of-heatmaps.html">
-<link rel="next" href="heatmap-decoration.html">
+<link rel="prev" href="a-list-of-heatmaps.html"/>
+<link rel="next" href="heatmap-decoration.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -567,12 +569,21 @@ ht_list =<span class="st"> </span><span class="kw">Heatmap</span>(m, <span class
 <span class="st">    </span>ha3
 <span class="kw">draw</span>(ht_list, <span class="dt">merge_legend =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-109-1.png" width="768" style="display: block; margin: auto;" /></p>
-<p>The last thing to mention is that a continuous color mapping can have a discrete legend by setting <code>color_bar = &quot;discrete&quot;)</code>, both work for heatmap legends and annotation legends.</p>
+<p>A continuous color mapping can have a discrete legend by setting <code>color_bar = &quot;discrete&quot;)</code>, both work for heatmap legends and annotation legends.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">heatmap_legend_param =</span> <span class="kw">list</span>(<span class="dt">color_bar =</span> <span class="st">&quot;discrete&quot;</span>),
     <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,
         <span class="dt">annotation_legend_param =</span> <span class="kw">list</span>(
             <span class="dt">foo =</span> <span class="kw">list</span>(<span class="dt">color_bar =</span> <span class="st">&quot;discrete&quot;</span>))))</code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-110-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>If the <code>value</code> is a character vector, no matter it is an annotation or the one-row/one-column matrix for the heatmap, the default order of legend labels is <code>sort(unique(value))</code> and if <code>value</code> is a factor, the order of legend labels is <code>levels(value)</code>. Always remember the order can be fine-tuned by setting <code>at</code> and <code>labels</code> parameters in <code>heatmap_legend_param</code>/<code>annotation_legend_param</code> in <code>Heatmap()</code>/<code>HeamtapAnnotation()</code> functions respectively.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">chr =<span class="st"> </span><span class="kw">sample</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)
+chr</code></pre></div>
+<pre><code>##  [1] &quot;a&quot; &quot;c&quot; &quot;b&quot; &quot;b&quot; &quot;b&quot; &quot;c&quot; &quot;b&quot; &quot;b&quot; &quot;c&quot; &quot;a&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fa1 =<span class="st"> </span><span class="kw">factor</span>(chr)
+fa2 =<span class="st"> </span><span class="kw">factor</span>(chr, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;c&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>))
+<span class="kw">Heatmap</span>(m, <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">chr =</span> chr, <span class="dt">fa1 =</span> fa1, <span class="dt">fa2 =</span> fa2, <span class="dt">fa3 =</span> fa2,
+    <span class="dt">annotation_legend_param =</span> <span class="kw">list</span>(<span class="dt">fa3 =</span> <span class="kw">list</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;a&quot;</span>)))))</code></pre></div>
+<p><img src="05-legends_files/figure-html/unnamed-chunk-111-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="add-customized-legends" class="section level2">
 <h2><span class="header-section-number">5.5</span> Add customized legends</h2>
@@ -591,7 +602,7 @@ ht_list =<span class="st"> </span><span class="kw">Heatmap</span>(m, <span class
                 <span class="dt">summary =</span> <span class="kw">anno_summary</span>(<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>))
           ), <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>))
 <span class="kw">draw</span>(ht_list, <span class="dt">ht_gap =</span> <span class="kw">unit</span>(<span class="dv">7</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">row_km =</span> <span class="dv">2</span>)</code></pre></div>
-<p><img src="05-legends_files/figure-html/unnamed-chunk-111-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="05-legends_files/figure-html/unnamed-chunk-112-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Next we construct legends for the points, the lines and the boxplots.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd_list =<span class="st"> </span><span class="kw">list</span>(
     <span class="kw">Legend</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>), <span class="dt">title =</span> <span class="st">&quot;pt&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;points&quot;</span>, <span class="dt">pch =</span> <span class="dv">16</span>, 
@@ -602,7 +613,7 @@ ht_list =<span class="st"> </span><span class="kw">Heatmap</span>(m, <span class
         <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>))
 )
 <span class="kw">draw</span>(ht_list, <span class="dt">ht_gap =</span> <span class="kw">unit</span>(<span class="dv">7</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">row_km =</span> <span class="dv">2</span>, <span class="dt">annotation_legend_list =</span> lgd_list)</code></pre></div>
-<p><img src="05-legends_files/figure-html/unnamed-chunk-112-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="05-legends_files/figure-html/unnamed-chunk-113-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 <div id="the-side-of-legends" class="section level2">
 <h2><span class="header-section-number">5.6</span> The side of legends</h2>
@@ -614,7 +625,7 @@ ht_list =<span class="st"> </span><span class="kw">Heatmap</span>(m, <span class
 <span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">sth =</span> <span class="kw">runif</span>(<span class="dv">10</span>)) <span class="op">+</span>
 <span class="st">    </span><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat2&quot;</span>, <span class="dt">top_annotation =</span> ha2)
 <span class="kw">draw</span>(ht_list, <span class="dt">heatmap_legend_side =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">annotation_legend_side =</span> <span class="st">&quot;bottom&quot;</span>)</code></pre></div>
-<p><img src="05-legends_files/figure-html/unnamed-chunk-113-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="05-legends_files/figure-html/unnamed-chunk-114-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>When the legends are put at the bottom or on the top, the legends are arranged horizontally. We might also want to set every single legend as horizontal legend, this needs to be set via the <code>heatmap_legend_param</code> and <code>annotation_legend_param</code> arguments in <code>Heatmap()</code> and <code>HeatmapAnnotation()</code> functions:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo1 =</span> <span class="kw">runif</span>(<span class="dv">10</span>), <span class="dt">bar1 =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>),
     <span class="dt">annotation_legend_param =</span> <span class="kw">list</span>(
@@ -632,7 +643,7 @@ ht_list =<span class="st"> </span><span class="kw">Heatmap</span>(m, <span class
         <span class="dt">heatmap_legend_param =</span> <span class="kw">list</span>(<span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>))
 <span class="kw">draw</span>(ht_list, <span class="dt">merge_legend =</span> <span class="ot">TRUE</span>, <span class="dt">heatmap_legend_side =</span> <span class="st">&quot;bottom&quot;</span>, 
     <span class="dt">annotation_legend_side =</span> <span class="st">&quot;bottom&quot;</span>)</code></pre></div>
-<p><img src="05-legends_files/figure-html/unnamed-chunk-114-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="05-legends_files/figure-html/unnamed-chunk-115-1.png" width="768" style="display: block; margin: auto;" /></p>
 
 </div>
 </div>
@@ -647,11 +658,13 @@ ht_list =<span class="st"> </span><span class="kw">Heatmap</span>(m, <span class
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -694,8 +707,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

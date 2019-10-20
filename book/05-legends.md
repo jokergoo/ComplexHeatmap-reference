@@ -795,7 +795,7 @@ draw(ht_list, merge_legend = TRUE)
 
 <img src="05-legends_files/figure-html/unnamed-chunk-109-1.png" width="768" style="display: block; margin: auto;" />
 
-The last thing to mention is that a continuous color mapping can have a
+A continuous color mapping can have a
 discrete legend by setting `color_bar = "discrete")`, both work for heatmap
 legends and annotation legends.
 
@@ -808,6 +808,31 @@ Heatmap(m, name = "mat", heatmap_legend_param = list(color_bar = "discrete"),
 ```
 
 <img src="05-legends_files/figure-html/unnamed-chunk-110-1.png" width="480" style="display: block; margin: auto;" />
+
+If the `value` is a character vector, no matter it is an annotation or the one-row/one-column
+matrix for the heatmap, the default order of legend labels is `sort(unique(value))` and if `value`
+is a factor, the order of legend labels is `levels(value)`. Always remember the order can be
+fine-tuned by setting `at` and `labels` parameters in `heatmap_legend_param`/`annotation_legend_param`
+in `Heatmap()`/`HeamtapAnnotation()` functions respectively.
+
+
+```r
+chr = sample(letters[1:3], 10, replace = TRUE)
+chr
+```
+
+```
+##  [1] "a" "c" "b" "b" "b" "c" "b" "b" "c" "a"
+```
+
+```r
+fa1 = factor(chr)
+fa2 = factor(chr, levels = c("c", "a", "b"))
+Heatmap(m, top_annotation = HeatmapAnnotation(chr = chr, fa1 = fa1, fa2 = fa2, fa3 = fa2,
+    annotation_legend_param = list(fa3 = list(at = c("b", "c", "a")))))
+```
+
+<img src="05-legends_files/figure-html/unnamed-chunk-111-1.png" width="480" style="display: block; margin: auto;" />
 
 ## Add customized legends {#add-customized-legends}
 
@@ -840,7 +865,7 @@ ht_list = Heatmap(m, name = "mat1", top_annotation = ha1) +
 draw(ht_list, ht_gap = unit(7, "mm"), row_km = 2)
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-111-1.png" width="576" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-112-1.png" width="576" style="display: block; margin: auto;" />
 
 Next we construct legends for the points, the lines and the boxplots.
 
@@ -857,7 +882,7 @@ lgd_list = list(
 draw(ht_list, ht_gap = unit(7, "mm"), row_km = 2, annotation_legend_list = lgd_list)
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-112-1.png" width="576" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-113-1.png" width="576" style="display: block; margin: auto;" />
 
 ## The side of legends
 
@@ -878,7 +903,7 @@ ht_list = Heatmap(m, name = "mat1", top_annotation = ha1) +
 draw(ht_list, heatmap_legend_side = "left", annotation_legend_side = "bottom")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-113-1.png" width="768" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-114-1.png" width="768" style="display: block; margin: auto;" />
 
 When the legends are put at the bottom or on the top, the legends are arranged
 horizontally. We might also want to set every single legend as horizontal
@@ -907,7 +932,7 @@ draw(ht_list, merge_legend = TRUE, heatmap_legend_side = "bottom",
     annotation_legend_side = "bottom")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-114-1.png" width="768" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-115-1.png" width="768" style="display: block; margin: auto;" />
 
 
 

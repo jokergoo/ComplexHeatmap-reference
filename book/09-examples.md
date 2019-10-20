@@ -241,7 +241,7 @@ ht_list = Heatmap(mat2, col = colorRamp2(c(-1.5, 0, 1.5), c("blue", "white", "re
         show_heatmap_legend = FALSE, width = unit(5, "mm")) +
     rowAnnotation(link = anno_mark(at = which(ccl & base_mean > quantile(base_mean, 0.25)), 
         labels = rownames(mat)[ccl & base_mean > quantile(base_mean, 0.25)], 
-        labels_gp = gpar(fontsize = 10), padding = 0.5)) +
+        labels_gp = gpar(fontsize = 10), padding = unit(1, "mm"))) +
     Heatmap(cor(t(mat2)), name = "cor", 
         col = colorRamp2(c(-1, 0, 1), c("green", "white", "red")), 
         show_row_names = FALSE, show_column_names = FALSE, row_dend_side = "right", 
@@ -420,7 +420,7 @@ Adjust row names in the matrix to be the same as the probes.
 
 
 ```r
-library("IlluminaHumanMethylation450kanno.ilmn12.hg19")
+library(IlluminaHumanMethylation450kanno.ilmn12.hg19)
 data(Locations)
 
 mat = exprs(gset[[1]])

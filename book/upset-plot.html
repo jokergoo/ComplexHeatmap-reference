@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 UpSet plot | ComplexHeatmap Complete Reference</title>
-  <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 UpSet plot | ComplexHeatmap Complete Reference" />
   <meta property="og:type" content="book" />
@@ -22,17 +21,17 @@
   <meta name="twitter:description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
   <meta name="twitter:image" content="https://jokergoo.github.io/ComplexHeatmap-reference/bookcomplexheatmap-cover.jpg" />
 
-<meta name="author" content="Zuguang Gu">
+<meta name="author" content="Zuguang Gu" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="oncoprint.html">
-<link rel="next" href="more-examples.html">
+<link rel="prev" href="oncoprint.html"/>
+<link rel="next" href="more-examples.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -405,7 +407,7 @@ m</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])
 m</code></pre></div>
 <pre><code>## A combination matrix with 3 sets and 5 combinations.
-##   ranges of combination set size: c(1, 4).
+##   ranges of combination set size: c(1, 3).
 ##   mode for the combination size: distinct.
 ##   sets are on rows.
 ##   universal set is set.
@@ -480,7 +482,7 @@ m</code></pre></div>
 ##  5 10 15</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">comb_size</span>(m)</code></pre></div>
 <pre><code>## 100 010 001 110 101 011 111 
-##   1   2   8   2   1   5   1</code></pre>
+##   1   3   8   1   1   4   2</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">comb_degree</span>(m)</code></pre></div>
 <pre><code>## 100 010 001 110 101 011 111 
 ##   1   1   1   2   2   2   3</code></pre>
@@ -501,7 +503,7 @@ m</code></pre></div>
 ## - &#39;[&#39;: subset the combination matrix.</code></pre>
 <p>For using <code>extract_comb()</code>, the valid combination set name should be from <code>comb_name()</code>. Note the elements in the combination sets depends on the “mode” set in <code>make_comb_mat()</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">extract_comb</span>(m, <span class="st">&quot;101&quot;</span>)</code></pre></div>
-<pre><code>## [1] &quot;h&quot;</code></pre>
+<pre><code>## [1] &quot;j&quot;</code></pre>
 <p>Next we demonstrate a second example, where the sets are genomic regions. <strong>When the sets are genomic regions, the size is calculated as the sum of the width of regions in each set (or in other words, the total number of base pairs).</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(circlize)
 <span class="kw">library</span>(GenomicRanges)
@@ -512,30 +514,30 @@ lt2 =<span class="st"> </span><span class="kw">lapply</span>(lt2, <span class="c
 m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt2)
 <span class="kw">set_size</span>(m)</code></pre></div>
 <pre><code>##          a          b          c          d 
-## 1547359832 1553032120 1553276284 1536074343</code></pre>
+## 1566783009 1535968265 1560549760 1552480645</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">comb_size</span>(m)</code></pre></div>
 <pre><code>##      1000      0100      0010      0001      1100      1010      1001 
-## 194662048 193835937 195511630 189629247 195376990 193348833 191061005 
+## 199756519 187196837 192093895 191216619 192109618 192670258 194462988 
 ##      0110      0101      0011      1110      1101      1011      0111 
-## 194172744 190845714 194009085 196733799 191029099 188462356 194352135 
+## 191359036 184941701 199900416 197137160 194569926 198735008 191312455 
 ##      1111 
-## 196685702</code></pre>
+## 197341532</code></pre>
 <p>And now <code>extract_comb()</code> returns genomic regions that are in the corresponding combination set.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">extract_comb</span>(m, <span class="st">&quot;1010&quot;</span>)</code></pre></div>
-<pre><code>## GRanges object with 4964 ranges and 0 metadata columns:
-##          seqnames               ranges strand
-##             &lt;Rle&gt;            &lt;IRanges&gt;  &lt;Rle&gt;
-##      [1]     chr1   [ 115989,  119463]      *
-##      [2]     chr1   [ 840522,  865179]      *
-##      [3]     chr1   [1179600, 1204260]      *
-##      [4]     chr1   [2593536, 2608935]      *
-##      [5]     chr1   [2891740, 2909649]      *
-##      ...      ...                  ...    ...
-##   [4960]     chrY [54028033, 54047795]      *
-##   [4961]     chrY [54524877, 54539441]      *
-##   [4962]     chrY [54736433, 54827603]      *
-##   [4963]     chrY [57875829, 57921061]      *
-##   [4964]     chrY [59054832, 59056095]      *
+<pre><code>## GRanges object with 5063 ranges and 0 metadata columns:
+##          seqnames            ranges strand
+##             &lt;Rle&gt;         &lt;IRanges&gt;  &lt;Rle&gt;
+##      [1]     chr1     255644-258083      *
+##      [2]     chr1     306114-308971      *
+##      [3]     chr1   1267493-1360170      *
+##      [4]     chr1   2661311-2665736      *
+##      [5]     chr1   3020553-3030645      *
+##      ...      ...               ...    ...
+##   [5059]     chrY 56286079-56286864      *
+##   [5060]     chrY 57049541-57078332      *
+##   [5061]     chrY 58691055-58699756      *
+##   [5062]     chrY 58705675-58716954      *
+##   [5063]     chrY 58765097-58776696      *
 ##   -------
 ##   seqinfo: 24 sequences from an unspecified genome; no seqlengths</code></pre>
 <p>With <code>comb_size()</code> and <code>comb_degree()</code>, we can filter the combination matrix as:</p>
@@ -543,7 +545,7 @@ m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt2)
 <span class="co"># combination set size &gt;= 4</span>
 m[<span class="kw">comb_size</span>(m) <span class="op">&gt;=</span><span class="st"> </span><span class="dv">4</span>]</code></pre></div>
 <pre><code>## A combination matrix with 3 sets and 2 combinations.
-##   ranges of combination set size: c(5, 8).
+##   ranges of combination set size: c(4, 8).
 ##   mode for the combination size: distinct.
 ##   sets are on rows.
 ## 
@@ -559,7 +561,7 @@ m[<span class="kw">comb_size</span>(m) <span class="op">&gt;=</span><span class=
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># combination set degree == 2</span>
 m[<span class="kw">comb_degree</span>(m) <span class="op">==</span><span class="st"> </span><span class="dv">2</span>]</code></pre></div>
 <pre><code>## A combination matrix with 3 sets and 3 combinations.
-##   ranges of combination set size: c(1, 5).
+##   ranges of combination set size: c(1, 4).
 ##   mode for the combination size: distinct.
 ##   sets are on rows.
 ## 
@@ -582,10 +584,10 @@ m[<span class="kw">comb_degree</span>(m) <span class="op">==</span><span class="
 <p>If <code>universal_set</code> was set in <code>make_comb_mat()</code>, <code>extract_comb()</code> can be applied to the complement set.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters)
 <span class="kw">extract_comb</span>(m2, <span class="st">&quot;000&quot;</span>)</code></pre></div>
-<pre><code>## [1] &quot;a&quot; &quot;c&quot; &quot;e&quot; &quot;f&quot; &quot;p&quot; &quot;y&quot;</code></pre>
+<pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;f&quot; &quot;p&quot; &quot;u&quot; &quot;z&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])
 <span class="kw">extract_comb</span>(m2, <span class="st">&quot;000&quot;</span>)</code></pre></div>
-<pre><code>## [1] &quot;a&quot; &quot;c&quot; &quot;e&quot; &quot;f&quot;</code></pre>
+<pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;f&quot;</code></pre>
 <p>When <code>universal_set</code> was set, <code>extract_comb()</code> also works for genomic region sets.</p>
 </div>
 <div id="upset-making-the-plot" class="section level2">
@@ -771,7 +773,7 @@ ht =<span class="st"> </span><span class="kw">UpSet</span>(m1, <span class="dt">
 <p><a href="https://github.com/hms-dbmi/UpSetR">UpsetR package</a> also provides a <code>movies</code> dataset, which contains 17 genres for 3883 movies. First load the dataset.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">movies =<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;movies.csv&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;UpSetR&quot;</span>), 
     <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;;&quot;</span>)
-<span class="kw">head</span>(movies)</code></pre></div>
+<span class="kw">head</span>(movies) <span class="co"># `make_comb_mat()` automatically ignores the first two columns</span></code></pre></div>
 <pre><code>##                                 Name ReleaseDate Action Adventure Children
 ## 1                   Toy Story (1995)        1995      0         0        1
 ## 2                     Jumanji (1995)        1995      0         1        1
@@ -1083,11 +1085,13 @@ comb_sets =<span class="st"> </span><span class="kw">lapply</span>(comb_sets, <s
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -1130,8 +1134,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

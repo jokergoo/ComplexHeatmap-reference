@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 9 More Examples | ComplexHeatmap Complete Reference</title>
-  <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 9 More Examples | ComplexHeatmap Complete Reference" />
   <meta property="og:type" content="book" />
@@ -22,17 +21,17 @@
   <meta name="twitter:description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
   <meta name="twitter:image" content="https://jokergoo.github.io/ComplexHeatmap-reference/bookcomplexheatmap-cover.jpg" />
 
-<meta name="author" content="Zuguang Gu">
+<meta name="author" content="Zuguang Gu" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="upset-plot.html">
-<link rel="next" href="other-high-level-plots.html">
+<link rel="prev" href="upset-plot.html"/>
+<link rel="next" href="other-high-level-plots.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -417,7 +419,7 @@ ht_list =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span cl
         <span class="dt">show_heatmap_legend =</span> <span class="ot">FALSE</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>)) <span class="op">+</span>
 <span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">link =</span> <span class="kw">anno_mark</span>(<span class="dt">at =</span> <span class="kw">which</span>(ccl <span class="op">&amp;</span><span class="st"> </span>base_mean <span class="op">&gt;</span><span class="st"> </span><span class="kw">quantile</span>(base_mean, <span class="fl">0.25</span>)), 
         <span class="dt">labels =</span> <span class="kw">rownames</span>(mat)[ccl <span class="op">&amp;</span><span class="st"> </span>base_mean <span class="op">&gt;</span><span class="st"> </span><span class="kw">quantile</span>(base_mean, <span class="fl">0.25</span>)], 
-        <span class="dt">labels_gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">10</span>), <span class="dt">padding =</span> <span class="fl">0.5</span>)) <span class="op">+</span>
+        <span class="dt">labels_gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">10</span>), <span class="dt">padding =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;mm&quot;</span>))) <span class="op">+</span>
 <span class="st">    </span><span class="kw">Heatmap</span>(<span class="kw">cor</span>(<span class="kw">t</span>(mat2)), <span class="dt">name =</span> <span class="st">&quot;cor&quot;</span>, 
         <span class="dt">col =</span> <span class="kw">colorRamp2</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>)), 
         <span class="dt">show_row_names =</span> <span class="ot">FALSE</span>, <span class="dt">show_column_names =</span> <span class="ot">FALSE</span>, <span class="dt">row_dend_side =</span> <span class="st">&quot;right&quot;</span>, 
@@ -528,7 +530,7 @@ ht_list =<span class="st"> </span><span class="kw">Heatmap</span>(mat_meth, <spa
 gset =<span class="st"> </span><span class="kw">getGEO</span>(<span class="st">&quot;GSE36278&quot;</span>)</code></pre></div>
 <p>The methylation profiles have been measured by Illumina HumanMethylation450 BeadChip arrays. We load probe data via the <strong>IlluminaHumanMethylation450kanno.ilmn12.hg19</strong> package.</p>
 <p>Adjust row names in the matrix to be the same as the probes.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;IlluminaHumanMethylation450kanno.ilmn12.hg19&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(IlluminaHumanMethylation450kanno.ilmn12.hg19)
 <span class="kw">data</span>(Locations)
 
 mat =<span class="st"> </span><span class="kw">exprs</span>(gset[[<span class="dv">1</span>]])
@@ -733,11 +735,13 @@ lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">la
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -780,8 +784,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

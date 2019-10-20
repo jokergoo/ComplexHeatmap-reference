@@ -622,10 +622,10 @@ https://github.com/Keyamoon/IcoMoon-Free. A vector of image paths are set as
 the first argument of `anno_image()`.
 
 ```{r}
-image_png = sample(dir("~/Downloads/IcoMoon-Free-master/PNG/64px", full.names = TRUE), 10)
-image_svg = sample(dir("~/Downloads/IcoMoon-Free-master/SVG/", full.names = TRUE), 10)
-image_eps = sample(dir("~/Downloads/IcoMoon-Free-master/EPS/", full.names = TRUE), 10)
-image_pdf = sample(dir("~/Downloads/IcoMoon-Free-master/PDF/", full.names = TRUE), 10)
+image_png = sample(dir("IcoMoon-Free-master/PNG/64px", full.names = TRUE), 10)
+image_svg = sample(dir("IcoMoon-Free-master/SVG/", full.names = TRUE), 10)
+image_eps = sample(dir("IcoMoon-Free-master/EPS/", full.names = TRUE), 10)
+image_pdf = sample(dir("IcoMoon-Free-master/PDF/", full.names = TRUE), 10)
 
 # we only draw the image annotation for PNG images, while the others are the same
 ha = HeatmapAnnotation(foo = anno_image(image_png))

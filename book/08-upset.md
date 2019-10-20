@@ -267,7 +267,7 @@ m
 
 ```
 ## A combination matrix with 3 sets and 5 combinations.
-##   ranges of combination set size: c(1, 4).
+##   ranges of combination set size: c(1, 3).
 ##   mode for the combination size: distinct.
 ##   sets are on rows.
 ##   universal set is set.
@@ -396,7 +396,7 @@ comb_size(m)
 
 ```
 ## 100 010 001 110 101 011 111 
-##   1   2   8   2   1   5   1
+##   1   3   8   1   1   4   2
 ```
 
 ```r
@@ -439,7 +439,7 @@ extract_comb(m, "101")
 ```
 
 ```
-## [1] "h"
+## [1] "j"
 ```
 
 Next we demonstrate a second example, where the sets are genomic regions.
@@ -461,7 +461,7 @@ set_size(m)
 
 ```
 ##          a          b          c          d 
-## 1547359832 1553032120 1553276284 1536074343
+## 1566783009 1535968265 1560549760 1552480645
 ```
 
 ```r
@@ -470,11 +470,11 @@ comb_size(m)
 
 ```
 ##      1000      0100      0010      0001      1100      1010      1001 
-## 194662048 193835937 195511630 189629247 195376990 193348833 191061005 
+## 199756519 187196837 192093895 191216619 192109618 192670258 194462988 
 ##      0110      0101      0011      1110      1101      1011      0111 
-## 194172744 190845714 194009085 196733799 191029099 188462356 194352135 
+## 191359036 184941701 199900416 197137160 194569926 198735008 191312455 
 ##      1111 
-## 196685702
+## 197341532
 ```
 
 And now `extract_comb()` returns genomic regions that are in the corresponding combination set.
@@ -485,20 +485,20 @@ extract_comb(m, "1010")
 ```
 
 ```
-## GRanges object with 4964 ranges and 0 metadata columns:
-##          seqnames               ranges strand
-##             <Rle>            <IRanges>  <Rle>
-##      [1]     chr1   [ 115989,  119463]      *
-##      [2]     chr1   [ 840522,  865179]      *
-##      [3]     chr1   [1179600, 1204260]      *
-##      [4]     chr1   [2593536, 2608935]      *
-##      [5]     chr1   [2891740, 2909649]      *
-##      ...      ...                  ...    ...
-##   [4960]     chrY [54028033, 54047795]      *
-##   [4961]     chrY [54524877, 54539441]      *
-##   [4962]     chrY [54736433, 54827603]      *
-##   [4963]     chrY [57875829, 57921061]      *
-##   [4964]     chrY [59054832, 59056095]      *
+## GRanges object with 5063 ranges and 0 metadata columns:
+##          seqnames            ranges strand
+##             <Rle>         <IRanges>  <Rle>
+##      [1]     chr1     255644-258083      *
+##      [2]     chr1     306114-308971      *
+##      [3]     chr1   1267493-1360170      *
+##      [4]     chr1   2661311-2665736      *
+##      [5]     chr1   3020553-3030645      *
+##      ...      ...               ...    ...
+##   [5059]     chrY 56286079-56286864      *
+##   [5060]     chrY 57049541-57078332      *
+##   [5061]     chrY 58691055-58699756      *
+##   [5062]     chrY 58705675-58716954      *
+##   [5063]     chrY 58765097-58776696      *
 ##   -------
 ##   seqinfo: 24 sequences from an unspecified genome; no seqlengths
 ```
@@ -514,7 +514,7 @@ m[comb_size(m) >= 4]
 
 ```
 ## A combination matrix with 3 sets and 2 combinations.
-##   ranges of combination set size: c(5, 8).
+##   ranges of combination set size: c(4, 8).
 ##   mode for the combination size: distinct.
 ##   sets are on rows.
 ## 
@@ -536,7 +536,7 @@ m[comb_degree(m) == 2]
 
 ```
 ## A combination matrix with 3 sets and 3 combinations.
-##   ranges of combination set size: c(1, 5).
+##   ranges of combination set size: c(1, 4).
 ##   mode for the combination size: distinct.
 ##   sets are on rows.
 ## 
@@ -583,7 +583,7 @@ extract_comb(m2, "000")
 ```
 
 ```
-## [1] "a" "c" "e" "f" "p" "y"
+## [1] "a" "b" "f" "p" "u" "z"
 ```
 
 ```r
@@ -592,7 +592,7 @@ extract_comb(m2, "000")
 ```
 
 ```
-## [1] "a" "c" "e" "f"
+## [1] "a" "b" "f"
 ```
 
 When `universal_set` was set, `extract_comb()` also works for genomic region sets.
@@ -988,7 +988,7 @@ dataset, which contains 17 genres for 3883 movies. First load the dataset.
 ```r
 movies = read.csv(system.file("extdata", "movies.csv", package = "UpSetR"), 
     header = TRUE, sep = ";")
-head(movies)
+head(movies) # `make_comb_mat()` automatically ignores the first two columns
 ```
 
 ```

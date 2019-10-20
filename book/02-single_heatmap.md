@@ -768,7 +768,7 @@ o1[[1]]$order
 ```
 
 ```
-##  [1]  1  2 11 12  5 15 16 17  7  8  6  9 10 18 13  4  3 14
+##  [1]  5  2 10 17  4 16 18  7 15 14 11  8  1  3 12  6 13  9
 ```
 
 ```r
@@ -777,7 +777,7 @@ get_order(o1)
 ```
 
 ```
-##  [1]  1  2 11 12  5 15 16 17  7  8  6  9 10 18 13  4  3 14
+##  [1]  5  2 10 17  4 16 18  7 15 14 11  8  1  3 12  6 13  9
 ```
 
 And we can add the dendrograms to the heatmap.
@@ -2019,7 +2019,7 @@ row_order(ht1)
 ```
 
 ```
-## [1] 9 6 7 8 3 4 1 2 5
+## [1] 5 7 2 4 9 6 8 1 3
 ```
 
 ```r
@@ -2028,7 +2028,7 @@ row_order(ht2)
 ```
 
 ```
-## [1] 9 6 7 8 3 4 1 2 5
+## [1] 5 7 2 4 9 6 8 1 3
 ```
 
 As explained in previous section, `Heatmap()` function does not perform
@@ -2080,10 +2080,10 @@ row_order(ht)
 
 ```
 ## $`1`
-## [1] 1 2 5
+## [1] 9 6 8 1 3
 ## 
 ## $`2`
-## [1] 9 6 7 8 3 4
+## [1] 5 7 2 4
 ```
 
 ```r
@@ -2092,13 +2092,13 @@ column_order(ht)
 
 ```
 ## $`1`
-## [1] 5 9
+## [1] 6 2 7
 ## 
 ## $`2`
-## [1] 2 7 6
+## [1] 8 9
 ## 
 ## $`3`
-## [1] 8 1 3 4
+## [1] 1 3 4 5
 ```
 
 Similarly, the `row_dend()`/`column_dend()` functions return the dendrograms.
@@ -2114,10 +2114,10 @@ row_dend(ht)
 
 ```
 ## $`1`
-## 'dendrogram' with 2 branches and 3 members total, at height 2.718561 
+## 'dendrogram' with 2 branches and 5 members total, at height 2.681351 
 ## 
 ## $`2`
-## 'dendrogram' with 2 branches and 6 members total, at height 3.109169
+## 'dendrogram' with 2 branches and 4 members total, at height 2.946428
 ```
 
 ```r
@@ -2125,7 +2125,7 @@ column_dend(ht)
 ```
 
 ```
-## 'dendrogram' with 2 branches and 9 members total, at height 5.191887
+## 'dendrogram' with 2 branches and 9 members total, at height 4.574114
 ```
 
 `row_order()`, `column_order()`, `row_dend()` and `column_dend()` also work

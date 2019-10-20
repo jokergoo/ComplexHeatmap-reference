@@ -616,7 +616,7 @@ dataset, which contains 17 genres for 3883 movies. First load the dataset.
 ```{r}
 movies = read.csv(system.file("extdata", "movies.csv", package = "UpSetR"), 
     header = TRUE, sep = ";")
-head(movies)
+head(movies) # `make_comb_mat()` automatically ignores the first two columns
 ```
 
 To make a same UpSet plot as in [this vignette](https://cran.r-project.org/web/packages/UpSetR/vignettes/basic.usage.html#example-2-choosing-the-top-largest-sets-and-plot-formatting):

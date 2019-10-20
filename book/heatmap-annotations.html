@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Heatmap Annotations | ComplexHeatmap Complete Reference</title>
-  <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Heatmap Annotations | ComplexHeatmap Complete Reference" />
   <meta property="og:type" content="book" />
@@ -22,17 +21,17 @@
   <meta name="twitter:description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
   <meta name="twitter:image" content="https://jokergoo.github.io/ComplexHeatmap-reference/bookcomplexheatmap-cover.jpg" />
 
-<meta name="author" content="Zuguang Gu">
+<meta name="author" content="Zuguang Gu" />
 
 
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="a-single-heatmap.html">
-<link rel="next" href="a-list-of-heatmaps.html">
+<link rel="prev" href="a-single-heatmap.html"/>
+<link rel="next" href="a-list-of-heatmaps.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -551,10 +553,10 @@ value =<span class="st"> </span><span class="kw">runif</span>(<span class="dv">1
 <li><code>pdf</code> and <code>eps</code> images are imported by <code>grImport::PostScriptTrace()</code> and <code>grImport::readPicture()</code>, later drawn by <code>grImport::grid.picture()</code>.</li>
 </ul>
 <p>The free icons for following examples are from <a href="https://github.com/Keyamoon/IcoMoon-Free" class="uri">https://github.com/Keyamoon/IcoMoon-Free</a>. A vector of image paths are set as the first argument of <code>anno_image()</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">image_png =<span class="st"> </span><span class="kw">sample</span>(<span class="kw">dir</span>(<span class="st">&quot;~/Downloads/IcoMoon-Free-master/PNG/64px&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>), <span class="dv">10</span>)
-image_svg =<span class="st"> </span><span class="kw">sample</span>(<span class="kw">dir</span>(<span class="st">&quot;~/Downloads/IcoMoon-Free-master/SVG/&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>), <span class="dv">10</span>)
-image_eps =<span class="st"> </span><span class="kw">sample</span>(<span class="kw">dir</span>(<span class="st">&quot;~/Downloads/IcoMoon-Free-master/EPS/&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>), <span class="dv">10</span>)
-image_pdf =<span class="st"> </span><span class="kw">sample</span>(<span class="kw">dir</span>(<span class="st">&quot;~/Downloads/IcoMoon-Free-master/PDF/&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>), <span class="dv">10</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">image_png =<span class="st"> </span><span class="kw">sample</span>(<span class="kw">dir</span>(<span class="st">&quot;IcoMoon-Free-master/PNG/64px&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>), <span class="dv">10</span>)
+image_svg =<span class="st"> </span><span class="kw">sample</span>(<span class="kw">dir</span>(<span class="st">&quot;IcoMoon-Free-master/SVG/&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>), <span class="dv">10</span>)
+image_eps =<span class="st"> </span><span class="kw">sample</span>(<span class="kw">dir</span>(<span class="st">&quot;IcoMoon-Free-master/EPS/&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>), <span class="dv">10</span>)
+image_pdf =<span class="st"> </span><span class="kw">sample</span>(<span class="kw">dir</span>(<span class="st">&quot;IcoMoon-Free-master/PDF/&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>), <span class="dv">10</span>)
 
 <span class="co"># we only draw the image annotation for PNG images, while the others are the same</span>
 ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_image</span>(image_png))</code></pre></div>
@@ -1157,11 +1159,13 @@ co =<span class="st"> </span><span class="kw">column_order</span>(ht)
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -1204,8 +1208,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

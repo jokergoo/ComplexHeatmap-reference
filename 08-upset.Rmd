@@ -664,7 +664,7 @@ UpSet(m,
 	show_row_names = FALSE)
 ```
 
-In `movies` dataset, there is also one column `AvgRatinh` which gives the
+In `movies` dataset, there is also one column `AvgRating` which gives the
 rating of each movie, we next split all the movies into five groups based on
 the ratings.
 

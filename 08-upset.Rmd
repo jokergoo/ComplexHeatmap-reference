@@ -36,7 +36,7 @@ w    1    0    0
 ...
 ```
 
-E.g., for row `t`, it means, `t` is in set **set1**, not in set **set2**, and
+In the matrix, e.g., for row `t`, it means, `t` is in set **set1**, not in set **set2**, and
 in set **set3**. Note the matrix is also valid if it is a logical matrix.
 
 If the variable is a data frame, the binary columns (only contain 0 and 1) and
@@ -57,6 +57,13 @@ You can also set the universal set in `list_to_matrix()`:
 list_to_matrix(lt, universal = letters[1:10])
 ```
 
+If the universal set does not completely cover the input sets,
+those elements are not in the universal set are removed:
+
+```{r}
+list_to_matrix(lt, universal = letters[1:4])
+```
+
 3. The set can be genomic intervals, then it can only be represented as a list
    of `GRanges`/`IRanges` objects.
 
@@ -69,7 +76,7 @@ list(set1 = GRanges(...),
 ## Mode {#upset-mode}
 
 E.g. for three sets (**A**, **B**, **C**), all combinations of selecting
-elements in the set or not in the set are as following:
+elements in the set or not in the set are encoded as following:
 
 ```
 A B C
@@ -83,8 +90,8 @@ A B C
 ```
 
 A value of 1 means to select that set and 0 means not to select that set.
-E.g., "1 1 0" means to select set A, B while not set C. Note there is no "0 0
-0", because the background set is not of interest here. In following part of
+E.g., `1 1 0` means to select set A, B while not set C. Note there is no `0 0
+0`, because the background set is not of interest here. In following part of
 this section, we refer **A**, **B** and **C** as **sets** and each combination
 as **combination set**. The whole binary matrix is called **combination
 matrix**.
@@ -148,10 +155,10 @@ The UpSet plots under different modes will be demonstrated in later sections.
 When there are too many sets, the sets can be pre-filtered by the set sizes.
 The `min_set_size` and `top_n_sets` are for this purpose. `min_set_size`
 controls the minimal size for the sets and `top_n_sets` controls the number of
-top sets with largest sizes.
+top sets with the largest sizes.
 
 ```{r}
-m1 = make_comb_mat(lt, min_set_size = 4)
+m1 = make_comb_mat(lt, min_set_size = 6)
 m2 = make_comb_mat(lt, top_n_sets = 2)
 ```
 
@@ -198,6 +205,30 @@ m = make_comb_mat(x)
 m
 ```
 
+Next we demonstrate a second example, where the sets are genomic regions.
+**When the sets are genomic regions, the size is calculated as the sum of the
+width of regions in each set (or in other words, the total number of base
+pairs).**
+
+```{r}
+library(circlize)
+library(GenomicRanges)
+lt2 = lapply(1:4, function(i) generateRandomBed())
+lt2 = lapply(lt2, function(df) GRanges(seqnames = df[, 1], 
+	ranges = IRanges(df[, 2], df[, 3])))
+names(lt2) = letters[1:4]
+m = make_comb_mat(lt2)
+m
+```
+
+We don't recommend to use **the number of regions** for the intersection of two
+sets of genomic regions. There are two reasons: 1. the value is not symmetric, i.e.
+the number of intersected regions measured in set1 is not always identical to the number
+of intersected regions measured in set2, thus, it is difficult to assign a value 
+for the intersection between set1 and set2; 2. if one long region in set1 overlaps to
+another long region in set2, but only in a few base pairs, does it make sense to say
+these two regions are common in the two sets?
+
 The universal set also works for sets as genomic regions.
 
 ## Utility functions {#upset-utility-functions}
@@ -221,6 +252,7 @@ utility functions that can be applied to this `comb_mat` object:
   UpSet plot.
 - `extract_comb()`: Extract the elements in a specified combination set. The
   usage will be explained later.
+- Functions for subsetting the matrix.
 
 Quick examples are:
 
@@ -242,27 +274,19 @@ set in `make_comb_mat()`.
 extract_comb(m, "101")
 ```
 
-Next we demonstrate a second example, where the sets are genomic regions.
-**When the sets are genomic regions, the size is calculated as the sum of the
-width of regions in each set (or in other words, the total number of base
-pairs).**
+And the example for sets that are the genomic regions:
 
 ```{r}
-library(circlize)
-library(GenomicRanges)
-lt2 = lapply(1:4, function(i) generateRandomBed())
-lt2 = lapply(lt2, function(df) GRanges(seqnames = df[, 1], 
-	ranges = IRanges(df[, 2], df[, 3])))
-names(lt2) = letters[1:4]
-m = make_comb_mat(lt2)
-set_size(m)
-comb_size(m)
+# `lt2` was generated in the previous section 
+m2 = make_comb_mat(lt2)
+set_size(m2)
+comb_size(m2)
 ```
 
 And now `extract_comb()` returns genomic regions that are in the corresponding combination set.
 
 ```{r}
-extract_comb(m, "1010")
+extract_comb(m2, "1010")
 ```
 
 With `comb_size()` and `comb_degree()`, we can filter the combination matrix as:
@@ -295,6 +319,83 @@ extract_comb(m2, "000")
 ```
 
 When `universal_set` was set, `extract_comb()` also works for genomic region sets.
+
+In previous examples, we demonstrated using "one-dimensional index" such as:
+
+```{r, eval = FALSE}
+m[comb_degree(m) == 2]
+```
+
+Since the combination matrix is natually a matrix, the indices can also be applied to 
+the both dimensions. In the default settings, sets are on the rows and combination
+sets are on the columns, thus, indices on the first dimension of the matrix
+correspond to sets and indices on the second dimension correspond to combination sets:
+
+```{r, eval = FALSE}
+# by set names
+m[c("a", "b", "c"), ]
+# by nummeric indicies
+m[3:1, ]
+```
+
+**New empty sets** can be added to the combination matrix by:
+
+```{r, eval = FALSE}
+# `d` is the new empty set
+m[c("a", "b", "c", "d"), ]
+```
+
+Note when the indices specified do not cover all non-empty sets in the original
+combination matrix, the combination matrix will be re-calculated because it
+affects the values in the combination sets:
+
+```{r, eval = FALSE}
+# if `c` is a non-empty set
+m[c("a", "b"),]
+```
+
+Similar for subsetting on the second dimension which correspond to the combination
+sets:
+
+```{r, eval = FALSE}
+# reorder
+m[, 5:1]
+# take a subset
+m[, 1:3]
+# by charater indices
+m[, c("110", "101", "011")]
+```
+
+New empty combination sets can also be added by setting the character indices:
+
+```{r, eval = FALSE}
+m[m, c(comb_name(m), "100")]
+```
+
+Indices can be set on both dimension simultaneously only when the set indices
+covers all non-empty sets:
+
+```{r, eval = FALSE}
+m[3:1, 5:1]
+# this will throw an error because `c` is a non-empty set
+m[c("a", "b"), 5:1]
+```
+
+If the combination matrix was transposed, the margin of the matrix where
+set indices and combination set indices should be switched.
+
+```{r, eval = FALSE}
+tm = t(m)
+tm[reverse(comb_name(tm)), reverse(set_name(tm))]
+```
+
+If only the indices for the combination sets are set as one-dimensional,
+it automatically works for both matrices that are transposed or not:
+
+```{r, eval = FALSE}
+m[1:5]
+tm[1:5]
+```
 
 ## Make the plot {#upset-making-the-plot}
 
@@ -393,7 +494,7 @@ m2 = make_comb_mat(lt, universal_set = letters)
 UpSet(m2)
 ```
 
-If you already know the size for the complement set, you can directly assign it 
+Remember if you already know the size for the complement set, you can directly assign it 
 by `complement_size` argument in `make_comb_mat()`.
 
 ```{r, fig.width = 5, fig.height = 3}
@@ -401,38 +502,23 @@ m2 = make_comb_mat(lt, complement_size = 10)
 UpSet(m2)
 ```
 
-For the case where the universal set is smaller than the union of all sets.
+For the case where the universal set is smaller than the union of all sets:
 
 ```{r, fig.width = 5, fig.height = 3}
 m2 = make_comb_mat(lt, universal_set = letters[1:10])
 UpSet(m2)
 ```
 
-By default the empty combination sets are removed from the plot, but they can be 
-kept by setting `remove_empty_comb_set = FALSE` in `make_comb_mat()`.
-
-```{r, fig.width = 5, fig.height = 3}
-m2 = make_comb_mat(lt, universal_set = letters[1:10], remove_empty_comb_set = FALSE)
-UpSet(m2)
-```
 
 There are some cases that you may have complement set but you don't want to show it,
 especially when the input for `make_comb_mat()` is a matrix which already contains 
-complement set.
+complement set, you can filter by the combination degrees.
 
 ```{r, fig.width = 5, fig.height = 3}
 x = list_to_matrix(lt, universal_set = letters)
 m2 = make_comb_mat(x)
-UpSet(m2)
-m2 = make_comb_mat(x, remove_complement_set = TRUE)
-UpSet(m2)
-```
-
-Setting `remove_complement_set = TRUE` is identical to:
-
-```{r, eval = FALSE}
-m2 = make_comb_mat(x)
 m2 = m2[comb_degree(m2) > 0]
+UpSet(m2)
 ```
 
 ## UpSet plots as heatmaps {#upset-plots-as-heatmaps}
@@ -453,7 +539,7 @@ HeatmapAnnotation("Intersection\nsize" = anno_barplot(comb_size(m),
 
 This top annotation is wrapped in `upset_top_annotation()` which only contais
 the upset top barplot annotation. Most of the arguments in
-`upset_top_annotation()` directly goes to the `anno_barplot()`, e.g. to set
+`upset_top_annotation()` directly go to the `anno_barplot()`, e.g. to set
 the colors of bars:
 
 ```{r, fig.width = 5, fig.height = 3}
@@ -590,23 +676,57 @@ UpSet(t(m1), column_title = "distinct mode") +
 
 The three combination matrices are actually the same and plotting them three
 times is redundant. With the functionality in **ComplexHeatmap** package, we
-can use other types of annotations.
+can directly add three barplot annotations.
+
+```{r, fig.width = 5, fig.height = 5}
+top_ha = HeatmapAnnotation(
+    "distict" = anno_barplot(comb_size(m1), 
+        gp = gpar(fill = "black"), height = unit(2, "cm")), 
+    "intersect" = anno_barplot(comb_size(m2), 
+        gp = gpar(fill = "black"), height = unit(2, "cm")), 
+    "union" = anno_barplot(comb_size(m3), 
+        gp = gpar(fill = "black"), height = unit(2, "cm")), 
+    gap = unit(2, "mm"), annotation_name_side = "left", annotation_name_rot = 0)
+# the same for using m2 or m3
+UpSet(m1, top_annotation = top_ha)
+```
+
+Similar when the combination matrix is transposed:
+
+```{r, fig.width = 5, fig.height = 5}
+right_ha = rowAnnotation(
+    "distict" = anno_barplot(comb_size(m1), 
+        gp = gpar(fill = "black"), width = unit(2, "cm")), 
+    "intersect" = anno_barplot(comb_size(m2), 
+        gp = gpar(fill = "black"), width = unit(2, "cm")), 
+    "union" = anno_barplot(comb_size(m3), 
+        gp = gpar(fill = "black"), width = unit(2, "cm")), 
+    gap = unit(2, "mm"), annotation_name_side = "bottom")
+# the same for using m2 or m3
+UpSet(t(m1), right_annotation = right_ha)
+```
+
+[In the origial UpSet implementation](https://cran.r-project.org/web/packages/UpSetR/vignettes/basic.usage.html#example-2-choosing-the-top-largest-sets-and-plot-formatting), the combination
+set sizes are also drawn on top of the barplots. Here, we don't directly support it, but the sizes
+can be manually added by `decorate_annotation()` function. See following example:
 
 ```{r, fig.width = 5, fig.height = 3}
-# it is the same with using m1, m2 or m3
-ht = UpSet(m1, top_annotation = HeatmapAnnotation(size = anno_lines(
-		cbind(comb_size(m1), comb_size(m2), comb_size(m3)),
-		gp = gpar(col = 2:4), height = unit(3, "cm")
-)))
-# you need to manually construct a legend
-draw(ht, annotation_legend_list = list(Legend(
-		title = "mode",
-		type = "lines",
-		labels = c("distinct", "intersect", "union"),
-		legend_gp = gpar(col = 2:4)
-	))
-)
+ht = draw(UpSet(m))
+od = column_order(ht)
+cs = comb_size(m)
+decorate_annotation("Intersection\nsize", {
+    grid.text(cs[od], x = seq_along(cs), y = unit(cs[od], "native") + unit(2, "pt"), 
+        default.units = "native", just = "bottom", gp = gpar(fontsize = 8))
+})
 ```
+
+There are several reasons that we don't directly supported add the combination set size
+to the plot: 1. Add new text means to add several new arguments to the function, e.g., the
+arguments for graphic parameters, the rotations, the positions, the margin to the bars, 
+which will make the function heavy. 
+2. Need to properly calculate the ylim for the barplot annotation to let the text not
+exceed the annotation region. 3. Using `decoration_annotation()` is more flexible to use that
+not only the size but also customized text can be added.
 
 ## Example with the movies dataset
 
@@ -622,7 +742,9 @@ head(movies) # `make_comb_mat()` automatically ignores the first two columns
 To make a same UpSet plot as in [this vignette](https://cran.r-project.org/web/packages/UpSetR/vignettes/basic.usage.html#example-2-choosing-the-top-largest-sets-and-plot-formatting):
 
 ```{r, fig.width = 10, fig.height = 4}
-m = make_comb_mat(movies, top_n_sets = 6, remove_complement_set = TRUE)
+m = make_comb_mat(movies, top_n_sets = 6)
+m
+m = m[comb_degree(m) > 0]
 UpSet(m)
 ```
 
@@ -631,13 +753,14 @@ little bit long, but most of the code mainly customize the annotations and
 row/column orders.
 
 ```{r, fig.width = 10, fig.height = 4}
-m = make_comb_mat(movies, top_n_sets = 6, remove_complement_set = TRUE)
 ss = set_size(m)
-UpSet(m, 
-	set_order = order(set_size(m)),
-	comb_order = order(comb_degree(m), -comb_size(m)),
+cs = comb_size(m)
+ht = UpSet(m, 
+	set_order = order(ss),
+	comb_order = order(comb_degree(m), -cs),
 	top_annotation = HeatmapAnnotation(
-		"Genre Intersections" = anno_barplot(comb_size(m), 
+		"Genre Intersections" = anno_barplot(cs, 
+            ylim = c(0, max(cs)*1.1),
 			border = FALSE, 
 			gp = gpar(fill = "black"), 
 			height = unit(4, "cm")
@@ -662,6 +785,13 @@ UpSet(m,
 	), 
 	right_annotation = NULL,
 	show_row_names = FALSE)
+ht = draw(ht)
+od = column_order(ht)
+decorate_annotation("Genre Intersections", {
+    grid.text(cs[od], x = seq_along(cs), y = unit(cs[od], "native") + unit(2, "pt"), 
+        default.units = "native", just = c("left", "bottom"), 
+        gp = gpar(fontsize = 6, col = "#404040"), rot = 45)
+})
 ```
 
 In `movies` dataset, there is also one column `AvgRating` which gives the
@@ -672,7 +802,8 @@ the ratings.
 genre = c("Action", "Romance", "Horror", "Children", "SciFi", "Documentary")
 rating = cut(movies$AvgRating, c(0, 1, 2, 3, 4, 5))
 m_list = tapply(seq_len(nrow(movies)), rating, function(ind) {
-	make_comb_mat(movies[ind, genre, drop = FALSE], remove_complement_set = TRUE)
+	m = make_comb_mat(movies[ind, genre, drop = FALSE])
+    m[comb_degree(m) > 0]
 })
 ```
 
@@ -714,7 +845,7 @@ ht_list
 ```
 
 After comparing the five UpSet plots, we can see most of the movies are rated
-between 2 and 4. Horror movies tend to have lower ratings and romance moves
+between 2 and 4. Horror movies tend to have lower ratings and romance movies
 tend to have higher ratings.
 
 Instead of directly comparing the size of the combination sets, we can also
@@ -760,7 +891,8 @@ Next we split the movies by years:
 ```{r, fig.width = 14, fig.height = 10}
 year = floor(movies$ReleaseDate/10)*10
 m_list = tapply(seq_len(nrow(movies)), year, function(ind) {
-	make_comb_mat(movies[ind, genre, drop = FALSE], remove_complement_set = TRUE)
+	m = make_comb_mat(movies[ind, genre, drop = FALSE])
+    m[comb_degree(m) > 0]
 })
 m_list = normalize_comb_mat(m_list)
 max_set_size = max(sapply(m_list, set_size))
@@ -857,7 +989,7 @@ Finally we can add the statistics of years, ratings and number of watches for
 each combination set as boxplot annotations to the right of the UpSet plot.
 
 ```{r, fig.width = 6, fig.height = 8}
-m = make_comb_mat(movies[, genre], remove_complement_set = TRUE)
+m = make_comb_mat(movies[, genre])
 m = m[comb_degree(m) > 0]
 comb_elements = lapply(comb_name(m), function(nm) extract_comb(m, nm))
 years = lapply(comb_elements, function(ind) movies$ReleaseDate[ind])
@@ -866,7 +998,8 @@ watches = lapply(comb_elements, function(ind) movies$Watches[ind])
 
 UpSet(t(m)) + rowAnnotation(years = anno_boxplot(years),
 	rating = anno_boxplot(rating),
-	watches = anno_boxplot(watches))
+	watches = anno_boxplot(watches),
+    gap = unit(2, "mm"))
 ```
 
 We can see the movies with genre "Scifi + Children" were produced quite old

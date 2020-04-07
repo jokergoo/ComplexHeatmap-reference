@@ -1,5 +1,4 @@
 
-
 # Heatmap Decoration {#heatmap-decoration}
 
 The plotting region for each heatmap component is still kept after the
@@ -185,7 +184,7 @@ decorate_annotation("barplot", {
 })
 ```
 
-<img src="06-heatmap_decoration_files/figure-html/unnamed-chunk-2-1.png" width="480" style="display: block; margin: auto;" />
+<img src="06-heatmap_decoration_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" />
 
 ### Add titles for row annotations {#add-titles-for-row-annotations}
 
@@ -209,7 +208,7 @@ decorate_heatmap_body("mat", {
 })
 ```
 
-<img src="06-heatmap_decoration_files/figure-html/unnamed-chunk-3-1.png" width="768" style="display: block; margin: auto;" />
+<img src="06-heatmap_decoration_files/figure-html/unnamed-chunk-2-1.png" width="768" style="display: block; margin: auto;" />
 
 This is basically the way we use in Section \@ref(stacked-summary-plot).
 

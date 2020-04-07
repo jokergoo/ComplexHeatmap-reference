@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>ComplexHeatmap Complete Reference</title>
   <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="ComplexHeatmap Complete Reference" />
   <meta property="og:type" content="book" />
@@ -162,6 +162,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.17" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#zoom-annotation"><i class="fa fa-check"></i><b>3.17</b> Zoom annotation</a></li>
 <li class="chapter" data-level="3.18" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#multiple-annotations"><i class="fa fa-check"></i><b>3.18</b> Multiple annotations</a><ul>
 <li class="chapter" data-level="3.18.1" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#size-of-annotations"><i class="fa fa-check"></i><b>3.18.1</b> Size of annotations</a></li>
+<li class="chapter" data-level="3.18.2" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#annotation-labels"><i class="fa fa-check"></i><b>3.18.2</b> Annotation labels</a></li>
 </ul></li>
 <li class="chapter" data-level="3.19" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#heatmap-annotation-utility-function"><i class="fa fa-check"></i><b>3.19</b> Utility functions</a></li>
 <li class="chapter" data-level="3.20" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#implement-new-annotation-functions"><i class="fa fa-check"></i><b>3.20</b> Implement new annotation functions</a></li>
@@ -205,7 +206,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.1.2" data-path="oncoprint.html"><a href="oncoprint.html#define-the-alter-fun"><i class="fa fa-check"></i><b>7.1.2</b> Define the alter_fun()</a></li>
 <li class="chapter" data-level="7.1.3" data-path="oncoprint.html"><a href="oncoprint.html#oncoprint-background"><i class="fa fa-check"></i><b>7.1.3</b> Background</a></li>
 <li class="chapter" data-level="7.1.4" data-path="oncoprint.html"><a href="oncoprint.html#complex-alteration-types"><i class="fa fa-check"></i><b>7.1.4</b> Complex alteration types</a></li>
-<li class="chapter" data-level="7.1.5" data-path="oncoprint.html"><a href="oncoprint.html#other-heatmap-related-settings"><i class="fa fa-check"></i><b>7.1.5</b> Other heatmap-related settings</a></li>
+<li class="chapter" data-level="7.1.5" data-path="oncoprint.html"><a href="oncoprint.html#simplify-alter_fun"><i class="fa fa-check"></i><b>7.1.5</b> Simplify alter_fun</a></li>
+<li class="chapter" data-level="7.1.6" data-path="oncoprint.html"><a href="oncoprint.html#other-heatmap-related-settings"><i class="fa fa-check"></i><b>7.1.6</b> Other heatmap-related settings</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="oncoprint.html"><a href="oncoprint.html#apply-to-cbioportal-dataset"><i class="fa fa-check"></i><b>7.2</b> Apply to cBioPortal dataset</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="oncoprint.html"><a href="oncoprint.html#remove-empty-rows-and-columns"><i class="fa fa-check"></i><b>7.2.1</b> Remove empty rows and columns</a></li>
@@ -238,6 +240,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="11" data-path="other-tricks.html"><a href="other-tricks.html"><i class="fa fa-check"></i><b>11</b> Other Tricks</a><ul>
 <li class="chapter" data-level="11.1" data-path="other-tricks.html"><a href="other-tricks.html#set-the-same-cell-size-for-different-heatmaps-with-different-dimensions"><i class="fa fa-check"></i><b>11.1</b> Set the same cell size for different heatmaps with different dimensions</a></li>
+<li class="chapter" data-level="11.2" data-path="other-tricks.html"><a href="other-tricks.html#integrate-with-gridtext-package"><i class="fa fa-check"></i><b>11.2</b> Integrate with gridtext package</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="other-tricks.html"><a href="other-tricks.html#titles"><i class="fa fa-check"></i><b>11.2.1</b> Titles</a></li>
+<li class="chapter" data-level="11.2.2" data-path="other-tricks.html"><a href="other-tricks.html#rowcolumn-names"><i class="fa fa-check"></i><b>11.2.2</b> Row/column names</a></li>
+<li class="chapter" data-level="11.2.3" data-path="other-tricks.html"><a href="other-tricks.html#annotation-labels-1"><i class="fa fa-check"></i><b>11.2.3</b> Annotation labels</a></li>
+<li class="chapter" data-level="11.2.4" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#text-annotation"><i class="fa fa-check"></i><b>11.2.4</b> Text annotation</a></li>
+<li class="chapter" data-level="11.2.5" data-path="other-tricks.html"><a href="other-tricks.html#legend"><i class="fa fa-check"></i><b>11.2.5</b> Legend</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -262,11 +271,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">ComplexHeatmap Complete Reference</h1>
 <p class="author"><em>Zuguang Gu</em></p>
-<p class="date"><em>last revised on 2019-10-20</em></p>
+<p class="date"><em>last revised on 2020-04-07</em></p>
 </div>
 <div id="about" class="section level1 unnumbered">
 <h1>About</h1>
-<p>This is the documentation of the <a href="https://github.com/jokergoo/ComplexHeatmap"><strong>ComplexHeatmap</strong></a> package. Examples in the book are generated under version 2.1.1.</p>
+<p>This is the documentation of the <a href="https://github.com/jokergoo/ComplexHeatmap"><strong>ComplexHeatmap</strong></a> package. Examples in the book are generated under version 2.3.4.</p>
 <p>You can get a stable Bioconductor version from <a href="http://bioconductor.org/packages/release/bioc/html/ComplexHeatmap.html" class="uri">http://bioconductor.org/packages/release/bioc/html/ComplexHeatmap.html</a>, but the most up-to-date version is always on Github and you can install it by:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(devtools)
 <span class="kw">install_github</span>(<span class="st">&quot;jokergoo/ComplexHeatmap&quot;</span>)</code></pre></div>
@@ -303,12 +312,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -320,6 +328,10 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

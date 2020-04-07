@@ -486,22 +486,22 @@ define how to add graphics for different alterations.
 col = c("HOMDEL" = "blue", "AMP" = "red", "MUT" = "#008000")
 alter_fun = list(
 	background = function(x, y, w, h) {
-		grid.rect(x, y, w-unit(0.5, "mm"), h-unit(0.5, "mm"), 
+		grid.rect(x, y, w-unit(2, "pt"), h-unit(2, "pt"), 
 			gp = gpar(fill = "#CCCCCC", col = NA))
 	},
 	# big blue
 	HOMDEL = function(x, y, w, h) {
-		grid.rect(x, y, w-unit(0.5, "mm"), h-unit(0.5, "mm"), 
+		grid.rect(x, y, w-unit(2, "pt"), h-unit(2, "pt"), 
 			gp = gpar(fill = col["HOMDEL"], col = NA))
 	},
 	# big red
 	AMP = function(x, y, w, h) {
-		grid.rect(x, y, w-unit(0.5, "mm"), h-unit(0.5, "mm"), 
+		grid.rect(x, y, w-unit(2, "pt"), h-unit(2, "pt"), 
 			gp = gpar(fill = col["AMP"], col = NA))
 	},
 	# small green
 	MUT = function(x, y, w, h) {
-		grid.rect(x, y, w-unit(0.5, "mm"), h*0.33, 
+		grid.rect(x, y, w-unit(2, "pt"), h*0.33, 
 			gp = gpar(fill = col["MUT"], col = NA))
 	}
 )

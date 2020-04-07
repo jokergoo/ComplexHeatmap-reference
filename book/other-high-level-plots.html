@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 10 Other High-level Plots | ComplexHeatmap Complete Reference</title>
   <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 10 Other High-level Plots | ComplexHeatmap Complete Reference" />
   <meta property="og:type" content="book" />
@@ -162,6 +162,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.17" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#zoom-annotation"><i class="fa fa-check"></i><b>3.17</b> Zoom annotation</a></li>
 <li class="chapter" data-level="3.18" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#multiple-annotations"><i class="fa fa-check"></i><b>3.18</b> Multiple annotations</a><ul>
 <li class="chapter" data-level="3.18.1" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#size-of-annotations"><i class="fa fa-check"></i><b>3.18.1</b> Size of annotations</a></li>
+<li class="chapter" data-level="3.18.2" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#annotation-labels"><i class="fa fa-check"></i><b>3.18.2</b> Annotation labels</a></li>
 </ul></li>
 <li class="chapter" data-level="3.19" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#heatmap-annotation-utility-function"><i class="fa fa-check"></i><b>3.19</b> Utility functions</a></li>
 <li class="chapter" data-level="3.20" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#implement-new-annotation-functions"><i class="fa fa-check"></i><b>3.20</b> Implement new annotation functions</a></li>
@@ -205,7 +206,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.1.2" data-path="oncoprint.html"><a href="oncoprint.html#define-the-alter-fun"><i class="fa fa-check"></i><b>7.1.2</b> Define the alter_fun()</a></li>
 <li class="chapter" data-level="7.1.3" data-path="oncoprint.html"><a href="oncoprint.html#oncoprint-background"><i class="fa fa-check"></i><b>7.1.3</b> Background</a></li>
 <li class="chapter" data-level="7.1.4" data-path="oncoprint.html"><a href="oncoprint.html#complex-alteration-types"><i class="fa fa-check"></i><b>7.1.4</b> Complex alteration types</a></li>
-<li class="chapter" data-level="7.1.5" data-path="oncoprint.html"><a href="oncoprint.html#other-heatmap-related-settings"><i class="fa fa-check"></i><b>7.1.5</b> Other heatmap-related settings</a></li>
+<li class="chapter" data-level="7.1.5" data-path="oncoprint.html"><a href="oncoprint.html#simplify-alter_fun"><i class="fa fa-check"></i><b>7.1.5</b> Simplify alter_fun</a></li>
+<li class="chapter" data-level="7.1.6" data-path="oncoprint.html"><a href="oncoprint.html#other-heatmap-related-settings"><i class="fa fa-check"></i><b>7.1.6</b> Other heatmap-related settings</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="oncoprint.html"><a href="oncoprint.html#apply-to-cbioportal-dataset"><i class="fa fa-check"></i><b>7.2</b> Apply to cBioPortal dataset</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="oncoprint.html"><a href="oncoprint.html#remove-empty-rows-and-columns"><i class="fa fa-check"></i><b>7.2.1</b> Remove empty rows and columns</a></li>
@@ -238,6 +240,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="11" data-path="other-tricks.html"><a href="other-tricks.html"><i class="fa fa-check"></i><b>11</b> Other Tricks</a><ul>
 <li class="chapter" data-level="11.1" data-path="other-tricks.html"><a href="other-tricks.html#set-the-same-cell-size-for-different-heatmaps-with-different-dimensions"><i class="fa fa-check"></i><b>11.1</b> Set the same cell size for different heatmaps with different dimensions</a></li>
+<li class="chapter" data-level="11.2" data-path="other-tricks.html"><a href="other-tricks.html#integrate-with-gridtext-package"><i class="fa fa-check"></i><b>11.2</b> Integrate with gridtext package</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="other-tricks.html"><a href="other-tricks.html#titles"><i class="fa fa-check"></i><b>11.2.1</b> Titles</a></li>
+<li class="chapter" data-level="11.2.2" data-path="other-tricks.html"><a href="other-tricks.html#rowcolumn-names"><i class="fa fa-check"></i><b>11.2.2</b> Row/column names</a></li>
+<li class="chapter" data-level="11.2.3" data-path="other-tricks.html"><a href="other-tricks.html#annotation-labels-1"><i class="fa fa-check"></i><b>11.2.3</b> Annotation labels</a></li>
+<li class="chapter" data-level="11.2.4" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#text-annotation"><i class="fa fa-check"></i><b>11.2.4</b> Text annotation</a></li>
+<li class="chapter" data-level="11.2.5" data-path="other-tricks.html"><a href="other-tricks.html#legend"><i class="fa fa-check"></i><b>11.2.5</b> Legend</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -270,32 +279,32 @@ m =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">matri
           <span class="kw">matrix</span>(<span class="kw">runif</span>(<span class="dv">10</span><span class="op">*</span><span class="dv">100</span>, <span class="dt">min =</span> <span class="op">-</span><span class="dv">2</span>, <span class="dt">max =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span>, <span class="dt">ncol =</span> <span class="dv">10</span>))
 <span class="kw">colnames</span>(m) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;C&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(m))
 <span class="kw">densityHeatmap</span>(m)</code></pre></div>
-<p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-2-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>On the heatmap, there are also lines representing five quantiles and mean values.</p>
 <p>Data range is controlled by <code>ylim</code>. Title is controlled by <code>title</code> or <code>column_title</code>. Title on y-axis is controlled by <code>ylab</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">densityHeatmap</span>(m, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>), <span class="dt">title =</span> <span class="st">&quot;Distribution as heatmap&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;some values&quot;</span>)</code></pre></div>
-<p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-3-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Column order is controlled by <code>column_order</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">densityHeatmap</span>(m, <span class="dt">column_order =</span> <span class="kw">sample</span>(<span class="dv">20</span>, <span class="dv">20</span>))</code></pre></div>
-<p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-4-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>The color for the density values is controlled by <code>col</code> which is a vector of colors.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">densityHeatmap</span>(m, <span class="dt">col =</span> <span class="kw">topo.colors</span>(<span class="dv">10</span>))</code></pre></div>
-<p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-5-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Internally, the density for all columns are stored as a matrix where rows correspond to the same bins. Since it is a matrix, clustering can be applied on it. There is a special distance method <code>ks</code> for measuring similarity between distributions which is the Kolmogorov-Smirnov statistic between two distributions (<code>ks</code> distance is the default if <code>cluster_column = TRUE</code>).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">densityHeatmap</span>(m, <span class="dt">cluster_columns =</span> <span class="ot">TRUE</span>, <span class="dt">clustering_distance_columns =</span> <span class="st">&quot;ks&quot;</span>)</code></pre></div>
-<p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-6-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>When there are many distributions to calculate the pairwise Kolmogorov-Smirnov distance, <code>mc.cores</code> argument can be set to make it running parallelly.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">densityHeatmap</span>(m, <span class="dt">cluster_columns =</span> <span class="ot">TRUE</span>, <span class="dt">mc.cores =</span> ...)</code></pre></div>
 <p>Column annotations can be added as top annotation or bottom annotation.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">dist =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;rnorm&quot;</span>, <span class="dv">10</span>), <span class="kw">rep</span>(<span class="st">&quot;runif&quot;</span>, <span class="dv">10</span>)))
 ha2 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_points</span>(<span class="kw">rnorm</span>(<span class="dv">20</span>)))
 <span class="kw">densityHeatmap</span>(m, <span class="dt">top_annotation =</span> ha1, <span class="dt">bottom_annotation =</span> ha2)</code></pre></div>
-<p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-8-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Heatmaps and column annotations can only be concatenated to the density heatmap vertically.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">densityHeatmap</span>(m) <span class="op">%v%</span>
 <span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>)) <span class="op">%v%</span>
 <span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">20</span><span class="op">*</span><span class="dv">20</span>), <span class="dt">ncol =</span> <span class="dv">20</span>), <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">6</span>, <span class="st">&quot;cm&quot;</span>))</code></pre></div>
-<p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-9-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="stacked-summary-plot" class="section level2">
 <h2><span class="header-section-number">10.2</span> Stacked summary plot</h2>
@@ -385,7 +394,7 @@ ht_title =<span class="st"> </span><span class="kw">c</span>(<span class="st">&q
         <span class="kw">grid.text</span>(ht_title[an], <span class="dt">y =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">3</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>)
     })
 }</code></pre></div>
-<p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-15-1.png" width="1344" style="display: block; margin: auto;" /></p>
+<p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-14-1.png" width="1344" style="display: block; margin: auto;" /></p>
 <p>Similarlly, the multiple statistics can also be arranged vertically. In following example, we visualize several statistics for a list of genomic regions in 40 samples, from four subgroups. The statistics are:</p>
 <ul>
 <li><code>prop</code>: The proportion in the genome.</li>
@@ -415,7 +424,7 @@ group =<span class="st"> </span><span class="kw">rep</span>(letters[<span class=
     <span class="dt">annotation_name_rot =</span> <span class="dv">90</span>) <span class="op">%v%</span>
 <span class="kw">HeatmapAnnotation</span>(<span class="dt">group =</span> group)
 <span class="kw">draw</span>(ht_list, <span class="dt">column_title =</span> <span class="st">&quot;Statistics for a list of genomic regions&quot;</span>)</code></pre></div>
-<p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-17-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>For concatenation of multiple annotations, individual annotations can also be put into one single <code>HeatmapAnnotation()</code>. E.g. previous code is almost exactly the same as following code:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># code only for demonstration</span>
 <span class="kw">HeatmapAnnotation</span>(
@@ -456,12 +465,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -473,6 +481,10 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

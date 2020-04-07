@@ -1,8 +1,7 @@
-
 --- 
 title: "ComplexHeatmap Complete Reference"
 author: "Zuguang Gu"
-date: "last revised on 2019-10-20"
+date: "last revised on 2020-04-07"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
@@ -19,7 +18,7 @@ description: "Complex heatmaps are efficient to visualize associations between d
 
 This is the documentation of the
 [**ComplexHeatmap**](https://github.com/jokergoo/ComplexHeatmap) package. Examples in the book
-are generated under version 2.1.1.
+are generated under version 2.3.4.
 
 You can get a stable Bioconductor version from http://bioconductor.org/packages/release/bioc/html/ComplexHeatmap.html, but the most up-to-date version is always on Github and you can install it by:
 

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 11 Other Tricks | ComplexHeatmap Complete Reference</title>
   <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 11 Other Tricks | ComplexHeatmap Complete Reference" />
   <meta property="og:type" content="book" />
@@ -162,6 +162,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.17" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#zoom-annotation"><i class="fa fa-check"></i><b>3.17</b> Zoom annotation</a></li>
 <li class="chapter" data-level="3.18" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#multiple-annotations"><i class="fa fa-check"></i><b>3.18</b> Multiple annotations</a><ul>
 <li class="chapter" data-level="3.18.1" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#size-of-annotations"><i class="fa fa-check"></i><b>3.18.1</b> Size of annotations</a></li>
+<li class="chapter" data-level="3.18.2" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#annotation-labels"><i class="fa fa-check"></i><b>3.18.2</b> Annotation labels</a></li>
 </ul></li>
 <li class="chapter" data-level="3.19" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#heatmap-annotation-utility-function"><i class="fa fa-check"></i><b>3.19</b> Utility functions</a></li>
 <li class="chapter" data-level="3.20" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#implement-new-annotation-functions"><i class="fa fa-check"></i><b>3.20</b> Implement new annotation functions</a></li>
@@ -205,7 +206,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.1.2" data-path="oncoprint.html"><a href="oncoprint.html#define-the-alter-fun"><i class="fa fa-check"></i><b>7.1.2</b> Define the alter_fun()</a></li>
 <li class="chapter" data-level="7.1.3" data-path="oncoprint.html"><a href="oncoprint.html#oncoprint-background"><i class="fa fa-check"></i><b>7.1.3</b> Background</a></li>
 <li class="chapter" data-level="7.1.4" data-path="oncoprint.html"><a href="oncoprint.html#complex-alteration-types"><i class="fa fa-check"></i><b>7.1.4</b> Complex alteration types</a></li>
-<li class="chapter" data-level="7.1.5" data-path="oncoprint.html"><a href="oncoprint.html#other-heatmap-related-settings"><i class="fa fa-check"></i><b>7.1.5</b> Other heatmap-related settings</a></li>
+<li class="chapter" data-level="7.1.5" data-path="oncoprint.html"><a href="oncoprint.html#simplify-alter_fun"><i class="fa fa-check"></i><b>7.1.5</b> Simplify alter_fun</a></li>
+<li class="chapter" data-level="7.1.6" data-path="oncoprint.html"><a href="oncoprint.html#other-heatmap-related-settings"><i class="fa fa-check"></i><b>7.1.6</b> Other heatmap-related settings</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="oncoprint.html"><a href="oncoprint.html#apply-to-cbioportal-dataset"><i class="fa fa-check"></i><b>7.2</b> Apply to cBioPortal dataset</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="oncoprint.html"><a href="oncoprint.html#remove-empty-rows-and-columns"><i class="fa fa-check"></i><b>7.2.1</b> Remove empty rows and columns</a></li>
@@ -238,6 +240,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="11" data-path="other-tricks.html"><a href="other-tricks.html"><i class="fa fa-check"></i><b>11</b> Other Tricks</a><ul>
 <li class="chapter" data-level="11.1" data-path="other-tricks.html"><a href="other-tricks.html#set-the-same-cell-size-for-different-heatmaps-with-different-dimensions"><i class="fa fa-check"></i><b>11.1</b> Set the same cell size for different heatmaps with different dimensions</a></li>
+<li class="chapter" data-level="11.2" data-path="other-tricks.html"><a href="other-tricks.html#integrate-with-gridtext-package"><i class="fa fa-check"></i><b>11.2</b> Integrate with gridtext package</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="other-tricks.html"><a href="other-tricks.html#titles"><i class="fa fa-check"></i><b>11.2.1</b> Titles</a></li>
+<li class="chapter" data-level="11.2.2" data-path="other-tricks.html"><a href="other-tricks.html#rowcolumn-names"><i class="fa fa-check"></i><b>11.2.2</b> Row/column names</a></li>
+<li class="chapter" data-level="11.2.3" data-path="other-tricks.html"><a href="other-tricks.html#annotation-labels-1"><i class="fa fa-check"></i><b>11.2.3</b> Annotation labels</a></li>
+<li class="chapter" data-level="11.2.4" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#text-annotation"><i class="fa fa-check"></i><b>11.2.4</b> Text annotation</a></li>
+<li class="chapter" data-level="11.2.5" data-path="other-tricks.html"><a href="other-tricks.html#legend"><i class="fa fa-check"></i><b>11.2.5</b> Legend</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -308,9 +317,86 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
         <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">bar =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)))
     <span class="kw">dev.off</span>()
 }</code></pre></div>
+<p><img src="11-other-tricks_files/figure-html/unnamed-chunk-7-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><img src="11-other-tricks_files/figure-html/unnamed-chunk-8-1.png" width="480" style="display: block; margin: auto;" /></p>
-<p><img src="11-other-tricks_files/figure-html/unnamed-chunk-9-1.png" width="480" style="display: block; margin: auto;" /></p>
+</div>
+<div id="integrate-with-gridtext-package" class="section level2">
+<h2><span class="header-section-number">11.2</span> Integrate with gridtext package</h2>
+<p><a href="https://github.com/wilkelab/gridtext">The <strong>gridtext</strong> package</a> provides a nice and easy way for rendering text under the <strong>grid</strong> system. From version 2.3.3 of <strong>ComplexHeatmap</strong>, text-related elements can be rendered by <strong>gridtext</strong>.</p>
+<p>For all text-related elements, the text needs to be wrapped by <code>gt_render()</code> function, which marks the text and adds related parameters that are going to be processed by <strong>gridtext</strong>.</p>
+<p>Currently <strong>ComplexHeatmap</strong> supports <code>gridtext::richtext_grob()</code>, so some of the parameters for <code>richtext_grob()</code> can be passed via <code>gt_render()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">gt_render</span>(<span class="st">&quot;foo&quot;</span>, <span class="dt">r =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), <span class="dt">padding =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>), <span class="st">&quot;pt&quot;</span>))</code></pre></div>
+<pre><code>## [1] &quot;foo&quot;
+## attr(,&quot;class&quot;)
+## [1] &quot;gridtext&quot;
+## attr(,&quot;param&quot;)
+## attr(,&quot;param&quot;)$r
+## [1] 2pt
+## 
+## attr(,&quot;param&quot;)$padding
+## [1] 2pt 2pt 2pt 2pt</code></pre>
+<p>For each heatmap element, e.g. column title, graphic parameters can be set by the companion argument, e.g. <code>column_title_gp</code>. To make it simpler, all graphic parameters set by <code>box_gp</code> are merged with <code>*_gp</code> by adding <code>box_</code> prefix, e.g.:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">..., column_title =<span class="st"> </span><span class="kw">gt_render</span>(<span class="st">&quot;foo&quot;</span>), column_title_gp =<span class="st"> </span><span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">box_fill =</span> <span class="st">&quot;blue&quot;</span>), ...</code></pre></div>
+<p>Graphic parameters can also be specified inside <code>gt_render()</code>. Following is the same as the one above:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">..., column_title =<span class="st"> </span><span class="kw">gt_render</span>(<span class="st">&quot;foo&quot;</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">box_fill =</span> <span class="st">&quot;blue&quot;</span>)), ...</code></pre></div>
+<div id="titles" class="section level3">
+<h3><span class="header-section-number">11.2.1</span> Titles</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
+mat =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>)
+<span class="kw">rownames</span>(mat) =<span class="st"> </span>letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]
+<span class="kw">Heatmap</span>(mat, 
+    <span class="dt">column_title =</span> <span class="kw">gt_render</span>(<span class="st">&quot;Some &lt;span style=&#39;color:blue&#39;&gt;blue text **in bold.**&lt;/span&gt;&lt;br&gt;And *italics text.*&lt;br&gt;And some &lt;span style=&#39;font-size:18pt; color:black&#39;&gt;large&lt;/span&gt; text.&quot;</span>, 
+        <span class="dt">r =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), 
+        <span class="dt">padding =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>), <span class="st">&quot;pt&quot;</span>)),
+    <span class="dt">column_title_gp =</span> <span class="kw">gpar</span>(<span class="dt">box_fill =</span> <span class="st">&quot;orange&quot;</span>))</code></pre></div>
+<p><img src="11-other-tricks_files/figure-html/unnamed-chunk-12-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>If heatmap is split:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Heatmap</span>(mat, 
+    <span class="dt">row_km =</span> <span class="dv">2</span>, 
+    <span class="dt">row_title =</span> <span class="kw">gt_render</span>(<span class="kw">c</span>(<span class="st">&quot;**title1**&quot;</span>, <span class="st">&quot;_title2_&quot;</span>)), 
+    <span class="dt">row_title_gp =</span> <span class="kw">gpar</span>(<span class="dt">box_fill =</span> <span class="kw">c</span>(<span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;blue&quot;</span>)))</code></pre></div>
+<p><img src="11-other-tricks_files/figure-html/unnamed-chunk-13-1.png" width="480" style="display: block; margin: auto;" /></p>
+</div>
+<div id="rowcolumn-names" class="section level3">
+<h3><span class="header-section-number">11.2.2</span> Row/column names</h3>
+<p>Rendered row/column names should be explicitly specified by <code>row_labels</code>/<code>column_labels</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Heatmap</span>(mat, 
+    <span class="dt">row_labels =</span> <span class="kw">gt_render</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>], <span class="dt">padding =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">2</span>, <span class="dv">10</span>), <span class="st">&quot;pt&quot;</span>)),
+    <span class="dt">row_names_gp =</span> <span class="kw">gpar</span>(<span class="dt">box_col =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>), <span class="dt">times =</span> <span class="dv">5</span>)))</code></pre></div>
+<p><img src="11-other-tricks_files/figure-html/unnamed-chunk-14-1.png" width="480" style="display: block; margin: auto;" /></p>
+</div>
+<div id="annotation-labels-1" class="section level3">
+<h3><span class="header-section-number">11.2.3</span> Annotation labels</h3>
+<p><code>annotation_label</code> argument should be as rendered text.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>],
+    <span class="dt">annotation_label =</span> <span class="kw">gt_render</span>(<span class="st">&quot;**Annotation** _one_&quot;</span>,
+        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">box_col =</span> <span class="st">&quot;black&quot;</span>)),
+    <span class="dt">show_legend =</span> <span class="ot">FALSE</span>)
+<span class="kw">Heatmap</span>(mat, <span class="dt">top_annotation =</span> ha)</code></pre></div>
+<p><img src="11-other-tricks_files/figure-html/unnamed-chunk-15-1.png" width="480" style="display: block; margin: auto;" /></p>
+</div>
+<div id="text-annotation" class="section level3">
+<h3><span class="header-section-number">11.2.4</span> Text annotation</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rowAnnotation</span>(
+    <span class="dt">foo =</span> <span class="kw">anno_text</span>(<span class="kw">gt_render</span>(<span class="kw">sapply</span>(LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>], strrep, <span class="dv">10</span>), <span class="dt">align_widths =</span> <span class="ot">TRUE</span>), 
+                    <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">box_col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">box_lwd =</span> <span class="dv">2</span>), 
+                    <span class="dt">just =</span> <span class="st">&quot;right&quot;</span>, 
+                    <span class="dt">location =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>)
+    )) <span class="op">+</span><span class="st"> </span><span class="kw">Heatmap</span>(mat)</code></pre></div>
+<p><img src="11-other-tricks_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="legend" class="section level3">
+<h3><span class="header-section-number">11.2.5</span> Legend</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Heatmap</span>(mat, 
+    <span class="dt">heatmap_legend_param =</span> <span class="kw">list</span>(
+        <span class="dt">title =</span> <span class="kw">gt_render</span>(<span class="st">&quot;&lt;span style=&#39;color:orange&#39;&gt;**Legend title**&lt;/span&gt;&quot;</span>), 
+        <span class="dt">title_gp =</span> <span class="kw">gpar</span>(<span class="dt">box_fill =</span> <span class="st">&quot;grey&quot;</span>),
+        <span class="dt">at =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">3</span>), 
+        <span class="dt">labels =</span> <span class="kw">gt_render</span>(<span class="kw">c</span>(<span class="st">&quot;*negative* three&quot;</span>, <span class="st">&quot;zero&quot;</span>, <span class="st">&quot;*positive* three&quot;</span>))
+    ))</code></pre></div>
+<p><img src="11-other-tricks_files/figure-html/unnamed-chunk-17-1.png" width="480" style="display: block; margin: auto;" /></p>
 
+</div>
 </div>
 </div>
             </section>
@@ -338,12 +424,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -355,6 +440,10 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

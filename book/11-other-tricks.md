@@ -1,4 +1,3 @@
-
 # Other Tricks {#other-tricks}
 
 ## Set the same cell size for different heatmaps with different dimensions
@@ -22,9 +21,9 @@ in this demonstration.
 
 ```r
 random_mat = function(nr) {
-	m = matrix(rnorm(10*nr), nc = 10)
-	colnames(m) = letters[1:10]
-	return(m)
+    m = matrix(rnorm(10*nr), nc = 10)
+    colnames(m) = letters[1:10]
+    return(m)
 }
 ```
 
@@ -49,12 +48,12 @@ In following, `y` contains values which are measured in `inch` unit.
 ```r
 y = NULL
 for(nr in c(10, 20)) {
-	ht = draw(Heatmap(random_mat(nr), height = unit(5, "mm")*nr, 
-		column_title = "foo", # one line text
-		top_annotation = HeatmapAnnotation(bar = 1:10)))
-	ht_height = sum(component_height(ht)) + unit(4, "mm")
-	ht_height = convertHeight(ht_height, "inch", valueOnly = TRUE)
-	y = c(y, ht_height)
+    ht = draw(Heatmap(random_mat(nr), height = unit(5, "mm")*nr, 
+        column_title = "foo", # one line text
+        top_annotation = HeatmapAnnotation(bar = 1:10)))
+    ht_height = sum(component_height(ht)) + unit(4, "mm")
+    ht_height = convertHeight(ht_height, "inch", valueOnly = TRUE)
+    y = c(y, ht_height)
 }
 ```
 
@@ -86,17 +85,151 @@ Note all the heatmap configuations should be the same as the ones you prepare `y
 
 ```r
 for(nr in c(10, 20)) {
-	png(paste0("test_heatmap_nr_", nr, ".png"), width = 5, height = 0.1969*nr + 1.3150, 
-		units = "in", res = 100)
-	draw(Heatmap(random_mat(nr), height = unit(5, "mm")*nr, 
-		column_title = "foo", # column title can be any one-line string
-		top_annotation = HeatmapAnnotation(bar = 1:10)))
-	dev.off()
+    png(paste0("test_heatmap_nr_", nr, ".png"), width = 5, height = 0.1969*nr + 1.3150, 
+        units = "in", res = 100)
+    draw(Heatmap(random_mat(nr), height = unit(5, "mm")*nr, 
+        column_title = "foo", # column title can be any one-line string
+        top_annotation = HeatmapAnnotation(bar = 1:10)))
+    dev.off()
 }
 ```
 
 
 
+<img src="11-other-tricks_files/figure-html/unnamed-chunk-7-1.png" width="480" style="display: block; margin: auto;" />
+
 <img src="11-other-tricks_files/figure-html/unnamed-chunk-8-1.png" width="480" style="display: block; margin: auto;" />
 
-<img src="11-other-tricks_files/figure-html/unnamed-chunk-9-1.png" width="480" style="display: block; margin: auto;" />
+## Integrate with gridtext package
+
+[The **gridtext** package](https://github.com/wilkelab/gridtext) provides a nice and easy way
+for rendering text under the **grid** system. From version 2.3.3 of **ComplexHeatmap**, text-related
+elements can be rendered by **gridtext**.
+
+For all text-related elements, the text needs to be wrapped by `gt_render()` function, which marks
+the text and adds related parameters that are going to be processed by **gridtext**.
+
+Currently **ComplexHeatmap** supports `gridtext::richtext_grob()`, so some of the parameters for 
+`richtext_grob()` can be passed via `gt_render()`.
+
+
+```r
+gt_render("foo", r = unit(2, "pt"), padding = unit(c(2, 2, 2, 2), "pt"))
+```
+
+```
+## [1] "foo"
+## attr(,"class")
+## [1] "gridtext"
+## attr(,"param")
+## attr(,"param")$r
+## [1] 2pt
+## 
+## attr(,"param")$padding
+## [1] 2pt 2pt 2pt 2pt
+```
+
+For each heatmap element, e.g. column title, graphic parameters can be set by the companion argument, 
+e.g. `column_title_gp`. To make it simpler, all graphic parameters set by `box_gp` are merged with `*_gp`
+by adding `box_` prefix, e.g.:
+
+
+```r
+..., column_title = gt_render("foo"), column_title_gp = gpar(col = "red", box_fill = "blue"), ...
+```
+
+Graphic parameters can also be specified inside `gt_render()`. Following is the same as the one above:
+
+
+```r
+..., column_title = gt_render("foo", gp = gpar(col = "red", box_fill = "blue")), ...
+```
+
+### Titles
+
+
+```r
+set.seed(123)
+mat = matrix(rnorm(100), 10)
+rownames(mat) = letters[1:10]
+Heatmap(mat, 
+    column_title = gt_render("Some <span style='color:blue'>blue text **in bold.**</span><br>And *italics text.*<br>And some <span style='font-size:18pt; color:black'>large</span> text.", 
+        r = unit(2, "pt"), 
+        padding = unit(c(2, 2, 2, 2), "pt")),
+    column_title_gp = gpar(box_fill = "orange"))
+```
+
+<img src="11-other-tricks_files/figure-html/unnamed-chunk-12-1.png" width="480" style="display: block; margin: auto;" />
+
+If heatmap is split:
+
+
+```r
+Heatmap(mat, 
+    row_km = 2, 
+    row_title = gt_render(c("**title1**", "_title2_")), 
+    row_title_gp = gpar(box_fill = c("yellow", "blue")))
+```
+
+<img src="11-other-tricks_files/figure-html/unnamed-chunk-13-1.png" width="480" style="display: block; margin: auto;" />
+
+### Row/column names
+
+Rendered row/column names should be explicitly specified by `row_labels`/`column_labels`
+
+
+```r
+Heatmap(mat, 
+    row_labels = gt_render(letters[1:10], padding = unit(c(2, 10, 2, 10), "pt")),
+    row_names_gp = gpar(box_col = rep(c("red", "green"), times = 5)))
+```
+
+<img src="11-other-tricks_files/figure-html/unnamed-chunk-14-1.png" width="480" style="display: block; margin: auto;" />
+
+### Annotation labels
+
+`annotation_label` argument should be as rendered text.
+
+
+```r
+ha = HeatmapAnnotation(foo = letters[1:10],
+    annotation_label = gt_render("**Annotation** _one_",
+        gp = gpar(box_col = "black")),
+    show_legend = FALSE)
+Heatmap(mat, top_annotation = ha)
+```
+
+<img src="11-other-tricks_files/figure-html/unnamed-chunk-15-1.png" width="480" style="display: block; margin: auto;" />
+
+### Text annotation
+
+
+```r
+rowAnnotation(
+    foo = anno_text(gt_render(sapply(LETTERS[1:10], strrep, 10), align_widths = TRUE), 
+                    gp = gpar(box_col = "blue", box_lwd = 2), 
+                    just = "right", 
+                    location = unit(1, "npc")
+    )) + Heatmap(mat)
+```
+
+<img src="11-other-tricks_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" />
+
+### Legend
+
+
+```r
+Heatmap(mat, 
+    heatmap_legend_param = list(
+        title = gt_render("<span style='color:orange'>**Legend title**</span>"), 
+        title_gp = gpar(box_fill = "grey"),
+        at = c(-3, 0, 3), 
+        labels = gt_render(c("*negative* three", "zero", "*positive* three"))
+    ))
+```
+
+<img src="11-other-tricks_files/figure-html/unnamed-chunk-17-1.png" width="480" style="display: block; margin: auto;" />
+
+
+
+

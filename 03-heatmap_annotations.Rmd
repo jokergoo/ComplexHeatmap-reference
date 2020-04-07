@@ -1622,6 +1622,20 @@ draw(ha, test = TRUE)
 Section \@ref(annotations-as-components-are-adjusted) introduces how the
 annotation sizes are adjusted among a list of heatmaps.
 
+### Annotation labels
+
+From version 2.3.3, alternative labels for annotations can be set by `annotation_label` argument:
+
+```{r}
+ha = HeatmapAnnotation(foo = 1:10, 
+    bar = cbind(1:10, 10:1),
+    pt = anno_points(1:10),
+    annotation_label = c("Annotation_foo", "Annotation_bar", "Annotation_pt")
+)
+Heatmap(matrix(rnorm(100), 10), name = "mat", top_annotation = ha)
+```
+
+
 ## Utility functions {#heatmap-annotation-utility-function}
 
 There are some utility functions which make the manipulation of heatmap

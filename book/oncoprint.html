@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 7 OncoPrint | ComplexHeatmap Complete Reference</title>
   <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 7 OncoPrint | ComplexHeatmap Complete Reference" />
   <meta property="og:type" content="book" />
@@ -162,6 +162,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.17" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#zoom-annotation"><i class="fa fa-check"></i><b>3.17</b> Zoom annotation</a></li>
 <li class="chapter" data-level="3.18" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#multiple-annotations"><i class="fa fa-check"></i><b>3.18</b> Multiple annotations</a><ul>
 <li class="chapter" data-level="3.18.1" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#size-of-annotations"><i class="fa fa-check"></i><b>3.18.1</b> Size of annotations</a></li>
+<li class="chapter" data-level="3.18.2" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#annotation-labels"><i class="fa fa-check"></i><b>3.18.2</b> Annotation labels</a></li>
 </ul></li>
 <li class="chapter" data-level="3.19" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#heatmap-annotation-utility-function"><i class="fa fa-check"></i><b>3.19</b> Utility functions</a></li>
 <li class="chapter" data-level="3.20" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#implement-new-annotation-functions"><i class="fa fa-check"></i><b>3.20</b> Implement new annotation functions</a></li>
@@ -205,7 +206,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.1.2" data-path="oncoprint.html"><a href="oncoprint.html#define-the-alter-fun"><i class="fa fa-check"></i><b>7.1.2</b> Define the alter_fun()</a></li>
 <li class="chapter" data-level="7.1.3" data-path="oncoprint.html"><a href="oncoprint.html#oncoprint-background"><i class="fa fa-check"></i><b>7.1.3</b> Background</a></li>
 <li class="chapter" data-level="7.1.4" data-path="oncoprint.html"><a href="oncoprint.html#complex-alteration-types"><i class="fa fa-check"></i><b>7.1.4</b> Complex alteration types</a></li>
-<li class="chapter" data-level="7.1.5" data-path="oncoprint.html"><a href="oncoprint.html#other-heatmap-related-settings"><i class="fa fa-check"></i><b>7.1.5</b> Other heatmap-related settings</a></li>
+<li class="chapter" data-level="7.1.5" data-path="oncoprint.html"><a href="oncoprint.html#simplify-alter_fun"><i class="fa fa-check"></i><b>7.1.5</b> Simplify alter_fun</a></li>
+<li class="chapter" data-level="7.1.6" data-path="oncoprint.html"><a href="oncoprint.html#other-heatmap-related-settings"><i class="fa fa-check"></i><b>7.1.6</b> Other heatmap-related settings</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="oncoprint.html"><a href="oncoprint.html#apply-to-cbioportal-dataset"><i class="fa fa-check"></i><b>7.2</b> Apply to cBioPortal dataset</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="oncoprint.html"><a href="oncoprint.html#remove-empty-rows-and-columns"><i class="fa fa-check"></i><b>7.2.1</b> Remove empty rows and columns</a></li>
@@ -238,6 +240,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="11" data-path="other-tricks.html"><a href="other-tricks.html"><i class="fa fa-check"></i><b>11</b> Other Tricks</a><ul>
 <li class="chapter" data-level="11.1" data-path="other-tricks.html"><a href="other-tricks.html#set-the-same-cell-size-for-different-heatmaps-with-different-dimensions"><i class="fa fa-check"></i><b>11.1</b> Set the same cell size for different heatmaps with different dimensions</a></li>
+<li class="chapter" data-level="11.2" data-path="other-tricks.html"><a href="other-tricks.html#integrate-with-gridtext-package"><i class="fa fa-check"></i><b>11.2</b> Integrate with gridtext package</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="other-tricks.html"><a href="other-tricks.html#titles"><i class="fa fa-check"></i><b>11.2.1</b> Titles</a></li>
+<li class="chapter" data-level="11.2.2" data-path="other-tricks.html"><a href="other-tricks.html#rowcolumn-names"><i class="fa fa-check"></i><b>11.2.2</b> Row/column names</a></li>
+<li class="chapter" data-level="11.2.3" data-path="other-tricks.html"><a href="other-tricks.html#annotation-labels-1"><i class="fa fa-check"></i><b>11.2.3</b> Annotation labels</a></li>
+<li class="chapter" data-level="11.2.4" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#text-annotation"><i class="fa fa-check"></i><b>11.2.4</b> Text annotation</a></li>
+<li class="chapter" data-level="11.2.5" data-path="other-tricks.html"><a href="other-tricks.html#legend"><i class="fa fa-check"></i><b>11.2.5</b> Legend</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -298,7 +307,7 @@ mat</code></pre></div>
         <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, 
             <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))
     ), <span class="dt">col =</span> col)</code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-5-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-4-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>You can see the order in barplots also correspond to the order defined in <code>alter_fun</code>.</p>
 <p>If you are confused of how to generated the matrix, there is a second way. The second type of input data is a list of matrix for which each matrix contains binary value representing whether the alteration is absent or present. The list should have names which correspond to the alteration types.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mat_list =<span class="st"> </span><span class="kw">list</span>(<span class="dt">snv =</span> <span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="dt">nrow =</span> <span class="dv">3</span>),
@@ -327,7 +336,7 @@ mat_list</code></pre></div>
         <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, 
             <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))
     ), <span class="dt">col =</span> col)</code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-7-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-6-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>In following parts of this chapter, we still use the single matrix form <code>mat</code> to specify the input data.</p>
 </div>
 <div id="define-the-alter-fun" class="section level3">
@@ -343,7 +352,7 @@ mat_list</code></pre></div>
         <span class="cf">if</span>(v[<span class="st">&quot;indel&quot;</span>]) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, <span class="co"># v[&quot;indel&quot;] is a logical value</span>
             <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))
     }, <span class="dt">col =</span> col)</code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-9-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-8-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>If <code>alter_fun</code> is set as a single function, customization can be more flexible. In following example, the blue rectangles can have different height in different grid.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">oncoPrint</span>(mat,
     <span class="dt">alter_fun =</span> <span class="cf">function</span>(x, y, w, h, v) {
@@ -353,7 +362,7 @@ mat_list</code></pre></div>
         <span class="cf">if</span>(n) <span class="kw">grid.rect</span>(x, y <span class="op">-</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.5</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span><span class="op">:</span>n<span class="op">/</span>n<span class="op">*</span>h, w<span class="op">*</span><span class="fl">0.9</span>, <span class="dv">1</span><span class="op">/</span>n<span class="op">*</span>h, 
             <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="kw">names</span>(<span class="kw">which</span>(v))], <span class="dt">col =</span> <span class="ot">NA</span>), <span class="dt">just =</span> <span class="st">&quot;top&quot;</span>)
     }, <span class="dt">col =</span> col)</code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-10-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-9-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Following is a complicated example for <code>alter_fun</code> where triangles are used:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">oncoPrint</span>(mat,
     <span class="dt">alter_fun =</span> <span class="kw">list</span>(
@@ -380,7 +389,7 @@ mat_list</code></pre></div>
                 <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>))
         }
     ), <span class="dt">col =</span> col)</code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-11-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-10-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>In some cases, you might need to define <code>alter_fun</code> for many alteration types. If you are not sure about the visual effect of your <code>alter_fun</code>, you can use <code>test_alter_fun()</code> to test your <code>alter_fun</code>. In following example, we defined seven alteration functions:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">alter_fun =<span class="st"> </span><span class="kw">list</span>(
     <span class="dt">mut1 =</span> <span class="cf">function</span>(x, y, w, h) 
@@ -402,7 +411,7 @@ mat_list</code></pre></div>
 <pre><code>## `alter_fun` is defined as a list of functions.
 ## Functions are defined for following alteration types:
 ##   mut1, mut2, mut3, mut4, mut5, mut6, mut7</code></pre>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-12-1.png" width="288" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-11-1.png" width="288" style="display: block; margin: auto;" /></p>
 <p>For the combination of alteration types, <code>test_alter_fun()</code> randomly samples some of them.</p>
 <p><code>test_alter_fun()</code> works both for <code>alter_fun</code> as a list and as a single function.</p>
 </div>
@@ -418,7 +427,7 @@ mat_list</code></pre></div>
         <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, 
             <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))
     ), <span class="dt">col =</span> col)</code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-13-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-12-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Or just remove the background (don’t set it to <code>NULL</code>. Setting <code>background</code> directly to <code>NULL</code> means to use the default style of background whch is in grey):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">oncoPrint</span>(mat,
     <span class="dt">alter_fun =</span> <span class="kw">list</span>(
@@ -428,7 +437,7 @@ mat_list</code></pre></div>
         <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, 
             <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))
     ), <span class="dt">col =</span> col)</code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-14-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-13-1.png" width="384" style="display: block; margin: auto;" /></p>
 </div>
 <div id="complex-alteration-types" class="section level3">
 <h3><span class="header-section-number">7.1.4</span> Complex alteration types</h3>
@@ -480,10 +489,20 @@ ht =<span class="st"> </span><span class="kw">oncoPrint</span>(m, <span class="d
 <span class="kw">draw</span>(ht, <span class="dt">heatmap_legend_list =</span> <span class="kw">list</span>(
     <span class="kw">Legend</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;intronic&quot;</span>, <span class="st">&quot;exonic&quot;</span>), <span class="dt">type =</span> <span class="st">&quot;points&quot;</span>, <span class="dt">pch =</span> <span class="kw">c</span>(<span class="dv">16</span>, <span class="dv">28</span>))
 ))</code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-17-1.png" width="528" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-16-1.png" width="528" style="display: block; margin: auto;" /></p>
+</div>
+<div id="simplify-alter_fun" class="section level3">
+<h3><span class="header-section-number">7.1.5</span> Simplify alter_fun</h3>
+<p>If the graphics are only simple graphics, e.g., rectangles, points, the graphic functions can be automatically generated by <code>alter_graphic()</code> function. One of previous example can be simplied as:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">oncoPrint</span>(mat,
+    <span class="dt">alter_fun =</span> <span class="kw">list</span>(
+        <span class="dt">snv =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">width =</span> <span class="fl">0.9</span>, <span class="dt">height =</span> <span class="fl">0.9</span>, <span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>]),
+        <span class="dt">indel =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">width =</span> <span class="fl">0.9</span>, <span class="dt">height =</span> <span class="fl">0.4</span>, <span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>])
+    ), <span class="dt">col =</span> col)</code></pre></div>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-17-1.png" width="384" style="display: block; margin: auto;" /></p>
 </div>
 <div id="other-heatmap-related-settings" class="section level3">
-<h3><span class="header-section-number">7.1.5</span> Other heatmap-related settings</h3>
+<h3><span class="header-section-number">7.1.6</span> Other heatmap-related settings</h3>
 <p>Column names are by default not drawn in the plot. It is can be turned on by setting <code>show_column_names = TRUE</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">alter_fun =<span class="st"> </span><span class="kw">list</span>(
     <span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, 
@@ -556,24 +575,32 @@ mat[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">col =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;HOMDEL&quot;</span> =<span class="st"> &quot;blue&quot;</span>, <span class="st">&quot;AMP&quot;</span> =<span class="st"> &quot;red&quot;</span>, <span class="st">&quot;MUT&quot;</span> =<span class="st"> &quot;#008000&quot;</span>)
 alter_fun =<span class="st"> </span><span class="kw">list</span>(
     <span class="dt">background =</span> <span class="cf">function</span>(x, y, w, h) {
-        <span class="kw">grid.rect</span>(x, y, w<span class="op">-</span><span class="kw">unit</span>(<span class="fl">0.5</span>, <span class="st">&quot;mm&quot;</span>), h<span class="op">-</span><span class="kw">unit</span>(<span class="fl">0.5</span>, <span class="st">&quot;mm&quot;</span>), 
+        <span class="kw">grid.rect</span>(x, y, w<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), h<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), 
             <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;#CCCCCC&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>))
     },
     <span class="co"># big blue</span>
     <span class="dt">HOMDEL =</span> <span class="cf">function</span>(x, y, w, h) {
-        <span class="kw">grid.rect</span>(x, y, w<span class="op">-</span><span class="kw">unit</span>(<span class="fl">0.5</span>, <span class="st">&quot;mm&quot;</span>), h<span class="op">-</span><span class="kw">unit</span>(<span class="fl">0.5</span>, <span class="st">&quot;mm&quot;</span>), 
+        <span class="kw">grid.rect</span>(x, y, w<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), h<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), 
             <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;HOMDEL&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))
     },
-    <span class="co"># bug red</span>
+    <span class="co"># big red</span>
     <span class="dt">AMP =</span> <span class="cf">function</span>(x, y, w, h) {
-        <span class="kw">grid.rect</span>(x, y, w<span class="op">-</span><span class="kw">unit</span>(<span class="fl">0.5</span>, <span class="st">&quot;mm&quot;</span>), h<span class="op">-</span><span class="kw">unit</span>(<span class="fl">0.5</span>, <span class="st">&quot;mm&quot;</span>), 
+        <span class="kw">grid.rect</span>(x, y, w<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), h<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), 
             <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;AMP&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))
     },
     <span class="co"># small green</span>
     <span class="dt">MUT =</span> <span class="cf">function</span>(x, y, w, h) {
-        <span class="kw">grid.rect</span>(x, y, w<span class="op">-</span><span class="kw">unit</span>(<span class="fl">0.5</span>, <span class="st">&quot;mm&quot;</span>), h<span class="op">*</span><span class="fl">0.33</span>, 
+        <span class="kw">grid.rect</span>(x, y, w<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), h<span class="op">*</span><span class="fl">0.33</span>, 
             <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;MUT&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))
     }
+)</code></pre></div>
+<p>Just a note, since the graphics are all rectangles, they can be simplied by generating by <code>alter_graphic()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># just for demonstration</span>
+alter_fun =<span class="st"> </span><span class="kw">list</span>(
+    <span class="dt">background =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;#CCCCCC&quot;</span>),   
+    <span class="dt">HOMDEL =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">fill =</span> col[<span class="st">&quot;HOMDEL&quot;</span>]),
+    <span class="dt">AMP =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">fill =</span> col[<span class="st">&quot;AMP&quot;</span>]),
+    <span class="dt">MUT =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">height =</span> <span class="fl">0.33</span>, <span class="dt">fill =</span> col[<span class="st">&quot;MUT&quot;</span>])
 )</code></pre></div>
 <p>Now we make the oncoPrint. We save <code>column_title</code> and <code>heatmap_legend_param</code> as varaibles because they are used multiple times in following code chunks.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">column_title =<span class="st"> &quot;OncoPrint for TCGA Lung Adenocarcinoma, genes in Ras Raf MEK JNK signalling&quot;</span>
@@ -582,7 +609,7 @@ heatmap_legend_param =<span class="st"> </span><span class="kw">list</span>(<spa
 <span class="kw">oncoPrint</span>(mat,
     <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, 
     <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-25-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-26-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>As you see, the genes and samples are reordered automatically. Rows are sorted based on the frequency of the alterations in all samples and columns are reordered to visualize the mutual exclusivity between samples. The column reordering is based on the “memo sort” method, adapted from <a href="https://gist.github.com/armish/564a65ab874a770e2c26" class="uri">https://gist.github.com/armish/564a65ab874a770e2c26</a>.</p>
 <div id="remove-empty-rows-and-columns" class="section level3">
 <h3><span class="header-section-number">7.2.1</span> Remove empty rows and columns</h3>
@@ -591,7 +618,7 @@ heatmap_legend_param =<span class="st"> </span><span class="kw">list</span>(<spa
     <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, 
     <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,
     <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-26-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-27-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>The number of rows and columns may be reduced after empty rows and columns are removed. All the components of the oncoPrint are adjusted accordingly. When the oncoPrint is concatenated with other heatmaps and annotations, this may cause a problem that the number of rows or columns are not all identical in the heatmap list. So, if you put oncoPrint into a heatmap list and you don’t want to see empty rows or columns, you need to remove them manually before sending to <code>oncoPrint()</code> function (this preprocess should be very easy for you!).</p>
 </div>
 <div id="reorder-the-oncoprint" class="section level3">
@@ -604,7 +631,7 @@ heatmap_legend_param =<span class="st"> </span><span class="kw">list</span>(<spa
     <span class="dt">row_order =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(mat), <span class="dt">column_order =</span> sample_order,
     <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,
     <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-27-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-28-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>Again, <code>row_order</code> and <code>column_order</code> are automatically adjusted if <code>remove_empty_rows</code> and <code>remove_empty_columns</code> are set to <code>TRUE</code>.</p>
 </div>
 <div id="oncoprint-annotations" class="section level3">
@@ -623,14 +650,14 @@ heatmap_legend_param =<span class="st"> </span><span class="kw">list</span>(<spa
             <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">side =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">labels_rot =</span> <span class="dv">90</span>))),
     <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,
     <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-28-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-29-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>The percent values and row names are internally constructed as text annotations. You can set <code>show_pct</code> and <code>show_row_names</code> to turn them on or off. <code>pct_side</code> and <code>row_names_side</code> controls the sides where they are put.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">oncoPrint</span>(mat,
     <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, 
     <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,
     <span class="dt">pct_side =</span> <span class="st">&quot;right&quot;</span>, <span class="dt">row_names_side =</span> <span class="st">&quot;left&quot;</span>,
     <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-29-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-30-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>The barplot annotation for oncoPrint are essentially normal annotations, you can add more annotations in <code>HeatmapAnnotation()</code> or <code>rowAnnotation()</code> in the normal way:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">oncoPrint</span>(mat,
     <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, 
@@ -641,7 +668,7 @@ heatmap_legend_param =<span class="st"> </span><span class="kw">list</span>(<spa
     <span class="dt">left_annotation =</span> <span class="kw">rowAnnotation</span>(<span class="dt">foo2 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">26</span>),
     <span class="dt">right_annotation =</span> <span class="kw">rowAnnotation</span>(<span class="dt">bar2 =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">26</span>)),
     <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-30-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-31-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>As you see, the percent annotation, the row name annotation and the oncoPrint annotation are appended to the user-specified annotation by default. Also annotations are automatically adjusted if <code>remove_empty_columns</code> and <code>remove_empty_rows</code> are set to <code>TRUE</code>.</p>
 </div>
 <div id="oncoprint-as-a-heatmap" class="section level3">
@@ -653,72 +680,61 @@ heatmap_legend_param =<span class="st"> </span><span class="kw">list</span>(<spa
     <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param) <span class="op">+</span>
 <span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="kw">nrow</span>(mat)<span class="op">*</span><span class="dv">10</span>), <span class="dt">ncol =</span> <span class="dv">10</span>), <span class="dt">name =</span> <span class="st">&quot;expr&quot;</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))
 <span class="kw">draw</span>(ht_list)</code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-31-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-32-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>or add it vertically:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht_list =<span class="st"> </span><span class="kw">oncoPrint</span>(mat,
     <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, 
     <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param) <span class="op">%v%</span>
 <span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="kw">ncol</span>(mat)<span class="op">*</span><span class="dv">10</span>), <span class="dt">nrow =</span> <span class="dv">10</span>), <span class="dt">name =</span> <span class="st">&quot;expr&quot;</span>, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))
 <span class="kw">draw</span>(ht_list)</code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-32-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-33-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>Similar as normal heatmap list, you can split the heatmap list:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht_list =<span class="st"> </span><span class="kw">oncoPrint</span>(mat,
     <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, 
     <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param) <span class="op">+</span>
 <span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="kw">nrow</span>(mat)<span class="op">*</span><span class="dv">10</span>), <span class="dt">ncol =</span> <span class="dv">10</span>), <span class="dt">name =</span> <span class="st">&quot;expr&quot;</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))
 <span class="kw">draw</span>(ht_list, <span class="dt">row_split =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>), <span class="kw">nrow</span>(mat), <span class="dt">replace =</span> <span class="ot">TRUE</span>))</code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-33-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-34-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>When <code>remove_empty_columns</code> or <code>remove_empty_rows</code> is set to <code>TRUE</code>, the number of genes or the samples may not be the original number. If the original matrix has row names and column names. The subset of rows and columns can be get as follows:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht =<span class="st"> </span><span class="kw">oncoPrint</span>(mat,
     <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, 
     <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,
     <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)
 <span class="kw">rownames</span>(ht<span class="op">@</span>matrix)</code></pre></div>
-<pre><code>##  [1] &quot;KRAS&quot;   &quot;HRAS&quot;   &quot;BRAF&quot;   &quot;RAF1&quot;   &quot;MAP3K1&quot; &quot;MAP3K2&quot; &quot;MAP3K3&quot;
-##  [8] &quot;MAP3K4&quot; &quot;MAP3K5&quot; &quot;MAP2K1&quot; &quot;MAP2K2&quot; &quot;MAP2K3&quot; &quot;MAP2K4&quot; &quot;MAPK3&quot; 
-## [15] &quot;MAPK4&quot;  &quot;MAPK7&quot;  &quot;MAPK8&quot;  &quot;MAPK9&quot;  &quot;MAPK12&quot; &quot;MAPK14&quot; &quot;DAB2&quot;  
-## [22] &quot;RAB25&quot;</code></pre>
+<pre><code>##  [1] &quot;KRAS&quot;   &quot;HRAS&quot;   &quot;BRAF&quot;   &quot;RAF1&quot;   &quot;MAP3K1&quot; &quot;MAP3K2&quot; &quot;MAP3K3&quot; &quot;MAP3K4&quot;
+##  [9] &quot;MAP3K5&quot; &quot;MAP2K1&quot; &quot;MAP2K2&quot; &quot;MAP2K3&quot; &quot;MAP2K4&quot; &quot;MAPK3&quot;  &quot;MAPK4&quot;  &quot;MAPK7&quot; 
+## [17] &quot;MAPK8&quot;  &quot;MAPK9&quot;  &quot;MAPK12&quot; &quot;MAPK14&quot; &quot;DAB2&quot;   &quot;RAB25&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(ht<span class="op">@</span>matrix)</code></pre></div>
-<pre><code>##   [1] &quot;TCGA-05-4390-01&quot; &quot;TCGA-38-4631-01&quot; &quot;TCGA-44-6144-01&quot;
-##   [4] &quot;TCGA-44-6145-01&quot; &quot;TCGA-44-6146-01&quot; &quot;TCGA-49-4488-01&quot;
-##   [7] &quot;TCGA-50-5930-01&quot; &quot;TCGA-50-5931-01&quot; &quot;TCGA-50-5932-01&quot;
-##  [10] &quot;TCGA-50-5933-01&quot; &quot;TCGA-50-5941-01&quot; &quot;TCGA-50-5942-01&quot;
-##  [13] &quot;TCGA-50-5944-01&quot; &quot;TCGA-50-5946-01&quot; &quot;TCGA-50-6591-01&quot;
-##  [16] &quot;TCGA-50-6592-01&quot; &quot;TCGA-50-6594-01&quot; &quot;TCGA-67-4679-01&quot;
-##  [19] &quot;TCGA-67-6215-01&quot; &quot;TCGA-73-4658-01&quot; &quot;TCGA-73-4676-01&quot;
-##  [22] &quot;TCGA-75-5122-01&quot; &quot;TCGA-75-5125-01&quot; &quot;TCGA-75-5126-01&quot;
-##  [25] &quot;TCGA-75-6206-01&quot; &quot;TCGA-75-6211-01&quot; &quot;TCGA-86-6562-01&quot;
-##  [28] &quot;TCGA-05-4396-01&quot; &quot;TCGA-05-4405-01&quot; &quot;TCGA-05-4410-01&quot;
-##  [31] &quot;TCGA-05-4415-01&quot; &quot;TCGA-05-4417-01&quot; &quot;TCGA-05-4424-01&quot;
-##  [34] &quot;TCGA-05-4427-01&quot; &quot;TCGA-05-4433-01&quot; &quot;TCGA-44-6774-01&quot;
-##  [37] &quot;TCGA-44-6775-01&quot; &quot;TCGA-44-6776-01&quot; &quot;TCGA-44-6777-01&quot;
-##  [40] &quot;TCGA-44-6778-01&quot; &quot;TCGA-49-4487-01&quot; &quot;TCGA-49-4490-01&quot;
-##  [43] &quot;TCGA-49-6744-01&quot; &quot;TCGA-49-6745-01&quot; &quot;TCGA-49-6767-01&quot;
-##  [46] &quot;TCGA-50-5044-01&quot; &quot;TCGA-50-5051-01&quot; &quot;TCGA-50-5072-01&quot;
-##  [49] &quot;TCGA-50-6590-01&quot; &quot;TCGA-55-6642-01&quot; &quot;TCGA-55-6712-01&quot;
-##  [52] &quot;TCGA-71-6725-01&quot; &quot;TCGA-91-6828-01&quot; &quot;TCGA-91-6829-01&quot;
-##  [55] &quot;TCGA-91-6835-01&quot; &quot;TCGA-91-6836-01&quot; &quot;TCGA-35-3615-01&quot;
-##  [58] &quot;TCGA-44-2655-01&quot; &quot;TCGA-44-2656-01&quot; &quot;TCGA-44-2662-01&quot;
-##  [61] &quot;TCGA-44-2666-01&quot; &quot;TCGA-44-2668-01&quot; &quot;TCGA-55-1592-01&quot;
-##  [64] &quot;TCGA-55-1594-01&quot; &quot;TCGA-55-1595-01&quot; &quot;TCGA-64-1676-01&quot;
-##  [67] &quot;TCGA-64-1677-01&quot; &quot;TCGA-64-1678-01&quot; &quot;TCGA-64-1680-01&quot;
-##  [70] &quot;TCGA-67-3771-01&quot; &quot;TCGA-67-3773-01&quot; &quot;TCGA-67-3774-01&quot;
-##  [73] &quot;TCGA-05-4244-01&quot; &quot;TCGA-05-4249-01&quot; &quot;TCGA-05-4250-01&quot;
-##  [76] &quot;TCGA-35-4122-01&quot; &quot;TCGA-35-4123-01&quot; &quot;TCGA-44-2657-01&quot;
-##  [79] &quot;TCGA-44-3398-01&quot; &quot;TCGA-44-3918-01&quot; &quot;TCGA-05-4382-01&quot;
-##  [82] &quot;TCGA-05-4389-01&quot; &quot;TCGA-05-4395-01&quot; &quot;TCGA-05-4397-01&quot;
-##  [85] &quot;TCGA-05-4398-01&quot; &quot;TCGA-05-4402-01&quot; &quot;TCGA-05-4403-01&quot;
-##  [88] &quot;TCGA-05-4418-01&quot; &quot;TCGA-05-4420-01&quot; &quot;TCGA-05-4422-01&quot;
-##  [91] &quot;TCGA-05-4426-01&quot; &quot;TCGA-05-4430-01&quot; &quot;TCGA-05-4434-01&quot;
-##  [94] &quot;TCGA-38-4625-01&quot; &quot;TCGA-38-4626-01&quot; &quot;TCGA-38-4628-01&quot;
-##  [97] &quot;TCGA-38-4630-01&quot; &quot;TCGA-44-3396-01&quot; &quot;TCGA-49-4486-01&quot;
-## [100] &quot;TCGA-49-4505-01&quot; &quot;TCGA-49-4506-01&quot; &quot;TCGA-49-4507-01&quot;
-## [103] &quot;TCGA-49-4510-01&quot; &quot;TCGA-73-4659-01&quot; &quot;TCGA-73-4662-01&quot;
-## [106] &quot;TCGA-73-4668-01&quot; &quot;TCGA-73-4670-01&quot; &quot;TCGA-73-4677-01&quot;
-## [109] &quot;TCGA-05-5428-01&quot; &quot;TCGA-05-5715-01&quot; &quot;TCGA-50-5045-01&quot;
-## [112] &quot;TCGA-50-5049-01&quot; &quot;TCGA-50-5936-01&quot; &quot;TCGA-55-5899-01&quot;
-## [115] &quot;TCGA-64-5774-01&quot; &quot;TCGA-64-5775-01&quot; &quot;TCGA-64-5778-01&quot;
-## [118] &quot;TCGA-64-5815-01&quot; &quot;TCGA-75-5146-01&quot; &quot;TCGA-75-5147-01&quot;
+<pre><code>##   [1] &quot;TCGA-05-4390-01&quot; &quot;TCGA-38-4631-01&quot; &quot;TCGA-44-6144-01&quot; &quot;TCGA-44-6145-01&quot;
+##   [5] &quot;TCGA-44-6146-01&quot; &quot;TCGA-49-4488-01&quot; &quot;TCGA-50-5930-01&quot; &quot;TCGA-50-5931-01&quot;
+##   [9] &quot;TCGA-50-5932-01&quot; &quot;TCGA-50-5933-01&quot; &quot;TCGA-50-5941-01&quot; &quot;TCGA-50-5942-01&quot;
+##  [13] &quot;TCGA-50-5944-01&quot; &quot;TCGA-50-5946-01&quot; &quot;TCGA-50-6591-01&quot; &quot;TCGA-50-6592-01&quot;
+##  [17] &quot;TCGA-50-6594-01&quot; &quot;TCGA-67-4679-01&quot; &quot;TCGA-67-6215-01&quot; &quot;TCGA-73-4658-01&quot;
+##  [21] &quot;TCGA-73-4676-01&quot; &quot;TCGA-75-5122-01&quot; &quot;TCGA-75-5125-01&quot; &quot;TCGA-75-5126-01&quot;
+##  [25] &quot;TCGA-75-6206-01&quot; &quot;TCGA-75-6211-01&quot; &quot;TCGA-86-6562-01&quot; &quot;TCGA-05-4396-01&quot;
+##  [29] &quot;TCGA-05-4405-01&quot; &quot;TCGA-05-4410-01&quot; &quot;TCGA-05-4415-01&quot; &quot;TCGA-05-4417-01&quot;
+##  [33] &quot;TCGA-05-4424-01&quot; &quot;TCGA-05-4427-01&quot; &quot;TCGA-05-4433-01&quot; &quot;TCGA-44-6774-01&quot;
+##  [37] &quot;TCGA-44-6775-01&quot; &quot;TCGA-44-6776-01&quot; &quot;TCGA-44-6777-01&quot; &quot;TCGA-44-6778-01&quot;
+##  [41] &quot;TCGA-49-4487-01&quot; &quot;TCGA-49-4490-01&quot; &quot;TCGA-49-6744-01&quot; &quot;TCGA-49-6745-01&quot;
+##  [45] &quot;TCGA-49-6767-01&quot; &quot;TCGA-50-5044-01&quot; &quot;TCGA-50-5051-01&quot; &quot;TCGA-50-5072-01&quot;
+##  [49] &quot;TCGA-50-6590-01&quot; &quot;TCGA-55-6642-01&quot; &quot;TCGA-55-6712-01&quot; &quot;TCGA-71-6725-01&quot;
+##  [53] &quot;TCGA-91-6828-01&quot; &quot;TCGA-91-6829-01&quot; &quot;TCGA-91-6835-01&quot; &quot;TCGA-91-6836-01&quot;
+##  [57] &quot;TCGA-35-3615-01&quot; &quot;TCGA-44-2655-01&quot; &quot;TCGA-44-2656-01&quot; &quot;TCGA-44-2662-01&quot;
+##  [61] &quot;TCGA-44-2666-01&quot; &quot;TCGA-44-2668-01&quot; &quot;TCGA-55-1592-01&quot; &quot;TCGA-55-1594-01&quot;
+##  [65] &quot;TCGA-55-1595-01&quot; &quot;TCGA-64-1676-01&quot; &quot;TCGA-64-1677-01&quot; &quot;TCGA-64-1678-01&quot;
+##  [69] &quot;TCGA-64-1680-01&quot; &quot;TCGA-67-3771-01&quot; &quot;TCGA-67-3773-01&quot; &quot;TCGA-67-3774-01&quot;
+##  [73] &quot;TCGA-05-4244-01&quot; &quot;TCGA-05-4249-01&quot; &quot;TCGA-05-4250-01&quot; &quot;TCGA-35-4122-01&quot;
+##  [77] &quot;TCGA-35-4123-01&quot; &quot;TCGA-44-2657-01&quot; &quot;TCGA-44-3398-01&quot; &quot;TCGA-44-3918-01&quot;
+##  [81] &quot;TCGA-05-4382-01&quot; &quot;TCGA-05-4389-01&quot; &quot;TCGA-05-4395-01&quot; &quot;TCGA-05-4397-01&quot;
+##  [85] &quot;TCGA-05-4398-01&quot; &quot;TCGA-05-4402-01&quot; &quot;TCGA-05-4403-01&quot; &quot;TCGA-05-4418-01&quot;
+##  [89] &quot;TCGA-05-4420-01&quot; &quot;TCGA-05-4422-01&quot; &quot;TCGA-05-4426-01&quot; &quot;TCGA-05-4430-01&quot;
+##  [93] &quot;TCGA-05-4434-01&quot; &quot;TCGA-38-4625-01&quot; &quot;TCGA-38-4626-01&quot; &quot;TCGA-38-4628-01&quot;
+##  [97] &quot;TCGA-38-4630-01&quot; &quot;TCGA-44-3396-01&quot; &quot;TCGA-49-4486-01&quot; &quot;TCGA-49-4505-01&quot;
+## [101] &quot;TCGA-49-4506-01&quot; &quot;TCGA-49-4507-01&quot; &quot;TCGA-49-4510-01&quot; &quot;TCGA-73-4659-01&quot;
+## [105] &quot;TCGA-73-4662-01&quot; &quot;TCGA-73-4668-01&quot; &quot;TCGA-73-4670-01&quot; &quot;TCGA-73-4677-01&quot;
+## [109] &quot;TCGA-05-5428-01&quot; &quot;TCGA-05-5715-01&quot; &quot;TCGA-50-5045-01&quot; &quot;TCGA-50-5049-01&quot;
+## [113] &quot;TCGA-50-5936-01&quot; &quot;TCGA-55-5899-01&quot; &quot;TCGA-64-5774-01&quot; &quot;TCGA-64-5775-01&quot;
+## [117] &quot;TCGA-64-5778-01&quot; &quot;TCGA-64-5815-01&quot; &quot;TCGA-75-5146-01&quot; &quot;TCGA-75-5147-01&quot;
 ## [121] &quot;TCGA-80-5611-01&quot;</code></pre>
 
 </div>
@@ -749,12 +765,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -766,6 +781,10 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

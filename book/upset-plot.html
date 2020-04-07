@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 UpSet plot | ComplexHeatmap Complete Reference</title>
   <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 UpSet plot | ComplexHeatmap Complete Reference" />
   <meta property="og:type" content="book" />
@@ -162,6 +162,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.17" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#zoom-annotation"><i class="fa fa-check"></i><b>3.17</b> Zoom annotation</a></li>
 <li class="chapter" data-level="3.18" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#multiple-annotations"><i class="fa fa-check"></i><b>3.18</b> Multiple annotations</a><ul>
 <li class="chapter" data-level="3.18.1" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#size-of-annotations"><i class="fa fa-check"></i><b>3.18.1</b> Size of annotations</a></li>
+<li class="chapter" data-level="3.18.2" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#annotation-labels"><i class="fa fa-check"></i><b>3.18.2</b> Annotation labels</a></li>
 </ul></li>
 <li class="chapter" data-level="3.19" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#heatmap-annotation-utility-function"><i class="fa fa-check"></i><b>3.19</b> Utility functions</a></li>
 <li class="chapter" data-level="3.20" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#implement-new-annotation-functions"><i class="fa fa-check"></i><b>3.20</b> Implement new annotation functions</a></li>
@@ -205,7 +206,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.1.2" data-path="oncoprint.html"><a href="oncoprint.html#define-the-alter-fun"><i class="fa fa-check"></i><b>7.1.2</b> Define the alter_fun()</a></li>
 <li class="chapter" data-level="7.1.3" data-path="oncoprint.html"><a href="oncoprint.html#oncoprint-background"><i class="fa fa-check"></i><b>7.1.3</b> Background</a></li>
 <li class="chapter" data-level="7.1.4" data-path="oncoprint.html"><a href="oncoprint.html#complex-alteration-types"><i class="fa fa-check"></i><b>7.1.4</b> Complex alteration types</a></li>
-<li class="chapter" data-level="7.1.5" data-path="oncoprint.html"><a href="oncoprint.html#other-heatmap-related-settings"><i class="fa fa-check"></i><b>7.1.5</b> Other heatmap-related settings</a></li>
+<li class="chapter" data-level="7.1.5" data-path="oncoprint.html"><a href="oncoprint.html#simplify-alter_fun"><i class="fa fa-check"></i><b>7.1.5</b> Simplify alter_fun</a></li>
+<li class="chapter" data-level="7.1.6" data-path="oncoprint.html"><a href="oncoprint.html#other-heatmap-related-settings"><i class="fa fa-check"></i><b>7.1.6</b> Other heatmap-related settings</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="oncoprint.html"><a href="oncoprint.html#apply-to-cbioportal-dataset"><i class="fa fa-check"></i><b>7.2</b> Apply to cBioPortal dataset</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="oncoprint.html"><a href="oncoprint.html#remove-empty-rows-and-columns"><i class="fa fa-check"></i><b>7.2.1</b> Remove empty rows and columns</a></li>
@@ -238,6 +240,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="11" data-path="other-tricks.html"><a href="other-tricks.html"><i class="fa fa-check"></i><b>11</b> Other Tricks</a><ul>
 <li class="chapter" data-level="11.1" data-path="other-tricks.html"><a href="other-tricks.html#set-the-same-cell-size-for-different-heatmaps-with-different-dimensions"><i class="fa fa-check"></i><b>11.1</b> Set the same cell size for different heatmaps with different dimensions</a></li>
+<li class="chapter" data-level="11.2" data-path="other-tricks.html"><a href="other-tricks.html#integrate-with-gridtext-package"><i class="fa fa-check"></i><b>11.2</b> Integrate with gridtext package</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="other-tricks.html"><a href="other-tricks.html#titles"><i class="fa fa-check"></i><b>11.2.1</b> Titles</a></li>
+<li class="chapter" data-level="11.2.2" data-path="other-tricks.html"><a href="other-tricks.html#rowcolumn-names"><i class="fa fa-check"></i><b>11.2.2</b> Row/column names</a></li>
+<li class="chapter" data-level="11.2.3" data-path="other-tricks.html"><a href="other-tricks.html#annotation-labels-1"><i class="fa fa-check"></i><b>11.2.3</b> Annotation labels</a></li>
+<li class="chapter" data-level="11.2.4" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#text-annotation"><i class="fa fa-check"></i><b>11.2.4</b> Text annotation</a></li>
+<li class="chapter" data-level="11.2.5" data-path="other-tricks.html"><a href="other-tricks.html#legend"><i class="fa fa-check"></i><b>11.2.5</b> Legend</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -281,7 +290,7 @@ j    1    0    0
 u    1    0    1
 w    1    0    0
 ...</code></pre>
-<p>E.g., for row <code>t</code>, it means, <code>t</code> is in set <strong>set1</strong>, not in set <strong>set2</strong>, and in set <strong>set3</strong>. Note the matrix is also valid if it is a logical matrix.</p>
+<p>In the matrix, e.g., for row <code>t</code>, it means, <code>t</code> is in set <strong>set1</strong>, not in set <strong>set2</strong>, and in set <strong>set3</strong>. Note the matrix is also valid if it is a logical matrix.</p>
 <p>If the variable is a data frame, the binary columns (only contain 0 and 1) and the logical columns are only used.</p>
 <p>Both formats can be used for making UpSet plots, users can still use <code>list_to_matrix()</code> to convert from list to the binary matrix.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lt =<span class="st"> </span><span class="kw">list</span>(<span class="dt">set1 =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>),
@@ -306,6 +315,13 @@ w    1    0    0
 ## h    0    0
 ## i    0    0
 ## j    0    0</code></pre>
+<p>If the universal set does not completely cover the input sets, those elements are not in the universal set are removed:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">list_to_matrix</span>(lt, <span class="dt">universal =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>])</code></pre></div>
+<pre><code>##   set1 set2
+## a    1    0
+## b    1    1
+## c    1    1
+## d    0    1</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>The set can be genomic intervals, then it can only be represented as a list of <code>GRanges</code>/<code>IRanges</code> objects.</li>
 </ol>
@@ -315,7 +331,7 @@ w    1    0    0
 </div>
 <div id="upset-mode" class="section level2">
 <h2><span class="header-section-number">8.2</span> Mode</h2>
-<p>E.g. for three sets (<strong>A</strong>, <strong>B</strong>, <strong>C</strong>), all combinations of selecting elements in the set or not in the set are as following:</p>
+<p>E.g. for three sets (<strong>A</strong>, <strong>B</strong>, <strong>C</strong>), all combinations of selecting elements in the set or not in the set are encoded as following:</p>
 <pre><code>A B C
 1 1 1
 1 1 0
@@ -324,7 +340,7 @@ w    1    0    0
 1 0 0
 0 1 0
 0 0 1</code></pre>
-<p>A value of 1 means to select that set and 0 means not to select that set. E.g., “1 1 0” means to select set A, B while not set C. Note there is no “0 0 0”, because the background set is not of interest here. In following part of this section, we refer <strong>A</strong>, <strong>B</strong> and <strong>C</strong> as <strong>sets</strong> and each combination as <strong>combination set</strong>. The whole binary matrix is called <strong>combination matrix</strong>.</p>
+<p>A value of 1 means to select that set and 0 means not to select that set. E.g., <code>1 1 0</code> means to select set A, B while not set C. Note there is no <code>0 0 0</code>, because the background set is not of interest here. In following part of this section, we refer <strong>A</strong>, <strong>B</strong> and <strong>C</strong> as <strong>sets</strong> and each combination as <strong>combination set</strong>. The whole binary matrix is called <strong>combination matrix</strong>.</p>
 <p>The UpSet plot visualizes the <strong>size</strong> of each combination set. With the binary code of each combination set, next we need to define how to calculate the size of that combination set. There are three modes:</p>
 <ol style="list-style-type: decimal">
 <li><p><code>distinct</code> mode: 1 means in that set and 0 means not in that set, then <code>1 1    0</code> means a set of elements both in set <strong>A</strong> and <strong>B</strong>, while not in <strong>C</strong> (<code>setdiff(intersect(A, B), C)</code>). Under this mode, the seven combination sets are the seven partitions in the Venn diagram and they are mutually exclusive.</p></li>
@@ -348,15 +364,21 @@ m1</code></pre></div>
 ##   mode for the combination size: distinct.
 ##   sets are on rows.
 ## 
-## Utility functions that can be applied:
-## - set_name(): name of the sets.
-## - set_size(): size of the sets.
-## - comb_name(): name of the combination sets.
-## - comb_size(): size of the combination sets.
-## - comb_degree(): degree of the combination sets.
-## - extract_comb(): extract elements in the specific combination set.
-## - t(): transpose the combination matrix on the UpSet plot.
-## - &#39;[&#39;: subset the combination matrix.</code></pre>
+## Combination sets are:
+##   a b c code size
+##   x x x  111    2
+##   x x    110    1
+##   x   x  101    1
+##     x x  011    4
+##   x      100    1
+##     x    010    3
+##       x  001    8
+## 
+## Sets are:
+##   set size
+##     a    5
+##     b   10
+##     c   15</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(<span class="dt">a =</span> lt<span class="op">$</span>a, <span class="dt">b =</span> lt<span class="op">$</span>b, <span class="dt">c =</span> lt<span class="op">$</span>c)
 m3 =<span class="st"> </span><span class="kw">make_comb_mat</span>(<span class="kw">list_to_matrix</span>(lt))</code></pre></div>
 <p><code>m1</code>, <code>m2</code> and <code>m3</code> are identical.</p>
@@ -365,26 +387,29 @@ m3 =<span class="st"> </span><span class="kw">make_comb_mat</span>(<span class="
 m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;intersect&quot;</span>)
 m3 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;union&quot;</span>)</code></pre></div>
 <p>The UpSet plots under different modes will be demonstrated in later sections.</p>
-<p>When there are too many sets, the sets can be pre-filtered by the set sizes. The <code>min_set_size</code> and <code>top_n_sets</code> are for this purpose. <code>min_set_size</code> controls the minimal size for the sets and <code>top_n_sets</code> controls the number of top sets with largest sizes.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m1 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">min_set_size =</span> <span class="dv">4</span>)
+<p>When there are too many sets, the sets can be pre-filtered by the set sizes. The <code>min_set_size</code> and <code>top_n_sets</code> are for this purpose. <code>min_set_size</code> controls the minimal size for the sets and <code>top_n_sets</code> controls the number of top sets with the largest sizes.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m1 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">min_set_size =</span> <span class="dv">6</span>)
 m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">top_n_sets =</span> <span class="dv">2</span>)</code></pre></div>
 <p>The subsetting of the sets affects the calculation of the sizes of the combination sets, that is why it needs to be controlled at the combination matrix generation step. The subsetting of combination sets can be directly performed by subsetting the matrix:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt)
 m[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]</code></pre></div>
 <pre><code>## A combination matrix with 3 sets and 4 combinations.
-##   ranges of combination set size: c(1, 8).
+##   ranges of combination set size: c(1, 4).
 ##   mode for the combination size: distinct.
 ##   sets are on rows.
 ## 
-## Utility functions that can be applied:
-## - set_name(): name of the sets.
-## - set_size(): size of the sets.
-## - comb_name(): name of the combination sets.
-## - comb_size(): size of the combination sets.
-## - comb_degree(): degree of the combination sets.
-## - extract_comb(): extract elements in the specific combination set.
-## - t(): transpose the combination matrix on the UpSet plot.
-## - &#39;[&#39;: subset the combination matrix.</code></pre>
+## Combination sets are:
+##   a b c code size
+##   x x x  111    2
+##   x x    110    1
+##   x   x  101    1
+##     x x  011    4
+## 
+## Sets are:
+##   set size
+##     a    5
+##     b   10
+##     c   15</code></pre>
 <p><code>make_comb_mat()</code> also allows to specify the universal set so that the complement set which contains elements not belonging to any set is also considered.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters)
 m</code></pre></div>
@@ -392,17 +417,24 @@ m</code></pre></div>
 ##   ranges of combination set size: c(1, 8).
 ##   mode for the combination size: distinct.
 ##   sets are on rows.
-##   universal set is set.
 ## 
-## Utility functions that can be applied:
-## - set_name(): name of the sets.
-## - set_size(): size of the sets.
-## - comb_name(): name of the combination sets.
-## - comb_size(): size of the combination sets.
-## - comb_degree(): degree of the combination sets.
-## - extract_comb(): extract elements in the specific combination set.
-## - t(): transpose the combination matrix on the UpSet plot.
-## - &#39;[&#39;: subset the combination matrix.</code></pre>
+## Combination sets are:
+##   a b c code size
+##   x x x  111    2
+##   x x    110    1
+##   x   x  101    1
+##     x x  011    4
+##   x      100    1
+##     x    010    3
+##       x  001    8
+##          000    6
+## 
+## Sets are:
+##          set size
+##            a    5
+##            b   10
+##            c   15
+##   complement    6</code></pre>
 <p>The universal set can be smaller than the union of all sets, then for each set, only the intersection to universal set is considered.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])
 m</code></pre></div>
@@ -410,17 +442,21 @@ m</code></pre></div>
 ##   ranges of combination set size: c(1, 3).
 ##   mode for the combination size: distinct.
 ##   sets are on rows.
-##   universal set is set.
 ## 
-## Utility functions that can be applied:
-## - set_name(): name of the sets.
-## - set_size(): size of the sets.
-## - comb_name(): name of the combination sets.
-## - comb_size(): size of the combination sets.
-## - comb_degree(): degree of the combination sets.
-## - extract_comb(): extract elements in the specific combination set.
-## - t(): transpose the combination matrix on the UpSet plot.
-## - &#39;[&#39;: subset the combination matrix.</code></pre>
+## Combination sets are:
+##   a b c code size
+##   x x    110    1
+##   x   x  101    1
+##     x x  011    2
+##       x  001    3
+##          000    3
+## 
+## Sets are:
+##          set size
+##            a    2
+##            b    3
+##            c    6
+##   complement    3</code></pre>
 <p>If you already know the size of the complement size, you can directly set <code>complement_size</code> argument.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">complement_size =</span> <span class="dv">5</span>)
 m</code></pre></div>
@@ -429,15 +465,23 @@ m</code></pre></div>
 ##   mode for the combination size: distinct.
 ##   sets are on rows.
 ## 
-## Utility functions that can be applied:
-## - set_name(): name of the sets.
-## - set_size(): size of the sets.
-## - comb_name(): name of the combination sets.
-## - comb_size(): size of the combination sets.
-## - comb_degree(): degree of the combination sets.
-## - extract_comb(): extract elements in the specific combination set.
-## - t(): transpose the combination matrix on the UpSet plot.
-## - &#39;[&#39;: subset the combination matrix.</code></pre>
+## Combination sets are:
+##   a b c code size
+##   x x x  111    2
+##   x x    110    1
+##   x   x  101    1
+##     x x  011    4
+##   x      100    1
+##     x    010    3
+##       x  001    8
+##          000    5
+## 
+## Sets are:
+##          set size
+##            a    5
+##            b   10
+##            c   15
+##   complement    5</code></pre>
 <p>When the input is matrix and it contains elements that do not belong to any of the set, these elements are treated as complement set.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="kw">list_to_matrix</span>(lt, <span class="dt">universal_set =</span> letters)
 m =<span class="st"> </span><span class="kw">make_comb_mat</span>(x)
@@ -446,17 +490,56 @@ m</code></pre></div>
 ##   ranges of combination set size: c(1, 8).
 ##   mode for the combination size: distinct.
 ##   sets are on rows.
-##   universal set is set.
 ## 
-## Utility functions that can be applied:
-## - set_name(): name of the sets.
-## - set_size(): size of the sets.
-## - comb_name(): name of the combination sets.
-## - comb_size(): size of the combination sets.
-## - comb_degree(): degree of the combination sets.
-## - extract_comb(): extract elements in the specific combination set.
-## - t(): transpose the combination matrix on the UpSet plot.
-## - &#39;[&#39;: subset the combination matrix.</code></pre>
+## Combination sets are:
+##   a b c code size
+##   x x x  111    2
+##   x x    110    1
+##   x   x  101    1
+##     x x  011    4
+##   x      100    1
+##     x    010    3
+##       x  001    8
+##          000    6
+## 
+## Sets are:
+##          set size
+##            a    5
+##            b   10
+##            c   15
+##   complement    6</code></pre>
+<p>Next we demonstrate a second example, where the sets are genomic regions. <strong>When the sets are genomic regions, the size is calculated as the sum of the width of regions in each set (or in other words, the total number of base pairs).</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(circlize)
+<span class="kw">library</span>(GenomicRanges)
+lt2 =<span class="st"> </span><span class="kw">lapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="cf">function</span>(i) <span class="kw">generateRandomBed</span>())
+lt2 =<span class="st"> </span><span class="kw">lapply</span>(lt2, <span class="cf">function</span>(df) <span class="kw">GRanges</span>(<span class="dt">seqnames =</span> df[, <span class="dv">1</span>], 
+    <span class="dt">ranges =</span> <span class="kw">IRanges</span>(df[, <span class="dv">2</span>], df[, <span class="dv">3</span>])))
+<span class="kw">names</span>(lt2) =<span class="st"> </span>letters[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]
+m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt2)
+m</code></pre></div>
+<pre><code>## A combination matrix with 4 sets and 15 combinations.
+##   ranges of combination set size: c(184941701, 199900416).
+##   mode for the combination size: distinct.
+##   sets are on rows.
+## 
+## Top 8 combination sets are:
+##   a b c d code      size
+##       x x 0011 199900416
+##   x       1000 199756519
+##   x   x x 1011 198735008
+##   x x x x 1111 197341532
+##   x x x   1110 197137160
+##   x x   x 1101 194569926
+##   x     x 1001 194462988
+##   x   x   1010 192670258
+## 
+## Sets are:
+##   set       size
+##     a 1566783009
+##     b 1535968265
+##     c 1560549760
+##     d 1552480645</code></pre>
+<p>We don’t recommend to use <strong>the number of regions</strong> for the intersection of two sets of genomic regions. There are two reasons: 1. the value is not symmetric, i.e. the number of intersected regions measured in set1 is not always identical to the number of intersected regions measured in set2, thus, it is difficult to assign a value for the intersection between set1 and set2; 2. if one long region in set1 overlaps to another long region in set2, but only in a few base pairs, does it make sense to say these two regions are common in the two sets?</p>
 <p>The universal set also works for sets as genomic regions.</p>
 </div>
 <div id="upset-utility-functions" class="section level2">
@@ -470,60 +553,60 @@ m</code></pre></div>
 <li><code>comb_degree()</code>: The degree for a combination set is the number of sets that are selected.</li>
 <li><code>t()</code>: Transpose the combination matrix. By default <code>make_comb_mat()</code> generates a matrix where sets are on rows and combination sets are on columns, and so are they on the UpSet plots. By transposing the combination matrix, the position of sets and combination sets can be swtiched on the UpSet plot.</li>
 <li><code>extract_comb()</code>: Extract the elements in a specified combination set. The usage will be explained later.</li>
+<li>Functions for subsetting the matrix.</li>
 </ul>
 <p>Quick examples are:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt)
 <span class="kw">set_name</span>(m)</code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">comb_name</span>(m)</code></pre></div>
-<pre><code>## [1] &quot;100&quot; &quot;010&quot; &quot;001&quot; &quot;110&quot; &quot;101&quot; &quot;011&quot; &quot;111&quot;</code></pre>
+<pre><code>## [1] &quot;111&quot; &quot;110&quot; &quot;101&quot; &quot;011&quot; &quot;100&quot; &quot;010&quot; &quot;001&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set_size</span>(m)</code></pre></div>
 <pre><code>##  a  b  c 
 ##  5 10 15</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">comb_size</span>(m)</code></pre></div>
-<pre><code>## 100 010 001 110 101 011 111 
-##   1   3   8   1   1   4   2</code></pre>
+<pre><code>## 111 110 101 011 100 010 001 
+##   2   1   1   4   1   3   8</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">comb_degree</span>(m)</code></pre></div>
-<pre><code>## 100 010 001 110 101 011 111 
-##   1   1   1   2   2   2   3</code></pre>
+<pre><code>## 111 110 101 011 100 010 001 
+##   3   2   2   2   1   1   1</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t</span>(m)</code></pre></div>
 <pre><code>## A combination matrix with 3 sets and 7 combinations.
 ##   ranges of combination set size: c(1, 8).
 ##   mode for the combination size: distinct.
 ##   sets are on columns
 ## 
-## Utility functions that can be applied:
-## - set_name(): name of the sets.
-## - set_size(): size of the sets.
-## - comb_name(): name of the combination sets.
-## - comb_size(): size of the combination sets.
-## - comb_degree(): degree of the combination sets.
-## - extract_comb(): extract elements in the specific combination set.
-## - t(): transpose the combination matrix on the UpSet plot.
-## - &#39;[&#39;: subset the combination matrix.</code></pre>
+## Combination sets are:
+##   a b c code size
+##   x x x  111    2
+##   x x    110    1
+##   x   x  101    1
+##     x x  011    4
+##   x      100    1
+##     x    010    3
+##       x  001    8
+## 
+## Sets are:
+##   set size
+##     a    5
+##     b   10
+##     c   15</code></pre>
 <p>For using <code>extract_comb()</code>, the valid combination set name should be from <code>comb_name()</code>. Note the elements in the combination sets depends on the “mode” set in <code>make_comb_mat()</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">extract_comb</span>(m, <span class="st">&quot;101&quot;</span>)</code></pre></div>
 <pre><code>## [1] &quot;j&quot;</code></pre>
-<p>Next we demonstrate a second example, where the sets are genomic regions. <strong>When the sets are genomic regions, the size is calculated as the sum of the width of regions in each set (or in other words, the total number of base pairs).</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(circlize)
-<span class="kw">library</span>(GenomicRanges)
-lt2 =<span class="st"> </span><span class="kw">lapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="cf">function</span>(i) <span class="kw">generateRandomBed</span>())
-lt2 =<span class="st"> </span><span class="kw">lapply</span>(lt2, <span class="cf">function</span>(df) <span class="kw">GRanges</span>(<span class="dt">seqnames =</span> df[, <span class="dv">1</span>], 
-    <span class="dt">ranges =</span> <span class="kw">IRanges</span>(df[, <span class="dv">2</span>], df[, <span class="dv">3</span>])))
-<span class="kw">names</span>(lt2) =<span class="st"> </span>letters[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]
-m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt2)
-<span class="kw">set_size</span>(m)</code></pre></div>
+<p>And the example for sets that are the genomic regions:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># `lt2` was generated in the previous section </span>
+m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt2)
+<span class="kw">set_size</span>(m2)</code></pre></div>
 <pre><code>##          a          b          c          d 
 ## 1566783009 1535968265 1560549760 1552480645</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">comb_size</span>(m)</code></pre></div>
-<pre><code>##      1000      0100      0010      0001      1100      1010      1001 
-## 199756519 187196837 192093895 191216619 192109618 192670258 194462988 
-##      0110      0101      0011      1110      1101      1011      0111 
-## 191359036 184941701 199900416 197137160 194569926 198735008 191312455 
-##      1111 
-## 197341532</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">comb_size</span>(m2)</code></pre></div>
+<pre><code>##      1111      1110      1101      1011      0111      1100      1010      1001 
+## 197341532 197137160 194569926 198735008 191312455 192109618 192670258 194462988 
+##      0110      0101      0011      1000      0100      0010      0001 
+## 191359036 184941701 199900416 199756519 187196837 192093895 191216619</code></pre>
 <p>And now <code>extract_comb()</code> returns genomic regions that are in the corresponding combination set.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">extract_comb</span>(m, <span class="st">&quot;1010&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">extract_comb</span>(m2, <span class="st">&quot;1010&quot;</span>)</code></pre></div>
 <pre><code>## GRanges object with 5063 ranges and 0 metadata columns:
 ##          seqnames            ranges strand
 ##             &lt;Rle&gt;         &lt;IRanges&gt;  &lt;Rle&gt;
@@ -549,15 +632,16 @@ m[<span class="kw">comb_size</span>(m) <span class="op">&gt;=</span><span class=
 ##   mode for the combination size: distinct.
 ##   sets are on rows.
 ## 
-## Utility functions that can be applied:
-## - set_name(): name of the sets.
-## - set_size(): size of the sets.
-## - comb_name(): name of the combination sets.
-## - comb_size(): size of the combination sets.
-## - comb_degree(): degree of the combination sets.
-## - extract_comb(): extract elements in the specific combination set.
-## - t(): transpose the combination matrix on the UpSet plot.
-## - &#39;[&#39;: subset the combination matrix.</code></pre>
+## Combination sets are:
+##   a b c code size
+##     x x  011    4
+##       x  001    8
+## 
+## Sets are:
+##   set size
+##     a    5
+##     b   10
+##     c   15</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># combination set degree == 2</span>
 m[<span class="kw">comb_degree</span>(m) <span class="op">==</span><span class="st"> </span><span class="dv">2</span>]</code></pre></div>
 <pre><code>## A combination matrix with 3 sets and 3 combinations.
@@ -565,22 +649,24 @@ m[<span class="kw">comb_degree</span>(m) <span class="op">==</span><span class="
 ##   mode for the combination size: distinct.
 ##   sets are on rows.
 ## 
-## Utility functions that can be applied:
-## - set_name(): name of the sets.
-## - set_size(): size of the sets.
-## - comb_name(): name of the combination sets.
-## - comb_size(): size of the combination sets.
-## - comb_degree(): degree of the combination sets.
-## - extract_comb(): extract elements in the specific combination set.
-## - t(): transpose the combination matrix on the UpSet plot.
-## - &#39;[&#39;: subset the combination matrix.</code></pre>
+## Combination sets are:
+##   a b c code size
+##   x x    110    1
+##   x   x  101    1
+##     x x  011    4
+## 
+## Sets are:
+##   set size
+##     a    5
+##     b   10
+##     c   15</code></pre>
 <p>For the complement set, the name for this special combination set is only composed of zeros.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters)
 <span class="kw">comb_name</span>(m2) <span class="co"># see the first element</span></code></pre></div>
-<pre><code>## [1] &quot;000&quot; &quot;100&quot; &quot;010&quot; &quot;001&quot; &quot;110&quot; &quot;101&quot; &quot;011&quot; &quot;111&quot;</code></pre>
+<pre><code>## [1] &quot;111&quot; &quot;110&quot; &quot;101&quot; &quot;011&quot; &quot;100&quot; &quot;010&quot; &quot;001&quot; &quot;000&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">comb_degree</span>(m2)</code></pre></div>
-<pre><code>## 000 100 010 001 110 101 011 111 
-##   0   1   1   1   2   2   2   3</code></pre>
+<pre><code>## 111 110 101 011 100 010 001 000 
+##   3   2   2   2   1   1   1   0</code></pre>
 <p>If <code>universal_set</code> was set in <code>make_comb_mat()</code>, <code>extract_comb()</code> can be applied to the complement set.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters)
 <span class="kw">extract_comb</span>(m2, <span class="st">&quot;000&quot;</span>)</code></pre></div>
@@ -589,32 +675,64 @@ m[<span class="kw">comb_degree</span>(m) <span class="op">==</span><span class="
 <span class="kw">extract_comb</span>(m2, <span class="st">&quot;000&quot;</span>)</code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;f&quot;</code></pre>
 <p>When <code>universal_set</code> was set, <code>extract_comb()</code> also works for genomic region sets.</p>
+<p>In previous examples, we demonstrated using “one-dimensional index” such as:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m[<span class="kw">comb_degree</span>(m) <span class="op">==</span><span class="st"> </span><span class="dv">2</span>]</code></pre></div>
+<p>Since the combination matrix is natually a matrix, the indices can also be applied to the both dimensions. In the default settings, sets are on the rows and combination sets are on the columns, thus, indices on the first dimension of the matrix correspond to sets and indices on the second dimension correspond to combination sets:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># by set names</span>
+m[<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), ]
+<span class="co"># by nummeric indicies</span>
+m[<span class="dv">3</span><span class="op">:</span><span class="dv">1</span>, ]</code></pre></div>
+<p><strong>New empty sets</strong> can be added to the combination matrix by:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># `d` is the new empty set</span>
+m[<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>), ]</code></pre></div>
+<p>Note when the indices specified do not cover all non-empty sets in the original combination matrix, the combination matrix will be re-calculated because it affects the values in the combination sets:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># if `c` is a non-empty set</span>
+m[<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>),]</code></pre></div>
+<p>Similar for subsetting on the second dimension which correspond to the combination sets:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># reorder</span>
+m[, <span class="dv">5</span><span class="op">:</span><span class="dv">1</span>]
+<span class="co"># take a subset</span>
+m[, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]
+<span class="co"># by charater indices</span>
+m[, <span class="kw">c</span>(<span class="st">&quot;110&quot;</span>, <span class="st">&quot;101&quot;</span>, <span class="st">&quot;011&quot;</span>)]</code></pre></div>
+<p>New empty combination sets can also be added by setting the character indices:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m[m, <span class="kw">c</span>(<span class="kw">comb_name</span>(m), <span class="st">&quot;100&quot;</span>)]</code></pre></div>
+<p>Indices can be set on both dimension simultaneously only when the set indices covers all non-empty sets:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m[<span class="dv">3</span><span class="op">:</span><span class="dv">1</span>, <span class="dv">5</span><span class="op">:</span><span class="dv">1</span>]
+<span class="co"># this will throw an error because `c` is a non-empty set</span>
+m[<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>), <span class="dv">5</span><span class="op">:</span><span class="dv">1</span>]</code></pre></div>
+<p>If the combination matrix was transposed, the margin of the matrix where set indices and combination set indices should be switched.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tm =<span class="st"> </span><span class="kw">t</span>(m)
+tm[<span class="kw">reverse</span>(<span class="kw">comb_name</span>(tm)), <span class="kw">reverse</span>(<span class="kw">set_name</span>(tm))]</code></pre></div>
+<p>If only the indices for the combination sets are set as one-dimensional, it automatically works for both matrices that are transposed or not:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]
+tm[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</code></pre></div>
 </div>
 <div id="upset-making-the-plot" class="section level2">
 <h2><span class="header-section-number">8.5</span> Make the plot</h2>
 <p>Making the UpSet plot is very straightforward that users just send the combination matrix to <code>UpSet()</code> function:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">UpSet</span>(m)</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-23-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-33-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>By default the sets are ordered by the size and the combination sets are ordered by the degree (number of sets that are selected).</p>
 <p>The order is controlled by <code>set_order</code> and <code>comb_order</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">UpSet</span>(m, <span class="dt">set_order =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), <span class="dt">comb_order =</span> <span class="kw">order</span>(<span class="kw">comb_size</span>(m)))</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-24-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-34-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Color of dots, size of dots and line width of the segments are controlled by <code>pt_size</code>, <code>comb_col</code> and <code>lwd</code>. <code>comb_col</code> should be a vector corresponding to the combination sets. In following code, since <code>comb_degree(m)</code> returns a vector of integers, we just use it as index for the color vector.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">UpSet</span>(m, <span class="dt">pt_size =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">lwd =</span> <span class="dv">3</span>,
     <span class="dt">comb_col =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;black&quot;</span>)[<span class="kw">comb_degree</span>(m)])</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-25-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-35-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Colors for the background (the rectangles and the dots representing the set is not selected) are controlled by <code>bg_col</code>, <code>bg_pt_col</code>. The length of <code>bg_col</code> can have length of one or two.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">UpSet</span>(m, <span class="dt">comb_col =</span> <span class="st">&quot;#0000FF&quot;</span>, <span class="dt">bg_col =</span> <span class="st">&quot;#F0F0FF&quot;</span>, <span class="dt">bg_pt_col =</span> <span class="st">&quot;#CCCCFF&quot;</span>)</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-26-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-36-1.png" width="480" style="display: block; margin: auto;" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">UpSet</span>(m, <span class="dt">comb_col =</span> <span class="st">&quot;#0000FF&quot;</span>, <span class="dt">bg_col =</span> <span class="kw">c</span>(<span class="st">&quot;#F0F0FF&quot;</span>, <span class="st">&quot;#FFF0F0&quot;</span>), <span class="dt">bg_pt_col =</span> <span class="st">&quot;#CCCCFF&quot;</span>)</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-26-2.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-36-2.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Transposing the combination matrix swtiches the sets to columns and combination sets to rows.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">UpSet</span>(<span class="kw">t</span>(m))</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-27-1.png" width="288" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-37-1.png" width="288" style="display: block; margin: auto;" /></p>
 <p>As we have introduced, if do subsetting on the combination sets, the subset of the matrix can be visualized as well:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">UpSet</span>(m[<span class="kw">comb_size</span>(m) <span class="op">&gt;=</span><span class="st"> </span><span class="dv">4</span>])
 <span class="kw">UpSet</span>(m[<span class="kw">comb_degree</span>(m) <span class="op">==</span><span class="st"> </span><span class="dv">2</span>])</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-29-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-39-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Following compares the different mode in <code>make_comb_mat()</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m1 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt) <span class="co"># the default mode is `distinct`</span>
 m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;intersect&quot;</span>)
@@ -622,34 +740,25 @@ m3 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span cla
 <span class="kw">UpSet</span>(m1)
 <span class="kw">UpSet</span>(m2)
 <span class="kw">UpSet</span>(m3)</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-31-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-41-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>For the plot containing complement set, there is one additional column showing this complement set does not overlap to any of the sets (all dots are in grey).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters)
 <span class="kw">UpSet</span>(m2)</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-32-1.png" width="480" style="display: block; margin: auto;" /></p>
-<p>If you already know the size for the complement set, you can directly assign it by <code>complement_size</code> argument in <code>make_comb_mat()</code>.</p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-42-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Remember if you already know the size for the complement set, you can directly assign it by <code>complement_size</code> argument in <code>make_comb_mat()</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">complement_size =</span> <span class="dv">10</span>)
 <span class="kw">UpSet</span>(m2)</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-33-1.png" width="480" style="display: block; margin: auto;" /></p>
-<p>For the case where the universal set is smaller than the union of all sets.</p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-43-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>For the case where the universal set is smaller than the union of all sets:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])
 <span class="kw">UpSet</span>(m2)</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-34-1.png" width="480" style="display: block; margin: auto;" /></p>
-<p>By default the empty combination sets are removed from the plot, but they can be kept by setting <code>remove_empty_comb_set = FALSE</code> in <code>make_comb_mat()</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>], <span class="dt">remove_empty_comb_set =</span> <span class="ot">FALSE</span>)
-<span class="kw">UpSet</span>(m2)</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-35-1.png" width="480" style="display: block; margin: auto;" /></p>
-<p>There are some cases that you may have complement set but you don’t want to show it, especially when the input for <code>make_comb_mat()</code> is a matrix which already contains complement set.</p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-44-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>There are some cases that you may have complement set but you don’t want to show it, especially when the input for <code>make_comb_mat()</code> is a matrix which already contains complement set, you can filter by the combination degrees.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x =<span class="st"> </span><span class="kw">list_to_matrix</span>(lt, <span class="dt">universal_set =</span> letters)
 m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(x)
+m2 =<span class="st"> </span>m2[<span class="kw">comb_degree</span>(m2) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>]
 <span class="kw">UpSet</span>(m2)</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-36-1.png" width="480" style="display: block; margin: auto;" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(x, <span class="dt">remove_complement_set =</span> <span class="ot">TRUE</span>)
-<span class="kw">UpSet</span>(m2)</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-36-2.png" width="480" style="display: block; margin: auto;" /></p>
-<p>Setting <code>remove_complement_set = TRUE</code> is identical to:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(x)
-m2 =<span class="st"> </span>m2[<span class="kw">comb_degree</span>(m2) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>]</code></pre></div>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-45-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="upset-plots-as-heatmaps" class="section level2">
 <h2><span class="header-section-number">8.6</span> UpSet plots as heatmaps</h2>
@@ -658,30 +767,30 @@ m2 =<span class="st"> </span>m2[<span class="kw">comb_degree</span>(m2) <span cl
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">HeatmapAnnotation</span>(<span class="st">&quot;Intersection</span><span class="ch">\n</span><span class="st">size&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">comb_size</span>(m), 
         <span class="dt">border =</span> <span class="ot">FALSE</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">3</span>, <span class="st">&quot;cm&quot;</span>)), 
     <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">annotation_name_rot =</span> <span class="dv">0</span>)</code></pre></div>
-<p>This top annotation is wrapped in <code>upset_top_annotation()</code> which only contais the upset top barplot annotation. Most of the arguments in <code>upset_top_annotation()</code> directly goes to the <code>anno_barplot()</code>, e.g. to set the colors of bars:</p>
+<p>This top annotation is wrapped in <code>upset_top_annotation()</code> which only contais the upset top barplot annotation. Most of the arguments in <code>upset_top_annotation()</code> directly go to the <code>anno_barplot()</code>, e.g. to set the colors of bars:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">UpSet</span>(m, <span class="dt">top_annotation =</span> <span class="kw">upset_top_annotation</span>(m, 
     <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="kw">comb_degree</span>(m))))</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-39-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-47-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>To control the data range and axis:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">UpSet</span>(m, <span class="dt">top_annotation =</span> <span class="kw">upset_top_annotation</span>(m, 
     <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">15</span>),
     <span class="dt">bar_width =</span> <span class="dv">1</span>,
     <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">side =</span> <span class="st">&quot;right&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>),
         <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;zero&quot;</span>, <span class="st">&quot;five&quot;</span>, <span class="st">&quot;ten&quot;</span>, <span class="st">&quot;fifteen&quot;</span>))))</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-40-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-48-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>To control the annotation name:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">UpSet</span>(m, <span class="dt">top_annotation =</span> <span class="kw">upset_top_annotation</span>(m, 
     <span class="dt">annotation_name_rot =</span> <span class="dv">90</span>,
     <span class="dt">annotation_name_side =</span> <span class="st">&quot;right&quot;</span>,
     <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">side =</span> <span class="st">&quot;right&quot;</span>)))</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-41-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-49-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>The settings are very similar for the right annotation:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">UpSet</span>(m, <span class="dt">right_annotation =</span> <span class="kw">upset_right_annotation</span>(m, 
     <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">30</span>),
     <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;green&quot;</span>),
     <span class="dt">annotation_name_side =</span> <span class="st">&quot;top&quot;</span>,
     <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">side =</span> <span class="st">&quot;top&quot;</span>)))</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-42-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-50-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><code>upset_top_annotation()</code> and <code>upset_right_annotation()</code> can automatically recognize whether sets are on rows or columns.</p>
 <p><code>upset_top_annotation()</code> and <code>upset_right_annotation()</code> only contain one barplot annotation. If users want to add more annotations, they need to manually construct a <code>HeatmapAnnotation</code> object with multiple annotations.</p>
 <p>To add more annotations on top:</p>
@@ -694,7 +803,7 @@ m2 =<span class="st"> </span>m2[<span class="kw">comb_degree</span>(m2) <span cl
     ), 
     <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>, 
     <span class="dt">annotation_name_rot =</span> <span class="dv">0</span>))</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-43-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-51-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>To add more annotation on the right:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">UpSet</span>(m, <span class="dt">right_annotation =</span> <span class="kw">rowAnnotation</span>(
     <span class="st">&quot;Set size&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">set_size</span>(m), 
@@ -703,7 +812,7 @@ m2 =<span class="st"> </span>m2[<span class="kw">comb_degree</span>(m2) <span cl
         <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)
     ),
     <span class="dt">group =</span> <span class="kw">c</span>(<span class="st">&quot;group1&quot;</span>, <span class="st">&quot;group1&quot;</span>, <span class="st">&quot;group2&quot;</span>)))</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-44-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-52-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>To move the right annotation to the left of the combination matrix:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">UpSet</span>(m, <span class="dt">left_annotation =</span> <span class="kw">rowAnnotation</span>(
     <span class="st">&quot;Set size&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">set_size</span>(m), 
@@ -711,7 +820,7 @@ m2 =<span class="st"> </span>m2[<span class="kw">comb_degree</span>(m2) <span cl
         <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), 
         <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)
     )), <span class="dt">right_annotation =</span> <span class="ot">NULL</span>)</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-45-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-53-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>To reverse the axis of the left annotation:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">UpSet</span>(m, <span class="dt">left_annotation =</span> <span class="kw">rowAnnotation</span>(
     <span class="st">&quot;Set size&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">set_size</span>(m), 
@@ -721,7 +830,7 @@ m2 =<span class="st"> </span>m2[<span class="kw">comb_degree</span>(m2) <span cl
         <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)
     )), <span class="dt">right_annotation =</span> <span class="ot">NULL</span>,
     <span class="dt">row_names_side =</span> <span class="st">&quot;right&quot;</span>)</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-46-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-54-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>The object returned by <code>UpSet()</code> is actually a <code>Heatmap</code> class object, thus, you can add to other heatmaps and annotations by <code>+</code> or <code>%v%</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht =<span class="st"> </span><span class="kw">UpSet</span>(m)
 <span class="kw">class</span>(ht)</code></pre></div>
@@ -730,12 +839,12 @@ m2 =<span class="st"> </span>m2[<span class="kw">comb_degree</span>(m2) <span cl
 ## [1] &quot;ComplexHeatmap&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht <span class="op">+</span><span class="st"> </span><span class="kw">Heatmap</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">name =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>)) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>))</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-47-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-55-1.png" width="576" style="display: block; margin: auto;" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht <span class="op">%v%</span><span class="st"> </span><span class="kw">Heatmap</span>(<span class="kw">rbind</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>), <span class="dt">name =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">row_names_side =</span> <span class="st">&quot;left&quot;</span>, 
         <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>)) <span class="op">%v%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>),
         <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>)</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-48-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-56-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Add multiple UpSet plots:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m1 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;distinct&quot;</span>)
 m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;intersect&quot;</span>)
@@ -743,7 +852,7 @@ m3 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span cla
 <span class="kw">UpSet</span>(m1, <span class="dt">row_title =</span> <span class="st">&quot;distinct mode&quot;</span>) <span class="op">%v%</span>
 <span class="st">    </span><span class="kw">UpSet</span>(m2, <span class="dt">row_title =</span> <span class="st">&quot;intersect mode&quot;</span>) <span class="op">%v%</span>
 <span class="st">    </span><span class="kw">UpSet</span>(m3, <span class="dt">row_title =</span> <span class="st">&quot;union mode&quot;</span>)</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-49-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-57-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Or first transpose all the combination matrices and add them horizontally:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m1 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;distinct&quot;</span>)
 m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;intersect&quot;</span>)
@@ -751,22 +860,41 @@ m3 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span cla
 <span class="kw">UpSet</span>(<span class="kw">t</span>(m1), <span class="dt">column_title =</span> <span class="st">&quot;distinct mode&quot;</span>) <span class="op">+</span>
 <span class="st">    </span><span class="kw">UpSet</span>(<span class="kw">t</span>(m2), <span class="dt">column_title =</span> <span class="st">&quot;intersect mode&quot;</span>) <span class="op">+</span>
 <span class="st">    </span><span class="kw">UpSet</span>(<span class="kw">t</span>(m3), <span class="dt">column_title =</span> <span class="st">&quot;union mode&quot;</span>)</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-50-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>The three combination matrices are actually the same and plotting them three times is redundant. With the functionality in <strong>ComplexHeatmap</strong> package, we can use other types of annotations.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># it is the same with using m1, m2 or m3</span>
-ht =<span class="st"> </span><span class="kw">UpSet</span>(m1, <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">size =</span> <span class="kw">anno_lines</span>(
-        <span class="kw">cbind</span>(<span class="kw">comb_size</span>(m1), <span class="kw">comb_size</span>(m2), <span class="kw">comb_size</span>(m3)),
-        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">4</span>), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">3</span>, <span class="st">&quot;cm&quot;</span>)
-)))
-<span class="co"># you need to manually construct a legend</span>
-<span class="kw">draw</span>(ht, <span class="dt">annotation_legend_list =</span> <span class="kw">list</span>(<span class="kw">Legend</span>(
-        <span class="dt">title =</span> <span class="st">&quot;mode&quot;</span>,
-        <span class="dt">type =</span> <span class="st">&quot;lines&quot;</span>,
-        <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;distinct&quot;</span>, <span class="st">&quot;intersect&quot;</span>, <span class="st">&quot;union&quot;</span>),
-        <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">4</span>)
-    ))
-)</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-51-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-58-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>The three combination matrices are actually the same and plotting them three times is redundant. With the functionality in <strong>ComplexHeatmap</strong> package, we can directly add three barplot annotations.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">top_ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(
+    <span class="st">&quot;distict&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">comb_size</span>(m1), 
+        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)), 
+    <span class="st">&quot;intersect&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">comb_size</span>(m2), 
+        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)), 
+    <span class="st">&quot;union&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">comb_size</span>(m3), 
+        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)), 
+    <span class="dt">gap =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">annotation_name_rot =</span> <span class="dv">0</span>)
+<span class="co"># the same for using m2 or m3</span>
+<span class="kw">UpSet</span>(m1, <span class="dt">top_annotation =</span> top_ha)</code></pre></div>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-59-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Similar when the combination matrix is transposed:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">right_ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(
+    <span class="st">&quot;distict&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">comb_size</span>(m1), 
+        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)), 
+    <span class="st">&quot;intersect&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">comb_size</span>(m2), 
+        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)), 
+    <span class="st">&quot;union&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">comb_size</span>(m3), 
+        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)), 
+    <span class="dt">gap =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">annotation_name_side =</span> <span class="st">&quot;bottom&quot;</span>)
+<span class="co"># the same for using m2 or m3</span>
+<span class="kw">UpSet</span>(<span class="kw">t</span>(m1), <span class="dt">right_annotation =</span> right_ha)</code></pre></div>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-60-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><a href="https://cran.r-project.org/web/packages/UpSetR/vignettes/basic.usage.html#example-2-choosing-the-top-largest-sets-and-plot-formatting">In the origial UpSet implementation</a>, the combination set sizes are also drawn on top of the barplots. Here, we don’t directly support it, but the sizes can be manually added by <code>decorate_annotation()</code> function. See following example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht =<span class="st"> </span><span class="kw">draw</span>(<span class="kw">UpSet</span>(m))
+od =<span class="st"> </span><span class="kw">column_order</span>(ht)
+cs =<span class="st"> </span><span class="kw">comb_size</span>(m)
+<span class="kw">decorate_annotation</span>(<span class="st">&quot;Intersection</span><span class="ch">\n</span><span class="st">size&quot;</span>, {
+    <span class="kw">grid.text</span>(cs[od], <span class="dt">x =</span> <span class="kw">seq_along</span>(cs), <span class="dt">y =</span> <span class="kw">unit</span>(cs[od], <span class="st">&quot;native&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), 
+        <span class="dt">default.units =</span> <span class="st">&quot;native&quot;</span>, <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">8</span>))
+})</code></pre></div>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-61-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>There are several reasons that we don’t directly supported add the combination set size to the plot: 1. Add new text means to add several new arguments to the function, e.g., the arguments for graphic parameters, the rotations, the positions, the margin to the bars, which will make the function heavy. 2. Need to properly calculate the ylim for the barplot annotation to let the text not exceed the annotation region. 3. Using <code>decoration_annotation()</code> is more flexible to use that not only the size but also customized text can be added.</p>
 </div>
 <div id="example-with-the-movies-dataset" class="section level2">
 <h2><span class="header-section-number">8.7</span> Example with the movies dataset</h2>
@@ -781,32 +909,60 @@ ht =<span class="st"> </span><span class="kw">UpSet</span>(m1, <span class="dt">
 ## 4           Waiting to Exhale (1995)        1995      0         0        0
 ## 5 Father of the Bride Part II (1995)        1995      0         0        0
 ## 6                        Heat (1995)        1995      1         0        0
-##   Comedy Crime Documentary Drama Fantasy Noir Horror Musical Mystery
-## 1      1     0           0     0       0    0      0       0       0
-## 2      0     0           0     0       1    0      0       0       0
-## 3      1     0           0     0       0    0      0       0       0
-## 4      1     0           0     1       0    0      0       0       0
-## 5      1     0           0     0       0    0      0       0       0
-## 6      0     1           0     0       0    0      0       0       0
-##   Romance SciFi Thriller War Western AvgRating Watches
-## 1       0     0        0   0       0      4.15    2077
-## 2       0     0        0   0       0      3.20     701
-## 3       1     0        0   0       0      3.02     478
-## 4       0     0        0   0       0      2.73     170
-## 5       0     0        0   0       0      3.01     296
-## 6       0     0        1   0       0      3.88     940</code></pre>
+##   Comedy Crime Documentary Drama Fantasy Noir Horror Musical Mystery Romance
+## 1      1     0           0     0       0    0      0       0       0       0
+## 2      0     0           0     0       1    0      0       0       0       0
+## 3      1     0           0     0       0    0      0       0       0       1
+## 4      1     0           0     1       0    0      0       0       0       0
+## 5      1     0           0     0       0    0      0       0       0       0
+## 6      0     1           0     0       0    0      0       0       0       0
+##   SciFi Thriller War Western AvgRating Watches
+## 1     0        0   0       0      4.15    2077
+## 2     0        0   0       0      3.20     701
+## 3     0        0   0       0      3.02     478
+## 4     0        0   0       0      2.73     170
+## 5     0        0   0       0      3.01     296
+## 6     0        1   0       0      3.88     940</code></pre>
 <p>To make a same UpSet plot as in <a href="https://cran.r-project.org/web/packages/UpSetR/vignettes/basic.usage.html#example-2-choosing-the-top-largest-sets-and-plot-formatting">this vignette</a>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m =<span class="st"> </span><span class="kw">make_comb_mat</span>(movies, <span class="dt">top_n_sets =</span> <span class="dv">6</span>, <span class="dt">remove_complement_set =</span> <span class="ot">TRUE</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m =<span class="st"> </span><span class="kw">make_comb_mat</span>(movies, <span class="dt">top_n_sets =</span> <span class="dv">6</span>)
+m</code></pre></div>
+<pre><code>## A combination matrix with 6 sets and 39 combinations.
+##   ranges of combination set size: c(1, 1028).
+##   mode for the combination size: distinct.
+##   sets are on rows.
+## 
+## Top 8 combination sets are:
+##   Action Comedy Drama Horror Romance Thriller   code size
+##                     x                         001000 1028
+##               x                               010000  698
+##                            x                  000100  216
+##        x                                      100000  206
+##                                             x 000001  183
+##               x     x                         011000  180
+##               x                    x          010010  160
+##                     x              x          001010  158
+## 
+## Sets are:
+##          set size
+##       Action  503
+##       Comedy 1200
+##        Drama 1603
+##       Horror  343
+##      Romance  471
+##     Thriller  492
+##   complement    2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m =<span class="st"> </span>m[<span class="kw">comb_degree</span>(m) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>]
 <span class="kw">UpSet</span>(m)</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-53-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-63-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>Following code makes it look more similar as the orignal plot. The code is a little bit long, but most of the code mainly customize the annotations and row/column orders.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m =<span class="st"> </span><span class="kw">make_comb_mat</span>(movies, <span class="dt">top_n_sets =</span> <span class="dv">6</span>, <span class="dt">remove_complement_set =</span> <span class="ot">TRUE</span>)
-ss =<span class="st"> </span><span class="kw">set_size</span>(m)
-<span class="kw">UpSet</span>(m, 
-    <span class="dt">set_order =</span> <span class="kw">order</span>(<span class="kw">set_size</span>(m)),
-    <span class="dt">comb_order =</span> <span class="kw">order</span>(<span class="kw">comb_degree</span>(m), <span class="op">-</span><span class="kw">comb_size</span>(m)),
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ss =<span class="st"> </span><span class="kw">set_size</span>(m)
+cs =<span class="st"> </span><span class="kw">comb_size</span>(m)
+ht =<span class="st"> </span><span class="kw">UpSet</span>(m, 
+    <span class="dt">set_order =</span> <span class="kw">order</span>(ss),
+    <span class="dt">comb_order =</span> <span class="kw">order</span>(<span class="kw">comb_degree</span>(m), <span class="op">-</span>cs),
     <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(
-        <span class="st">&quot;Genre Intersections&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">comb_size</span>(m), 
+        <span class="st">&quot;Genre Intersections&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(cs, 
+            <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(cs)<span class="op">*</span><span class="fl">1.1</span>),
             <span class="dt">border =</span> <span class="ot">FALSE</span>, 
             <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), 
             <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>)
@@ -830,13 +986,21 @@ ss =<span class="st"> </span><span class="kw">set_size</span>(m)
             <span class="dt">width =</span> <span class="kw">max_text_width</span>(<span class="kw">set_name</span>(m)) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;mm&quot;</span>))
     ), 
     <span class="dt">right_annotation =</span> <span class="ot">NULL</span>,
-    <span class="dt">show_row_names =</span> <span class="ot">FALSE</span>)</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-54-1.png" width="960" style="display: block; margin: auto;" /></p>
-<p>In <code>movies</code> dataset, there is also one column <code>AvgRatinh</code> which gives the rating of each movie, we next split all the movies into five groups based on the ratings.</p>
+    <span class="dt">show_row_names =</span> <span class="ot">FALSE</span>)
+ht =<span class="st"> </span><span class="kw">draw</span>(ht)
+od =<span class="st"> </span><span class="kw">column_order</span>(ht)
+<span class="kw">decorate_annotation</span>(<span class="st">&quot;Genre Intersections&quot;</span>, {
+    <span class="kw">grid.text</span>(cs[od], <span class="dt">x =</span> <span class="kw">seq_along</span>(cs), <span class="dt">y =</span> <span class="kw">unit</span>(cs[od], <span class="st">&quot;native&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), 
+        <span class="dt">default.units =</span> <span class="st">&quot;native&quot;</span>, <span class="dt">just =</span> <span class="kw">c</span>(<span class="st">&quot;left&quot;</span>, <span class="st">&quot;bottom&quot;</span>), 
+        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">6</span>, <span class="dt">col =</span> <span class="st">&quot;#404040&quot;</span>), <span class="dt">rot =</span> <span class="dv">45</span>)
+})</code></pre></div>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-64-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>In <code>movies</code> dataset, there is also one column <code>AvgRating</code> which gives the rating of each movie, we next split all the movies into five groups based on the ratings.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">genre =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Action&quot;</span>, <span class="st">&quot;Romance&quot;</span>, <span class="st">&quot;Horror&quot;</span>, <span class="st">&quot;Children&quot;</span>, <span class="st">&quot;SciFi&quot;</span>, <span class="st">&quot;Documentary&quot;</span>)
 rating =<span class="st"> </span><span class="kw">cut</span>(movies<span class="op">$</span>AvgRating, <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>))
 m_list =<span class="st"> </span><span class="kw">tapply</span>(<span class="kw">seq_len</span>(<span class="kw">nrow</span>(movies)), rating, <span class="cf">function</span>(ind) {
-    <span class="kw">make_comb_mat</span>(movies[ind, genre, <span class="dt">drop =</span> <span class="ot">FALSE</span>], <span class="dt">remove_complement_set =</span> <span class="ot">TRUE</span>)
+    m =<span class="st"> </span><span class="kw">make_comb_mat</span>(movies[ind, genre, <span class="dt">drop =</span> <span class="ot">FALSE</span>])
+    m[<span class="kw">comb_degree</span>(m) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>]
 })</code></pre></div>
 <p>The combination matrices in <code>m_list</code> might have different combination sets:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sapply</span>(m_list, comb_size)</code></pre></div>
@@ -845,51 +1009,49 @@ m_list =<span class="st"> </span><span class="kw">tapply</span>(<span class="kw"
 ##      1      2      1      1 
 ## 
 ## $`(1,2]`
-## 100000 010000 001000 110000 000100 101000 000010 100100 000001 100010 
-##     14      7     38      1     14      4      3      5      2      5 
-## 001010 101010 100110 
-##      8      1      1 
+## 101010 100110 110000 101000 100100 100010 001010 100000 010000 001000 000100 
+##      1      1      1      4      5      5      8     14      7     38     14 
+## 000010 000001 
+##      3      2 
 ## 
 ## $`(2,3]`
-## 100000 010000 001000 110000 000100 101000 000010 100100 010100 000001 
-##    126     99    142      8     77      2     27      6      3      9 
-## 100010 010010 001010 101010 000110 
-##     35      1     27      4      7 
+## 101010 110000 101000 100100 100010 010100 010010 001010 000110 100000 010000 
+##      4      8      2      6     35      3      1     27      7    126     99 
+## 001000 000100 000010 000001 
+##    142     77     27      9 
 ## 
 ## $`(3,4]`
-## 100000 010000 110000 001000 000100 101000 000010 011000 000001 100010 
-##    176    276     20     82    122      6     66      3     87     45 
-## 010100 001100 010010 001010 110010 101010 000110 100110 
-##      4      1      4     11      1      6      5      1 
+## 110010 101010 100110 110000 101000 100010 011000 010100 010010 001100 001010 
+##      1      6      1     20      6     45      3      4      4      1     11 
+## 000110 100000 010000 001000 000100 000010 000001 
+##      5    176    276     82    122     66     87 
 ## 
 ## $`(4,5]`
-## 100000 010000 110000 001000 000100 101000 000010 000001 100010 110010 
-##     23     38      4      4      4      1     10     28      6      1 
-## 101010 
-##      1</code></pre>
+## 110010 101010 110000 101000 100010 100000 010000 001000 000100 000010 000001 
+##      1      1      4      1      6     23     38      4      4     10     28</code></pre>
 <p>To compare between multiple groups with UpSet plots, we need to normalize all the matrices to make them have same sets and same combination sets. <code>normalize_comb_mat()</code> basically adds zero to the new combination sets which were not there before.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m_list =<span class="st"> </span><span class="kw">normalize_comb_mat</span>(m_list)
 <span class="kw">sapply</span>(m_list, comb_size)</code></pre></div>
 <pre><code>##        (0,1] (1,2] (2,3] (3,4] (4,5]
-## 010000     1     7    99   276    38
-## 001000     2    38   142    82     4
-## 000100     1    14    77   122     4
-## 000001     1     2     9    87    28
+## 110001     0     1     0     1     0
+## 100101     0     1     4     6     1
+## 100011     0     0     0     1     1
+## 110000     0     5     6     0     0
+## 100100     0     4     2     6     1
+## 100010     0     1     8    20     4
+## 100001     0     5    35    45     6
+## 010100     0     0     0     1     0
+## 010010     0     0     3     4     0
+## 010001     0     0     7     5     0
+## 000110     0     0     0     3     0
+## 000101     0     8    27    11     0
+## 000011     0     0     1     4     0
 ## 100000     0    14   126   176    23
-## 110000     0     1     8    20     4
-## 101000     0     4     2     6     1
-## 000010     0     3    27    66    10
-## 100100     0     5     6     0     0
-## 100010     0     5    35    45     6
-## 001010     0     8    27    11     0
-## 101010     0     1     4     6     1
-## 100110     0     1     0     1     0
-## 010100     0     0     3     4     0
-## 010010     0     0     1     4     0
-## 000110     0     0     7     5     0
-## 011000     0     0     0     3     0
-## 001100     0     0     0     1     0
-## 110010     0     0     0     1     1</code></pre>
+## 010000     1    14    77   122     4
+## 001000     1     2     9    87    28
+## 000100     2    38   142    82     4
+## 000010     1     7    99   276    38
+## 000001     0     3    27    66    10</code></pre>
 <p>We calculate the range for the two barplots:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">max_set_size =<span class="st"> </span><span class="kw">max</span>(<span class="kw">sapply</span>(m_list, set_size))
 max_comb_size =<span class="st"> </span><span class="kw">max</span>(<span class="kw">sapply</span>(m_list, comb_size))</code></pre></div>
@@ -903,8 +1065,8 @@ max_comb_size =<span class="st"> </span><span class="kw">max</span>(<span class=
             <span class="dt">right_annotation =</span> <span class="kw">upset_right_annotation</span>(m_list[[i]], <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, max_set_size)))
 }
 ht_list</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-59-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>After comparing the five UpSet plots, we can see most of the movies are rated between 2 and 4. Horror movies tend to have lower ratings and romance moves tend to have higher ratings.</p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-69-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>After comparing the five UpSet plots, we can see most of the movies are rated between 2 and 4. Horror movies tend to have lower ratings and romance movies tend to have higher ratings.</p>
 <p>Instead of directly comparing the size of the combination sets, we can also compare the relative fraction to the full sets. In following code, we remove the group of <code>c(0, 1]</code> because the number of movies are too few there.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m_list =<span class="st"> </span>m_list[<span class="op">-</span><span class="dv">1</span>]
 max_set_size =<span class="st"> </span><span class="kw">max</span>(<span class="kw">sapply</span>(m_list, set_size))
@@ -934,12 +1096,13 @@ ht_list =<span class="st"> </span><span class="ot">NULL</span>
         )
 }
 ht_list</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-60-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-70-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Now the trend is more clear that horror movies are rated low and documentaries are rated high.</p>
 <p>Next we split the movies by years:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">year =<span class="st"> </span><span class="kw">floor</span>(movies<span class="op">$</span>ReleaseDate<span class="op">/</span><span class="dv">10</span>)<span class="op">*</span><span class="dv">10</span>
 m_list =<span class="st"> </span><span class="kw">tapply</span>(<span class="kw">seq_len</span>(<span class="kw">nrow</span>(movies)), year, <span class="cf">function</span>(ind) {
-    <span class="kw">make_comb_mat</span>(movies[ind, genre, <span class="dt">drop =</span> <span class="ot">FALSE</span>], <span class="dt">remove_complement_set =</span> <span class="ot">TRUE</span>)
+    m =<span class="st"> </span><span class="kw">make_comb_mat</span>(movies[ind, genre, <span class="dt">drop =</span> <span class="ot">FALSE</span>])
+    m[<span class="kw">comb_degree</span>(m) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>]
 })
 m_list =<span class="st"> </span><span class="kw">normalize_comb_mat</span>(m_list)
 max_set_size =<span class="st"> </span><span class="kw">max</span>(<span class="kw">sapply</span>(m_list, set_size))
@@ -970,12 +1133,12 @@ ht_list2 =<span class="st"> </span><span class="ot">NULL</span>
 <span class="kw">pushViewport</span>(<span class="kw">viewport</span>(<span class="dt">x =</span> <span class="fl">0.5</span>, <span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">just =</span> <span class="st">&quot;left&quot;</span>))
 <span class="kw">draw</span>(ht_list2, <span class="dt">newpage =</span> <span class="ot">FALSE</span>)
 <span class="kw">popViewport</span>()</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-61-1.png" width="1344" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-71-1.png" width="1344" style="display: block; margin: auto;" /></p>
 <p>Now we can see most of the movies were produces in 1990s and the two major genres are actions and romance.</p>
 <p>Similarly, if we change the top annotation to the relative fraction to the full sets (code not shown):</p>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-62-1.png" width="1344" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-72-1.png" width="1344" style="display: block; margin: auto;" /></p>
 <p>Finally we can add the statistics of years, ratings and number of watches for each combination set as boxplot annotations to the right of the UpSet plot.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m =<span class="st"> </span><span class="kw">make_comb_mat</span>(movies[, genre], <span class="dt">remove_complement_set =</span> <span class="ot">TRUE</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m =<span class="st"> </span><span class="kw">make_comb_mat</span>(movies[, genre])
 m =<span class="st"> </span>m[<span class="kw">comb_degree</span>(m) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>]
 comb_elements =<span class="st"> </span><span class="kw">lapply</span>(<span class="kw">comb_name</span>(m), <span class="cf">function</span>(nm) <span class="kw">extract_comb</span>(m, nm))
 years =<span class="st"> </span><span class="kw">lapply</span>(comb_elements, <span class="cf">function</span>(ind) movies<span class="op">$</span>ReleaseDate[ind])
@@ -984,8 +1147,9 @@ watches =<span class="st"> </span><span class="kw">lapply</span>(comb_elements, 
 
 <span class="kw">UpSet</span>(<span class="kw">t</span>(m)) <span class="op">+</span><span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">years =</span> <span class="kw">anno_boxplot</span>(years),
     <span class="dt">rating =</span> <span class="kw">anno_boxplot</span>(rating),
-    <span class="dt">watches =</span> <span class="kw">anno_boxplot</span>(watches))</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-63-1.png" width="576" style="display: block; margin: auto;" /></p>
+    <span class="dt">watches =</span> <span class="kw">anno_boxplot</span>(watches),
+    <span class="dt">gap =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>))</code></pre></div>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-73-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>We can see the movies with genre “Scifi + Children” were produced quite old but the ratings are not bad. The movies with genre “Action + Children” have the lowest ratings.</p>
 </div>
 <div id="example-with-the-genomic-regions" class="section level2">
@@ -1017,7 +1181,7 @@ peak_list =<span class="st"> </span><span class="kw">lapply</span>(file_list, <s
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m =<span class="st"> </span><span class="kw">make_comb_mat</span>(peak_list)
 m =<span class="st"> </span>m[<span class="kw">comb_size</span>(m) <span class="op">&gt;</span><span class="st"> </span><span class="dv">500000</span>]
 <span class="kw">UpSet</span>(m)</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-65-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-75-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>We can nicely format the axis labels by setting <code>axis_param</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">UpSet</span>(m, 
     <span class="dt">top_annotation =</span> <span class="kw">upset_top_annotation</span>(
@@ -1033,7 +1197,7 @@ m =<span class="st"> </span>m[<span class="kw">comb_size</span>(m) <span class="
             <span class="dt">labels_rot =</span> <span class="dv">0</span>),
         <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>)
     ))</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-66-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-76-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>With each set of genomic regions, we can associate more information to it, such as the mean methylation or the distance to nearest TSS.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">subgroup =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;ESC&quot;</span> =<span class="st"> &quot;group1&quot;</span>,
     <span class="st">&quot;ES-deriv1&quot;</span> =<span class="st"> &quot;group1&quot;</span>,
@@ -1070,7 +1234,7 @@ comb_sets =<span class="st"> </span><span class="kw">lapply</span>(comb_sets, <s
         <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>
     )
 )</code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-67-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-77-1.png" width="960" style="display: block; margin: auto;" /></p>
 
 </div>
 </div>
@@ -1099,12 +1263,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -1116,6 +1279,10 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

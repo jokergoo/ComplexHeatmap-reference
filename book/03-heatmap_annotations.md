@@ -1416,6 +1416,11 @@ The important arguments for `anno_zoom()` are:
 
 `anno_zoom()` also works for column annotations.
 
+Another example of using `anno_zoom()` is to correspond a list of text to a 
+subset of rows, see examples from https://github.com/jokergoo/simplifyGO.
+
+<img src='https://user-images.githubusercontent.com/449218/79051702-027a4d00-7c32-11ea-887e-ed3e171a03a0.png'><br>
+
 ## Multiple annotations {#multiple-annotations}
 
 As mentioned before, to put multiple annotations in `HeatmapAnnotation()`,

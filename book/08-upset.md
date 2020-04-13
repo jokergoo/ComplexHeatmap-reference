@@ -400,8 +400,8 @@ lt2 = lapply(1:4, function(i) generateRandomBed())
 lt2 = lapply(lt2, function(df) GRanges(seqnames = df[, 1], 
 	ranges = IRanges(df[, 2], df[, 3])))
 names(lt2) = letters[1:4]
-m = make_comb_mat(lt2)
-m
+m2 = make_comb_mat(lt2)
+m2
 ```
 
 ```
@@ -790,6 +790,7 @@ combination matrix to `UpSet()` function:
 
 
 ```r
+m = make_comb_mat(lt)
 UpSet(m)
 ```
 

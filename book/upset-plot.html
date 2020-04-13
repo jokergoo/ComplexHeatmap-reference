@@ -515,8 +515,8 @@ lt2 =<span class="st"> </span><span class="kw">lapply</span>(<span class="dv">1<
 lt2 =<span class="st"> </span><span class="kw">lapply</span>(lt2, <span class="cf">function</span>(df) <span class="kw">GRanges</span>(<span class="dt">seqnames =</span> df[, <span class="dv">1</span>], 
     <span class="dt">ranges =</span> <span class="kw">IRanges</span>(df[, <span class="dv">2</span>], df[, <span class="dv">3</span>])))
 <span class="kw">names</span>(lt2) =<span class="st"> </span>letters[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]
-m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt2)
-m</code></pre></div>
+m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt2)
+m2</code></pre></div>
 <pre><code>## A combination matrix with 4 sets and 15 combinations.
 ##   ranges of combination set size: c(184941701, 199900416).
 ##   mode for the combination size: distinct.
@@ -711,7 +711,8 @@ tm[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]<
 <div id="upset-making-the-plot" class="section level2">
 <h2><span class="header-section-number">8.5</span> Make the plot</h2>
 <p>Making the UpSet plot is very straightforward that users just send the combination matrix to <code>UpSet()</code> function:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">UpSet</span>(m)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt)
+<span class="kw">UpSet</span>(m)</code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-33-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>By default the sets are ordered by the size and the combination sets are ordered by the degree (number of sets that are selected).</p>
 <p>The order is controlled by <code>set_order</code> and <code>comb_order</code>:</p>
@@ -1294,20 +1295,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

@@ -1331,7 +1331,7 @@ draw(ht_list, row_split = split, ht_gap = unit(5, "mm"),
     heatmap_legend_list = list(lgd_boxplot))
 ```
 
-## Zoom annotation {#zoom-annotation}
+## Zoom/link annotation {#zoom-annotation}
 
 It is very common scenario that we want to annotate subsets of rows/columns in
 the heatmap. `anno_zoom()` helps to create plotting regions that correspond to
@@ -1381,7 +1381,14 @@ The important arguments for `anno_zoom()` are:
 
 `anno_zoom()` also works for column annotations.
 
-Another example of using `anno_zoom()` is to correspond a list of text to a 
+In previous example, box plots in the "zoom annotation" use the same data as in the
+heatmap (they share using the same values in the matrix). In some other cases, the annotations 
+do not have strong relations to the matrix, except the information of which
+rows from the matrix. In this case, the functionality is more proper
+to be understanded as to provide linking between subsets of rows and
+a list of graphic regions. Thus, there is an `anno_link()` function which is the same as `anno_zoom()`.
+The two functions are exactly the same, just with different names, depends
+how you understand. An example of using `anno_link()` is to correspond a list of text to a 
 subset of rows, see examples from https://github.com/jokergoo/simplifyGO.
 
 <img src='https://user-images.githubusercontent.com/449218/79051702-027a4d00-7c32-11ea-887e-ed3e171a03a0.png'><br>

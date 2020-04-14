@@ -231,5 +231,3 @@ Heatmap(mat,
 <img src="11-other-tricks_files/figure-html/unnamed-chunk-17-1.png" width="480" style="display: block; margin: auto;" />
 
 
-
-

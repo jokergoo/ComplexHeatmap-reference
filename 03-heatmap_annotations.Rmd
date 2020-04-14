@@ -1383,10 +1383,10 @@ The important arguments for `anno_zoom()` are:
 
 In previous example, box plots in the "zoom annotation" use the same data as in the
 heatmap (they share using the same values in the matrix). In some other cases, the annotations 
-do not have strong relations to the matrix, except the information of which
+do not have very strong relations to the matrix, except the information of which
 rows from the matrix. In this case, the functionality is more proper
 to be understanded as to provide linking between subsets of rows and
-a list of graphic regions. Thus, there is an `anno_link()` function which is the same as `anno_zoom()`.
+a list of graphic regions. Thus, there is an `anno_link()` function which is basically the same as `anno_zoom()`.
 The two functions are exactly the same, just with different names, depends
 how you understand. An example of using `anno_link()` is to correspond a list of text to a 
 subset of rows, see examples from https://github.com/jokergoo/simplifyGO.

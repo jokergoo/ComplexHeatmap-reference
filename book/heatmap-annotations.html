@@ -159,7 +159,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.14" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#text-annotation"><i class="fa fa-check"></i><b>3.14</b> Text annotation</a></li>
 <li class="chapter" data-level="3.15" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#mark-annotation"><i class="fa fa-check"></i><b>3.15</b> Mark annotation</a></li>
 <li class="chapter" data-level="3.16" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#summary-annotation"><i class="fa fa-check"></i><b>3.16</b> Summary annotation</a></li>
-<li class="chapter" data-level="3.17" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#zoom-annotation"><i class="fa fa-check"></i><b>3.17</b> Zoom annotation</a></li>
+<li class="chapter" data-level="3.17" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#zoom-annotation"><i class="fa fa-check"></i><b>3.17</b> Zoom/link annotation</a></li>
 <li class="chapter" data-level="3.18" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#multiple-annotations"><i class="fa fa-check"></i><b>3.18</b> Multiple annotations</a><ul>
 <li class="chapter" data-level="3.18.1" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#size-of-annotations"><i class="fa fa-check"></i><b>3.18.1</b> Size of annotations</a></li>
 <li class="chapter" data-level="3.18.2" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#annotation-labels"><i class="fa fa-check"></i><b>3.18.2</b> Annotation labels</a></li>
@@ -882,7 +882,7 @@ lgd_boxplot =<span class="st"> </span><span class="kw">Legend</span>(<span class
 <p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-152-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="zoom-annotation" class="section level2">
-<h2><span class="header-section-number">3.17</span> Zoom annotation</h2>
+<h2><span class="header-section-number">3.17</span> Zoom/link annotation</h2>
 <p>It is very common scenario that we want to annotate subsets of rows/columns in the heatmap. <code>anno_zoom()</code> helps to create plotting regions that correspond to the original subsets of rows/columns in the heatmap. Since the height/width are usually different from that from the orignal subsets in the heatmap, these plotting regions created by <code>anno_zoom()</code> can be thought as “zoomings” of the original heatmap.</p>
 <p>Let’s see following example where we make boxplot for each row group.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
@@ -908,7 +908,7 @@ anno =<span class="st"> </span><span class="kw">anno_zoom</span>(<span class="dt
 <li><code>gap</code>: Gaps between boxes. It should be a <code>unit</code> object.</li>
 </ol>
 <p><code>anno_zoom()</code> also works for column annotations.</p>
-<p>Another example of using <code>anno_zoom()</code> is to correspond a list of text to a subset of rows, see examples from <a href="https://github.com/jokergoo/simplifyGO" class="uri">https://github.com/jokergoo/simplifyGO</a>.</p>
+<p>In previous example, box plots in the “zoom annotation” use the same data as in the heatmap (they share using the same values in the matrix). In some other cases, the annotations do not have very strong relations to the matrix, except the information of which rows from the matrix. In this case, the functionality is more proper to be understanded as to provide linking between subsets of rows and a list of graphic regions. Thus, there is an <code>anno_link()</code> function which is basically the same as <code>anno_zoom()</code>. The two functions are exactly the same, just with different names, depends how you understand. An example of using <code>anno_link()</code> is to correspond a list of text to a subset of rows, see examples from <a href="https://github.com/jokergoo/simplifyGO" class="uri">https://github.com/jokergoo/simplifyGO</a>.</p>
 <p><img src='https://user-images.githubusercontent.com/449218/79051702-027a4d00-7c32-11ea-887e-ed3e171a03a0.png'><br></p>
 </div>
 <div id="multiple-annotations" class="section level2">

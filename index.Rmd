@@ -43,3 +43,10 @@ DOI: [10.1093/bioinformatics/btw313](https://doi.org/10.1093/bioinformatics/btw3
 
 
 <img src="complexheatmap-cover.jpg" style="width:500px;border:2px solid black;" />
+
+
+# Session info:
+
+```{r}
+sessionInfo()
+```

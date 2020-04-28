@@ -1,5 +1,6 @@
 
 
+
 # Introduction {#introduction}
 
 Complex heatmaps are efficient to visualize associations between different
@@ -17,7 +18,7 @@ titles, dendrograms, matrix names and heatmap annotations, which are put on
 the four sides of the heamap body. The heatmap components are reordered or
 split according to the heatmap body.
 
-<img src="01-introduction_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" />
+<img src="01-introduction_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" />
 
 A heatmap list is concatenation of a list of heatmaps and heatmap annotations.
 Surrounding the heatmap list, there are global-level titles and legends.
@@ -27,12 +28,12 @@ annotations (it is row annotation if the heatmap list is horizontal.) are all
 adusted so that the same row in all heatmaps and annotations corresponds to a
 same feature.
 
-<img src="01-introduction_files/figure-html/unnamed-chunk-4-1.png" width="384" style="display: block; margin: auto;" />
+<img src="01-introduction_files/figure-html/unnamed-chunk-5-1.png" width="384" style="display: block; margin: auto;" />
 
 The heatmaps and annotations (now it is column annotation) can also be
 arranged vertically.
 
-<img src="01-introduction_files/figure-html/unnamed-chunk-5-1.png" width="384" style="display: block; margin: auto;" />
+<img src="01-introduction_files/figure-html/unnamed-chunk-6-1.png" width="384" style="display: block; margin: auto;" />
 
 And the heatmap list can also be split by rows and by columns.
 

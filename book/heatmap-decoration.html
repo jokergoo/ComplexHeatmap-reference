@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Heatmap Decoration | ComplexHeatmap Complete Reference</title>
   <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Heatmap Decoration | ComplexHeatmap Complete Reference" />
   <meta property="og:type" content="book" />
@@ -455,7 +455,7 @@ barplots into it.</p>
 <a class="sourceLine" id="cb427-26" data-line-number="26">    <span class="kw">grid.text</span>(<span class="st">&quot;mean fraction&quot;</span>, <span class="dt">x =</span> <span class="kw">unit</span>(<span class="op">-</span><span class="fl">1.5</span>, <span class="st">&quot;cm&quot;</span>),<span class="dt">rot =</span> <span class="dv">90</span>, <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>)</a>
 <a class="sourceLine" id="cb427-27" data-line-number="27">    <span class="kw">popViewport</span>()</a>
 <a class="sourceLine" id="cb427-28" data-line-number="28">})</a></code></pre></div>
-<p><img src="06-heatmap_decoration_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="06-heatmap_decoration_files/figure-html/unnamed-chunk-2-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="add-titles-for-row-annotations" class="section level3">
 <h3><span class="header-section-number">6.2.2</span> Add titles for row annotations</h3>
@@ -474,7 +474,7 @@ title for the row annotation. It is easy to implement it by decorations.</p>
 <a class="sourceLine" id="cb428-11" data-line-number="11"><span class="kw">decorate_heatmap_body</span>(<span class="st">&quot;mat&quot;</span>, {</a>
 <a class="sourceLine" id="cb428-12" data-line-number="12">    <span class="kw">grid.text</span>(<span class="st">&quot;title for the heatmap&quot;</span>, <span class="dt">y =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>)</a>
 <a class="sourceLine" id="cb428-13" data-line-number="13">})</a></code></pre></div>
-<p><img src="06-heatmap_decoration_files/figure-html/unnamed-chunk-2-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="06-heatmap_decoration_files/figure-html/unnamed-chunk-3-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>This is basically the way we use in Section <a href="other-high-level-plots.html#stacked-summary-plot">10.2</a>.</p>
 </div>
 <div id="other-possible-use-of-decorations" class="section level3">

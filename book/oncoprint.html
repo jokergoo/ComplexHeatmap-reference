@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 7 OncoPrint | ComplexHeatmap Complete Reference</title>
   <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 7 OncoPrint | ComplexHeatmap Complete Reference" />
   <meta property="og:type" content="book" />
@@ -366,7 +366,7 @@ the barplots and the legends.</p>
 <a class="sourceLine" id="cb435-6" data-line-number="6">        <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, </a>
 <a class="sourceLine" id="cb435-7" data-line-number="7">            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</a>
 <a class="sourceLine" id="cb435-8" data-line-number="8">    ), <span class="dt">col =</span> col)</a></code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-4-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-5-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>You can see the order in barplots also correspond to the order defined in
 <code>alter_fun</code>.</p>
 <p>If you are confused of how to generated the matrix, there is a second way. The
@@ -400,7 +400,7 @@ column names.</p>
 <a class="sourceLine" id="cb438-6" data-line-number="6">        <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, </a>
 <a class="sourceLine" id="cb438-7" data-line-number="7">            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</a>
 <a class="sourceLine" id="cb438-8" data-line-number="8">    ), <span class="dt">col =</span> col)</a></code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-6-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-7-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>In following parts of this chapter, we still use the single matrix form <code>mat</code>
 to specify the input data.</p>
 </div>
@@ -422,7 +422,7 @@ different alterations exist for current gene in current sample.</p>
 <a class="sourceLine" id="cb440-5" data-line-number="5">        <span class="cf">if</span>(v[<span class="st">&quot;indel&quot;</span>]) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, <span class="co"># v[&quot;indel&quot;] is a logical value</span></a>
 <a class="sourceLine" id="cb440-6" data-line-number="6">            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</a>
 <a class="sourceLine" id="cb440-7" data-line-number="7">    }, <span class="dt">col =</span> col)</a></code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-8-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-9-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>If <code>alter_fun</code> is set as a single function, customization can be more
 flexible. In following example, the blue rectangles can have different height
 in different grid.</p>
@@ -434,7 +434,7 @@ in different grid.</p>
 <a class="sourceLine" id="cb441-6" data-line-number="6">        <span class="cf">if</span>(n) <span class="kw">grid.rect</span>(x, y <span class="op">-</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.5</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span><span class="op">:</span>n<span class="op">/</span>n<span class="op">*</span>h, w<span class="op">*</span><span class="fl">0.9</span>, <span class="dv">1</span><span class="op">/</span>n<span class="op">*</span>h, </a>
 <a class="sourceLine" id="cb441-7" data-line-number="7">            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="kw">names</span>(<span class="kw">which</span>(v))], <span class="dt">col =</span> <span class="ot">NA</span>), <span class="dt">just =</span> <span class="st">&quot;top&quot;</span>)</a>
 <a class="sourceLine" id="cb441-8" data-line-number="8">    }, <span class="dt">col =</span> col)</a></code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-9-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-10-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Following is a complicated example for <code>alter_fun</code> where triangles are used:</p>
 <div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb442-1" data-line-number="1"><span class="kw">oncoPrint</span>(mat,</a>
 <a class="sourceLine" id="cb442-2" data-line-number="2">    <span class="dt">alter_fun =</span> <span class="kw">list</span>(</a>
@@ -461,7 +461,7 @@ in different grid.</p>
 <a class="sourceLine" id="cb442-23" data-line-number="23">                <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>))</a>
 <a class="sourceLine" id="cb442-24" data-line-number="24">        }</a>
 <a class="sourceLine" id="cb442-25" data-line-number="25">    ), <span class="dt">col =</span> col)</a></code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-10-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-11-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>In some cases, you might need to define <code>alter_fun</code> for many alteration types.
 If you are not sure about the visual effect of your <code>alter_fun</code>, you can use
 <code>test_alter_fun()</code> to test your <code>alter_fun</code>. In following example, we defined
@@ -486,7 +486,7 @@ seven alteration functions:</p>
 <pre><code>## `alter_fun` is defined as a list of functions.
 ## Functions are defined for following alteration types:
 ##   mut1, mut2, mut3, mut4, mut5, mut6, mut7</code></pre>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-11-1.png" width="288" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-12-1.png" width="288" style="display: block; margin: auto;" /></p>
 <p>For the combination of alteration types, <code>test_alter_fun()</code> randomly samples
 some of them.</p>
 <p><code>test_alter_fun()</code> works both for <code>alter_fun</code> as a list and as a single
@@ -508,7 +508,7 @@ changed to light green with borders.</p>
 <a class="sourceLine" id="cb445-7" data-line-number="7">        <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, </a>
 <a class="sourceLine" id="cb445-8" data-line-number="8">            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</a>
 <a class="sourceLine" id="cb445-9" data-line-number="9">    ), <span class="dt">col =</span> col)</a></code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-12-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-13-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Or just remove the background (don’t set it to <code>NULL</code>. Setting <code>background</code>
 directly to <code>NULL</code> means to use the default style of background whch is in
 grey):</p>
@@ -520,7 +520,7 @@ grey):</p>
 <a class="sourceLine" id="cb446-6" data-line-number="6">        <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, </a>
 <a class="sourceLine" id="cb446-7" data-line-number="7">            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</a>
 <a class="sourceLine" id="cb446-8" data-line-number="8">    ), <span class="dt">col =</span> col)</a></code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-13-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-14-1.png" width="384" style="display: block; margin: auto;" /></p>
 </div>
 <div id="complex-alteration-types" class="section level3">
 <h3><span class="header-section-number">7.1.4</span> Complex alteration types</h3>
@@ -606,7 +606,7 @@ Section <a href="legends.html#discrete-legends">5.2</a> for <code>pch</code> 26,
 <a class="sourceLine" id="cb450-3" data-line-number="3"><span class="kw">draw</span>(ht, <span class="dt">heatmap_legend_list =</span> <span class="kw">list</span>(</a>
 <a class="sourceLine" id="cb450-4" data-line-number="4">    <span class="kw">Legend</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;intronic&quot;</span>, <span class="st">&quot;exonic&quot;</span>), <span class="dt">type =</span> <span class="st">&quot;points&quot;</span>, <span class="dt">pch =</span> <span class="kw">c</span>(<span class="dv">16</span>, <span class="dv">28</span>))</a>
 <a class="sourceLine" id="cb450-5" data-line-number="5">))</a></code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-16-1.png" width="528" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-17-1.png" width="528" style="display: block; margin: auto;" /></p>
 </div>
 <div id="simplify-alter_fun" class="section level3">
 <h3><span class="header-section-number">7.1.5</span> Simplify alter_fun</h3>
@@ -618,7 +618,7 @@ can be simplied as:</p>
 <a class="sourceLine" id="cb451-3" data-line-number="3">        <span class="dt">snv =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">width =</span> <span class="fl">0.9</span>, <span class="dt">height =</span> <span class="fl">0.9</span>, <span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>]),</a>
 <a class="sourceLine" id="cb451-4" data-line-number="4">        <span class="dt">indel =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">width =</span> <span class="fl">0.9</span>, <span class="dt">height =</span> <span class="fl">0.4</span>, <span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>])</a>
 <a class="sourceLine" id="cb451-5" data-line-number="5">    ), <span class="dt">col =</span> col)</a></code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-17-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-18-1.png" width="384" style="display: block; margin: auto;" /></p>
 </div>
 <div id="other-heatmap-related-settings" class="section level3">
 <h3><span class="header-section-number">7.1.6</span> Other heatmap-related settings</h3>
@@ -631,14 +631,14 @@ setting <code>show_column_names = TRUE</code>.</p>
 <a class="sourceLine" id="cb452-5" data-line-number="5">        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</a>
 <a class="sourceLine" id="cb452-6" data-line-number="6">)</a>
 <a class="sourceLine" id="cb452-7" data-line-number="7"><span class="kw">oncoPrint</span>(mat, <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, <span class="dt">show_column_names =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-18-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-19-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Row names and percent texts can be turned on/off by setting <code>show_pct</code>
 and <code>show_row_names</code>. The side of both according to the oncoPrint is controlled
 by <code>pct_side</code> and <code>row_names_side</code>. Digits of the percent values are controlled
 by <code>pct_digits</code>.</p>
 <div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb453-1" data-line-number="1"><span class="kw">oncoPrint</span>(mat, <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </a>
 <a class="sourceLine" id="cb453-2" data-line-number="2">    <span class="dt">row_names_side =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">pct_side =</span> <span class="st">&quot;right&quot;</span>, <span class="dt">pct_digits =</span> <span class="dv">2</span>)</a></code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-19-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-20-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>The barplot annotations on the both side are controlled by
 <code>anno_oncoprint_barplot()</code> annotation function. Customization such as the size
 and the axes can be set directly in <code>anno_oncoprint_barplot()</code>. More examples
@@ -654,7 +654,7 @@ of setting <code>anno_oncoprint_barplot()</code> can be found in Section <a href
 <a class="sourceLine" id="cb454-9" data-line-number="9">                <span class="dt">side =</span> <span class="st">&quot;top&quot;</span>,</a>
 <a class="sourceLine" id="cb454-10" data-line-number="10">                <span class="dt">labels_rot =</span> <span class="dv">0</span>))),</a>
 <a class="sourceLine" id="cb454-11" data-line-number="11">    )</a></code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-20-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-21-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Some people might want to move the right barplots to the left of the oncoPrint:</p>
 <div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb455-1" data-line-number="1"><span class="kw">oncoPrint</span>(mat, <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </a>
 <a class="sourceLine" id="cb455-2" data-line-number="2">    <span class="dt">left_annotation =</span>  <span class="kw">rowAnnotation</span>(</a>
@@ -662,7 +662,7 @@ of setting <code>anno_oncoprint_barplot()</code> can be found in Section <a href
 <a class="sourceLine" id="cb455-4" data-line-number="4">            <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">direction =</span> <span class="st">&quot;reverse&quot;</span>)</a>
 <a class="sourceLine" id="cb455-5" data-line-number="5">    )),</a>
 <a class="sourceLine" id="cb455-6" data-line-number="6">    <span class="dt">right_annotation =</span> <span class="ot">NULL</span>)</a></code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-21-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-22-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>OncoPrints essentially are heatmaps, thus, there are many arguments set in
 <code>Heatmap()</code> can also be set in <code>oncoPrint()</code>. In following section, we use a
 real-world dataset to demonstrate more use of <code>oncoPrint()</code> function.</p>
@@ -746,7 +746,7 @@ as varaibles because they are used multiple times in following code chunks.</p>
 <a class="sourceLine" id="cb460-4" data-line-number="4"><span class="kw">oncoPrint</span>(mat,</a>
 <a class="sourceLine" id="cb460-5" data-line-number="5">    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </a>
 <a class="sourceLine" id="cb460-6" data-line-number="6">    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</a></code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-26-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-27-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>As you see, the genes and samples are reordered automatically. Rows are sorted
 based on the frequency of the alterations in all samples and columns are
 reordered to visualize the mutual exclusivity between samples. The column
@@ -761,7 +761,7 @@ the heatmap, but you can set <code>remove_empty_columns</code> and <code>remove_
 <a class="sourceLine" id="cb461-2" data-line-number="2">    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </a>
 <a class="sourceLine" id="cb461-3" data-line-number="3">    <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,</a>
 <a class="sourceLine" id="cb461-4" data-line-number="4">    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</a></code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-27-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-28-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>The number of rows and columns may be reduced after empty rows and columns are
 removed. All the components of the oncoPrint are adjusted accordingly. When
 the oncoPrint is concatenated with other heatmaps and annotations, this may
@@ -785,7 +785,7 @@ cBio.</p>
 <a class="sourceLine" id="cb462-5" data-line-number="5">    <span class="dt">row_order =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(mat), <span class="dt">column_order =</span> sample_order,</a>
 <a class="sourceLine" id="cb462-6" data-line-number="6">    <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,</a>
 <a class="sourceLine" id="cb462-7" data-line-number="7">    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</a></code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-28-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-29-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>Again, <code>row_order</code> and <code>column_order</code> are automatically adjusted if
 <code>remove_empty_rows</code> and <code>remove_empty_columns</code> are set to <code>TRUE</code>.</p>
 </div>
@@ -811,7 +811,7 @@ setting in <code>anno_oncoprint_barplot()</code>. See following example:</p>
 <a class="sourceLine" id="cb463-9" data-line-number="9">            <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">side =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">labels_rot =</span> <span class="dv">90</span>))),</a>
 <a class="sourceLine" id="cb463-10" data-line-number="10">    <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,</a>
 <a class="sourceLine" id="cb463-11" data-line-number="11">    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</a></code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-29-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-30-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>The percent values and row names are internally constructed as text
 annotations. You can set <code>show_pct</code> and <code>show_row_names</code> to turn them on or
 off. <code>pct_side</code> and <code>row_names_side</code> controls the sides where they are put.</p>
@@ -820,7 +820,7 @@ off. <code>pct_side</code> and <code>row_names_side</code> controls the sides wh
 <a class="sourceLine" id="cb464-3" data-line-number="3">    <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,</a>
 <a class="sourceLine" id="cb464-4" data-line-number="4">    <span class="dt">pct_side =</span> <span class="st">&quot;right&quot;</span>, <span class="dt">row_names_side =</span> <span class="st">&quot;left&quot;</span>,</a>
 <a class="sourceLine" id="cb464-5" data-line-number="5">    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</a></code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-30-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-31-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>The barplot annotation for oncoPrint are essentially normal annotations, you
 can add more annotations in <code>HeatmapAnnotation()</code> or <code>rowAnnotation()</code> in the
 normal way:</p>
@@ -833,7 +833,7 @@ normal way:</p>
 <a class="sourceLine" id="cb465-7" data-line-number="7">    <span class="dt">left_annotation =</span> <span class="kw">rowAnnotation</span>(<span class="dt">foo2 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">26</span>),</a>
 <a class="sourceLine" id="cb465-8" data-line-number="8">    <span class="dt">right_annotation =</span> <span class="kw">rowAnnotation</span>(<span class="dt">bar2 =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">26</span>)),</a>
 <a class="sourceLine" id="cb465-9" data-line-number="9">    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</a></code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-31-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-32-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>As you see, the percent annotation, the row name annotation and the oncoPrint
 annotation are appended to the user-specified annotation by default. Also
 annotations are automatically adjusted if <code>remove_empty_columns</code> and
@@ -851,21 +851,21 @@ annotations to the heatmap list.</p>
 <a class="sourceLine" id="cb466-3" data-line-number="3">    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param) <span class="op">+</span></a>
 <a class="sourceLine" id="cb466-4" data-line-number="4"><span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="kw">nrow</span>(mat)<span class="op">*</span><span class="dv">10</span>), <span class="dt">ncol =</span> <span class="dv">10</span>), <span class="dt">name =</span> <span class="st">&quot;expr&quot;</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))</a>
 <a class="sourceLine" id="cb466-5" data-line-number="5"><span class="kw">draw</span>(ht_list)</a></code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-32-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-33-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>or add it vertically:</p>
 <div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb467-1" data-line-number="1">ht_list =<span class="st"> </span><span class="kw">oncoPrint</span>(mat,</a>
 <a class="sourceLine" id="cb467-2" data-line-number="2">    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </a>
 <a class="sourceLine" id="cb467-3" data-line-number="3">    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param) <span class="op">%v%</span></a>
 <a class="sourceLine" id="cb467-4" data-line-number="4"><span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="kw">ncol</span>(mat)<span class="op">*</span><span class="dv">10</span>), <span class="dt">nrow =</span> <span class="dv">10</span>), <span class="dt">name =</span> <span class="st">&quot;expr&quot;</span>, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))</a>
 <a class="sourceLine" id="cb467-5" data-line-number="5"><span class="kw">draw</span>(ht_list)</a></code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-33-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-34-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>Similar as normal heatmap list, you can split the heatmap list:</p>
 <div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb468-1" data-line-number="1">ht_list =<span class="st"> </span><span class="kw">oncoPrint</span>(mat,</a>
 <a class="sourceLine" id="cb468-2" data-line-number="2">    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </a>
 <a class="sourceLine" id="cb468-3" data-line-number="3">    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param) <span class="op">+</span></a>
 <a class="sourceLine" id="cb468-4" data-line-number="4"><span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="kw">nrow</span>(mat)<span class="op">*</span><span class="dv">10</span>), <span class="dt">ncol =</span> <span class="dv">10</span>), <span class="dt">name =</span> <span class="st">&quot;expr&quot;</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))</a>
 <a class="sourceLine" id="cb468-5" data-line-number="5"><span class="kw">draw</span>(ht_list, <span class="dt">row_split =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>), <span class="kw">nrow</span>(mat), <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
-<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-34-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<p><img src="07-oncoprint_files/figure-html/unnamed-chunk-35-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>When <code>remove_empty_columns</code> or <code>remove_empty_rows</code> is set to <code>TRUE</code>, the
 number of genes or the samples may not be the original number. If the original
 matrix has row names and column names. The subset of rows and columns can be

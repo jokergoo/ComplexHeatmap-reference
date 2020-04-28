@@ -1,3 +1,4 @@
+
 --- 
 title: "ComplexHeatmap Complete Reference"
 author: "Zuguang Gu"
@@ -53,13 +54,13 @@ sessionInfo()
 ```
 
 ```
-## R version 4.0.0 (2020-04-24)
+## R version 3.6.0 (2019-04-26)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: CentOS Linux 7 (Core)
 ## 
 ## Matrix products: default
-## BLAS:   /home/guz/soft/R-4.0.0/lib/libRblas.so
-## LAPACK: /home/guz/soft/R-4.0.0/lib/libRlapack.so
+## BLAS:   /usr/lib64/libblas.so.3.4.2
+## LAPACK: /usr/lib64/liblapack.so.3.4.2
 ## 
 ## locale:
 ##  [1] LC_CTYPE=en_GB.UTF-8       LC_NUMERIC=C              
@@ -74,23 +75,24 @@ sessionInfo()
 ## [8] base     
 ## 
 ## other attached packages:
-## [1] dendsort_0.3.3       dendextend_1.13.4    circlize_0.4.9      
+## [1] dendsort_0.3.3       dendextend_1.13.2    circlize_0.4.9      
 ## [4] ComplexHeatmap_2.3.5
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.4.6        compiler_4.0.0      pillar_1.4.3       
-##  [4] RColorBrewer_1.1-2  viridis_0.5.1       tools_4.0.0        
-##  [7] digest_0.6.25       evaluate_0.14       lifecycle_0.2.0    
-## [10] tibble_3.0.1        gtable_0.3.0        clue_0.3-57        
-## [13] viridisLite_0.3.0   pkgconfig_2.0.3     png_0.1-7          
-## [16] rlang_0.4.5         yaml_2.2.1          parallel_4.0.0     
-## [19] xfun_0.13           gridExtra_2.3       stringr_1.4.0      
-## [22] dplyr_0.8.5         cluster_2.1.0       knitr_1.28         
-## [25] GlobalOptions_0.1.1 vctrs_0.2.4         tidyselect_1.0.0   
+##  [1] Rcpp_1.0.4          pillar_1.4.3        compiler_3.6.0     
+##  [4] RColorBrewer_1.1-2  viridis_0.5.1       tools_3.6.0        
+##  [7] digest_0.6.25       viridisLite_0.3.0   evaluate_0.14      
+## [10] lifecycle_0.2.0     tibble_3.0.1        gtable_0.3.0       
+## [13] clue_0.3-57         pkgconfig_2.0.3     png_0.1-7          
+## [16] rlang_0.4.5         yaml_2.2.1          parallel_3.6.0     
+## [19] xfun_0.13           gridExtra_2.3       dplyr_0.8.3        
+## [22] stringr_1.4.0       cluster_2.1.0       knitr_1.28         
+## [25] vctrs_0.2.4         GlobalOptions_0.1.1 tidyselect_1.0.0   
 ## [28] glue_1.4.0          R6_2.4.1            GetoptLong_0.1.8   
-## [31] rmarkdown_2.1       bookdown_0.18       ggplot2_3.3.0      
-## [34] purrr_0.3.4         magrittr_1.5        htmltools_0.4.0    
-## [37] scales_1.1.0        ellipsis_0.3.0      assertthat_0.2.1   
+## [31] rmarkdown_1.18      bookdown_0.17       purrr_0.3.4        
+## [34] ggplot2_3.2.1       magrittr_1.5        scales_1.1.0       
+## [37] htmltools_0.4.0     ellipsis_0.3.0      assertthat_0.2.1   
 ## [40] shape_1.4.4         colorspace_1.4-1    stringi_1.4.6      
-## [43] munsell_0.5.0       crayon_1.3.4        rjson_0.2.20
+## [43] lazyeval_0.2.2      munsell_0.5.0       crayon_1.3.4       
+## [46] rjson_0.2.20
 ```

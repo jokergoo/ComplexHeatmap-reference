@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 A Single Heatmap | ComplexHeatmap Complete Reference</title>
   <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 A Single Heatmap | ComplexHeatmap Complete Reference" />
   <meta property="og:type" content="book" />
@@ -326,7 +326,7 @@ and the heatmap legend. The default color schema is “blue-white-red” which i
 mapped to the minimal-mean-maximal values in the matrix. The title for the
 legend is assigned with an internal index number.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">Heatmap</span>(mat)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/default-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/default-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>The title for the legend is taken from the “name” of the heatmap by default.
 Each heatmap has a name which is like a unique identifier for the heatmap and
 it is important when you have a list of heatmaps. In later chapters, you will
@@ -362,7 +362,7 @@ less than -2 are all mapped to green.</p>
 <pre><code>## [1] &quot;#00FF00FF&quot; &quot;#00FF00FF&quot; &quot;#B1FF9AFF&quot; &quot;#FFFFFFFF&quot; &quot;#FF9E81FF&quot; &quot;#FF0000FF&quot;
 ## [7] &quot;#FF0000FF&quot;</code></pre>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">col =</span> col_fun)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-3-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>As you can see, the color mapping function exactly maps negative values to
 green and positive values to red, even when the distribution of negative
 values and positive values are not centric to zero. Also this color mapping
@@ -371,21 +371,21 @@ heavily affected by the outlier but not the color mapping.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">mat2 =<span class="st"> </span>mat</a>
 <a class="sourceLine" id="cb10-2" data-line-number="2">mat2[<span class="dv">1</span>, <span class="dv">1</span>] =<span class="st"> </span><span class="dv">100000</span></a>
 <a class="sourceLine" id="cb10-3" data-line-number="3"><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">col =</span> col_fun)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-4-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>More importantly, <code>colorRamp2()</code> makes colors in multiple heatmaps comparible
 if they are set with a same color mapping function. In following three
 heatmaps, a same color always corresponds to a same value.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">col =</span> col_fun, <span class="dt">column_title =</span> <span class="st">&quot;mat&quot;</span>)</a>
 <a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw">Heatmap</span>(mat<span class="op">/</span><span class="dv">4</span>, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">col =</span> col_fun, <span class="dt">column_title =</span> <span class="st">&quot;mat/4&quot;</span>)</a>
 <a class="sourceLine" id="cb11-3" data-line-number="3"><span class="kw">Heatmap</span>(<span class="kw">abs</span>(mat), <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">col =</span> col_fun, <span class="dt">column_title =</span> <span class="st">&quot;abs(mat)&quot;</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-5-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-6-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>If the matrix is continuous, you can also simply provide a vector of colors
 and colors will be linearly interpolated. But remember this method is not
 robust to outliers because the mapping starts from the minimal value in the
 matrix and ends with the maximal value. Following color mapping setting is
 identical to <code>colorRamp2(seq(min(mat), max(mat), length = 10), rev(rainbow(10)))</code>.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">col =</span> <span class="kw">rev</span>(<span class="kw">rainbow</span>(<span class="dv">10</span>)))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-7-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>If the matrix contains discrete values (either numeric or character), colors
 should be specified as a named vector to make it possible for the mapping from
 discrete values to colors. If there is no name for the color, the order of
@@ -396,12 +396,12 @@ it to a character matrix).</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">discrete_mat =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>), <span class="dv">10</span>, <span class="dv">10</span>)</a>
 <a class="sourceLine" id="cb13-2" data-line-number="2">colors =<span class="st"> </span><span class="kw">structure</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">names =</span> <span class="kw">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>, <span class="st">&quot;3&quot;</span>, <span class="st">&quot;4&quot;</span>)) <span class="co"># black, red, green, blue</span></a>
 <a class="sourceLine" id="cb13-3" data-line-number="3"><span class="kw">Heatmap</span>(discrete_mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">col =</span> colors)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-8-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Or a character matrix:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">discrete_mat =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">sample</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>), <span class="dv">10</span>, <span class="dv">10</span>)</a>
 <a class="sourceLine" id="cb14-2" data-line-number="2">colors =<span class="st"> </span><span class="kw">structure</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">names =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>])</a>
 <a class="sourceLine" id="cb14-3" data-line-number="3"><span class="kw">Heatmap</span>(discrete_mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">col =</span> colors)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/discrete_character_matrix-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/discrete_character_matrix-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>As you see in the two examples above, for the numeric matrix (no matter the
 color is continuous mapping or discrete mapping), by default clustering is
 applied on both dimensions while for character matrix, clustering is turned
@@ -416,7 +416,7 @@ be clustered by <code>Heatmap()</code>.</strong></p>
 <a class="sourceLine" id="cb15-2" data-line-number="2">na_index =<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>), <span class="kw">nrow</span>(mat)<span class="op">*</span><span class="kw">ncol</span>(mat), <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">9</span>))</a>
 <a class="sourceLine" id="cb15-3" data-line-number="3">mat_with_na[na_index] =<span class="st"> </span><span class="ot">NA</span></a>
 <a class="sourceLine" id="cb15-4" data-line-number="4"><span class="kw">Heatmap</span>(mat_with_na, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">na_col =</span> <span class="st">&quot;black&quot;</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-9-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Color space is important for interpolating colors. By default, colors are
 linearly interpolated in <a href="https://en.wikipedia.org/wiki/Lab_color_space">LAB color
 space</a>, but you can select the
@@ -427,12 +427,12 @@ see the difference?</p>
 <a class="sourceLine" id="cb16-3" data-line-number="3">    <span class="dt">space =</span> <span class="st">&quot;RGB&quot;</span>)</a>
 <a class="sourceLine" id="cb16-4" data-line-number="4"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat1&quot;</span>, <span class="dt">col =</span> f1, <span class="dt">column_title =</span> <span class="st">&quot;LAB color space&quot;</span>)</a>
 <a class="sourceLine" id="cb16-5" data-line-number="5"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat2&quot;</span>, <span class="dt">col =</span> f2, <span class="dt">column_title =</span> <span class="st">&quot;RGB color space&quot;</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-10-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-11-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>In following plots, corresponding values change evenly on the folded lines,
 you can see how colors change under different color spaces (top plots:
 green-black-red, bottom plots: blue-white-red. The plot is made by
 <a href="https://bioconductor.org/packages/release/bioc/html/HilbertCurve.html"><strong>HilbertCurve</strong>package</a>).</p>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-11-1.png" width="1344" style="display: block; margin: auto;" /><img src="02-single_heatmap_files/figure-html/unnamed-chunk-11-2.png" width="1344" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-12-1.png" width="1344" style="display: block; margin: auto;" /><img src="02-single_heatmap_files/figure-html/unnamed-chunk-12-2.png" width="1344" style="display: block; margin: auto;" /></p>
 <p>Last but not the least, colors for the heatmap borders can be set by the
 <code>border</code> and <code>rect_gp</code> arguments. <code>border</code> controls the global border of the
 heatmap body and <code>rect_gp</code> controls the border of the grids in the heatmap.</p>
@@ -443,9 +443,9 @@ character of color (e.g. <code>red</code>).</p>
 color mapping, you can only set the <code>col</code> parameter in <code>gpar()</code> to control the
 border of the heatmap grids.</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">border =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-13-1.png" width="480" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">rect_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-12-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-13-2.png" width="480" style="display: block; margin: auto;" /></p>
 <p>If <code>col</code> is not set, the default color mapping by <code>Heatmap()</code> is designed with
 trying to be as convinient and meaningful as possible. Following are the rules
 for the default color mapping (by <code>ComplexHeatmap:::default_col()</code>):</p>
@@ -475,7 +475,7 @@ the clustering is still applied but nothing in drawn on the heatmap body. The
 customized graphics on heatmap body can be added via a self-defined <code>cell_fun</code>
 or <code>layer_fun</code> (see Section <a href="a-single-heatmap.html#customize-the-heatmap-body">2.9</a>).</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">rect_gp =</span> <span class="kw">gpar</span>(<span class="dt">type =</span> <span class="st">&quot;none&quot;</span>))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-14-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="heatmap-titles" class="section level2">
 <h2><span class="header-section-number">2.2</span> Titles</h2>
@@ -488,17 +488,17 @@ respectively. Please remember you should use <code>gpar()</code> to specify grap
 parameters.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">column_title =</span> <span class="st">&quot;I am a column title&quot;</span>, </a>
 <a class="sourceLine" id="cb20-2" data-line-number="2">    <span class="dt">row_title =</span> <span class="st">&quot;I am a row title&quot;</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/row_column_title-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/row_column_title-1.png" width="480" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">column_title =</span> <span class="st">&quot;I am a column title at the bottom&quot;</span>, </a>
 <a class="sourceLine" id="cb21-2" data-line-number="2">    <span class="dt">column_title_side =</span> <span class="st">&quot;bottom&quot;</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/row_column_title-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/row_column_title-2.png" width="480" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">column_title =</span> <span class="st">&quot;I am a big column title&quot;</span>, </a>
 <a class="sourceLine" id="cb22-2" data-line-number="2">    <span class="dt">column_title_gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">20</span>, <span class="dt">fontface =</span> <span class="st">&quot;bold&quot;</span>))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/row_column_title-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/row_column_title-3.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Rotations for titles can be set by <code>row_title_rot</code> and <code>column_title_rot</code>, but
 only horizontal and vertical rotations are allowed.</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_title =</span> <span class="st">&quot;row title&quot;</span>, <span class="dt">row_title_rot =</span> <span class="dv">0</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/title_rotation-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/title_rotation-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Row or column title supports as a template which is used when rows or columns
 are split in the heatmap (because there will be multiple row/column titles).
 This functionality is introduced in Section <a href="a-single-heatmap.html#heatmap-split">2.7</a>. A quick
@@ -511,11 +511,11 @@ the background color of titles. Since <code>col</code> in e.g. <code>row_title_g
 color of text, <code>border</code> is used to control the color of the background border.</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">column_title =</span> <span class="st">&quot;I am a column title&quot;</span>, </a>
 <a class="sourceLine" id="cb25-2" data-line-number="2">    <span class="dt">column_title_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;red&quot;</span>))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-16-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>If the graphic elements are texts, they can be set as mathematical formulas.</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, </a>
 <a class="sourceLine" id="cb26-2" data-line-number="2">    <span class="dt">column_title =</span> <span class="kw">expression</span>(<span class="kw">hat</span>(beta) <span class="op">==</span><span class="st"> </span>(X<span class="op">^</span>t <span class="op">*</span><span class="st"> </span>X)<span class="op">^</span>{<span class="op">-</span><span class="dv">1</span>} <span class="op">*</span><span class="st"> </span>X<span class="op">^</span>t <span class="op">*</span><span class="st"> </span>y)) </a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-17-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="clustering" class="section level2">
 <h2><span class="header-section-number">2.3</span> Clustering</h2>
@@ -536,14 +536,14 @@ e.g. by <code>dendextend::color_branches()</code>).</p>
 clustering or show dendrograms, the side of the dendrograms and heights of the
 dendrograms.</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">cluster_rows =</span> <span class="ot">FALSE</span>) <span class="co"># turn off row clustering</span></a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/cluster_basic-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/cluster_basic-1.png" width="480" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">show_column_dend =</span> <span class="ot">FALSE</span>) <span class="co"># hide column dendrogram</span></a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/cluster_basic-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/cluster_basic-2.png" width="480" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_dend_side =</span> <span class="st">&quot;right&quot;</span>, <span class="dt">column_dend_side =</span> <span class="st">&quot;bottom&quot;</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/cluster_basic-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/cluster_basic-3.png" width="480" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">column_dend_height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>), </a>
 <a class="sourceLine" id="cb30-2" data-line-number="2">    <span class="dt">row_dend_width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/cluster_basic-4.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/cluster_basic-4.png" width="480" style="display: block; margin: auto;" /></p>
 <div id="distance-methods" class="section level3">
 <h3><span class="header-section-number">2.3.1</span> Distance methods</h3>
 <p>Hierarchical clustering is performed in two steps: calculate the distance
@@ -563,13 +563,13 @@ it is implemented by two nested <code>for</code> loop.</li>
 </ul>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">clustering_distance_rows =</span> <span class="st">&quot;pearson&quot;</span>,</a>
 <a class="sourceLine" id="cb31-2" data-line-number="2">    <span class="dt">column_title =</span> <span class="st">&quot;pre-defined distance method (1 - pearson)&quot;</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/cluster_distance-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/cluster_distance-1.png" width="480" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">clustering_distance_rows =</span> <span class="cf">function</span>(m) <span class="kw">dist</span>(m),</a>
 <a class="sourceLine" id="cb32-2" data-line-number="2">    <span class="dt">column_title =</span> <span class="st">&quot;a function that calculates distance matrix&quot;</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/cluster_distance-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/cluster_distance-2.png" width="480" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">clustering_distance_rows =</span> <span class="cf">function</span>(x, y) <span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">cor</span>(x, y),</a>
 <a class="sourceLine" id="cb33-2" data-line-number="2">    <span class="dt">column_title =</span> <span class="st">&quot;a function that calculates pairwise distance&quot;</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/cluster_distance-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/cluster_distance-3.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Based on these features, we can apply clustering which is robust to outliers
 based on the pairwise distance. Note here we set the color mapping function
 because we don’t want outliers affect the colors.</p>
@@ -592,7 +592,7 @@ because we don’t want outliers affect the colors.</p>
 <a class="sourceLine" id="cb35-6" data-line-number="6">    <span class="dt">clustering_distance_rows =</span> robust_dist,</a>
 <a class="sourceLine" id="cb35-7" data-line-number="7">    <span class="dt">clustering_distance_columns =</span> robust_dist,</a>
 <a class="sourceLine" id="cb35-8" data-line-number="8">    <span class="dt">column_title =</span> <span class="st">&quot;robust_dist&quot;</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-18-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-19-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>If there are proper distance methods (like methods in <a href="https://cran.r-project.org/web/packages/stringdist/"><strong>stringdist</strong>
 package</a>), you can also
 cluster a character matrix. <code>cell_fun</code> argument will be introduced in Section
@@ -609,7 +609,7 @@ cluster a character matrix. <code>cell_fun</code> argument will be introduced in
 <a class="sourceLine" id="cb36-10" data-line-number="10">    <span class="dt">cell_fun =</span> <span class="cf">function</span>(j, i, x, y, w, h, col) { <span class="co"># add text to each grid</span></a>
 <a class="sourceLine" id="cb36-11" data-line-number="11">        <span class="kw">grid.text</span>(mat_letters[i, j], x, y)</a>
 <a class="sourceLine" id="cb36-12" data-line-number="12">    })</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/cluster_character_matrix-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/cluster_character_matrix-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="clustering-methods" class="section level3">
 <h3><span class="header-section-number">2.3.2</span> Clustering methods</h3>
@@ -617,7 +617,7 @@ cluster a character matrix. <code>cell_fun</code> argument will be introduced in
 <code>clustering_method_rows</code> and <code>clustering_method_columns</code>. Possible methods are
 those supported in <code>hclust()</code> function.</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">clustering_method_rows =</span> <span class="st">&quot;single&quot;</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/cluster_method-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/cluster_method-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>If you already have a clustering object or a function which directly returns a
 clustering object, you can ignore the distance settings and set <code>cluster_rows</code>
 or <code>cluster_columns</code> to the clustering objects or clustering functions. If it
@@ -629,11 +629,11 @@ package either by a pre-calculated clustering object or a clustering function:</
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="kw">library</span>(cluster)</a>
 <a class="sourceLine" id="cb38-2" data-line-number="2"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">cluster_rows =</span> <span class="kw">diana</span>(mat),</a>
 <a class="sourceLine" id="cb38-3" data-line-number="3">   <span class="dt">cluster_columns =</span> <span class="kw">agnes</span>(<span class="kw">t</span>(mat)), <span class="dt">column_title =</span> <span class="st">&quot;clustering objects&quot;</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/cluster_object-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/cluster_object-1.png" width="480" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="co"># if cluster_columns is set as a function, you don&#39;t need to transpose the matrix</span></a>
 <a class="sourceLine" id="cb39-2" data-line-number="2"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">cluster_rows =</span> diana,</a>
 <a class="sourceLine" id="cb39-3" data-line-number="3">   <span class="dt">cluster_columns =</span> agnes, <span class="dt">column_title =</span> <span class="st">&quot;clustering functions&quot;</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/cluster_object-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/cluster_object-2.png" width="480" style="display: block; margin: auto;" /></p>
 <p>The last command is as same as :</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1"><span class="co"># code only for demonstration</span></a>
 <a class="sourceLine" id="cb40-2" data-line-number="2"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">cluster_rows =</span> <span class="cf">function</span>(m) <span class="kw">as.dendrogram</span>(<span class="kw">diana</span>(m)),</a>
@@ -663,7 +663,7 @@ can split the heatmap by the subgroup variable (see Section
 function to generate a special dendrogram.</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1">group =<span class="st"> </span><span class="kw">kmeans</span>(<span class="kw">t</span>(mat), <span class="dt">centers =</span> <span class="dv">3</span>)<span class="op">$</span>cluster</a>
 <a class="sourceLine" id="cb43-2" data-line-number="2"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">cluster_columns =</span> <span class="kw">cluster_within_group</span>(mat, group))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-22-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-23-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>In above example, columns in a same group are still clustered, but the
 dendrogram is degenerated as a flat line. The dendrogram on columns shows the
 hierarchy of the groups.</p>
@@ -680,12 +680,12 @@ only allows rendering on the dendrogram lines.</p>
 <a class="sourceLine" id="cb44-2" data-line-number="2">row_dend =<span class="st"> </span><span class="kw">as.dendrogram</span>(<span class="kw">hclust</span>(<span class="kw">dist</span>(mat)))</a>
 <a class="sourceLine" id="cb44-3" data-line-number="3">row_dend =<span class="st"> </span><span class="kw">color_branches</span>(row_dend, <span class="dt">k =</span> <span class="dv">2</span>) <span class="co"># `color_branches()` returns a dendrogram object</span></a>
 <a class="sourceLine" id="cb44-4" data-line-number="4"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">cluster_rows =</span> row_dend)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/cluster_dendextend-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/cluster_dendextend-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><code>row_dend_gp</code> and <code>column_dend_gp</code> control the global graphic setting for
 dendrograms. Note e.g. graphic settings in <code>row_dend</code> will be overwritten by
 <code>row_dend_gp</code>.</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">cluster_rows =</span> row_dend, <span class="dt">row_dend_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-23-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-24-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="reorder-dendrograms" class="section level3">
 <h3><span class="header-section-number">2.3.4</span> Reorder dendrograms</h3>
@@ -719,7 +719,7 @@ the data matrix, reorder it by some method, and assign it back to
 <a class="sourceLine" id="cb47-3" data-line-number="3"><span class="kw">library</span>(dendsort)</a>
 <a class="sourceLine" id="cb47-4" data-line-number="4">dend =<span class="st"> </span><span class="kw">dendsort</span>(<span class="kw">hclust</span>(<span class="kw">dist</span>(mat)))</a>
 <a class="sourceLine" id="cb47-5" data-line-number="5"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">cluster_rows =</span> dend, <span class="dt">column_title =</span> <span class="st">&quot;reorder by dendsort&quot;</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-26-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-27-1.png" width="960" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="row-and_column_orders" class="section level2">
@@ -729,11 +729,11 @@ you can still set the order manually by <code>row_order</code> and <code>column_
 e.g. <code>row_order</code> is set, row clustering is turned off by default.</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_order =</span> <span class="kw">order</span>(<span class="kw">as.numeric</span>(<span class="kw">gsub</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="kw">rownames</span>(mat)))), </a>
 <a class="sourceLine" id="cb48-2" data-line-number="2">    <span class="dt">column_order =</span> <span class="kw">order</span>(<span class="kw">as.numeric</span>(<span class="kw">gsub</span>(<span class="st">&quot;column&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="kw">colnames</span>(mat)))))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/manual_order-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/manual_order-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>The orders can be character vectors if they are just shuffles of the matrix row names or column names.</p>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_order =</span> <span class="kw">sort</span>(<span class="kw">rownames</span>(mat)), </a>
 <a class="sourceLine" id="cb49-2" data-line-number="2">    <span class="dt">column_order =</span> <span class="kw">sort</span>(<span class="kw">colnames</span>(mat)))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-27-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-28-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Note <code>row_dend_reorder</code> and <code>row_order</code> are two different things.
 <code>row_dend_reorder</code> is applied on the dendrogram. For any node in the
 dendrogram, rotating its two branches actually gives an identical dendrogram,
@@ -759,14 +759,14 @@ matrix to <code>max(mat) - mat</code>.</p>
 <a class="sourceLine" id="cb50-2" data-line-number="2">o =<span class="st"> </span><span class="kw">seriate</span>(<span class="kw">max</span>(mat) <span class="op">-</span><span class="st"> </span>mat, <span class="dt">method =</span> <span class="st">&quot;BEA_TSP&quot;</span>)</a>
 <a class="sourceLine" id="cb50-3" data-line-number="3"><span class="kw">Heatmap</span>(<span class="kw">max</span>(mat) <span class="op">-</span><span class="st"> </span>mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, </a>
 <a class="sourceLine" id="cb50-4" data-line-number="4">    <span class="dt">row_order =</span> <span class="kw">get_order</span>(o, <span class="dv">1</span>), <span class="dt">column_order =</span> <span class="kw">get_order</span>(o, <span class="dv">2</span>))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-28-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-29-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Or you can apply <code>seriate()</code> to the distance matrix. Now the order for rows
 and columns needs to be calcualted separatedly because the distance matrix
 needs to be calculated separatedly for columns and rows.</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1">o1 =<span class="st"> </span><span class="kw">seriate</span>(<span class="kw">dist</span>(mat), <span class="dt">method =</span> <span class="st">&quot;TSP&quot;</span>)</a>
 <a class="sourceLine" id="cb51-2" data-line-number="2">o2 =<span class="st"> </span><span class="kw">seriate</span>(<span class="kw">dist</span>(<span class="kw">t</span>(mat)), <span class="dt">method =</span> <span class="st">&quot;TSP&quot;</span>)</a>
 <a class="sourceLine" id="cb51-3" data-line-number="3"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_order =</span> <span class="kw">get_order</span>(o1), <span class="dt">column_order =</span> <span class="kw">get_order</span>(o2))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-29-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-30-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Some seriation methods also contain the hierarchical clustering information.
 Let’s try:</p>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1">o1 =<span class="st"> </span><span class="kw">seriate</span>(<span class="kw">dist</span>(mat), <span class="dt">method =</span> <span class="st">&quot;GW&quot;</span>)</a>
@@ -783,7 +783,7 @@ Let’s try:</p>
 <p>And we can add the dendrograms to the heatmap.</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">cluster_rows =</span> <span class="kw">as.dendrogram</span>(o1[[<span class="dv">1</span>]]), </a>
 <a class="sourceLine" id="cb59-2" data-line-number="2">    <span class="dt">cluster_columns =</span> <span class="kw">as.dendrogram</span>(o2[[<span class="dv">1</span>]]))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-33-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-34-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>For more use of the <code>seriate()</code> function, please refer to the <a href="https://cran.r-project.org/web/packages/seriation/index.html"><strong>seriation</strong>
 package</a>.</p>
 </div>
@@ -794,20 +794,20 @@ heatmap by default. Side, visibility and graphic parameters for dimension
 names can be set as follows:</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_names_side =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">row_dend_side =</span> <span class="st">&quot;right&quot;</span>, </a>
 <a class="sourceLine" id="cb60-2" data-line-number="2">    <span class="dt">column_names_side =</span> <span class="st">&quot;top&quot;</span>, <span class="dt">column_dend_side =</span> <span class="st">&quot;bottom&quot;</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/dimension_name-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/dimension_name-1.png" width="480" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">show_row_names =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/dimension_name-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/dimension_name-2.png" width="480" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_names_gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">20</span>))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/dimension_name-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/dimension_name-3.png" width="480" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_names_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;red&quot;</span>, <span class="dv">10</span>), <span class="kw">rep</span>(<span class="st">&quot;blue&quot;</span>, <span class="dv">8</span>))))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/dimension_name-4.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/dimension_name-4.png" width="480" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_names_centered =</span> <span class="ot">TRUE</span>, <span class="dt">column_names_centered =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/dimension_name-5.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/dimension_name-5.png" width="480" style="display: block; margin: auto;" /></p>
 <p>The rotation of column names can be set by <code>column_names_rot</code>:</p>
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">column_names_rot =</span> <span class="dv">45</span>)</a>
 <a class="sourceLine" id="cb65-2" data-line-number="2"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">column_names_rot =</span> <span class="dv">45</span>, <span class="dt">column_names_side =</span> <span class="st">&quot;top&quot;</span>,</a>
 <a class="sourceLine" id="cb65-3" data-line-number="3">    <span class="dt">column_dend_side =</span> <span class="st">&quot;bottom&quot;</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-35-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-36-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>If you have row names or column names which are too long,
 <code>row_names_max_width</code> or <code>column_names_max_height</code> can be used to set the
 maximal space for them. The default maximal space for row names and column
@@ -821,7 +821,7 @@ to quick calculate maximal width from a vector of text.</p>
 <a class="sourceLine" id="cb66-6" data-line-number="6">        <span class="kw">rownames</span>(mat2), </a>
 <a class="sourceLine" id="cb66-7" data-line-number="7">        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">12</span>)</a>
 <a class="sourceLine" id="cb66-8" data-line-number="8">    ))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-37-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-38-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Instead of directly using the row/column names from the matrix, you can also
 provide another character vector which corresponds to the rows or columns and
 set it by <code>row_labels</code> or <code>column_labels</code>. This is useful because you don’t
@@ -851,12 +851,12 @@ labels:</p>
 ## &quot;n14&quot; &quot;o15&quot; &quot;p16&quot; &quot;q17&quot; &quot;r18&quot; &quot;s19&quot; &quot;t20&quot; &quot;u21&quot; &quot;v22&quot; &quot;w23&quot; &quot;x24&quot;</code></pre>
 <div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_labels =</span> row_labels[<span class="kw">rownames</span>(mat)], </a>
 <a class="sourceLine" id="cb69-2" data-line-number="2">    <span class="dt">column_labels =</span> column_labels[<span class="kw">colnames</span>(mat)])</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-38-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-39-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>The third advantage is mathematical expression can be used as row names in the
 heatmap.</p>
 <div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_labels =</span> <span class="kw">expression</span>(alpha, beta, gamma, delta, epsilon, </a>
 <a class="sourceLine" id="cb70-2" data-line-number="2">    zeta, eta, theta, iota, kappa, lambda, mu, nu, xi, omicron, pi, rho, sigma))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-39-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-40-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><code>anno_text()</code> (Section <a href="heatmap-annotations.html#text-annotation">3.14</a>) can be used to add more customized
 labels for heatmap rows and columns.</p>
 </div>
@@ -872,12 +872,12 @@ highlight the patterns.</p>
 <h3><span class="header-section-number">2.7.1</span> Split by k-means clustering</h3>
 <p><code>row_km</code> and <code>column_km</code> apply k-means partitioning.</p>
 <div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_km =</span> <span class="dv">2</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/k_means-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/k_means-1.png" width="480" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">column_km =</span> <span class="dv">3</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/k_means-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/k_means-2.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Row splitting and column splitting can be performed simultaneously.</p>
 <div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_km =</span> <span class="dv">2</span>, <span class="dt">column_km =</span> <span class="dv">3</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-40-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-41-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>You might notice there are dashed lines in the row and column dendrograms,
 it will be explained in Section <a href="a-single-heatmap.html#split-by-categorical-variables">2.7.2</a> (last paragraph).</p>
 <p><code>Heatmap()</code> internally calls <code>kmeans()</code> with random start points, which
@@ -900,20 +900,20 @@ introduced in Section <a href="a-single-heatmap.html#order-of-slices">2.7.4</a>.
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1"><span class="co"># split by a vector</span></a>
 <a class="sourceLine" id="cb75-2" data-line-number="2"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, </a>
 <a class="sourceLine" id="cb75-3" data-line-number="3">    <span class="dt">row_split =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="dv">9</span>), <span class="dt">column_split =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>), <span class="dv">12</span>))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/split-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/split-1.png" width="480" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1"><span class="co"># split by a data frame</span></a>
 <a class="sourceLine" id="cb76-2" data-line-number="2"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, </a>
 <a class="sourceLine" id="cb76-3" data-line-number="3">    <span class="dt">row_split =</span> <span class="kw">data.frame</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="dv">9</span>), <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>), <span class="dt">each =</span> <span class="dv">9</span>)))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/split-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/split-2.png" width="480" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1"><span class="co"># split on both dimensions</span></a>
 <a class="sourceLine" id="cb77-2" data-line-number="2"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_split =</span> <span class="kw">factor</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="dv">9</span>)),</a>
 <a class="sourceLine" id="cb77-3" data-line-number="3">    <span class="dt">column_split =</span> <span class="kw">factor</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>), <span class="dv">12</span>)))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/split-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/split-3.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Actually, k-means clustering just generates a vector of cluster classes and
 appends to <code>row_split</code> or <code>column_split</code>. <code>row_km</code>/<code>column_km</code> and be used
 mixed with <code>row_split</code> and <code>column_split</code>.</p>
 <div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_split =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="dv">9</span>), <span class="dt">row_km =</span> <span class="dv">2</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-42-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-43-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>which is the same as:</p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1"><span class="co"># code only for demonstration</span></a>
 <a class="sourceLine" id="cb79-2" data-line-number="2">cl =<span class="st"> </span><span class="kw">kmeans</span>(mat, <span class="dt">centers =</span> <span class="dv">2</span>)<span class="op">$</span>cluster</a>
@@ -924,16 +924,16 @@ other partition methods by just assigning the partition vector to
 <code>row_split</code>/<code>column_split</code>.</p>
 <div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1">pa =<span class="st"> </span>cluster<span class="op">::</span><span class="kw">pam</span>(mat, <span class="dt">k =</span> <span class="dv">3</span>)</a>
 <a class="sourceLine" id="cb80-2" data-line-number="2"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_split =</span> <span class="kw">paste0</span>(<span class="st">&quot;pam&quot;</span>, pa<span class="op">$</span>clustering))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/pam-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/pam-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>If <code>row_order</code> or <code>column_order</code> is set, in each row/column slice, it is still
 ordered.</p>
 <div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1"><span class="co"># remember when `row_order` is set, row clustering is turned off</span></a>
 <a class="sourceLine" id="cb81-2" data-line-number="2"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_order =</span> <span class="dv">18</span><span class="op">:</span><span class="dv">1</span>, <span class="dt">row_km =</span> <span class="dv">2</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/split_row_order-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/split_row_order-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Character matrix can only be split by <code>row_split</code>/<code>column_split</code> argument.</p>
 <div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1"><span class="co"># split by the first column in `discrete_mat`</span></a>
 <a class="sourceLine" id="cb82-2" data-line-number="2"><span class="kw">Heatmap</span>(discrete_mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">col =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">row_split =</span> discrete_mat[, <span class="dv">1</span>])</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/split_discrete_matrix-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/split_discrete_matrix-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>If <code>row_km</code>/<code>column_km</code> is set or <code>row_split</code>/<code>column_split</code> is set as a
 vector or a data frame, hierarchical clustering is first applied to each slice
 (of course, clustering should be turned on) which generates <code>k</code> dendrograms,
@@ -947,7 +947,7 @@ users they are calculated in different ways. These dashed lines can be removed
 by setting <code>show_parent_dend_line = FALSE</code> in <code>Heatmap()</code>, or set it as a
 global option: <code>ht_opt$show_parent_dend_line = FALSE</code>.</p>
 <div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_km =</span> <span class="dv">2</span>, <span class="dt">column_km =</span> <span class="dv">3</span>, <span class="dt">show_parent_dend_line =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-44-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-45-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="spilt-by-dendrogram" class="section level3">
 <h3><span class="header-section-number">2.7.3</span> Split by dendrogram</h3>
@@ -962,7 +962,7 @@ positions of dendrogram leaves are slightly adjusted by the gaps between
 slices. (There is no dashed lines, because here the dendrogram is calcualted
 as a complete one and there is no parent dendrogram or children dendrograms.)</p>
 <div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_split =</span> <span class="dv">2</span>, <span class="dt">column_split =</span> <span class="dv">3</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/split_dendrogram-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/split_dendrogram-1.png" width="480" style="display: block; margin: auto;" /></p>
 <pre><code>## Called from: make_cluster(object, &quot;row&quot;)
 ## debug: if (which == &quot;row&quot;) {
 ##     reorder = -rowMeans(mat, na.rm = TRUE)
@@ -1507,7 +1507,7 @@ as a complete one and there is no parent dendrogram or children dendrograms.)</p
 <div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1">dend =<span class="st"> </span><span class="kw">hclust</span>(<span class="kw">dist</span>(mat))</a>
 <a class="sourceLine" id="cb86-2" data-line-number="2">dend =<span class="st"> </span><span class="kw">color_branches</span>(dend, <span class="dt">k =</span> <span class="dv">2</span>)</a>
 <a class="sourceLine" id="cb86-3" data-line-number="3"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">cluster_rows =</span> dend, <span class="dt">row_split =</span> <span class="dv">2</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/split_dendrogram-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/split_dendrogram-2.png" width="480" style="display: block; margin: auto;" /></p>
 <p>If you want to combine splitting from <code>cutree()</code> and other categorical
 variables, you need to generate the classes from <code>cutree()</code> in the first
 place, append to e.g. <code>row_split</code> as a data frame and then send it to
@@ -1534,19 +1534,19 @@ heatmaps:</p>
 <div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, </a>
 <a class="sourceLine" id="cb88-2" data-line-number="2">  <span class="dt">row_split =</span> <span class="kw">rep</span>(LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dv">6</span>),</a>
 <a class="sourceLine" id="cb88-3" data-line-number="3">    <span class="dt">column_split =</span> <span class="kw">rep</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dv">4</span>))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-46-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-47-1.png" width="480" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1"><span class="co"># clustering is similar as previous heatmap with branches in some nodes in the dendrogram flipped</span></a>
 <a class="sourceLine" id="cb89-2" data-line-number="2"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, </a>
 <a class="sourceLine" id="cb89-3" data-line-number="3">  <span class="dt">row_split =</span> <span class="kw">factor</span>(<span class="kw">rep</span>(LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dv">6</span>), <span class="dt">levels =</span> LETTERS[<span class="dv">3</span><span class="op">:</span><span class="dv">1</span>]),</a>
 <a class="sourceLine" id="cb89-4" data-line-number="4">    <span class="dt">column_split =</span> <span class="kw">factor</span>(<span class="kw">rep</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dv">4</span>), <span class="dt">levels =</span> letters[<span class="dv">6</span><span class="op">:</span><span class="dv">1</span>]))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-46-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-47-2.png" width="480" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1"><span class="co"># now the order is exactly what we set</span></a>
 <a class="sourceLine" id="cb90-2" data-line-number="2"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, </a>
 <a class="sourceLine" id="cb90-3" data-line-number="3">  <span class="dt">row_split =</span> <span class="kw">factor</span>(<span class="kw">rep</span>(LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dv">6</span>), <span class="dt">levels =</span> LETTERS[<span class="dv">3</span><span class="op">:</span><span class="dv">1</span>]),</a>
 <a class="sourceLine" id="cb90-4" data-line-number="4">    <span class="dt">column_split =</span> <span class="kw">factor</span>(<span class="kw">rep</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dv">4</span>), <span class="dt">levels =</span> letters[<span class="dv">6</span><span class="op">:</span><span class="dv">1</span>]),</a>
 <a class="sourceLine" id="cb90-5" data-line-number="5">    <span class="dt">cluster_row_slices =</span> <span class="ot">FALSE</span>, </a>
 <a class="sourceLine" id="cb90-6" data-line-number="6">    <span class="dt">cluster_column_slices =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-46-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-47-3.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="titles-for-splitting" class="section level3">
 <h3><span class="header-section-number">2.7.5</span> Titles for splitting</h3>
@@ -1564,7 +1564,7 @@ and <code>B,D</code>, if <code>row_title</code> is set to <code>%s|%s</code>, th
 <code>A|C</code>, <code>A|D</code>, <code>B|C</code>, <code>B|D</code>.</p>
 <div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1">split =<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="dv">9</span>), <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>), <span class="dt">each =</span> <span class="dv">9</span>))</a>
 <a class="sourceLine" id="cb91-2" data-line-number="2"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_split =</span> split, <span class="dt">row_title =</span> <span class="st">&quot;%s|%s&quot;</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-47-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-48-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>For the <code>sprintf()</code> template, you can only put the levels which are <code>A,B,C,D</code>
 in the title, and <code>C,D</code> is always after <code>A,B</code>. However, when making the
 heatmap, you might want to put more meaningful text instead of the internal
@@ -1584,15 +1584,15 @@ templates. <code>x</code> is just a simple vector which contains current categor
 <a class="sourceLine" id="cb92-2" data-line-number="2">map =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span> =<span class="st"> &quot;aaa&quot;</span>, <span class="st">&quot;B&quot;</span> =<span class="st"> &quot;bbb&quot;</span>, <span class="st">&quot;C&quot;</span> =<span class="st"> &quot;333&quot;</span>, <span class="st">&quot;D&quot;</span> =<span class="st"> &quot;444&quot;</span>)</a>
 <a class="sourceLine" id="cb92-3" data-line-number="3"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_split =</span> split, <span class="dt">row_title =</span> <span class="st">&quot;@{map[ x[1] ]}|@{map[ x[2] ]}&quot;</span>)</a>
 <a class="sourceLine" id="cb92-4" data-line-number="4"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_split =</span> split, <span class="dt">row_title =</span> <span class="st">&quot;{map[ x[1] ]}|{map[ x[2] ]}&quot;</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-49-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-50-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>The row title is rotated by default, you can set <code>row_title_rot = 0</code> to make
 it horizontal:</p>
 <div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_split =</span> split, <span class="dt">row_title =</span> <span class="st">&quot;%s|%s&quot;</span>, <span class="dt">row_title_rot =</span> <span class="dv">0</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-50-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-51-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>When <code>row_split</code>/<code>column_split</code> is set as a number, you can also use template
 to adjust the titles for slices.</p>
 <div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_split =</span> <span class="dv">2</span>, <span class="dt">row_title =</span> <span class="st">&quot;cluster_%s&quot;</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-51-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-52-1.png" width="480" style="display: block; margin: auto;" /></p>
 <pre><code>## Called from: make_cluster(object, &quot;row&quot;)
 ## debug: if (which == &quot;row&quot;) {
 ##     reorder = -rowMeans(mat, na.rm = TRUE)
@@ -1941,23 +1941,23 @@ identical to <code>nlevel_1*nlevel_2*...</code>.</p>
 <div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_split =</span> split, </a>
 <a class="sourceLine" id="cb96-2" data-line-number="2">    <span class="dt">row_title =</span> <span class="kw">c</span>(<span class="st">&quot;top_slice&quot;</span>, <span class="st">&quot;middle_top_slice&quot;</span>, <span class="st">&quot;middle_bottom_slice&quot;</span>, <span class="st">&quot;bottom_slice&quot;</span>),</a>
 <a class="sourceLine" id="cb96-3" data-line-number="3">    <span class="dt">row_title_rot =</span> <span class="dv">0</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-52-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-53-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>If the length of <code>row_title</code> is specified as a single string, it will be like
 a single title for all slices.</p>
 <div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_split =</span> split, <span class="dt">row_title =</span> <span class="st">&quot;there are four slices&quot;</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-53-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-54-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>If you still want titles for each slice, but also a global title, you can do
 as follows.</p>
 <div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1">ht =<span class="st"> </span><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_split =</span> split, <span class="dt">row_title =</span> <span class="st">&quot;%s|%s&quot;</span>)</a>
 <a class="sourceLine" id="cb98-2" data-line-number="2"><span class="kw">draw</span>(ht, <span class="dt">row_title =</span> <span class="st">&quot;I am a row title&quot;</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-54-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-55-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Actually the <code>row_title</code> used in <code>draw()</code> function is the row title of the
 heatmap list, although in the example there is only one heatmap. The <code>draw()</code>
 function and the heatmap list will be introduced in Chapter
 <a href="a-list-of-heatmaps.html#a-list-of-heatmaps">4</a>.</p>
 <p>If <code>row_title</code> is set to <code>NULL</code>, no row title will be drawn.</p>
 <div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_split =</span> split, <span class="dt">row_title =</span> <span class="ot">NULL</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-55-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-56-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>All these rules also work for column titles for slices.</p>
 </div>
 <div id="graphic-parameters-for-splitting" class="section level3">
@@ -1970,28 +1970,28 @@ slices.</p>
 <a class="sourceLine" id="cb100-3" data-line-number="3">    <span class="dt">row_names_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;orange&quot;</span>), <span class="dt">fontsize =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">14</span>)),</a>
 <a class="sourceLine" id="cb100-4" data-line-number="4">    <span class="dt">column_km =</span> <span class="dv">3</span>, <span class="dt">column_title_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>), <span class="dt">font =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>),</a>
 <a class="sourceLine" id="cb100-5" data-line-number="5">    <span class="dt">column_names_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;purple&quot;</span>), <span class="dt">fontsize =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">14</span>, <span class="dv">8</span>)))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/split_graphical_parameter-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/split_graphical_parameter-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="gaps-between-slices" class="section level3">
 <h3><span class="header-section-number">2.7.7</span> Gaps between slices</h3>
 <p>The space of gaps between row/column slices can be controlled by
 <code>row_gap</code>/<code>column_gap</code>. The value can be a single unit or a vector of units.</p>
 <div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_km =</span> <span class="dv">3</span>, <span class="dt">row_gap =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/split_gap-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/split_gap-1.png" width="480" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_km =</span> <span class="dv">3</span>, <span class="dt">row_gap =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>), <span class="st">&quot;mm&quot;</span>))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/split_gap-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/split_gap-2.png" width="480" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_km =</span> <span class="dv">3</span>, <span class="dt">row_gap =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>), <span class="st">&quot;mm&quot;</span>),</a>
 <a class="sourceLine" id="cb103-2" data-line-number="2">    <span class="dt">column_km =</span> <span class="dv">3</span>, <span class="dt">column_gap =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>), <span class="st">&quot;mm&quot;</span>))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/split_gap-3.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/split_gap-3.png" width="480" style="display: block; margin: auto;" /></p>
 <p>When heatmap border is added by setting <code>border = TRUE</code>, the border of every
 slice is added.</p>
 <div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_km =</span> <span class="dv">2</span>, <span class="dt">column_km =</span> <span class="dv">3</span>, <span class="dt">border =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-56-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-57-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>If you set gap size to zero, the heatmap will look like it is partitioned by
 vertical and horizontal lines.</p>
 <div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_km =</span> <span class="dv">2</span>, <span class="dt">column_km =</span> <span class="dv">3</span>, </a>
 <a class="sourceLine" id="cb105-2" data-line-number="2">    <span class="dt">row_gap =</span> <span class="kw">unit</span>(<span class="dv">0</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">column_gap =</span> <span class="kw">unit</span>(<span class="dv">0</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">border =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-57-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-58-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="split-heatmap-annotations" class="section level3">
 <h3><span class="header-section-number">2.7.8</span> Split heatmap annotations</h3>
@@ -2002,7 +2002,7 @@ introduced in Chapter <a href="heatmap-annotations.html#heatmap-annotations">3</
 <a class="sourceLine" id="cb106-2" data-line-number="2">    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">foo1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">24</span>, <span class="dt">bar1 =</span> <span class="kw">anno_points</span>(<span class="kw">runif</span>(<span class="dv">24</span>))),</a>
 <a class="sourceLine" id="cb106-3" data-line-number="3">    <span class="dt">right_annotation =</span> <span class="kw">rowAnnotation</span>(<span class="dt">foo2 =</span> <span class="dv">18</span><span class="op">:</span><span class="dv">1</span>, <span class="dt">bar2 =</span> <span class="kw">anno_barplot</span>(<span class="kw">runif</span>(<span class="dv">18</span>)))</a>
 <a class="sourceLine" id="cb106-4" data-line-number="4">)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-58-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-59-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="heatmap-as-raster-image" class="section level2">
@@ -2114,21 +2114,21 @@ executed in each cell.</p>
 <a class="sourceLine" id="cb111-4" data-line-number="4">    <span class="dt">cell_fun =</span> <span class="cf">function</span>(j, i, x, y, width, height, fill) {</a>
 <a class="sourceLine" id="cb111-5" data-line-number="5">        <span class="kw">grid.text</span>(<span class="kw">sprintf</span>(<span class="st">&quot;%.1f&quot;</span>, small_mat[i, j]), x, y, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">10</span>))</a>
 <a class="sourceLine" id="cb111-6" data-line-number="6">})</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-63-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-64-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>and we can also choose only to add text for the cells with positive values:</p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" data-line-number="1"><span class="kw">Heatmap</span>(small_mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>,  <span class="dt">col =</span> col_fun,</a>
 <a class="sourceLine" id="cb112-2" data-line-number="2">    <span class="dt">cell_fun =</span> <span class="cf">function</span>(j, i, x, y, width, height, fill) {</a>
 <a class="sourceLine" id="cb112-3" data-line-number="3">        <span class="cf">if</span>(small_mat[i, j] <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</a>
 <a class="sourceLine" id="cb112-4" data-line-number="4">            <span class="kw">grid.text</span>(<span class="kw">sprintf</span>(<span class="st">&quot;%.1f&quot;</span>, small_mat[i, j]), x, y, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">10</span>))</a>
 <a class="sourceLine" id="cb112-5" data-line-number="5">})</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-64-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-65-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>You can split the heatmap without doing anything extra to <code>cell_fun</code>:</p>
 <div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1"><span class="kw">Heatmap</span>(small_mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">col =</span> col_fun,</a>
 <a class="sourceLine" id="cb113-2" data-line-number="2">    <span class="dt">row_km =</span> <span class="dv">2</span>, <span class="dt">column_km =</span> <span class="dv">2</span>,</a>
 <a class="sourceLine" id="cb113-3" data-line-number="3">    <span class="dt">cell_fun =</span> <span class="cf">function</span>(j, i, x, y, width, height, fill) {</a>
 <a class="sourceLine" id="cb113-4" data-line-number="4">        <span class="kw">grid.text</span>(<span class="kw">sprintf</span>(<span class="st">&quot;%.1f&quot;</span>, small_mat[i, j]), x, y, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">10</span>))</a>
 <a class="sourceLine" id="cb113-5" data-line-number="5">})</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-65-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-66-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>In following example, we make a heatmap which shows correlation matrix similar
 as the <strong>corrplot</strong> package:</p>
 <div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" data-line-number="1">cor_mat =<span class="st"> </span><span class="kw">cor</span>(small_mat)</a>
@@ -2241,7 +2241,7 @@ records of moves in the game.</p>
 <a class="sourceLine" id="cb118-34" data-line-number="34">    <span class="dt">heatmap_legend_param =</span> <span class="kw">list</span>(<span class="dt">title =</span> <span class="st">&quot;Player&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="st">&quot;B&quot;</span>, <span class="st">&quot;W&quot;</span>), </a>
 <a class="sourceLine" id="cb118-35" data-line-number="35">        <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;player1&quot;</span>, <span class="st">&quot;player2&quot;</span>), <span class="dt">border =</span> <span class="st">&quot;black&quot;</span>)</a>
 <a class="sourceLine" id="cb118-36" data-line-number="36">)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-68-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-69-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 <div id="layer-fun" class="section level3">
 <h3><span class="header-section-number">2.9.2</span> layer_fun</h3>
@@ -2280,7 +2280,7 @@ basically the same as the <code>cell_fun</code> version.</p>
 <a class="sourceLine" id="cb124-4" data-line-number="4">        <span class="co"># since grid.text can also be vectorized</span></a>
 <a class="sourceLine" id="cb124-5" data-line-number="5">        <span class="kw">grid.text</span>(<span class="kw">sprintf</span>(<span class="st">&quot;%.1f&quot;</span>, <span class="kw">pindex</span>(small_mat, i, j)), x, y, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">10</span>))</a>
 <a class="sourceLine" id="cb124-6" data-line-number="6">})</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-71-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-72-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>And only add text to cells with positive values:</p>
 <div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" data-line-number="1"><span class="kw">Heatmap</span>(small_mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">col =</span> col_fun, </a>
 <a class="sourceLine" id="cb125-2" data-line-number="2">    <span class="dt">layer_fun =</span> <span class="cf">function</span>(j, i, x, y, width, height, fill) {</a>
@@ -2288,7 +2288,7 @@ basically the same as the <code>cell_fun</code> version.</p>
 <a class="sourceLine" id="cb125-4" data-line-number="4">        l =<span class="st"> </span>v <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span></a>
 <a class="sourceLine" id="cb125-5" data-line-number="5">        <span class="kw">grid.text</span>(<span class="kw">sprintf</span>(<span class="st">&quot;%.1f&quot;</span>, v[l]), x[l], y[l], <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">10</span>))</a>
 <a class="sourceLine" id="cb125-6" data-line-number="6">})</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-72-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-73-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>When the heatmap is split, <code>layer_fun</code> is applied in every slice.</p>
 <div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb126-1" data-line-number="1"><span class="kw">Heatmap</span>(small_mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">col =</span> col_fun,</a>
 <a class="sourceLine" id="cb126-2" data-line-number="2">    <span class="dt">row_km =</span> <span class="dv">2</span>, <span class="dt">column_km =</span> <span class="dv">2</span>,</a>
@@ -2299,7 +2299,7 @@ basically the same as the <code>cell_fun</code> version.</p>
 <a class="sourceLine" id="cb126-7" data-line-number="7">            <span class="kw">grid.rect</span>(<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">fill =</span> <span class="st">&quot;transparent&quot;</span>))</a>
 <a class="sourceLine" id="cb126-8" data-line-number="8">        }</a>
 <a class="sourceLine" id="cb126-9" data-line-number="9">})</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-73-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-74-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><code>layer_fun</code> can also have two more arguments which are the index for the
 current row slice and column slice. E.g. we want to add borders for the top
 right and bottom left slices.</p>
@@ -2312,7 +2312,7 @@ right and bottom left slices.</p>
 <a class="sourceLine" id="cb127-7" data-line-number="7">            <span class="kw">grid.rect</span>(<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">lwd =</span> <span class="dv">2</span>, <span class="dt">fill =</span> <span class="st">&quot;transparent&quot;</span>))</a>
 <a class="sourceLine" id="cb127-8" data-line-number="8">        }</a>
 <a class="sourceLine" id="cb127-9" data-line-number="9">})</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-74-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-75-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>The advantage of <code>lay_fun</code> is it is not only fast to add graphics, but also it
 provides more possibilities to customize the heatmap. Consider following
 visualization: For each row in the heatmap, if values in the neighbouring two
@@ -2342,7 +2342,7 @@ after the code.)</p>
 <a class="sourceLine" id="cb128-21" data-line-number="21">        }</a>
 <a class="sourceLine" id="cb128-22" data-line-number="22">    }</a>
 <a class="sourceLine" id="cb128-23" data-line-number="23">)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-75-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-76-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>The values that are sent to <code>layer_fun</code> are all vectors (for the vectorization
 of the <strong>grid</strong> graphic functions), however, the heatmap slice where
 <code>layer_fun</code> is applied to, is still represented by a matrix, thus, it would be
@@ -2384,7 +2384,7 @@ the second row and the third column in every slice:</p>
 <a class="sourceLine" id="cb132-6" data-line-number="6">        <span class="kw">grid.points</span>(x[ind], y[ind], <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">size =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;mm&quot;</span>))</a>
 <a class="sourceLine" id="cb132-7" data-line-number="7">    }</a>
 <a class="sourceLine" id="cb132-8" data-line-number="8">)</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-78-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-79-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="size-of-the-heatmap" class="section level2">
@@ -2400,9 +2400,9 @@ heatmap including all heatmap components (excluding the legends) while <code>wid
 and <code>height</code> only control the width/height of the heamtap body. All these four
 arguments can be set as absolute units.</p>
 <div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">8</span>, <span class="st">&quot;cm&quot;</span>), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">8</span>, <span class="st">&quot;cm&quot;</span>))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-79-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-80-1.png" width="480" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">heatmap_width =</span> <span class="kw">unit</span>(<span class="dv">8</span>, <span class="st">&quot;cm&quot;</span>), <span class="dt">heatmap_height =</span> <span class="kw">unit</span>(<span class="dv">8</span>, <span class="st">&quot;cm&quot;</span>))</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-79-2.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-80-2.png" width="480" style="display: block; margin: auto;" /></p>
 <p>These four arguments are more important when adjust the size in a list of
 heatmaps (see Section
 <a href="a-list-of-heatmaps.html#size-of-heatmaps">4.2</a>).</p>
@@ -2537,7 +2537,7 @@ for the <code>Heatmap</code> class.</p>
 <a class="sourceLine" id="cb159-2" data-line-number="2"><span class="kw">dim</span>(ht)</a></code></pre></div>
 <pre><code>## [1] 18 24</code></pre>
 <div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" data-line-number="1">ht[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-88-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-89-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>The annotations are subsetted accordingly as well.</p>
 <div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" data-line-number="1">ht =<span class="st"> </span><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_km =</span> <span class="dv">2</span>, <span class="dt">column_km =</span> <span class="dv">3</span>,</a>
 <a class="sourceLine" id="cb162-2" data-line-number="2">    <span class="dt">col =</span> <span class="kw">colorRamp2</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">2</span>), <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>)),</a>
@@ -2545,7 +2545,7 @@ for the <code>Heatmap</code> class.</p>
 <a class="sourceLine" id="cb162-4" data-line-number="4">    <span class="dt">right_annotation =</span> <span class="kw">rowAnnotation</span>(<span class="dt">foo2 =</span> <span class="dv">18</span><span class="op">:</span><span class="dv">1</span>, <span class="dt">bar2 =</span> <span class="kw">anno_barplot</span>(<span class="kw">runif</span>(<span class="dv">18</span>)))</a>
 <a class="sourceLine" id="cb162-5" data-line-number="5">)</a>
 <a class="sourceLine" id="cb162-6" data-line-number="6">ht[<span class="dv">1</span><span class="op">:</span><span class="dv">9</span><span class="op">*</span><span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">12</span><span class="op">*</span><span class="dv">2</span>] <span class="co"># odd rows, even columns</span></a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-89-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-90-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>The heatmap components are subsetted if they are vector-like. Some
 configurations in the heatmap keep the same when subsetting, e.g. if <code>row_km</code>
 is set in the original heatmap, the configuration of k-means is kept and it is
@@ -2554,7 +2554,7 @@ only performed when making heatmap for <code>ht2</code>.</p>
 <div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb163-1" data-line-number="1">ht =<span class="st"> </span><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_km =</span> <span class="dv">2</span>)</a>
 <a class="sourceLine" id="cb163-2" data-line-number="2">ht2 =<span class="st"> </span>ht[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</a>
 <a class="sourceLine" id="cb163-3" data-line-number="3">ht2</a></code></pre></div>
-<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-90-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="02-single_heatmap_files/figure-html/unnamed-chunk-91-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><strong>The implementation of subsetting heatmaps is very experimental.</strong> It is not
 always working, e.g. if <code>cell_fun</code> is defined and uses an external matrix, or
 clustering objects are assigned to <code>cluster_rows</code> or <code>cluster_columns</code>.</p>

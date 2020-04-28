@@ -1,3 +1,4 @@
+
 # Other Tricks {#other-tricks}
 
 ## Set the same cell size for different heatmaps with different dimensions
@@ -96,9 +97,9 @@ for(nr in c(10, 20)) {
 
 
 
-<img src="11-other-tricks_files/figure-html/unnamed-chunk-7-1.png" width="480" style="display: block; margin: auto;" />
-
 <img src="11-other-tricks_files/figure-html/unnamed-chunk-8-1.png" width="480" style="display: block; margin: auto;" />
+
+<img src="11-other-tricks_files/figure-html/unnamed-chunk-9-1.png" width="480" style="display: block; margin: auto;" />
 
 ## Integrate with gridtext package
 
@@ -123,10 +124,10 @@ gt_render("foo", r = unit(2, "pt"), padding = unit(c(2, 2, 2, 2), "pt"))
 ## [1] "gridtext"
 ## attr(,"param")
 ## attr(,"param")$r
-## [1] 2points
+## [1] 2pt
 ## 
 ## attr(,"param")$padding
-## [1] 2points 2points 2points 2points
+## [1] 2pt 2pt 2pt 2pt
 ```
 
 For each heatmap element, e.g. column title, graphic parameters can be set by the companion argument, 
@@ -159,7 +160,7 @@ Heatmap(mat,
     column_title_gp = gpar(box_fill = "orange"))
 ```
 
-<img src="11-other-tricks_files/figure-html/unnamed-chunk-12-1.png" width="480" style="display: block; margin: auto;" />
+<img src="11-other-tricks_files/figure-html/unnamed-chunk-13-1.png" width="480" style="display: block; margin: auto;" />
 
 If heatmap is split:
 
@@ -171,7 +172,7 @@ Heatmap(mat,
     row_title_gp = gpar(box_fill = c("yellow", "blue")))
 ```
 
-<img src="11-other-tricks_files/figure-html/unnamed-chunk-13-1.png" width="480" style="display: block; margin: auto;" />
+<img src="11-other-tricks_files/figure-html/unnamed-chunk-14-1.png" width="480" style="display: block; margin: auto;" />
 
 ### Row/column names
 
@@ -184,7 +185,7 @@ Heatmap(mat,
     row_names_gp = gpar(box_col = rep(c("red", "green"), times = 5)))
 ```
 
-<img src="11-other-tricks_files/figure-html/unnamed-chunk-14-1.png" width="480" style="display: block; margin: auto;" />
+<img src="11-other-tricks_files/figure-html/unnamed-chunk-15-1.png" width="480" style="display: block; margin: auto;" />
 
 ### Annotation labels
 
@@ -199,7 +200,7 @@ ha = HeatmapAnnotation(foo = letters[1:10],
 Heatmap(mat, top_annotation = ha)
 ```
 
-<img src="11-other-tricks_files/figure-html/unnamed-chunk-15-1.png" width="480" style="display: block; margin: auto;" />
+<img src="11-other-tricks_files/figure-html/unnamed-chunk-16-1.png" width="480" style="display: block; margin: auto;" />
 
 ### Text annotation
 
@@ -213,7 +214,7 @@ rowAnnotation(
     )) + Heatmap(mat)
 ```
 
-<img src="11-other-tricks_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" />
+<img src="11-other-tricks_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" />
 
 ### Legend
 
@@ -228,6 +229,6 @@ Heatmap(mat,
     ))
 ```
 
-<img src="11-other-tricks_files/figure-html/unnamed-chunk-17-1.png" width="480" style="display: block; margin: auto;" />
+<img src="11-other-tricks_files/figure-html/unnamed-chunk-18-1.png" width="480" style="display: block; margin: auto;" />
 
 

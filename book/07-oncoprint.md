@@ -1,4 +1,5 @@
 
+
 # OncoPrint {#oncoprint}
 
 <a href="http://www.cbioportal.org/faq#what-are-oncoprints">OncoPrint</a> is a
@@ -106,7 +107,7 @@ oncoPrint(mat,
 	), col = col)
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-4-1.png" width="384" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-5-1.png" width="384" style="display: block; margin: auto;" />
 
 You can see the order in barplots also correspond to the order defined in
 `alter_fun`.
@@ -156,7 +157,7 @@ oncoPrint(mat_list,
 	), col = col)
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-6-1.png" width="384" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-7-1.png" width="384" style="display: block; margin: auto;" />
 
 In following parts of this chapter, we still use the single matrix form `mat`
 to specify the input data.
@@ -189,7 +190,7 @@ oncoPrint(mat,
 	}, col = col)
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-8-1.png" width="384" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-9-1.png" width="384" style="display: block; margin: auto;" />
 
 If `alter_fun` is set as a single function, customization can be more
 flexible. In following example, the blue rectangles can have different height
@@ -207,7 +208,7 @@ oncoPrint(mat,
     }, col = col)
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-9-1.png" width="384" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-10-1.png" width="384" style="display: block; margin: auto;" />
 
 Following is a complicated example for `alter_fun` where triangles are used:
 
@@ -240,7 +241,7 @@ oncoPrint(mat,
     ), col = col)
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-10-1.png" width="384" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-11-1.png" width="384" style="display: block; margin: auto;" />
 
 In some cases, you might need to define `alter_fun` for many alteration types.
 If you are not sure about the visual effect of your `alter_fun`, you can use
@@ -274,7 +275,7 @@ test_alter_fun(alter_fun)
 ##   mut1, mut2, mut3, mut4, mut5, mut6, mut7
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-11-1.png" width="288" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-12-1.png" width="288" style="display: block; margin: auto;" />
 
 For the combination of alteration types, `test_alter_fun()` randomly samples
 some of them.
@@ -303,7 +304,7 @@ oncoPrint(mat,
 	), col = col)
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-12-1.png" width="384" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-13-1.png" width="384" style="display: block; margin: auto;" />
 
 Or just remove the background (don't set it to `NULL`. Setting `background`
 directly to `NULL` means to use the default style of background whch is in
@@ -321,7 +322,7 @@ oncoPrint(mat,
 	), col = col)
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-13-1.png" width="384" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-14-1.png" width="384" style="display: block; margin: auto;" />
 
 ### Complex alteration types {#complex-alteration-types}
 
@@ -427,7 +428,7 @@ draw(ht, heatmap_legend_list = list(
 ))
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-16-1.png" width="528" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-17-1.png" width="528" style="display: block; margin: auto;" />
 
 ### Simplify alter_fun
 
@@ -444,7 +445,7 @@ oncoPrint(mat,
     ), col = col)
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-17-1.png" width="384" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-18-1.png" width="384" style="display: block; margin: auto;" />
 
 ### Other heatmap-related settings {#other-heatmap-related-settings}
 
@@ -462,7 +463,7 @@ alter_fun = list(
 oncoPrint(mat, alter_fun = alter_fun, col = col, show_column_names = TRUE)
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-18-1.png" width="384" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-19-1.png" width="384" style="display: block; margin: auto;" />
 
 Row names and percent texts can be turned on/off by setting `show_pct`
 and `show_row_names`. The side of both according to the oncoPrint is controlled
@@ -476,7 +477,7 @@ oncoPrint(mat, alter_fun = alter_fun, col = col,
 	row_names_side = "left", pct_side = "right", pct_digits = 2)
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-19-1.png" width="384" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-20-1.png" width="384" style="display: block; margin: auto;" />
 
 The barplot annotations on the both side are controlled by
 `anno_oncoprint_barplot()` annotation function. Customization such as the size
@@ -498,7 +499,7 @@ oncoPrint(mat, alter_fun = alter_fun, col = col,
 	)
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-20-1.png" width="384" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-21-1.png" width="384" style="display: block; margin: auto;" />
 
 Some people might want to move the right barplots to the left of the oncoPrint:
 
@@ -512,7 +513,7 @@ oncoPrint(mat, alter_fun = alter_fun, col = col,
 	right_annotation = NULL)
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-21-1.png" width="384" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-22-1.png" width="384" style="display: block; margin: auto;" />
 
 
 OncoPrints essentially are heatmaps, thus, there are many arguments set in
@@ -624,7 +625,7 @@ oncoPrint(mat,
 	column_title = column_title, heatmap_legend_param = heatmap_legend_param)
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-26-1.png" width="1152" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-27-1.png" width="1152" style="display: block; margin: auto;" />
 
 As you see, the genes and samples are reordered automatically. Rows are sorted
 based on the frequency of the alterations in all samples and columns are
@@ -646,7 +647,7 @@ oncoPrint(mat,
 	column_title = column_title, heatmap_legend_param = heatmap_legend_param)
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-27-1.png" width="1152" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-28-1.png" width="1152" style="display: block; margin: auto;" />
 
 The number of rows and columns may be reduced after empty rows and columns are
 removed. All the components of the oncoPrint are adjusted accordingly. When
@@ -676,7 +677,7 @@ oncoPrint(mat,
 	column_title = column_title, heatmap_legend_param = heatmap_legend_param)
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-28-1.png" width="1152" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-29-1.png" width="1152" style="display: block; margin: auto;" />
 
 Again, `row_order` and `column_order` are automatically adjusted if
 `remove_empty_rows` and `remove_empty_columns` are set to `TRUE`.
@@ -710,7 +711,7 @@ oncoPrint(mat,
 	column_title = column_title, heatmap_legend_param = heatmap_legend_param)
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-29-1.png" width="1152" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-30-1.png" width="1152" style="display: block; margin: auto;" />
 
 The percent values and row names are internally constructed as text
 annotations. You can set `show_pct` and `show_row_names` to turn them on or
@@ -725,7 +726,7 @@ oncoPrint(mat,
 	column_title = column_title, heatmap_legend_param = heatmap_legend_param)
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-30-1.png" width="1152" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-31-1.png" width="1152" style="display: block; margin: auto;" />
 
 The barplot annotation for oncoPrint are essentially normal annotations, you
 can add more annotations in `HeatmapAnnotation()` or `rowAnnotation()` in the
@@ -744,7 +745,7 @@ oncoPrint(mat,
 	column_title = column_title, heatmap_legend_param = heatmap_legend_param)
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-31-1.png" width="1152" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-32-1.png" width="1152" style="display: block; margin: auto;" />
 
 As you see, the percent annotation, the row name annotation and the oncoPrint
 annotation are appended to the user-specified annotation by default. Also
@@ -769,7 +770,7 @@ Heatmap(matrix(rnorm(nrow(mat)*10), ncol = 10), name = "expr", width = unit(4, "
 draw(ht_list)
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-32-1.png" width="1152" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-33-1.png" width="1152" style="display: block; margin: auto;" />
 
 or add it vertically:
 
@@ -782,7 +783,7 @@ Heatmap(matrix(rnorm(ncol(mat)*10), nrow = 10), name = "expr", height = unit(4, 
 draw(ht_list)
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-33-1.png" width="1152" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-34-1.png" width="1152" style="display: block; margin: auto;" />
 
 Similar as normal heatmap list, you can split the heatmap list:
 
@@ -795,7 +796,7 @@ Heatmap(matrix(rnorm(nrow(mat)*10), ncol = 10), name = "expr", width = unit(4, "
 draw(ht_list, row_split = sample(c("a", "b"), nrow(mat), replace = TRUE))
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-34-1.png" width="1152" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-35-1.png" width="1152" style="display: block; margin: auto;" />
 
 When `remove_empty_columns` or `remove_empty_rows` is set to `TRUE`, the
 number of genes or the samples may not be the original number. If the original

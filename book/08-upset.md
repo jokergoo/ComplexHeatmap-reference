@@ -1,3 +1,4 @@
+
 # UpSet plot {#upset-plot}
 
 
@@ -152,7 +153,7 @@ the size of that combination set. There are three modes:
 
 The three modes are illustrated in following figure:
 
-<img src="08-upset_files/figure-html/unnamed-chunk-7-1.png" width="460.8" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-8-1.png" width="460.8" style="display: block; margin: auto;" />
 
 ## Make the combination matrix {#make-the-combination-matrix}
 
@@ -794,7 +795,7 @@ m = make_comb_mat(lt)
 UpSet(m)
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-33-1.png" width="480" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-34-1.png" width="480" style="display: block; margin: auto;" />
 
 By default the sets are ordered by the size and the combination sets are
 ordered by the degree (number of sets that are selected).
@@ -806,7 +807,7 @@ The order is controlled by `set_order` and `comb_order`:
 UpSet(m, set_order = c("a", "b", "c"), comb_order = order(comb_size(m)))
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-34-1.png" width="480" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-35-1.png" width="480" style="display: block; margin: auto;" />
 
 Color of dots, size of dots and line width of the segments are controlled by
 `pt_size`, `comb_col` and `lwd`. `comb_col` should be a vector corresponding
@@ -819,7 +820,7 @@ UpSet(m, pt_size = unit(5, "mm"), lwd = 3,
 	comb_col = c("red", "blue", "black")[comb_degree(m)])
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-35-1.png" width="480" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-36-1.png" width="480" style="display: block; margin: auto;" />
 
 Colors for the background (the rectangles and the dots representing the set is
 not selected) are controlled by `bg_col`, `bg_pt_col`. The length of `bg_col`
@@ -830,13 +831,13 @@ can have length of one or two.
 UpSet(m, comb_col = "#0000FF", bg_col = "#F0F0FF", bg_pt_col = "#CCCCFF")
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-36-1.png" width="480" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-37-1.png" width="480" style="display: block; margin: auto;" />
 
 ```r
 UpSet(m, comb_col = "#0000FF", bg_col = c("#F0F0FF", "#FFF0F0"), bg_pt_col = "#CCCCFF")
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-36-2.png" width="480" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-37-2.png" width="480" style="display: block; margin: auto;" />
 
 Transposing the combination matrix swtiches the sets to columns and
 combination sets to rows.
@@ -846,7 +847,7 @@ combination sets to rows.
 UpSet(t(m))
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-37-1.png" width="288" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-38-1.png" width="288" style="display: block; margin: auto;" />
 
 As we have introduced, if do subsetting on the combination sets, the subset of
 the matrix can be visualized as well:
@@ -857,7 +858,7 @@ UpSet(m[comb_size(m) >= 4])
 UpSet(m[comb_degree(m) == 2])
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-39-1.png" width="672" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-40-1.png" width="672" style="display: block; margin: auto;" />
 
 Following compares the different mode in `make_comb_mat()`:
 
@@ -871,7 +872,7 @@ UpSet(m2)
 UpSet(m3)
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-41-1.png" width="480" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-42-1.png" width="480" style="display: block; margin: auto;" />
 
 For the plot containing complement set, there is one additional column showing
 this complement set does not overlap to any of the sets (all dots are in grey).
@@ -882,7 +883,7 @@ m2 = make_comb_mat(lt, universal_set = letters)
 UpSet(m2)
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-42-1.png" width="480" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-43-1.png" width="480" style="display: block; margin: auto;" />
 
 Remember if you already know the size for the complement set, you can directly assign it 
 by `complement_size` argument in `make_comb_mat()`.
@@ -893,7 +894,7 @@ m2 = make_comb_mat(lt, complement_size = 10)
 UpSet(m2)
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-43-1.png" width="480" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-44-1.png" width="480" style="display: block; margin: auto;" />
 
 For the case where the universal set is smaller than the union of all sets:
 
@@ -903,7 +904,7 @@ m2 = make_comb_mat(lt, universal_set = letters[1:10])
 UpSet(m2)
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-44-1.png" width="480" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-45-1.png" width="480" style="display: block; margin: auto;" />
 
 
 There are some cases that you may have complement set but you don't want to show it,
@@ -918,7 +919,7 @@ m2 = m2[comb_degree(m2) > 0]
 UpSet(m2)
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-45-1.png" width="480" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-46-1.png" width="480" style="display: block; margin: auto;" />
 
 ## UpSet plots as heatmaps {#upset-plots-as-heatmaps}
 
@@ -948,7 +949,7 @@ UpSet(m, top_annotation = upset_top_annotation(m,
 	gp = gpar(col = comb_degree(m))))
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-47-1.png" width="480" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-48-1.png" width="480" style="display: block; margin: auto;" />
 
 To control the data range and axis:
 
@@ -961,7 +962,7 @@ UpSet(m, top_annotation = upset_top_annotation(m,
 		labels = c("zero", "five", "ten", "fifteen"))))
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-48-1.png" width="480" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-49-1.png" width="480" style="display: block; margin: auto;" />
 
 To control the annotation name:
 
@@ -973,7 +974,7 @@ UpSet(m, top_annotation = upset_top_annotation(m,
 	axis_param = list(side = "right")))
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-49-1.png" width="480" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-50-1.png" width="480" style="display: block; margin: auto;" />
 
 The settings are very similar for the right annotation:
 
@@ -987,7 +988,7 @@ UpSet(m, right_annotation = upset_right_annotation(m,
 	axis_param = list(side = "top")))
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-50-1.png" width="480" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-51-1.png" width="480" style="display: block; margin: auto;" />
 
 `upset_top_annotation()` and `upset_right_annotation()` can automatically
 recognize whether sets are on rows or columns.
@@ -1012,7 +1013,7 @@ UpSet(m, top_annotation = HeatmapAnnotation(
 	annotation_name_rot = 0))
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-51-1.png" width="480" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-52-1.png" width="480" style="display: block; margin: auto;" />
 
 To add more annotation on the right:
 
@@ -1027,7 +1028,7 @@ UpSet(m, right_annotation = rowAnnotation(
 	group = c("group1", "group1", "group2")))
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-52-1.png" width="480" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-53-1.png" width="480" style="display: block; margin: auto;" />
 
 To move the right annotation to the left of the combination matrix:
 
@@ -1041,7 +1042,7 @@ UpSet(m, left_annotation = rowAnnotation(
 	)), right_annotation = NULL)
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-53-1.png" width="480" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-54-1.png" width="480" style="display: block; margin: auto;" />
 
 To reverse the axis of the left annotation:
 
@@ -1057,7 +1058,7 @@ UpSet(m, left_annotation = rowAnnotation(
 	row_names_side = "right")
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-54-1.png" width="480" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-55-1.png" width="480" style="display: block; margin: auto;" />
 
 The object returned by `UpSet()` is actually a `Heatmap` class object, thus,
 you can add to other heatmaps and annotations by `+` or `%v%`.
@@ -1079,7 +1080,7 @@ ht + Heatmap(1:3, name = "foo", width = unit(5, "mm")) +
 	rowAnnotation(bar = anno_points(1:3))
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-55-1.png" width="576" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-56-1.png" width="576" style="display: block; margin: auto;" />
 
 
 ```r
@@ -1089,7 +1090,7 @@ ht %v% Heatmap(rbind(1:7), name = "foo", row_names_side = "left",
 		annotation_name_side = "left")
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-56-1.png" width="480" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-57-1.png" width="480" style="display: block; margin: auto;" />
 
 Add multiple UpSet plots:
 
@@ -1103,7 +1104,7 @@ UpSet(m1, row_title = "distinct mode") %v%
 	UpSet(m3, row_title = "union mode")
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-57-1.png" width="480" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-58-1.png" width="480" style="display: block; margin: auto;" />
 
 Or first transpose all the combination matrices and add them horizontally:
 
@@ -1117,7 +1118,7 @@ UpSet(t(m1), column_title = "distinct mode") +
 	UpSet(t(m3), column_title = "union mode")
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-58-1.png" width="672" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-59-1.png" width="672" style="display: block; margin: auto;" />
 
 The three combination matrices are actually the same and plotting them three
 times is redundant. With the functionality in **ComplexHeatmap** package, we
@@ -1137,7 +1138,7 @@ top_ha = HeatmapAnnotation(
 UpSet(m1, top_annotation = top_ha)
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-59-1.png" width="480" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-60-1.png" width="480" style="display: block; margin: auto;" />
 
 Similar when the combination matrix is transposed:
 
@@ -1155,7 +1156,7 @@ right_ha = rowAnnotation(
 UpSet(t(m1), right_annotation = right_ha)
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-60-1.png" width="480" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-61-1.png" width="480" style="display: block; margin: auto;" />
 
 [In the origial UpSet implementation](https://cran.r-project.org/web/packages/UpSetR/vignettes/basic.usage.html#example-2-choosing-the-top-largest-sets-and-plot-formatting), the combination
 set sizes are also drawn on top of the barplots. Here, we don't directly support it, but the sizes
@@ -1172,7 +1173,7 @@ decorate_annotation("Intersection\nsize", {
 })
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-61-1.png" width="480" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-62-1.png" width="480" style="display: block; margin: auto;" />
 
 There are several reasons that we don't directly supported add the combination set size
 to the plot: 1. Add new text means to add several new arguments to the function, e.g., the
@@ -1259,7 +1260,7 @@ m = m[comb_degree(m) > 0]
 UpSet(m)
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-63-1.png" width="960" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-64-1.png" width="960" style="display: block; margin: auto;" />
 
 Following code makes it look more similar as the orignal plot. The code is a
 little bit long, but most of the code mainly customize the annotations and
@@ -1308,7 +1309,7 @@ decorate_annotation("Genre Intersections", {
 })
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-64-1.png" width="960" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-65-1.png" width="960" style="display: block; margin: auto;" />
 
 In `movies` dataset, there is also one column `AvgRating` which gives the
 rating of each movie, we next split all the movies into five groups based on
@@ -1416,7 +1417,7 @@ for(i in seq_along(m_list)) {
 ht_list
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-69-1.png" width="672" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-70-1.png" width="672" style="display: block; margin: auto;" />
 
 After comparing the five UpSet plots, we can see most of the movies are rated
 between 2 and 4. Horror movies tend to have lower ratings and romance movies
@@ -1458,7 +1459,7 @@ for(i in seq_along(m_list)) {
 ht_list
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-70-1.png" width="672" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-71-1.png" width="672" style="display: block; margin: auto;" />
 
 Now the trend is more clear that horror movies are rated low and documentaries
 are rated high.
@@ -1503,7 +1504,7 @@ draw(ht_list2, newpage = FALSE)
 popViewport()
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-71-1.png" width="1344" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-72-1.png" width="1344" style="display: block; margin: auto;" />
 
 Now we can see most of the movies were produces in 1990s and the two major
 genres are actions and romance.
@@ -1511,7 +1512,7 @@ genres are actions and romance.
 Similarly, if we change the top annotation to the relative fraction to the
 full sets (code not shown):
 
-<img src="08-upset_files/figure-html/unnamed-chunk-72-1.png" width="1344" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-73-1.png" width="1344" style="display: block; margin: auto;" />
 
 Finally we can add the statistics of years, ratings and number of watches for
 each combination set as boxplot annotations to the right of the UpSet plot.
@@ -1531,7 +1532,7 @@ UpSet(t(m)) + rowAnnotation(years = anno_boxplot(years),
     gap = unit(2, "mm"))
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-73-1.png" width="576" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-74-1.png" width="576" style="display: block; margin: auto;" />
 
 We can see the movies with genre "Scifi + Children" were produced quite old
 but the ratings are not bad. The movies with genre "Action + Children" have
@@ -1579,7 +1580,7 @@ m = m[comb_size(m) > 500000]
 UpSet(m)
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-75-1.png" width="768" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-76-1.png" width="768" style="display: block; margin: auto;" />
 
 We can nicely format the axis labels by setting `axis_param`:
 
@@ -1601,7 +1602,7 @@ UpSet(m,
 	))
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-76-1.png" width="768" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-77-1.png" width="768" style="display: block; margin: auto;" />
 
 With each set of genomic regions, we can associate more information to it,
 such as the mean methylation or the distance to nearest TSS.
@@ -1645,4 +1646,4 @@ UpSet(m,
 )
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-77-1.png" width="960" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-78-1.png" width="960" style="display: block; margin: auto;" />

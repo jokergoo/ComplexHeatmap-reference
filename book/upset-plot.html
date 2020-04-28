@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 UpSet plot | ComplexHeatmap Complete Reference</title>
   <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 UpSet plot | ComplexHeatmap Complete Reference" />
   <meta property="og:type" content="book" />
@@ -402,7 +402,7 @@ of elements in set <strong>A</strong> or <strong>B</strong>, and they can also i
 overlap.</p></li>
 </ol>
 <p>The three modes are illustrated in following figure:</p>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-7-1.png" width="460.8" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-8-1.png" width="460.8" style="display: block; margin: auto;" /></p>
 </div>
 <div id="make-the-combination-matrix" class="section level2">
 <h2><span class="header-section-number">8.3</span> Make the combination matrix</h2>
@@ -812,35 +812,35 @@ it automatically works for both matrices that are transposed or not:</p>
 combination matrix to <code>UpSet()</code> function:</p>
 <div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb541-1" data-line-number="1">m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt)</a>
 <a class="sourceLine" id="cb541-2" data-line-number="2"><span class="kw">UpSet</span>(m)</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-33-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-34-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>By default the sets are ordered by the size and the combination sets are
 ordered by the degree (number of sets that are selected).</p>
 <p>The order is controlled by <code>set_order</code> and <code>comb_order</code>:</p>
 <div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb542-1" data-line-number="1"><span class="kw">UpSet</span>(m, <span class="dt">set_order =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), <span class="dt">comb_order =</span> <span class="kw">order</span>(<span class="kw">comb_size</span>(m)))</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-34-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-35-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Color of dots, size of dots and line width of the segments are controlled by
 <code>pt_size</code>, <code>comb_col</code> and <code>lwd</code>. <code>comb_col</code> should be a vector corresponding
 to the combination sets. In following code, since <code>comb_degree(m)</code> returns a
 vector of integers, we just use it as index for the color vector.</p>
 <div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb543-1" data-line-number="1"><span class="kw">UpSet</span>(m, <span class="dt">pt_size =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">lwd =</span> <span class="dv">3</span>,</a>
 <a class="sourceLine" id="cb543-2" data-line-number="2">    <span class="dt">comb_col =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;black&quot;</span>)[<span class="kw">comb_degree</span>(m)])</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-35-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-36-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Colors for the background (the rectangles and the dots representing the set is
 not selected) are controlled by <code>bg_col</code>, <code>bg_pt_col</code>. The length of <code>bg_col</code>
 can have length of one or two.</p>
 <div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb544-1" data-line-number="1"><span class="kw">UpSet</span>(m, <span class="dt">comb_col =</span> <span class="st">&quot;#0000FF&quot;</span>, <span class="dt">bg_col =</span> <span class="st">&quot;#F0F0FF&quot;</span>, <span class="dt">bg_pt_col =</span> <span class="st">&quot;#CCCCFF&quot;</span>)</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-36-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-37-1.png" width="480" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb545-1" data-line-number="1"><span class="kw">UpSet</span>(m, <span class="dt">comb_col =</span> <span class="st">&quot;#0000FF&quot;</span>, <span class="dt">bg_col =</span> <span class="kw">c</span>(<span class="st">&quot;#F0F0FF&quot;</span>, <span class="st">&quot;#FFF0F0&quot;</span>), <span class="dt">bg_pt_col =</span> <span class="st">&quot;#CCCCFF&quot;</span>)</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-36-2.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-37-2.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Transposing the combination matrix swtiches the sets to columns and
 combination sets to rows.</p>
 <div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb546-1" data-line-number="1"><span class="kw">UpSet</span>(<span class="kw">t</span>(m))</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-37-1.png" width="288" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-38-1.png" width="288" style="display: block; margin: auto;" /></p>
 <p>As we have introduced, if do subsetting on the combination sets, the subset of
 the matrix can be visualized as well:</p>
 <div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb547-1" data-line-number="1"><span class="kw">UpSet</span>(m[<span class="kw">comb_size</span>(m) <span class="op">&gt;=</span><span class="st"> </span><span class="dv">4</span>])</a>
 <a class="sourceLine" id="cb547-2" data-line-number="2"><span class="kw">UpSet</span>(m[<span class="kw">comb_degree</span>(m) <span class="op">==</span><span class="st"> </span><span class="dv">2</span>])</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-39-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-40-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Following compares the different mode in <code>make_comb_mat()</code>:</p>
 <div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb548-1" data-line-number="1">m1 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt) <span class="co"># the default mode is `distinct`</span></a>
 <a class="sourceLine" id="cb548-2" data-line-number="2">m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;intersect&quot;</span>)</a>
@@ -848,21 +848,21 @@ the matrix can be visualized as well:</p>
 <a class="sourceLine" id="cb548-4" data-line-number="4"><span class="kw">UpSet</span>(m1)</a>
 <a class="sourceLine" id="cb548-5" data-line-number="5"><span class="kw">UpSet</span>(m2)</a>
 <a class="sourceLine" id="cb548-6" data-line-number="6"><span class="kw">UpSet</span>(m3)</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-41-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-42-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>For the plot containing complement set, there is one additional column showing
 this complement set does not overlap to any of the sets (all dots are in grey).</p>
 <div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb549-1" data-line-number="1">m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters)</a>
 <a class="sourceLine" id="cb549-2" data-line-number="2"><span class="kw">UpSet</span>(m2)</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-42-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-43-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Remember if you already know the size for the complement set, you can directly assign it
 by <code>complement_size</code> argument in <code>make_comb_mat()</code>.</p>
 <div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb550-1" data-line-number="1">m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">complement_size =</span> <span class="dv">10</span>)</a>
 <a class="sourceLine" id="cb550-2" data-line-number="2"><span class="kw">UpSet</span>(m2)</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-43-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-44-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>For the case where the universal set is smaller than the union of all sets:</p>
 <div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb551-1" data-line-number="1">m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])</a>
 <a class="sourceLine" id="cb551-2" data-line-number="2"><span class="kw">UpSet</span>(m2)</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-44-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-45-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>There are some cases that you may have complement set but you don’t want to show it,
 especially when the input for <code>make_comb_mat()</code> is a matrix which already contains
 complement set, you can filter by the combination degrees.</p>
@@ -870,7 +870,7 @@ complement set, you can filter by the combination degrees.</p>
 <a class="sourceLine" id="cb552-2" data-line-number="2">m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(x)</a>
 <a class="sourceLine" id="cb552-3" data-line-number="3">m2 =<span class="st"> </span>m2[<span class="kw">comb_degree</span>(m2) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>]</a>
 <a class="sourceLine" id="cb552-4" data-line-number="4"><span class="kw">UpSet</span>(m2)</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-45-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-46-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="upset-plots-as-heatmaps" class="section level2">
 <h2><span class="header-section-number">8.6</span> UpSet plots as heatmaps</h2>
@@ -889,27 +889,27 @@ the upset top barplot annotation. Most of the arguments in
 the colors of bars:</p>
 <div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb554-1" data-line-number="1"><span class="kw">UpSet</span>(m, <span class="dt">top_annotation =</span> <span class="kw">upset_top_annotation</span>(m, </a>
 <a class="sourceLine" id="cb554-2" data-line-number="2">    <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="kw">comb_degree</span>(m))))</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-47-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-48-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>To control the data range and axis:</p>
 <div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb555-1" data-line-number="1"><span class="kw">UpSet</span>(m, <span class="dt">top_annotation =</span> <span class="kw">upset_top_annotation</span>(m, </a>
 <a class="sourceLine" id="cb555-2" data-line-number="2">    <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">15</span>),</a>
 <a class="sourceLine" id="cb555-3" data-line-number="3">    <span class="dt">bar_width =</span> <span class="dv">1</span>,</a>
 <a class="sourceLine" id="cb555-4" data-line-number="4">    <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">side =</span> <span class="st">&quot;right&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>),</a>
 <a class="sourceLine" id="cb555-5" data-line-number="5">        <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;zero&quot;</span>, <span class="st">&quot;five&quot;</span>, <span class="st">&quot;ten&quot;</span>, <span class="st">&quot;fifteen&quot;</span>))))</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-48-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-49-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>To control the annotation name:</p>
 <div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb556-1" data-line-number="1"><span class="kw">UpSet</span>(m, <span class="dt">top_annotation =</span> <span class="kw">upset_top_annotation</span>(m, </a>
 <a class="sourceLine" id="cb556-2" data-line-number="2">    <span class="dt">annotation_name_rot =</span> <span class="dv">90</span>,</a>
 <a class="sourceLine" id="cb556-3" data-line-number="3">    <span class="dt">annotation_name_side =</span> <span class="st">&quot;right&quot;</span>,</a>
 <a class="sourceLine" id="cb556-4" data-line-number="4">    <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">side =</span> <span class="st">&quot;right&quot;</span>)))</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-49-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-50-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>The settings are very similar for the right annotation:</p>
 <div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb557-1" data-line-number="1"><span class="kw">UpSet</span>(m, <span class="dt">right_annotation =</span> <span class="kw">upset_right_annotation</span>(m, </a>
 <a class="sourceLine" id="cb557-2" data-line-number="2">    <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">30</span>),</a>
 <a class="sourceLine" id="cb557-3" data-line-number="3">    <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;green&quot;</span>),</a>
 <a class="sourceLine" id="cb557-4" data-line-number="4">    <span class="dt">annotation_name_side =</span> <span class="st">&quot;top&quot;</span>,</a>
 <a class="sourceLine" id="cb557-5" data-line-number="5">    <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">side =</span> <span class="st">&quot;top&quot;</span>)))</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-50-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-51-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><code>upset_top_annotation()</code> and <code>upset_right_annotation()</code> can automatically
 recognize whether sets are on rows or columns.</p>
 <p><code>upset_top_annotation()</code> and <code>upset_right_annotation()</code> only contain one
@@ -925,7 +925,7 @@ manually construct a <code>HeatmapAnnotation</code> object with multiple annotat
 <a class="sourceLine" id="cb558-7" data-line-number="7">    ), </a>
 <a class="sourceLine" id="cb558-8" data-line-number="8">    <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>, </a>
 <a class="sourceLine" id="cb558-9" data-line-number="9">    <span class="dt">annotation_name_rot =</span> <span class="dv">0</span>))</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-51-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-52-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>To add more annotation on the right:</p>
 <div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb559-1" data-line-number="1"><span class="kw">UpSet</span>(m, <span class="dt">right_annotation =</span> <span class="kw">rowAnnotation</span>(</a>
 <a class="sourceLine" id="cb559-2" data-line-number="2">    <span class="st">&quot;Set size&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">set_size</span>(m), </a>
@@ -934,7 +934,7 @@ manually construct a <code>HeatmapAnnotation</code> object with multiple annotat
 <a class="sourceLine" id="cb559-5" data-line-number="5">        <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)</a>
 <a class="sourceLine" id="cb559-6" data-line-number="6">    ),</a>
 <a class="sourceLine" id="cb559-7" data-line-number="7">    <span class="dt">group =</span> <span class="kw">c</span>(<span class="st">&quot;group1&quot;</span>, <span class="st">&quot;group1&quot;</span>, <span class="st">&quot;group2&quot;</span>)))</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-52-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-53-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>To move the right annotation to the left of the combination matrix:</p>
 <div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb560-1" data-line-number="1"><span class="kw">UpSet</span>(m, <span class="dt">left_annotation =</span> <span class="kw">rowAnnotation</span>(</a>
 <a class="sourceLine" id="cb560-2" data-line-number="2">    <span class="st">&quot;Set size&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">set_size</span>(m), </a>
@@ -942,7 +942,7 @@ manually construct a <code>HeatmapAnnotation</code> object with multiple annotat
 <a class="sourceLine" id="cb560-4" data-line-number="4">        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), </a>
 <a class="sourceLine" id="cb560-5" data-line-number="5">        <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)</a>
 <a class="sourceLine" id="cb560-6" data-line-number="6">    )), <span class="dt">right_annotation =</span> <span class="ot">NULL</span>)</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-53-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-54-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>To reverse the axis of the left annotation:</p>
 <div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb561-1" data-line-number="1"><span class="kw">UpSet</span>(m, <span class="dt">left_annotation =</span> <span class="kw">rowAnnotation</span>(</a>
 <a class="sourceLine" id="cb561-2" data-line-number="2">    <span class="st">&quot;Set size&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">set_size</span>(m), </a>
@@ -952,7 +952,7 @@ manually construct a <code>HeatmapAnnotation</code> object with multiple annotat
 <a class="sourceLine" id="cb561-6" data-line-number="6">        <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)</a>
 <a class="sourceLine" id="cb561-7" data-line-number="7">    )), <span class="dt">right_annotation =</span> <span class="ot">NULL</span>,</a>
 <a class="sourceLine" id="cb561-8" data-line-number="8">    <span class="dt">row_names_side =</span> <span class="st">&quot;right&quot;</span>)</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-54-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-55-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>The object returned by <code>UpSet()</code> is actually a <code>Heatmap</code> class object, thus,
 you can add to other heatmaps and annotations by <code>+</code> or <code>%v%</code>.</p>
 <div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb562-1" data-line-number="1">ht =<span class="st"> </span><span class="kw">UpSet</span>(m)</a>
@@ -962,12 +962,12 @@ you can add to other heatmaps and annotations by <code>+</code> or <code>%v%</co
 ## [1] &quot;ComplexHeatmap&quot;</code></pre>
 <div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb564-1" data-line-number="1">ht <span class="op">+</span><span class="st"> </span><span class="kw">Heatmap</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">name =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb564-2" data-line-number="2"><span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>))</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-55-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-56-1.png" width="576" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb565-1" data-line-number="1">ht <span class="op">%v%</span><span class="st"> </span><span class="kw">Heatmap</span>(<span class="kw">rbind</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>), <span class="dt">name =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">row_names_side =</span> <span class="st">&quot;left&quot;</span>, </a>
 <a class="sourceLine" id="cb565-2" data-line-number="2">        <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>)) <span class="op">%v%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb565-3" data-line-number="3"><span class="st">    </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>),</a>
 <a class="sourceLine" id="cb565-4" data-line-number="4">        <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>)</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-56-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-57-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Add multiple UpSet plots:</p>
 <div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb566-1" data-line-number="1">m1 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;distinct&quot;</span>)</a>
 <a class="sourceLine" id="cb566-2" data-line-number="2">m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;intersect&quot;</span>)</a>
@@ -975,7 +975,7 @@ you can add to other heatmaps and annotations by <code>+</code> or <code>%v%</co
 <a class="sourceLine" id="cb566-4" data-line-number="4"><span class="kw">UpSet</span>(m1, <span class="dt">row_title =</span> <span class="st">&quot;distinct mode&quot;</span>) <span class="op">%v%</span></a>
 <a class="sourceLine" id="cb566-5" data-line-number="5"><span class="st">    </span><span class="kw">UpSet</span>(m2, <span class="dt">row_title =</span> <span class="st">&quot;intersect mode&quot;</span>) <span class="op">%v%</span></a>
 <a class="sourceLine" id="cb566-6" data-line-number="6"><span class="st">    </span><span class="kw">UpSet</span>(m3, <span class="dt">row_title =</span> <span class="st">&quot;union mode&quot;</span>)</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-57-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-58-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Or first transpose all the combination matrices and add them horizontally:</p>
 <div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb567-1" data-line-number="1">m1 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;distinct&quot;</span>)</a>
 <a class="sourceLine" id="cb567-2" data-line-number="2">m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;intersect&quot;</span>)</a>
@@ -983,7 +983,7 @@ you can add to other heatmaps and annotations by <code>+</code> or <code>%v%</co
 <a class="sourceLine" id="cb567-4" data-line-number="4"><span class="kw">UpSet</span>(<span class="kw">t</span>(m1), <span class="dt">column_title =</span> <span class="st">&quot;distinct mode&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb567-5" data-line-number="5"><span class="st">    </span><span class="kw">UpSet</span>(<span class="kw">t</span>(m2), <span class="dt">column_title =</span> <span class="st">&quot;intersect mode&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb567-6" data-line-number="6"><span class="st">    </span><span class="kw">UpSet</span>(<span class="kw">t</span>(m3), <span class="dt">column_title =</span> <span class="st">&quot;union mode&quot;</span>)</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-58-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-59-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>The three combination matrices are actually the same and plotting them three
 times is redundant. With the functionality in <strong>ComplexHeatmap</strong> package, we
 can directly add three barplot annotations.</p>
@@ -997,7 +997,7 @@ can directly add three barplot annotations.</p>
 <a class="sourceLine" id="cb568-8" data-line-number="8">    <span class="dt">gap =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">annotation_name_rot =</span> <span class="dv">0</span>)</a>
 <a class="sourceLine" id="cb568-9" data-line-number="9"><span class="co"># the same for using m2 or m3</span></a>
 <a class="sourceLine" id="cb568-10" data-line-number="10"><span class="kw">UpSet</span>(m1, <span class="dt">top_annotation =</span> top_ha)</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-59-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-60-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Similar when the combination matrix is transposed:</p>
 <div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb569-1" data-line-number="1">right_ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(</a>
 <a class="sourceLine" id="cb569-2" data-line-number="2">    <span class="st">&quot;distict&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">comb_size</span>(m1), </a>
@@ -1009,7 +1009,7 @@ can directly add three barplot annotations.</p>
 <a class="sourceLine" id="cb569-8" data-line-number="8">    <span class="dt">gap =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">annotation_name_side =</span> <span class="st">&quot;bottom&quot;</span>)</a>
 <a class="sourceLine" id="cb569-9" data-line-number="9"><span class="co"># the same for using m2 or m3</span></a>
 <a class="sourceLine" id="cb569-10" data-line-number="10"><span class="kw">UpSet</span>(<span class="kw">t</span>(m1), <span class="dt">right_annotation =</span> right_ha)</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-60-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-61-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><a href="https://cran.r-project.org/web/packages/UpSetR/vignettes/basic.usage.html#example-2-choosing-the-top-largest-sets-and-plot-formatting">In the origial UpSet implementation</a>, the combination
 set sizes are also drawn on top of the barplots. Here, we don’t directly support it, but the sizes
 can be manually added by <code>decorate_annotation()</code> function. See following example:</p>
@@ -1020,7 +1020,7 @@ can be manually added by <code>decorate_annotation()</code> function. See follow
 <a class="sourceLine" id="cb570-5" data-line-number="5">    <span class="kw">grid.text</span>(cs[od], <span class="dt">x =</span> <span class="kw">seq_along</span>(cs), <span class="dt">y =</span> <span class="kw">unit</span>(cs[od], <span class="st">&quot;native&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), </a>
 <a class="sourceLine" id="cb570-6" data-line-number="6">        <span class="dt">default.units =</span> <span class="st">&quot;native&quot;</span>, <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">8</span>))</a>
 <a class="sourceLine" id="cb570-7" data-line-number="7">})</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-61-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-62-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>There are several reasons that we don’t directly supported add the combination set size
 to the plot: 1. Add new text means to add several new arguments to the function, e.g., the
 arguments for graphic parameters, the rotations, the positions, the margin to the bars,
@@ -1087,7 +1087,7 @@ dataset, which contains 17 genres for 3883 movies. First load the dataset.</p>
 ##   complement    2</code></pre>
 <div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb575-1" data-line-number="1">m =<span class="st"> </span>m[<span class="kw">comb_degree</span>(m) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>]</a>
 <a class="sourceLine" id="cb575-2" data-line-number="2"><span class="kw">UpSet</span>(m)</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-63-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-64-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>Following code makes it look more similar as the orignal plot. The code is a
 little bit long, but most of the code mainly customize the annotations and
 row/column orders.</p>
@@ -1130,7 +1130,7 @@ row/column orders.</p>
 <a class="sourceLine" id="cb576-37" data-line-number="37">        <span class="dt">default.units =</span> <span class="st">&quot;native&quot;</span>, <span class="dt">just =</span> <span class="kw">c</span>(<span class="st">&quot;left&quot;</span>, <span class="st">&quot;bottom&quot;</span>), </a>
 <a class="sourceLine" id="cb576-38" data-line-number="38">        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">6</span>, <span class="dt">col =</span> <span class="st">&quot;#404040&quot;</span>), <span class="dt">rot =</span> <span class="dv">45</span>)</a>
 <a class="sourceLine" id="cb576-39" data-line-number="39">})</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-64-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-65-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>In <code>movies</code> dataset, there is also one column <code>AvgRating</code> which gives the
 rating of each movie, we next split all the movies into five groups based on
 the ratings.</p>
@@ -1206,7 +1206,7 @@ were not there before.</p>
 <a class="sourceLine" id="cb583-7" data-line-number="7">            <span class="dt">right_annotation =</span> <span class="kw">upset_right_annotation</span>(m_list[[i]], <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, max_set_size)))</a>
 <a class="sourceLine" id="cb583-8" data-line-number="8">}</a>
 <a class="sourceLine" id="cb583-9" data-line-number="9">ht_list</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-69-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-70-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>After comparing the five UpSet plots, we can see most of the movies are rated
 between 2 and 4. Horror movies tend to have lower ratings and romance movies
 tend to have higher ratings.</p>
@@ -1241,7 +1241,7 @@ the group of <code>c(0, 1]</code> because the number of movies are too few there
 <a class="sourceLine" id="cb584-26" data-line-number="26">        )</a>
 <a class="sourceLine" id="cb584-27" data-line-number="27">}</a>
 <a class="sourceLine" id="cb584-28" data-line-number="28">ht_list</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-70-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-71-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Now the trend is more clear that horror movies are rated low and documentaries
 are rated high.</p>
 <p>Next we split the movies by years:</p>
@@ -1279,12 +1279,12 @@ are rated high.</p>
 <a class="sourceLine" id="cb585-32" data-line-number="32"><span class="kw">pushViewport</span>(<span class="kw">viewport</span>(<span class="dt">x =</span> <span class="fl">0.5</span>, <span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">just =</span> <span class="st">&quot;left&quot;</span>))</a>
 <a class="sourceLine" id="cb585-33" data-line-number="33"><span class="kw">draw</span>(ht_list2, <span class="dt">newpage =</span> <span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb585-34" data-line-number="34"><span class="kw">popViewport</span>()</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-71-1.png" width="1344" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-72-1.png" width="1344" style="display: block; margin: auto;" /></p>
 <p>Now we can see most of the movies were produces in 1990s and the two major
 genres are actions and romance.</p>
 <p>Similarly, if we change the top annotation to the relative fraction to the
 full sets (code not shown):</p>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-72-1.png" width="1344" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-73-1.png" width="1344" style="display: block; margin: auto;" /></p>
 <p>Finally we can add the statistics of years, ratings and number of watches for
 each combination set as boxplot annotations to the right of the UpSet plot.</p>
 <div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb586-1" data-line-number="1">m =<span class="st"> </span><span class="kw">make_comb_mat</span>(movies[, genre])</a>
@@ -1298,7 +1298,7 @@ each combination set as boxplot annotations to the right of the UpSet plot.</p>
 <a class="sourceLine" id="cb586-9" data-line-number="9">    <span class="dt">rating =</span> <span class="kw">anno_boxplot</span>(rating),</a>
 <a class="sourceLine" id="cb586-10" data-line-number="10">    <span class="dt">watches =</span> <span class="kw">anno_boxplot</span>(watches),</a>
 <a class="sourceLine" id="cb586-11" data-line-number="11">    <span class="dt">gap =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>))</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-73-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-74-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>We can see the movies with genre “Scifi + Children” were produced quite old
 but the ratings are not bad. The movies with genre “Action + Children” have
 the lowest ratings.</p>
@@ -1335,7 +1335,7 @@ the combination sets with more than 500kb.</p>
 <div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb588-1" data-line-number="1">m =<span class="st"> </span><span class="kw">make_comb_mat</span>(peak_list)</a>
 <a class="sourceLine" id="cb588-2" data-line-number="2">m =<span class="st"> </span>m[<span class="kw">comb_size</span>(m) <span class="op">&gt;</span><span class="st"> </span><span class="dv">500000</span>]</a>
 <a class="sourceLine" id="cb588-3" data-line-number="3"><span class="kw">UpSet</span>(m)</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-75-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-76-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>We can nicely format the axis labels by setting <code>axis_param</code>:</p>
 <div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb589-1" data-line-number="1"><span class="kw">UpSet</span>(m, </a>
 <a class="sourceLine" id="cb589-2" data-line-number="2">    <span class="dt">top_annotation =</span> <span class="kw">upset_top_annotation</span>(</a>
@@ -1351,7 +1351,7 @@ the combination sets with more than 500kb.</p>
 <a class="sourceLine" id="cb589-12" data-line-number="12">            <span class="dt">labels_rot =</span> <span class="dv">0</span>),</a>
 <a class="sourceLine" id="cb589-13" data-line-number="13">        <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>)</a>
 <a class="sourceLine" id="cb589-14" data-line-number="14">    ))</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-76-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-77-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>With each set of genomic regions, we can associate more information to it,
 such as the mean methylation or the distance to nearest TSS.</p>
 <div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb590-1" data-line-number="1">subgroup =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;ESC&quot;</span> =<span class="st"> &quot;group1&quot;</span>,</a>
@@ -1389,7 +1389,7 @@ such as the mean methylation or the distance to nearest TSS.</p>
 <a class="sourceLine" id="cb590-33" data-line-number="33">        <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span></a>
 <a class="sourceLine" id="cb590-34" data-line-number="34">    )</a>
 <a class="sourceLine" id="cb590-35" data-line-number="35">)</a></code></pre></div>
-<p><img src="08-upset_files/figure-html/unnamed-chunk-77-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p><img src="08-upset_files/figure-html/unnamed-chunk-78-1.png" width="960" style="display: block; margin: auto;" /></p>
 
 </div>
 </div>

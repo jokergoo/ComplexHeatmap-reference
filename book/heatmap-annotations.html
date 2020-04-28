@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Heatmap Annotations | ComplexHeatmap Complete Reference</title>
   <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Heatmap Annotations | ComplexHeatmap Complete Reference" />
   <meta property="og:type" content="book" />
@@ -314,10 +314,10 @@ just a helper function which is identical to <code>HeatmapAnnotation(..., which 
 <a class="sourceLine" id="cb164-5" data-line-number="5">column_ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo1 =</span> <span class="kw">runif</span>(<span class="dv">10</span>), <span class="dt">bar1 =</span> <span class="kw">anno_barplot</span>(<span class="kw">runif</span>(<span class="dv">10</span>)))</a>
 <a class="sourceLine" id="cb164-6" data-line-number="6">row_ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo2 =</span> <span class="kw">runif</span>(<span class="dv">10</span>), <span class="dt">bar2 =</span> <span class="kw">anno_barplot</span>(<span class="kw">runif</span>(<span class="dv">10</span>)))</a>
 <a class="sourceLine" id="cb164-7" data-line-number="7"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">top_annotation =</span> column_ha, <span class="dt">right_annotation =</span> row_ha)</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-3-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Or assign as bottom annotation and left annotation.</p>
 <div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb165-1" data-line-number="1"><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">bottom_annotation =</span> column_ha, <span class="dt">left_annotation =</span> row_ha)</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-4-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>In above examples, <code>column_ha</code> and <code>row_ha</code> both have two annotations where
 <code>foo1</code> and <code>foo2</code> are numeric vectors and <code>bar1</code> and <code>bar2</code> are barplots. The
 vector-like annotation is called <em>“simple annotation”</em> here and the barplot
@@ -343,7 +343,9 @@ show how to put them toghether.</p>
 ##   width: 1npc 
 ##   height: 15.3514598035146mm 
 ##   this object is subsetable
+##   0mm extension on the bottom 
 ##   5.92288888888889mm extension on the left 
+##   0mm extension on the top 
 ##   9.4709mm extension on the right 
 ## 
 ##  name   annotation_type color_mapping height
@@ -357,7 +359,10 @@ show how to put them toghether.</p>
 ##   width: 15.3514598035146mm 
 ##   height: 1npc 
 ##   this object is subsetable
-##   9.96242222222222mm extension on the bottom 
+##   9.96242222222223mm extension on the bottom 
+##   0mm extension on the left 
+##   0mm extension on the top 
+##   0mm extension on the right 
 ## 
 ##  name   annotation_type color_mapping width
 ##  foo2 continuous vector        random   5mm
@@ -378,10 +383,10 @@ is heatmap-like or grid-like graphics where colors are used to map to the
 anntation values. To generate a simple annotation, you just simply put the
 annotation vector in <code>HeatmapAnnotation()</code> with a specific name.</p>
 <div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-7-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-8-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Or a discrete annotation:</p>
 <div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">bar =</span> <span class="kw">sample</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-9-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-10-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>You can use any strings as annotation names except those pre-defined arguments
 in <code>HeatmapAnnotation()</code>.</p>
 <p>If colors are not specified, colors are randomly generated. To set the colors
@@ -391,12 +396,12 @@ the color mapping should be a color mapping function generated by
 <div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" data-line-number="1"><span class="kw">library</span>(circlize)</a>
 <a class="sourceLine" id="cb173-2" data-line-number="2">col_fun =<span class="st"> </span><span class="kw">colorRamp2</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>), <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>))</a>
 <a class="sourceLine" id="cb173-3" data-line-number="3">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">col =</span> <span class="kw">list</span>(<span class="dt">foo =</span> col_fun))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-11-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-12-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>And for discrete annotations, the color should be a named vector where names
 correspond to the levels in the annotation.</p>
 <div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb174-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">bar =</span> <span class="kw">sample</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>),</a>
 <a class="sourceLine" id="cb174-2" data-line-number="2">    <span class="dt">col =</span> <span class="kw">list</span>(<span class="dt">bar =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span> =<span class="st"> &quot;red&quot;</span>, <span class="st">&quot;b&quot;</span> =<span class="st"> &quot;green&quot;</span>, <span class="st">&quot;c&quot;</span> =<span class="st"> &quot;blue&quot;</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-13-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-14-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>If you specify more than one vectors, there will be multiple annotations
 (<code>foo</code> and <code>bar</code> in following example). Also you can see how <code>col</code> is set when
 <code>foo</code> and <code>bar</code> are all put into a single <code>HeatmapAnnotation()</code>. Maybe now you
@@ -410,7 +415,7 @@ annotations.</p>
 <a class="sourceLine" id="cb175-5" data-line-number="5">               <span class="dt">bar =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span> =<span class="st"> &quot;red&quot;</span>, <span class="st">&quot;b&quot;</span> =<span class="st"> &quot;green&quot;</span>, <span class="st">&quot;c&quot;</span> =<span class="st"> &quot;blue&quot;</span>)</a>
 <a class="sourceLine" id="cb175-6" data-line-number="6">    )</a>
 <a class="sourceLine" id="cb175-7" data-line-number="7">)</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-15-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-16-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>The color for <code>NA</code> value is controlled by <code>na_col</code> argument.</p>
 <div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb176-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(</a>
 <a class="sourceLine" id="cb176-2" data-line-number="2">    <span class="dt">foo =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="ot">NA</span>, <span class="dv">6</span><span class="op">:</span><span class="dv">10</span>), </a>
@@ -420,7 +425,7 @@ annotations.</p>
 <a class="sourceLine" id="cb176-6" data-line-number="6">    ),</a>
 <a class="sourceLine" id="cb176-7" data-line-number="7">    <span class="dt">na_col =</span> <span class="st">&quot;black&quot;</span></a>
 <a class="sourceLine" id="cb176-8" data-line-number="8">)</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-17-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-18-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p><code>gp</code> mainly controls the graphic parameters for the borders of the grids.</p>
 <div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(</a>
 <a class="sourceLine" id="cb177-2" data-line-number="2">    <span class="dt">foo =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, </a>
@@ -430,17 +435,17 @@ annotations.</p>
 <a class="sourceLine" id="cb177-6" data-line-number="6">    ),</a>
 <a class="sourceLine" id="cb177-7" data-line-number="7">    <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;black&quot;</span>)</a>
 <a class="sourceLine" id="cb177-8" data-line-number="8">)</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-19-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-20-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>The simple annotation can also be a matrix (numeric or character) that all the
 columns in the matrix share a same color mapping schema. <strong>Note columns in the
 matrix correspond to the rows in the column annotation.</strong> Also the column
 names of the matrix are used as the annotation names.</p>
 <div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb178-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">cbind</span>(<span class="dt">a =</span> <span class="kw">runif</span>(<span class="dv">10</span>), <span class="dt">b =</span> <span class="kw">runif</span>(<span class="dv">10</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-21-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-22-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>If the matrix has no column name, the name of the annotation is still used, but drawn
 in the middle of the annotation.</p>
 <div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb179-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">cbind</span>(<span class="kw">runif</span>(<span class="dv">10</span>), <span class="kw">runif</span>(<span class="dv">10</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-23-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-24-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>As simple annotations can be in different modes (e.g. numeric, or character),
 they can be combined as a data frame and send to <code>df</code> argument. Imaging in your
 project, you might already have an annotation table, you can directly set it by
@@ -452,7 +457,7 @@ project, you might already have an annotation table, you can directly set it by
 <a class="sourceLine" id="cb180-5" data-line-number="5">               <span class="dt">bar =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span> =<span class="st"> &quot;red&quot;</span>, <span class="st">&quot;b&quot;</span> =<span class="st"> &quot;green&quot;</span>, <span class="st">&quot;c&quot;</span> =<span class="st"> &quot;blue&quot;</span>)</a>
 <a class="sourceLine" id="cb180-6" data-line-number="6">    )</a>
 <a class="sourceLine" id="cb180-7" data-line-number="7">)</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-25-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-26-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Single annotations and data frame can be mixed. In following example, colors
 for <code>foo2</code> is not specified, random colors will be used.</p>
 <div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">df =</span> anno_df,</a>
@@ -461,7 +466,7 @@ for <code>foo2</code> is not specified, random colors will be used.</p>
 <a class="sourceLine" id="cb181-4" data-line-number="4">               <span class="dt">bar =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span> =<span class="st"> &quot;red&quot;</span>, <span class="st">&quot;b&quot;</span> =<span class="st"> &quot;green&quot;</span>, <span class="st">&quot;c&quot;</span> =<span class="st"> &quot;blue&quot;</span>)</a>
 <a class="sourceLine" id="cb181-5" data-line-number="5">    )</a>
 <a class="sourceLine" id="cb181-6" data-line-number="6">)</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-27-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-28-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p><code>border</code> controls the border of every single annotation.</p>
 <div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb182-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(</a>
 <a class="sourceLine" id="cb182-2" data-line-number="2">    <span class="dt">foo =</span> <span class="kw">cbind</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">10</span><span class="op">:</span><span class="dv">1</span>),</a>
@@ -471,7 +476,7 @@ for <code>foo2</code> is not specified, random colors will be used.</p>
 <a class="sourceLine" id="cb182-6" data-line-number="6">    ),</a>
 <a class="sourceLine" id="cb182-7" data-line-number="7">    <span class="dt">border =</span> <span class="ot">TRUE</span></a>
 <a class="sourceLine" id="cb182-8" data-line-number="8">)</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-29-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-30-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>The height of the simple annotation is controlled by <code>simple_anno_size</code>
 argument. Since all single annotations have same height, the value of
 <code>simple_anno_size</code> is a single <code>unit</code> value. Note there are arguments like
@@ -487,7 +492,7 @@ will be introduced in Section <a href="heatmap-annotations.html#multiple-annotat
 <a class="sourceLine" id="cb183-6" data-line-number="6">    ),</a>
 <a class="sourceLine" id="cb183-7" data-line-number="7">    <span class="dt">simple_anno_size =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>)</a>
 <a class="sourceLine" id="cb183-8" data-line-number="8">)</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-31-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-32-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>When you have multiple heatmaps and it is better to keep the size of simple
 annotations on all heatmaps with the same size. <code>ht_opt$simple_anno_size</code> can
 be set to control the simple annotation size globally (It will be introduced
@@ -527,32 +532,32 @@ annotation grids. <code>pch</code>, <code>pt_gp</code> and <code>pt_size</code> 
 points. The value of <code>pch</code> can be a vector with possible <code>NA</code> values.</p>
 <div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb186-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_simple</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">pch =</span> <span class="dv">1</span>, </a>
 <a class="sourceLine" id="cb186-2" data-line-number="2">    <span class="dt">pt_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>), <span class="dt">pt_size =</span> <span class="kw">unit</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="st">&quot;mm&quot;</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-35-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-36-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Set <code>pch</code> as a vector:</p>
 <div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb187-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_simple</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">pch =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-37-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-38-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Set <code>pch</code> as a vector of letters:</p>
 <div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_simple</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, </a>
 <a class="sourceLine" id="cb188-2" data-line-number="2">    <span class="dt">pch =</span> <span class="kw">sample</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-39-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-40-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Set <code>pch</code> as a vector with <code>NA</code> values (nothing is drawn for <code>NA</code> pch values):</p>
 <div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb189-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_simple</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">pch =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="ot">NA</span>, <span class="dv">6</span><span class="op">:</span><span class="dv">8</span>, <span class="ot">NA</span>, <span class="dv">10</span>, <span class="dv">11</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-41-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-42-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p><code>pch</code> also works if the value for <code>anno_simple()</code> is a matrix. The length of
 <code>pch</code> should be as same as the number of matrix rows or columns or even the
 length of the matrix (the length of the matrix is the length of all data
 points in the matrix).</p>
 <p>Length of <code>pch</code> corresponds to matrix columns:</p>
 <div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_simple</span>(<span class="kw">cbind</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">10</span><span class="op">:</span><span class="dv">1</span>), <span class="dt">pch =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-43-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-44-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Lenght of <code>pch</code> corresponds to matrix rows:</p>
 <div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_simple</span>(<span class="kw">cbind</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">10</span><span class="op">:</span><span class="dv">1</span>), <span class="dt">pch =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-45-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-46-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p><code>pch</code> is a matrix:</p>
 <div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" data-line-number="1">pch =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">nc =</span> <span class="dv">2</span>)</a>
 <a class="sourceLine" id="cb192-2" data-line-number="2">pch[<span class="kw">sample</span>(<span class="kw">length</span>(pch), <span class="dv">10</span>)] =<span class="st"> </span><span class="ot">NA</span></a>
 <a class="sourceLine" id="cb192-3" data-line-number="3">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_simple</span>(<span class="kw">cbind</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">10</span><span class="op">:</span><span class="dv">1</span>), <span class="dt">pch =</span> pch))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-47-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-48-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Till now, you might wonder how to set the legends of the symbols you’ve added
 to the simple annotations. Here we will only show you a simple example and
 this functionality will be discussed in Chapter <a href="legends.html#legends">5</a>. In following
@@ -577,17 +582,17 @@ for p-values less than 0.01.</p>
 <a class="sourceLine" id="cb193-17" data-line-number="17">lgd_sig =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">pch =</span> <span class="st">&quot;*&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;points&quot;</span>, <span class="dt">labels =</span> <span class="st">&quot;&lt; 0.01&quot;</span>)</a>
 <a class="sourceLine" id="cb193-18" data-line-number="18"><span class="co"># these two self-defined legends are added to the plot by `annotation_legend_list`</span></a>
 <a class="sourceLine" id="cb193-19" data-line-number="19"><span class="kw">draw</span>(ht, <span class="dt">annotation_legend_list =</span> <span class="kw">list</span>(lgd_pvalue, lgd_sig))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-48-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-49-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>The height of the simple annotation can be controled by <code>height</code> argument or
 <code>simple_anno_size</code> inside <code>anno_simple()</code>. <code>simple_anno_size</code> controls the
 size for single-row annotation and <code>height</code>/<code>width</code> controls the total
 height/width of the simple annotations. If <code>height</code>/<code>width</code> is set,
 <code>simple_anno_size</code> is ignored.</p>
 <div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_simple</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-50-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-51-1.png" width="576" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_simple</span>(<span class="kw">cbind</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">10</span><span class="op">:</span><span class="dv">1</span>), </a>
 <a class="sourceLine" id="cb195-2" data-line-number="2">    <span class="dt">simple_anno_size =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-52-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-53-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p><strong>For all the annotation functions we introduce later, the height or the width
 for individual annotations should all be set inside the <code>anno_*()</code>
 functions.</strong></p>
@@ -603,7 +608,7 @@ annotations.</p>
 <p><code>anno_empty()</code> is a place holder where nothing is drawn. Later user-defined
 graphics can be added by <code>decorate_annotation()</code> function.</p>
 <div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb197-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_empty</span>(<span class="dt">border =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-55-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-56-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>In Chapter <a href="heatmap-decoration.html#heatmap-decoration">6</a>, we will introduce the use of the
 decoration functions, but here we give a quick example. In gene expression
 expression analysis, there are senarios that we split the heatmaps into
@@ -636,7 +641,7 @@ empty annotation slice, we add a colored segment and text.</p>
 <a class="sourceLine" id="cb198-19" data-line-number="19">        <span class="kw">grid.text</span>(<span class="kw">paste</span>(text_list[[i]], <span class="dt">collapse =</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>), <span class="dt">x =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">just =</span> <span class="st">&quot;left&quot;</span>)</a>
 <a class="sourceLine" id="cb198-20" data-line-number="20">    })</a>
 <a class="sourceLine" id="cb198-21" data-line-number="21">}</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-56-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-57-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>A second use of the empty annotation is to add complex annotation graphics
 where the empty annotation pretends to be a virtual plotting region. You can
 construct an annotation function by <code>AnnotationFunction</code> class for complex
@@ -666,7 +671,7 @@ reordering.</p>
 <a class="sourceLine" id="cb199-16" data-line-number="16">    <span class="kw">grid.yaxis</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>))</a>
 <a class="sourceLine" id="cb199-17" data-line-number="17">    <span class="kw">popViewport</span>()</a>
 <a class="sourceLine" id="cb199-18" data-line-number="18">})</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-57-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-58-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="block-annotation" class="section level2">
 <h2><span class="header-section-number">3.4</span> Block annotation</h2>
@@ -675,7 +680,7 @@ the rows or columns of the heatmap are split.</p>
 <div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" data-line-number="1"><span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>), <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>,</a>
 <a class="sourceLine" id="cb200-2" data-line-number="2">    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_block</span>(<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">4</span>))),</a>
 <a class="sourceLine" id="cb200-3" data-line-number="3">    <span class="dt">column_km =</span> <span class="dv">3</span>)</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-58-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-59-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Labels can be added to each block.</p>
 <div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb201-1" data-line-number="1"><span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>), </a>
 <a class="sourceLine" id="cb201-2" data-line-number="2">    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_block</span>(<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">4</span>),</a>
@@ -686,7 +691,7 @@ the rows or columns of the heatmap are split.</p>
 <a class="sourceLine" id="cb201-7" data-line-number="7">        <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;group1&quot;</span>, <span class="st">&quot;group2&quot;</span>, <span class="st">&quot;group3&quot;</span>), </a>
 <a class="sourceLine" id="cb201-8" data-line-number="8">        <span class="dt">labels_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">fontsize =</span> <span class="dv">10</span>))),</a>
 <a class="sourceLine" id="cb201-9" data-line-number="9">    <span class="dt">row_km =</span> <span class="dv">3</span>)</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-59-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-60-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Note the length of <code>labels</code> or graphic parameters should have the same length
 as the number of slices.</p>
 </div>
@@ -714,7 +719,7 @@ the first argument of <code>anno_image()</code>.</p>
 <a class="sourceLine" id="cb202-5" data-line-number="5"></a>
 <a class="sourceLine" id="cb202-6" data-line-number="6"><span class="co"># we only draw the image annotation for PNG images, while the others are the same</span></a>
 <a class="sourceLine" id="cb202-7" data-line-number="7">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_image</span>(image_png))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-61-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-62-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Different image formats can be mixed in the input vector.</p>
 <div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb203-1" data-line-number="1"><span class="co"># code only for demonstration</span></a>
 <a class="sourceLine" id="cb203-2" data-line-number="2">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_image</span>(<span class="kw">c</span>(image_png[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], image_svg[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], </a>
@@ -723,18 +728,18 @@ the first argument of <code>anno_image()</code>.</p>
 be set by <code>gp</code>.</p>
 <div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_image</span>(image_png, </a>
 <a class="sourceLine" id="cb204-2" data-line-number="2">    <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-64-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-65-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p><code>border</code> controls the border of the whole annotation.</p>
 <div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" data-line-number="1"><span class="co"># code only for demonstration</span></a>
 <a class="sourceLine" id="cb205-2" data-line-number="2">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_image</span>(image_png, <span class="dt">border =</span> <span class="st">&quot;red&quot;</span>))</a></code></pre></div>
 <p>Padding or space around the images is set by <code>space</code>.</p>
 <div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_image</span>(image_png, <span class="dt">space =</span> <span class="kw">unit</span>(<span class="dv">3</span>, <span class="st">&quot;mm&quot;</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-67-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-68-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>If only some of the images need to be drawn, the other elements in the <code>image</code>
 vector can be set to <code>''</code> or <code>NA</code>.</p>
 <div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" data-line-number="1">image_png[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>] =<span class="st"> &quot;&quot;</span></a>
 <a class="sourceLine" id="cb207-2" data-line-number="2">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_image</span>(image_png))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-69-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-70-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 <div id="points-annotation" class="section level2">
 <h2><span class="header-section-number">3.6</span> Points annotation</h2>
@@ -744,10 +749,10 @@ If it is a matrix, the graphic settings such as <code>pch</code>, <code>size</co
 correpspond to matrix columns. Note again, if <code>x</code> is a matrix, rows in <code>x</code>
 correspond to columns in the heatmap matrix.</p>
 <div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_points</span>(<span class="kw">runif</span>(<span class="dv">10</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-71-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-72-1.png" width="576" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_points</span>(<span class="kw">matrix</span>(<span class="kw">runif</span>(<span class="dv">20</span>), <span class="dt">nc =</span> <span class="dv">2</span>), </a>
 <a class="sourceLine" id="cb209-2" data-line-number="2">    <span class="dt">pch =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-73-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-74-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p><code>ylim</code> controls the range on “y-axis” or the “data axis” (if it is a row
 annotation, the data axis is horizontal), <code>extend</code> controls the extended space
 on the data axis direction. <code>axis</code> controls whether to show the axis and
@@ -783,7 +788,7 @@ on the data axis direction. <code>axis</code> controls whether to show the axis 
 <a class="sourceLine" id="cb212-5" data-line-number="5">        <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;zero&quot;</span>, <span class="st">&quot;half&quot;</span>, <span class="st">&quot;one&quot;</span>)</a>
 <a class="sourceLine" id="cb212-6" data-line-number="6">    ))</a>
 <a class="sourceLine" id="cb212-7" data-line-number="7">)</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-76-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-77-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>One thing that might be useful is you can control the rotation of the axis
 labels.</p>
 <div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_points</span>(<span class="kw">runif</span>(<span class="dv">10</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</a>
@@ -795,7 +800,7 @@ labels.</p>
 <a class="sourceLine" id="cb213-7" data-line-number="7">        <span class="dt">labels_rot =</span> <span class="dv">45</span></a>
 <a class="sourceLine" id="cb213-8" data-line-number="8">    ))</a>
 <a class="sourceLine" id="cb213-9" data-line-number="9">)</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-78-1.png" width="108.850393700787" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-79-1.png" width="108.850393700787" style="display: block; margin: auto;" /></p>
 <p>The configuration of axis is same for other annotation functions which have
 axes.</p>
 <p>The default size of the points annotation is 5mm. It can be controlled by
@@ -808,11 +813,11 @@ axes.</p>
 <p><code>anno_lines()</code> connects the data points by a list of segments. Similar as
 <code>anno_points()</code>, the data variable can be a numeric vector:</p>
 <div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb215-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_lines</span>(<span class="kw">runif</span>(<span class="dv">10</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-81-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-82-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Or a matrix:</p>
 <div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_lines</span>(<span class="kw">cbind</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>), <span class="kw">c</span>(<span class="dv">5</span><span class="op">:</span><span class="dv">1</span>, <span class="dv">5</span><span class="op">:</span><span class="dv">1</span>)), </a>
 <a class="sourceLine" id="cb216-2" data-line-number="2">    <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>), <span class="dt">add_points =</span> <span class="ot">TRUE</span>, <span class="dt">pt_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="dv">5</span><span class="op">:</span><span class="dv">6</span>), <span class="dt">pch =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">16</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-83-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-84-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>As shown above, points can be added to the lines by setting <code>add_points = TRUE</code>.</p>
 <p>Smoothed lines (by <code>loess()</code>) can be added instead of the original lines by
 setting <code>smooth = TRUE</code>, but it should be used with caution because the order of
@@ -822,7 +827,7 @@ the fitting against the reordered order makes sense.</p>
 is performed for each column separately.</p>
 <p>If <code>smooth</code> is <code>TRUE</code>, <code>add_points</code> is set to <code>TRUE</code> by default.</p>
 <div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb217-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_lines</span>(<span class="kw">runif</span>(<span class="dv">10</span>), <span class="dt">smooth =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-85-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-86-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>The default size of the lines annotation is 5mm. It can be controlled by
 <code>height</code>/<code>width</code> argument in <code>anno_lines()</code>.</p>
 <div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb218-1" data-line-number="1"><span class="co"># code only for demonstration</span></a>
@@ -834,26 +839,26 @@ is performed for each column separately.</p>
 <code>anno_barplot()</code> such as <code>ylim</code>, <code>axis</code>, <code>axis_param</code> are the same as
 <code>anno_points()</code>.</p>
 <div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-88-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-89-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>The width of bars is controlled by <code>bar_width</code>. It is a relative value to the
 width of the cell in the heatmap.</p>
 <div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb220-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">bar_width =</span> <span class="dv">1</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-90-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-91-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Graphic parameters are controlled by <code>gp</code>.</p>
 <div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb221-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-92-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-93-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>You can choose the baseline of bars by <code>baseline</code>.</p>
 <div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb222-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_barplot</span>(<span class="kw">seq</span>(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>), <span class="dt">baseline =</span> <span class="st">&quot;min&quot;</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-94-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-95-1.png" width="576" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb223-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_barplot</span>(<span class="kw">seq</span>(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>), <span class="dt">baseline =</span> <span class="dv">0</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-96-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-97-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>If the input value is a matrix, it will be stacked barplots.</p>
 <div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_barplot</span>(<span class="kw">matrix</span>(<span class="dt">nc =</span> <span class="dv">2</span>, <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">10</span><span class="op">:</span><span class="dv">1</span>))))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-98-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-99-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>And length of parameters in <code>gp</code> can be the number of the columns in the matrix:</p>
 <div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb225-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_barplot</span>(<span class="kw">cbind</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">10</span><span class="op">:</span><span class="dv">1</span>), </a>
 <a class="sourceLine" id="cb225-2" data-line-number="2">    <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">col =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-100-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-101-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>The default size of the barplot annotation is 5mm. It can be controlled by
 <code>height</code>/<code>width</code> argument in <code>anno_barplot()</code>.</p>
 <div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" data-line-number="1"><span class="co"># code only for demonstration</span></a>
@@ -864,7 +869,7 @@ matrix (for which row sums are 1).</p>
 <a class="sourceLine" id="cb227-2" data-line-number="2">m =<span class="st"> </span><span class="kw">t</span>(<span class="kw">apply</span>(m, <span class="dv">1</span>, <span class="cf">function</span>(x) x<span class="op">/</span><span class="kw">sum</span>(x)))</a>
 <a class="sourceLine" id="cb227-3" data-line-number="3">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_barplot</span>(m, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">5</span>), </a>
 <a class="sourceLine" id="cb227-4" data-line-number="4">    <span class="dt">bar_width =</span> <span class="dv">1</span>, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">6</span>, <span class="st">&quot;cm&quot;</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-103-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-104-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>The direction of the axis can be reversed which is useful when the annotation
 is put on the left of the heatmap.</p>
 <div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" data-line-number="1">ha_list =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">axis_reverse =</span> <span class="kw">anno_barplot</span>(m, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">5</span>), </a>
@@ -873,7 +878,7 @@ is put on the left of the heatmap.</p>
 <a class="sourceLine" id="cb228-4" data-line-number="4"><span class="kw">rowAnnotation</span>(<span class="dt">axis_normal =</span> <span class="kw">anno_barplot</span>(m, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">5</span>), </a>
 <a class="sourceLine" id="cb228-5" data-line-number="5">    <span class="dt">bar_width =</span> <span class="dv">1</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>)))</a>
 <a class="sourceLine" id="cb228-6" data-line-number="6"><span class="kw">draw</span>(ha_list, <span class="dt">ht_gap =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;mm&quot;</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-104-1.png" width="432" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-105-1.png" width="432" style="display: block; margin: auto;" /></p>
 <p><code>direction = &quot;reverse&quot;</code> also works for other annotation functions which have
 axes, but it is more commonly used for barplot annotations.</p>
 </div>
@@ -889,16 +894,16 @@ by rows.</p>
 <div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb229-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">12345</span>)</a>
 <a class="sourceLine" id="cb229-2" data-line-number="2">m =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>)</a>
 <a class="sourceLine" id="cb229-3" data-line-number="3">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_boxplot</span>(m, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-106-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-107-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Graphic parameters are controlled by <code>gp</code>.</p>
 <div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_boxplot</span>(m, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>), </a>
 <a class="sourceLine" id="cb230-2" data-line-number="2">    <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-108-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-109-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Width of the boxes are controlled by <code>box_width</code>. <code>outline</code> controls whether to
 show outlier points.</p>
 <div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb231-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_boxplot</span>(m, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>), </a>
 <a class="sourceLine" id="cb231-2" data-line-number="2">    <span class="dt">box_width =</span> <span class="fl">0.9</span>, <span class="dt">outline =</span> <span class="ot">FALSE</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-110-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-111-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p><code>anno_boxplot()</code> only draws one boxplot for one single row. Section
 <a href="more-examples.html#add-multiple-boxplots-for-single-row">9.6</a> demonstrates how to define an annotation function which
 draws multiple boxplots for a single row, and Section <a href="heatmap-annotations.html#zoom-annotation">3.17</a>
@@ -915,39 +920,39 @@ calculated by columns, and if it is a row annotation, histograms are calculated
 by rows.</p>
 <div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb232-1" data-line-number="1">m =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">1000</span>), <span class="dt">nc =</span> <span class="dv">100</span>)</a>
 <a class="sourceLine" id="cb232-2" data-line-number="2">ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_histogram</span>(m)) <span class="co"># apply `m` on rows</span></a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-112-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-113-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
 <p>Number of breaks for histograms is controlled by <code>n_breaks</code>.</p>
 <div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_histogram</span>(m, <span class="dt">n_breaks =</span> <span class="dv">20</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-114-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-115-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
 <p>Colors are controlled by <code>gp</code>.</p>
 <div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb234-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_histogram</span>(m, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-116-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-117-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
 </div>
 <div id="density-annotation" class="section level2">
 <h2><span class="header-section-number">3.11</span> Density annotation</h2>
 <p>Similar as histogram annotations, <code>anno_density()</code> shows the distribution
 as a fitted curve.</p>
 <div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_density</span>(m))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-118-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-119-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
 <p>The height of the density peaks can be controlled to make the distribution
 look like a <a href="http://blog.revolutionanalytics.com/2017/07/joyplots.html">“joyplot”</a>.</p>
 <div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb236-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_density</span>(m, <span class="dt">joyplot_scale =</span> <span class="dv">2</span>, </a>
 <a class="sourceLine" id="cb236-2" data-line-number="2">    <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;#CCCCCC80&quot;</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-120-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-121-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
 <p>Or visualize the distribution as violin plot.</p>
 <div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_density</span>(m, <span class="dt">type =</span> <span class="st">&quot;violin&quot;</span>, </a>
 <a class="sourceLine" id="cb237-2" data-line-number="2">    <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-122-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-123-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
 <p>When there are too many rows in the input variable, the space for normal
 density peaks might be too small. In this case, we can visualize the
 distribution by heatmaps.</p>
 <div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb238-1" data-line-number="1">m2 =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">50</span><span class="op">*</span><span class="dv">10</span>), <span class="dt">nrow =</span> <span class="dv">50</span>)</a>
 <a class="sourceLine" id="cb238-2" data-line-number="2">ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_density</span>(m2, <span class="dt">type =</span> <span class="st">&quot;heatmap&quot;</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">6</span>, <span class="st">&quot;cm&quot;</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-124-1.png" width="241.889763779528" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-125-1.png" width="241.889763779528" style="display: block; margin: auto;" /></p>
 <p>THe color schema for heatmap distribution is controlled by <code>heatmap_colors</code>.</p>
 <div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb239-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_density</span>(m2, <span class="dt">type =</span> <span class="st">&quot;heatmap&quot;</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">6</span>, <span class="st">&quot;cm&quot;</span>), </a>
 <a class="sourceLine" id="cb239-2" data-line-number="2">    <span class="dt">heatmap_colors =</span> <span class="kw">c</span>(<span class="st">&quot;white&quot;</span>, <span class="st">&quot;orange&quot;</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-126-1.png" width="241.889763779528" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-127-1.png" width="241.889763779528" style="display: block; margin: auto;" /></p>
 <p>In <strong>ComplexHeatmap</strong> package, there is a <code>densityHeatmap()</code> function which
 visualizes distribution as a heatmap. It will be introduced in Section
 <a href="other-high-level-plots.html#density-heatmap">10.1</a>.</p>
@@ -964,14 +969,14 @@ about how to set as a matrix, just convert it to a list for using it.</p>
 <a class="sourceLine" id="cb240-2" data-line-number="2">lt =<span class="st"> </span><span class="kw">apply</span>(m, <span class="dv">2</span>, <span class="cf">function</span>(x) <span class="kw">data.frame</span>(<span class="kw">density</span>(x)[<span class="kw">c</span>(<span class="st">&quot;x&quot;</span>, <span class="st">&quot;y&quot;</span>)]))</a>
 <a class="sourceLine" id="cb240-3" data-line-number="3">ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_joyplot</span>(lt, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>), </a>
 <a class="sourceLine" id="cb240-4" data-line-number="4">    <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">transparency =</span> <span class="fl">0.75</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-128-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-129-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
 <p>Or only show the lines (<code>scale</code> argument controls the relative height of the
 curves).</p>
 <div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb241-1" data-line-number="1">m =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">5000</span>), <span class="dt">nc =</span> <span class="dv">50</span>)</a>
 <a class="sourceLine" id="cb241-2" data-line-number="2">lt =<span class="st"> </span><span class="kw">apply</span>(m, <span class="dv">2</span>, <span class="cf">function</span>(x) <span class="kw">data.frame</span>(<span class="kw">density</span>(x)[<span class="kw">c</span>(<span class="st">&quot;x&quot;</span>, <span class="st">&quot;y&quot;</span>)]))</a>
 <a class="sourceLine" id="cb241-3" data-line-number="3">ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_joyplot</span>(lt, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>), <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="ot">NA</span>), </a>
 <a class="sourceLine" id="cb241-4" data-line-number="4">    <span class="dt">scale =</span> <span class="dv">4</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-130-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-131-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
 <p>The format of the input variable is special. It can be one of the following
 two:</p>
 <ol style="list-style-type: decimal">
@@ -992,37 +997,37 @@ introduced in previous section.</p>
 <p>The default style of horizon chart annotation is:</p>
 <div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb242-1" data-line-number="1">lt =<span class="st"> </span><span class="kw">lapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="cf">function</span>(x) <span class="kw">cumprod</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="kw">runif</span>(<span class="dv">1000</span>, <span class="op">-</span>x<span class="op">/</span><span class="dv">100</span>, x<span class="op">/</span><span class="dv">100</span>)) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)</a>
 <a class="sourceLine" id="cb242-2" data-line-number="2">ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_horizon</span>(lt))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-132-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-133-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
 <p>Values in each track are normalized by <code>x/max(abs(x))</code>.</p>
 <p>Colors for positive values and negative values are controlled by <code>pos_fill</code>
 and <code>neg_fill</code> in <code>gpar()</code>.</p>
 <div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb243-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_horizon</span>(lt, </a>
 <a class="sourceLine" id="cb243-2" data-line-number="2">    <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">pos_fill =</span> <span class="st">&quot;orange&quot;</span>, <span class="dt">neg_fill =</span> <span class="st">&quot;darkgreen&quot;</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-134-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-135-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
 <p><code>pos_fill</code> and <code>neg_fill</code> can be assigned as a vector.</p>
 <div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb244-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_horizon</span>(lt, </a>
 <a class="sourceLine" id="cb244-2" data-line-number="2">    <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">pos_fill =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;orange&quot;</span>, <span class="st">&quot;red&quot;</span>), <span class="dt">each =</span> <span class="dv">10</span>),</a>
 <a class="sourceLine" id="cb244-3" data-line-number="3">              <span class="dt">neg_fill =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;darkgreen&quot;</span>, <span class="st">&quot;blue&quot;</span>), <span class="dt">each =</span> <span class="dv">10</span>))))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-136-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-137-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
 <p>Whether the peaks for negative values start from the bottom or from the top.</p>
 <div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb245-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_horizon</span>(lt, <span class="dt">negative_from_top =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-138-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-139-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
 <p>The space between every two neighbouring charts.</p>
 <div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb246-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_horizon</span>(lt, <span class="dt">gap =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;mm&quot;</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-140-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-141-1.png" width="166.299212598425" style="display: block; margin: auto;" /></p>
 </div>
 <div id="text-annotation" class="section level2">
 <h2><span class="header-section-number">3.14</span> Text annotation</h2>
 <p>Text can be used as annotations by <code>anno_text()</code>. Graphic parameters are controlled
 by <code>gp</code>.</p>
 <div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb247-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_text</span>(month.name, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span><span class="op">+</span><span class="dv">4</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-142-1.png" width="113.507443569554" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-143-1.png" width="113.507443569554" style="display: block; margin: auto;" /></p>
 <p>Locationsn are controlled by <code>location</code> and <code>just</code>. Rotation is controlled by <code>rot</code>.</p>
 <div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb248-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_text</span>(month.name, <span class="dt">location =</span> <span class="dv">1</span>, <span class="dt">rot =</span> <span class="dv">30</span>, </a>
 <a class="sourceLine" id="cb248-2" data-line-number="2">    <span class="dt">just =</span> <span class="st">&quot;right&quot;</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span><span class="op">+</span><span class="dv">4</span>)))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-144-1.png" width="102.719105697635" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-145-1.png" width="102.719105697635" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb249-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_text</span>(month.name, <span class="dt">location =</span> <span class="fl">0.5</span>, <span class="dt">just =</span> <span class="st">&quot;center&quot;</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-146-1.png" width="93.3741102362204" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-147-1.png" width="93.3741102362204" style="display: block; margin: auto;" /></p>
 <p><code>location</code> and <code>just</code> are automatically calculated according the the position
 of the annotations put to the heatmap (e.g. text are aligned to the left if it
 is a right annotation to the heatmap and are aligned to the right it it is a
@@ -1037,7 +1042,7 @@ text.</p>
 <div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_text</span>(month.name, <span class="dt">location =</span> <span class="fl">0.5</span>, <span class="dt">just =</span> <span class="st">&quot;center&quot;</span>,</a>
 <a class="sourceLine" id="cb250-2" data-line-number="2">    <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="kw">rep</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">each =</span> <span class="dv">4</span>), <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;black&quot;</span>),</a>
 <a class="sourceLine" id="cb250-3" data-line-number="3">    <span class="dt">width =</span> <span class="kw">max_text_width</span>(month.name)<span class="op">*</span><span class="fl">1.2</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-148-1.png" width="109.02531023622" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-149-1.png" width="109.02531023622" style="display: block; margin: auto;" /></p>
 </div>
 <div id="mark-annotation" class="section level2">
 <h2><span class="header-section-number">3.15</span> Mark annotation</h2>
@@ -1049,7 +1054,7 @@ original matrix and <code>labels</code> are the corresponding text.</p>
 <div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb251-1" data-line-number="1">m =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">1000</span>), <span class="dt">nrow =</span> <span class="dv">100</span>)</a>
 <a class="sourceLine" id="cb251-2" data-line-number="2">ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_mark</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dv">20</span>, <span class="dv">60</span>, <span class="dv">97</span><span class="op">:</span><span class="dv">100</span>), <span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]))</a>
 <a class="sourceLine" id="cb251-3" data-line-number="3"><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">cluster_rows =</span> <span class="ot">FALSE</span>, <span class="dt">right_annotation =</span> ha)</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-149-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-150-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="summary-annotation" class="section level2">
 <h2><span class="header-section-number">3.16</span> Summary annotation</h2>
@@ -1070,7 +1075,7 @@ can already be seen by the height of the heatmap slice.</p>
 <a class="sourceLine" id="cb252-4" data-line-number="4"></a>
 <a class="sourceLine" id="cb252-5" data-line-number="5"><span class="kw">Heatmap</span>(v, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span> =<span class="st"> &quot;red&quot;</span>, <span class="st">&quot;b&quot;</span> =<span class="st"> &quot;blue&quot;</span>),</a>
 <a class="sourceLine" id="cb252-6" data-line-number="6">    <span class="dt">top_annotation =</span> ha, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>), <span class="dt">row_split =</span> split)</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-150-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-151-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>The second example shows the summary annotation for continuous heatmap. The
 graphic parameters should be manually set by <code>gp</code>. The legend of the boxplot
 can be created and added as introduced in Section <a href="legends.html#discrete-legends">5.2</a>,
@@ -1080,7 +1085,7 @@ last second paragraph.</p>
 <a class="sourceLine" id="cb253-3" data-line-number="3">v =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">50</span>)</a>
 <a class="sourceLine" id="cb253-4" data-line-number="4"><span class="kw">Heatmap</span>(v, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">top_annotation =</span> ha, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>), </a>
 <a class="sourceLine" id="cb253-5" data-line-number="5">    <span class="dt">row_split =</span> split)</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-151-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-152-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Normally we don’t draw this one-column heatmap along. It is always combined
 with other “main heatmaps”. E.g. A gene expression matrix with a one-column
 heatmap which shows whether the gene is a protein coding gene or a linc-RNA
@@ -1105,7 +1110,7 @@ Chapter <a href="a-list-of-heatmaps.html#a-list-of-heatmaps">4</a>.</p>
 <a class="sourceLine" id="cb254-15" data-line-number="15">    <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>)))</a>
 <a class="sourceLine" id="cb254-16" data-line-number="16"><span class="kw">draw</span>(ht_list, <span class="dt">row_split =</span> split, <span class="dt">ht_gap =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>), </a>
 <a class="sourceLine" id="cb254-17" data-line-number="17">    <span class="dt">heatmap_legend_list =</span> <span class="kw">list</span>(lgd_boxplot))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-152-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-153-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="zoom-annotation" class="section level2">
 <h2><span class="header-section-number">3.17</span> Zoom/link annotation</h2>
@@ -1130,7 +1135,7 @@ original heatmap.</p>
 <a class="sourceLine" id="cb255-12" data-line-number="12">anno =<span class="st"> </span><span class="kw">anno_zoom</span>(<span class="dt">align_to =</span> subgroup, <span class="dt">which =</span> <span class="st">&quot;row&quot;</span>, <span class="dt">panel_fun =</span> panel_fun, </a>
 <a class="sourceLine" id="cb255-13" data-line-number="13">    <span class="dt">size =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>), <span class="dt">gap =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>), <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))</a>
 <a class="sourceLine" id="cb255-14" data-line-number="14"><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">right_annotation =</span> <span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> anno), <span class="dt">row_split =</span> subgroup)</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-153-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-154-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>The important arguments for <code>anno_zoom()</code> are:</p>
 <ol style="list-style-type: decimal">
 <li><code>align_to</code>: It defines how the plotting regions (or the boxes) correspond
@@ -1187,7 +1192,7 @@ values for complex annotations are ignored.</li>
 <a class="sourceLine" id="cb256-4" data-line-number="4">    <span class="dt">show_legend =</span> <span class="kw">c</span>(<span class="st">&quot;bar&quot;</span> =<span class="st"> </span><span class="ot">FALSE</span>)</a>
 <a class="sourceLine" id="cb256-5" data-line-number="5">)</a>
 <a class="sourceLine" id="cb256-6" data-line-number="6"><span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>), <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">top_annotation =</span> ha)</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-154-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-155-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><code>gp</code> controls graphic parameters (except <code>fill</code>) for the simple annotatios,
 such as the border of annotation grids.</p>
 <div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb257-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, </a>
@@ -1195,7 +1200,7 @@ such as the border of annotation grids.</p>
 <a class="sourceLine" id="cb257-3" data-line-number="3">    <span class="dt">pt =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>),</a>
 <a class="sourceLine" id="cb257-4" data-line-number="4">    <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</a>
 <a class="sourceLine" id="cb257-5" data-line-number="5">)</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-156-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-157-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p><code>border</code> controls the border of every single annotations.
 <code>show_annotation_name</code> controls whether show annotation names. As mentioned,
 the value can be a single value, a vector or a named vector.</p>
@@ -1205,7 +1210,7 @@ the value can be a single value, a vector or a named vector.</p>
 <a class="sourceLine" id="cb258-4" data-line-number="4">    <span class="dt">show_annotation_name =</span> <span class="kw">c</span>(<span class="dt">bar =</span> <span class="ot">FALSE</span>), <span class="co"># only turn off `bar`</span></a>
 <a class="sourceLine" id="cb258-5" data-line-number="5">    <span class="dt">border =</span> <span class="kw">c</span>(<span class="dt">foo =</span> <span class="ot">TRUE</span>) <span class="co"># turn on foo</span></a>
 <a class="sourceLine" id="cb258-6" data-line-number="6">)</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-158-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-159-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p><code>annotation_name_gp</code>, <code>annotation_name_offset</code>, <code>annotation_name_side</code> and
 <code>annotation_name_rot</code> control the style and position of the annotation names.
 The latter three can be specified as named vectors. If
@@ -1217,12 +1222,12 @@ can be a single unit or a vector of units.</p>
 <a class="sourceLine" id="cb259-2" data-line-number="2">    <span class="dt">bar =</span> <span class="kw">cbind</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">10</span><span class="op">:</span><span class="dv">1</span>),</a>
 <a class="sourceLine" id="cb259-3" data-line-number="3">    <span class="dt">pt =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>),</a>
 <a class="sourceLine" id="cb259-4" data-line-number="4">    <span class="dt">gap =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-160-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-161-1.png" width="576" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, </a>
 <a class="sourceLine" id="cb260-2" data-line-number="2">    <span class="dt">bar =</span> <span class="kw">cbind</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">10</span><span class="op">:</span><span class="dv">1</span>),</a>
 <a class="sourceLine" id="cb260-3" data-line-number="3">    <span class="dt">pt =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>),</a>
 <a class="sourceLine" id="cb260-4" data-line-number="4">    <span class="dt">gap =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">10</span>), <span class="st">&quot;mm&quot;</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-162-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-163-1.png" width="576" style="display: block; margin: auto;" /></p>
 <div id="size-of-annotations" class="section level3">
 <h3><span class="header-section-number">3.18.1</span> Size of annotations</h3>
 <p><code>height</code>, <code>width</code>, <code>annotation_height</code> and <code>annotation_width</code> control the
@@ -1239,7 +1244,7 @@ some scenarios for the resizing adjustment.</p>
 <a class="sourceLine" id="cb261-2" data-line-number="2">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">cbind</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">10</span><span class="op">:</span><span class="dv">1</span>), </a>
 <a class="sourceLine" id="cb261-3" data-line-number="3">    <span class="dt">bar =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,</a>
 <a class="sourceLine" id="cb261-4" data-line-number="4">    <span class="dt">pt =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-164-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-165-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>If <code>height</code> is set, the size of the simple annotation will not change, while
 only the complex annotations are adjusted. If there are multiple complex
 annotations, they are adjusted according to the ratio of their original size.</p>
@@ -1248,7 +1253,7 @@ annotations, they are adjusted according to the ratio of their original size.</p
 <a class="sourceLine" id="cb262-3" data-line-number="3">    <span class="dt">bar =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,</a>
 <a class="sourceLine" id="cb262-4" data-line-number="4">    <span class="dt">pt =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>),</a>
 <a class="sourceLine" id="cb262-5" data-line-number="5">    <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">6</span>, <span class="st">&quot;cm&quot;</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-166-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-167-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p><code>simple_anno_size</code> controls the height of all simple annotations. Recall
 <code>ht_opt$simple_anno_size</code> can be set to globally control the size of simple
 annotations in all heatmaps.</p>
@@ -1257,7 +1262,7 @@ annotations in all heatmaps.</p>
 <a class="sourceLine" id="cb263-3" data-line-number="3">    <span class="dt">bar =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,</a>
 <a class="sourceLine" id="cb263-4" data-line-number="4">    <span class="dt">pt =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>),</a>
 <a class="sourceLine" id="cb263-5" data-line-number="5">    <span class="dt">simple_anno_size =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">6</span>, <span class="st">&quot;cm&quot;</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-168-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-169-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>If <code>annotation_height</code> is set as a vector of absolute units, the height of all
 three annotations are adjusted accordingly.</p>
 <div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb264-1" data-line-number="1"><span class="co"># foo: 1cm, bar: 2cm, pt: 3cm</span></a>
@@ -1265,7 +1270,7 @@ three annotations are adjusted accordingly.</p>
 <a class="sourceLine" id="cb264-3" data-line-number="3">    <span class="dt">bar =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,</a>
 <a class="sourceLine" id="cb264-4" data-line-number="4">    <span class="dt">pt =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>),</a>
 <a class="sourceLine" id="cb264-5" data-line-number="5">    <span class="dt">annotation_height =</span> <span class="kw">unit</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="st">&quot;cm&quot;</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-170-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-171-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>If <code>annotation_height</code> is set as pure numbers which is treated as relative
 ratios for annotations, <code>height</code> should also be set as an absolute unit and
 the size of every single annotation is adjusted by the ratios.</p>
@@ -1274,7 +1279,7 @@ the size of every single annotation is adjusted by the ratios.</p>
 <a class="sourceLine" id="cb265-3" data-line-number="3">    <span class="dt">bar =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,</a>
 <a class="sourceLine" id="cb265-4" data-line-number="4">    <span class="dt">pt =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>),</a>
 <a class="sourceLine" id="cb265-5" data-line-number="5">    <span class="dt">annotation_height =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">6</span>, <span class="st">&quot;cm&quot;</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-171-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-172-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p><code>annotation_height</code> can be mixed with relative units (in <code>null</code> unit) and
 absolute units.</p>
 <div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb266-1" data-line-number="1"><span class="co"># foo: 1.5cm, bar: 1.5cm, pt: 3cm</span></a>
@@ -1283,28 +1288,28 @@ absolute units.</p>
 <a class="sourceLine" id="cb266-4" data-line-number="4">    <span class="dt">pt =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>),</a>
 <a class="sourceLine" id="cb266-5" data-line-number="5">    <span class="dt">annotation_height =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>), <span class="kw">c</span>(<span class="st">&quot;null&quot;</span>, <span class="st">&quot;null&quot;</span>, <span class="st">&quot;cm&quot;</span>)), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">6</span>, <span class="st">&quot;cm&quot;</span>)</a>
 <a class="sourceLine" id="cb266-6" data-line-number="6">)</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-173-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-174-1.png" width="576" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb267-1" data-line-number="1"><span class="co"># foo: 2cm, bar: 1cm, pt: 3cm</span></a>
 <a class="sourceLine" id="cb267-2" data-line-number="2">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">cbind</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">10</span><span class="op">:</span><span class="dv">1</span>), </a>
 <a class="sourceLine" id="cb267-3" data-line-number="3">    <span class="dt">bar =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,</a>
 <a class="sourceLine" id="cb267-4" data-line-number="4">    <span class="dt">pt =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>),</a>
 <a class="sourceLine" id="cb267-5" data-line-number="5">    <span class="dt">annotation_height =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>), <span class="kw">c</span>(<span class="st">&quot;cm&quot;</span>, <span class="st">&quot;null&quot;</span>, <span class="st">&quot;cm&quot;</span>)), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">6</span>, <span class="st">&quot;cm&quot;</span>)</a>
 <a class="sourceLine" id="cb267-6" data-line-number="6">)</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-175-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-176-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>If there are only simple annotations, simply setting <code>height</code> won’t change the
 height.</p>
 <div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb268-1" data-line-number="1"><span class="co"># foo: 1cm, bar: 5mm</span></a>
 <a class="sourceLine" id="cb268-2" data-line-number="2">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">cbind</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">10</span><span class="op">:</span><span class="dv">1</span>), </a>
 <a class="sourceLine" id="cb268-3" data-line-number="3">    <span class="dt">bar =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,</a>
 <a class="sourceLine" id="cb268-4" data-line-number="4">    <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">6</span>, <span class="st">&quot;cm&quot;</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-177-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-178-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>unless <code>simple_anno_size_adjust</code> is set to <code>TRUE</code>.</p>
 <div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb269-1" data-line-number="1"><span class="co"># foo: 4cm, bar: 2cm</span></a>
 <a class="sourceLine" id="cb269-2" data-line-number="2">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">cbind</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">10</span><span class="op">:</span><span class="dv">1</span>), </a>
 <a class="sourceLine" id="cb269-3" data-line-number="3">    <span class="dt">bar =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,</a>
 <a class="sourceLine" id="cb269-4" data-line-number="4">    <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">6</span>, <span class="st">&quot;cm&quot;</span>),</a>
 <a class="sourceLine" id="cb269-5" data-line-number="5">    <span class="dt">simple_anno_size_adjust =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-179-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-180-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Section <a href="a-list-of-heatmaps.html#annotations-as-components-are-adjusted">4.6</a> introduces how the
 annotation sizes are adjusted among a list of heatmaps.</p>
 </div>
@@ -1317,7 +1322,7 @@ annotation sizes are adjusted among a list of heatmaps.</p>
 <a class="sourceLine" id="cb270-4" data-line-number="4">    <span class="dt">annotation_label =</span> <span class="kw">c</span>(<span class="st">&quot;Annotation_foo&quot;</span>, <span class="st">&quot;Annotation_bar&quot;</span>, <span class="st">&quot;Annotation_pt&quot;</span>)</a>
 <a class="sourceLine" id="cb270-5" data-line-number="5">)</a>
 <a class="sourceLine" id="cb270-6" data-line-number="6"><span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>), <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">top_annotation =</span> ha)</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-180-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-181-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="heatmap-annotation-utility-function" class="section level2">
@@ -1348,7 +1353,7 @@ number of observations and different annotation names.</p>
 <a class="sourceLine" id="cb279-7" data-line-number="7">ha =<span class="st"> </span><span class="kw">c</span>(ha1, ha2)</a>
 <a class="sourceLine" id="cb279-8" data-line-number="8"><span class="kw">names</span>(ha)</a></code></pre></div>
 <pre><code>## [1] &quot;foo&quot; &quot;bar&quot; &quot;pt&quot;  &quot;FOO&quot; &quot;BAR&quot; &quot;PT&quot;</code></pre>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-184-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-185-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p><code>HeatmapAnnoation</code> object sometimes is subsettable. The row index corresponds
 to observations in the annotation and column index corresponds to the
 annotations. If the annotations are all simple annotations or the complex
@@ -1369,7 +1374,7 @@ annotation created by <code>anno_*()</code> functions in <strong>ComplexHeatmap<
 ##  name   annotation_type color_mapping height
 ##   foo continuous vector        random    5mm
 ##    PT     anno_points()                 10mm</code></pre>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-186-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-187-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 <div id="implement-new-annotation-functions" class="section level2">
 <h2><span class="header-section-number">3.20</span> Implement new annotation functions</h2>
@@ -1439,7 +1444,7 @@ subsettable, you can split columns of the heatmap.</p>
 <a class="sourceLine" id="cb285-2" data-line-number="2"><span class="kw">Heatmap</span>(m, <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> anno1))</a>
 <a class="sourceLine" id="cb285-3" data-line-number="3"><span class="kw">Heatmap</span>(m, <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> anno1), </a>
 <a class="sourceLine" id="cb285-4" data-line-number="4">    <span class="dt">column_split =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="dt">each =</span> <span class="dv">5</span>))</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-189-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-190-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>The second way is to put all data variables inside the function and no need to
 import other variables.</p>
 <div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb286-1" data-line-number="1"><span class="co"># code only for demonstration</span></a>
@@ -1479,7 +1484,10 @@ aware of.</p>
 ##   imported variable: data_scale, axis_param, border, size, value, pch_as_image, axis, gp, axis_grob, pch 
 ##   subsetable variable: gp, value, size, pch 
 ##   this object is subsetable
-##   5.13831111111111mm extension on the left</code></pre>
+##   0mm extension on the bottom 
+##   5.13831111111111mm extension on the left 
+##   0mm extension on the top 
+##   0mm extension on the right</code></pre>
 <p>In most cases, you don’t need to manually construct your <code>AnnotationFunction</code>
 objects. The annotation function <code>anno_*()</code> implemented in <strong>ComplexHeatmap</strong>
 are already enough for most of the analysis tasks. On the other hand, users
@@ -1503,7 +1511,7 @@ as:</p>
 <a class="sourceLine" id="cb290-15" data-line-number="15">    <span class="kw">grid.points</span>(<span class="kw">seq_along</span>(od), x[od])</a>
 <a class="sourceLine" id="cb290-16" data-line-number="16">    <span class="kw">popViewport</span>()</a>
 <a class="sourceLine" id="cb290-17" data-line-number="17">})</a></code></pre></div>
-<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-193-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-194-1.png" width="480" style="display: block; margin: auto;" /></p>
 
 </div>
 </div>

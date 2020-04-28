@@ -1,4 +1,5 @@
 
+
 # Other High-level Plots {#other-high-level-plots}
 
 ## Density heatmap {#density-heatmap}
@@ -20,7 +21,7 @@ colnames(m) = paste0("C", 1:ncol(m))
 densityHeatmap(m)
 ```
 
-<img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" />
+<img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-2-1.png" width="480" style="display: block; margin: auto;" />
 
 On the heatmap, there are also lines representing five quantiles and mean
 values.
@@ -33,7 +34,7 @@ Data range is controlled by `ylim`. Title is controlled by `title` or
 densityHeatmap(m, ylim = c(-2, 2), title = "Distribution as heatmap", ylab = "some values")
 ```
 
-<img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" />
+<img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-3-1.png" width="480" style="display: block; margin: auto;" />
 
 Column order is controlled by `column_order`.
 
@@ -42,7 +43,7 @@ Column order is controlled by `column_order`.
 densityHeatmap(m, column_order = sample(20, 20))
 ```
 
-<img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" />
+<img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-4-1.png" width="480" style="display: block; margin: auto;" />
 
 The color for the density values is controlled by `col` which is a vector of
 colors.
@@ -53,7 +54,7 @@ colors.
 densityHeatmap(m, col = topo.colors(10))
 ```
 
-<img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" />
+<img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-5-1.png" width="480" style="display: block; margin: auto;" />
 
 Internally, the density for all columns are stored as a matrix where rows
 correspond to the same bins. Since it is a matrix, clustering can be applied
@@ -66,7 +67,7 @@ distributions (`ks` distance is the default if `cluster_column = TRUE`).
 densityHeatmap(m, cluster_columns = TRUE, clustering_distance_columns = "ks")
 ```
 
-<img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" />
+<img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-6-1.png" width="480" style="display: block; margin: auto;" />
 
 When there are many distributions to calculate the pairwise Kolmogorov-Smirnov distance,
 `mc.cores` argument can be set to make it running parallelly.
@@ -85,7 +86,7 @@ ha2 = HeatmapAnnotation(foo = anno_points(rnorm(20)))
 densityHeatmap(m, top_annotation = ha1, bottom_annotation = ha2)
 ```
 
-<img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" />
+<img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-8-1.png" width="480" style="display: block; margin: auto;" />
 
 Heatmaps and column annotations can only be concatenated to the density
 heatmap vertically.
@@ -97,7 +98,7 @@ HeatmapAnnotation(foo = anno_barplot(1:20)) %v%
 Heatmap(matrix(rnorm(20*20), ncol = 20), name = "mat", height = unit(6, "cm"))
 ```
 
-<img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" />
+<img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-9-1.png" width="480" style="display: block; margin: auto;" />
 
 ## Stacked summary plot {#stacked-summary-plot}
 
@@ -241,7 +242,7 @@ for(an in names(ht_title)) {
 }
 ```
 
-<img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-14-1.png" width="1344" style="display: block; margin: auto;" />
+<img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-15-1.png" width="1344" style="display: block; margin: auto;" />
 
 Similarlly, the multiple statistics can also be arranged vertically.
 In following example, we visualize several statistics for a list of genomic regions in 40 samples,
@@ -283,7 +284,7 @@ HeatmapAnnotation(group = group)
 draw(ht_list, column_title = "Statistics for a list of genomic regions")
 ```
 
-<img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" />
+<img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-17-1.png" width="480" style="display: block; margin: auto;" />
 
 For concatenation of multiple annotations, individual annotations can also be put into one single
 `HeatmapAnnotation()`. E.g. previous code is almost exactly the same as following code:

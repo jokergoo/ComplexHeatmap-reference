@@ -332,11 +332,11 @@ the number of rows.</p>
 and the number of rows in the heatmap. We first define a function which generates a
 10-column matrix with specific number of rows. Note the values in the matrix is of no importance
 in this demonstration.</p>
-<div class="sourceCode" id="cb636"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb636-1"><a href="other-tricks.html#cb636-1"></a>random_mat =<span class="st"> </span><span class="cf">function</span>(nr) {</span>
-<span id="cb636-2"><a href="other-tricks.html#cb636-2"></a>    m =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">10</span><span class="op">*</span>nr), <span class="dt">nc =</span> <span class="dv">10</span>)</span>
-<span id="cb636-3"><a href="other-tricks.html#cb636-3"></a>    <span class="kw">colnames</span>(m) =<span class="st"> </span>letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span>
-<span id="cb636-4"><a href="other-tricks.html#cb636-4"></a>    <span class="kw">return</span>(m)</span>
-<span id="cb636-5"><a href="other-tricks.html#cb636-5"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb634-1"><a href="other-tricks.html#cb634-1"></a>random_mat =<span class="st"> </span><span class="cf">function</span>(nr) {</span>
+<span id="cb634-2"><a href="other-tricks.html#cb634-2"></a>    m =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">10</span><span class="op">*</span>nr), <span class="dt">nc =</span> <span class="dv">10</span>)</span>
+<span id="cb634-3"><a href="other-tricks.html#cb634-3"></a>    <span class="kw">colnames</span>(m) =<span class="st"> </span>letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span>
+<span id="cb634-4"><a href="other-tricks.html#cb634-4"></a>    <span class="kw">return</span>(m)</span>
+<span id="cb634-5"><a href="other-tricks.html#cb634-5"></a>}</span></code></pre></div>
 <p>Since the relation is absolutely linear, we only need to test two heatmaps with different number of
 rows where the height of a single row is <code>unit(5, "mm")</code>. In the heatmap, there are also column title,
 column dendrogram, column annotation and the column names.</p>
@@ -351,18 +351,18 @@ there are <code>2mm</code> white borders.</li>
 <li><code>ht_height</code> needs to be converted to a simple unit in <code>cm</code> or <code>inch</code>.</li>
 </ol>
 <p>In following, <code>y</code> contains values which are measured in <code>inch</code> unit.</p>
-<div class="sourceCode" id="cb637"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb637-1"><a href="other-tricks.html#cb637-1"></a>y =<span class="st"> </span><span class="ot">NULL</span></span>
-<span id="cb637-2"><a href="other-tricks.html#cb637-2"></a><span class="cf">for</span>(nr <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>)) {</span>
-<span id="cb637-3"><a href="other-tricks.html#cb637-3"></a>    ht =<span class="st"> </span><span class="kw">draw</span>(<span class="kw">Heatmap</span>(<span class="kw">random_mat</span>(nr), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>)<span class="op">*</span>nr, </span>
-<span id="cb637-4"><a href="other-tricks.html#cb637-4"></a>        <span class="dt">column_title =</span> <span class="st">&quot;foo&quot;</span>, <span class="co"># one line text</span></span>
-<span id="cb637-5"><a href="other-tricks.html#cb637-5"></a>        <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">bar =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)))</span>
-<span id="cb637-6"><a href="other-tricks.html#cb637-6"></a>    ht_height =<span class="st"> </span><span class="kw">sum</span>(<span class="kw">component_height</span>(ht)) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;mm&quot;</span>)</span>
-<span id="cb637-7"><a href="other-tricks.html#cb637-7"></a>    ht_height =<span class="st"> </span><span class="kw">convertHeight</span>(ht_height, <span class="st">&quot;inch&quot;</span>, <span class="dt">valueOnly =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb637-8"><a href="other-tricks.html#cb637-8"></a>    y =<span class="st"> </span><span class="kw">c</span>(y, ht_height)</span>
-<span id="cb637-9"><a href="other-tricks.html#cb637-9"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb635-1"><a href="other-tricks.html#cb635-1"></a>y =<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb635-2"><a href="other-tricks.html#cb635-2"></a><span class="cf">for</span>(nr <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>)) {</span>
+<span id="cb635-3"><a href="other-tricks.html#cb635-3"></a>    ht =<span class="st"> </span><span class="kw">draw</span>(<span class="kw">Heatmap</span>(<span class="kw">random_mat</span>(nr), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>)<span class="op">*</span>nr, </span>
+<span id="cb635-4"><a href="other-tricks.html#cb635-4"></a>        <span class="dt">column_title =</span> <span class="st">&quot;foo&quot;</span>, <span class="co"># one line text</span></span>
+<span id="cb635-5"><a href="other-tricks.html#cb635-5"></a>        <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">bar =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)))</span>
+<span id="cb635-6"><a href="other-tricks.html#cb635-6"></a>    ht_height =<span class="st"> </span><span class="kw">sum</span>(<span class="kw">component_height</span>(ht)) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;mm&quot;</span>)</span>
+<span id="cb635-7"><a href="other-tricks.html#cb635-7"></a>    ht_height =<span class="st"> </span><span class="kw">convertHeight</span>(ht_height, <span class="st">&quot;inch&quot;</span>, <span class="dt">valueOnly =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb635-8"><a href="other-tricks.html#cb635-8"></a>    y =<span class="st"> </span><span class="kw">c</span>(y, ht_height)</span>
+<span id="cb635-9"><a href="other-tricks.html#cb635-9"></a>}</span></code></pre></div>
 <p>Then we can fit a linear relation between <code>y</code> and the number of rows:</p>
-<div class="sourceCode" id="cb638"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb638-1"><a href="other-tricks.html#cb638-1"></a>x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>)</span>
-<span id="cb638-2"><a href="other-tricks.html#cb638-2"></a><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x)</span></code></pre></div>
+<div class="sourceCode" id="cb636"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb636-1"><a href="other-tricks.html#cb636-1"></a>x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>)</span>
+<span id="cb636-2"><a href="other-tricks.html#cb636-2"></a><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = y ~ x)
@@ -373,14 +373,14 @@ there are <code>2mm</code> white borders.</li>
 <p>This means the relation between the number of rows <code>x</code> and the height of the plot <code>y</code> is: <code>y = 0.1969*x + 1.3150</code>.</p>
 <p>You can test whether the height of single rows are the same for heatmaps with different rows by following code.
 Note all the heatmap configuations should be the same as the ones you prepare <code>y</code>.</p>
-<div class="sourceCode" id="cb640"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb640-1"><a href="other-tricks.html#cb640-1"></a><span class="cf">for</span>(nr <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>)) {</span>
-<span id="cb640-2"><a href="other-tricks.html#cb640-2"></a>    <span class="kw">png</span>(<span class="kw">paste0</span>(<span class="st">&quot;test_heatmap_nr_&quot;</span>, nr, <span class="st">&quot;.png&quot;</span>), <span class="dt">width =</span> <span class="dv">5</span>, <span class="dt">height =</span> <span class="fl">0.1969</span><span class="op">*</span>nr <span class="op">+</span><span class="st"> </span><span class="fl">1.3150</span>, </span>
-<span id="cb640-3"><a href="other-tricks.html#cb640-3"></a>        <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>, <span class="dt">res =</span> <span class="dv">100</span>)</span>
-<span id="cb640-4"><a href="other-tricks.html#cb640-4"></a>    <span class="kw">draw</span>(<span class="kw">Heatmap</span>(<span class="kw">random_mat</span>(nr), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>)<span class="op">*</span>nr, </span>
-<span id="cb640-5"><a href="other-tricks.html#cb640-5"></a>        <span class="dt">column_title =</span> <span class="st">&quot;foo&quot;</span>, <span class="co"># column title can be any one-line string</span></span>
-<span id="cb640-6"><a href="other-tricks.html#cb640-6"></a>        <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">bar =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)))</span>
-<span id="cb640-7"><a href="other-tricks.html#cb640-7"></a>    <span class="kw">dev.off</span>()</span>
-<span id="cb640-8"><a href="other-tricks.html#cb640-8"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb638"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb638-1"><a href="other-tricks.html#cb638-1"></a><span class="cf">for</span>(nr <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>)) {</span>
+<span id="cb638-2"><a href="other-tricks.html#cb638-2"></a>    <span class="kw">png</span>(<span class="kw">paste0</span>(<span class="st">&quot;test_heatmap_nr_&quot;</span>, nr, <span class="st">&quot;.png&quot;</span>), <span class="dt">width =</span> <span class="dv">5</span>, <span class="dt">height =</span> <span class="fl">0.1969</span><span class="op">*</span>nr <span class="op">+</span><span class="st"> </span><span class="fl">1.3150</span>, </span>
+<span id="cb638-3"><a href="other-tricks.html#cb638-3"></a>        <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>, <span class="dt">res =</span> <span class="dv">100</span>)</span>
+<span id="cb638-4"><a href="other-tricks.html#cb638-4"></a>    <span class="kw">draw</span>(<span class="kw">Heatmap</span>(<span class="kw">random_mat</span>(nr), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>)<span class="op">*</span>nr, </span>
+<span id="cb638-5"><a href="other-tricks.html#cb638-5"></a>        <span class="dt">column_title =</span> <span class="st">&quot;foo&quot;</span>, <span class="co"># column title can be any one-line string</span></span>
+<span id="cb638-6"><a href="other-tricks.html#cb638-6"></a>        <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">bar =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)))</span>
+<span id="cb638-7"><a href="other-tricks.html#cb638-7"></a>    <span class="kw">dev.off</span>()</span>
+<span id="cb638-8"><a href="other-tricks.html#cb638-8"></a>}</span></code></pre></div>
 <p><img src="11-other-tricks_files/figure-html/unnamed-chunk-7-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><img src="11-other-tricks_files/figure-html/unnamed-chunk-8-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
@@ -393,7 +393,7 @@ elements can be rendered by <strong>gridtext</strong>.</p>
 the text and adds related parameters that are going to be processed by <strong>gridtext</strong>.</p>
 <p>Currently <strong>ComplexHeatmap</strong> supports <code>gridtext::richtext_grob()</code>, so some of the parameters for
 <code>richtext_grob()</code> can be passed via <code>gt_render()</code>.</p>
-<div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb641-1"><a href="other-tricks.html#cb641-1"></a><span class="kw">gt_render</span>(<span class="st">&quot;foo&quot;</span>, <span class="dt">r =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), <span class="dt">padding =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>), <span class="st">&quot;pt&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb639"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb639-1"><a href="other-tricks.html#cb639-1"></a><span class="kw">gt_render</span>(<span class="st">&quot;foo&quot;</span>, <span class="dt">r =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), <span class="dt">padding =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>), <span class="st">&quot;pt&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;foo&quot;
 ## attr(,&quot;class&quot;)
 ## [1] &quot;gridtext&quot;
@@ -406,64 +406,64 @@ the text and adds related parameters that are going to be processed by <strong>g
 <p>For each heatmap element, e.g. column title, graphic parameters can be set by the companion argument,
 e.g. <code>column_title_gp</code>. To make it simpler, all graphic parameters set by <code>box_gp</code> are merged with <code>*_gp</code>
 by adding <code>box_</code> prefix, e.g.:</p>
-<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb643-1"><a href="other-tricks.html#cb643-1"></a>..., column_title =<span class="st"> </span><span class="kw">gt_render</span>(<span class="st">&quot;foo&quot;</span>), column_title_gp =<span class="st"> </span><span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">box_fill =</span> <span class="st">&quot;blue&quot;</span>), ...</span></code></pre></div>
+<div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb641-1"><a href="other-tricks.html#cb641-1"></a>..., column_title =<span class="st"> </span><span class="kw">gt_render</span>(<span class="st">&quot;foo&quot;</span>), column_title_gp =<span class="st"> </span><span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">box_fill =</span> <span class="st">&quot;blue&quot;</span>), ...</span></code></pre></div>
 <p>Graphic parameters can also be specified inside <code>gt_render()</code>. Following is the same as the one above:</p>
-<div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="other-tricks.html#cb644-1"></a>..., column_title =<span class="st"> </span><span class="kw">gt_render</span>(<span class="st">&quot;foo&quot;</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">box_fill =</span> <span class="st">&quot;blue&quot;</span>)), ...</span></code></pre></div>
+<div class="sourceCode" id="cb642"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb642-1"><a href="other-tricks.html#cb642-1"></a>..., column_title =<span class="st"> </span><span class="kw">gt_render</span>(<span class="st">&quot;foo&quot;</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">box_fill =</span> <span class="st">&quot;blue&quot;</span>)), ...</span></code></pre></div>
 <div id="titles" class="section level3" number="11.2.1">
 <h3><span class="header-section-number">11.2.1</span> Titles</h3>
-<div class="sourceCode" id="cb645"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb645-1"><a href="other-tricks.html#cb645-1"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb645-2"><a href="other-tricks.html#cb645-2"></a>mat =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>)</span>
-<span id="cb645-3"><a href="other-tricks.html#cb645-3"></a><span class="kw">rownames</span>(mat) =<span class="st"> </span>letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span>
-<span id="cb645-4"><a href="other-tricks.html#cb645-4"></a><span class="kw">Heatmap</span>(mat, </span>
-<span id="cb645-5"><a href="other-tricks.html#cb645-5"></a>    <span class="dt">column_title =</span> <span class="kw">gt_render</span>(<span class="st">&quot;Some &lt;span style=&#39;color:blue&#39;&gt;blue text **in bold.**&lt;/span&gt;&lt;br&gt;And *italics text.*&lt;br&gt;And some &lt;span style=&#39;font-size:18pt; color:black&#39;&gt;large&lt;/span&gt; text.&quot;</span>, </span>
-<span id="cb645-6"><a href="other-tricks.html#cb645-6"></a>        <span class="dt">r =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), </span>
-<span id="cb645-7"><a href="other-tricks.html#cb645-7"></a>        <span class="dt">padding =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>), <span class="st">&quot;pt&quot;</span>)),</span>
-<span id="cb645-8"><a href="other-tricks.html#cb645-8"></a>    <span class="dt">column_title_gp =</span> <span class="kw">gpar</span>(<span class="dt">box_fill =</span> <span class="st">&quot;orange&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb643-1"><a href="other-tricks.html#cb643-1"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb643-2"><a href="other-tricks.html#cb643-2"></a>mat =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>)</span>
+<span id="cb643-3"><a href="other-tricks.html#cb643-3"></a><span class="kw">rownames</span>(mat) =<span class="st"> </span>letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span>
+<span id="cb643-4"><a href="other-tricks.html#cb643-4"></a><span class="kw">Heatmap</span>(mat, </span>
+<span id="cb643-5"><a href="other-tricks.html#cb643-5"></a>    <span class="dt">column_title =</span> <span class="kw">gt_render</span>(<span class="st">&quot;Some &lt;span style=&#39;color:blue&#39;&gt;blue text **in bold.**&lt;/span&gt;&lt;br&gt;And *italics text.*&lt;br&gt;And some &lt;span style=&#39;font-size:18pt; color:black&#39;&gt;large&lt;/span&gt; text.&quot;</span>, </span>
+<span id="cb643-6"><a href="other-tricks.html#cb643-6"></a>        <span class="dt">r =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), </span>
+<span id="cb643-7"><a href="other-tricks.html#cb643-7"></a>        <span class="dt">padding =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>), <span class="st">&quot;pt&quot;</span>)),</span>
+<span id="cb643-8"><a href="other-tricks.html#cb643-8"></a>    <span class="dt">column_title_gp =</span> <span class="kw">gpar</span>(<span class="dt">box_fill =</span> <span class="st">&quot;orange&quot;</span>))</span></code></pre></div>
 <p><img src="11-other-tricks_files/figure-html/unnamed-chunk-12-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>If heatmap is split:</p>
-<div class="sourceCode" id="cb646"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb646-1"><a href="other-tricks.html#cb646-1"></a><span class="kw">Heatmap</span>(mat, </span>
-<span id="cb646-2"><a href="other-tricks.html#cb646-2"></a>    <span class="dt">row_km =</span> <span class="dv">2</span>, </span>
-<span id="cb646-3"><a href="other-tricks.html#cb646-3"></a>    <span class="dt">row_title =</span> <span class="kw">gt_render</span>(<span class="kw">c</span>(<span class="st">&quot;**title1**&quot;</span>, <span class="st">&quot;_title2_&quot;</span>)), </span>
-<span id="cb646-4"><a href="other-tricks.html#cb646-4"></a>    <span class="dt">row_title_gp =</span> <span class="kw">gpar</span>(<span class="dt">box_fill =</span> <span class="kw">c</span>(<span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;blue&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="other-tricks.html#cb644-1"></a><span class="kw">Heatmap</span>(mat, </span>
+<span id="cb644-2"><a href="other-tricks.html#cb644-2"></a>    <span class="dt">row_km =</span> <span class="dv">2</span>, </span>
+<span id="cb644-3"><a href="other-tricks.html#cb644-3"></a>    <span class="dt">row_title =</span> <span class="kw">gt_render</span>(<span class="kw">c</span>(<span class="st">&quot;**title1**&quot;</span>, <span class="st">&quot;_title2_&quot;</span>)), </span>
+<span id="cb644-4"><a href="other-tricks.html#cb644-4"></a>    <span class="dt">row_title_gp =</span> <span class="kw">gpar</span>(<span class="dt">box_fill =</span> <span class="kw">c</span>(<span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;blue&quot;</span>)))</span></code></pre></div>
 <p><img src="11-other-tricks_files/figure-html/unnamed-chunk-13-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="rowcolumn-names" class="section level3" number="11.2.2">
 <h3><span class="header-section-number">11.2.2</span> Row/column names</h3>
 <p>Rendered row/column names should be explicitly specified by <code>row_labels</code>/<code>column_labels</code></p>
-<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb647-1"><a href="other-tricks.html#cb647-1"></a><span class="kw">Heatmap</span>(mat, </span>
-<span id="cb647-2"><a href="other-tricks.html#cb647-2"></a>    <span class="dt">row_labels =</span> <span class="kw">gt_render</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>], <span class="dt">padding =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">2</span>, <span class="dv">10</span>), <span class="st">&quot;pt&quot;</span>)),</span>
-<span id="cb647-3"><a href="other-tricks.html#cb647-3"></a>    <span class="dt">row_names_gp =</span> <span class="kw">gpar</span>(<span class="dt">box_col =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>), <span class="dt">times =</span> <span class="dv">5</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb645"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb645-1"><a href="other-tricks.html#cb645-1"></a><span class="kw">Heatmap</span>(mat, </span>
+<span id="cb645-2"><a href="other-tricks.html#cb645-2"></a>    <span class="dt">row_labels =</span> <span class="kw">gt_render</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>], <span class="dt">padding =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">2</span>, <span class="dv">10</span>), <span class="st">&quot;pt&quot;</span>)),</span>
+<span id="cb645-3"><a href="other-tricks.html#cb645-3"></a>    <span class="dt">row_names_gp =</span> <span class="kw">gpar</span>(<span class="dt">box_col =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>), <span class="dt">times =</span> <span class="dv">5</span>)))</span></code></pre></div>
 <p><img src="11-other-tricks_files/figure-html/unnamed-chunk-14-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="annotation-labels-1" class="section level3" number="11.2.3">
 <h3><span class="header-section-number">11.2.3</span> Annotation labels</h3>
 <p><code>annotation_label</code> argument should be as rendered text.</p>
-<div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb648-1"><a href="other-tricks.html#cb648-1"></a>ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>],</span>
-<span id="cb648-2"><a href="other-tricks.html#cb648-2"></a>    <span class="dt">annotation_label =</span> <span class="kw">gt_render</span>(<span class="st">&quot;**Annotation** _one_&quot;</span>,</span>
-<span id="cb648-3"><a href="other-tricks.html#cb648-3"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">box_col =</span> <span class="st">&quot;black&quot;</span>)),</span>
-<span id="cb648-4"><a href="other-tricks.html#cb648-4"></a>    <span class="dt">show_legend =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb648-5"><a href="other-tricks.html#cb648-5"></a><span class="kw">Heatmap</span>(mat, <span class="dt">top_annotation =</span> ha)</span></code></pre></div>
+<div class="sourceCode" id="cb646"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb646-1"><a href="other-tricks.html#cb646-1"></a>ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>],</span>
+<span id="cb646-2"><a href="other-tricks.html#cb646-2"></a>    <span class="dt">annotation_label =</span> <span class="kw">gt_render</span>(<span class="st">&quot;**Annotation** _one_&quot;</span>,</span>
+<span id="cb646-3"><a href="other-tricks.html#cb646-3"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">box_col =</span> <span class="st">&quot;black&quot;</span>)),</span>
+<span id="cb646-4"><a href="other-tricks.html#cb646-4"></a>    <span class="dt">show_legend =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb646-5"><a href="other-tricks.html#cb646-5"></a><span class="kw">Heatmap</span>(mat, <span class="dt">top_annotation =</span> ha)</span></code></pre></div>
 <p><img src="11-other-tricks_files/figure-html/unnamed-chunk-15-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="text-annotation-1" class="section level3" number="11.2.4">
 <h3><span class="header-section-number">11.2.4</span> Text annotation</h3>
-<div class="sourceCode" id="cb649"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb649-1"><a href="other-tricks.html#cb649-1"></a><span class="kw">rowAnnotation</span>(</span>
-<span id="cb649-2"><a href="other-tricks.html#cb649-2"></a>    <span class="dt">foo =</span> <span class="kw">anno_text</span>(<span class="kw">gt_render</span>(<span class="kw">sapply</span>(LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>], strrep, <span class="dv">10</span>), <span class="dt">align_widths =</span> <span class="ot">TRUE</span>), </span>
-<span id="cb649-3"><a href="other-tricks.html#cb649-3"></a>                    <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">box_col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">box_lwd =</span> <span class="dv">2</span>), </span>
-<span id="cb649-4"><a href="other-tricks.html#cb649-4"></a>                    <span class="dt">just =</span> <span class="st">&quot;right&quot;</span>, </span>
-<span id="cb649-5"><a href="other-tricks.html#cb649-5"></a>                    <span class="dt">location =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>)</span>
-<span id="cb649-6"><a href="other-tricks.html#cb649-6"></a>    )) <span class="op">+</span><span class="st"> </span><span class="kw">Heatmap</span>(mat)</span></code></pre></div>
+<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb647-1"><a href="other-tricks.html#cb647-1"></a><span class="kw">rowAnnotation</span>(</span>
+<span id="cb647-2"><a href="other-tricks.html#cb647-2"></a>    <span class="dt">foo =</span> <span class="kw">anno_text</span>(<span class="kw">gt_render</span>(<span class="kw">sapply</span>(LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>], strrep, <span class="dv">10</span>), <span class="dt">align_widths =</span> <span class="ot">TRUE</span>), </span>
+<span id="cb647-3"><a href="other-tricks.html#cb647-3"></a>                    <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">box_col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">box_lwd =</span> <span class="dv">2</span>), </span>
+<span id="cb647-4"><a href="other-tricks.html#cb647-4"></a>                    <span class="dt">just =</span> <span class="st">&quot;right&quot;</span>, </span>
+<span id="cb647-5"><a href="other-tricks.html#cb647-5"></a>                    <span class="dt">location =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>)</span>
+<span id="cb647-6"><a href="other-tricks.html#cb647-6"></a>    )) <span class="op">+</span><span class="st"> </span><span class="kw">Heatmap</span>(mat)</span></code></pre></div>
 <p><img src="11-other-tricks_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="legend" class="section level3" number="11.2.5">
 <h3><span class="header-section-number">11.2.5</span> Legend</h3>
-<div class="sourceCode" id="cb650"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb650-1"><a href="other-tricks.html#cb650-1"></a><span class="kw">Heatmap</span>(mat, </span>
-<span id="cb650-2"><a href="other-tricks.html#cb650-2"></a>    <span class="dt">heatmap_legend_param =</span> <span class="kw">list</span>(</span>
-<span id="cb650-3"><a href="other-tricks.html#cb650-3"></a>        <span class="dt">title =</span> <span class="kw">gt_render</span>(<span class="st">&quot;&lt;span style=&#39;color:orange&#39;&gt;**Legend title**&lt;/span&gt;&quot;</span>), </span>
-<span id="cb650-4"><a href="other-tricks.html#cb650-4"></a>        <span class="dt">title_gp =</span> <span class="kw">gpar</span>(<span class="dt">box_fill =</span> <span class="st">&quot;grey&quot;</span>),</span>
-<span id="cb650-5"><a href="other-tricks.html#cb650-5"></a>        <span class="dt">at =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">3</span>), </span>
-<span id="cb650-6"><a href="other-tricks.html#cb650-6"></a>        <span class="dt">labels =</span> <span class="kw">gt_render</span>(<span class="kw">c</span>(<span class="st">&quot;*negative* three&quot;</span>, <span class="st">&quot;zero&quot;</span>, <span class="st">&quot;*positive* three&quot;</span>))</span>
-<span id="cb650-7"><a href="other-tricks.html#cb650-7"></a>    ))</span></code></pre></div>
+<div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb648-1"><a href="other-tricks.html#cb648-1"></a><span class="kw">Heatmap</span>(mat, </span>
+<span id="cb648-2"><a href="other-tricks.html#cb648-2"></a>    <span class="dt">heatmap_legend_param =</span> <span class="kw">list</span>(</span>
+<span id="cb648-3"><a href="other-tricks.html#cb648-3"></a>        <span class="dt">title =</span> <span class="kw">gt_render</span>(<span class="st">&quot;&lt;span style=&#39;color:orange&#39;&gt;**Legend title**&lt;/span&gt;&quot;</span>), </span>
+<span id="cb648-4"><a href="other-tricks.html#cb648-4"></a>        <span class="dt">title_gp =</span> <span class="kw">gpar</span>(<span class="dt">box_fill =</span> <span class="st">&quot;grey&quot;</span>),</span>
+<span id="cb648-5"><a href="other-tricks.html#cb648-5"></a>        <span class="dt">at =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">3</span>), </span>
+<span id="cb648-6"><a href="other-tricks.html#cb648-6"></a>        <span class="dt">labels =</span> <span class="kw">gt_render</span>(<span class="kw">c</span>(<span class="st">&quot;*negative* three&quot;</span>, <span class="st">&quot;zero&quot;</span>, <span class="st">&quot;*positive* three&quot;</span>))</span>
+<span id="cb648-7"><a href="other-tricks.html#cb648-7"></a>    ))</span></code></pre></div>
 <p><img src="11-other-tricks_files/figure-html/unnamed-chunk-17-1.png" width="480" style="display: block; margin: auto;" /></p>
 
 </div>

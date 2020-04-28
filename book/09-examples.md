@@ -420,6 +420,13 @@ Adjust row names in the matrix to be the same as the probes.
 
 ```r
 library(IlluminaHumanMethylation450kanno.ilmn12.hg19)
+```
+
+```
+## Warning: multiple methods tables found for 'plot'
+```
+
+```r
 data(Locations)
 
 mat = exprs(gset[[1]])

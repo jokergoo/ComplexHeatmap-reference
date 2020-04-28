@@ -226,7 +226,7 @@ The default style for horizontal legend:
 lgd = Legend(col_fun = col_fun, title = "foo", direction = "horizontal")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-26-1.png" width="148.55811023622" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-26-1.png" width="148.558110236221" style="display: block; margin: auto;" />
 
 Manually set `at`:
 
@@ -266,7 +266,7 @@ lgd = Legend(col_fun = col_fun, title = "foo", labels_gp = gpar(col = "red", fon
     direction = "horizontal")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-34-1.png" width="148.55811023622" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-34-1.png" width="148.558110236221" style="display: block; margin: auto;" />
 
 Set rotations of labels.
 
@@ -286,7 +286,7 @@ lgd = Legend(col_fun = col_fun, title = "foooooooo", direction = "horizontal",
     title_position = "topcenter")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-38-1.png" width="148.55811023622" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-38-1.png" width="148.558110236221" style="display: block; margin: auto;" />
 
 
 ```r
@@ -327,7 +327,7 @@ lgd = Legend(col_fun = col_fun, title = "foo", at = c(0, 0.1, 0.15, 0.5, 0.9, 0.
     direction = "horizontal")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-46-1.png" width="198.59811023622" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-46-1.png" width="198.598110236221" style="display: block; margin: auto;" />
 
 Set rotations of labels to 90 degree.
 
@@ -821,7 +821,7 @@ chr
 ```
 
 ```
-##  [1] "c" "a" "a" "c" "c" "a" "a" "c" "c" "a"
+##  [1] "b" "c" "a" "b" "a" "b" "c" "c" "a" "c"
 ```
 
 ```r

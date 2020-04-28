@@ -52,41 +52,68 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -244,7 +271,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11.2.1" data-path="other-tricks.html"><a href="other-tricks.html#titles"><i class="fa fa-check"></i><b>11.2.1</b> Titles</a></li>
 <li class="chapter" data-level="11.2.2" data-path="other-tricks.html"><a href="other-tricks.html#rowcolumn-names"><i class="fa fa-check"></i><b>11.2.2</b> Row/column names</a></li>
 <li class="chapter" data-level="11.2.3" data-path="other-tricks.html"><a href="other-tricks.html#annotation-labels-1"><i class="fa fa-check"></i><b>11.2.3</b> Annotation labels</a></li>
-<li class="chapter" data-level="11.2.4" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#text-annotation"><i class="fa fa-check"></i><b>11.2.4</b> Text annotation</a></li>
+<li class="chapter" data-level="11.2.4" data-path="other-tricks.html"><a href="other-tricks.html#text-annotation-1"><i class="fa fa-check"></i><b>11.2.4</b> Text annotation</a></li>
 <li class="chapter" data-level="11.2.5" data-path="other-tricks.html"><a href="other-tricks.html#legend"><i class="fa fa-check"></i><b>11.2.5</b> Legend</a></li>
 </ul></li>
 </ul></li>
@@ -270,388 +297,512 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="legends" class="section level1">
 <h1><span class="header-section-number">Chapter 5</span> Legends</h1>
-<p>The heatmaps and simple annotations automatically generate legends which are put one the right side of the heatmap. By default there is no legend for complex annotations, but they can be constructed and added manually (Section <a href="legends.html#add-customized-legends">5.5</a>). All legends are internally constructed by <code>Legend()</code> constructor. In later sections, we first introduce the settings for continuous legends and discrete legends, then we will discuss how to configure the legends associated with the heatmaps and annotations, and how to add new legends to the plot.</p>
-<p>All the legends (no matter a single legend or a pack of legends) all belong to the <code>Legends</code> class. The class only has one slot <code>grob</code> which is the real <code>grid::grob</code> object or the <code>grid::gTree</code> object that records how to draw the graphics. The wrapping of the <code>Legends</code> class and the methods designed for the class make legends as single objects and can be drawn like points with specifying the positions on the viewport.</p>
-<p>The legends for heatmaps and annotations can be controlled by <code>heatmap_legend_param</code> argument in <code>Heatmap()</code>, or <code>annotation_legend_param</code> argument in <code>HeatmapAnnotation()</code>. <strong>Most of the parameters in <code>Legend()</code> function can be directly set in the two arguments with the same parameter name.</strong> The details of setting heatmap legends and annotation legends parameters are introduced in Section <a href="legends.html#heatmap-and-annotation-legends">5.4</a>.</p>
+<p>The heatmaps and simple annotations automatically generate legends which are
+put one the right side of the heatmap. By default there is no legend for
+complex annotations, but they can be constructed and added manually (Section
+<a href="legends.html#add-customized-legends">5.5</a>). All legends are internally constructed by
+<code>Legend()</code> constructor. In later sections, we first introduce the settings for
+continuous legends and discrete legends, then we will discuss how to configure
+the legends associated with the heatmaps and annotations, and how to add new
+legends to the plot.</p>
+<p>All the legends (no matter a single legend or a pack of legends) all belong to
+the <code>Legends</code> class. The class only has one slot <code>grob</code> which is the real
+<code>grid::grob</code> object or the <code>grid::gTree</code> object that records how to draw the
+graphics. The wrapping of the <code>Legends</code> class and the methods designed for the
+class make legends as single objects and can be drawn like points with
+specifying the positions on the viewport.</p>
+<p>The legends for heatmaps and annotations can be controlled by
+<code>heatmap_legend_param</code> argument in <code>Heatmap()</code>, or <code>annotation_legend_param</code>
+argument in <code>HeatmapAnnotation()</code>. <strong>Most of the parameters in <code>Legend()</code>
+function can be directly set in the two arguments with the same parameter
+name.</strong> The details of setting heatmap legends and annotation legends
+parameters are introduced in Section <a href="legends.html#heatmap-and-annotation-legends">5.4</a>.</p>
 <div id="continuous-legends" class="section level2">
 <h2><span class="header-section-number">5.1</span> Continuous legends</h2>
-<p>Since most of heatmaps contain continuous values, we first introduce the settings for the continuous legend.</p>
-<p>Continuous legend needs a color mapping function which should be generated by <code>circlize::colorRamp2()</code>. In the heatmap legends and annotation legends that are automatically generated, the color mapping functions are passed by the <code>col</code> argument from <code>Heatmap()</code> or <code>HeatmapAnnotation()</code> function, while if you construct a self-defined legend, you need to provide the color mapping function.</p>
-<p>The break values provided in the color mapping function (e.g. <code>c(0, 0.5, 1)</code> in following example) will not exactly be the same as the break values in the legends). The finally break values presented in the legend are internally adjusted to make the numbers of labels close to 5 or 6.</p>
+<p>Since most of heatmaps contain continuous values, we first introduce the
+settings for the continuous legend.</p>
+<p>Continuous legend needs a color mapping function which should be generated by
+<code>circlize::colorRamp2()</code>. In the heatmap legends and annotation legends that
+are automatically generated, the color mapping functions are passed by the
+<code>col</code> argument from <code>Heatmap()</code> or <code>HeatmapAnnotation()</code> function, while if
+you construct a self-defined legend, you need to provide the color mapping
+function.</p>
+<p>The break values provided in the color mapping function (e.g. <code>c(0, 0.5, 1)</code>
+in following example) will not exactly be the same as the break values in the
+legends). The finally break values presented in the legend are internally
+adjusted to make the numbers of labels close to 5 or 6.</p>
 <p>First we show the default style of a vertical continuous legend:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(circlize)
-col_fun =<span class="st"> </span><span class="kw">colorRamp2</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>), <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>))
-lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb351-1" data-line-number="1"><span class="kw">library</span>(circlize)</a>
+<a class="sourceLine" id="cb351-2" data-line-number="2">col_fun =<span class="st"> </span><span class="kw">colorRamp2</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>), <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>))</a>
+<a class="sourceLine" id="cb351-3" data-line-number="3">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-3-1.png" width="52.5490813648294" style="display: block; margin: auto;" /></p>
-<p><code>lgd</code> is a <code>Legends</code> class object. The size of the legend can be obtained by <code>ComplexHeatmap:::width()</code> and <code>ComplexHeatmap:::height()</code> function.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ComplexHeatmap<span class="op">:::</span><span class="kw">width</span>(lgd)</code></pre></div>
+<p><code>lgd</code> is a <code>Legends</code> class object. The size of the legend can be obtained by
+<code>ComplexHeatmap:::width()</code> and <code>ComplexHeatmap:::height()</code> function.</p>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb352-1" data-line-number="1">ComplexHeatmap<span class="op">:::</span><span class="kw">width</span>(lgd)</a></code></pre></div>
 <pre><code>## [1] 9.90361111111111mm</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ComplexHeatmap<span class="op">:::</span><span class="kw">height</span>(lgd)</code></pre></div>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb354-1" data-line-number="1">ComplexHeatmap<span class="op">:::</span><span class="kw">height</span>(lgd)</a></code></pre></div>
 <pre><code>## [1] 28.0329444444444mm</code></pre>
-<p>The legend is actually a packed graphic object composed of rectangles, lines and texts. It can be added to the plot by <code>draw()</code> function. In <strong>ComplexHeatmap</strong> pacakge, you don’t need to use <code>draw()</code> directly on legend objects, but it might be useful if you use the legend objects in other places.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pushViewport</span>(<span class="kw">viewport</span>(<span class="dt">width =</span> <span class="fl">0.9</span>, <span class="dt">height =</span> <span class="fl">0.9</span>))
-<span class="kw">grid.rect</span>()  <span class="co"># border</span>
-<span class="kw">draw</span>(lgd, <span class="dt">x =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>), <span class="dt">y =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>), <span class="dt">just =</span> <span class="kw">c</span>(<span class="st">&quot;left&quot;</span>, <span class="st">&quot;bottom&quot;</span>))
-<span class="kw">draw</span>(lgd, <span class="dt">x =</span> <span class="kw">unit</span>(<span class="fl">0.5</span>, <span class="st">&quot;npc&quot;</span>), <span class="dt">y =</span> <span class="kw">unit</span>(<span class="fl">0.5</span>, <span class="st">&quot;npc&quot;</span>))
-<span class="kw">draw</span>(lgd, <span class="dt">x =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>), <span class="dt">y =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>), <span class="dt">just =</span> <span class="kw">c</span>(<span class="st">&quot;right&quot;</span>, <span class="st">&quot;top&quot;</span>))
-<span class="kw">popViewport</span>()</code></pre></div>
+<p>The legend is actually a packed graphic object composed of rectangles, lines
+and texts. It can be added to the plot by <code>draw()</code> function. In
+<strong>ComplexHeatmap</strong> pacakge, you don’t need to use <code>draw()</code> directly on legend
+objects, but it might be useful if you use the legend objects in other places.</p>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb356-1" data-line-number="1"><span class="kw">pushViewport</span>(<span class="kw">viewport</span>(<span class="dt">width =</span> <span class="fl">0.9</span>, <span class="dt">height =</span> <span class="fl">0.9</span>))</a>
+<a class="sourceLine" id="cb356-2" data-line-number="2"><span class="kw">grid.rect</span>()  <span class="co"># border</span></a>
+<a class="sourceLine" id="cb356-3" data-line-number="3"><span class="kw">draw</span>(lgd, <span class="dt">x =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>), <span class="dt">y =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>), <span class="dt">just =</span> <span class="kw">c</span>(<span class="st">&quot;left&quot;</span>, <span class="st">&quot;bottom&quot;</span>))</a>
+<a class="sourceLine" id="cb356-4" data-line-number="4"><span class="kw">draw</span>(lgd, <span class="dt">x =</span> <span class="kw">unit</span>(<span class="fl">0.5</span>, <span class="st">&quot;npc&quot;</span>), <span class="dt">y =</span> <span class="kw">unit</span>(<span class="fl">0.5</span>, <span class="st">&quot;npc&quot;</span>))</a>
+<a class="sourceLine" id="cb356-5" data-line-number="5"><span class="kw">draw</span>(lgd, <span class="dt">x =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>), <span class="dt">y =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>), <span class="dt">just =</span> <span class="kw">c</span>(<span class="st">&quot;right&quot;</span>, <span class="st">&quot;top&quot;</span>))</a>
+<a class="sourceLine" id="cb356-6" data-line-number="6"><span class="kw">popViewport</span>()</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>If you only want to configure the legends generated by heatmaps or annotations, you don’t need to construct the <code>Legends</code> object by your own. <strong>The parameters introduced later can be directly used to customize the legends by <code>heatmap_legend_param</code> argument in <code>Heatmap()</code> and <code>annotation_legend_param</code> argument in <code>HeatmapAnnotation()</code></strong> (introduced in Section <a href="legends.html#heatmap-and-annotation-legends">5.4</a>). It is still nice to see how these parameters change the styles of the legend in following examples. Following is a simple example showing how to configure legends in the heatmap and heatmap annotation.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>), 
-    <span class="dt">heatmap_legend_param =</span> <span class="kw">list</span>(
-        <span class="dt">title =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">2</span>), 
-        <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;neg_two&quot;</span>, <span class="st">&quot;zero&quot;</span>, <span class="st">&quot;pos_two&quot;</span>)
-    ),
-    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(
-        <span class="dt">foo =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,
-        <span class="dt">annotation_legend_param =</span> <span class="kw">list</span>(<span class="dt">foo =</span> <span class="kw">list</span>(<span class="dt">title =</span> <span class="st">&quot;foo_top_anno&quot;</span>))
-    ))</code></pre></div>
+<p>If you only want to configure the legends generated by heatmaps or
+annotations, you don’t need to construct the <code>Legends</code> object by your own.
+<strong>The parameters introduced later can be directly used to customize the
+legends by <code>heatmap_legend_param</code> argument in <code>Heatmap()</code> and
+<code>annotation_legend_param</code> argument in <code>HeatmapAnnotation()</code></strong> (introduced in
+Section
+<a href="legends.html#heatmap-and-annotation-legends">5.4</a>). It is still nice to see how these parameters change the
+styles of the legend in following examples. Following is a simple example
+showing how to configure legends in the heatmap and heatmap annotation.</p>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb357-1" data-line-number="1"><span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>), </a>
+<a class="sourceLine" id="cb357-2" data-line-number="2">    <span class="dt">heatmap_legend_param =</span> <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb357-3" data-line-number="3">        <span class="dt">title =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">2</span>), </a>
+<a class="sourceLine" id="cb357-4" data-line-number="4">        <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;neg_two&quot;</span>, <span class="st">&quot;zero&quot;</span>, <span class="st">&quot;pos_two&quot;</span>)</a>
+<a class="sourceLine" id="cb357-5" data-line-number="5">    ),</a>
+<a class="sourceLine" id="cb357-6" data-line-number="6">    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(</a>
+<a class="sourceLine" id="cb357-7" data-line-number="7">        <span class="dt">foo =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb357-8" data-line-number="8">        <span class="dt">annotation_legend_param =</span> <span class="kw">list</span>(<span class="dt">foo =</span> <span class="kw">list</span>(<span class="dt">title =</span> <span class="st">&quot;foo_top_anno&quot;</span>))</a>
+<a class="sourceLine" id="cb357-9" data-line-number="9">    ))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>In following examples, we only show how to construct the legend object, while not show the code which draws the legends. Only remember you can use <code>draw()</code> function on the <code>Legends</code> object to draw the single legend on the plot.</p>
-<p>For continuous legend, you can manually adjust the break values in the legend by setting <code>at</code>. Note the height is automatically adjusted.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="dv">1</span>))</code></pre></div>
+<p>In following examples, we only show how to construct the legend object, while
+not show the code which draws the legends. Only remember you can use <code>draw()</code>
+function on the <code>Legends</code> object to draw the single legend on the plot.</p>
+<p>For continuous legend, you can manually adjust the break values in the legend
+by setting <code>at</code>. Note the height is automatically adjusted.</p>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb358-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="dv">1</span>))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-8-1.png" width="59.9624146981627" style="display: block; margin: auto;" /></p>
 <p>The labels corresponding to the break values are set by <code>labels</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>), 
-    <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;median&quot;</span>, <span class="st">&quot;high&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb359-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>), </a>
+<a class="sourceLine" id="cb359-2" data-line-number="2">    <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;median&quot;</span>, <span class="st">&quot;high&quot;</span>))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-10-1.png" width="77.7357480314961" style="display: block; margin: auto;" /></p>
-<p>The height of the vertical continous legend is set by <code>legend_height</code>. <code>legend_height</code> can only be set for the veritcal continous legend and the value is the height of the legend body (excluding the legend title).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">legend_height =</span> <span class="kw">unit</span>(<span class="dv">6</span>, <span class="st">&quot;cm&quot;</span>))</code></pre></div>
+<p>The height of the vertical continous legend is set by <code>legend_height</code>.
+<code>legend_height</code> can only be set for the veritcal continous legend and the
+value is the height of the legend body (excluding the legend title).</p>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb360-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">legend_height =</span> <span class="kw">unit</span>(<span class="dv">6</span>, <span class="st">&quot;cm&quot;</span>))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-12-1.png" width="52.5490813648294" style="display: block; margin: auto;" /></p>
-<p>If it is a vertical legend, <code>grid_width</code> controls the widths of the legend body. <code>grid_width</code> is originally designed for the discrete legends where the each level in the legend is a grid, but here we use the same name for the parameter that controls the width of the legend.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">grid_width =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>))</code></pre></div>
+<p>If it is a vertical legend, <code>grid_width</code> controls the widths of the legend
+body. <code>grid_width</code> is originally designed for the discrete legends where the
+each level in the legend is a grid, but here we use the same name for the
+parameter that controls the width of the legend.</p>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb361-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">grid_width =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-14-1.png" width="75.2262467191601" style="display: block; margin: auto;" /></p>
 <p>The graphic parameters for the labels are controlled by <code>labels_gp</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">labels_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">font =</span> <span class="dv">3</span>))</code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb362-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">labels_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">font =</span> <span class="dv">3</span>))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-16-1.png" width="52.5490813648294" style="display: block; margin: auto;" /></p>
-<p>The border of the legend as well as the ticks for the break values are controlled by <code>border</code>. The value of <code>border</code> can be logical or a string of color.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;red&quot;</span>)</code></pre></div>
+<p>The border of the legend as well as the ticks for the break values are
+controlled by <code>border</code>. The value of <code>border</code> can be logical or a string of
+color.</p>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb363-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">border =</span> <span class="st">&quot;red&quot;</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-18-1.png" width="52.5490813648294" style="display: block; margin: auto;" /></p>
-<p><code>title_position</code> controls the position of titles. For vertical legends, the value should be one of <code>topleft</code>, <code>topcenter</code>, <code>lefttop-rot</code> and <code>leftcenter-rot</code>. Following two plots show the effect of <code>lefttop-rot</code> title and <code>leftcenter-rot</code> title.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foooooooo&quot;</span>, <span class="dt">title_position =</span> <span class="st">&quot;lefttop-rot&quot;</span>,
-    <span class="dt">legend_height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))</code></pre></div>
+<p><code>title_position</code> controls the position of titles. For vertical legends, the
+value should be one of <code>topleft</code>, <code>topcenter</code>, <code>lefttop-rot</code> and
+<code>leftcenter-rot</code>. Following two plots show the effect of <code>lefttop-rot</code> title
+and <code>leftcenter-rot</code> title.</p>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb364-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foooooooo&quot;</span>, <span class="dt">title_position =</span> <span class="st">&quot;lefttop-rot&quot;</span>,</a>
+<a class="sourceLine" id="cb364-2" data-line-number="2">    <span class="dt">legend_height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-20-1.png" width="67.7917060367454" style="display: block; margin: auto;" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foooooooo&quot;</span>, <span class="dt">title_position =</span> <span class="st">&quot;leftcenter-rot&quot;</span>,
-    <span class="dt">legend_height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb365-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foooooooo&quot;</span>, <span class="dt">title_position =</span> <span class="st">&quot;leftcenter-rot&quot;</span>,</a>
+<a class="sourceLine" id="cb365-2" data-line-number="2">    <span class="dt">legend_height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-22-1.png" width="67.7917060367454" style="display: block; margin: auto;" /></p>
 <p>Legend titles and labels can be set as mathematical formulas.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="kw">expression</span>(<span class="kw">hat</span>(beta) <span class="op">==</span><span class="st"> </span>(X<span class="op">^</span>t <span class="op">*</span><span class="st"> </span>X)<span class="op">^</span>{<span class="op">-</span><span class="dv">1</span>} <span class="op">*</span><span class="st"> </span>X<span class="op">^</span>t <span class="op">*</span><span class="st"> </span>y), 
-    <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="dv">1</span>), <span class="dt">labels =</span> <span class="kw">expression</span>(alpha, beta, gamma, delta, epsilon))</code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb366-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="kw">expression</span>(<span class="kw">hat</span>(beta) <span class="op">==</span><span class="st"> </span>(X<span class="op">^</span>t <span class="op">*</span><span class="st"> </span>X)<span class="op">^</span>{<span class="op">-</span><span class="dv">1</span>} <span class="op">*</span><span class="st"> </span>X<span class="op">^</span>t <span class="op">*</span><span class="st"> </span>y), </a>
+<a class="sourceLine" id="cb366-2" data-line-number="2">    <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="dv">1</span>), <span class="dt">labels =</span> <span class="kw">expression</span>(alpha, beta, gamma, delta, epsilon))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-24-1.png" width="96.3218139399242" style="display: block; margin: auto;" /></p>
-<p>Settings for horizontal continuous legends are almost the same as vertical legends, except that now <code>legend_width</code> controls the width of the legend, and the title position can only be one of <code>topcenter</code>, <code>topleft</code>, <code>lefttop</code> and <code>leftcenter</code>.</p>
+<p>Settings for horizontal continuous legends are almost the same as vertical
+legends, except that now <code>legend_width</code> controls the width of the legend, and
+the title position can only be one of <code>topcenter</code>, <code>topleft</code>, <code>lefttop</code> and
+<code>leftcenter</code>.</p>
 <p>The default style for horizontal legend:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</code></pre></div>
-<p><img src="05-legends_files/figure-html/unnamed-chunk-26-1.png" width="148.55811023622" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb367-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</a></code></pre></div>
+<p><img src="05-legends_files/figure-html/unnamed-chunk-26-1.png" width="148.558110236221" style="display: block; margin: auto;" /></p>
 <p>Manually set <code>at</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="dv">1</span>), 
-    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb368-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="dv">1</span>), </a>
+<a class="sourceLine" id="cb368-2" data-line-number="2">    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-28-1.png" width="142.99811023622" style="display: block; margin: auto;" /></p>
 <p>Manually set <code>labels</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>), 
-    <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;median&quot;</span>, <span class="st">&quot;high&quot;</span>), <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb369-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>), </a>
+<a class="sourceLine" id="cb369-2" data-line-number="2">    <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;median&quot;</span>, <span class="st">&quot;high&quot;</span>), <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-30-1.png" width="148.19811023622" style="display: block; margin: auto;" /></p>
 <p>Set <code>legend_width</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">legend_width =</span> <span class="kw">unit</span>(<span class="dv">6</span>, <span class="st">&quot;cm&quot;</span>), 
-    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb370-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">legend_width =</span> <span class="kw">unit</span>(<span class="dv">6</span>, <span class="st">&quot;cm&quot;</span>), </a>
+<a class="sourceLine" id="cb370-2" data-line-number="2">    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-32-1.png" width="241.889763779528" style="display: block; margin: auto;" /></p>
 <p>Set graphic parameters for labels:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">labels_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">font =</span> <span class="dv">3</span>), 
-    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</code></pre></div>
-<p><img src="05-legends_files/figure-html/unnamed-chunk-34-1.png" width="148.55811023622" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb371-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">labels_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">font =</span> <span class="dv">3</span>), </a>
+<a class="sourceLine" id="cb371-2" data-line-number="2">    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</a></code></pre></div>
+<p><img src="05-legends_files/figure-html/unnamed-chunk-34-1.png" width="148.558110236221" style="display: block; margin: auto;" /></p>
 <p>Set rotations of labels.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">labels_rot =</span> <span class="dv">45</span>, 
-    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb372-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">labels_rot =</span> <span class="dv">45</span>, </a>
+<a class="sourceLine" id="cb372-2" data-line-number="2">    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-36-1.png" width="170.398759384786" style="display: block; margin: auto;" /></p>
 <p>Title can be set as <code>topleft</code>, <code>topcenter</code> or <code>lefttop</code> and <code>leftcenter</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foooooooo&quot;</span>, <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>, 
-    <span class="dt">title_position =</span> <span class="st">&quot;topcenter&quot;</span>)</code></pre></div>
-<p><img src="05-legends_files/figure-html/unnamed-chunk-38-1.png" width="148.55811023622" style="display: block; margin: auto;" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foooooooo&quot;</span>, <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>, 
-    <span class="dt">title_position =</span> <span class="st">&quot;lefttop&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb373-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foooooooo&quot;</span>, <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>, </a>
+<a class="sourceLine" id="cb373-2" data-line-number="2">    <span class="dt">title_position =</span> <span class="st">&quot;topcenter&quot;</span>)</a></code></pre></div>
+<p><img src="05-legends_files/figure-html/unnamed-chunk-38-1.png" width="148.558110236221" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb374-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foooooooo&quot;</span>, <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>, </a>
+<a class="sourceLine" id="cb374-2" data-line-number="2">    <span class="dt">title_position =</span> <span class="st">&quot;lefttop&quot;</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-40-1.png" width="223.57406824147" style="display: block; margin: auto;" /></p>
-<p>In examples we showed above, the intervals between every two break values are equal. Actually <code>at</code> can also be set as break values with uneuqal intervals. In this scenario, the ticks on the legend are still at the original places while the corresponding texts are shifted to get rid of overlapping. Then, there are lines connecting the ticks and the labels.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.1</span>, <span class="fl">0.15</span>, <span class="fl">0.5</span>, <span class="fl">0.9</span>, <span class="fl">0.95</span>, <span class="dv">1</span>))</code></pre></div>
+<p>In examples we showed above, the intervals between every two break values are
+equal. Actually <code>at</code> can also be set as break values with uneuqal intervals.
+In this scenario, the ticks on the legend are still at the original places
+while the corresponding texts are shifted to get rid of overlapping. Then,
+there are lines connecting the ticks and the labels.</p>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb375-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.1</span>, <span class="fl">0.15</span>, <span class="fl">0.5</span>, <span class="fl">0.9</span>, <span class="fl">0.95</span>, <span class="dv">1</span>))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-42-1.png" width="71.3009973753281" style="display: block; margin: auto;" /></p>
 <p>If the labels do not need to be adjusted, they are still at the original places.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.3</span>, <span class="dv">1</span>), 
-    <span class="dt">legend_height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb376-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.3</span>, <span class="dv">1</span>), </a>
+<a class="sourceLine" id="cb376-2" data-line-number="2">    <span class="dt">legend_height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-44-1.png" width="52.5490813648294" style="display: block; margin: auto;" /></p>
 <p>It is similar for the horizontal legends:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.1</span>, <span class="fl">0.15</span>, <span class="fl">0.5</span>, <span class="fl">0.9</span>, <span class="fl">0.95</span>, <span class="dv">1</span>),
-    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</code></pre></div>
-<p><img src="05-legends_files/figure-html/unnamed-chunk-46-1.png" width="198.59811023622" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb377-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.1</span>, <span class="fl">0.15</span>, <span class="fl">0.5</span>, <span class="fl">0.9</span>, <span class="fl">0.95</span>, <span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb377-2" data-line-number="2">    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</a></code></pre></div>
+<p><img src="05-legends_files/figure-html/unnamed-chunk-46-1.png" width="198.598110236221" style="display: block; margin: auto;" /></p>
 <p>Set rotations of labels to 90 degree.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.1</span>, <span class="fl">0.15</span>, <span class="fl">0.5</span>, <span class="fl">0.9</span>, <span class="fl">0.95</span>, <span class="dv">1</span>),
-    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>, <span class="dt">title_position =</span> <span class="st">&quot;lefttop&quot;</span>, <span class="dt">labels_rot =</span> <span class="dv">90</span>)</code></pre></div>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb378-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.1</span>, <span class="fl">0.15</span>, <span class="fl">0.5</span>, <span class="fl">0.9</span>, <span class="fl">0.95</span>, <span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb378-2" data-line-number="2">    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>, <span class="dt">title_position =</span> <span class="st">&quot;lefttop&quot;</span>, <span class="dt">labels_rot =</span> <span class="dv">90</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-48-1.png" width="141.77406824147" style="display: block; margin: auto;" /></p>
-<p>When the position of title is set to <code>lefttop</code>, the area below the title will also be taken into account when calculating the adjusted positions of labels.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.1</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="dv">1</span>),
-    <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;mininal&quot;</span>, <span class="st">&quot;q10&quot;</span>, <span class="st">&quot;median&quot;</span>, <span class="st">&quot;q75&quot;</span>, <span class="st">&quot;maximal&quot;</span>),
-    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>, <span class="dt">title_position =</span> <span class="st">&quot;lefttop&quot;</span>)</code></pre></div>
+<p>When the position of title is set to <code>lefttop</code>, the area below the title will
+also be taken into account when calculating the adjusted positions of labels.</p>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb379-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.1</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb379-2" data-line-number="2">    <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;mininal&quot;</span>, <span class="st">&quot;q10&quot;</span>, <span class="st">&quot;median&quot;</span>, <span class="st">&quot;q75&quot;</span>, <span class="st">&quot;maximal&quot;</span>),</a>
+<a class="sourceLine" id="cb379-3" data-line-number="3">    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>, <span class="dt">title_position =</span> <span class="st">&quot;lefttop&quot;</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-50-1.png" width="311.33406824147" style="display: block; margin: auto;" /></p>
 </div>
 <div id="discrete-legends" class="section level2">
 <h2><span class="header-section-number">5.2</span> Discrete legends</h2>
-<p>Discrete legends are used for discrete color mappings. The continuous color mapping can also be degenerated as discrete color mapping by only providing the colors and the break values.</p>
-<p>You can either specify <code>at</code> or <code>labels</code>, but most probably you specify <code>labels</code>. The colors should be specified by <code>legend_gp</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">at =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>))</code></pre></div>
+<p>Discrete legends are used for discrete color mappings. The continuous color
+mapping can also be degenerated as discrete color mapping by only providing
+the colors and the break values.</p>
+<p>You can either specify <code>at</code> or <code>labels</code>, but most probably you specify
+<code>labels</code>. The colors should be specified by <code>legend_gp</code>.</p>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb380-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">at =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-52-1.png" width="41.4290813648294" style="display: block; margin: auto;" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>))</code></pre></div>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb381-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-54-1.png" width="87.5624146981627" style="display: block; margin: auto;" /></p>
 <p>The discrete legend for continuous color mapping:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">at =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dt">by =</span> <span class="fl">0.2</span>)
-lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">at =</span> at, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="kw">col_fun</span>(at)))</code></pre></div>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb382-1" data-line-number="1">at =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dt">by =</span> <span class="fl">0.2</span>)</a>
+<a class="sourceLine" id="cb382-2" data-line-number="2">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">at =</span> at, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="kw">col_fun</span>(at)))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-56-1.png" width="52.5490813648294" style="display: block; margin: auto;" /></p>
 <p>The position of title:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>),
-    <span class="dt">title_position =</span> <span class="st">&quot;lefttop&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb383-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>),</a>
+<a class="sourceLine" id="cb383-2" data-line-number="2">    <span class="dt">title_position =</span> <span class="st">&quot;lefttop&quot;</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-58-1.png" width="113.698372703412" style="display: block; margin: auto;" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>),
-    <span class="dt">title_position =</span> <span class="st">&quot;leftcenter-rot&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb384-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>),</a>
+<a class="sourceLine" id="cb384-2" data-line-number="2">    <span class="dt">title_position =</span> <span class="st">&quot;leftcenter-rot&quot;</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-60-1.png" width="102.805039370079" style="display: block; margin: auto;" /></p>
 <p>The size of grids are controlled by <code>grid_width</code> and <code>grid_height</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">at =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>), <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, 
-    <span class="dt">grid_height =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>), <span class="dt">grid_width =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb385-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">at =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>), <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, </a>
+<a class="sourceLine" id="cb385-2" data-line-number="2">    <span class="dt">grid_height =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>), <span class="dt">grid_width =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-62-1.png" width="45.2086089238845" style="display: block; margin: auto;" /></p>
 <p>The graphic parameters of labels are controlled by <code>labels_gp</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>), <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, 
-    <span class="dt">labels_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">fontsize =</span> <span class="dv">14</span>))</code></pre></div>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb386-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>), <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, </a>
+<a class="sourceLine" id="cb386-2" data-line-number="2">    <span class="dt">labels_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">fontsize =</span> <span class="dv">14</span>))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-64-1.png" width="108.981081364829" style="display: block; margin: auto;" /></p>
 <p>The graphic parameters of the title are controlled by <code>title_gp</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>), <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, 
-    <span class="dt">title_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">fontsize =</span> <span class="dv">14</span>))</code></pre></div>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb387-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>), <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, </a>
+<a class="sourceLine" id="cb387-2" data-line-number="2">    <span class="dt">title_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">fontsize =</span> <span class="dv">14</span>))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-66-1.png" width="87.5624146981627" style="display: block; margin: auto;" /></p>
 <p>Borders of grids are controlled by <code>border</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>), <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, 
-    <span class="dt">border =</span> <span class="st">&quot;red&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb388-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>), <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, </a>
+<a class="sourceLine" id="cb388-2" data-line-number="2">    <span class="dt">border =</span> <span class="st">&quot;red&quot;</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-68-1.png" width="87.5624146981627" style="display: block; margin: auto;" /></p>
-<p>One important thing for the discrete legend is you can arrange the grids into multiple rows or/and columns. If <code>ncol</code> is set to a number, the grids are arranged into <code>ncol</code> columns.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>], <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), 
-    <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">ncol =</span> <span class="dv">3</span>)</code></pre></div>
+<p>One important thing for the discrete legend is you can arrange the grids into
+multiple rows or/and columns. If <code>ncol</code> is set to a number, the grids are
+arranged into <code>ncol</code> columns.</p>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb389-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>], <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), </a>
+<a class="sourceLine" id="cb389-2" data-line-number="2">    <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">ncol =</span> <span class="dv">3</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-70-1.png" width="246.795800524934" style="display: block; margin: auto;" /></p>
 <p>Still the title position is calculated based on the multiplt-column legend.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>], <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, 
-    <span class="dt">ncol =</span> <span class="dv">3</span>, <span class="dt">title_position =</span> <span class="st">&quot;topcenter&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb390-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>], <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, </a>
+<a class="sourceLine" id="cb390-2" data-line-number="2">    <span class="dt">ncol =</span> <span class="dv">3</span>, <span class="dt">title_position =</span> <span class="st">&quot;topcenter&quot;</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-72-1.png" width="246.795800524934" style="display: block; margin: auto;" /></p>
 <p>You can choose to list the legend levels by rows by setting <code>by_row = TRUE</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>], <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, 
-    <span class="dt">ncol =</span> <span class="dv">3</span>, <span class="dt">by_row =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb391-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>], <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, </a>
+<a class="sourceLine" id="cb391-2" data-line-number="2">    <span class="dt">ncol =</span> <span class="dv">3</span>, <span class="dt">by_row =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-74-1.png" width="253.115800524934" style="display: block; margin: auto;" /></p>
 <p>The gap between two columns are controlled by <code>gap</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>], <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, 
-    <span class="dt">ncol =</span> <span class="dv">3</span>, <span class="dt">gap =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb392-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>], <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, </a>
+<a class="sourceLine" id="cb392-2" data-line-number="2">    <span class="dt">ncol =</span> <span class="dv">3</span>, <span class="dt">gap =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-76-1.png" width="307.268241469816" style="display: block; margin: auto;" /></p>
-<p>Instead of <code>ncol</code>, you can also specify the layout by <code>nrow</code>. Note you cannot use <code>ncol</code> and <code>nrow</code> at a same time.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>], <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), 
-    <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">nrow =</span> <span class="dv">3</span>)</code></pre></div>
+<p>Instead of <code>ncol</code>, you can also specify the layout by <code>nrow</code>. Note you cannot
+use <code>ncol</code> and <code>nrow</code> at a same time.</p>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb393-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>], <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), </a>
+<a class="sourceLine" id="cb393-2" data-line-number="2">    <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">nrow =</span> <span class="dv">3</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-78-1.png" width="308.21249343832" style="display: block; margin: auto;" /></p>
-<p>One extreme case is when all levels are put in one row and the title are rotated by 90 degree. The height of the legend will be the height of the rotated title.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>), <span class="dt">title =</span> <span class="st">&quot;foooooo&quot;</span>, 
-    <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">title_position =</span> <span class="st">&quot;lefttop-rot&quot;</span>)</code></pre></div>
+<p>One extreme case is when all levels are put in one row and the title are
+rotated by 90 degree. The height of the legend will be the height of the
+rotated title.</p>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb394-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>), <span class="dt">title =</span> <span class="st">&quot;foooooo&quot;</span>, </a>
+<a class="sourceLine" id="cb394-2" data-line-number="2">    <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">title_position =</span> <span class="st">&quot;lefttop-rot&quot;</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-80-1.png" width="399.848503937008" style="display: block; margin: auto;" /></p>
 <p>Following style a lot of people might like:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>), <span class="dt">title =</span> <span class="st">&quot;foooooo&quot;</span>, 
-    <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">title_position =</span> <span class="st">&quot;leftcenter&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb395-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>), <span class="dt">title =</span> <span class="st">&quot;foooooo&quot;</span>, </a>
+<a class="sourceLine" id="cb395-2" data-line-number="2">    <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">title_position =</span> <span class="st">&quot;leftcenter&quot;</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-82-1.png" width="443.328503937008" style="display: block; margin: auto;" /></p>
-<p><code>Legend()</code> also supports to use simple graphics (e.g. points, lines, boxplots) as legends. <code>type</code> argument can be specified as <code>points</code> or <code>p</code> that you can use number for <code>pch</code> or single-letter for <code>pch</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;points&quot;</span>, 
-    <span class="dt">pch =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>), <span class="dt">background =</span> <span class="st">&quot;#FF8080&quot;</span>)</code></pre></div>
+<p><code>Legend()</code> also supports to use simple graphics (e.g. points, lines, boxplots) as
+legends. <code>type</code> argument can be specified as <code>points</code> or <code>p</code> that you can use number
+for <code>pch</code> or single-letter for <code>pch</code>.</p>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb396-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;points&quot;</span>, </a>
+<a class="sourceLine" id="cb396-2" data-line-number="2">    <span class="dt">pch =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>), <span class="dt">background =</span> <span class="st">&quot;#FF8080&quot;</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-84-1.png" width="87.5624146981627" style="display: block; margin: auto;" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;points&quot;</span>, 
-    <span class="dt">pch =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>), <span class="dt">background =</span> <span class="st">&quot;white&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb397-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;points&quot;</span>, </a>
+<a class="sourceLine" id="cb397-2" data-line-number="2">    <span class="dt">pch =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>), <span class="dt">background =</span> <span class="st">&quot;white&quot;</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-86-1.png" width="87.5624146981627" style="display: block; margin: auto;" /></p>
 <p>Or set <code>type = &quot;lines&quot;</code>/<code>type = &quot;l&quot;</code> to use lines as legend:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;lines&quot;</span>, 
-    <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">lty =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>), <span class="dt">grid_width =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb398-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;lines&quot;</span>, </a>
+<a class="sourceLine" id="cb398-2" data-line-number="2">    <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">lty =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>), <span class="dt">grid_width =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-88-1.png" width="110.239580052493" style="display: block; margin: auto;" /></p>
 <p>Or set <code>type = &quot;boxplot&quot;</code>/<code>type = &quot;box&quot;</code> to use boxes as legends:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;boxplot&quot;</span>,
-    <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>))</code></pre></div>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb399-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>], <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;boxplot&quot;</span>,</a>
+<a class="sourceLine" id="cb399-2" data-line-number="2">    <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-90-1.png" width="87.5624146981627" style="display: block; margin: auto;" /></p>
 <p>When <code>pch</code> is an integer number, the numbers in <code>26:28</code> correspond to following symbols:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> <span class="kw">paste0</span>(<span class="st">&quot;pch = &quot;</span>, <span class="dv">26</span><span class="op">:</span><span class="dv">28</span>), <span class="dt">type =</span> <span class="st">&quot;points&quot;</span>, <span class="dt">pch =</span> <span class="dv">26</span><span class="op">:</span><span class="dv">28</span>)</code></pre></div>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb400-1" data-line-number="1">lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> <span class="kw">paste0</span>(<span class="st">&quot;pch = &quot;</span>, <span class="dv">26</span><span class="op">:</span><span class="dv">28</span>), <span class="dt">type =</span> <span class="st">&quot;points&quot;</span>, <span class="dt">pch =</span> <span class="dv">26</span><span class="op">:</span><span class="dv">28</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-92-1.png" width="85.5357480314961" style="display: block; margin: auto;" /></p>
 <p>If you want more legend styles to be supported, contact me.</p>
 </div>
 <div id="a-list-of-legends" class="section level2">
 <h2><span class="header-section-number">5.3</span> A list of legends</h2>
-<p>A list of legends can be constructed or packed as a <code>Legends</code> object where the individual legends are arranged within a certain layout. The legend list can be sent to <code>packLegend()</code> separatedly or as a list. The legend can be arranged either vertically or horizontally. <strong>ComplexHeatmap</strong> uses <code>packLegend()</code> internally to arrange multiple legends. Normally you don’t need to manually control the arrangement of multiple legends, but the following section would be useful if you want to manually construct a list of legends and apply to other plots.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd1 =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">at =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>), <span class="dt">title =</span> <span class="st">&quot;legend1&quot;</span>)
-lgd2 =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;legend2&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="dv">1</span>))
-lgd3 =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">7</span><span class="op">:</span><span class="dv">9</span>), <span class="dt">title =</span> <span class="st">&quot;legend3&quot;</span>)
-
-pd =<span class="st"> </span><span class="kw">packLegend</span>(lgd1, lgd2, lgd3)
-<span class="co"># which is same as </span>
-pd =<span class="st"> </span><span class="kw">packLegend</span>(<span class="dt">list =</span> <span class="kw">list</span>(lgd1, lgd2, lgd3))</code></pre></div>
+<p>A list of legends can be constructed or packed as a <code>Legends</code> object where the
+individual legends are arranged within a certain layout. The legend list can
+be sent to <code>packLegend()</code> separatedly or as a list. The legend can be arranged
+either vertically or horizontally. <strong>ComplexHeatmap</strong> uses <code>packLegend()</code>
+internally to arrange multiple legends. Normally you don’t need to manually
+control the arrangement of multiple legends, but the following section would
+be useful if you want to manually construct a list of legends and apply to
+other plots.</p>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb401-1" data-line-number="1">lgd1 =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">at =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>), <span class="dt">title =</span> <span class="st">&quot;legend1&quot;</span>)</a>
+<a class="sourceLine" id="cb401-2" data-line-number="2">lgd2 =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;legend2&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb401-3" data-line-number="3">lgd3 =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">7</span><span class="op">:</span><span class="dv">9</span>), <span class="dt">title =</span> <span class="st">&quot;legend3&quot;</span>)</a>
+<a class="sourceLine" id="cb401-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb401-5" data-line-number="5">pd =<span class="st"> </span><span class="kw">packLegend</span>(lgd1, lgd2, lgd3)</a>
+<a class="sourceLine" id="cb401-6" data-line-number="6"><span class="co"># which is same as </span></a>
+<a class="sourceLine" id="cb401-7" data-line-number="7">pd =<span class="st"> </span><span class="kw">packLegend</span>(<span class="dt">list =</span> <span class="kw">list</span>(lgd1, lgd2, lgd3))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-94-1.png" width="87.5624146981627" style="display: block; margin: auto;" /></p>
-<p>Simillar as single legend, you can draw the packed legends by <code>draw()</code> function. Also you can get the size of <code>pd</code> by <code>ComplexHeatmap:::width()</code> and <code>ComplexHeatmap:::height()</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ComplexHeatmap<span class="op">:::</span><span class="kw">width</span>(pd)</code></pre></div>
+<p>Simillar as single legend, you can draw the packed legends by <code>draw()</code>
+function. Also you can get the size of <code>pd</code> by <code>ComplexHeatmap:::width()</code> and
+<code>ComplexHeatmap:::height()</code>.</p>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb402-1" data-line-number="1">ComplexHeatmap<span class="op">:::</span><span class="kw">width</span>(pd)</a></code></pre></div>
 <pre><code>## [1] 19.1675555555556mm</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ComplexHeatmap<span class="op">:::</span><span class="kw">height</span>(pd)</code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb404-1" data-line-number="1">ComplexHeatmap<span class="op">:::</span><span class="kw">height</span>(pd)</a></code></pre></div>
 <pre><code>## [1] 72.0988333333333mm</code></pre>
 <p>Horizontally arranging the legends simply by setting <code>direction = &quot;horizontal&quot;</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pd =<span class="st"> </span><span class="kw">packLegend</span>(lgd1, lgd2, lgd3, <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb406-1" data-line-number="1">pd =<span class="st"> </span><span class="kw">packLegend</span>(lgd1, lgd2, lgd3, <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-97-1.png" width="203.720524934383" style="display: block; margin: auto;" /></p>
-<p>One feature of <code>packLegend()</code> is, e.g. if the packing is vertically and the sum of the packed legends exceeds the height specified by <code>max_height</code>, it will be rearragned as mutliple column layout. In following example, the maximum height is <code>10cm</code>.</p>
-<p>When all the legends are put into multiple columns, <code>column_gap</code> controls the space between two columns.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pd =<span class="st"> </span><span class="kw">packLegend</span>(lgd1, lgd3, lgd2, lgd3, lgd2, lgd1, <span class="dt">max_height =</span> <span class="kw">unit</span>(<span class="dv">10</span>, <span class="st">&quot;cm&quot;</span>), 
-    <span class="dt">column_gap =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>))</code></pre></div>
+<p>One feature of <code>packLegend()</code> is, e.g. if the packing is vertically and the
+sum of the packed legends exceeds the height specified by <code>max_height</code>, it
+will be rearragned as mutliple column layout. In following example, the
+maximum height is <code>10cm</code>.</p>
+<p>When all the legends are put into multiple columns, <code>column_gap</code> controls the
+space between two columns.</p>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb407-1" data-line-number="1">pd =<span class="st"> </span><span class="kw">packLegend</span>(lgd1, lgd3, lgd2, lgd3, lgd2, lgd1, <span class="dt">max_height =</span> <span class="kw">unit</span>(<span class="dv">10</span>, <span class="st">&quot;cm&quot;</span>), </a>
+<a class="sourceLine" id="cb407-2" data-line-number="2">    <span class="dt">column_gap =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-99-1.png" width="197.801994750656" style="display: block; margin: auto;" /></p>
 <p>Similar for horizontal packing:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd1 =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">at =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>), <span class="dt">title =</span> <span class="st">&quot;legend1&quot;</span>,
-    <span class="dt">nr =</span> <span class="dv">1</span>)
-lgd2 =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;legend2&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="dv">1</span>),
-    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)
-
-pd =<span class="st"> </span><span class="kw">packLegend</span>(lgd1, lgd2, lgd3, lgd1, lgd2, lgd3, <span class="dt">max_width =</span> <span class="kw">unit</span>(<span class="dv">10</span>, <span class="st">&quot;cm&quot;</span>), 
-    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>, <span class="dt">column_gap =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">row_gap =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb408-1" data-line-number="1">lgd1 =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">at =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">6</span>), <span class="dt">title =</span> <span class="st">&quot;legend1&quot;</span>,</a>
+<a class="sourceLine" id="cb408-2" data-line-number="2">    <span class="dt">nr =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb408-3" data-line-number="3">lgd2 =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;legend2&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb408-4" data-line-number="4">    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</a>
+<a class="sourceLine" id="cb408-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb408-6" data-line-number="6">pd =<span class="st"> </span><span class="kw">packLegend</span>(lgd1, lgd2, lgd3, lgd1, lgd2, lgd3, <span class="dt">max_width =</span> <span class="kw">unit</span>(<span class="dv">10</span>, <span class="st">&quot;cm&quot;</span>), </a>
+<a class="sourceLine" id="cb408-7" data-line-number="7">    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>, <span class="dt">column_gap =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">row_gap =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-101-1.png" width="357.556850393701" style="display: block; margin: auto;" /></p>
-<p>The packed legends <code>pd</code> is also a <code>Legends</code> object, which means you can use <code>draw()</code> to draw it by specifying the positions.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pd =<span class="st"> </span><span class="kw">packLegend</span>(lgd1, lgd2, lgd3, <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)
-<span class="kw">pushViewport</span>(<span class="kw">viewport</span>(<span class="dt">width =</span> <span class="fl">0.8</span>, <span class="dt">height =</span> <span class="fl">0.8</span>))
-<span class="kw">grid.rect</span>()
-<span class="kw">draw</span>(pd, <span class="dt">x =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>), <span class="dt">y =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>), <span class="dt">just =</span> <span class="kw">c</span>(<span class="st">&quot;left&quot;</span>, <span class="st">&quot;bottom&quot;</span>))
-<span class="kw">popViewport</span>()</code></pre></div>
+<p>The packed legends <code>pd</code> is also a <code>Legends</code> object, which means you can use
+<code>draw()</code> to draw it by specifying the positions.</p>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb409-1" data-line-number="1">pd =<span class="st"> </span><span class="kw">packLegend</span>(lgd1, lgd2, lgd3, <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</a>
+<a class="sourceLine" id="cb409-2" data-line-number="2"><span class="kw">pushViewport</span>(<span class="kw">viewport</span>(<span class="dt">width =</span> <span class="fl">0.8</span>, <span class="dt">height =</span> <span class="fl">0.8</span>))</a>
+<a class="sourceLine" id="cb409-3" data-line-number="3"><span class="kw">grid.rect</span>()</a>
+<a class="sourceLine" id="cb409-4" data-line-number="4"><span class="kw">draw</span>(pd, <span class="dt">x =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>), <span class="dt">y =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>), <span class="dt">just =</span> <span class="kw">c</span>(<span class="st">&quot;left&quot;</span>, <span class="st">&quot;bottom&quot;</span>))</a>
+<a class="sourceLine" id="cb409-5" data-line-number="5"><span class="kw">popViewport</span>()</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-102-1.png" width="576" style="display: block; margin: auto;" /></p>
-<p>To be mentioned again, <code>packLegend()</code> is used internally to manage the list of heatmap and annotation legends.</p>
+<p>To be mentioned again, <code>packLegend()</code> is used internally to manage the list
+of heatmap and annotation legends.</p>
 </div>
 <div id="heatmap-and-annotation-legends" class="section level2">
 <h2><span class="header-section-number">5.4</span> Heatmap and annotation legends</h2>
-<p>Settings for heatmap legend are controlled by <code>heatmap_legend_param</code> argument in <code>Heatmap()</code>. The value for <code>heatmap_legend_param</code> is a list of parameters which are supported in <code>Legend()</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>)
-<span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">heatmap_legend_param =</span> <span class="kw">list</span>(
-    <span class="dt">at =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">2</span>),
-    <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;zero&quot;</span>, <span class="st">&quot;high&quot;</span>),
-    <span class="dt">title =</span> <span class="st">&quot;Some values&quot;</span>,
-    <span class="dt">legend_height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>),
-    <span class="dt">title_position =</span> <span class="st">&quot;lefttop-rot&quot;</span>
-))</code></pre></div>
+<p>Settings for heatmap legend are controlled by <code>heatmap_legend_param</code> argument
+in <code>Heatmap()</code>. The value for <code>heatmap_legend_param</code> is a list of parameters
+which are supported in <code>Legend()</code>.</p>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb410-1" data-line-number="1">m =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb410-2" data-line-number="2"><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">heatmap_legend_param =</span> <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb410-3" data-line-number="3">    <span class="dt">at =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb410-4" data-line-number="4">    <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;zero&quot;</span>, <span class="st">&quot;high&quot;</span>),</a>
+<a class="sourceLine" id="cb410-5" data-line-number="5">    <span class="dt">title =</span> <span class="st">&quot;Some values&quot;</span>,</a>
+<a class="sourceLine" id="cb410-6" data-line-number="6">    <span class="dt">legend_height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>),</a>
+<a class="sourceLine" id="cb410-7" data-line-number="7">    <span class="dt">title_position =</span> <span class="st">&quot;lefttop-rot&quot;</span></a>
+<a class="sourceLine" id="cb410-8" data-line-number="8">))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-103-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p><code>annotation_legend_param</code> controls legends for annotations. Since a <code>HeatmapAnnotation</code> may contain multiple annotations, the value of <code>annotation_legend_param</code> is a list of configurations of each annotation.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">runif</span>(<span class="dv">10</span>), <span class="dt">bar =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>),
-    <span class="dt">annotation_legend_param =</span> <span class="kw">list</span>(
-        <span class="dt">foo =</span> <span class="kw">list</span>(
-                <span class="dt">title =</span> <span class="st">&quot;Fooooooh&quot;</span>,
-                <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>),
-                <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;zero&quot;</span>, <span class="st">&quot;median&quot;</span>, <span class="st">&quot;one&quot;</span>)
-            ),
-        <span class="dt">bar =</span> <span class="kw">list</span>(
-                <span class="dt">title =</span> <span class="st">&quot;Baaaaaaar&quot;</span>,
-                <span class="dt">at =</span> <span class="kw">c</span>(<span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>),
-                <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>)
-            )
-))
-<span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">top_annotation =</span> ha)</code></pre></div>
+<p><code>annotation_legend_param</code> controls legends for annotations. Since a
+<code>HeatmapAnnotation</code> may contain multiple annotations, the value of
+<code>annotation_legend_param</code> is a list of configurations of each annotation.</p>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb411-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">runif</span>(<span class="dv">10</span>), <span class="dt">bar =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb411-2" data-line-number="2">    <span class="dt">annotation_legend_param =</span> <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb411-3" data-line-number="3">        <span class="dt">foo =</span> <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb411-4" data-line-number="4">                <span class="dt">title =</span> <span class="st">&quot;Fooooooh&quot;</span>,</a>
+<a class="sourceLine" id="cb411-5" data-line-number="5">                <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb411-6" data-line-number="6">                <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;zero&quot;</span>, <span class="st">&quot;median&quot;</span>, <span class="st">&quot;one&quot;</span>)</a>
+<a class="sourceLine" id="cb411-7" data-line-number="7">            ),</a>
+<a class="sourceLine" id="cb411-8" data-line-number="8">        <span class="dt">bar =</span> <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb411-9" data-line-number="9">                <span class="dt">title =</span> <span class="st">&quot;Baaaaaaar&quot;</span>,</a>
+<a class="sourceLine" id="cb411-10" data-line-number="10">                <span class="dt">at =</span> <span class="kw">c</span>(<span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>),</a>
+<a class="sourceLine" id="cb411-11" data-line-number="11">                <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>)</a>
+<a class="sourceLine" id="cb411-12" data-line-number="12">            )</a>
+<a class="sourceLine" id="cb411-13" data-line-number="13">))</a>
+<a class="sourceLine" id="cb411-14" data-line-number="14"><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">top_annotation =</span> ha)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-104-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>If the heatmaps are concatenated horizontally, all heatmap and row annotation legends are grouped and all column annotation legends ae grouped. The reason we assume the horizontal direction passes the main message of the plot, while the vertical direction provides secondary information.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo1 =</span> <span class="kw">runif</span>(<span class="dv">10</span>), <span class="dt">bar1 =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))
-ha2 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo2 =</span> <span class="kw">runif</span>(<span class="dv">10</span>), <span class="dt">bar2 =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))
-<span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat1&quot;</span>, <span class="dt">top_annotation =</span> ha1) <span class="op">+</span>
-<span class="kw">rowAnnotation</span>(<span class="dt">sth =</span> <span class="kw">runif</span>(<span class="dv">10</span>)) <span class="op">+</span>
-<span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat2&quot;</span>, <span class="dt">top_annotation =</span> ha2)</code></pre></div>
+<p>If the heatmaps are concatenated horizontally, all heatmap and row annotation
+legends are grouped and all column annotation legends ae grouped. The reason
+we assume the horizontal direction passes the main message of the plot, while
+the vertical direction provides secondary information.</p>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb412-1" data-line-number="1">ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo1 =</span> <span class="kw">runif</span>(<span class="dv">10</span>), <span class="dt">bar1 =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a>
+<a class="sourceLine" id="cb412-2" data-line-number="2">ha2 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo2 =</span> <span class="kw">runif</span>(<span class="dv">10</span>), <span class="dt">bar2 =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a>
+<a class="sourceLine" id="cb412-3" data-line-number="3"><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat1&quot;</span>, <span class="dt">top_annotation =</span> ha1) <span class="op">+</span></a>
+<a class="sourceLine" id="cb412-4" data-line-number="4"><span class="kw">rowAnnotation</span>(<span class="dt">sth =</span> <span class="kw">runif</span>(<span class="dv">10</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb412-5" data-line-number="5"><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat2&quot;</span>, <span class="dt">top_annotation =</span> ha2)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-105-1.png" width="768" style="display: block; margin: auto;" /></p>
-<p>Similarlly, if the heatmaps are concatenated vertically, all heatmaps/column annotations are grouped and legends for all row annotations are grouped.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo1 =</span> <span class="kw">runif</span>(<span class="dv">10</span>), <span class="dt">bar1 =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>), 
-    <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>)
-ha2 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo2 =</span> <span class="kw">runif</span>(<span class="dv">10</span>), <span class="dt">bar2 =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))
-<span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat1&quot;</span>, <span class="dt">top_annotation =</span> ha1) <span class="op">%v%</span>
-<span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat2&quot;</span>, <span class="dt">top_annotation =</span> ha2, 
-    <span class="dt">right_annotation =</span> <span class="kw">rowAnnotation</span>(<span class="dt">sth =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>))</code></pre></div>
+<p>Similarlly, if the heatmaps are concatenated vertically, all heatmaps/column
+annotations are grouped and legends for all row annotations are grouped.</p>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb413-1" data-line-number="1">ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo1 =</span> <span class="kw">runif</span>(<span class="dv">10</span>), <span class="dt">bar1 =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>), </a>
+<a class="sourceLine" id="cb413-2" data-line-number="2">    <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>)</a>
+<a class="sourceLine" id="cb413-3" data-line-number="3">ha2 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo2 =</span> <span class="kw">runif</span>(<span class="dv">10</span>), <span class="dt">bar2 =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a>
+<a class="sourceLine" id="cb413-4" data-line-number="4"><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat1&quot;</span>, <span class="dt">top_annotation =</span> ha1) <span class="op">%v%</span></a>
+<a class="sourceLine" id="cb413-5" data-line-number="5"><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat2&quot;</span>, <span class="dt">top_annotation =</span> ha2, </a>
+<a class="sourceLine" id="cb413-6" data-line-number="6">    <span class="dt">right_annotation =</span> <span class="kw">rowAnnotation</span>(<span class="dt">sth =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-106-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p><code>show_legend</code> in <code>HeatmapAnnotation()</code> and <code>show_heatmap_legend</code> in <code>Heatmap()</code> controls whether show the legends. Note <code>show_legend</code> can be a single logical value, a logical vector, or a named vector which controls subset of annotations.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">runif</span>(<span class="dv">10</span>), 
-    <span class="dt">bar =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>),
-    <span class="dt">show_legend =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>), <span class="co"># it can also be show_legend = c(bar = FALSE)</span>
-    <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>)
-<span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat1&quot;</span>, <span class="dt">top_annotation =</span> ha) <span class="op">+</span>
-<span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat2&quot;</span>, <span class="dt">show_heatmap_legend =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<p><code>show_legend</code> in <code>HeatmapAnnotation()</code> and <code>show_heatmap_legend</code> in
+<code>Heatmap()</code> controls whether show the legends. Note <code>show_legend</code> can be a
+single logical value, a logical vector, or a named vector which controls
+subset of annotations.</p>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb414-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">runif</span>(<span class="dv">10</span>), </a>
+<a class="sourceLine" id="cb414-2" data-line-number="2">    <span class="dt">bar =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb414-3" data-line-number="3">    <span class="dt">show_legend =</span> <span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>), <span class="co"># it can also be show_legend = c(bar = FALSE)</span></a>
+<a class="sourceLine" id="cb414-4" data-line-number="4">    <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>)</a>
+<a class="sourceLine" id="cb414-5" data-line-number="5"><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat1&quot;</span>, <span class="dt">top_annotation =</span> ha) <span class="op">+</span></a>
+<a class="sourceLine" id="cb414-6" data-line-number="6"><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat2&quot;</span>, <span class="dt">show_heatmap_legend =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-107-1.png" width="768" style="display: block; margin: auto;" /></p>
-<p><code>merge_legend</code> in <code>draw()</code> function controlls whether to merge all the legends into a single group. Normally, when there are many annotations and heatmaps, the number of legends is always large. In this case, the legends are automatically arranged into multiple columns (or multiple rows if they are put at the bottom of the heatmaps) to get rid of being out of the figure page. If a heatmap has heatmap annotations, the order of putting legends are: legends for the left annotations, legends for the top annotations, legend of the heatmap, legends for the bottom annotations and legends for the right annotations.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo1 =</span> <span class="kw">runif</span>(<span class="dv">10</span>), 
-    <span class="dt">bar1 =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))
-ha2 =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo2 =</span> <span class="kw">runif</span>(<span class="dv">10</span>), 
-    <span class="dt">bar2 =</span> <span class="kw">sample</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))
-ha3 =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo3 =</span> <span class="kw">runif</span>(<span class="dv">10</span>), 
-    <span class="dt">bar3 =</span> <span class="kw">sample</span>(month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))
-ht_list =<span class="st"> </span><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat1&quot;</span>, <span class="dt">top_annotation =</span> ha1) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat2&quot;</span>, <span class="dt">left_annotation =</span> ha2) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span>ha3
-<span class="kw">draw</span>(ht_list, <span class="dt">merge_legend =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p><code>merge_legend</code> in <code>draw()</code> function controlls whether to merge all the legends
+into a single group. Normally, when there are many annotations and heatmaps,
+the number of legends is always large. In this case, the legends are
+automatically arranged into multiple columns (or multiple rows if they are put
+at the bottom of the heatmaps) to get rid of being out of the figure page. If
+a heatmap has heatmap annotations, the order of putting legends are: legends
+for the left annotations, legends for the top annotations, legend of the
+heatmap, legends for the bottom annotations and legends for the right
+annotations.</p>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb415-1" data-line-number="1">ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo1 =</span> <span class="kw">runif</span>(<span class="dv">10</span>), </a>
+<a class="sourceLine" id="cb415-2" data-line-number="2">    <span class="dt">bar1 =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a>
+<a class="sourceLine" id="cb415-3" data-line-number="3">ha2 =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo2 =</span> <span class="kw">runif</span>(<span class="dv">10</span>), </a>
+<a class="sourceLine" id="cb415-4" data-line-number="4">    <span class="dt">bar2 =</span> <span class="kw">sample</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a>
+<a class="sourceLine" id="cb415-5" data-line-number="5">ha3 =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo3 =</span> <span class="kw">runif</span>(<span class="dv">10</span>), </a>
+<a class="sourceLine" id="cb415-6" data-line-number="6">    <span class="dt">bar3 =</span> <span class="kw">sample</span>(month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a>
+<a class="sourceLine" id="cb415-7" data-line-number="7">ht_list =<span class="st"> </span><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat1&quot;</span>, <span class="dt">top_annotation =</span> ha1) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb415-8" data-line-number="8"><span class="st">    </span><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat2&quot;</span>, <span class="dt">left_annotation =</span> ha2) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb415-9" data-line-number="9"><span class="st">    </span>ha3</a>
+<a class="sourceLine" id="cb415-10" data-line-number="10"><span class="kw">draw</span>(ht_list, <span class="dt">merge_legend =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-108-1.png" width="768" style="display: block; margin: auto;" /></p>
-<p>A continuous color mapping can have a discrete legend by setting <code>color_bar = &quot;discrete&quot;)</code>, both work for heatmap legends and annotation legends.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">heatmap_legend_param =</span> <span class="kw">list</span>(<span class="dt">color_bar =</span> <span class="st">&quot;discrete&quot;</span>),
-    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,
-        <span class="dt">annotation_legend_param =</span> <span class="kw">list</span>(
-            <span class="dt">foo =</span> <span class="kw">list</span>(<span class="dt">color_bar =</span> <span class="st">&quot;discrete&quot;</span>))))</code></pre></div>
+<p>A continuous color mapping can have a
+discrete legend by setting <code>color_bar = &quot;discrete&quot;)</code>, both work for heatmap
+legends and annotation legends.</p>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb416-1" data-line-number="1"><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">heatmap_legend_param =</span> <span class="kw">list</span>(<span class="dt">color_bar =</span> <span class="st">&quot;discrete&quot;</span>),</a>
+<a class="sourceLine" id="cb416-2" data-line-number="2">    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,</a>
+<a class="sourceLine" id="cb416-3" data-line-number="3">        <span class="dt">annotation_legend_param =</span> <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb416-4" data-line-number="4">            <span class="dt">foo =</span> <span class="kw">list</span>(<span class="dt">color_bar =</span> <span class="st">&quot;discrete&quot;</span>))))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-109-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>If the <code>value</code> is a character vector, no matter it is an annotation or the one-row/one-column matrix for the heatmap, the default order of legend labels is <code>sort(unique(value))</code> and if <code>value</code> is a factor, the order of legend labels is <code>levels(value)</code>. Always remember the order can be fine-tuned by setting <code>at</code> and <code>labels</code> parameters in <code>heatmap_legend_param</code>/<code>annotation_legend_param</code> in <code>Heatmap()</code>/<code>HeamtapAnnotation()</code> functions respectively.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">chr =<span class="st"> </span><span class="kw">sample</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)
-chr</code></pre></div>
-<pre><code>##  [1] &quot;c&quot; &quot;a&quot; &quot;a&quot; &quot;c&quot; &quot;c&quot; &quot;a&quot; &quot;a&quot; &quot;c&quot; &quot;c&quot; &quot;a&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fa1 =<span class="st"> </span><span class="kw">factor</span>(chr)
-fa2 =<span class="st"> </span><span class="kw">factor</span>(chr, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;c&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>))
-<span class="kw">Heatmap</span>(m, <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">chr =</span> chr, <span class="dt">fa1 =</span> fa1, <span class="dt">fa2 =</span> fa2, <span class="dt">fa3 =</span> fa2,
-    <span class="dt">annotation_legend_param =</span> <span class="kw">list</span>(<span class="dt">fa3 =</span> <span class="kw">list</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;a&quot;</span>)))))</code></pre></div>
+<p>If the <code>value</code> is a character vector, no matter it is an annotation or the one-row/one-column
+matrix for the heatmap, the default order of legend labels is <code>sort(unique(value))</code> and if <code>value</code>
+is a factor, the order of legend labels is <code>levels(value)</code>. Always remember the order can be
+fine-tuned by setting <code>at</code> and <code>labels</code> parameters in <code>heatmap_legend_param</code>/<code>annotation_legend_param</code>
+in <code>Heatmap()</code>/<code>HeamtapAnnotation()</code> functions respectively.</p>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb417-1" data-line-number="1">chr =<span class="st"> </span><span class="kw">sample</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb417-2" data-line-number="2">chr</a></code></pre></div>
+<pre><code>##  [1] &quot;b&quot; &quot;c&quot; &quot;a&quot; &quot;b&quot; &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;c&quot; &quot;a&quot; &quot;c&quot;</code></pre>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb419-1" data-line-number="1">fa1 =<span class="st"> </span><span class="kw">factor</span>(chr)</a>
+<a class="sourceLine" id="cb419-2" data-line-number="2">fa2 =<span class="st"> </span><span class="kw">factor</span>(chr, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;c&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>))</a>
+<a class="sourceLine" id="cb419-3" data-line-number="3"><span class="kw">Heatmap</span>(m, <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">chr =</span> chr, <span class="dt">fa1 =</span> fa1, <span class="dt">fa2 =</span> fa2, <span class="dt">fa3 =</span> fa2,</a>
+<a class="sourceLine" id="cb419-4" data-line-number="4">    <span class="dt">annotation_legend_param =</span> <span class="kw">list</span>(<span class="dt">fa3 =</span> <span class="kw">list</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;a&quot;</span>)))))</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-110-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="add-customized-legends" class="section level2">
 <h2><span class="header-section-number">5.5</span> Add customized legends</h2>
-<p>The self-defined legends (constructed by <code>Legend()</code>) can be added to the heatmap legend list by <code>heatmap_legend_list</code> argument in <code>draw()</code> and the legends for annotations can be added to the annotation legend list by <code>annotation_legend_list</code> argument.</p>
-<p>There is a nice example of adding self-defined legends in Section <a href="other-high-level-plots.html#stacked-summary-plot">10.2</a>, but here we show a simple example.</p>
-<p>As mentioned before, only the heatmap and simple annotations can generate legends on the plot. <strong>ComplexHeatmap</strong> provides many annotation functions, but none of them supports generating legends. In following code, we add a point annotation, a line annotation and a summary annotation to the heatmaps.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">pt =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="kw">rep</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">each =</span> <span class="dv">5</span>)), 
-    <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)), <span class="dt">show_annotation_name =</span> <span class="ot">FALSE</span>)
-ha2 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">ln =</span> <span class="kw">anno_lines</span>(<span class="kw">cbind</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">10</span><span class="op">:</span><span class="dv">1</span>), <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="dv">4</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">lty =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>),
-    <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)), <span class="dt">show_annotation_name =</span> <span class="ot">FALSE</span>)
-m =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>)
-ht_list =<span class="st"> </span><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat1&quot;</span>, <span class="dt">top_annotation =</span> ha1) <span class="op">+</span><span class="st"> </span>
-<span class="st">          </span><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat2&quot;</span>, <span class="dt">top_annotation =</span> ha2) <span class="op">+</span>
-<span class="st">          </span><span class="kw">Heatmap</span>(m[, <span class="dv">1</span>], <span class="dt">name =</span> <span class="st">&quot;mat3&quot;</span>, 
-            <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(
-                <span class="dt">summary =</span> <span class="kw">anno_summary</span>(<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>))
-          ), <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>))
-<span class="kw">draw</span>(ht_list, <span class="dt">ht_gap =</span> <span class="kw">unit</span>(<span class="dv">7</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">row_km =</span> <span class="dv">2</span>)</code></pre></div>
+<p>The self-defined legends (constructed by <code>Legend()</code>) can be added to the
+heatmap legend list by <code>heatmap_legend_list</code> argument in <code>draw()</code> and the
+legends for annotations can be added to the annotation legend list by
+<code>annotation_legend_list</code> argument.</p>
+<p>There is a nice example of adding self-defined legends in Section
+<a href="other-high-level-plots.html#stacked-summary-plot">10.2</a>, but here we show a simple example.</p>
+<p>As mentioned before, only the heatmap and simple annotations can generate
+legends on the plot. <strong>ComplexHeatmap</strong> provides many annotation functions,
+but none of them supports generating legends. In following code, we add a
+point annotation, a line annotation and a summary annotation to the heatmaps.</p>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb420-1" data-line-number="1">ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">pt =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="kw">rep</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">each =</span> <span class="dv">5</span>)), </a>
+<a class="sourceLine" id="cb420-2" data-line-number="2">    <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)), <span class="dt">show_annotation_name =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb420-3" data-line-number="3">ha2 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">ln =</span> <span class="kw">anno_lines</span>(<span class="kw">cbind</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dv">10</span><span class="op">:</span><span class="dv">1</span>), <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="dv">4</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">lty =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb420-4" data-line-number="4">    <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)), <span class="dt">show_annotation_name =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb420-5" data-line-number="5">m =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb420-6" data-line-number="6">ht_list =<span class="st"> </span><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat1&quot;</span>, <span class="dt">top_annotation =</span> ha1) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb420-7" data-line-number="7"><span class="st">          </span><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat2&quot;</span>, <span class="dt">top_annotation =</span> ha2) <span class="op">+</span></a>
+<a class="sourceLine" id="cb420-8" data-line-number="8"><span class="st">          </span><span class="kw">Heatmap</span>(m[, <span class="dv">1</span>], <span class="dt">name =</span> <span class="st">&quot;mat3&quot;</span>, </a>
+<a class="sourceLine" id="cb420-9" data-line-number="9">            <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(</a>
+<a class="sourceLine" id="cb420-10" data-line-number="10">                <span class="dt">summary =</span> <span class="kw">anno_summary</span>(<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb420-11" data-line-number="11">          ), <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>))</a>
+<a class="sourceLine" id="cb420-12" data-line-number="12"><span class="kw">draw</span>(ht_list, <span class="dt">ht_gap =</span> <span class="kw">unit</span>(<span class="dv">7</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">row_km =</span> <span class="dv">2</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-111-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Next we construct legends for the points, the lines and the boxplots.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd_list =<span class="st"> </span><span class="kw">list</span>(
-    <span class="kw">Legend</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>), <span class="dt">title =</span> <span class="st">&quot;pt&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;points&quot;</span>, <span class="dt">pch =</span> <span class="dv">16</span>, 
-        <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>)),
-    <span class="kw">Legend</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;darkblue&quot;</span>, <span class="st">&quot;lightblue&quot;</span>), <span class="dt">title =</span> <span class="st">&quot;ln&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;lines&quot;</span>, 
-        <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="dv">4</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">lty =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)),
-    <span class="kw">Legend</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;group1&quot;</span>, <span class="st">&quot;group2&quot;</span>), <span class="dt">title =</span> <span class="st">&quot;km&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;boxplot&quot;</span>,
-        <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>))
-)
-<span class="kw">draw</span>(ht_list, <span class="dt">ht_gap =</span> <span class="kw">unit</span>(<span class="dv">7</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">row_km =</span> <span class="dv">2</span>, <span class="dt">annotation_legend_list =</span> lgd_list)</code></pre></div>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb421-1" data-line-number="1">lgd_list =<span class="st"> </span><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb421-2" data-line-number="2">    <span class="kw">Legend</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>), <span class="dt">title =</span> <span class="st">&quot;pt&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;points&quot;</span>, <span class="dt">pch =</span> <span class="dv">16</span>, </a>
+<a class="sourceLine" id="cb421-3" data-line-number="3">        <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>)),</a>
+<a class="sourceLine" id="cb421-4" data-line-number="4">    <span class="kw">Legend</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;darkblue&quot;</span>, <span class="st">&quot;lightblue&quot;</span>), <span class="dt">title =</span> <span class="st">&quot;ln&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;lines&quot;</span>, </a>
+<a class="sourceLine" id="cb421-5" data-line-number="5">        <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="dv">4</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">lty =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)),</a>
+<a class="sourceLine" id="cb421-6" data-line-number="6">    <span class="kw">Legend</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;group1&quot;</span>, <span class="st">&quot;group2&quot;</span>), <span class="dt">title =</span> <span class="st">&quot;km&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;boxplot&quot;</span>,</a>
+<a class="sourceLine" id="cb421-7" data-line-number="7">        <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb421-8" data-line-number="8">)</a>
+<a class="sourceLine" id="cb421-9" data-line-number="9"><span class="kw">draw</span>(ht_list, <span class="dt">ht_gap =</span> <span class="kw">unit</span>(<span class="dv">7</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">row_km =</span> <span class="dv">2</span>, <span class="dt">annotation_legend_list =</span> lgd_list)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-112-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 <div id="the-side-of-legends" class="section level2">
 <h2><span class="header-section-number">5.6</span> The side of legends</h2>
-<p>By default, the heatmap legends and annotation legends are put on the right of the plot. The side relative to the heatmaps of the two types of legends can be controlled by <code>heatmap_legend_side</code> and <code>annotation_legend_side</code> arguments in <code>draw()</code> function. The values that can be set for the two arguments are <code>left</code>, <code>right</code>, <code>bottom</code> and <code>top</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>)
-ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo1 =</span> <span class="kw">runif</span>(<span class="dv">10</span>), <span class="dt">bar1 =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))
-ha2 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo2 =</span> <span class="kw">runif</span>(<span class="dv">10</span>), <span class="dt">bar2 =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))
-ht_list =<span class="st"> </span><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat1&quot;</span>, <span class="dt">top_annotation =</span> ha1) <span class="op">+</span>
-<span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">sth =</span> <span class="kw">runif</span>(<span class="dv">10</span>)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat2&quot;</span>, <span class="dt">top_annotation =</span> ha2)
-<span class="kw">draw</span>(ht_list, <span class="dt">heatmap_legend_side =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">annotation_legend_side =</span> <span class="st">&quot;bottom&quot;</span>)</code></pre></div>
+<p>By default, the heatmap legends and annotation legends are put on the right of
+the plot. The side relative to the heatmaps of the two types of legends can be
+controlled by <code>heatmap_legend_side</code> and <code>annotation_legend_side</code> arguments in
+<code>draw()</code> function. The values that can be set for the two arguments are
+<code>left</code>, <code>right</code>, <code>bottom</code> and <code>top</code>.</p>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb422-1" data-line-number="1">m =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb422-2" data-line-number="2">ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo1 =</span> <span class="kw">runif</span>(<span class="dv">10</span>), <span class="dt">bar1 =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a>
+<a class="sourceLine" id="cb422-3" data-line-number="3">ha2 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo2 =</span> <span class="kw">runif</span>(<span class="dv">10</span>), <span class="dt">bar2 =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a>
+<a class="sourceLine" id="cb422-4" data-line-number="4">ht_list =<span class="st"> </span><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat1&quot;</span>, <span class="dt">top_annotation =</span> ha1) <span class="op">+</span></a>
+<a class="sourceLine" id="cb422-5" data-line-number="5"><span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">sth =</span> <span class="kw">runif</span>(<span class="dv">10</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb422-6" data-line-number="6"><span class="st">    </span><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat2&quot;</span>, <span class="dt">top_annotation =</span> ha2)</a>
+<a class="sourceLine" id="cb422-7" data-line-number="7"><span class="kw">draw</span>(ht_list, <span class="dt">heatmap_legend_side =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">annotation_legend_side =</span> <span class="st">&quot;bottom&quot;</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-113-1.png" width="768" style="display: block; margin: auto;" /></p>
-<p>When the legends are put at the bottom or on the top, the legends are arranged horizontally. We might also want to set every single legend as horizontal legend, this needs to be set via the <code>heatmap_legend_param</code> and <code>annotation_legend_param</code> arguments in <code>Heatmap()</code> and <code>HeatmapAnnotation()</code> functions:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo1 =</span> <span class="kw">runif</span>(<span class="dv">10</span>), <span class="dt">bar1 =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>),
-    <span class="dt">annotation_legend_param =</span> <span class="kw">list</span>(
-        <span class="dt">foo1 =</span> <span class="kw">list</span>(<span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>),
-        <span class="dt">bar1 =</span> <span class="kw">list</span>(<span class="dt">nrow =</span> <span class="dv">1</span>)))
-ha2 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo2 =</span> <span class="kw">runif</span>(<span class="dv">10</span>), <span class="dt">bar2 =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>),
-    <span class="dt">annotation_legend_param =</span> <span class="kw">list</span>(
-        <span class="dt">foo2 =</span> <span class="kw">list</span>(<span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>),
-        <span class="dt">bar2 =</span> <span class="kw">list</span>(<span class="dt">nrow =</span> <span class="dv">1</span>)))
-ht_list =<span class="st"> </span><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat1&quot;</span>, <span class="dt">top_annotation =</span> ha1, 
-        <span class="dt">heatmap_legend_param =</span> <span class="kw">list</span>(<span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">sth =</span> <span class="kw">runif</span>(<span class="dv">10</span>), 
-        <span class="dt">annotation_legend_param =</span> <span class="kw">list</span>(<span class="dt">sth =</span> <span class="kw">list</span>(<span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>))) <span class="op">+</span>
-<span class="st">    </span><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat2&quot;</span>, <span class="dt">top_annotation =</span> ha2,
-        <span class="dt">heatmap_legend_param =</span> <span class="kw">list</span>(<span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>))
-<span class="kw">draw</span>(ht_list, <span class="dt">merge_legend =</span> <span class="ot">TRUE</span>, <span class="dt">heatmap_legend_side =</span> <span class="st">&quot;bottom&quot;</span>, 
-    <span class="dt">annotation_legend_side =</span> <span class="st">&quot;bottom&quot;</span>)</code></pre></div>
+<p>When the legends are put at the bottom or on the top, the legends are arranged
+horizontally. We might also want to set every single legend as horizontal
+legend, this needs to be set via the <code>heatmap_legend_param</code> and
+<code>annotation_legend_param</code> arguments in <code>Heatmap()</code> and <code>HeatmapAnnotation()</code>
+functions:</p>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb423-1" data-line-number="1">ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo1 =</span> <span class="kw">runif</span>(<span class="dv">10</span>), <span class="dt">bar1 =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb423-2" data-line-number="2">    <span class="dt">annotation_legend_param =</span> <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb423-3" data-line-number="3">        <span class="dt">foo1 =</span> <span class="kw">list</span>(<span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>),</a>
+<a class="sourceLine" id="cb423-4" data-line-number="4">        <span class="dt">bar1 =</span> <span class="kw">list</span>(<span class="dt">nrow =</span> <span class="dv">1</span>)))</a>
+<a class="sourceLine" id="cb423-5" data-line-number="5">ha2 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo2 =</span> <span class="kw">runif</span>(<span class="dv">10</span>), <span class="dt">bar2 =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb423-6" data-line-number="6">    <span class="dt">annotation_legend_param =</span> <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb423-7" data-line-number="7">        <span class="dt">foo2 =</span> <span class="kw">list</span>(<span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>),</a>
+<a class="sourceLine" id="cb423-8" data-line-number="8">        <span class="dt">bar2 =</span> <span class="kw">list</span>(<span class="dt">nrow =</span> <span class="dv">1</span>)))</a>
+<a class="sourceLine" id="cb423-9" data-line-number="9">ht_list =<span class="st"> </span><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat1&quot;</span>, <span class="dt">top_annotation =</span> ha1, </a>
+<a class="sourceLine" id="cb423-10" data-line-number="10">        <span class="dt">heatmap_legend_param =</span> <span class="kw">list</span>(<span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb423-11" data-line-number="11"><span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">sth =</span> <span class="kw">runif</span>(<span class="dv">10</span>), </a>
+<a class="sourceLine" id="cb423-12" data-line-number="12">        <span class="dt">annotation_legend_param =</span> <span class="kw">list</span>(<span class="dt">sth =</span> <span class="kw">list</span>(<span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>))) <span class="op">+</span></a>
+<a class="sourceLine" id="cb423-13" data-line-number="13"><span class="st">    </span><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat2&quot;</span>, <span class="dt">top_annotation =</span> ha2,</a>
+<a class="sourceLine" id="cb423-14" data-line-number="14">        <span class="dt">heatmap_legend_param =</span> <span class="kw">list</span>(<span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>))</a>
+<a class="sourceLine" id="cb423-15" data-line-number="15"><span class="kw">draw</span>(ht_list, <span class="dt">merge_legend =</span> <span class="ot">TRUE</span>, <span class="dt">heatmap_legend_side =</span> <span class="st">&quot;bottom&quot;</span>, </a>
+<a class="sourceLine" id="cb423-16" data-line-number="16">    <span class="dt">annotation_legend_side =</span> <span class="st">&quot;bottom&quot;</span>)</a></code></pre></div>
 <p><img src="05-legends_files/figure-html/unnamed-chunk-114-1.png" width="768" style="display: block; margin: auto;" /></p>
 
 </div>
@@ -717,7 +868,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

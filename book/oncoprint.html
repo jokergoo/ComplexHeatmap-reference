@@ -52,41 +52,68 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -244,7 +271,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11.2.1" data-path="other-tricks.html"><a href="other-tricks.html#titles"><i class="fa fa-check"></i><b>11.2.1</b> Titles</a></li>
 <li class="chapter" data-level="11.2.2" data-path="other-tricks.html"><a href="other-tricks.html#rowcolumn-names"><i class="fa fa-check"></i><b>11.2.2</b> Row/column names</a></li>
 <li class="chapter" data-level="11.2.3" data-path="other-tricks.html"><a href="other-tricks.html#annotation-labels-1"><i class="fa fa-check"></i><b>11.2.3</b> Annotation labels</a></li>
-<li class="chapter" data-level="11.2.4" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#text-annotation"><i class="fa fa-check"></i><b>11.2.4</b> Text annotation</a></li>
+<li class="chapter" data-level="11.2.4" data-path="other-tricks.html"><a href="other-tricks.html#text-annotation-1"><i class="fa fa-check"></i><b>11.2.4</b> Text annotation</a></li>
 <li class="chapter" data-level="11.2.5" data-path="other-tricks.html"><a href="other-tricks.html#legend"><i class="fa fa-check"></i><b>11.2.5</b> Legend</a></li>
 </ul></li>
 </ul></li>
@@ -270,51 +297,87 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="oncoprint" class="section level1">
 <h1><span class="header-section-number">Chapter 7</span> OncoPrint</h1>
-<p><a href="http://www.cbioportal.org/faq#what-are-oncoprints">OncoPrint</a> is a way to visualize multiple genomic alteration events by heatmap. Here the <strong>ComplexHeatmap</strong> package provides a <code>oncoPrint()</code> function which makes oncoPrints. Besides the default style which is provided by <a href="http://www.cbioportal.org/index.do">cBioPortal</a>, there are additional barplots at both sides of the heatmap which show numbers of different alterations for each sample and for each gene. Also with the functionality of <strong>ComplexHeatmap</strong>, you can concatenate oncoPrints with additional heatmaps and annotations to correspond more types of information.</p>
+<p><a href="http://www.cbioportal.org/faq#what-are-oncoprints">OncoPrint</a> is a
+way to visualize multiple genomic alteration events by heatmap. Here the
+<strong>ComplexHeatmap</strong> package provides a <code>oncoPrint()</code> function which makes
+oncoPrints. Besides the default style which is provided by <a href="http://www.cbioportal.org/index.do">cBioPortal</a>, there are additional
+barplots at both sides of the heatmap which show numbers of different
+alterations for each sample and for each gene. Also with the functionality of
+<strong>ComplexHeatmap</strong>, you can concatenate oncoPrints with additional heatmaps
+and annotations to correspond more types of information.</p>
 <div id="oncoprint-general-settings" class="section level2">
 <h2><span class="header-section-number">7.1</span> General settings</h2>
 <div id="input-data-format" class="section level3">
 <h3><span class="header-section-number">7.1.1</span> Input data format</h3>
-<p>There are two different formats of input data. The first is represented as a matrix in which each value can include multiple alterations in a form of a complicated string. In follow example, ‘g1’ in ‘s1’ has two types of alterations which are ‘snv’ and ‘indel’.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mat =<span class="st"> </span><span class="kw">read.table</span>(<span class="kw">textConnection</span>(
-<span class="st">&quot;s1,s2,s3</span>
-<span class="st">g1,snv;indel,snv,indel</span>
-<span class="st">g2,,snv;indel,snv</span>
-<span class="st">g3,snv,,indel;snv&quot;</span>), <span class="dt">row.names =</span> <span class="dv">1</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
-mat =<span class="st"> </span><span class="kw">as.matrix</span>(mat)
-mat</code></pre></div>
+<p>There are two different formats of input data. The first is represented as a
+matrix in which each value can include multiple alterations in a form of a
+complicated string. In follow example, ‘g1’ in ‘s1’ has two types of
+alterations which are ‘snv’ and ‘indel’.</p>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb429-1" data-line-number="1">mat =<span class="st"> </span><span class="kw">read.table</span>(<span class="kw">textConnection</span>(</a>
+<a class="sourceLine" id="cb429-2" data-line-number="2"><span class="st">&quot;s1,s2,s3</span></a>
+<a class="sourceLine" id="cb429-3" data-line-number="3"><span class="st">g1,snv;indel,snv,indel</span></a>
+<a class="sourceLine" id="cb429-4" data-line-number="4"><span class="st">g2,,snv;indel,snv</span></a>
+<a class="sourceLine" id="cb429-5" data-line-number="5"><span class="st">g3,snv,,indel;snv&quot;</span>), <span class="dt">row.names =</span> <span class="dv">1</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb429-6" data-line-number="6">mat =<span class="st"> </span><span class="kw">as.matrix</span>(mat)</a>
+<a class="sourceLine" id="cb429-7" data-line-number="7">mat</a></code></pre></div>
 <pre><code>##    s1          s2          s3         
 ## g1 &quot;snv;indel&quot; &quot;snv&quot;       &quot;indel&quot;    
 ## g2 &quot;&quot;          &quot;snv;indel&quot; &quot;snv&quot;      
 ## g3 &quot;snv&quot;       &quot;&quot;          &quot;indel;snv&quot;</code></pre>
-<p>In this case, we need to define a function to extract different alteration types from these long strings. The definition of such function is always simple, it accepts the complicated string and returns a vector of alteration types.</p>
+<p>In this case, we need to define a function to extract different alteration
+types from these long strings. The definition of such function is always
+simple, it accepts the complicated string and returns a vector of alteration
+types.</p>
 <p>For <code>mat</code>, we can define the function as:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">get_type_fun =<span class="st"> </span><span class="cf">function</span>(x) <span class="kw">strsplit</span>(x, <span class="st">&quot;;&quot;</span>)[[<span class="dv">1</span>]]
-<span class="kw">get_type_fun</span>(mat[<span class="dv">1</span>, <span class="dv">1</span>])</code></pre></div>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb431-1" data-line-number="1">get_type_fun =<span class="st"> </span><span class="cf">function</span>(x) <span class="kw">strsplit</span>(x, <span class="st">&quot;;&quot;</span>)[[<span class="dv">1</span>]]</a>
+<a class="sourceLine" id="cb431-2" data-line-number="2"><span class="kw">get_type_fun</span>(mat[<span class="dv">1</span>, <span class="dv">1</span>])</a></code></pre></div>
 <pre><code>## [1] &quot;snv&quot;   &quot;indel&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_type_fun</span>(mat[<span class="dv">1</span>, <span class="dv">2</span>])</code></pre></div>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb433-1" data-line-number="1"><span class="kw">get_type_fun</span>(mat[<span class="dv">1</span>, <span class="dv">2</span>])</a></code></pre></div>
 <pre><code>## [1] &quot;snv&quot;</code></pre>
-<p>So, if the alterations are encoded as <code>snv|indel</code>, you can define the function as <code>function(x) strsplit(x, &quot;|&quot;)[[1]]</code>. This self-defined function is assigned to the <code>get_type</code> argument in <code>oncoPrint()</code>.</p>
-<p><strong>Since in most cases, the separators are only single characters, If the separators are in <code>;:,|</code>, <code>oncoPrint()</code> automatically spit the alteration strings so that you don’t need to explicitely specify <code>get_type</code> in <code>oncoPrint()</code> function.</strong></p>
-<p>For one gene in one sample, since different alteration types may be drawn into one same grid in the heatmap, we need to define how to add the graphics by providing a list of self-defined functions to <code>alter_fun</code> argument. Here if the graphics have no transparency, order of adding graphics matters. In following example, snv are first drawn and then the indel. You can see rectangles for indels are actually smaller (<code>0.4*h</code>) than that for snvs (<code>0.9*h</code>) so that you can visualize both snvs and indels if they are in a same grid. Names of the function list should correspond to the alteration types (here, <code>snv</code> and <code>indel</code>).</p>
-<p>For the self-defined graphic function (the functions in <code>alter_fun</code>, there should be four arguments which are positions of the grids on the oncoPrint (<code>x</code> and <code>y</code>), and widths and heights of the grids (<code>w</code> and <code>h</code>, which is measured in <code>npc</code> unit). Proper values for the four arguments are sent to these functions automatically from <code>oncoPrint()</code>.</p>
-<p>Colors for different alterations are defined in <code>col</code>. It should be a named vector for which names correspond to alteration types. It is used to generate the barplots and the legends.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">col =<span class="st"> </span><span class="kw">c</span>(<span class="dt">snv =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">indel =</span> <span class="st">&quot;blue&quot;</span>)
-<span class="kw">oncoPrint</span>(mat,
-    <span class="dt">alter_fun =</span> <span class="kw">list</span>(
-        <span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, 
-            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>)),
-        <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, 
-            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))
-    ), <span class="dt">col =</span> col)</code></pre></div>
+<p>So, if the alterations are encoded as <code>snv|indel</code>, you can define the function
+as <code>function(x) strsplit(x, &quot;|&quot;)[[1]]</code>. This self-defined function is assigned
+to the <code>get_type</code> argument in <code>oncoPrint()</code>.</p>
+<p><strong>Since in most cases, the separators are only single characters, If the
+separators are in <code>;:,|</code>, <code>oncoPrint()</code> automatically spit the alteration
+strings so that you don’t need to explicitely specify <code>get_type</code> in
+<code>oncoPrint()</code> function.</strong></p>
+<p>For one gene in one sample, since different alteration types may be drawn into
+one same grid in the heatmap, we need to define how to add the graphics by
+providing a list of self-defined functions to <code>alter_fun</code> argument. Here if
+the graphics have no transparency, order of adding graphics matters. In
+following example, snv are first drawn and then the indel. You can see
+rectangles for indels are actually smaller (<code>0.4*h</code>) than that for snvs
+(<code>0.9*h</code>) so that you can visualize both snvs and indels if they are in a same
+grid. Names of the function list should correspond to the alteration types
+(here, <code>snv</code> and <code>indel</code>).</p>
+<p>For the self-defined graphic function (the functions in <code>alter_fun</code>, there
+should be four arguments which are positions of the grids on the oncoPrint
+(<code>x</code> and <code>y</code>), and widths and heights of the grids (<code>w</code> and <code>h</code>, which is
+measured in <code>npc</code> unit). Proper values for the four arguments are sent to these
+functions automatically from <code>oncoPrint()</code>.</p>
+<p>Colors for different alterations are defined in <code>col</code>. It should be a named
+vector for which names correspond to alteration types. It is used to generate
+the barplots and the legends.</p>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb435-1" data-line-number="1">col =<span class="st"> </span><span class="kw">c</span>(<span class="dt">snv =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">indel =</span> <span class="st">&quot;blue&quot;</span>)</a>
+<a class="sourceLine" id="cb435-2" data-line-number="2"><span class="kw">oncoPrint</span>(mat,</a>
+<a class="sourceLine" id="cb435-3" data-line-number="3">    <span class="dt">alter_fun =</span> <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb435-4" data-line-number="4">        <span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, </a>
+<a class="sourceLine" id="cb435-5" data-line-number="5">            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>)),</a>
+<a class="sourceLine" id="cb435-6" data-line-number="6">        <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, </a>
+<a class="sourceLine" id="cb435-7" data-line-number="7">            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</a>
+<a class="sourceLine" id="cb435-8" data-line-number="8">    ), <span class="dt">col =</span> col)</a></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-4-1.png" width="384" style="display: block; margin: auto;" /></p>
-<p>You can see the order in barplots also correspond to the order defined in <code>alter_fun</code>.</p>
-<p>If you are confused of how to generated the matrix, there is a second way. The second type of input data is a list of matrix for which each matrix contains binary value representing whether the alteration is absent or present. The list should have names which correspond to the alteration types.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mat_list =<span class="st"> </span><span class="kw">list</span>(<span class="dt">snv =</span> <span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="dt">nrow =</span> <span class="dv">3</span>),
-                <span class="dt">indel =</span> <span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="dt">nrow =</span> <span class="dv">3</span>))
-<span class="kw">rownames</span>(mat_list<span class="op">$</span>snv) =<span class="st"> </span><span class="kw">rownames</span>(mat_list<span class="op">$</span>indel) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;g1&quot;</span>, <span class="st">&quot;g2&quot;</span>, <span class="st">&quot;g3&quot;</span>)
-<span class="kw">colnames</span>(mat_list<span class="op">$</span>snv) =<span class="st"> </span><span class="kw">colnames</span>(mat_list<span class="op">$</span>indel) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;s1&quot;</span>, <span class="st">&quot;s2&quot;</span>, <span class="st">&quot;s3&quot;</span>)
-mat_list</code></pre></div>
+<p>You can see the order in barplots also correspond to the order defined in
+<code>alter_fun</code>.</p>
+<p>If you are confused of how to generated the matrix, there is a second way. The
+second type of input data is a list of matrix for which each matrix contains
+binary value representing whether the alteration is absent or present. The
+list should have names which correspond to the alteration types.</p>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb436-1" data-line-number="1">mat_list =<span class="st"> </span><span class="kw">list</span>(<span class="dt">snv =</span> <span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="dt">nrow =</span> <span class="dv">3</span>),</a>
+<a class="sourceLine" id="cb436-2" data-line-number="2">                <span class="dt">indel =</span> <span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="dt">nrow =</span> <span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb436-3" data-line-number="3"><span class="kw">rownames</span>(mat_list<span class="op">$</span>snv) =<span class="st"> </span><span class="kw">rownames</span>(mat_list<span class="op">$</span>indel) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;g1&quot;</span>, <span class="st">&quot;g2&quot;</span>, <span class="st">&quot;g3&quot;</span>)</a>
+<a class="sourceLine" id="cb436-4" data-line-number="4"><span class="kw">colnames</span>(mat_list<span class="op">$</span>snv) =<span class="st"> </span><span class="kw">colnames</span>(mat_list<span class="op">$</span>indel) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;s1&quot;</span>, <span class="st">&quot;s2&quot;</span>, <span class="st">&quot;s3&quot;</span>)</a>
+<a class="sourceLine" id="cb436-5" data-line-number="5">mat_list</a></code></pre></div>
 <pre><code>## $snv
 ##    s1 s2 s3
 ## g1  1  1  0
@@ -326,385 +389,496 @@ mat_list</code></pre></div>
 ## g1  1  0  1
 ## g2  0  1  0
 ## g3  0  0  0</code></pre>
-<p><code>oncoPrint()</code> expects all matrices in <code>mat_list</code> having same row names and column names.</p>
+<p><code>oncoPrint()</code> expects all matrices in <code>mat_list</code> having same row names and
+column names.</p>
 <p>Pass <code>mat_list</code> to <code>oncoPrint()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># now you don&#39;t need `get_type`</span>
-<span class="kw">oncoPrint</span>(mat_list,
-    <span class="dt">alter_fun =</span> <span class="kw">list</span>(
-        <span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, 
-            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>)),
-        <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, 
-            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))
-    ), <span class="dt">col =</span> col)</code></pre></div>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb438-1" data-line-number="1"><span class="co"># now you don&#39;t need `get_type`</span></a>
+<a class="sourceLine" id="cb438-2" data-line-number="2"><span class="kw">oncoPrint</span>(mat_list,</a>
+<a class="sourceLine" id="cb438-3" data-line-number="3">    <span class="dt">alter_fun =</span> <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb438-4" data-line-number="4">        <span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, </a>
+<a class="sourceLine" id="cb438-5" data-line-number="5">            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>)),</a>
+<a class="sourceLine" id="cb438-6" data-line-number="6">        <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, </a>
+<a class="sourceLine" id="cb438-7" data-line-number="7">            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</a>
+<a class="sourceLine" id="cb438-8" data-line-number="8">    ), <span class="dt">col =</span> col)</a></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-6-1.png" width="384" style="display: block; margin: auto;" /></p>
-<p>In following parts of this chapter, we still use the single matrix form <code>mat</code> to specify the input data.</p>
+<p>In following parts of this chapter, we still use the single matrix form <code>mat</code>
+to specify the input data.</p>
 </div>
 <div id="define-the-alter-fun" class="section level3">
 <h3><span class="header-section-number">7.1.2</span> Define the alter_fun()</h3>
-<p><code>alter_fun</code> is a list of functons which add graphics layer by layer (i.e. first draw for <code>snv</code>, then for <code>indel</code>). Graphics can also be added in a grid-by-grid style by specifying <code>alter_fun</code> as a single function. The difference from the function list is now <code>alter_fun</code> should accept a fifth argument which is a logical vector. This logical vector shows whether different alterations exist for current gene in current sample.</p>
+<p><code>alter_fun</code> is a list of functons which add graphics layer by layer (
+i.e. first draw for <code>snv</code>, then for <code>indel</code>). Graphics can also be added in a
+grid-by-grid style by specifying <code>alter_fun</code> as a single function. The
+difference from the function list is now <code>alter_fun</code> should accept a fifth
+argument which is a logical vector. This logical vector shows whether
+different alterations exist for current gene in current sample.</p>
 <p>Let’s assume in a grid there is only snv event, then <code>v</code> for this grid is:</p>
 <pre><code>##   snv indel 
 ##  TRUE FALSE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">oncoPrint</span>(mat,
-    <span class="dt">alter_fun =</span> <span class="cf">function</span>(x, y, w, h, v) {
-        <span class="cf">if</span>(v[<span class="st">&quot;snv&quot;</span>]) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, <span class="co"># v[&quot;snv&quot;] is a logical value</span>
-            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))
-        <span class="cf">if</span>(v[<span class="st">&quot;indel&quot;</span>]) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, <span class="co"># v[&quot;indel&quot;] is a logical value</span>
-            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))
-    }, <span class="dt">col =</span> col)</code></pre></div>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb440-1" data-line-number="1"><span class="kw">oncoPrint</span>(mat,</a>
+<a class="sourceLine" id="cb440-2" data-line-number="2">    <span class="dt">alter_fun =</span> <span class="cf">function</span>(x, y, w, h, v) {</a>
+<a class="sourceLine" id="cb440-3" data-line-number="3">        <span class="cf">if</span>(v[<span class="st">&quot;snv&quot;</span>]) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, <span class="co"># v[&quot;snv&quot;] is a logical value</span></a>
+<a class="sourceLine" id="cb440-4" data-line-number="4">            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</a>
+<a class="sourceLine" id="cb440-5" data-line-number="5">        <span class="cf">if</span>(v[<span class="st">&quot;indel&quot;</span>]) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, <span class="co"># v[&quot;indel&quot;] is a logical value</span></a>
+<a class="sourceLine" id="cb440-6" data-line-number="6">            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</a>
+<a class="sourceLine" id="cb440-7" data-line-number="7">    }, <span class="dt">col =</span> col)</a></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-8-1.png" width="384" style="display: block; margin: auto;" /></p>
-<p>If <code>alter_fun</code> is set as a single function, customization can be more flexible. In following example, the blue rectangles can have different height in different grid.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">oncoPrint</span>(mat,
-    <span class="dt">alter_fun =</span> <span class="cf">function</span>(x, y, w, h, v) {
-        n =<span class="st"> </span><span class="kw">sum</span>(v)  <span class="co"># how many alterations for current gene in current sample</span>
-        h =<span class="st"> </span>h<span class="op">*</span><span class="fl">0.9</span>
-        <span class="co"># use `names(which(v))` to correctly map between `v` and `col`</span>
-        <span class="cf">if</span>(n) <span class="kw">grid.rect</span>(x, y <span class="op">-</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.5</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span><span class="op">:</span>n<span class="op">/</span>n<span class="op">*</span>h, w<span class="op">*</span><span class="fl">0.9</span>, <span class="dv">1</span><span class="op">/</span>n<span class="op">*</span>h, 
-            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="kw">names</span>(<span class="kw">which</span>(v))], <span class="dt">col =</span> <span class="ot">NA</span>), <span class="dt">just =</span> <span class="st">&quot;top&quot;</span>)
-    }, <span class="dt">col =</span> col)</code></pre></div>
+<p>If <code>alter_fun</code> is set as a single function, customization can be more
+flexible. In following example, the blue rectangles can have different height
+in different grid.</p>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb441-1" data-line-number="1"><span class="kw">oncoPrint</span>(mat,</a>
+<a class="sourceLine" id="cb441-2" data-line-number="2">    <span class="dt">alter_fun =</span> <span class="cf">function</span>(x, y, w, h, v) {</a>
+<a class="sourceLine" id="cb441-3" data-line-number="3">        n =<span class="st"> </span><span class="kw">sum</span>(v)  <span class="co"># how many alterations for current gene in current sample</span></a>
+<a class="sourceLine" id="cb441-4" data-line-number="4">        h =<span class="st"> </span>h<span class="op">*</span><span class="fl">0.9</span></a>
+<a class="sourceLine" id="cb441-5" data-line-number="5">        <span class="co"># use `names(which(v))` to correctly map between `v` and `col`</span></a>
+<a class="sourceLine" id="cb441-6" data-line-number="6">        <span class="cf">if</span>(n) <span class="kw">grid.rect</span>(x, y <span class="op">-</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.5</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span><span class="op">:</span>n<span class="op">/</span>n<span class="op">*</span>h, w<span class="op">*</span><span class="fl">0.9</span>, <span class="dv">1</span><span class="op">/</span>n<span class="op">*</span>h, </a>
+<a class="sourceLine" id="cb441-7" data-line-number="7">            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="kw">names</span>(<span class="kw">which</span>(v))], <span class="dt">col =</span> <span class="ot">NA</span>), <span class="dt">just =</span> <span class="st">&quot;top&quot;</span>)</a>
+<a class="sourceLine" id="cb441-8" data-line-number="8">    }, <span class="dt">col =</span> col)</a></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-9-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Following is a complicated example for <code>alter_fun</code> where triangles are used:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">oncoPrint</span>(mat,
-    <span class="dt">alter_fun =</span> <span class="kw">list</span>(
-        <span class="dt">background =</span> <span class="cf">function</span>(x, y, w, h) {
-            <span class="kw">grid.polygon</span>(
-                <span class="kw">unit.c</span>(x <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w), 
-                <span class="kw">unit.c</span>(y <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h),
-                <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>))
-            <span class="kw">grid.polygon</span>(
-                <span class="kw">unit.c</span>(x <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w), 
-                <span class="kw">unit.c</span>(y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h),
-                <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>))
-        },
-        <span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) {
-            <span class="kw">grid.polygon</span>(
-                <span class="kw">unit.c</span>(x <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w), 
-                <span class="kw">unit.c</span>(y <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h),
-                <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>))
-        },
-        <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) {
-            <span class="kw">grid.polygon</span>(
-                <span class="kw">unit.c</span>(x <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w), 
-                <span class="kw">unit.c</span>(y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h),
-                <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>))
-        }
-    ), <span class="dt">col =</span> col)</code></pre></div>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb442-1" data-line-number="1"><span class="kw">oncoPrint</span>(mat,</a>
+<a class="sourceLine" id="cb442-2" data-line-number="2">    <span class="dt">alter_fun =</span> <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb442-3" data-line-number="3">        <span class="dt">background =</span> <span class="cf">function</span>(x, y, w, h) {</a>
+<a class="sourceLine" id="cb442-4" data-line-number="4">            <span class="kw">grid.polygon</span>(</a>
+<a class="sourceLine" id="cb442-5" data-line-number="5">                <span class="kw">unit.c</span>(x <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w), </a>
+<a class="sourceLine" id="cb442-6" data-line-number="6">                <span class="kw">unit.c</span>(y <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h),</a>
+<a class="sourceLine" id="cb442-7" data-line-number="7">                <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>))</a>
+<a class="sourceLine" id="cb442-8" data-line-number="8">            <span class="kw">grid.polygon</span>(</a>
+<a class="sourceLine" id="cb442-9" data-line-number="9">                <span class="kw">unit.c</span>(x <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w), </a>
+<a class="sourceLine" id="cb442-10" data-line-number="10">                <span class="kw">unit.c</span>(y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h),</a>
+<a class="sourceLine" id="cb442-11" data-line-number="11">                <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>))</a>
+<a class="sourceLine" id="cb442-12" data-line-number="12">        },</a>
+<a class="sourceLine" id="cb442-13" data-line-number="13">        <span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) {</a>
+<a class="sourceLine" id="cb442-14" data-line-number="14">            <span class="kw">grid.polygon</span>(</a>
+<a class="sourceLine" id="cb442-15" data-line-number="15">                <span class="kw">unit.c</span>(x <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w), </a>
+<a class="sourceLine" id="cb442-16" data-line-number="16">                <span class="kw">unit.c</span>(y <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h),</a>
+<a class="sourceLine" id="cb442-17" data-line-number="17">                <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>))</a>
+<a class="sourceLine" id="cb442-18" data-line-number="18">        },</a>
+<a class="sourceLine" id="cb442-19" data-line-number="19">        <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) {</a>
+<a class="sourceLine" id="cb442-20" data-line-number="20">            <span class="kw">grid.polygon</span>(</a>
+<a class="sourceLine" id="cb442-21" data-line-number="21">                <span class="kw">unit.c</span>(x <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w), </a>
+<a class="sourceLine" id="cb442-22" data-line-number="22">                <span class="kw">unit.c</span>(y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h),</a>
+<a class="sourceLine" id="cb442-23" data-line-number="23">                <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>))</a>
+<a class="sourceLine" id="cb442-24" data-line-number="24">        }</a>
+<a class="sourceLine" id="cb442-25" data-line-number="25">    ), <span class="dt">col =</span> col)</a></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-10-1.png" width="384" style="display: block; margin: auto;" /></p>
-<p>In some cases, you might need to define <code>alter_fun</code> for many alteration types. If you are not sure about the visual effect of your <code>alter_fun</code>, you can use <code>test_alter_fun()</code> to test your <code>alter_fun</code>. In following example, we defined seven alteration functions:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">alter_fun =<span class="st"> </span><span class="kw">list</span>(
-    <span class="dt">mut1 =</span> <span class="cf">function</span>(x, y, w, h) 
-        <span class="kw">grid.rect</span>(x, y, w, h, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),
-    <span class="dt">mut2 =</span> <span class="cf">function</span>(x, y, w, h) 
-        <span class="kw">grid.rect</span>(x, y, w, h, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),
-    <span class="dt">mut3 =</span> <span class="cf">function</span>(x, y, w, h) 
-        <span class="kw">grid.rect</span>(x, y, w, h, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;yellow&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),
-    <span class="dt">mut4 =</span> <span class="cf">function</span>(x, y, w, h) 
-        <span class="kw">grid.rect</span>(x, y, w, h, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;purple&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),
-    <span class="dt">mut5 =</span> <span class="cf">function</span>(x, y, w, h) 
-        <span class="kw">grid.rect</span>(x, y, w, h, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="ot">NA</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)),
-    <span class="dt">mut6 =</span> <span class="cf">function</span>(x, y, w, h) 
-        <span class="kw">grid.points</span>(x, y, <span class="dt">pch =</span> <span class="dv">16</span>),
-    <span class="dt">mut7 =</span> <span class="cf">function</span>(x, y, w, h) 
-        <span class="kw">grid.segments</span>(x <span class="op">-</span><span class="st"> </span>w<span class="op">*</span><span class="fl">0.5</span>, y <span class="op">-</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.5</span>, x <span class="op">+</span><span class="st"> </span>w<span class="op">*</span><span class="fl">0.5</span>, y <span class="op">+</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.5</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">lwd =</span> <span class="dv">2</span>))
-)
-<span class="kw">test_alter_fun</span>(alter_fun)</code></pre></div>
+<p>In some cases, you might need to define <code>alter_fun</code> for many alteration types.
+If you are not sure about the visual effect of your <code>alter_fun</code>, you can use
+<code>test_alter_fun()</code> to test your <code>alter_fun</code>. In following example, we defined
+seven alteration functions:</p>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb443-1" data-line-number="1">alter_fun =<span class="st"> </span><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb443-2" data-line-number="2">    <span class="dt">mut1 =</span> <span class="cf">function</span>(x, y, w, h) </a>
+<a class="sourceLine" id="cb443-3" data-line-number="3">        <span class="kw">grid.rect</span>(x, y, w, h, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),</a>
+<a class="sourceLine" id="cb443-4" data-line-number="4">    <span class="dt">mut2 =</span> <span class="cf">function</span>(x, y, w, h) </a>
+<a class="sourceLine" id="cb443-5" data-line-number="5">        <span class="kw">grid.rect</span>(x, y, w, h, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),</a>
+<a class="sourceLine" id="cb443-6" data-line-number="6">    <span class="dt">mut3 =</span> <span class="cf">function</span>(x, y, w, h) </a>
+<a class="sourceLine" id="cb443-7" data-line-number="7">        <span class="kw">grid.rect</span>(x, y, w, h, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;yellow&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),</a>
+<a class="sourceLine" id="cb443-8" data-line-number="8">    <span class="dt">mut4 =</span> <span class="cf">function</span>(x, y, w, h) </a>
+<a class="sourceLine" id="cb443-9" data-line-number="9">        <span class="kw">grid.rect</span>(x, y, w, h, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;purple&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),</a>
+<a class="sourceLine" id="cb443-10" data-line-number="10">    <span class="dt">mut5 =</span> <span class="cf">function</span>(x, y, w, h) </a>
+<a class="sourceLine" id="cb443-11" data-line-number="11">        <span class="kw">grid.rect</span>(x, y, w, h, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="ot">NA</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)),</a>
+<a class="sourceLine" id="cb443-12" data-line-number="12">    <span class="dt">mut6 =</span> <span class="cf">function</span>(x, y, w, h) </a>
+<a class="sourceLine" id="cb443-13" data-line-number="13">        <span class="kw">grid.points</span>(x, y, <span class="dt">pch =</span> <span class="dv">16</span>),</a>
+<a class="sourceLine" id="cb443-14" data-line-number="14">    <span class="dt">mut7 =</span> <span class="cf">function</span>(x, y, w, h) </a>
+<a class="sourceLine" id="cb443-15" data-line-number="15">        <span class="kw">grid.segments</span>(x <span class="op">-</span><span class="st"> </span>w<span class="op">*</span><span class="fl">0.5</span>, y <span class="op">-</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.5</span>, x <span class="op">+</span><span class="st"> </span>w<span class="op">*</span><span class="fl">0.5</span>, y <span class="op">+</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.5</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">lwd =</span> <span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb443-16" data-line-number="16">)</a>
+<a class="sourceLine" id="cb443-17" data-line-number="17"><span class="kw">test_alter_fun</span>(alter_fun)</a></code></pre></div>
 <pre><code>## `alter_fun` is defined as a list of functions.
 ## Functions are defined for following alteration types:
 ##   mut1, mut2, mut3, mut4, mut5, mut6, mut7</code></pre>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-11-1.png" width="288" style="display: block; margin: auto;" /></p>
-<p>For the combination of alteration types, <code>test_alter_fun()</code> randomly samples some of them.</p>
-<p><code>test_alter_fun()</code> works both for <code>alter_fun</code> as a list and as a single function.</p>
+<p>For the combination of alteration types, <code>test_alter_fun()</code> randomly samples
+some of them.</p>
+<p><code>test_alter_fun()</code> works both for <code>alter_fun</code> as a list and as a single
+function.</p>
 </div>
 <div id="oncoprint-background" class="section level3">
 <h3><span class="header-section-number">7.1.3</span> Background</h3>
-<p>If <code>alter_fun</code> is specified as a list, the order of the elements controls the order of adding graphics. There is a special element called <code>background</code> which defines how to draw background and it should be always put as the first element in the <code>alter_fun</code> list. In following example, backgrond color is changed to light green with borders.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">oncoPrint</span>(mat,
-    <span class="dt">alter_fun =</span> <span class="kw">list</span>(
-        <span class="dt">background =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w, h, 
-            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;#00FF0020&quot;</span>)),
-        <span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, 
-            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>)),
-        <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, 
-            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))
-    ), <span class="dt">col =</span> col)</code></pre></div>
+<p>If <code>alter_fun</code> is specified as a list, the order of the elements controls the
+order of adding graphics. There is a special element called <code>background</code> which
+defines how to draw background and it should be always put as the first
+element in the <code>alter_fun</code> list. In following example, backgrond color is
+changed to light green with borders.</p>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb445-1" data-line-number="1"><span class="kw">oncoPrint</span>(mat,</a>
+<a class="sourceLine" id="cb445-2" data-line-number="2">    <span class="dt">alter_fun =</span> <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb445-3" data-line-number="3">        <span class="dt">background =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w, h, </a>
+<a class="sourceLine" id="cb445-4" data-line-number="4">            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;#00FF0020&quot;</span>)),</a>
+<a class="sourceLine" id="cb445-5" data-line-number="5">        <span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, </a>
+<a class="sourceLine" id="cb445-6" data-line-number="6">            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>)),</a>
+<a class="sourceLine" id="cb445-7" data-line-number="7">        <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, </a>
+<a class="sourceLine" id="cb445-8" data-line-number="8">            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</a>
+<a class="sourceLine" id="cb445-9" data-line-number="9">    ), <span class="dt">col =</span> col)</a></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-12-1.png" width="384" style="display: block; margin: auto;" /></p>
-<p>Or just remove the background (don’t set it to <code>NULL</code>. Setting <code>background</code> directly to <code>NULL</code> means to use the default style of background whch is in grey):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">oncoPrint</span>(mat,
-    <span class="dt">alter_fun =</span> <span class="kw">list</span>(
-        <span class="dt">background =</span> <span class="cf">function</span>(...) <span class="ot">NULL</span>,
-        <span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, 
-            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>)),
-        <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, 
-            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))
-    ), <span class="dt">col =</span> col)</code></pre></div>
+<p>Or just remove the background (don’t set it to <code>NULL</code>. Setting <code>background</code>
+directly to <code>NULL</code> means to use the default style of background whch is in
+grey):</p>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb446-1" data-line-number="1"><span class="kw">oncoPrint</span>(mat,</a>
+<a class="sourceLine" id="cb446-2" data-line-number="2">    <span class="dt">alter_fun =</span> <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb446-3" data-line-number="3">        <span class="dt">background =</span> <span class="cf">function</span>(...) <span class="ot">NULL</span>,</a>
+<a class="sourceLine" id="cb446-4" data-line-number="4">        <span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, </a>
+<a class="sourceLine" id="cb446-5" data-line-number="5">            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>)),</a>
+<a class="sourceLine" id="cb446-6" data-line-number="6">        <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, </a>
+<a class="sourceLine" id="cb446-7" data-line-number="7">            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</a>
+<a class="sourceLine" id="cb446-8" data-line-number="8">    ), <span class="dt">col =</span> col)</a></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-13-1.png" width="384" style="display: block; margin: auto;" /></p>
 </div>
 <div id="complex-alteration-types" class="section level3">
 <h3><span class="header-section-number">7.1.4</span> Complex alteration types</h3>
-<p>It is very easy to have many more different alteration types when integrating information from multiple analysis results. It is sometimes difficult to design graphics and assign different colors for them (e.g. <a href="https://user-images.githubusercontent.com/13846735/51974483-fab20b00-24ba-11e9-91d3-3358e5f1017e.png">see plot in this link</a>. On the other hand, in these alteration types, there are primary classes of alteration types which is more important to distinguish, while there are secondary classes which is less important. For example, we may have alteration types of “intronic snv”, “exonic snv”, “intronic indel” and “exonic indel”. Actually we can classify them into two classes where “snv/indel” is more important and they belong to the primary class, and “intronic/exonic” is less important and they belong to the secondary class. Reflecting on the oncoPrint, for the “intronic snv” and “exonic snv”, we want to use similar graphics because they are snvs and we want them visually similar, and we add slightly different symbols to represent “intronic” and “exonic”, E.g. we can use red rectangle for snv and above the red rectangles, we use dots to represent “intronic” and cross lines to represent “exonic”. On the barplot annotations which summarize the number of different alteration types, we don’t want to separate “intronic snv” and “exonic snv” while we prefer to simply get the total number of snv to get rid of too many categories in the barplots.</p>
-<p>Let’s demonstrate this scenario by following simulated data. To simplify the example, we assume for a single gene in a single sample, it only has either snv or indel and it can only be either intronic or exonic. If there is no “intronic” or “exonic” attached to the gene, it basically means we don’t have this gene-related information (maybe it is an intergenic snv/indel).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
-x1 =<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;snv&quot;</span>), <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">2</span>))
-x2 =<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;indel&quot;</span>), <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">2</span>))
-x2[x1 <span class="op">==</span><span class="st"> &quot;snv&quot;</span>] =<span class="st"> &quot;&quot;</span>
-x3 =<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;intronic&quot;</span>), <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">5</span>))
-x4 =<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;exonic&quot;</span>), <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">5</span>))
-x3[x1 <span class="op">==</span><span class="st"> &quot;&quot;</span> <span class="op">&amp;</span><span class="st"> </span>x2 <span class="op">==</span><span class="st"> &quot;&quot;</span>] =<span class="st"> &quot;&quot;</span>
-x4[x1 <span class="op">==</span><span class="st"> &quot;&quot;</span> <span class="op">&amp;</span><span class="st"> </span>x2 <span class="op">==</span><span class="st"> &quot;&quot;</span>] =<span class="st"> &quot;&quot;</span>
-x4[x3 <span class="op">==</span><span class="st"> &quot;intronic&quot;</span>] =<span class="st"> &quot;&quot;</span>
-x =<span class="st"> </span><span class="kw">apply</span>(<span class="kw">cbind</span>(x1, x2, x3, x4), <span class="dv">1</span>, <span class="cf">function</span>(x) {
-    x =<span class="st"> </span>x[x <span class="op">!=</span><span class="st"> &quot;&quot;</span>]
-    <span class="kw">paste</span>(x, <span class="dt">collapse =</span> <span class="st">&quot;;&quot;</span>)
-})
-m =<span class="st"> </span><span class="kw">matrix</span>(x, <span class="dt">nrow =</span> <span class="dv">10</span>, <span class="dt">ncol =</span> <span class="dv">10</span>, <span class="dt">dimnames =</span> <span class="kw">list</span>(<span class="kw">paste0</span>(<span class="st">&quot;g&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="kw">paste0</span>(<span class="st">&quot;s&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)))
-m[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]</code></pre></div>
+<p>It is very easy to have many more different alteration types when integrating
+information from multiple analysis results. It is sometimes difficult to
+design graphics and assign different colors for them (e.g. <a href="https://user-images.githubusercontent.com/13846735/51974483-fab20b00-24ba-11e9-91d3-3358e5f1017e.png">see plot in this
+link</a>.
+On the other hand, in these alteration types, there are primary classes of
+alteration types which is more important to distinguish, while there are
+secondary classes which is less important. For example, we may have alteration
+types of “intronic snv”, “exonic snv”, “intronic indel” and “exonic indel”.
+Actually we can classify them into two classes where “snv/indel” is more
+important and they belong to the primary class, and “intronic/exonic” is less
+important and they belong to the secondary class. Reflecting on the oncoPrint,
+for the “intronic snv” and “exonic snv”, we want to use similar graphics
+because they are snvs and we want them visually similar, and we add slightly
+different symbols to represent “intronic” and “exonic”, E.g. we can use red
+rectangle for snv and above the red rectangles, we use dots to represent
+“intronic” and cross lines to represent “exonic”. On the barplot annotations
+which summarize the number of different alteration types, we don’t want to
+separate “intronic snv” and “exonic snv” while we prefer to simply get the
+total number of snv to get rid of too many categories in the barplots.</p>
+<p>Let’s demonstrate this scenario by following simulated data. To simplify the
+example, we assume for a single gene in a single sample, it only has either
+snv or indel and it can only be either intronic or exonic. If there is no
+“intronic” or “exonic” attached to the gene, it basically means we don’t have
+this gene-related information (maybe it is an intergenic snv/indel).</p>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb447-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">123</span>)</a>
+<a class="sourceLine" id="cb447-2" data-line-number="2">x1 =<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;snv&quot;</span>), <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb447-3" data-line-number="3">x2 =<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;indel&quot;</span>), <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb447-4" data-line-number="4">x2[x1 <span class="op">==</span><span class="st"> &quot;snv&quot;</span>] =<span class="st"> &quot;&quot;</span></a>
+<a class="sourceLine" id="cb447-5" data-line-number="5">x3 =<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;intronic&quot;</span>), <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">5</span>))</a>
+<a class="sourceLine" id="cb447-6" data-line-number="6">x4 =<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;exonic&quot;</span>), <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">5</span>))</a>
+<a class="sourceLine" id="cb447-7" data-line-number="7">x3[x1 <span class="op">==</span><span class="st"> &quot;&quot;</span> <span class="op">&amp;</span><span class="st"> </span>x2 <span class="op">==</span><span class="st"> &quot;&quot;</span>] =<span class="st"> &quot;&quot;</span></a>
+<a class="sourceLine" id="cb447-8" data-line-number="8">x4[x1 <span class="op">==</span><span class="st"> &quot;&quot;</span> <span class="op">&amp;</span><span class="st"> </span>x2 <span class="op">==</span><span class="st"> &quot;&quot;</span>] =<span class="st"> &quot;&quot;</span></a>
+<a class="sourceLine" id="cb447-9" data-line-number="9">x4[x3 <span class="op">==</span><span class="st"> &quot;intronic&quot;</span>] =<span class="st"> &quot;&quot;</span></a>
+<a class="sourceLine" id="cb447-10" data-line-number="10">x =<span class="st"> </span><span class="kw">apply</span>(<span class="kw">cbind</span>(x1, x2, x3, x4), <span class="dv">1</span>, <span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb447-11" data-line-number="11">    x =<span class="st"> </span>x[x <span class="op">!=</span><span class="st"> &quot;&quot;</span>]</a>
+<a class="sourceLine" id="cb447-12" data-line-number="12">    <span class="kw">paste</span>(x, <span class="dt">collapse =</span> <span class="st">&quot;;&quot;</span>)</a>
+<a class="sourceLine" id="cb447-13" data-line-number="13">})</a>
+<a class="sourceLine" id="cb447-14" data-line-number="14">m =<span class="st"> </span><span class="kw">matrix</span>(x, <span class="dt">nrow =</span> <span class="dv">10</span>, <span class="dt">ncol =</span> <span class="dv">10</span>, <span class="dt">dimnames =</span> <span class="kw">list</span>(<span class="kw">paste0</span>(<span class="st">&quot;g&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="kw">paste0</span>(<span class="st">&quot;s&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)))</a>
+<a class="sourceLine" id="cb447-15" data-line-number="15">m[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]</a></code></pre></div>
 <pre><code>##    s1    s2             s3             s4            
 ## g1 &quot;&quot;    &quot;snv;intronic&quot; &quot;snv;intronic&quot; &quot;snv&quot;         
 ## g2 &quot;&quot;    &quot;&quot;             &quot;&quot;             &quot;snv;intronic&quot;
 ## g3 &quot;&quot;    &quot;&quot;             &quot;&quot;             &quot;&quot;            
 ## g4 &quot;snv&quot; &quot;indel;exonic&quot; &quot;snv&quot;          &quot;&quot;</code></pre>
-<p>Now in <code>m</code>, there are four different alteration types: <code>snv</code>, <code>indel</code>, <code>intronic</code> and <code>exonic</code>. Next we define <code>alter_fun</code> for the four alterations.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">alter_fun =<span class="st"> </span><span class="kw">list</span>(
-    <span class="dt">background =</span> <span class="cf">function</span>(x, y, w, h) 
-        <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;#CCCCCC&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),
-    <span class="co"># red rectangles</span>
-    <span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) 
-        <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),
-    <span class="co"># blue rectangles</span>
-    <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) 
-        <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),
-    <span class="co"># dots</span>
-    <span class="dt">intronic =</span> <span class="cf">function</span>(x, y, w, h) 
-        <span class="kw">grid.points</span>(x, y, <span class="dt">pch =</span> <span class="dv">16</span>),
-    <span class="co"># crossed lines</span>
-    <span class="dt">exonic =</span> <span class="cf">function</span>(x, y, w, h) {
-        <span class="kw">grid.segments</span>(x <span class="op">-</span><span class="st"> </span>w<span class="op">*</span><span class="fl">0.4</span>, y <span class="op">-</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.4</span>, x <span class="op">+</span><span class="st"> </span>w<span class="op">*</span><span class="fl">0.4</span>, y <span class="op">+</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.4</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">lwd =</span> <span class="dv">2</span>))
-        <span class="kw">grid.segments</span>(x <span class="op">+</span><span class="st"> </span>w<span class="op">*</span><span class="fl">0.4</span>, y <span class="op">-</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.4</span>, x <span class="op">-</span><span class="st"> </span>w<span class="op">*</span><span class="fl">0.4</span>, y <span class="op">+</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.4</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">lwd =</span> <span class="dv">2</span>))
-    }
-)</code></pre></div>
-<p>For the alteration types in the primary class (<code>snv</code> and <code>indel</code>), we use colorred rectangles to represent them because the rectangles are visually obvious, while for the alteration types in the secondary class (<code>intronic</code> and <code>exonic</code>), we only use simple symbols (dots for <code>intronic</code> and crossed diagonal lines for <code>exonic</code>). Since there is no color corresponding to <code>intronic</code> and <code>exonic</code>, we don’t need to define colors for these two types, and on the barplot annotation for genes and samples, only <code>snv</code> and <code>indel</code> are visualized (so the height for <code>snv</code> in the barplot corresponds the number of intronic snv plus exonic snv).</p>
-<p>In following code which draws the oncoPrint, we add another legend for the <code>intronic</code>/<code>exonic</code> types. note a <code>pch</code> value of 16 corresponds to a dot and a value of 28 corresponds to crossed diagonal lines (see the last plot in Section <a href="legends.html#discrete-legends">5.2</a> for <code>pch</code> 26, 27, 28).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># we only define color for snv and indel, so barplot annotations only show snv and indel</span>
-ht =<span class="st"> </span><span class="kw">oncoPrint</span>(m, <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> <span class="kw">c</span>(<span class="dt">snv =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">indel =</span> <span class="st">&quot;blue&quot;</span>))
-<span class="kw">draw</span>(ht, <span class="dt">heatmap_legend_list =</span> <span class="kw">list</span>(
-    <span class="kw">Legend</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;intronic&quot;</span>, <span class="st">&quot;exonic&quot;</span>), <span class="dt">type =</span> <span class="st">&quot;points&quot;</span>, <span class="dt">pch =</span> <span class="kw">c</span>(<span class="dv">16</span>, <span class="dv">28</span>))
-))</code></pre></div>
+<p>Now in <code>m</code>, there are four different alteration types: <code>snv</code>, <code>indel</code>,
+<code>intronic</code> and <code>exonic</code>. Next we define <code>alter_fun</code> for the four alterations.</p>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb449-1" data-line-number="1">alter_fun =<span class="st"> </span><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb449-2" data-line-number="2">    <span class="dt">background =</span> <span class="cf">function</span>(x, y, w, h) </a>
+<a class="sourceLine" id="cb449-3" data-line-number="3">        <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;#CCCCCC&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),</a>
+<a class="sourceLine" id="cb449-4" data-line-number="4">    <span class="co"># red rectangles</span></a>
+<a class="sourceLine" id="cb449-5" data-line-number="5">    <span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) </a>
+<a class="sourceLine" id="cb449-6" data-line-number="6">        <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),</a>
+<a class="sourceLine" id="cb449-7" data-line-number="7">    <span class="co"># blue rectangles</span></a>
+<a class="sourceLine" id="cb449-8" data-line-number="8">    <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) </a>
+<a class="sourceLine" id="cb449-9" data-line-number="9">        <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),</a>
+<a class="sourceLine" id="cb449-10" data-line-number="10">    <span class="co"># dots</span></a>
+<a class="sourceLine" id="cb449-11" data-line-number="11">    <span class="dt">intronic =</span> <span class="cf">function</span>(x, y, w, h) </a>
+<a class="sourceLine" id="cb449-12" data-line-number="12">        <span class="kw">grid.points</span>(x, y, <span class="dt">pch =</span> <span class="dv">16</span>),</a>
+<a class="sourceLine" id="cb449-13" data-line-number="13">    <span class="co"># crossed lines</span></a>
+<a class="sourceLine" id="cb449-14" data-line-number="14">    <span class="dt">exonic =</span> <span class="cf">function</span>(x, y, w, h) {</a>
+<a class="sourceLine" id="cb449-15" data-line-number="15">        <span class="kw">grid.segments</span>(x <span class="op">-</span><span class="st"> </span>w<span class="op">*</span><span class="fl">0.4</span>, y <span class="op">-</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.4</span>, x <span class="op">+</span><span class="st"> </span>w<span class="op">*</span><span class="fl">0.4</span>, y <span class="op">+</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.4</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">lwd =</span> <span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb449-16" data-line-number="16">        <span class="kw">grid.segments</span>(x <span class="op">+</span><span class="st"> </span>w<span class="op">*</span><span class="fl">0.4</span>, y <span class="op">-</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.4</span>, x <span class="op">-</span><span class="st"> </span>w<span class="op">*</span><span class="fl">0.4</span>, y <span class="op">+</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.4</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">lwd =</span> <span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb449-17" data-line-number="17">    }</a>
+<a class="sourceLine" id="cb449-18" data-line-number="18">)</a></code></pre></div>
+<p>For the alteration types in the primary class (<code>snv</code> and <code>indel</code>), we use
+colorred rectangles to represent them because the rectangles are visually
+obvious, while for the alteration types in the secondary class (<code>intronic</code> and
+<code>exonic</code>), we only use simple symbols (dots for <code>intronic</code> and crossed
+diagonal lines for <code>exonic</code>). Since there is no color corresponding to
+<code>intronic</code> and <code>exonic</code>, we don’t need to define colors for these two types,
+and on the barplot annotation for genes and samples, only <code>snv</code> and <code>indel</code>
+are visualized (so the height for <code>snv</code> in the barplot corresponds the number
+of intronic snv plus exonic snv).</p>
+<p>In following code which draws the oncoPrint, we add another legend for the
+<code>intronic</code>/<code>exonic</code> types. note a <code>pch</code> value of 16 corresponds to a dot and a
+value of 28 corresponds to crossed diagonal lines (see the last plot in
+Section <a href="legends.html#discrete-legends">5.2</a> for <code>pch</code> 26, 27, 28).</p>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb450-1" data-line-number="1"><span class="co"># we only define color for snv and indel, so barplot annotations only show snv and indel</span></a>
+<a class="sourceLine" id="cb450-2" data-line-number="2">ht =<span class="st"> </span><span class="kw">oncoPrint</span>(m, <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> <span class="kw">c</span>(<span class="dt">snv =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">indel =</span> <span class="st">&quot;blue&quot;</span>))</a>
+<a class="sourceLine" id="cb450-3" data-line-number="3"><span class="kw">draw</span>(ht, <span class="dt">heatmap_legend_list =</span> <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb450-4" data-line-number="4">    <span class="kw">Legend</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;intronic&quot;</span>, <span class="st">&quot;exonic&quot;</span>), <span class="dt">type =</span> <span class="st">&quot;points&quot;</span>, <span class="dt">pch =</span> <span class="kw">c</span>(<span class="dv">16</span>, <span class="dv">28</span>))</a>
+<a class="sourceLine" id="cb450-5" data-line-number="5">))</a></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-16-1.png" width="528" style="display: block; margin: auto;" /></p>
 </div>
 <div id="simplify-alter_fun" class="section level3">
 <h3><span class="header-section-number">7.1.5</span> Simplify alter_fun</h3>
-<p>If the graphics are only simple graphics, e.g., rectangles, points, the graphic functions can be automatically generated by <code>alter_graphic()</code> function. One of previous example can be simplied as:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">oncoPrint</span>(mat,
-    <span class="dt">alter_fun =</span> <span class="kw">list</span>(
-        <span class="dt">snv =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">width =</span> <span class="fl">0.9</span>, <span class="dt">height =</span> <span class="fl">0.9</span>, <span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>]),
-        <span class="dt">indel =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">width =</span> <span class="fl">0.9</span>, <span class="dt">height =</span> <span class="fl">0.4</span>, <span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>])
-    ), <span class="dt">col =</span> col)</code></pre></div>
+<p>If the graphics are only simple graphics, e.g., rectangles, points, the graphic
+functions can be automatically generated by <code>alter_graphic()</code> function. One of previous example
+can be simplied as:</p>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb451-1" data-line-number="1"><span class="kw">oncoPrint</span>(mat,</a>
+<a class="sourceLine" id="cb451-2" data-line-number="2">    <span class="dt">alter_fun =</span> <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb451-3" data-line-number="3">        <span class="dt">snv =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">width =</span> <span class="fl">0.9</span>, <span class="dt">height =</span> <span class="fl">0.9</span>, <span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>]),</a>
+<a class="sourceLine" id="cb451-4" data-line-number="4">        <span class="dt">indel =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">width =</span> <span class="fl">0.9</span>, <span class="dt">height =</span> <span class="fl">0.4</span>, <span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>])</a>
+<a class="sourceLine" id="cb451-5" data-line-number="5">    ), <span class="dt">col =</span> col)</a></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-17-1.png" width="384" style="display: block; margin: auto;" /></p>
 </div>
 <div id="other-heatmap-related-settings" class="section level3">
 <h3><span class="header-section-number">7.1.6</span> Other heatmap-related settings</h3>
-<p>Column names are by default not drawn in the plot. It is can be turned on by setting <code>show_column_names = TRUE</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">alter_fun =<span class="st"> </span><span class="kw">list</span>(
-    <span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, 
-        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>)),
-    <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, 
-        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))
-)
-<span class="kw">oncoPrint</span>(mat, <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, <span class="dt">show_column_names =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>Column names are by default not drawn in the plot. It is can be turned on by
+setting <code>show_column_names = TRUE</code>.</p>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb452-1" data-line-number="1">alter_fun =<span class="st"> </span><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb452-2" data-line-number="2">    <span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, </a>
+<a class="sourceLine" id="cb452-3" data-line-number="3">        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>)),</a>
+<a class="sourceLine" id="cb452-4" data-line-number="4">    <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, </a>
+<a class="sourceLine" id="cb452-5" data-line-number="5">        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</a>
+<a class="sourceLine" id="cb452-6" data-line-number="6">)</a>
+<a class="sourceLine" id="cb452-7" data-line-number="7"><span class="kw">oncoPrint</span>(mat, <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, <span class="dt">show_column_names =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-18-1.png" width="384" style="display: block; margin: auto;" /></p>
-<p>Row names and percent texts can be turned on/off by setting <code>show_pct</code> and <code>show_row_names</code>. The side of both according to the oncoPrint is controlled by <code>pct_side</code> and <code>row_names_side</code>. Digits of the percent values are controlled by <code>pct_digits</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">oncoPrint</span>(mat, <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, 
-    <span class="dt">row_names_side =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">pct_side =</span> <span class="st">&quot;right&quot;</span>, <span class="dt">pct_digits =</span> <span class="dv">2</span>)</code></pre></div>
+<p>Row names and percent texts can be turned on/off by setting <code>show_pct</code>
+and <code>show_row_names</code>. The side of both according to the oncoPrint is controlled
+by <code>pct_side</code> and <code>row_names_side</code>. Digits of the percent values are controlled
+by <code>pct_digits</code>.</p>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb453-1" data-line-number="1"><span class="kw">oncoPrint</span>(mat, <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </a>
+<a class="sourceLine" id="cb453-2" data-line-number="2">    <span class="dt">row_names_side =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">pct_side =</span> <span class="st">&quot;right&quot;</span>, <span class="dt">pct_digits =</span> <span class="dv">2</span>)</a></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-19-1.png" width="384" style="display: block; margin: auto;" /></p>
-<p>The barplot annotations on the both side are controlled by <code>anno_oncoprint_barplot()</code> annotation function. Customization such as the size and the axes can be set directly in <code>anno_oncoprint_barplot()</code>. More examples of setting <code>anno_oncoprint_barplot()</code> can be found in Section <a href="oncoprint.html#oncoprint-annotations">7.2.3</a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">oncoPrint</span>(mat, <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, 
-    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(
-        <span class="dt">cbar =</span> <span class="kw">anno_oncoprint_barplot</span>(<span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>))),
-    <span class="dt">right_annotation =</span> <span class="kw">rowAnnotation</span>(
-        <span class="dt">rbar =</span> <span class="kw">anno_oncoprint_barplot</span>(
-            <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>),
-            <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>), 
-                <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;zero&quot;</span>, <span class="st">&quot;two&quot;</span>, <span class="st">&quot;four&quot;</span>),
-                <span class="dt">side =</span> <span class="st">&quot;top&quot;</span>,
-                <span class="dt">labels_rot =</span> <span class="dv">0</span>))),
-    )</code></pre></div>
+<p>The barplot annotations on the both side are controlled by
+<code>anno_oncoprint_barplot()</code> annotation function. Customization such as the size
+and the axes can be set directly in <code>anno_oncoprint_barplot()</code>. More examples
+of setting <code>anno_oncoprint_barplot()</code> can be found in Section <a href="oncoprint.html#oncoprint-annotations">7.2.3</a>.</p>
+<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb454-1" data-line-number="1"><span class="kw">oncoPrint</span>(mat, <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </a>
+<a class="sourceLine" id="cb454-2" data-line-number="2">    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(</a>
+<a class="sourceLine" id="cb454-3" data-line-number="3">        <span class="dt">cbar =</span> <span class="kw">anno_oncoprint_barplot</span>(<span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>))),</a>
+<a class="sourceLine" id="cb454-4" data-line-number="4">    <span class="dt">right_annotation =</span> <span class="kw">rowAnnotation</span>(</a>
+<a class="sourceLine" id="cb454-5" data-line-number="5">        <span class="dt">rbar =</span> <span class="kw">anno_oncoprint_barplot</span>(</a>
+<a class="sourceLine" id="cb454-6" data-line-number="6">            <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>),</a>
+<a class="sourceLine" id="cb454-7" data-line-number="7">            <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>), </a>
+<a class="sourceLine" id="cb454-8" data-line-number="8">                <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;zero&quot;</span>, <span class="st">&quot;two&quot;</span>, <span class="st">&quot;four&quot;</span>),</a>
+<a class="sourceLine" id="cb454-9" data-line-number="9">                <span class="dt">side =</span> <span class="st">&quot;top&quot;</span>,</a>
+<a class="sourceLine" id="cb454-10" data-line-number="10">                <span class="dt">labels_rot =</span> <span class="dv">0</span>))),</a>
+<a class="sourceLine" id="cb454-11" data-line-number="11">    )</a></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-20-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Some people might want to move the right barplots to the left of the oncoPrint:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">oncoPrint</span>(mat, <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, 
-    <span class="dt">left_annotation =</span>  <span class="kw">rowAnnotation</span>(
-        <span class="dt">rbar =</span> <span class="kw">anno_oncoprint_barplot</span>(
-            <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">direction =</span> <span class="st">&quot;reverse&quot;</span>)
-    )),
-    <span class="dt">right_annotation =</span> <span class="ot">NULL</span>)</code></pre></div>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb455-1" data-line-number="1"><span class="kw">oncoPrint</span>(mat, <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </a>
+<a class="sourceLine" id="cb455-2" data-line-number="2">    <span class="dt">left_annotation =</span>  <span class="kw">rowAnnotation</span>(</a>
+<a class="sourceLine" id="cb455-3" data-line-number="3">        <span class="dt">rbar =</span> <span class="kw">anno_oncoprint_barplot</span>(</a>
+<a class="sourceLine" id="cb455-4" data-line-number="4">            <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">direction =</span> <span class="st">&quot;reverse&quot;</span>)</a>
+<a class="sourceLine" id="cb455-5" data-line-number="5">    )),</a>
+<a class="sourceLine" id="cb455-6" data-line-number="6">    <span class="dt">right_annotation =</span> <span class="ot">NULL</span>)</a></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-21-1.png" width="384" style="display: block; margin: auto;" /></p>
-<p>OncoPrints essentially are heatmaps, thus, there are many arguments set in <code>Heatmap()</code> can also be set in <code>oncoPrint()</code>. In following section, we use a real-world dataset to demonstrate more use of <code>oncoPrint()</code> function.</p>
+<p>OncoPrints essentially are heatmaps, thus, there are many arguments set in
+<code>Heatmap()</code> can also be set in <code>oncoPrint()</code>. In following section, we use a
+real-world dataset to demonstrate more use of <code>oncoPrint()</code> function.</p>
 </div>
 </div>
 <div id="apply-to-cbioportal-dataset" class="section level2">
 <h2><span class="header-section-number">7.2</span> Apply to cBioPortal dataset</h2>
-<p>We use a real-world dataset to demonstrate advanced usage of <code>oncoPrint()</code>. The data is retrieved from <a href="http://www.cbioportal.org/">cBioPortal</a>. Steps for getting the data are as follows:</p>
+<p>We use a real-world dataset to demonstrate advanced usage of <code>oncoPrint()</code>.
+The data is retrieved from <a href="http://www.cbioportal.org/">cBioPortal</a>.
+Steps for getting the data are as follows:</p>
 <ol style="list-style-type: decimal">
 <li>go to <a href="http://www.cbioportal.org" class="uri">http://www.cbioportal.org</a>,</li>
-<li>search Cancer Study: “<em>Lung Adenocarcinoma Carcinoma</em>” and select: “<em>Lung Adenocarcinoma Carcinoma (TCGA, Provisinal)</em>”,</li>
-<li>in “<em>Enter Gene Set</em>” field, select: “<em>General: Ras-Raf-MEK-Erk/JNK signaling (26 genes)</em>”,</li>
+<li>search Cancer Study: “<em>Lung Adenocarcinoma Carcinoma</em>” and select: “<em>Lung
+Adenocarcinoma Carcinoma (TCGA, Provisinal)</em>”,</li>
+<li>in “<em>Enter Gene Set</em>” field, select: “<em>General: Ras-Raf-MEK-Erk/JNK
+signaling (26 genes)</em>”,</li>
 <li>submit the form.</li>
 </ol>
 <p>In the result page,</p>
 <ol start="5" style="list-style-type: decimal">
-<li>go to “<em>Download</em>” tab, download text in “<em>Type of Genetic alterations across all cases</em>”.</li>
+<li>go to “<em>Download</em>” tab, download text in “<em>Type of Genetic alterations
+across all cases</em>”.</li>
 </ol>
 <p>The order of samples can also be downloaded from the results page,</p>
 <ol start="6" style="list-style-type: decimal">
-<li>go to “<em>OncoPrint</em>” tab, move the mouse above the plot, click “<em>download</em>” icon and click “<em>Sample order</em>”.</li>
+<li>go to “<em>OncoPrint</em>” tab, move the mouse above the plot, click “<em>download</em>”
+icon and click “<em>Sample order</em>”.</li>
 </ol>
-<p>The data is already in <strong>ComplexHeatmap</strong> package. First we read the data and make some pre-processing.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mat =<span class="st"> </span><span class="kw">read.table</span>(<span class="kw">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;ComplexHeatmap&quot;</span>, 
-    <span class="st">&quot;tcga_lung_adenocarcinoma_provisional_ras_raf_mek_jnk_signalling.txt&quot;</span>), 
-    <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)
-mat[<span class="kw">is.na</span>(mat)] =<span class="st"> &quot;&quot;</span>
-<span class="kw">rownames</span>(mat) =<span class="st"> </span>mat[, <span class="dv">1</span>]
-mat =<span class="st"> </span>mat[, <span class="op">-</span><span class="dv">1</span>]
-mat=<span class="st">  </span>mat[, <span class="op">-</span><span class="kw">ncol</span>(mat)]
-mat =<span class="st"> </span><span class="kw">t</span>(<span class="kw">as.matrix</span>(mat))
-mat[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</code></pre></div>
+<p>The data is already in <strong>ComplexHeatmap</strong> package. First we read the data and
+make some pre-processing.</p>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb456-1" data-line-number="1">mat =<span class="st"> </span><span class="kw">read.table</span>(<span class="kw">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;ComplexHeatmap&quot;</span>, </a>
+<a class="sourceLine" id="cb456-2" data-line-number="2">    <span class="st">&quot;tcga_lung_adenocarcinoma_provisional_ras_raf_mek_jnk_signalling.txt&quot;</span>), </a>
+<a class="sourceLine" id="cb456-3" data-line-number="3">    <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</a>
+<a class="sourceLine" id="cb456-4" data-line-number="4">mat[<span class="kw">is.na</span>(mat)] =<span class="st"> &quot;&quot;</span></a>
+<a class="sourceLine" id="cb456-5" data-line-number="5"><span class="kw">rownames</span>(mat) =<span class="st"> </span>mat[, <span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb456-6" data-line-number="6">mat =<span class="st"> </span>mat[, <span class="dv">-1</span>]</a>
+<a class="sourceLine" id="cb456-7" data-line-number="7">mat=<span class="st">  </span>mat[, <span class="op">-</span><span class="kw">ncol</span>(mat)]</a>
+<a class="sourceLine" id="cb456-8" data-line-number="8">mat =<span class="st"> </span><span class="kw">t</span>(<span class="kw">as.matrix</span>(mat))</a>
+<a class="sourceLine" id="cb456-9" data-line-number="9">mat[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
 <pre><code>##      TCGA-05-4384-01 TCGA-05-4390-01 TCGA-05-4425-01
 ## KRAS &quot;  &quot;            &quot;MUT;&quot;          &quot;  &quot;           
 ## HRAS &quot;  &quot;            &quot;  &quot;            &quot;  &quot;           
 ## BRAF &quot;  &quot;            &quot;  &quot;            &quot;  &quot;</code></pre>
-<p>There are three different alterations in <code>mat</code>: <code>HOMDEL</code>, <code>AMP</code> and <code>MUT</code>. We first define how to add graphics for different alterations.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">col =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;HOMDEL&quot;</span> =<span class="st"> &quot;blue&quot;</span>, <span class="st">&quot;AMP&quot;</span> =<span class="st"> &quot;red&quot;</span>, <span class="st">&quot;MUT&quot;</span> =<span class="st"> &quot;#008000&quot;</span>)
-alter_fun =<span class="st"> </span><span class="kw">list</span>(
-    <span class="dt">background =</span> <span class="cf">function</span>(x, y, w, h) {
-        <span class="kw">grid.rect</span>(x, y, w<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), h<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), 
-            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;#CCCCCC&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>))
-    },
-    <span class="co"># big blue</span>
-    <span class="dt">HOMDEL =</span> <span class="cf">function</span>(x, y, w, h) {
-        <span class="kw">grid.rect</span>(x, y, w<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), h<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), 
-            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;HOMDEL&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))
-    },
-    <span class="co"># big red</span>
-    <span class="dt">AMP =</span> <span class="cf">function</span>(x, y, w, h) {
-        <span class="kw">grid.rect</span>(x, y, w<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), h<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), 
-            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;AMP&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))
-    },
-    <span class="co"># small green</span>
-    <span class="dt">MUT =</span> <span class="cf">function</span>(x, y, w, h) {
-        <span class="kw">grid.rect</span>(x, y, w<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), h<span class="op">*</span><span class="fl">0.33</span>, 
-            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;MUT&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))
-    }
-)</code></pre></div>
+<p>There are three different alterations in <code>mat</code>: <code>HOMDEL</code>, <code>AMP</code> and <code>MUT</code>. We first
+define how to add graphics for different alterations.</p>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb458-1" data-line-number="1">col =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;HOMDEL&quot;</span> =<span class="st"> &quot;blue&quot;</span>, <span class="st">&quot;AMP&quot;</span> =<span class="st"> &quot;red&quot;</span>, <span class="st">&quot;MUT&quot;</span> =<span class="st"> &quot;#008000&quot;</span>)</a>
+<a class="sourceLine" id="cb458-2" data-line-number="2">alter_fun =<span class="st"> </span><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb458-3" data-line-number="3">    <span class="dt">background =</span> <span class="cf">function</span>(x, y, w, h) {</a>
+<a class="sourceLine" id="cb458-4" data-line-number="4">        <span class="kw">grid.rect</span>(x, y, w<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), h<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), </a>
+<a class="sourceLine" id="cb458-5" data-line-number="5">            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;#CCCCCC&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>))</a>
+<a class="sourceLine" id="cb458-6" data-line-number="6">    },</a>
+<a class="sourceLine" id="cb458-7" data-line-number="7">    <span class="co"># big blue</span></a>
+<a class="sourceLine" id="cb458-8" data-line-number="8">    <span class="dt">HOMDEL =</span> <span class="cf">function</span>(x, y, w, h) {</a>
+<a class="sourceLine" id="cb458-9" data-line-number="9">        <span class="kw">grid.rect</span>(x, y, w<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), h<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), </a>
+<a class="sourceLine" id="cb458-10" data-line-number="10">            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;HOMDEL&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</a>
+<a class="sourceLine" id="cb458-11" data-line-number="11">    },</a>
+<a class="sourceLine" id="cb458-12" data-line-number="12">    <span class="co"># big red</span></a>
+<a class="sourceLine" id="cb458-13" data-line-number="13">    <span class="dt">AMP =</span> <span class="cf">function</span>(x, y, w, h) {</a>
+<a class="sourceLine" id="cb458-14" data-line-number="14">        <span class="kw">grid.rect</span>(x, y, w<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), h<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), </a>
+<a class="sourceLine" id="cb458-15" data-line-number="15">            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;AMP&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</a>
+<a class="sourceLine" id="cb458-16" data-line-number="16">    },</a>
+<a class="sourceLine" id="cb458-17" data-line-number="17">    <span class="co"># small green</span></a>
+<a class="sourceLine" id="cb458-18" data-line-number="18">    <span class="dt">MUT =</span> <span class="cf">function</span>(x, y, w, h) {</a>
+<a class="sourceLine" id="cb458-19" data-line-number="19">        <span class="kw">grid.rect</span>(x, y, w<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), h<span class="op">*</span><span class="fl">0.33</span>, </a>
+<a class="sourceLine" id="cb458-20" data-line-number="20">            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;MUT&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</a>
+<a class="sourceLine" id="cb458-21" data-line-number="21">    }</a>
+<a class="sourceLine" id="cb458-22" data-line-number="22">)</a></code></pre></div>
 <p>Just a note, since the graphics are all rectangles, they can be simplied by generating by <code>alter_graphic()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># just for demonstration</span>
-alter_fun =<span class="st"> </span><span class="kw">list</span>(
-    <span class="dt">background =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;#CCCCCC&quot;</span>),   
-    <span class="dt">HOMDEL =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">fill =</span> col[<span class="st">&quot;HOMDEL&quot;</span>]),
-    <span class="dt">AMP =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">fill =</span> col[<span class="st">&quot;AMP&quot;</span>]),
-    <span class="dt">MUT =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">height =</span> <span class="fl">0.33</span>, <span class="dt">fill =</span> col[<span class="st">&quot;MUT&quot;</span>])
-)</code></pre></div>
-<p>Now we make the oncoPrint. We save <code>column_title</code> and <code>heatmap_legend_param</code> as varaibles because they are used multiple times in following code chunks.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">column_title =<span class="st"> &quot;OncoPrint for TCGA Lung Adenocarcinoma, genes in Ras Raf MEK JNK signalling&quot;</span>
-heatmap_legend_param =<span class="st"> </span><span class="kw">list</span>(<span class="dt">title =</span> <span class="st">&quot;Alternations&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="st">&quot;HOMDEL&quot;</span>, <span class="st">&quot;AMP&quot;</span>, <span class="st">&quot;MUT&quot;</span>), 
-        <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Deep deletion&quot;</span>, <span class="st">&quot;Amplification&quot;</span>, <span class="st">&quot;Mutation&quot;</span>))
-<span class="kw">oncoPrint</span>(mat,
-    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, 
-    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</code></pre></div>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb459-1" data-line-number="1"><span class="co"># just for demonstration</span></a>
+<a class="sourceLine" id="cb459-2" data-line-number="2">alter_fun =<span class="st"> </span><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb459-3" data-line-number="3">    <span class="dt">background =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;#CCCCCC&quot;</span>),   </a>
+<a class="sourceLine" id="cb459-4" data-line-number="4">    <span class="dt">HOMDEL =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">fill =</span> col[<span class="st">&quot;HOMDEL&quot;</span>]),</a>
+<a class="sourceLine" id="cb459-5" data-line-number="5">    <span class="dt">AMP =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">fill =</span> col[<span class="st">&quot;AMP&quot;</span>]),</a>
+<a class="sourceLine" id="cb459-6" data-line-number="6">    <span class="dt">MUT =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">height =</span> <span class="fl">0.33</span>, <span class="dt">fill =</span> col[<span class="st">&quot;MUT&quot;</span>])</a>
+<a class="sourceLine" id="cb459-7" data-line-number="7">)</a></code></pre></div>
+<p>Now we make the oncoPrint. We save <code>column_title</code> and <code>heatmap_legend_param</code>
+as varaibles because they are used multiple times in following code chunks.</p>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb460-1" data-line-number="1">column_title =<span class="st"> &quot;OncoPrint for TCGA Lung Adenocarcinoma, genes in Ras Raf MEK JNK signalling&quot;</span></a>
+<a class="sourceLine" id="cb460-2" data-line-number="2">heatmap_legend_param =<span class="st"> </span><span class="kw">list</span>(<span class="dt">title =</span> <span class="st">&quot;Alternations&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="st">&quot;HOMDEL&quot;</span>, <span class="st">&quot;AMP&quot;</span>, <span class="st">&quot;MUT&quot;</span>), </a>
+<a class="sourceLine" id="cb460-3" data-line-number="3">        <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Deep deletion&quot;</span>, <span class="st">&quot;Amplification&quot;</span>, <span class="st">&quot;Mutation&quot;</span>))</a>
+<a class="sourceLine" id="cb460-4" data-line-number="4"><span class="kw">oncoPrint</span>(mat,</a>
+<a class="sourceLine" id="cb460-5" data-line-number="5">    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </a>
+<a class="sourceLine" id="cb460-6" data-line-number="6">    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</a></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-26-1.png" width="1152" style="display: block; margin: auto;" /></p>
-<p>As you see, the genes and samples are reordered automatically. Rows are sorted based on the frequency of the alterations in all samples and columns are reordered to visualize the mutual exclusivity between samples. The column reordering is based on the “memo sort” method, adapted from <a href="https://gist.github.com/armish/564a65ab874a770e2c26" class="uri">https://gist.github.com/armish/564a65ab874a770e2c26</a>.</p>
+<p>As you see, the genes and samples are reordered automatically. Rows are sorted
+based on the frequency of the alterations in all samples and columns are
+reordered to visualize the mutual exclusivity between samples. The column
+reordering is based on the “memo sort” method, adapted from
+<a href="https://gist.github.com/armish/564a65ab874a770e2c26" class="uri">https://gist.github.com/armish/564a65ab874a770e2c26</a>.</p>
 <div id="remove-empty-rows-and-columns" class="section level3">
 <h3><span class="header-section-number">7.2.1</span> Remove empty rows and columns</h3>
-<p>By default, if samples or genes have no alterations, they will still remain in the heatmap, but you can set <code>remove_empty_columns</code> and <code>remove_empty_rows</code> to <code>TRUE</code> to remove them:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">oncoPrint</span>(mat,
-    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, 
-    <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,
-    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</code></pre></div>
+<p>By default, if samples or genes have no alterations, they will still remain in
+the heatmap, but you can set <code>remove_empty_columns</code> and <code>remove_empty_rows</code> to
+<code>TRUE</code> to remove them:</p>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb461-1" data-line-number="1"><span class="kw">oncoPrint</span>(mat,</a>
+<a class="sourceLine" id="cb461-2" data-line-number="2">    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </a>
+<a class="sourceLine" id="cb461-3" data-line-number="3">    <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb461-4" data-line-number="4">    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</a></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-27-1.png" width="1152" style="display: block; margin: auto;" /></p>
-<p>The number of rows and columns may be reduced after empty rows and columns are removed. All the components of the oncoPrint are adjusted accordingly. When the oncoPrint is concatenated with other heatmaps and annotations, this may cause a problem that the number of rows or columns are not all identical in the heatmap list. So, if you put oncoPrint into a heatmap list and you don’t want to see empty rows or columns, you need to remove them manually before sending to <code>oncoPrint()</code> function (this preprocess should be very easy for you!).</p>
+<p>The number of rows and columns may be reduced after empty rows and columns are
+removed. All the components of the oncoPrint are adjusted accordingly. When
+the oncoPrint is concatenated with other heatmaps and annotations, this may
+cause a problem that the number of rows or columns are not all identical in
+the heatmap list. So, if you put oncoPrint into a heatmap list and you don’t
+want to see empty rows or columns, you need to remove them manually before
+sending to <code>oncoPrint()</code> function (this preprocess should be very easy for
+you!).</p>
 </div>
 <div id="reorder-the-oncoprint" class="section level3">
 <h3><span class="header-section-number">7.2.2</span> Reorder the oncoPrint</h3>
-<p>As the normal <code>Heatmap()</code> function, <code>row_order</code> or <code>column_order</code> can be assigned with a vector of orders (either numeric or character). In following example, the order of samples are gathered from cBio as well. You can see the difference for the sample order between ‘memo sort’ and the method used by cBio.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sample_order =<span class="st"> </span><span class="kw">scan</span>(<span class="kw">paste0</span>(<span class="kw">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;ComplexHeatmap&quot;</span>), 
-    <span class="st">&quot;/sample_order.txt&quot;</span>), <span class="dt">what =</span> <span class="st">&quot;character&quot;</span>)
-<span class="kw">oncoPrint</span>(mat,
-    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, 
-    <span class="dt">row_order =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(mat), <span class="dt">column_order =</span> sample_order,
-    <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,
-    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</code></pre></div>
+<p>As the normal <code>Heatmap()</code> function, <code>row_order</code> or <code>column_order</code> can be
+assigned with a vector of orders (either numeric or character). In following
+example, the order of samples are gathered from cBio as well. You can see the
+difference for the sample order between ‘memo sort’ and the method used by
+cBio.</p>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb462-1" data-line-number="1">sample_order =<span class="st"> </span><span class="kw">scan</span>(<span class="kw">paste0</span>(<span class="kw">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;ComplexHeatmap&quot;</span>), </a>
+<a class="sourceLine" id="cb462-2" data-line-number="2">    <span class="st">&quot;/sample_order.txt&quot;</span>), <span class="dt">what =</span> <span class="st">&quot;character&quot;</span>)</a>
+<a class="sourceLine" id="cb462-3" data-line-number="3"><span class="kw">oncoPrint</span>(mat,</a>
+<a class="sourceLine" id="cb462-4" data-line-number="4">    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </a>
+<a class="sourceLine" id="cb462-5" data-line-number="5">    <span class="dt">row_order =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(mat), <span class="dt">column_order =</span> sample_order,</a>
+<a class="sourceLine" id="cb462-6" data-line-number="6">    <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb462-7" data-line-number="7">    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</a></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-28-1.png" width="1152" style="display: block; margin: auto;" /></p>
-<p>Again, <code>row_order</code> and <code>column_order</code> are automatically adjusted if <code>remove_empty_rows</code> and <code>remove_empty_columns</code> are set to <code>TRUE</code>.</p>
+<p>Again, <code>row_order</code> and <code>column_order</code> are automatically adjusted if
+<code>remove_empty_rows</code> and <code>remove_empty_columns</code> are set to <code>TRUE</code>.</p>
 </div>
 <div id="oncoprint-annotations" class="section level3">
 <h3><span class="header-section-number">7.2.3</span> OncoPrint annotations</h3>
 <p>The oncoPrint has several pre-defined annotations.</p>
-<p>On top and right of the oncoPrint, there are barplots showing the number of different alterations for each gene or for each sample, and on the left of the oncoPrint is a text annotation showing the percent of samples that have alterations for every gene.</p>
-<p>The barplot annotation is implemented by <code>anno_oncoprint_barplot()</code> where you can set the the annotation there. Barplots by default draw for all alteration types, but you can also select subset of alterations to put on barplots by setting in <code>anno_oncoprint_barplot()</code>. See following example:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">oncoPrint</span>(mat,
-    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, 
-    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(
-        <span class="dt">column_barplot =</span> <span class="kw">anno_oncoprint_barplot</span>(<span class="st">&quot;MUT&quot;</span>, <span class="dt">border =</span> <span class="ot">TRUE</span>, <span class="co"># only MUT</span>
-            <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))),
-    <span class="dt">right_annotation =</span> <span class="kw">rowAnnotation</span>(
-        <span class="dt">row_barplot =</span> <span class="kw">anno_oncoprint_barplot</span>(<span class="kw">c</span>(<span class="st">&quot;AMP&quot;</span>, <span class="st">&quot;HOMDEL&quot;</span>),  <span class="co"># only AMP and HOMDEL</span>
-            <span class="dt">border =</span> <span class="ot">TRUE</span>, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>), 
-            <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">side =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">labels_rot =</span> <span class="dv">90</span>))),
-    <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,
-    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</code></pre></div>
+<p>On top and right of the oncoPrint, there are barplots showing the number of
+different alterations for each gene or for each sample, and on the left of the
+oncoPrint is a text annotation showing the percent of samples that have
+alterations for every gene.</p>
+<p>The barplot annotation is implemented by <code>anno_oncoprint_barplot()</code> where you
+can set the the annotation there. Barplots by default draw for all alteration
+types, but you can also select subset of alterations to put on barplots by
+setting in <code>anno_oncoprint_barplot()</code>. See following example:</p>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb463-1" data-line-number="1"><span class="kw">oncoPrint</span>(mat,</a>
+<a class="sourceLine" id="cb463-2" data-line-number="2">    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </a>
+<a class="sourceLine" id="cb463-3" data-line-number="3">    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(</a>
+<a class="sourceLine" id="cb463-4" data-line-number="4">        <span class="dt">column_barplot =</span> <span class="kw">anno_oncoprint_barplot</span>(<span class="st">&quot;MUT&quot;</span>, <span class="dt">border =</span> <span class="ot">TRUE</span>, <span class="co"># only MUT</span></a>
+<a class="sourceLine" id="cb463-5" data-line-number="5">            <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))),</a>
+<a class="sourceLine" id="cb463-6" data-line-number="6">    <span class="dt">right_annotation =</span> <span class="kw">rowAnnotation</span>(</a>
+<a class="sourceLine" id="cb463-7" data-line-number="7">        <span class="dt">row_barplot =</span> <span class="kw">anno_oncoprint_barplot</span>(<span class="kw">c</span>(<span class="st">&quot;AMP&quot;</span>, <span class="st">&quot;HOMDEL&quot;</span>),  <span class="co"># only AMP and HOMDEL</span></a>
+<a class="sourceLine" id="cb463-8" data-line-number="8">            <span class="dt">border =</span> <span class="ot">TRUE</span>, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>), </a>
+<a class="sourceLine" id="cb463-9" data-line-number="9">            <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">side =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">labels_rot =</span> <span class="dv">90</span>))),</a>
+<a class="sourceLine" id="cb463-10" data-line-number="10">    <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb463-11" data-line-number="11">    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</a></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-29-1.png" width="1152" style="display: block; margin: auto;" /></p>
-<p>The percent values and row names are internally constructed as text annotations. You can set <code>show_pct</code> and <code>show_row_names</code> to turn them on or off. <code>pct_side</code> and <code>row_names_side</code> controls the sides where they are put.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">oncoPrint</span>(mat,
-    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, 
-    <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,
-    <span class="dt">pct_side =</span> <span class="st">&quot;right&quot;</span>, <span class="dt">row_names_side =</span> <span class="st">&quot;left&quot;</span>,
-    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</code></pre></div>
+<p>The percent values and row names are internally constructed as text
+annotations. You can set <code>show_pct</code> and <code>show_row_names</code> to turn them on or
+off. <code>pct_side</code> and <code>row_names_side</code> controls the sides where they are put.</p>
+<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb464-1" data-line-number="1"><span class="kw">oncoPrint</span>(mat,</a>
+<a class="sourceLine" id="cb464-2" data-line-number="2">    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </a>
+<a class="sourceLine" id="cb464-3" data-line-number="3">    <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb464-4" data-line-number="4">    <span class="dt">pct_side =</span> <span class="st">&quot;right&quot;</span>, <span class="dt">row_names_side =</span> <span class="st">&quot;left&quot;</span>,</a>
+<a class="sourceLine" id="cb464-5" data-line-number="5">    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</a></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-30-1.png" width="1152" style="display: block; margin: auto;" /></p>
-<p>The barplot annotation for oncoPrint are essentially normal annotations, you can add more annotations in <code>HeatmapAnnotation()</code> or <code>rowAnnotation()</code> in the normal way:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">oncoPrint</span>(mat,
-    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, 
-    <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,
-    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">cbar =</span> <span class="kw">anno_oncoprint_barplot</span>(),
-        <span class="dt">foo1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">172</span>,
-        <span class="dt">bar1 =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">172</span>)),
-    <span class="dt">left_annotation =</span> <span class="kw">rowAnnotation</span>(<span class="dt">foo2 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">26</span>),
-    <span class="dt">right_annotation =</span> <span class="kw">rowAnnotation</span>(<span class="dt">bar2 =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">26</span>)),
-    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</code></pre></div>
+<p>The barplot annotation for oncoPrint are essentially normal annotations, you
+can add more annotations in <code>HeatmapAnnotation()</code> or <code>rowAnnotation()</code> in the
+normal way:</p>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb465-1" data-line-number="1"><span class="kw">oncoPrint</span>(mat,</a>
+<a class="sourceLine" id="cb465-2" data-line-number="2">    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </a>
+<a class="sourceLine" id="cb465-3" data-line-number="3">    <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb465-4" data-line-number="4">    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">cbar =</span> <span class="kw">anno_oncoprint_barplot</span>(),</a>
+<a class="sourceLine" id="cb465-5" data-line-number="5">        <span class="dt">foo1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">172</span>,</a>
+<a class="sourceLine" id="cb465-6" data-line-number="6">        <span class="dt">bar1 =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">172</span>)),</a>
+<a class="sourceLine" id="cb465-7" data-line-number="7">    <span class="dt">left_annotation =</span> <span class="kw">rowAnnotation</span>(<span class="dt">foo2 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">26</span>),</a>
+<a class="sourceLine" id="cb465-8" data-line-number="8">    <span class="dt">right_annotation =</span> <span class="kw">rowAnnotation</span>(<span class="dt">bar2 =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">26</span>)),</a>
+<a class="sourceLine" id="cb465-9" data-line-number="9">    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</a></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-31-1.png" width="1152" style="display: block; margin: auto;" /></p>
-<p>As you see, the percent annotation, the row name annotation and the oncoPrint annotation are appended to the user-specified annotation by default. Also annotations are automatically adjusted if <code>remove_empty_columns</code> and <code>remove_empty_rows</code> are set to <code>TRUE</code>.</p>
+<p>As you see, the percent annotation, the row name annotation and the oncoPrint
+annotation are appended to the user-specified annotation by default. Also
+annotations are automatically adjusted if <code>remove_empty_columns</code> and
+<code>remove_empty_rows</code> are set to <code>TRUE</code>.</p>
 </div>
 <div id="oncoprint-as-a-heatmap" class="section level3">
 <h3><span class="header-section-number">7.2.4</span> oncoPrint as a Heatmap</h3>
-<p><code>oncoPrint()</code> actually returns a <code>Heatmap</code> object, so you can add more heatmaps and annotations horizontally or vertically to visualize more complicated associations.</p>
-<p>Following example adds a heatmap horizontally. Remember you can always add row annotations to the heatmap list.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht_list =<span class="st"> </span><span class="kw">oncoPrint</span>(mat,
-    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, 
-    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param) <span class="op">+</span>
-<span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="kw">nrow</span>(mat)<span class="op">*</span><span class="dv">10</span>), <span class="dt">ncol =</span> <span class="dv">10</span>), <span class="dt">name =</span> <span class="st">&quot;expr&quot;</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))
-<span class="kw">draw</span>(ht_list)</code></pre></div>
+<p><code>oncoPrint()</code> actually returns a <code>Heatmap</code> object, so you can add more
+heatmaps and annotations horizontally or vertically to visualize more
+complicated associations.</p>
+<p>Following example adds a heatmap horizontally. Remember you can always add row
+annotations to the heatmap list.</p>
+<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb466-1" data-line-number="1">ht_list =<span class="st"> </span><span class="kw">oncoPrint</span>(mat,</a>
+<a class="sourceLine" id="cb466-2" data-line-number="2">    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </a>
+<a class="sourceLine" id="cb466-3" data-line-number="3">    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param) <span class="op">+</span></a>
+<a class="sourceLine" id="cb466-4" data-line-number="4"><span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="kw">nrow</span>(mat)<span class="op">*</span><span class="dv">10</span>), <span class="dt">ncol =</span> <span class="dv">10</span>), <span class="dt">name =</span> <span class="st">&quot;expr&quot;</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))</a>
+<a class="sourceLine" id="cb466-5" data-line-number="5"><span class="kw">draw</span>(ht_list)</a></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-32-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>or add it vertically:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht_list =<span class="st"> </span><span class="kw">oncoPrint</span>(mat,
-    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, 
-    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param) <span class="op">%v%</span>
-<span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="kw">ncol</span>(mat)<span class="op">*</span><span class="dv">10</span>), <span class="dt">nrow =</span> <span class="dv">10</span>), <span class="dt">name =</span> <span class="st">&quot;expr&quot;</span>, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))
-<span class="kw">draw</span>(ht_list)</code></pre></div>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb467-1" data-line-number="1">ht_list =<span class="st"> </span><span class="kw">oncoPrint</span>(mat,</a>
+<a class="sourceLine" id="cb467-2" data-line-number="2">    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </a>
+<a class="sourceLine" id="cb467-3" data-line-number="3">    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param) <span class="op">%v%</span></a>
+<a class="sourceLine" id="cb467-4" data-line-number="4"><span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="kw">ncol</span>(mat)<span class="op">*</span><span class="dv">10</span>), <span class="dt">nrow =</span> <span class="dv">10</span>), <span class="dt">name =</span> <span class="st">&quot;expr&quot;</span>, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))</a>
+<a class="sourceLine" id="cb467-5" data-line-number="5"><span class="kw">draw</span>(ht_list)</a></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-33-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>Similar as normal heatmap list, you can split the heatmap list:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht_list =<span class="st"> </span><span class="kw">oncoPrint</span>(mat,
-    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, 
-    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param) <span class="op">+</span>
-<span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="kw">nrow</span>(mat)<span class="op">*</span><span class="dv">10</span>), <span class="dt">ncol =</span> <span class="dv">10</span>), <span class="dt">name =</span> <span class="st">&quot;expr&quot;</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))
-<span class="kw">draw</span>(ht_list, <span class="dt">row_split =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>), <span class="kw">nrow</span>(mat), <span class="dt">replace =</span> <span class="ot">TRUE</span>))</code></pre></div>
+<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb468-1" data-line-number="1">ht_list =<span class="st"> </span><span class="kw">oncoPrint</span>(mat,</a>
+<a class="sourceLine" id="cb468-2" data-line-number="2">    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </a>
+<a class="sourceLine" id="cb468-3" data-line-number="3">    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param) <span class="op">+</span></a>
+<a class="sourceLine" id="cb468-4" data-line-number="4"><span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="kw">nrow</span>(mat)<span class="op">*</span><span class="dv">10</span>), <span class="dt">ncol =</span> <span class="dv">10</span>), <span class="dt">name =</span> <span class="st">&quot;expr&quot;</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))</a>
+<a class="sourceLine" id="cb468-5" data-line-number="5"><span class="kw">draw</span>(ht_list, <span class="dt">row_split =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>), <span class="kw">nrow</span>(mat), <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-34-1.png" width="1152" style="display: block; margin: auto;" /></p>
-<p>When <code>remove_empty_columns</code> or <code>remove_empty_rows</code> is set to <code>TRUE</code>, the number of genes or the samples may not be the original number. If the original matrix has row names and column names. The subset of rows and columns can be get as follows:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht =<span class="st"> </span><span class="kw">oncoPrint</span>(mat,
-    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, 
-    <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,
-    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)
-<span class="kw">rownames</span>(ht<span class="op">@</span>matrix)</code></pre></div>
+<p>When <code>remove_empty_columns</code> or <code>remove_empty_rows</code> is set to <code>TRUE</code>, the
+number of genes or the samples may not be the original number. If the original
+matrix has row names and column names. The subset of rows and columns can be
+get as follows:</p>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb469-1" data-line-number="1">ht =<span class="st"> </span><span class="kw">oncoPrint</span>(mat,</a>
+<a class="sourceLine" id="cb469-2" data-line-number="2">    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </a>
+<a class="sourceLine" id="cb469-3" data-line-number="3">    <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb469-4" data-line-number="4">    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</a>
+<a class="sourceLine" id="cb469-5" data-line-number="5"><span class="kw">rownames</span>(ht<span class="op">@</span>matrix)</a></code></pre></div>
 <pre><code>##  [1] &quot;KRAS&quot;   &quot;HRAS&quot;   &quot;BRAF&quot;   &quot;RAF1&quot;   &quot;MAP3K1&quot; &quot;MAP3K2&quot; &quot;MAP3K3&quot; &quot;MAP3K4&quot;
 ##  [9] &quot;MAP3K5&quot; &quot;MAP2K1&quot; &quot;MAP2K2&quot; &quot;MAP2K3&quot; &quot;MAP2K4&quot; &quot;MAPK3&quot;  &quot;MAPK4&quot;  &quot;MAPK7&quot; 
 ## [17] &quot;MAPK8&quot;  &quot;MAPK9&quot;  &quot;MAPK12&quot; &quot;MAPK14&quot; &quot;DAB2&quot;   &quot;RAB25&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(ht<span class="op">@</span>matrix)</code></pre></div>
+<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb471-1" data-line-number="1"><span class="kw">colnames</span>(ht<span class="op">@</span>matrix)</a></code></pre></div>
 <pre><code>##   [1] &quot;TCGA-05-4390-01&quot; &quot;TCGA-38-4631-01&quot; &quot;TCGA-44-6144-01&quot; &quot;TCGA-44-6145-01&quot;
 ##   [5] &quot;TCGA-44-6146-01&quot; &quot;TCGA-49-4488-01&quot; &quot;TCGA-50-5930-01&quot; &quot;TCGA-50-5931-01&quot;
 ##   [9] &quot;TCGA-50-5932-01&quot; &quot;TCGA-50-5933-01&quot; &quot;TCGA-50-5941-01&quot; &quot;TCGA-50-5942-01&quot;
@@ -801,7 +975,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

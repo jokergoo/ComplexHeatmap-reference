@@ -52,41 +52,68 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -244,7 +271,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11.2.1" data-path="other-tricks.html"><a href="other-tricks.html#titles"><i class="fa fa-check"></i><b>11.2.1</b> Titles</a></li>
 <li class="chapter" data-level="11.2.2" data-path="other-tricks.html"><a href="other-tricks.html#rowcolumn-names"><i class="fa fa-check"></i><b>11.2.2</b> Row/column names</a></li>
 <li class="chapter" data-level="11.2.3" data-path="other-tricks.html"><a href="other-tricks.html#annotation-labels-1"><i class="fa fa-check"></i><b>11.2.3</b> Annotation labels</a></li>
-<li class="chapter" data-level="11.2.4" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#text-annotation"><i class="fa fa-check"></i><b>11.2.4</b> Text annotation</a></li>
+<li class="chapter" data-level="11.2.4" data-path="other-tricks.html"><a href="other-tricks.html#text-annotation-1"><i class="fa fa-check"></i><b>11.2.4</b> Text annotation</a></li>
 <li class="chapter" data-level="11.2.5" data-path="other-tricks.html"><a href="other-tricks.html#legend"><i class="fa fa-check"></i><b>11.2.5</b> Legend</a></li>
 </ul></li>
 </ul></li>
@@ -272,171 +299,207 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">Chapter 10</span> Other High-level Plots</h1>
 <div id="density-heatmap" class="section level2">
 <h2><span class="header-section-number">10.1</span> Density heatmap</h2>
-<p>To visualize data distribution in a matrix or in a list, we normally use boxplot or violin plot. We can also use colors to map the density values and visualize distribution through a heatmap. It is useful if you have huge number of columns in data to visualize.</p>
-<p>In following examples, we use matrix as input data where the density is calculated by columns. The input data can also be a list.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
-m =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">10</span><span class="op">*</span><span class="dv">100</span>), <span class="dt">ncol =</span> <span class="dv">10</span>),
-          <span class="kw">matrix</span>(<span class="kw">runif</span>(<span class="dv">10</span><span class="op">*</span><span class="dv">100</span>, <span class="dt">min =</span> <span class="op">-</span><span class="dv">2</span>, <span class="dt">max =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span>, <span class="dt">ncol =</span> <span class="dv">10</span>))
-<span class="kw">colnames</span>(m) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;C&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(m))
-<span class="kw">densityHeatmap</span>(m)</code></pre></div>
+<p>To visualize data distribution in a matrix or in a list, we normally use
+boxplot or violin plot. We can also use colors to map the density values and
+visualize distribution through a heatmap. It is useful if you have huge number
+of columns in data to visualize.</p>
+<p>In following examples, we use matrix as input data where the density is
+calculated by columns. The input data can also be a list.</p>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb620-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">123</span>)</a>
+<a class="sourceLine" id="cb620-2" data-line-number="2">m =<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">10</span><span class="op">*</span><span class="dv">100</span>), <span class="dt">ncol =</span> <span class="dv">10</span>),</a>
+<a class="sourceLine" id="cb620-3" data-line-number="3">          <span class="kw">matrix</span>(<span class="kw">runif</span>(<span class="dv">10</span><span class="op">*</span><span class="dv">100</span>, <span class="dt">min =</span> <span class="dv">-2</span>, <span class="dt">max =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span>, <span class="dt">ncol =</span> <span class="dv">10</span>))</a>
+<a class="sourceLine" id="cb620-4" data-line-number="4"><span class="kw">colnames</span>(m) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;C&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(m))</a>
+<a class="sourceLine" id="cb620-5" data-line-number="5"><span class="kw">densityHeatmap</span>(m)</a></code></pre></div>
 <p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>On the heatmap, there are also lines representing five quantiles and mean values.</p>
-<p>Data range is controlled by <code>ylim</code>. Title is controlled by <code>title</code> or <code>column_title</code>. Title on y-axis is controlled by <code>ylab</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">densityHeatmap</span>(m, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>), <span class="dt">title =</span> <span class="st">&quot;Distribution as heatmap&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;some values&quot;</span>)</code></pre></div>
+<p>On the heatmap, there are also lines representing five quantiles and mean
+values.</p>
+<p>Data range is controlled by <code>ylim</code>. Title is controlled by <code>title</code> or
+<code>column_title</code>. Title on y-axis is controlled by <code>ylab</code>.</p>
+<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb621-1" data-line-number="1"><span class="kw">densityHeatmap</span>(m, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>), <span class="dt">title =</span> <span class="st">&quot;Distribution as heatmap&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;some values&quot;</span>)</a></code></pre></div>
 <p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Column order is controlled by <code>column_order</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">densityHeatmap</span>(m, <span class="dt">column_order =</span> <span class="kw">sample</span>(<span class="dv">20</span>, <span class="dv">20</span>))</code></pre></div>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb622-1" data-line-number="1"><span class="kw">densityHeatmap</span>(m, <span class="dt">column_order =</span> <span class="kw">sample</span>(<span class="dv">20</span>, <span class="dv">20</span>))</a></code></pre></div>
 <p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>The color for the density values is controlled by <code>col</code> which is a vector of colors.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">densityHeatmap</span>(m, <span class="dt">col =</span> <span class="kw">topo.colors</span>(<span class="dv">10</span>))</code></pre></div>
+<p>The color for the density values is controlled by <code>col</code> which is a vector of
+colors.</p>
+<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb623-1" data-line-number="1"><span class="kw">densityHeatmap</span>(m, <span class="dt">col =</span> <span class="kw">topo.colors</span>(<span class="dv">10</span>))</a></code></pre></div>
 <p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>Internally, the density for all columns are stored as a matrix where rows correspond to the same bins. Since it is a matrix, clustering can be applied on it. There is a special distance method <code>ks</code> for measuring similarity between distributions which is the Kolmogorov-Smirnov statistic between two distributions (<code>ks</code> distance is the default if <code>cluster_column = TRUE</code>).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">densityHeatmap</span>(m, <span class="dt">cluster_columns =</span> <span class="ot">TRUE</span>, <span class="dt">clustering_distance_columns =</span> <span class="st">&quot;ks&quot;</span>)</code></pre></div>
+<p>Internally, the density for all columns are stored as a matrix where rows
+correspond to the same bins. Since it is a matrix, clustering can be applied
+on it. There is a special distance method <code>ks</code> for measuring similarity
+between distributions which is the Kolmogorov-Smirnov statistic between two
+distributions (<code>ks</code> distance is the default if <code>cluster_column = TRUE</code>).</p>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb624-1" data-line-number="1"><span class="kw">densityHeatmap</span>(m, <span class="dt">cluster_columns =</span> <span class="ot">TRUE</span>, <span class="dt">clustering_distance_columns =</span> <span class="st">&quot;ks&quot;</span>)</a></code></pre></div>
 <p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>When there are many distributions to calculate the pairwise Kolmogorov-Smirnov distance, <code>mc.cores</code> argument can be set to make it running parallelly.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">densityHeatmap</span>(m, <span class="dt">cluster_columns =</span> <span class="ot">TRUE</span>, <span class="dt">mc.cores =</span> ...)</code></pre></div>
+<p>When there are many distributions to calculate the pairwise Kolmogorov-Smirnov distance,
+<code>mc.cores</code> argument can be set to make it running parallelly.</p>
+<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb625-1" data-line-number="1"><span class="kw">densityHeatmap</span>(m, <span class="dt">cluster_columns =</span> <span class="ot">TRUE</span>, <span class="dt">mc.cores =</span> ...)</a></code></pre></div>
 <p>Column annotations can be added as top annotation or bottom annotation.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">dist =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;rnorm&quot;</span>, <span class="dv">10</span>), <span class="kw">rep</span>(<span class="st">&quot;runif&quot;</span>, <span class="dv">10</span>)))
-ha2 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_points</span>(<span class="kw">rnorm</span>(<span class="dv">20</span>)))
-<span class="kw">densityHeatmap</span>(m, <span class="dt">top_annotation =</span> ha1, <span class="dt">bottom_annotation =</span> ha2)</code></pre></div>
+<div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb626-1" data-line-number="1">ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">dist =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;rnorm&quot;</span>, <span class="dv">10</span>), <span class="kw">rep</span>(<span class="st">&quot;runif&quot;</span>, <span class="dv">10</span>)))</a>
+<a class="sourceLine" id="cb626-2" data-line-number="2">ha2 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_points</span>(<span class="kw">rnorm</span>(<span class="dv">20</span>)))</a>
+<a class="sourceLine" id="cb626-3" data-line-number="3"><span class="kw">densityHeatmap</span>(m, <span class="dt">top_annotation =</span> ha1, <span class="dt">bottom_annotation =</span> ha2)</a></code></pre></div>
 <p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>Heatmaps and column annotations can only be concatenated to the density heatmap vertically.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">densityHeatmap</span>(m) <span class="op">%v%</span>
-<span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>)) <span class="op">%v%</span>
-<span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">20</span><span class="op">*</span><span class="dv">20</span>), <span class="dt">ncol =</span> <span class="dv">20</span>), <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">6</span>, <span class="st">&quot;cm&quot;</span>))</code></pre></div>
+<p>Heatmaps and column annotations can only be concatenated to the density
+heatmap vertically.</p>
+<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb627-1" data-line-number="1"><span class="kw">densityHeatmap</span>(m) <span class="op">%v%</span></a>
+<a class="sourceLine" id="cb627-2" data-line-number="2"><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>)) <span class="op">%v%</span></a>
+<a class="sourceLine" id="cb627-3" data-line-number="3"><span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">20</span><span class="op">*</span><span class="dv">20</span>), <span class="dt">ncol =</span> <span class="dv">20</span>), <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">6</span>, <span class="st">&quot;cm&quot;</span>))</a></code></pre></div>
 <p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="stacked-summary-plot" class="section level2">
 <h2><span class="header-section-number">10.2</span> Stacked summary plot</h2>
-<p>Multiple annotations and heatmaps can be used to visualize multiple summary statistics for a same set of features. In following example, there are multiple statistics for differential methylated regions (DMRs) from four different subgroups.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lt =<span class="st"> </span><span class="kw">readRDS</span>(<span class="kw">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;ComplexHeatmap&quot;</span>, <span class="st">&quot;dmr_summary.rds&quot;</span>))
-<span class="kw">names</span>(lt)</code></pre></div>
+<p>Multiple annotations and heatmaps can be used to visualize multiple summary statistics for a same
+set of features. In following example, there are multiple statistics for differential methylated
+regions (DMRs) from four different subgroups.</p>
+<div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb628-1" data-line-number="1">lt =<span class="st"> </span><span class="kw">readRDS</span>(<span class="kw">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;ComplexHeatmap&quot;</span>, <span class="st">&quot;dmr_summary.rds&quot;</span>))</a>
+<a class="sourceLine" id="cb628-2" data-line-number="2"><span class="kw">names</span>(lt)</a></code></pre></div>
 <pre><code>##  [1] &quot;label&quot;         &quot;mean_meth&quot;     &quot;n_gr&quot;          &quot;n_corr&quot;       
 ##  [5] &quot;dist_tss&quot;      &quot;gene_anno&quot;     &quot;cgi_anno&quot;      &quot;mat_enrich_gf&quot;
 ##  [9] &quot;mat_pct_st&quot;    &quot;mat_enrich_st&quot;</code></pre>
 <p>These statistics for DMRs are:</p>
 <ul>
-<li><code>label</code>: The labels for the sets of DMRs. There are DMRs for four subgroups and for each subgroup, DMRs are separated into hyper-methylated DMRs and hypo-methylated DMRs.</li>
-<li><code>mean_meth</code>: The mean methylation in DMRs in tumor samples and in normal samples.</li>
+<li><code>label</code>: The labels for the sets of DMRs. There are DMRs for four subgroups
+and for each subgroup, DMRs are separated into hyper-methylated DMRs and
+hypo-methylated DMRs.</li>
+<li><code>mean_meth</code>: The mean methylation in DMRs in tumor samples and in normal
+samples.</li>
 <li><code>n_gr</code> Number of DMRs in each set.</li>
-<li><code>n_corr</code>: Percent of DMRs that show significant correlation to nearby genes. The positive correlation and negative correlation are calculated separatedly.</li>
-<li><code>dist_tss</code>: Distance to nearby gene TSS. The value is proportion of DMRs in current set which have distance less in 1kb, between 1kb and 5kb, between 5kb and 10kb and more than 10kb.</li>
-<li><code>gene_anno</code>: The proportion of DMRs that overlap to genes or intergenic regions.</li>
-<li><code>cgi_anno</code>: The proportion of DMRs that overlap to CpG islands or CGI shores.</li>
-<li><code>mat_enrich_gf</code>: The enrichment to a list of genomic features. Positive values mean over representation.</li>
+<li><code>n_corr</code>: Percent of DMRs that show significant correlation to nearby genes.
+The positive correlation and negative correlation are calculated
+separatedly.</li>
+<li><code>dist_tss</code>: Distance to nearby gene TSS. The value is proportion of DMRs in
+current set which have distance less in 1kb, between 1kb and 5kb, between
+5kb and 10kb and more than 10kb.</li>
+<li><code>gene_anno</code>: The proportion of DMRs that overlap to genes or intergenic
+regions.</li>
+<li><code>cgi_anno</code>: The proportion of DMRs that overlap to CpG islands or CGI
+shores.</li>
+<li><code>mat_enrich_gf</code>: The enrichment to a list of genomic features. Positive
+values mean over representation.</li>
 <li><code>mat_pct_st</code>: The proprotion of DMRs that overlap to chromatin states.</li>
 <li><code>mat_enrich_st</code>: The enrichment to the chromatin states.</li>
 </ul>
 <p>Attach all these variables to the working environment.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attach</span>(lt)</code></pre></div>
-<p>Since we have many statistics to visualize, we first define the colors. We define color mapping functions for the statistics which we want to visualize as heatmaps and color vectors for those we want to visualize as barplots.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(circlize)
-meth_col_fun =<span class="st"> </span><span class="kw">colorRamp2</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>), <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>))
-corr_col =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;red&quot;</span>)
-dist_tss_col =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#FF0000&quot;</span>, <span class="st">&quot;#FF7352&quot;</span>, <span class="st">&quot;#FFB299&quot;</span>, <span class="st">&quot;#FFD9CB&quot;</span>)
-gene_anno_col =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>)
-cgi_anno_col =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#FFA500&quot;</span>, <span class="st">&quot;#FFD191&quot;</span>)
-z_score_col_fun =<span class="st"> </span><span class="kw">colorRamp2</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">200</span>, <span class="dv">0</span>, <span class="dv">200</span>), <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>))
-state_col =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#FF0000&quot;</span>, <span class="st">&quot;#008000&quot;</span>, <span class="st">&quot;#C2E105&quot;</span>, <span class="st">&quot;#8A91D0&quot;</span>, <span class="st">&quot;#CD5C5C&quot;</span>, <span class="st">&quot;#808080&quot;</span>, <span class="st">&quot;#000000&quot;</span>)</code></pre></div>
-<p>The construction of the heatmap list very straightforward. Each statistic is constructed as a heatmap or a row annotation.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">anno_width =<span class="st"> </span><span class="kw">unit</span>(<span class="dv">3</span>, <span class="st">&quot;cm&quot;</span>)
-ht_list =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">text =</span> <span class="kw">anno_text</span>(label, <span class="dt">location =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>), <span class="dt">just =</span> <span class="st">&quot;right&quot;</span>, 
-    <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">12</span>)))
-
-ht_list =<span class="st"> </span>ht_list <span class="op">+</span><span class="st"> </span><span class="kw">Heatmap</span>(mean_meth, <span class="dt">name =</span> <span class="st">&quot;mean_meth&quot;</span>, <span class="dt">col =</span> meth_col_fun, 
-    <span class="dt">cluster_rows =</span> <span class="ot">FALSE</span>, <span class="dt">row_title =</span> <span class="ot">NULL</span>, <span class="dt">cluster_columns =</span> <span class="ot">FALSE</span>, <span class="dt">show_row_names =</span> <span class="ot">FALSE</span>,
-    <span class="dt">heatmap_legend_param =</span> <span class="kw">list</span>(<span class="dt">title =</span> <span class="st">&quot;Methylation&quot;</span>), <span class="dt">width =</span> <span class="kw">ncol</span>(mean_meth)<span class="op">*</span><span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;mm&quot;</span>)) <span class="op">+</span>
-<span class="kw">rowAnnotation</span>(<span class="st">&quot;n_gr&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(n_gr, <span class="dt">bar_width =</span> <span class="dv">1</span>, <span class="dt">width =</span> anno_width), 
-    <span class="dt">show_annotation_name =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="kw">rowAnnotation</span>(<span class="st">&quot;n_corr&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(n_corr, <span class="dt">bar_width =</span> <span class="dv">1</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> corr_col), 
-    <span class="dt">width =</span> anno_width), <span class="dt">show_annotation_name =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="kw">rowAnnotation</span>(<span class="st">&quot;dist_tss&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(dist_tss, <span class="dt">bar_width =</span> <span class="dv">1</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> dist_tss_col), 
-    <span class="dt">width =</span> anno_width), <span class="dt">show_annotation_name =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="kw">rowAnnotation</span>(<span class="st">&quot;gene_anno&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(gene_anno, <span class="dt">bar_width =</span> <span class="dv">1</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> gene_anno_col), 
-    <span class="dt">width =</span> anno_width), <span class="dt">show_annotation_name =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="kw">rowAnnotation</span>(<span class="st">&quot;cgi_anno&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(cgi_anno, <span class="dt">bar_width =</span> <span class="dv">1</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> cgi_anno_col), 
-    <span class="dt">width =</span> anno_width), <span class="dt">show_annotation_name =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="kw">Heatmap</span>(mat_enrich_gf, <span class="dt">name =</span> <span class="st">&quot;enrich_gf&quot;</span>, <span class="dt">col =</span> z_score_col_fun, <span class="dt">cluster_columns =</span> <span class="ot">FALSE</span>,
-    <span class="dt">width =</span> <span class="kw">unit</span>(<span class="kw">ncol</span>(mat_enrich_gf)<span class="op">*</span><span class="dv">4</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">column_title =</span> <span class="st">&quot;&quot;</span>,
-    <span class="dt">heatmap_legend_param =</span> <span class="kw">list</span>(<span class="dt">title =</span> <span class="st">&quot;Z-score&quot;</span>)) <span class="op">+</span>
-<span class="kw">rowAnnotation</span>(<span class="st">&quot;pct_st&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(mat_pct_st, <span class="dt">bar_width =</span> <span class="dv">1</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> state_col), 
-    <span class="dt">width =</span> anno_width), <span class="dt">show_annotation_name =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="kw">Heatmap</span>(mat_enrich_st, <span class="dt">name =</span> <span class="st">&quot;enrich_st&quot;</span>, <span class="dt">col =</span> z_score_col_fun, <span class="dt">cluster_columns =</span> <span class="ot">FALSE</span>, 
-    <span class="dt">width =</span> <span class="kw">unit</span>(<span class="kw">ncol</span>(mat_enrich_st)<span class="op">*</span><span class="dv">6</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">column_title =</span> <span class="st">&quot;&quot;</span>, <span class="dt">show_heatmap_legend =</span> <span class="ot">FALSE</span>,
-    <span class="dt">column_names_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> state_col), <span class="dt">show_row_names =</span> <span class="ot">FALSE</span>)</code></pre></div>
-<p>Since annotation barplots do not generate legends, we manually construct these legends with <code>Legend()</code> function.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lgd_list =<span class="st"> </span><span class="kw">list</span>(
-    <span class="kw">Legend</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;gene&quot;</span>, <span class="st">&quot;intergenic&quot;</span>), <span class="dt">title =</span> <span class="st">&quot;Gene annotation&quot;</span>, 
-        <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> gene_anno_col)),
-    <span class="kw">Legend</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;&lt;1kb&quot;</span>, <span class="st">&quot;1kb~5kb&quot;</span>, <span class="st">&quot;5kb~10kb&quot;</span>, <span class="st">&quot;&gt;10kb&quot;</span>), <span class="dt">title =</span> <span class="st">&quot;Distance to TSS&quot;</span>, 
-        <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> dist_tss_col)),
-    <span class="kw">Legend</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;CGI&quot;</span>, <span class="st">&quot;CGI shore&quot;</span>), <span class="dt">title =</span> <span class="st">&quot;CGI annotation&quot;</span>, 
-        <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> cgi_anno_col)),
-    <span class="kw">Legend</span>(<span class="dt">labels =</span> <span class="kw">colnames</span>(mat_enrich_st), <span class="dt">title =</span> <span class="st">&quot;Chromatin states&quot;</span>, 
-        <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> state_col))
-)</code></pre></div>
-<p>When drawing the heatmap list, the rows of all heatmaps and annotations are split into two major groups. Note in the first <code>Heatmap()</code> which corresponds to the mean methylation matrix, we set <code>row_title = NULL</code> to remove the row titles which is from row splitting.</p>
-<p>Since later we will add titles for the annotations, we allocate white space on top of the whole plotting region by <code>padding</code> argument. Also we concatenate the self-defined legend list to the heatmap legend list and put them horizontally at the bottom of the heatmap list.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">draw</span>(ht_list, <span class="dt">padding =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">20</span>, <span class="dv">2</span>), <span class="st">&quot;mm&quot;</span>), <span class="dt">row_split =</span> <span class="kw">gsub</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">d+$&quot;</span>, <span class="st">&quot;&quot;</span>, label), 
-    <span class="dt">heatmap_legend_list =</span> lgd_list, <span class="dt">heatmap_legend_side =</span> <span class="st">&quot;bottom&quot;</span>)
-anno_title =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;n_gr&quot;</span> =<span class="st"> &quot;Number of</span><span class="ch">\n</span><span class="st">DMRs&quot;</span>, <span class="st">&quot;n_corr&quot;</span> =<span class="st"> &quot;Significantly</span><span class="ch">\n</span><span class="st">correlated genes&quot;</span>,
-    <span class="st">&quot;gene_anno&quot;</span> =<span class="st"> &quot;Gene annotation&quot;</span>, <span class="st">&quot;dist_tss&quot;</span> =<span class="st"> &quot;Distance to TSS&quot;</span>,
-    <span class="st">&quot;cgi_anno&quot;</span> =<span class="st"> &quot;CGI annotation&quot;</span>, <span class="st">&quot;pct_st&quot;</span> =<span class="st"> &quot;Overlap to</span><span class="ch">\n</span><span class="st">Chromatin states&quot;</span>)
-<span class="cf">for</span>(an <span class="cf">in</span> <span class="kw">names</span>(anno_title)) {
-    <span class="kw">decorate_annotation</span>(an, {
-        <span class="kw">grid.text</span>(anno_title[an], <span class="dt">y =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">3</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>)
-    })
-}
-ht_title =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;mean_meth&quot;</span> =<span class="st"> &quot;Mean</span><span class="ch">\n</span><span class="st">methylation&quot;</span>, <span class="st">&quot;enrich_gf&quot;</span> =<span class="st"> &quot;Enrichment to</span><span class="ch">\n</span><span class="st">genomic features&quot;</span>,
-    <span class="st">&quot;enrich_st&quot;</span> =<span class="st"> &quot;Enrichment to</span><span class="ch">\n</span><span class="st">chromatin states&quot;</span>)
-<span class="cf">for</span>(an <span class="cf">in</span> <span class="kw">names</span>(ht_title)) {
-    <span class="kw">decorate_heatmap_body</span>(an, {
-        <span class="kw">grid.text</span>(ht_title[an], <span class="dt">y =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">3</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>)
-    })
-}</code></pre></div>
+<div class="sourceCode" id="cb630"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb630-1" data-line-number="1"><span class="kw">attach</span>(lt)</a></code></pre></div>
+<p>Since we have many statistics to visualize, we first define the colors. We
+define color mapping functions for the statistics which we want to visualize
+as heatmaps and color vectors for those we want to visualize as barplots.</p>
+<div class="sourceCode" id="cb631"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb631-1" data-line-number="1"><span class="kw">library</span>(circlize)</a>
+<a class="sourceLine" id="cb631-2" data-line-number="2">meth_col_fun =<span class="st"> </span><span class="kw">colorRamp2</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>), <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>))</a>
+<a class="sourceLine" id="cb631-3" data-line-number="3">corr_col =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;red&quot;</span>)</a>
+<a class="sourceLine" id="cb631-4" data-line-number="4">dist_tss_col =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#FF0000&quot;</span>, <span class="st">&quot;#FF7352&quot;</span>, <span class="st">&quot;#FFB299&quot;</span>, <span class="st">&quot;#FFD9CB&quot;</span>)</a>
+<a class="sourceLine" id="cb631-5" data-line-number="5">gene_anno_col =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>)</a>
+<a class="sourceLine" id="cb631-6" data-line-number="6">cgi_anno_col =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#FFA500&quot;</span>, <span class="st">&quot;#FFD191&quot;</span>)</a>
+<a class="sourceLine" id="cb631-7" data-line-number="7">z_score_col_fun =<span class="st"> </span><span class="kw">colorRamp2</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">200</span>, <span class="dv">0</span>, <span class="dv">200</span>), <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>))</a>
+<a class="sourceLine" id="cb631-8" data-line-number="8">state_col =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#FF0000&quot;</span>, <span class="st">&quot;#008000&quot;</span>, <span class="st">&quot;#C2E105&quot;</span>, <span class="st">&quot;#8A91D0&quot;</span>, <span class="st">&quot;#CD5C5C&quot;</span>, <span class="st">&quot;#808080&quot;</span>, <span class="st">&quot;#000000&quot;</span>)</a></code></pre></div>
+<p>The construction of the heatmap list very straightforward. Each statistic is
+constructed as a heatmap or a row annotation.</p>
+<div class="sourceCode" id="cb632"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb632-1" data-line-number="1">anno_width =<span class="st"> </span><span class="kw">unit</span>(<span class="dv">3</span>, <span class="st">&quot;cm&quot;</span>)</a>
+<a class="sourceLine" id="cb632-2" data-line-number="2">ht_list =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">text =</span> <span class="kw">anno_text</span>(label, <span class="dt">location =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>), <span class="dt">just =</span> <span class="st">&quot;right&quot;</span>, </a>
+<a class="sourceLine" id="cb632-3" data-line-number="3">    <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">12</span>)))</a>
+<a class="sourceLine" id="cb632-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb632-5" data-line-number="5">ht_list =<span class="st"> </span>ht_list <span class="op">+</span><span class="st"> </span><span class="kw">Heatmap</span>(mean_meth, <span class="dt">name =</span> <span class="st">&quot;mean_meth&quot;</span>, <span class="dt">col =</span> meth_col_fun, </a>
+<a class="sourceLine" id="cb632-6" data-line-number="6">    <span class="dt">cluster_rows =</span> <span class="ot">FALSE</span>, <span class="dt">row_title =</span> <span class="ot">NULL</span>, <span class="dt">cluster_columns =</span> <span class="ot">FALSE</span>, <span class="dt">show_row_names =</span> <span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb632-7" data-line-number="7">    <span class="dt">heatmap_legend_param =</span> <span class="kw">list</span>(<span class="dt">title =</span> <span class="st">&quot;Methylation&quot;</span>), <span class="dt">width =</span> <span class="kw">ncol</span>(mean_meth)<span class="op">*</span><span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;mm&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb632-8" data-line-number="8"><span class="kw">rowAnnotation</span>(<span class="st">&quot;n_gr&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(n_gr, <span class="dt">bar_width =</span> <span class="dv">1</span>, <span class="dt">width =</span> anno_width), </a>
+<a class="sourceLine" id="cb632-9" data-line-number="9">    <span class="dt">show_annotation_name =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb632-10" data-line-number="10"><span class="kw">rowAnnotation</span>(<span class="st">&quot;n_corr&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(n_corr, <span class="dt">bar_width =</span> <span class="dv">1</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> corr_col), </a>
+<a class="sourceLine" id="cb632-11" data-line-number="11">    <span class="dt">width =</span> anno_width), <span class="dt">show_annotation_name =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb632-12" data-line-number="12"><span class="kw">rowAnnotation</span>(<span class="st">&quot;dist_tss&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(dist_tss, <span class="dt">bar_width =</span> <span class="dv">1</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> dist_tss_col), </a>
+<a class="sourceLine" id="cb632-13" data-line-number="13">    <span class="dt">width =</span> anno_width), <span class="dt">show_annotation_name =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb632-14" data-line-number="14"><span class="kw">rowAnnotation</span>(<span class="st">&quot;gene_anno&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(gene_anno, <span class="dt">bar_width =</span> <span class="dv">1</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> gene_anno_col), </a>
+<a class="sourceLine" id="cb632-15" data-line-number="15">    <span class="dt">width =</span> anno_width), <span class="dt">show_annotation_name =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb632-16" data-line-number="16"><span class="kw">rowAnnotation</span>(<span class="st">&quot;cgi_anno&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(cgi_anno, <span class="dt">bar_width =</span> <span class="dv">1</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> cgi_anno_col), </a>
+<a class="sourceLine" id="cb632-17" data-line-number="17">    <span class="dt">width =</span> anno_width), <span class="dt">show_annotation_name =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb632-18" data-line-number="18"><span class="kw">Heatmap</span>(mat_enrich_gf, <span class="dt">name =</span> <span class="st">&quot;enrich_gf&quot;</span>, <span class="dt">col =</span> z_score_col_fun, <span class="dt">cluster_columns =</span> <span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb632-19" data-line-number="19">    <span class="dt">width =</span> <span class="kw">unit</span>(<span class="kw">ncol</span>(mat_enrich_gf)<span class="op">*</span><span class="dv">4</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">column_title =</span> <span class="st">&quot;&quot;</span>,</a>
+<a class="sourceLine" id="cb632-20" data-line-number="20">    <span class="dt">heatmap_legend_param =</span> <span class="kw">list</span>(<span class="dt">title =</span> <span class="st">&quot;Z-score&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb632-21" data-line-number="21"><span class="kw">rowAnnotation</span>(<span class="st">&quot;pct_st&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(mat_pct_st, <span class="dt">bar_width =</span> <span class="dv">1</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> state_col), </a>
+<a class="sourceLine" id="cb632-22" data-line-number="22">    <span class="dt">width =</span> anno_width), <span class="dt">show_annotation_name =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb632-23" data-line-number="23"><span class="kw">Heatmap</span>(mat_enrich_st, <span class="dt">name =</span> <span class="st">&quot;enrich_st&quot;</span>, <span class="dt">col =</span> z_score_col_fun, <span class="dt">cluster_columns =</span> <span class="ot">FALSE</span>, </a>
+<a class="sourceLine" id="cb632-24" data-line-number="24">    <span class="dt">width =</span> <span class="kw">unit</span>(<span class="kw">ncol</span>(mat_enrich_st)<span class="op">*</span><span class="dv">6</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">column_title =</span> <span class="st">&quot;&quot;</span>, <span class="dt">show_heatmap_legend =</span> <span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb632-25" data-line-number="25">    <span class="dt">column_names_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> state_col), <span class="dt">show_row_names =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<p>Since annotation barplots do not generate legends, we manually construct these legends
+with <code>Legend()</code> function.</p>
+<div class="sourceCode" id="cb633"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb633-1" data-line-number="1">lgd_list =<span class="st"> </span><span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb633-2" data-line-number="2">    <span class="kw">Legend</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;gene&quot;</span>, <span class="st">&quot;intergenic&quot;</span>), <span class="dt">title =</span> <span class="st">&quot;Gene annotation&quot;</span>, </a>
+<a class="sourceLine" id="cb633-3" data-line-number="3">        <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> gene_anno_col)),</a>
+<a class="sourceLine" id="cb633-4" data-line-number="4">    <span class="kw">Legend</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;&lt;1kb&quot;</span>, <span class="st">&quot;1kb~5kb&quot;</span>, <span class="st">&quot;5kb~10kb&quot;</span>, <span class="st">&quot;&gt;10kb&quot;</span>), <span class="dt">title =</span> <span class="st">&quot;Distance to TSS&quot;</span>, </a>
+<a class="sourceLine" id="cb633-5" data-line-number="5">        <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> dist_tss_col)),</a>
+<a class="sourceLine" id="cb633-6" data-line-number="6">    <span class="kw">Legend</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;CGI&quot;</span>, <span class="st">&quot;CGI shore&quot;</span>), <span class="dt">title =</span> <span class="st">&quot;CGI annotation&quot;</span>, </a>
+<a class="sourceLine" id="cb633-7" data-line-number="7">        <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> cgi_anno_col)),</a>
+<a class="sourceLine" id="cb633-8" data-line-number="8">    <span class="kw">Legend</span>(<span class="dt">labels =</span> <span class="kw">colnames</span>(mat_enrich_st), <span class="dt">title =</span> <span class="st">&quot;Chromatin states&quot;</span>, </a>
+<a class="sourceLine" id="cb633-9" data-line-number="9">        <span class="dt">legend_gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> state_col))</a>
+<a class="sourceLine" id="cb633-10" data-line-number="10">)</a></code></pre></div>
+<p>When drawing the heatmap list, the rows of all heatmaps and annotations are split into two major
+groups. Note in the first <code>Heatmap()</code> which corresponds to the mean methylation matrix, we set
+<code>row_title = NULL</code> to remove the row titles which is from row splitting.</p>
+<p>Since later we will add titles for the annotations, we allocate white space on top of the whole
+plotting region by <code>padding</code> argument. Also we concatenate the self-defined legend list to the
+heatmap legend list and put them horizontally at the bottom of the heatmap list.</p>
+<div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb634-1" data-line-number="1"><span class="kw">draw</span>(ht_list, <span class="dt">padding =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">20</span>, <span class="dv">2</span>), <span class="st">&quot;mm&quot;</span>), <span class="dt">row_split =</span> <span class="kw">gsub</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">d+$&quot;</span>, <span class="st">&quot;&quot;</span>, label), </a>
+<a class="sourceLine" id="cb634-2" data-line-number="2">    <span class="dt">heatmap_legend_list =</span> lgd_list, <span class="dt">heatmap_legend_side =</span> <span class="st">&quot;bottom&quot;</span>)</a>
+<a class="sourceLine" id="cb634-3" data-line-number="3">anno_title =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;n_gr&quot;</span> =<span class="st"> &quot;Number of</span><span class="ch">\n</span><span class="st">DMRs&quot;</span>, <span class="st">&quot;n_corr&quot;</span> =<span class="st"> &quot;Significantly</span><span class="ch">\n</span><span class="st">correlated genes&quot;</span>,</a>
+<a class="sourceLine" id="cb634-4" data-line-number="4">    <span class="st">&quot;gene_anno&quot;</span> =<span class="st"> &quot;Gene annotation&quot;</span>, <span class="st">&quot;dist_tss&quot;</span> =<span class="st"> &quot;Distance to TSS&quot;</span>,</a>
+<a class="sourceLine" id="cb634-5" data-line-number="5">    <span class="st">&quot;cgi_anno&quot;</span> =<span class="st"> &quot;CGI annotation&quot;</span>, <span class="st">&quot;pct_st&quot;</span> =<span class="st"> &quot;Overlap to</span><span class="ch">\n</span><span class="st">Chromatin states&quot;</span>)</a>
+<a class="sourceLine" id="cb634-6" data-line-number="6"><span class="cf">for</span>(an <span class="cf">in</span> <span class="kw">names</span>(anno_title)) {</a>
+<a class="sourceLine" id="cb634-7" data-line-number="7">    <span class="kw">decorate_annotation</span>(an, {</a>
+<a class="sourceLine" id="cb634-8" data-line-number="8">        <span class="kw">grid.text</span>(anno_title[an], <span class="dt">y =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">3</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>)</a>
+<a class="sourceLine" id="cb634-9" data-line-number="9">    })</a>
+<a class="sourceLine" id="cb634-10" data-line-number="10">}</a>
+<a class="sourceLine" id="cb634-11" data-line-number="11">ht_title =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;mean_meth&quot;</span> =<span class="st"> &quot;Mean</span><span class="ch">\n</span><span class="st">methylation&quot;</span>, <span class="st">&quot;enrich_gf&quot;</span> =<span class="st"> &quot;Enrichment to</span><span class="ch">\n</span><span class="st">genomic features&quot;</span>,</a>
+<a class="sourceLine" id="cb634-12" data-line-number="12">    <span class="st">&quot;enrich_st&quot;</span> =<span class="st"> &quot;Enrichment to</span><span class="ch">\n</span><span class="st">chromatin states&quot;</span>)</a>
+<a class="sourceLine" id="cb634-13" data-line-number="13"><span class="cf">for</span>(an <span class="cf">in</span> <span class="kw">names</span>(ht_title)) {</a>
+<a class="sourceLine" id="cb634-14" data-line-number="14">    <span class="kw">decorate_heatmap_body</span>(an, {</a>
+<a class="sourceLine" id="cb634-15" data-line-number="15">        <span class="kw">grid.text</span>(ht_title[an], <span class="dt">y =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">3</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>)</a>
+<a class="sourceLine" id="cb634-16" data-line-number="16">    })</a>
+<a class="sourceLine" id="cb634-17" data-line-number="17">}</a></code></pre></div>
 <p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-14-1.png" width="1344" style="display: block; margin: auto;" /></p>
-<p>Similarlly, the multiple statistics can also be arranged vertically. In following example, we visualize several statistics for a list of genomic regions in 40 samples, from four subgroups. The statistics are:</p>
+<p>Similarlly, the multiple statistics can also be arranged vertically.
+In following example, we visualize several statistics for a list of genomic regions in 40 samples,
+from four subgroups. The statistics are:</p>
 <ul>
 <li><code>prop</code>: The proportion in the genome.</li>
 <li><code>median_length</code>: The median length of regions in each sample.</li>
 <li><code>group</code>: subgroup labels.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">prop =<span class="st"> </span><span class="kw">c</span>(
-    <span class="kw">runif</span>(<span class="dv">10</span>, <span class="dt">min =</span> <span class="fl">0.1</span>, <span class="dt">max =</span> <span class="fl">0.5</span>),
-    <span class="kw">runif</span>(<span class="dv">10</span>, <span class="dt">min =</span> <span class="fl">0.2</span>, <span class="dt">max =</span> <span class="fl">0.4</span>),
-    <span class="kw">runif</span>(<span class="dv">10</span>, <span class="dt">min =</span> <span class="fl">0.3</span>, <span class="dt">max =</span> <span class="fl">0.6</span>),
-    <span class="kw">runif</span>(<span class="dv">10</span>, <span class="dt">min =</span> <span class="fl">0.4</span>, <span class="dt">max =</span> <span class="fl">0.8</span>)
-)
-median_length =<span class="st"> </span><span class="kw">c</span>(
-    <span class="kw">runif</span>(<span class="dv">10</span>, <span class="dt">min =</span> <span class="dv">5000</span>, <span class="dt">max =</span> <span class="dv">10000</span>),
-    <span class="kw">runif</span>(<span class="dv">10</span>, <span class="dt">min =</span> <span class="dv">6000</span>, <span class="dt">max =</span> <span class="dv">20000</span>),
-    <span class="kw">runif</span>(<span class="dv">10</span>, <span class="dt">min =</span> <span class="dv">7000</span>, <span class="dt">max =</span> <span class="dv">15000</span>),
-    <span class="kw">runif</span>(<span class="dv">10</span>, <span class="dt">min =</span> <span class="dv">6000</span>, <span class="dt">max =</span> <span class="dv">30000</span>)
-)
-group =<span class="st"> </span><span class="kw">rep</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], <span class="dt">each =</span> <span class="dv">10</span>)</code></pre></div>
+<div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb635-1" data-line-number="1">prop =<span class="st"> </span><span class="kw">c</span>(</a>
+<a class="sourceLine" id="cb635-2" data-line-number="2">    <span class="kw">runif</span>(<span class="dv">10</span>, <span class="dt">min =</span> <span class="fl">0.1</span>, <span class="dt">max =</span> <span class="fl">0.5</span>),</a>
+<a class="sourceLine" id="cb635-3" data-line-number="3">    <span class="kw">runif</span>(<span class="dv">10</span>, <span class="dt">min =</span> <span class="fl">0.2</span>, <span class="dt">max =</span> <span class="fl">0.4</span>),</a>
+<a class="sourceLine" id="cb635-4" data-line-number="4">    <span class="kw">runif</span>(<span class="dv">10</span>, <span class="dt">min =</span> <span class="fl">0.3</span>, <span class="dt">max =</span> <span class="fl">0.6</span>),</a>
+<a class="sourceLine" id="cb635-5" data-line-number="5">    <span class="kw">runif</span>(<span class="dv">10</span>, <span class="dt">min =</span> <span class="fl">0.4</span>, <span class="dt">max =</span> <span class="fl">0.8</span>)</a>
+<a class="sourceLine" id="cb635-6" data-line-number="6">)</a>
+<a class="sourceLine" id="cb635-7" data-line-number="7">median_length =<span class="st"> </span><span class="kw">c</span>(</a>
+<a class="sourceLine" id="cb635-8" data-line-number="8">    <span class="kw">runif</span>(<span class="dv">10</span>, <span class="dt">min =</span> <span class="dv">5000</span>, <span class="dt">max =</span> <span class="dv">10000</span>),</a>
+<a class="sourceLine" id="cb635-9" data-line-number="9">    <span class="kw">runif</span>(<span class="dv">10</span>, <span class="dt">min =</span> <span class="dv">6000</span>, <span class="dt">max =</span> <span class="dv">20000</span>),</a>
+<a class="sourceLine" id="cb635-10" data-line-number="10">    <span class="kw">runif</span>(<span class="dv">10</span>, <span class="dt">min =</span> <span class="dv">7000</span>, <span class="dt">max =</span> <span class="dv">15000</span>),</a>
+<a class="sourceLine" id="cb635-11" data-line-number="11">    <span class="kw">runif</span>(<span class="dv">10</span>, <span class="dt">min =</span> <span class="dv">6000</span>, <span class="dt">max =</span> <span class="dv">30000</span>)</a>
+<a class="sourceLine" id="cb635-12" data-line-number="12">)</a>
+<a class="sourceLine" id="cb635-13" data-line-number="13">group =<span class="st"> </span><span class="kw">rep</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], <span class="dt">each =</span> <span class="dv">10</span>)</a></code></pre></div>
 <p>Note in following example, there is no heatmap in the list.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht_list =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">prop =</span> <span class="kw">anno_barplot</span>(prop, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>),
-        <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.2</span>, <span class="fl">0.4</span>, <span class="fl">0.6</span>, <span class="fl">0.8</span>), 
-            <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;0%&quot;</span>, <span class="st">&quot;20%&quot;</span>, <span class="st">&quot;40%&quot;</span>, <span class="st">&quot;60%&quot;</span>, <span class="st">&quot;80%&quot;</span>))),
-    <span class="dt">annotation_name_rot =</span> <span class="dv">90</span>) <span class="op">%v%</span>
-<span class="kw">HeatmapAnnotation</span>(<span class="dt">median_length =</span> <span class="kw">anno_barplot</span>(median_length, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>),
-        <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10000</span>, <span class="dv">20000</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;0kb&quot;</span>, <span class="st">&quot;10kb&quot;</span>, <span class="st">&quot;20kb&quot;</span>))),
-    <span class="dt">annotation_name_rot =</span> <span class="dv">90</span>) <span class="op">%v%</span>
-<span class="kw">HeatmapAnnotation</span>(<span class="dt">group =</span> group)
-<span class="kw">draw</span>(ht_list, <span class="dt">column_title =</span> <span class="st">&quot;Statistics for a list of genomic regions&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb636"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb636-1" data-line-number="1">ht_list =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">prop =</span> <span class="kw">anno_barplot</span>(prop, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>),</a>
+<a class="sourceLine" id="cb636-2" data-line-number="2">        <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.2</span>, <span class="fl">0.4</span>, <span class="fl">0.6</span>, <span class="fl">0.8</span>), </a>
+<a class="sourceLine" id="cb636-3" data-line-number="3">            <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;0%&quot;</span>, <span class="st">&quot;20%&quot;</span>, <span class="st">&quot;40%&quot;</span>, <span class="st">&quot;60%&quot;</span>, <span class="st">&quot;80%&quot;</span>))),</a>
+<a class="sourceLine" id="cb636-4" data-line-number="4">    <span class="dt">annotation_name_rot =</span> <span class="dv">90</span>) <span class="op">%v%</span></a>
+<a class="sourceLine" id="cb636-5" data-line-number="5"><span class="kw">HeatmapAnnotation</span>(<span class="dt">median_length =</span> <span class="kw">anno_barplot</span>(median_length, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>),</a>
+<a class="sourceLine" id="cb636-6" data-line-number="6">        <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10000</span>, <span class="dv">20000</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;0kb&quot;</span>, <span class="st">&quot;10kb&quot;</span>, <span class="st">&quot;20kb&quot;</span>))),</a>
+<a class="sourceLine" id="cb636-7" data-line-number="7">    <span class="dt">annotation_name_rot =</span> <span class="dv">90</span>) <span class="op">%v%</span></a>
+<a class="sourceLine" id="cb636-8" data-line-number="8"><span class="kw">HeatmapAnnotation</span>(<span class="dt">group =</span> group)</a>
+<a class="sourceLine" id="cb636-9" data-line-number="9"><span class="kw">draw</span>(ht_list, <span class="dt">column_title =</span> <span class="st">&quot;Statistics for a list of genomic regions&quot;</span>)</a></code></pre></div>
 <p><img src="10-other-high-level-plots_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>For concatenation of multiple annotations, individual annotations can also be put into one single <code>HeatmapAnnotation()</code>. E.g. previous code is almost exactly the same as following code:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># code only for demonstration</span>
-<span class="kw">HeatmapAnnotation</span>(
-    <span class="dt">prop =</span> <span class="kw">anno_barplot</span>(prop, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>),
-        <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.2</span>, <span class="fl">0.4</span>, <span class="fl">0.6</span>, <span class="fl">0.8</span>), 
-            <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;0%&quot;</span>, <span class="st">&quot;20%&quot;</span>, <span class="st">&quot;40%&quot;</span>, <span class="st">&quot;60%&quot;</span>, <span class="st">&quot;80%&quot;</span>))),
-    <span class="dt">median_length =</span> <span class="kw">anno_barplot</span>(median_length, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>),
-        <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10000</span>, <span class="dv">20000</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;0kb&quot;</span>, <span class="st">&quot;10kb&quot;</span>, <span class="st">&quot;20kb&quot;</span>))),
-    <span class="dt">group =</span> group,
-    <span class="dt">annotation_name_rot =</span> <span class="kw">c</span>(<span class="dv">90</span>, <span class="dv">90</span>, <span class="dv">0</span>),
-    <span class="dt">gap =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>)
-) <span class="op">%v%</span><span class="st"> </span><span class="ot">NULL</span> <span class="co"># add NULL to convert single HeatmapAnnotation to HeatmapList</span></code></pre></div>
+<p>For concatenation of multiple annotations, individual annotations can also be put into one single
+<code>HeatmapAnnotation()</code>. E.g. previous code is almost exactly the same as following code:</p>
+<div class="sourceCode" id="cb637"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb637-1" data-line-number="1"><span class="co"># code only for demonstration</span></a>
+<a class="sourceLine" id="cb637-2" data-line-number="2"><span class="kw">HeatmapAnnotation</span>(</a>
+<a class="sourceLine" id="cb637-3" data-line-number="3">    <span class="dt">prop =</span> <span class="kw">anno_barplot</span>(prop, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>),</a>
+<a class="sourceLine" id="cb637-4" data-line-number="4">        <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.2</span>, <span class="fl">0.4</span>, <span class="fl">0.6</span>, <span class="fl">0.8</span>), </a>
+<a class="sourceLine" id="cb637-5" data-line-number="5">            <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;0%&quot;</span>, <span class="st">&quot;20%&quot;</span>, <span class="st">&quot;40%&quot;</span>, <span class="st">&quot;60%&quot;</span>, <span class="st">&quot;80%&quot;</span>))),</a>
+<a class="sourceLine" id="cb637-6" data-line-number="6">    <span class="dt">median_length =</span> <span class="kw">anno_barplot</span>(median_length, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>),</a>
+<a class="sourceLine" id="cb637-7" data-line-number="7">        <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">10000</span>, <span class="dv">20000</span>), <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;0kb&quot;</span>, <span class="st">&quot;10kb&quot;</span>, <span class="st">&quot;20kb&quot;</span>))),</a>
+<a class="sourceLine" id="cb637-8" data-line-number="8">    <span class="dt">group =</span> group,</a>
+<a class="sourceLine" id="cb637-9" data-line-number="9">    <span class="dt">annotation_name_rot =</span> <span class="kw">c</span>(<span class="dv">90</span>, <span class="dv">90</span>, <span class="dv">0</span>),</a>
+<a class="sourceLine" id="cb637-10" data-line-number="10">    <span class="dt">gap =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>)</a>
+<a class="sourceLine" id="cb637-11" data-line-number="11">) <span class="op">%v%</span><span class="st"> </span><span class="ot">NULL</span> <span class="co"># add NULL to convert single HeatmapAnnotation to HeatmapList</span></a></code></pre></div>
 
 </div>
 </div>
@@ -501,7 +564,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

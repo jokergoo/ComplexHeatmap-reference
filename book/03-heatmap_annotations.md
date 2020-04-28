@@ -76,9 +76,7 @@ column_ha
 ##   width: 1npc 
 ##   height: 15.3514598035146mm 
 ##   this object is subsetable
-##   0mm extension on the bottom 
 ##   5.92288888888889mm extension on the left 
-##   0mm extension on the top 
 ##   9.4709mm extension on the right 
 ## 
 ##  name   annotation_type color_mapping height
@@ -98,10 +96,7 @@ row_ha
 ##   width: 15.3514598035146mm 
 ##   height: 1npc 
 ##   this object is subsetable
-##   9.96242222222223mm extension on the bottom 
-##   0mm extension on the left 
-##   0mm extension on the top 
-##   0mm extension on the right 
+##   9.96242222222222mm extension on the bottom 
 ## 
 ##  name   annotation_type color_mapping width
 ##  foo2 continuous vector        random   5mm
@@ -1915,10 +1910,7 @@ anno_points(1:10)
 ##   imported variable: data_scale, axis_param, border, size, value, pch_as_image, axis, gp, axis_grob, pch 
 ##   subsetable variable: gp, value, size, pch 
 ##   this object is subsetable
-##   0mm extension on the bottom 
-##   5.13831111111111mm extension on the left 
-##   0mm extension on the top 
-##   0mm extension on the right
+##   5.13831111111111mm extension on the left
 ```
 
 In most cases, you don't need to manually construct your `AnnotationFunction`

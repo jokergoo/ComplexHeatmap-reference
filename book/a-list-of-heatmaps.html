@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 A List of Heatmaps | ComplexHeatmap Complete Reference</title>
   <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 A List of Heatmaps | ComplexHeatmap Complete Reference" />
   <meta property="og:type" content="book" />
@@ -52,41 +52,68 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -244,7 +271,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11.2.1" data-path="other-tricks.html"><a href="other-tricks.html#titles"><i class="fa fa-check"></i><b>11.2.1</b> Titles</a></li>
 <li class="chapter" data-level="11.2.2" data-path="other-tricks.html"><a href="other-tricks.html#rowcolumn-names"><i class="fa fa-check"></i><b>11.2.2</b> Row/column names</a></li>
 <li class="chapter" data-level="11.2.3" data-path="other-tricks.html"><a href="other-tricks.html#annotation-labels-1"><i class="fa fa-check"></i><b>11.2.3</b> Annotation labels</a></li>
-<li class="chapter" data-level="11.2.4" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#text-annotation"><i class="fa fa-check"></i><b>11.2.4</b> Text annotation</a></li>
+<li class="chapter" data-level="11.2.4" data-path="other-tricks.html"><a href="other-tricks.html#text-annotation-1"><i class="fa fa-check"></i><b>11.2.4</b> Text annotation</a></li>
 <li class="chapter" data-level="11.2.5" data-path="other-tricks.html"><a href="other-tricks.html#legend"><i class="fa fa-check"></i><b>11.2.5</b> Legend</a></li>
 </ul></li>
 </ul></li>
@@ -270,145 +297,193 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="a-list-of-heatmaps" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> A List of Heatmaps</h1>
-<p>The main feature of <strong>ComplexHeatmap</strong> package is it supports to concatenate a list of heatmaps and annotations horizontally or vertically so that it makes it possible to visualize the associations from various sources of information. In this chapter, we mainly introduce the horizontal concatenation because this is the major case we will use in the analysis. In the end we show some examples of vertical concatenation. The concept behind for horizontal and vertical concatenation basically is similar.</p>
-<p>For the horizontal concatenation, the number of rows for all heatmaps and annotations should be the same. In following we first introduce the concatenation of heatmaps and later we will show how to concatenate heatmaps with annotations.</p>
-<p>In following example, there are three matrices where the third heatmap is a vector and it will be transformed as a one-column matrix. The one-column heatmap is sometimes useful when you concatenate a list of heatmaps that it can show e.g. annotations for each row or some scores of each row. E.g. if rows are genes, the type of the genes (i.e. protein coding or not) can be represented as a one-column character matrix, and the p-value or the fold change from differential expression analysis can be represented as a one-column numeric matrix, and be concatenated to the main expression heatmap.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
-mat1 =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">80</span>, <span class="dv">2</span>), <span class="dv">8</span>, <span class="dv">10</span>)
-mat1 =<span class="st"> </span><span class="kw">rbind</span>(mat1, <span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">40</span>, <span class="op">-</span><span class="dv">2</span>), <span class="dv">4</span>, <span class="dv">10</span>))
-<span class="kw">rownames</span>(mat1) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;R&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>)
-<span class="kw">colnames</span>(mat1) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;C&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)
-
-mat2 =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">runif</span>(<span class="dv">60</span>, <span class="dt">max =</span> <span class="dv">3</span>, <span class="dt">min =</span> <span class="dv">1</span>), <span class="dv">6</span>, <span class="dv">10</span>)
-mat2 =<span class="st"> </span><span class="kw">rbind</span>(mat2, <span class="kw">matrix</span>(<span class="kw">runif</span>(<span class="dv">60</span>, <span class="dt">max =</span> <span class="dv">2</span>, <span class="dt">min =</span> <span class="dv">0</span>), <span class="dv">6</span>, <span class="dv">10</span>))
-<span class="kw">rownames</span>(mat2) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;R&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>)
-<span class="kw">colnames</span>(mat2) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;C&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)
-
-le =<span class="st"> </span><span class="kw">sample</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dv">12</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)
-<span class="kw">names</span>(le) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;R&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>)
-
-ind =<span class="st"> </span><span class="kw">sample</span>(<span class="dv">12</span>, <span class="dv">12</span>)
-mat1 =<span class="st"> </span>mat1[ind, ]
-mat2 =<span class="st"> </span>mat2[ind, ]
-le =<span class="st"> </span>le[ind]</code></pre></div>
+<p>The main feature of <strong>ComplexHeatmap</strong> package is it supports to concatenate a
+list of heatmaps and annotations horizontally or vertically so that it makes
+it possible to visualize the associations from various sources of information.
+In this chapter, we mainly introduce the horizontal concatenation because this
+is the major case we will use in the analysis. In the end we show some
+examples of vertical concatenation. The concept behind for horizontal and
+vertical concatenation basically is similar.</p>
+<p>For the horizontal concatenation, the number of rows for all heatmaps and
+annotations should be the same. In following we first introduce the
+concatenation of heatmaps and later we will show how to concatenate heatmaps
+with annotations.</p>
+<p>In following example, there are three matrices where the third heatmap is a
+vector and it will be transformed as a one-column matrix. The one-column
+heatmap is sometimes useful when you concatenate a list of heatmaps that it
+can show e.g. annotations for each row or some scores of each row. E.g. if
+rows are genes, the type of the genes (i.e. protein coding or not) can be
+represented as a one-column character matrix, and the p-value or the fold
+change from differential expression analysis can be represented as a
+one-column numeric matrix, and be concatenated to the main expression heatmap.</p>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">123</span>)</a>
+<a class="sourceLine" id="cb291-2" data-line-number="2">mat1 =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">80</span>, <span class="dv">2</span>), <span class="dv">8</span>, <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb291-3" data-line-number="3">mat1 =<span class="st"> </span><span class="kw">rbind</span>(mat1, <span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">40</span>, <span class="dv">-2</span>), <span class="dv">4</span>, <span class="dv">10</span>))</a>
+<a class="sourceLine" id="cb291-4" data-line-number="4"><span class="kw">rownames</span>(mat1) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;R&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>)</a>
+<a class="sourceLine" id="cb291-5" data-line-number="5"><span class="kw">colnames</span>(mat1) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;C&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb291-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb291-7" data-line-number="7">mat2 =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">runif</span>(<span class="dv">60</span>, <span class="dt">max =</span> <span class="dv">3</span>, <span class="dt">min =</span> <span class="dv">1</span>), <span class="dv">6</span>, <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb291-8" data-line-number="8">mat2 =<span class="st"> </span><span class="kw">rbind</span>(mat2, <span class="kw">matrix</span>(<span class="kw">runif</span>(<span class="dv">60</span>, <span class="dt">max =</span> <span class="dv">2</span>, <span class="dt">min =</span> <span class="dv">0</span>), <span class="dv">6</span>, <span class="dv">10</span>))</a>
+<a class="sourceLine" id="cb291-9" data-line-number="9"><span class="kw">rownames</span>(mat2) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;R&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>)</a>
+<a class="sourceLine" id="cb291-10" data-line-number="10"><span class="kw">colnames</span>(mat2) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;C&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb291-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb291-12" data-line-number="12">le =<span class="st"> </span><span class="kw">sample</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dv">12</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb291-13" data-line-number="13"><span class="kw">names</span>(le) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;R&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>)</a>
+<a class="sourceLine" id="cb291-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb291-15" data-line-number="15">ind =<span class="st"> </span><span class="kw">sample</span>(<span class="dv">12</span>, <span class="dv">12</span>)</a>
+<a class="sourceLine" id="cb291-16" data-line-number="16">mat1 =<span class="st"> </span>mat1[ind, ]</a>
+<a class="sourceLine" id="cb291-17" data-line-number="17">mat2 =<span class="st"> </span>mat2[ind, ]</a>
+<a class="sourceLine" id="cb291-18" data-line-number="18">le =<span class="st"> </span>le[ind]</a></code></pre></div>
 <p>To concatenate heatmaps, simply use <code>+</code> operator.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>)
-ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>)
-ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>)
-
-ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3</code></pre></div>
-<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-2-1.png" width="864" style="display: block; margin: auto;" /></p>
-<p>Under default mode, dendrograms from the second heatmap will be removed and row orders will be the same as the first one. Also row names for the first two heatmaps are removed as well.</p>
-<p>The returned value of the concatenation is a <code>HeatmapList</code> object. Similar as explained in Section <a href="a-single-heatmap.html#plot-the-heatmap">2.11</a>, directly printing <code>ht_list</code> will call <code>draw()</code> method with default settings. With explicitly calling <code>draw()</code> method, you can have more controls on the heatmap list.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3
-<span class="kw">class</span>(ht_list)</code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb292-1" data-line-number="1">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>)</a>
+<a class="sourceLine" id="cb292-2" data-line-number="2">ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>)</a>
+<a class="sourceLine" id="cb292-3" data-line-number="3">ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>)</a>
+<a class="sourceLine" id="cb292-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb292-5" data-line-number="5">ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3</a></code></pre></div>
+<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-3-1.png" width="864" style="display: block; margin: auto;" /></p>
+<p>Under default mode, dendrograms from the second heatmap will be removed and
+row orders will be the same as the first one. Also row names for the first two
+heatmaps are removed as well.</p>
+<p>The returned value of the concatenation is a <code>HeatmapList</code> object. Similar as
+explained in Section <a href="a-single-heatmap.html#plot-the-heatmap">2.11</a>, directly printing <code>ht_list</code> will
+call <code>draw()</code> method with default settings. With explicitly calling <code>draw()</code>
+method, you can have more controls on the heatmap list.</p>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb293-1" data-line-number="1">ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3</a>
+<a class="sourceLine" id="cb293-2" data-line-number="2"><span class="kw">class</span>(ht_list)</a></code></pre></div>
 <pre><code>## [1] &quot;HeatmapList&quot;
 ## attr(,&quot;package&quot;)
 ## [1] &quot;ComplexHeatmap&quot;</code></pre>
-<p>You can append any number of heatmaps to the heatmap list. Also you can append a heatmap list to a heatmap list.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># code only for demonstration</span>
-ht1 <span class="op">+</span><span class="st"> </span>ht_list
-ht_list <span class="op">+</span><span class="st"> </span>ht1
-ht_list <span class="op">+</span><span class="st"> </span>ht_list</code></pre></div>
-<p><code>NULL</code> can be added to the heatmap list. It would be convinient when users want to construct a heatmap list through a <code>for</code> loop.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># code only for demonstration</span>
-ht_list =<span class="st"> </span><span class="ot">NULL</span>  ## Heatmap(...) + NULL gives you a HeatmapList object
-<span class="cf">for</span>(s <span class="cf">in</span> sth) {
-    ht_list =<span class="st"> </span>ht_list <span class="op">+</span><span class="st"> </span><span class="kw">Heatmap</span>(...)
-}</code></pre></div>
-<p>You can also add heatmap annotations to the heatmap list, see more details in Section <a href="a-list-of-heatmaps.html#concatenate-with-annotations">4.7</a>.</p>
+<p>You can append any number of heatmaps to the heatmap list. Also you can append
+a heatmap list to a heatmap list.</p>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb295-1" data-line-number="1"><span class="co"># code only for demonstration</span></a>
+<a class="sourceLine" id="cb295-2" data-line-number="2">ht1 <span class="op">+</span><span class="st"> </span>ht_list</a>
+<a class="sourceLine" id="cb295-3" data-line-number="3">ht_list <span class="op">+</span><span class="st"> </span>ht1</a>
+<a class="sourceLine" id="cb295-4" data-line-number="4">ht_list <span class="op">+</span><span class="st"> </span>ht_list</a></code></pre></div>
+<p><code>NULL</code> can be added to the heatmap list. It would be convinient when users
+want to construct a heatmap list through a <code>for</code> loop.</p>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb296-1" data-line-number="1"><span class="co"># code only for demonstration</span></a>
+<a class="sourceLine" id="cb296-2" data-line-number="2">ht_list =<span class="st"> </span><span class="ot">NULL</span>  ## Heatmap(...) + NULL gives you a HeatmapList object</a>
+<a class="sourceLine" id="cb296-3" data-line-number="3"><span class="cf">for</span>(s <span class="cf">in</span> sth) {</a>
+<a class="sourceLine" id="cb296-4" data-line-number="4">    ht_list =<span class="st"> </span>ht_list <span class="op">+</span><span class="st"> </span><span class="kw">Heatmap</span>(...)</a>
+<a class="sourceLine" id="cb296-5" data-line-number="5">}</a></code></pre></div>
+<p>You can also add heatmap annotations to the heatmap list, see more details in
+Section <a href="a-list-of-heatmaps.html#concatenate-with-annotations">4.7</a>.</p>
 <div id="heatmap-list-titles" class="section level2">
 <h2><span class="header-section-number">4.1</span> Titles</h2>
-<p>A heatmap list also has title which is like a global title covering all heatmaps. <code>row_title</code> and <code>column_title</code> should be set in the <code>draw()</code> function.</p>
-<p>From following example, we set different colors for each heatmap to make them distinguishable.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">col_rnorm =<span class="st"> </span><span class="kw">colorRamp2</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">3</span>), <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>))
-col_runif =<span class="st"> </span><span class="kw">colorRamp2</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3</span>), <span class="kw">c</span>(<span class="st">&quot;white&quot;</span>, <span class="st">&quot;orange&quot;</span>))
-col_letters =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span> =<span class="st"> &quot;pink&quot;</span>, <span class="st">&quot;b&quot;</span> =<span class="st"> &quot;purple&quot;</span>, <span class="st">&quot;c&quot;</span> =<span class="st"> &quot;blue&quot;</span>)
-ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm,
-    <span class="dt">row_title =</span> <span class="st">&quot;Heatmap 1&quot;</span>, <span class="dt">column_title =</span> <span class="st">&quot;Heatmap 1&quot;</span>)
-ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif,
-    <span class="dt">row_title =</span> <span class="st">&quot;Heatmap 2&quot;</span>, <span class="dt">column_title =</span> <span class="st">&quot;Heatmap 2&quot;</span>)
-ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)
-ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3
-
-<span class="kw">draw</span>(ht_list, <span class="dt">row_title =</span> <span class="st">&quot;Three heatmaps, row title&quot;</span>, <span class="dt">row_title_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>),
-    <span class="dt">column_title =</span> <span class="st">&quot;Three heatmaps, column title&quot;</span>, <span class="dt">column_title_gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">16</span>))</code></pre></div>
+<p>A heatmap list also has title which is like a global title covering all
+heatmaps. <code>row_title</code> and <code>column_title</code> should be set in the <code>draw()</code>
+function.</p>
+<p>From following example, we set different colors for each heatmap to make them
+distinguishable.</p>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb297-1" data-line-number="1">col_rnorm =<span class="st"> </span><span class="kw">colorRamp2</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">3</span>), <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>))</a>
+<a class="sourceLine" id="cb297-2" data-line-number="2">col_runif =<span class="st"> </span><span class="kw">colorRamp2</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">3</span>), <span class="kw">c</span>(<span class="st">&quot;white&quot;</span>, <span class="st">&quot;orange&quot;</span>))</a>
+<a class="sourceLine" id="cb297-3" data-line-number="3">col_letters =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span> =<span class="st"> &quot;pink&quot;</span>, <span class="st">&quot;b&quot;</span> =<span class="st"> &quot;purple&quot;</span>, <span class="st">&quot;c&quot;</span> =<span class="st"> &quot;blue&quot;</span>)</a>
+<a class="sourceLine" id="cb297-4" data-line-number="4">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm,</a>
+<a class="sourceLine" id="cb297-5" data-line-number="5">    <span class="dt">row_title =</span> <span class="st">&quot;Heatmap 1&quot;</span>, <span class="dt">column_title =</span> <span class="st">&quot;Heatmap 1&quot;</span>)</a>
+<a class="sourceLine" id="cb297-6" data-line-number="6">ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif,</a>
+<a class="sourceLine" id="cb297-7" data-line-number="7">    <span class="dt">row_title =</span> <span class="st">&quot;Heatmap 2&quot;</span>, <span class="dt">column_title =</span> <span class="st">&quot;Heatmap 2&quot;</span>)</a>
+<a class="sourceLine" id="cb297-8" data-line-number="8">ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)</a>
+<a class="sourceLine" id="cb297-9" data-line-number="9">ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3</a>
+<a class="sourceLine" id="cb297-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb297-11" data-line-number="11"><span class="kw">draw</span>(ht_list, <span class="dt">row_title =</span> <span class="st">&quot;Three heatmaps, row title&quot;</span>, <span class="dt">row_title_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>),</a>
+<a class="sourceLine" id="cb297-12" data-line-number="12">    <span class="dt">column_title =</span> <span class="st">&quot;Three heatmaps, column title&quot;</span>, <span class="dt">column_title_gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">16</span>))</a></code></pre></div>
 <p><img src="04-a_list_of_heatmaps_files/figure-html/heatmap_list_title-1.png" width="864" style="display: block; margin: auto;" /></p>
 </div>
 <div id="size-of-heatmaps" class="section level2">
 <h2><span class="header-section-number">4.2</span> Size of heatmaps</h2>
-<p>The width for some heatmaps can be set to absolute units. Note <code>width</code> controls the width of the heatmap body.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))
-ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>))
-ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3</code></pre></div>
+<p>The width for some heatmaps can be set to absolute units. Note <code>width</code>
+controls the width of the heatmap body.</p>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb298-1" data-line-number="1">ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))</a>
+<a class="sourceLine" id="cb298-2" data-line-number="2">ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>))</a>
+<a class="sourceLine" id="cb298-3" data-line-number="3">ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3</a></code></pre></div>
 <p><img src="04-a_list_of_heatmaps_files/figure-html/heatmap_list_size-1.png" width="864" style="display: block; margin: auto;" /></p>
 <p>The width of all heatmaps can be set as absolute units.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))
-ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">6</span>, <span class="st">&quot;cm&quot;</span>))
-ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>))
-ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3</code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" data-line-number="1">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))</a>
+<a class="sourceLine" id="cb299-2" data-line-number="2">ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">6</span>, <span class="st">&quot;cm&quot;</span>))</a>
+<a class="sourceLine" id="cb299-3" data-line-number="3">ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>))</a>
+<a class="sourceLine" id="cb299-4" data-line-number="4">ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3</a></code></pre></div>
 <p><img src="04-a_list_of_heatmaps_files/figure-html/heatmap_list_relative_size-1.png" width="864" style="display: block; margin: auto;" /></p>
 <p>If <code>width</code> is numeric, it is converted as a <code>null</code> unit.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">width =</span> <span class="dv">6</span>)
-ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif, <span class="dt">width =</span> <span class="dv">4</span>)
-ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters, <span class="dt">width =</span> <span class="dv">1</span>)
-ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3</code></pre></div>
-<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-6-1.png" width="864" style="display: block; margin: auto;" /></p>
-<p><code>heatmap_width</code> also can control the width of the heatmap, but it is the total width of the heatmap body plus the heatmap components.</p>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb300-1" data-line-number="1">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">width =</span> <span class="dv">6</span>)</a>
+<a class="sourceLine" id="cb300-2" data-line-number="2">ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif, <span class="dt">width =</span> <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb300-3" data-line-number="3">ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters, <span class="dt">width =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb300-4" data-line-number="4">ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3</a></code></pre></div>
+<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-7-1.png" width="864" style="display: block; margin: auto;" /></p>
+<p><code>heatmap_width</code> also can control the width of the heatmap, but it is the total
+width of the heatmap body plus the heatmap components.</p>
 </div>
 <div id="gap-between-heatmaps" class="section level2">
 <h2><span class="header-section-number">4.3</span> Gap between heatmaps</h2>
-<p><code>ht_gap</code> controls the space between heatmaps. The value can be a single unit or a vector of units.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm)
-ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif)
-ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)
-ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3
-<span class="kw">draw</span>(ht_list, <span class="dt">ht_gap =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>))</code></pre></div>
+<p><code>ht_gap</code> controls the space between heatmaps. The value can be a single unit
+or a vector of units.</p>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" data-line-number="1">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm)</a>
+<a class="sourceLine" id="cb301-2" data-line-number="2">ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif)</a>
+<a class="sourceLine" id="cb301-3" data-line-number="3">ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)</a>
+<a class="sourceLine" id="cb301-4" data-line-number="4">ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3</a>
+<a class="sourceLine" id="cb301-5" data-line-number="5"><span class="kw">draw</span>(ht_list, <span class="dt">ht_gap =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>))</a></code></pre></div>
 <p><img src="04-a_list_of_heatmaps_files/figure-html/heatmap_list_gap-1.png" width="864" style="display: block; margin: auto;" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">draw</span>(ht_list, <span class="dt">ht_gap =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">10</span>), <span class="st">&quot;mm&quot;</span>))</code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" data-line-number="1"><span class="kw">draw</span>(ht_list, <span class="dt">ht_gap =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">10</span>), <span class="st">&quot;mm&quot;</span>))</a></code></pre></div>
 <p><img src="04-a_list_of_heatmaps_files/figure-html/heatmap_list_gap-2.png" width="864" style="display: block; margin: auto;" /></p>
 </div>
 <div id="automatic-adjustment-to-the-main-heatmap" class="section level2">
 <h2><span class="header-section-number">4.4</span> Automatic adjustment to the main heatmap</h2>
-<p>There is always a main heatmap in the heatmap list that controls the global row ordering. All the other heatmaps are automatically adjusted according to the settings in the main heatmap. For these non-main heatmaps, the adjustments are:</p>
+<p>There is always a main heatmap in the heatmap list that controls the global
+row ordering. All the other heatmaps are automatically adjusted according to
+the settings in the main heatmap. For these non-main heatmaps, the adjustments
+are:</p>
 <ul>
-<li>No row clustering is performed and they all take the row ordering of the main heatmap.</li>
+<li>No row clustering is performed and they all take the row ordering of the
+main heatmap.</li>
 <li>Row titles are removed.</li>
-<li>If the main heatmap is split by rows, all other heatmaps will also be split by same levels as the main heatmap.</li>
+<li>If the main heatmap is split by rows, all other heatmaps will also be split
+by same levels as the main heatmap.</li>
 <li>The height of the main heatmap are taken as the height of all heatmaps.</li>
 </ul>
 <p>By default, the first heatmap is taken as the main heatmap.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">row_km =</span> <span class="dv">2</span>)
-ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif)
-ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)
-ht2 <span class="op">+</span><span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht3 <span class="co"># ht2 is the main heatmap and row_km in ht1 is ignored</span></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" data-line-number="1">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">row_km =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb303-2" data-line-number="2">ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif)</a>
+<a class="sourceLine" id="cb303-3" data-line-number="3">ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)</a>
+<a class="sourceLine" id="cb303-4" data-line-number="4">ht2 <span class="op">+</span><span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht3 <span class="co"># ht2 is the main heatmap and row_km in ht1 is ignored</span></a></code></pre></div>
 <p><img src="04-a_list_of_heatmaps_files/figure-html/heatmap_list_auto_adjust-1.png" width="864" style="display: block; margin: auto;" /></p>
-<p>The main heatmap can be specified by <code>main_heatmap</code> argument. The value can be a numeric index or the name of the heatmap (of course, you need to set the heatmap name when you create the <code>Heatmap</code> object). In following example, although <code>ht1</code> is the second heatmap, we can set it as the main heatmap.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht_list =<span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht3
-<span class="kw">draw</span>(ht_list, <span class="dt">main_heatmap =</span> <span class="st">&quot;rnorm&quot;</span>)</code></pre></div>
-<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-7-1.png" width="864" style="display: block; margin: auto;" /></p>
-<p>By default, the dendrogram and the row title are plotted just beside the main heatmap, just to emphasize the clustering or the splitting is calculated from the main heatmap while not other heatmaps. However, the position of the dendrogram and row title of the main heatmap can be controlled by <code>row_dend_side</code> and <code>row_sub_title_side</code> in <code>draw()</code> function.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht_list =<span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht3
-<span class="kw">draw</span>(ht_list, <span class="dt">main_heatmap =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">row_dend_side =</span> <span class="st">&quot;right&quot;</span>, <span class="dt">row_sub_title_side =</span> <span class="st">&quot;left&quot;</span>)</code></pre></div>
+<p>The main heatmap can be specified by <code>main_heatmap</code> argument. The value can be
+a numeric index or the name of the heatmap (of course, you need to set the
+heatmap name when you create the <code>Heatmap</code> object). In following example,
+although <code>ht1</code> is the second heatmap, we can set it as the main heatmap.</p>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb304-1" data-line-number="1">ht_list =<span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht3</a>
+<a class="sourceLine" id="cb304-2" data-line-number="2"><span class="kw">draw</span>(ht_list, <span class="dt">main_heatmap =</span> <span class="st">&quot;rnorm&quot;</span>)</a></code></pre></div>
 <p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-8-1.png" width="864" style="display: block; margin: auto;" /></p>
-<p>Similarly, if there is no row clustering in the main heatmap, all other heatmaps are not clustered neither.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">cluster_rows =</span> <span class="ot">FALSE</span>)
-ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif)
-ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)
-ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3</code></pre></div>
-<p><img src="04-a_list_of_heatmaps_files/figure-html/heatmap_list_auto_adjust_no_row_cluster-1.png" width="864" style="display: block; margin: auto;" /></p>
-<p>As you may have observed, all the row names between heatmaps are removed from the plot. You can show them by setting <code>auto_adjust = FALSE</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm)
-ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif)
-ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)
-ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3
-<span class="kw">draw</span>(ht_list, <span class="dt">auto_adjust =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<p>By default, the dendrogram and the row title are plotted just beside the main
+heatmap, just to emphasize the clustering or the splitting is calculated from
+the main heatmap while not other heatmaps. However, the position of the
+dendrogram and row title of the main heatmap can be controlled by
+<code>row_dend_side</code> and <code>row_sub_title_side</code> in <code>draw()</code> function.</p>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" data-line-number="1">ht_list =<span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht3</a>
+<a class="sourceLine" id="cb305-2" data-line-number="2"><span class="kw">draw</span>(ht_list, <span class="dt">main_heatmap =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">row_dend_side =</span> <span class="st">&quot;right&quot;</span>, <span class="dt">row_sub_title_side =</span> <span class="st">&quot;left&quot;</span>)</a></code></pre></div>
 <p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-9-1.png" width="864" style="display: block; margin: auto;" /></p>
+<p>Similarly, if there is no row clustering in the main heatmap, all other
+heatmaps are not clustered neither.</p>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb306-1" data-line-number="1">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">cluster_rows =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb306-2" data-line-number="2">ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif)</a>
+<a class="sourceLine" id="cb306-3" data-line-number="3">ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)</a>
+<a class="sourceLine" id="cb306-4" data-line-number="4">ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3</a></code></pre></div>
+<p><img src="04-a_list_of_heatmaps_files/figure-html/heatmap_list_auto_adjust_no_row_cluster-1.png" width="864" style="display: block; margin: auto;" /></p>
+<p>As you may have observed, all the row names between heatmaps are removed from
+the plot. You can show them by setting <code>auto_adjust = FALSE</code>.</p>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb307-1" data-line-number="1">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm)</a>
+<a class="sourceLine" id="cb307-2" data-line-number="2">ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif)</a>
+<a class="sourceLine" id="cb307-3" data-line-number="3">ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)</a>
+<a class="sourceLine" id="cb307-4" data-line-number="4">ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3</a>
+<a class="sourceLine" id="cb307-5" data-line-number="5"><span class="kw">draw</span>(ht_list, <span class="dt">auto_adjust =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-10-1.png" width="864" style="display: block; margin: auto;" /></p>
 </div>
 <div id="control-main-heatmap-in-draw-function" class="section level2">
 <h2><span class="header-section-number">4.5</span> Control main heatmap in draw() function</h2>
-<p>Settings of the main heatmap can be controlled in the main <code>Heatmap()</code> function. To make it convinient, settings that affect heatmap rows can also be directly set in <code>draw()</code>. If some of these settings are set, corresponding settings in the main <code>Heatmap()</code> will be overwritten.</p>
-<p>In <code>draw()</code> function, following main heatmap settings control row orders of all heatmaps.</p>
+<p>Settings of the main heatmap can be controlled in the main <code>Heatmap()</code>
+function. To make it convinient, settings that affect heatmap rows can also be
+directly set in <code>draw()</code>. If some of these settings are set, corresponding
+settings in the main <code>Heatmap()</code> will be overwritten.</p>
+<p>In <code>draw()</code> function, following main heatmap settings control row orders of
+all heatmaps.</p>
 <ul>
 <li><code>cluster_rows</code></li>
 <li><code>clustering_distance_rows</code></li>
@@ -431,188 +506,229 @@ ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st">
 <li><code>height</code></li>
 <li><code>heatmap_height</code></li>
 </ul>
-<p>In following example, <code>row_km = 2, cluster_rows = FALSE</code> for <code>ht1</code> is overwritten in <code>draw()</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">row_km =</span> <span class="dv">2</span>, <span class="dt">cluster_rows =</span> <span class="ot">FALSE</span>)
-ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif)
-ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)
-ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3
-<span class="kw">draw</span>(ht_list, <span class="dt">row_km =</span> <span class="dv">1</span>, <span class="dt">row_split =</span> le, <span class="dt">cluster_rows =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-10-1.png" width="864" style="display: block; margin: auto;" /></p>
+<p>In following example, <code>row_km = 2, cluster_rows = FALSE</code> for <code>ht1</code> is
+overwritten in <code>draw()</code>.</p>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb308-1" data-line-number="1">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">row_km =</span> <span class="dv">2</span>, <span class="dt">cluster_rows =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb308-2" data-line-number="2">ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif)</a>
+<a class="sourceLine" id="cb308-3" data-line-number="3">ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)</a>
+<a class="sourceLine" id="cb308-4" data-line-number="4">ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3</a>
+<a class="sourceLine" id="cb308-5" data-line-number="5"><span class="kw">draw</span>(ht_list, <span class="dt">row_km =</span> <span class="dv">1</span>, <span class="dt">row_split =</span> le, <span class="dt">cluster_rows =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-11-1.png" width="864" style="display: block; margin: auto;" /></p>
 </div>
 <div id="annotations-as-components-are-adjusted" class="section level2">
 <h2><span class="header-section-number">4.6</span> Annotations as components are adjusted</h2>
-<p>If some of the heatmaps in the heatmap list have annotations, in most of the cases, the heights of the heatmap annotations are different for different heatmaps. There are automatic adjustment for heatmap annotations, and this adjustment will also involve adjustment of dendrograms.</p>
-<p>Normally, the size of simple annotations will not change in the adjustment. In following example, the dendrogram for the second heatmap is adjusted. Note you still can change the size of simple annotation by setting <code>anno_simple_size</code> in <code>HeatmapAnnotation()</code> or globally set <code>ht_opt$anno_simple_size</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>)
-ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">top_annotation =</span> ha1)
-ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif)
-ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)
-ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3</code></pre></div>
-<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>If the first two heatmaps all have annotations, since the size of simple annotations keep unchanged, the size of complex annotations will be adjusted to make the total heights of the two heatmap annotations the same.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">bar1 =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), 
-    <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>)
-ha2 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">bar2 =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>))
-ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">top_annotation =</span> ha1)
-ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif, <span class="dt">top_annotation =</span> ha2)
-ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)
-ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3
-<span class="kw">draw</span>(ht_list, <span class="dt">ht_gap =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">2</span>), <span class="st">&quot;mm&quot;</span>))</code></pre></div>
-<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-12-1.png" width="864" style="display: block; margin: auto;" /></p>
-<p>Similarly, if the first heatmap only contains simple annotatins, dendrogram will be adjusted.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>)
-ha2 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">bar2 =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)))
-ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">top_annotation =</span> ha1)
-ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif, <span class="dt">top_annotation =</span> ha2)
-ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)
-ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3
-<span class="kw">draw</span>(ht_list, <span class="dt">ht_gap =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">2</span>), <span class="st">&quot;mm&quot;</span>))</code></pre></div>
+<p>If some of the heatmaps in the heatmap list have annotations, in most of the
+cases, the heights of the heatmap annotations are different for different
+heatmaps. There are automatic adjustment for heatmap annotations, and this
+adjustment will also involve adjustment of dendrograms.</p>
+<p>Normally, the size of simple annotations will not change in the adjustment. In
+following example, the dendrogram for the second heatmap is adjusted. Note you
+still can change the size of simple annotation by setting <code>anno_simple_size</code>
+in <code>HeatmapAnnotation()</code> or globally set <code>ht_opt$anno_simple_size</code>.</p>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb309-1" data-line-number="1">ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>)</a>
+<a class="sourceLine" id="cb309-2" data-line-number="2">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">top_annotation =</span> ha1)</a>
+<a class="sourceLine" id="cb309-3" data-line-number="3">ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif)</a>
+<a class="sourceLine" id="cb309-4" data-line-number="4">ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)</a>
+<a class="sourceLine" id="cb309-5" data-line-number="5">ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3</a></code></pre></div>
+<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-12-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>If the first two heatmaps all have annotations, since the size of simple
+annotations keep unchanged, the size of complex annotations will be adjusted
+to make the total heights of the two heatmap annotations the same.</p>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb310-1" data-line-number="1">ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">bar1 =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), </a>
+<a class="sourceLine" id="cb310-2" data-line-number="2">    <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>)</a>
+<a class="sourceLine" id="cb310-3" data-line-number="3">ha2 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">bar2 =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>))</a>
+<a class="sourceLine" id="cb310-4" data-line-number="4">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">top_annotation =</span> ha1)</a>
+<a class="sourceLine" id="cb310-5" data-line-number="5">ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif, <span class="dt">top_annotation =</span> ha2)</a>
+<a class="sourceLine" id="cb310-6" data-line-number="6">ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)</a>
+<a class="sourceLine" id="cb310-7" data-line-number="7">ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3</a>
+<a class="sourceLine" id="cb310-8" data-line-number="8"><span class="kw">draw</span>(ht_list, <span class="dt">ht_gap =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">2</span>), <span class="st">&quot;mm&quot;</span>))</a></code></pre></div>
 <p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-13-1.png" width="864" style="display: block; margin: auto;" /></p>
-<p>If the both heatmaps only contain simple annotations but with unequal number, dendrogram will be adjusted.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>)
-ha2 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">bar2 =</span> <span class="kw">cbind</span>(<span class="dt">b1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">b2 =</span> <span class="dv">11</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">b3 =</span> <span class="dv">21</span><span class="op">:</span><span class="dv">30</span>))
-ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">top_annotation =</span> ha1)
-ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif, <span class="dt">top_annotation =</span> ha2)
-ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)
-ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3
-<span class="kw">draw</span>(ht_list)</code></pre></div>
+<p>Similarly, if the first heatmap only contains simple annotatins, dendrogram
+will be adjusted.</p>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb311-1" data-line-number="1">ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>)</a>
+<a class="sourceLine" id="cb311-2" data-line-number="2">ha2 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">bar2 =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)))</a>
+<a class="sourceLine" id="cb311-3" data-line-number="3">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">top_annotation =</span> ha1)</a>
+<a class="sourceLine" id="cb311-4" data-line-number="4">ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif, <span class="dt">top_annotation =</span> ha2)</a>
+<a class="sourceLine" id="cb311-5" data-line-number="5">ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)</a>
+<a class="sourceLine" id="cb311-6" data-line-number="6">ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3</a>
+<a class="sourceLine" id="cb311-7" data-line-number="7"><span class="kw">draw</span>(ht_list, <span class="dt">ht_gap =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">6</span>, <span class="dv">2</span>), <span class="st">&quot;mm&quot;</span>))</a></code></pre></div>
 <p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-14-1.png" width="864" style="display: block; margin: auto;" /></p>
-<p>If you also want to automatically adjust the size of simple annotations, set <code>simple_anno_size_adjust = TRUE</code> in every <code>HeatmapAnnotation()</code> calls.</p>
-<p>If the second heatmap has no bottom annotation, column names for the second heatmap are adjusted to be put directly below the heatmap body.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">bar1 =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>)
-ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">bottom_annotation =</span> ha1)
-ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif)
-ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)
-ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3
-<span class="kw">draw</span>(ht_list)</code></pre></div>
+<p>If the both heatmaps only contain simple annotations but with unequal number,
+dendrogram will be adjusted.</p>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb312-1" data-line-number="1">ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>)</a>
+<a class="sourceLine" id="cb312-2" data-line-number="2">ha2 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">bar2 =</span> <span class="kw">cbind</span>(<span class="dt">b1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">b2 =</span> <span class="dv">11</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">b3 =</span> <span class="dv">21</span><span class="op">:</span><span class="dv">30</span>))</a>
+<a class="sourceLine" id="cb312-3" data-line-number="3">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">top_annotation =</span> ha1)</a>
+<a class="sourceLine" id="cb312-4" data-line-number="4">ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif, <span class="dt">top_annotation =</span> ha2)</a>
+<a class="sourceLine" id="cb312-5" data-line-number="5">ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)</a>
+<a class="sourceLine" id="cb312-6" data-line-number="6">ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3</a>
+<a class="sourceLine" id="cb312-7" data-line-number="7"><span class="kw">draw</span>(ht_list)</a></code></pre></div>
 <p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-15-1.png" width="864" style="display: block; margin: auto;" /></p>
+<p>If you also want to automatically adjust the size of simple annotations, set
+<code>simple_anno_size_adjust = TRUE</code> in every <code>HeatmapAnnotation()</code> calls.</p>
+<p>If the second heatmap has no bottom annotation, column names for the second
+heatmap are adjusted to be put directly below the heatmap body.</p>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb313-1" data-line-number="1">ha1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">bar1 =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>)</a>
+<a class="sourceLine" id="cb313-2" data-line-number="2">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">bottom_annotation =</span> ha1)</a>
+<a class="sourceLine" id="cb313-3" data-line-number="3">ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif)</a>
+<a class="sourceLine" id="cb313-4" data-line-number="4">ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(le, <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)</a>
+<a class="sourceLine" id="cb313-5" data-line-number="5">ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ht3</a>
+<a class="sourceLine" id="cb313-6" data-line-number="6"><span class="kw">draw</span>(ht_list)</a></code></pre></div>
+<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-16-1.png" width="864" style="display: block; margin: auto;" /></p>
 </div>
 <div id="concatenate-with-annotations" class="section level2">
 <h2><span class="header-section-number">4.7</span> Concatenate with annotations</h2>
-<p>Row annotations can be concatenated to the horizontal heatmap list, while not only a component of the heatmap. See following examples which are very straightforward.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ha1 =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">bar =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>)))
-ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">row_km =</span> <span class="dv">2</span>)
-ht1 <span class="op">+</span><span class="st"> </span>ha1</code></pre></div>
-<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>The <code>foo</code> and <code>bar</code> annotations can be defined in two separated <code>rowAnnotation()</code> calls.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">row_km =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>) <span class="op">+</span>
-<span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>)))</code></pre></div>
-<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Row annotations can be concatenated to the horizontal heatmap list, while not
+only a component of the heatmap. See following examples which are very
+straightforward.</p>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" data-line-number="1">ha1 =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">bar =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>)))</a>
+<a class="sourceLine" id="cb314-2" data-line-number="2">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">row_km =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb314-3" data-line-number="3">ht1 <span class="op">+</span><span class="st"> </span>ha1</a></code></pre></div>
+<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-17-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>The <code>foo</code> and <code>bar</code> annotations can be defined in two separated
+<code>rowAnnotation()</code> calls.</p>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" data-line-number="1"><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">row_km =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb315-2" data-line-number="2"><span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb315-3" data-line-number="3"><span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>)))</a></code></pre></div>
+<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-18-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Basically heatmaps and row annotations can be concatenated arbitarily.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>) <span class="op">+</span>
-<span class="st">    </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">row_km =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))) <span class="op">+</span>
-<span class="st">    </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif)</code></pre></div>
-<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-18-1.png" width="960" style="display: block; margin: auto;" /></p>
-<p>As mentioned in previous chapters, row annotations can also be heatmap components as left annotations or right annotations. The difference of row annotations as independent ones and as heatmap components is discussed in Section <a href="a-list-of-heatmaps.html#vertical-concatenation">4.9</a>.</p>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb316-1" data-line-number="1"><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb316-2" data-line-number="2"><span class="st">    </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">row_km =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb316-3" data-line-number="3"><span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))) <span class="op">+</span></a>
+<a class="sourceLine" id="cb316-4" data-line-number="4"><span class="st">    </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif)</a></code></pre></div>
+<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-19-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>As mentioned in previous chapters, row annotations can also be heatmap
+components as left annotations or right annotations. The difference of row
+annotations as independent ones and as heatmap components is discussed in
+Section <a href="a-list-of-heatmaps.html#vertical-concatenation">4.9</a>.</p>
 </div>
 <div id="concatenate-only-the-annotations" class="section level2">
 <h2><span class="header-section-number">4.8</span> Concatenate only the annotations</h2>
 <p>The concatenation can be done without any heatmap.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>) <span class="op">+</span>
-<span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>)))</code></pre></div>
-<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb317-1" data-line-number="1"><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb317-2" data-line-number="2"><span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>)))</a></code></pre></div>
+<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-20-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>If there is only one <code>HeatmapAnnotation</code> object, you must concatenated with <code>NULL</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rowAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))) <span class="op">+</span><span class="st"> </span><span class="ot">NULL</span></code></pre></div>
-<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-20-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb318-1" data-line-number="1"><span class="kw">rowAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))) <span class="op">+</span><span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-21-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>The annotation list is actually also a <code>HeatmapList</code> object.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">anno_list =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>) <span class="op">+</span>
-<span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>)))
-<span class="kw">class</span>(anno_list)</code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb319-1" data-line-number="1">anno_list =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb319-2" data-line-number="2"><span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>)))</a>
+<a class="sourceLine" id="cb319-3" data-line-number="3"><span class="kw">class</span>(anno_list)</a></code></pre></div>
 <pre><code>## [1] &quot;HeatmapList&quot;
 ## attr(,&quot;package&quot;)
 ## [1] &quot;ComplexHeatmap&quot;</code></pre>
-<p>Thus, you can use some functionalities of the <code>draw()</code> function for the annotation list, such as row splitting.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">draw</span>(anno_list, <span class="dt">row_split =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="dt">each =</span> <span class="dv">6</span>))</code></pre></div>
-<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-22-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>In Section <a href="other-high-level-plots.html#stacked-summary-plot">10.2</a>, we will show how to use a list of annotations to visualize multiple summary statistics.</p>
+<p>Thus, you can use some functionalities of the <code>draw()</code> function for the
+annotation list, such as row splitting.</p>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb321-1" data-line-number="1"><span class="kw">draw</span>(anno_list, <span class="dt">row_split =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="dt">each =</span> <span class="dv">6</span>))</a></code></pre></div>
+<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-23-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>In Section <a href="other-high-level-plots.html#stacked-summary-plot">10.2</a>, we will show how to use a list of
+annotations to visualize multiple summary statistics.</p>
 </div>
 <div id="vertical-concatenation" class="section level2">
 <h2><span class="header-section-number">4.9</span> Vertical concatenation</h2>
-<p>Heatmaps and annotations (now it is column annotation) can be concatenated vertically by the <code>%v%</code> operator. All the relatated settings and adjustments are very similar as the horizontal concatenation. Please check following examples.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mat1t =<span class="st"> </span><span class="kw">t</span>(mat1)
-mat2t =<span class="st"> </span><span class="kw">t</span>(mat2)
-ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1t, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">row_title =</span> <span class="st">&quot;rnorm&quot;</span>)
-ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2t, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif, <span class="dt">row_title =</span> <span class="st">&quot;runif&quot;</span>)
-ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(<span class="kw">rbind</span>(<span class="dt">letters =</span> le), <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)
-ht_list =<span class="st"> </span>ht1 <span class="op">%v%</span><span class="st"> </span>ht2 <span class="op">%v%</span><span class="st"> </span>ht3
-<span class="kw">draw</span>(ht_list)</code></pre></div>
-<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-23-1.png" width="672" style="display: block; margin: auto;" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">draw</span>(ht_list, <span class="dt">column_km =</span> <span class="dv">2</span>)</code></pre></div>
-<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-23-2.png" width="672" style="display: block; margin: auto;" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)))
-ht_list =<span class="st"> </span>ht1 <span class="op">%v%</span><span class="st"> </span>ha <span class="op">%v%</span><span class="st"> </span>ht2 <span class="op">%v%</span><span class="st"> </span>ht3
-<span class="kw">draw</span>(ht_list, <span class="dt">column_km =</span> <span class="dv">2</span>)</code></pre></div>
-<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-24-1.png" width="672" style="display: block; margin: auto;" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1t, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">row_km =</span> <span class="dv">2</span>)
-ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2t, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif, <span class="dt">row_km =</span> <span class="dv">2</span>)
-ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(<span class="kw">rbind</span>(<span class="dt">letters =</span> le), <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)
-ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)))
-ht_list =<span class="st"> </span>ht1 <span class="op">%v%</span><span class="st"> </span>ha <span class="op">%v%</span><span class="st"> </span>ht2 <span class="op">%v%</span><span class="st"> </span>ht3
-<span class="kw">draw</span>(ht_list, <span class="dt">column_km =</span> <span class="dv">2</span>)</code></pre></div>
-<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-25-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>For the vertical heatmap list, now row annotations should be the heatmap components (by <code>right_annotation</code> and <code>left_annotation</code>) and they are adjusted just like column annotations for the horizontal heatmap list.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1t, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">row_km =</span> <span class="dv">2</span>,
-    <span class="dt">left_annotation =</span> <span class="kw">rowAnnotation</span>(<span class="dt">foo1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">bar1 =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)))
-ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>), 
-    <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">side =</span> <span class="st">&quot;right&quot;</span>)))
-ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2t, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif, <span class="dt">row_km =</span> <span class="dv">2</span>,
-    <span class="dt">left_annotation =</span> <span class="kw">rowAnnotation</span>(<span class="dt">foo2 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>))
-ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(<span class="kw">rbind</span>(<span class="dt">letters =</span> le), <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)
-ht_list =<span class="st"> </span>ht1 <span class="op">%v%</span><span class="st"> </span>ha <span class="op">%v%</span><span class="st"> </span>ht2 <span class="op">%v%</span><span class="st"> </span>ht3
-<span class="kw">draw</span>(ht_list, <span class="dt">column_km =</span> <span class="dv">2</span>)</code></pre></div>
-<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-26-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>Since <code>rowAnnotation()</code> allows arbitary number of annotations, the way showed above is the only way to expand the heatmap list horizontally and vertically at the same time.</p>
+<p>Heatmaps and annotations (now it is column annotation) can be concatenated
+vertically by the <code>%v%</code> operator. All the relatated settings and adjustments
+are very similar as the horizontal concatenation. Please check following
+examples.</p>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb322-1" data-line-number="1">mat1t =<span class="st"> </span><span class="kw">t</span>(mat1)</a>
+<a class="sourceLine" id="cb322-2" data-line-number="2">mat2t =<span class="st"> </span><span class="kw">t</span>(mat2)</a>
+<a class="sourceLine" id="cb322-3" data-line-number="3">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1t, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">row_title =</span> <span class="st">&quot;rnorm&quot;</span>)</a>
+<a class="sourceLine" id="cb322-4" data-line-number="4">ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2t, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif, <span class="dt">row_title =</span> <span class="st">&quot;runif&quot;</span>)</a>
+<a class="sourceLine" id="cb322-5" data-line-number="5">ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(<span class="kw">rbind</span>(<span class="dt">letters =</span> le), <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)</a>
+<a class="sourceLine" id="cb322-6" data-line-number="6">ht_list =<span class="st"> </span>ht1 <span class="op">%v%</span><span class="st"> </span>ht2 <span class="op">%v%</span><span class="st"> </span>ht3</a>
+<a class="sourceLine" id="cb322-7" data-line-number="7"><span class="kw">draw</span>(ht_list)</a></code></pre></div>
+<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-24-1.png" width="480" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb323-1" data-line-number="1"><span class="kw">draw</span>(ht_list, <span class="dt">column_km =</span> <span class="dv">2</span>)</a></code></pre></div>
+<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-24-2.png" width="480" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb324-1" data-line-number="1">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)))</a>
+<a class="sourceLine" id="cb324-2" data-line-number="2">ht_list =<span class="st"> </span>ht1 <span class="op">%v%</span><span class="st"> </span>ha <span class="op">%v%</span><span class="st"> </span>ht2 <span class="op">%v%</span><span class="st"> </span>ht3</a>
+<a class="sourceLine" id="cb324-3" data-line-number="3"><span class="kw">draw</span>(ht_list, <span class="dt">column_km =</span> <span class="dv">2</span>)</a></code></pre></div>
+<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-25-1.png" width="480" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb325-1" data-line-number="1">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1t, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">row_km =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb325-2" data-line-number="2">ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2t, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif, <span class="dt">row_km =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb325-3" data-line-number="3">ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(<span class="kw">rbind</span>(<span class="dt">letters =</span> le), <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)</a>
+<a class="sourceLine" id="cb325-4" data-line-number="4">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)))</a>
+<a class="sourceLine" id="cb325-5" data-line-number="5">ht_list =<span class="st"> </span>ht1 <span class="op">%v%</span><span class="st"> </span>ha <span class="op">%v%</span><span class="st"> </span>ht2 <span class="op">%v%</span><span class="st"> </span>ht3</a>
+<a class="sourceLine" id="cb325-6" data-line-number="6"><span class="kw">draw</span>(ht_list, <span class="dt">column_km =</span> <span class="dv">2</span>)</a></code></pre></div>
+<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-26-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>For the vertical heatmap list, now row annotations should be the heatmap
+components (by <code>right_annotation</code> and <code>left_annotation</code>) and they are adjusted
+just like column annotations for the horizontal heatmap list.</p>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb326-1" data-line-number="1">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1t, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, <span class="dt">row_km =</span> <span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb326-2" data-line-number="2">    <span class="dt">left_annotation =</span> <span class="kw">rowAnnotation</span>(<span class="dt">foo1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">bar1 =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)))</a>
+<a class="sourceLine" id="cb326-3" data-line-number="3">ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>), </a>
+<a class="sourceLine" id="cb326-4" data-line-number="4">    <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">side =</span> <span class="st">&quot;right&quot;</span>)))</a>
+<a class="sourceLine" id="cb326-5" data-line-number="5">ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2t, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif, <span class="dt">row_km =</span> <span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb326-6" data-line-number="6">    <span class="dt">left_annotation =</span> <span class="kw">rowAnnotation</span>(<span class="dt">foo2 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>))</a>
+<a class="sourceLine" id="cb326-7" data-line-number="7">ht3 =<span class="st"> </span><span class="kw">Heatmap</span>(<span class="kw">rbind</span>(<span class="dt">letters =</span> le), <span class="dt">name =</span> <span class="st">&quot;letters&quot;</span>, <span class="dt">col =</span> col_letters)</a>
+<a class="sourceLine" id="cb326-8" data-line-number="8">ht_list =<span class="st"> </span>ht1 <span class="op">%v%</span><span class="st"> </span>ha <span class="op">%v%</span><span class="st"> </span>ht2 <span class="op">%v%</span><span class="st"> </span>ht3</a>
+<a class="sourceLine" id="cb326-9" data-line-number="9"><span class="kw">draw</span>(ht_list, <span class="dt">column_km =</span> <span class="dv">2</span>)</a></code></pre></div>
+<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-27-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Since <code>rowAnnotation()</code> allows arbitary number of annotations, the way showed
+above is the only way to expand the heatmap list horizontally and vertically
+at the same time.</p>
 </div>
 <div id="subset-heatmap-list" class="section level2">
 <h2><span class="header-section-number">4.10</span> Subset the heatmap list</h2>
-<p>Similar as subsetting the <code>Heatmap</code> object (Section <a href="a-single-heatmap.html#subset-a-heatmap">2.13</a>), the heatmap list can also be subsetted by providing row index and column index. For horizontal heatmap list, row index correspond to rows in all heatmaps and annotations, while column index only corresponds to a subset of heatmaps and annotations. For vertical heatmap list, it’s the other way around.</p>
+<p>Similar as subsetting the <code>Heatmap</code> object (Section <a href="a-single-heatmap.html#subset-a-heatmap">2.13</a>),
+the heatmap list can also be subsetted by providing row index and column
+index. For horizontal heatmap list, row index correspond to rows in all
+heatmaps and annotations, while column index only corresponds to a subset of
+heatmaps and annotations. For vertical heatmap list, it’s the other way
+around.</p>
 <p>In following we use horizontal heatmap list as example.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, 
-    <span class="dt">left_annotation =</span> <span class="kw">rowAnnotation</span>(<span class="dt">foo1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">bar1 =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>)))
-ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif)
-ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo2 =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>), <span class="dt">bar2 =</span> <span class="dv">12</span><span class="op">:</span><span class="dv">1</span>)
-ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ha
-<span class="kw">names</span>(ht_list)</code></pre></div>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb327-1" data-line-number="1">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm, </a>
+<a class="sourceLine" id="cb327-2" data-line-number="2">    <span class="dt">left_annotation =</span> <span class="kw">rowAnnotation</span>(<span class="dt">foo1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">bar1 =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>)))</a>
+<a class="sourceLine" id="cb327-3" data-line-number="3">ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif)</a>
+<a class="sourceLine" id="cb327-4" data-line-number="4">ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo2 =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>), <span class="dt">bar2 =</span> <span class="dv">12</span><span class="op">:</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb327-5" data-line-number="5">ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>ha</a>
+<a class="sourceLine" id="cb327-6" data-line-number="6"><span class="kw">names</span>(ht_list)</a></code></pre></div>
 <pre><code>## [1] &quot;rnorm&quot; &quot;runif&quot; &quot;foo2&quot;  &quot;bar2&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht_list[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="kw">c</span>(<span class="st">&quot;rnorm&quot;</span>, <span class="st">&quot;bar2&quot;</span>)]</code></pre></div>
-<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-27-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p><code>foo1</code> and <code>bar</code> are components of heatmap <code>rnorm</code>, so they can not be selected in the subset function, while <code>foo2</code> and <code>bar2</code> are independent row annotations and they can selected to take subset of them.</p>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb329-1" data-line-number="1">ht_list[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, <span class="kw">c</span>(<span class="st">&quot;rnorm&quot;</span>, <span class="st">&quot;bar2&quot;</span>)]</a></code></pre></div>
+<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-28-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><code>foo1</code> and <code>bar</code> are components of heatmap <code>rnorm</code>, so they can not be
+selected in the subset function, while <code>foo2</code> and <code>bar2</code> are independent row
+annotations and they can selected to take subset of them.</p>
 </div>
 <div id="plot-the-heamtap-list" class="section level2">
 <h2><span class="header-section-number">4.11</span> Plot the heatmap list</h2>
-<p>Similar as described in Section <a href="a-single-heatmap.html#plot-the-heatmap">2.11</a>, directly entering the HeatmapList object in interactive R session calls the <code>show()</code> method which calls the <code>draw()</code> method internally. When there is no plot after you entering the object, you should use <code>draw()</code> explicitly:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># code only for demonstration</span>
-<span class="kw">draw</span>(ht_list, ...)</code></pre></div>
+<p>Similar as described in Section <a href="a-single-heatmap.html#plot-the-heatmap">2.11</a>, directly entering the
+HeatmapList object in interactive R session calls the <code>show()</code> method which
+calls the <code>draw()</code> method internally. When there is no plot after you entering
+the object, you should use <code>draw()</code> explicitly:</p>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb330-1" data-line-number="1"><span class="co"># code only for demonstration</span></a>
+<a class="sourceLine" id="cb330-2" data-line-number="2"><span class="kw">draw</span>(ht_list, ...)</a></code></pre></div>
 </div>
 <div id="get-orders-and-dendrograms-from-a-list-of-heatmaps" class="section level2">
 <h2><span class="header-section-number">4.12</span> Get orders and dendrograms</h2>
-<p><code>row_order()</code>, <code>column_order()</code>, <code>row_dend()</code> and <code>column_dend()</code> can be used to retrieve corresponding information from the heatmap list. The usage is straightforward by following examples. But remember you need to apply these functions on the object returned by <code>draw()</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm)
-ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif)
-ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2
-ht_list =<span class="st"> </span><span class="kw">draw</span>(ht_list)
-<span class="kw">row_order</span>(ht_list)</code></pre></div>
+<p><code>row_order()</code>, <code>column_order()</code>, <code>row_dend()</code> and <code>column_dend()</code> can be used
+to retrieve corresponding information from the heatmap list. The usage is
+straightforward by following examples. But remember you need to apply these
+functions on the object returned by <code>draw()</code>.</p>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb331-1" data-line-number="1">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm)</a>
+<a class="sourceLine" id="cb331-2" data-line-number="2">ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif)</a>
+<a class="sourceLine" id="cb331-3" data-line-number="3">ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2</a>
+<a class="sourceLine" id="cb331-4" data-line-number="4">ht_list =<span class="st"> </span><span class="kw">draw</span>(ht_list)</a>
+<a class="sourceLine" id="cb331-5" data-line-number="5"><span class="kw">row_order</span>(ht_list)</a></code></pre></div>
 <pre><code>##  [1] 10  4  8  2  1 12 11  6  7  3  9  5</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">column_order</span>(ht_list)</code></pre></div>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb333-1" data-line-number="1"><span class="kw">column_order</span>(ht_list)</a></code></pre></div>
 <pre><code>## $rnorm
 ##  [1]  5  2  7  6 10  1  9  8  4  3
 ## 
 ## $runif
 ##  [1]  4 10  2  5  7  6  1  3  8  9</code></pre>
 <p>If rows or columns are split, the returned values will also be a list.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm)
-ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif, <span class="dt">column_km =</span> <span class="dv">2</span>)
-ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2
-ht_list =<span class="st"> </span><span class="kw">draw</span>(ht_list, <span class="dt">row_km =</span> <span class="dv">2</span>)
-<span class="kw">row_order</span>(ht_list)</code></pre></div>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb335-1" data-line-number="1">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;rnorm&quot;</span>, <span class="dt">col =</span> col_rnorm)</a>
+<a class="sourceLine" id="cb335-2" data-line-number="2">ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>, <span class="dt">col =</span> col_runif, <span class="dt">column_km =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb335-3" data-line-number="3">ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2</a>
+<a class="sourceLine" id="cb335-4" data-line-number="4">ht_list =<span class="st"> </span><span class="kw">draw</span>(ht_list, <span class="dt">row_km =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb335-5" data-line-number="5"><span class="kw">row_order</span>(ht_list)</a></code></pre></div>
 <pre><code>## $`1`
 ## [1] 7 3 9 5
 ## 
 ## $`2`
 ## [1] 10  4  8  2  1 12 11  6</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">column_order</span>(ht_list)</code></pre></div>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb337-1" data-line-number="1"><span class="kw">column_order</span>(ht_list)</a></code></pre></div>
 <pre><code>## $rnorm
 ## $rnorm[[1]]
 ##  [1]  5  2  7  6 10  1  9  8  4  3
@@ -625,18 +741,23 @@ ht_list =<span class="st"> </span><span class="kw">draw</span>(ht_list, <span cl
 ## $runif$`2`
 ## [1]  4 10  2  5</code></pre>
 <p>You can specify a certain heatmap for the column order.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">column_order</span>(ht_list, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb339-1" data-line-number="1"><span class="kw">column_order</span>(ht_list, <span class="dt">name =</span> <span class="st">&quot;runif&quot;</span>)</a></code></pre></div>
 <pre><code>## $`1`
 ## [1] 7 6 1 3 8 9
 ## 
 ## $`2`
 ## [1]  4 10  2  5</code></pre>
-<p>The logic is the same for extracting dendrograms and also the same for vertical heatmap list, so we don’t show more examples here.</p>
+<p>The logic is the same for extracting dendrograms and also the same for vertical
+heatmap list, so we don’t show more examples here.</p>
 </div>
 <div id="change-parameters-globally" class="section level2">
 <h2><span class="header-section-number">4.13</span> Change parameters globally</h2>
-<p><code>ht_opt()</code> is an option function which controls some parameters globally. You can set some parameters for all heatmaps/annotations simultaneously by this global function. Please note you should put it before your heatmap code and reset all option values after drawing the heatmaps to get rid of affecting next heatmap.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht_opt</code></pre></div>
+<p><code>ht_opt()</code> is an option function which controls some parameters globally. You
+can set some parameters for all heatmaps/annotations simultaneously by this
+global function. Please note you should put it before your heatmap code and
+reset all option values after drawing the heatmaps to get rid of affecting
+next heatmap.</p>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb341-1" data-line-number="1">ht_opt</a></code></pre></div>
 <pre><code>##                     Option    Value
 ##       heatmap_row_names_gp     NULL
 ##    heatmap_column_names_gp     NULL
@@ -674,11 +795,16 @@ ht_list =<span class="st"> </span><span class="kw">draw</span>(ht_list, <span cl
 </ul>
 <p>Following parameters control the legends:</p>
 <ul>
-<li><code>legend_title_gp</code>: set <code>title_gp</code> in all heatmap legends and annotation legends.</li>
-<li><code>legend_title_position</code>: set <code>title_position</code> in all heatmap legends and annotation legends.</li>
-<li><code>legend_labels_gp</code>: set <code>labels_gp</code> in all heatmap legends and annotation legends.</li>
-<li><code>legend_grid_width</code>: set <code>grid_width</code> in all heatmap legends and annotation legends.</li>
-<li><code>legend_grid_height</code>: set <code>grid_height</code> in all heatmap legends and annotation legends.</li>
+<li><code>legend_title_gp</code>: set <code>title_gp</code> in all heatmap legends and annotation
+legends.</li>
+<li><code>legend_title_position</code>: set <code>title_position</code> in all heatmap legends and
+annotation legends.</li>
+<li><code>legend_labels_gp</code>: set <code>labels_gp</code> in all heatmap legends and annotation
+legends.</li>
+<li><code>legend_grid_width</code>: set <code>grid_width</code> in all heatmap legends and annotation
+legends.</li>
+<li><code>legend_grid_height</code>: set <code>grid_height</code> in all heatmap legends and
+annotation legends.</li>
 <li><code>legend_border</code>: set <code>border</code> in all heatmap legends and annotation legends.</li>
 </ul>
 <p>Following parameters control heatmap annotations:</p>
@@ -697,74 +823,93 @@ ht_list =<span class="st"> </span><span class="kw">draw</span>(ht_list, <span cl
 <p>Other parameters:</p>
 <ul>
 <li><code>fast_hclust</code>: whether use <code>fastcluster::hclust()</code> to speed up clustering?</li>
-<li><code>show_parent_dend_line</code>: when heatmap is split, whether to add a dashed line to mark parent dendrogram and children dendrograms?</li>
+<li><code>show_parent_dend_line</code>: when heatmap is split, whether to add a dashed line
+to mark parent dendrogram and children dendrograms?</li>
 </ul>
-<p>You can get or set option values by the traditional way (like <code>base::options()</code>) or by <code>$</code> operator:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ht_opt</span>(<span class="st">&quot;heatmap_row_names_gp&quot;</span>)
-ht_opt<span class="op">$</span>heatmap_row_names_gp
-
-<span class="co"># to set option values</span>
-<span class="kw">ht_opt</span>(<span class="st">&quot;heatmap_row_names_gp&quot;</span> =<span class="st"> </span><span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">8</span>))
-ht_opt<span class="op">$</span>heatmap_row_names_gp =<span class="st"> </span><span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">8</span>)</code></pre></div>
+<p>You can get or set option values by the traditional way (like
+<code>base::options()</code>) or by <code>$</code> operator:</p>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb343-1" data-line-number="1"><span class="kw">ht_opt</span>(<span class="st">&quot;heatmap_row_names_gp&quot;</span>)</a>
+<a class="sourceLine" id="cb343-2" data-line-number="2">ht_opt<span class="op">$</span>heatmap_row_names_gp</a>
+<a class="sourceLine" id="cb343-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb343-4" data-line-number="4"><span class="co"># to set option values</span></a>
+<a class="sourceLine" id="cb343-5" data-line-number="5"><span class="kw">ht_opt</span>(<span class="st">&quot;heatmap_row_names_gp&quot;</span> =<span class="st"> </span><span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">8</span>))</a>
+<a class="sourceLine" id="cb343-6" data-line-number="6">ht_opt<span class="op">$</span>heatmap_row_names_gp =<span class="st"> </span><span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">8</span>)</a></code></pre></div>
 <p>Reset to the default values by:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ht_opt</span>(<span class="dt">RESET =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb344-1" data-line-number="1"><span class="kw">ht_opt</span>(<span class="dt">RESET =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p>Following example shows to control some graphic parameters globally.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ht_opt</span>(<span class="dt">heatmap_column_names_gp =</span> <span class="kw">gpar</span>(<span class="dt">fontface =</span> <span class="st">&quot;italic&quot;</span>), 
-    <span class="dt">heatmap_column_title_gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">10</span>),
-    <span class="dt">legend_border =</span> <span class="st">&quot;black&quot;</span>,
-    <span class="dt">heatmap_border =</span> <span class="ot">TRUE</span>,
-    <span class="dt">annotation_border =</span> <span class="ot">TRUE</span>
-)
-ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;ht1&quot;</span>, <span class="dt">column_title =</span> <span class="st">&quot;Heatmap 1&quot;</span>,
-    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>))
-ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;ht2&quot;</span>, <span class="dt">column_title =</span> <span class="st">&quot;Heatmap 2&quot;</span>,
-    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">bar =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>))
-ht1 <span class="op">+</span><span class="st"> </span>ht2</code></pre></div>
-<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-35-1.png" width="960" style="display: block; margin: auto;" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ht_opt</span>(<span class="dt">RESET =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<p>These global parameters can also be set in the <code>draw()</code> function to temporarily change the global parameters, and they are reset back after the plot is made. Please check the help page of <code>draw,HeatmapList-method</code>.</p>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb345-1" data-line-number="1"><span class="kw">ht_opt</span>(<span class="dt">heatmap_column_names_gp =</span> <span class="kw">gpar</span>(<span class="dt">fontface =</span> <span class="st">&quot;italic&quot;</span>), </a>
+<a class="sourceLine" id="cb345-2" data-line-number="2">    <span class="dt">heatmap_column_title_gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">10</span>),</a>
+<a class="sourceLine" id="cb345-3" data-line-number="3">    <span class="dt">legend_border =</span> <span class="st">&quot;black&quot;</span>,</a>
+<a class="sourceLine" id="cb345-4" data-line-number="4">    <span class="dt">heatmap_border =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb345-5" data-line-number="5">    <span class="dt">annotation_border =</span> <span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb345-6" data-line-number="6">)</a>
+<a class="sourceLine" id="cb345-7" data-line-number="7">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat1, <span class="dt">name =</span> <span class="st">&quot;ht1&quot;</span>, <span class="dt">column_title =</span> <span class="st">&quot;Heatmap 1&quot;</span>,</a>
+<a class="sourceLine" id="cb345-8" data-line-number="8">    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>))</a>
+<a class="sourceLine" id="cb345-9" data-line-number="9">ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat2, <span class="dt">name =</span> <span class="st">&quot;ht2&quot;</span>, <span class="dt">column_title =</span> <span class="st">&quot;Heatmap 2&quot;</span>,</a>
+<a class="sourceLine" id="cb345-10" data-line-number="10">    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">bar =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>))</a>
+<a class="sourceLine" id="cb345-11" data-line-number="11">ht1 <span class="op">+</span><span class="st"> </span>ht2</a></code></pre></div>
+<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-36-1.png" width="960" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb346-1" data-line-number="1"><span class="kw">ht_opt</span>(<span class="dt">RESET =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<p>These global parameters can also be set in the <code>draw()</code> function to
+temporarily change the global parameters, and they are reset back after the
+plot is made. Please check the help page of <code>draw,HeatmapList-method</code>.</p>
 </div>
 <div id="adjust-blank-space-caused-by-annotations" class="section level2">
 <h2><span class="header-section-number">4.14</span> Adjust blank space caused by annotations</h2>
-<p>Heatmap annotations may have annotation names and axes, for which the spaces are also taken into account when arranging heatmap components in the final layout. Sometimes, this adjustment is not smart that you may see blank areas in the plot that are not necessary.</p>
-<p>One scenario is for a matrix with no row names, the space to the right of the heatmap is determined by the size of annotation name, which results in blank space between the heatmap and the legend. Also the heatmap list level row title is plotted to the left of the annotation axis, which gives blank area if there is no row dendrogram.</p>
-<p><code>adjust_annotation_extension</code> controls whether to take account of the space of annotation names and axes for the layout. Compare following two plots.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>)
-ht =<span class="st"> </span><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>,
-    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)),
-    <span class="dt">show_row_dend =</span> <span class="ot">FALSE</span>)
-<span class="kw">draw</span>(ht, <span class="dt">row_title =</span> <span class="st">&quot;fooooooooooo&quot;</span>, <span class="dt">adjust_annotation_extension =</span> <span class="ot">TRUE</span>,  <span class="co"># default</span>
-    <span class="dt">column_title =</span> <span class="st">&quot;adjust_annotation_extension = TRUE&quot;</span>)
-<span class="kw">draw</span>(ht, <span class="dt">row_title =</span> <span class="st">&quot;fooooooooooo&quot;</span>, <span class="dt">adjust_annotation_extension =</span> <span class="ot">FALSE</span>,
-    <span class="dt">column_title =</span> <span class="st">&quot;adjust_annotation_extension = FALSE&quot;</span>)</code></pre></div>
-<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-37-1.png" width="960" style="display: block; margin: auto;" /></p>
-<p>Another way to partially solve the space problem is to move the annotation name to the left and use heamtap-level row title.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>,
-    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>),
-        <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>),
-    <span class="dt">row_title =</span> <span class="st">&quot;fooooooooooo&quot;</span>,
-    <span class="dt">show_row_dend =</span> <span class="ot">FALSE</span>)</code></pre></div>
-<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-38-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>However, this adjustment for annotations sometimes is also necessary, e.g. when the heatmap is very short:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht =<span class="st"> </span><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>,
-    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)),
-    <span class="dt">show_row_dend =</span> <span class="ot">FALSE</span>)
-<span class="kw">draw</span>(ht, <span class="dt">row_title =</span> <span class="st">&quot;fooooooooooo&quot;</span>, <span class="dt">adjust_annotation_extension =</span> <span class="ot">TRUE</span>,
-    <span class="dt">column_title =</span> <span class="st">&quot;adjust_annotation_extension = TRUE&quot;</span>)</code></pre></div>
-<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-39-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>Therefore, we set <code>TRUE</code> as the default of <code>adjust_annotation_extension</code> and users can configure it based on specific scenarios.</p>
+<p>Heatmap annotations may have annotation names and axes, for which the spaces
+are also taken into account when arranging heatmap components in the final
+layout. Sometimes, this adjustment is not smart that you may see blank areas
+in the plot that are not necessary.</p>
+<p>One scenario is for a matrix with no row names, the space to the right of the
+heatmap is determined by the size of annotation name, which results in blank
+space between the heatmap and the legend. Also the heatmap list level row
+title is plotted to the left of the annotation axis, which gives blank area if
+there is no row dendrogram.</p>
+<p><code>adjust_annotation_extension</code> controls whether to take account of the space of
+annotation names and axes for the layout. Compare following two plots.</p>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb347-1" data-line-number="1">m =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb347-2" data-line-number="2">ht =<span class="st"> </span><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>,</a>
+<a class="sourceLine" id="cb347-3" data-line-number="3">    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)),</a>
+<a class="sourceLine" id="cb347-4" data-line-number="4">    <span class="dt">show_row_dend =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb347-5" data-line-number="5"><span class="kw">draw</span>(ht, <span class="dt">row_title =</span> <span class="st">&quot;fooooooooooo&quot;</span>, <span class="dt">adjust_annotation_extension =</span> <span class="ot">TRUE</span>,  <span class="co"># default</span></a>
+<a class="sourceLine" id="cb347-6" data-line-number="6">    <span class="dt">column_title =</span> <span class="st">&quot;adjust_annotation_extension = TRUE&quot;</span>)</a>
+<a class="sourceLine" id="cb347-7" data-line-number="7"><span class="kw">draw</span>(ht, <span class="dt">row_title =</span> <span class="st">&quot;fooooooooooo&quot;</span>, <span class="dt">adjust_annotation_extension =</span> <span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb347-8" data-line-number="8">    <span class="dt">column_title =</span> <span class="st">&quot;adjust_annotation_extension = FALSE&quot;</span>)</a></code></pre></div>
+<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-38-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>Another way to partially solve the space problem is to move the annotation name
+to the left and use heamtap-level row title.</p>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb348-1" data-line-number="1"><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>,</a>
+<a class="sourceLine" id="cb348-2" data-line-number="2">    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>),</a>
+<a class="sourceLine" id="cb348-3" data-line-number="3">        <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>),</a>
+<a class="sourceLine" id="cb348-4" data-line-number="4">    <span class="dt">row_title =</span> <span class="st">&quot;fooooooooooo&quot;</span>,</a>
+<a class="sourceLine" id="cb348-5" data-line-number="5">    <span class="dt">show_row_dend =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-39-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>However, this adjustment for annotations sometimes is also necessary, e.g. when the heatmap is
+very short:</p>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb349-1" data-line-number="1">ht =<span class="st"> </span><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>,</a>
+<a class="sourceLine" id="cb349-2" data-line-number="2">    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)),</a>
+<a class="sourceLine" id="cb349-3" data-line-number="3">    <span class="dt">show_row_dend =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb349-4" data-line-number="4"><span class="kw">draw</span>(ht, <span class="dt">row_title =</span> <span class="st">&quot;fooooooooooo&quot;</span>, <span class="dt">adjust_annotation_extension =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb349-5" data-line-number="5">    <span class="dt">column_title =</span> <span class="st">&quot;adjust_annotation_extension = TRUE&quot;</span>)</a></code></pre></div>
+<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-40-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Therefore, we set <code>TRUE</code> as the default of <code>adjust_annotation_extension</code> and users can configure
+it based on specific scenarios.</p>
 </div>
 <div id="manually-increase-space-around-the-plot" class="section level2">
 <h2><span class="header-section-number">4.15</span> Manually increase space around the plot</h2>
-<p>The layout of the <strong>ComplexHeatmap</strong> is not perfect that it is still possible some of the text are drawn out of the plotting region. In this case, you can manually set the <code>padding</code> argument in <code>draw()</code> function to increase the blank areas around the final plot.</p>
-<p>The value of <code>padding</code> should be a unit vector with length of four. The four values correspond to the space at the bottom, left, top and right sides.</p>
-<p>The following example is not a perfect example because the maximal width for row names can be controlled by <code>max_row_name_width</code> argument, but we can still use it to demonstrate the use of <code>padding</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m2 =<span class="st"> </span>m
-<span class="kw">rownames</span>(m2) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;R&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)
-<span class="kw">rownames</span>(m2)[<span class="dv">1</span>] =<span class="st"> &quot;a long long long long long row name&quot;</span>
-ht =<span class="st"> </span><span class="kw">Heatmap</span>(m2, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_names_side =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">show_row_dend =</span> <span class="ot">FALSE</span>)
-<span class="kw">draw</span>(ht, <span class="dt">padding =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">20</span>, <span class="dv">2</span>, <span class="dv">2</span>), <span class="st">&quot;mm&quot;</span>)) ## see right heatmap in following</code></pre></div>
-<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-41-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>The layout of the <strong>ComplexHeatmap</strong> is not perfect that it is still possible some of the text are
+drawn out of the plotting region. In this case, you can manually set the <code>padding</code> argument in <code>draw()</code> function
+to increase the blank areas around the final plot.</p>
+<p>The value of <code>padding</code> should be a unit vector with length of four. The four values correspond to the space at
+the bottom, left, top and right sides.</p>
+<p>The following example is not a perfect example because the maximal width for row names can be controlled
+by <code>max_row_name_width</code> argument, but we can still use it to demonstrate the use of <code>padding</code>.</p>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb350-1" data-line-number="1">m2 =<span class="st"> </span>m</a>
+<a class="sourceLine" id="cb350-2" data-line-number="2"><span class="kw">rownames</span>(m2) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;R&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb350-3" data-line-number="3"><span class="kw">rownames</span>(m2)[<span class="dv">1</span>] =<span class="st"> &quot;a long long long long long row name&quot;</span></a>
+<a class="sourceLine" id="cb350-4" data-line-number="4">ht =<span class="st"> </span><span class="kw">Heatmap</span>(m2, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">row_names_side =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">show_row_dend =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb350-5" data-line-number="5"><span class="kw">draw</span>(ht, <span class="dt">padding =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">20</span>, <span class="dv">2</span>, <span class="dv">2</span>), <span class="st">&quot;mm&quot;</span>)) ## see right heatmap in following</a></code></pre></div>
+<p><img src="04-a_list_of_heatmaps_files/figure-html/unnamed-chunk-42-1.png" width="960" style="display: block; margin: auto;" /></p>
 
 </div>
 </div>
@@ -829,7 +974,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Heatmap Decoration | ComplexHeatmap Complete Reference</title>
   <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Heatmap Decoration | ComplexHeatmap Complete Reference" />
   <meta property="og:type" content="book" />
@@ -52,41 +52,68 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -244,7 +271,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="11.2.1" data-path="other-tricks.html"><a href="other-tricks.html#titles"><i class="fa fa-check"></i><b>11.2.1</b> Titles</a></li>
 <li class="chapter" data-level="11.2.2" data-path="other-tricks.html"><a href="other-tricks.html#rowcolumn-names"><i class="fa fa-check"></i><b>11.2.2</b> Row/column names</a></li>
 <li class="chapter" data-level="11.2.3" data-path="other-tricks.html"><a href="other-tricks.html#annotation-labels-1"><i class="fa fa-check"></i><b>11.2.3</b> Annotation labels</a></li>
-<li class="chapter" data-level="11.2.4" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#text-annotation"><i class="fa fa-check"></i><b>11.2.4</b> Text annotation</a></li>
+<li class="chapter" data-level="11.2.4" data-path="other-tricks.html"><a href="other-tricks.html#text-annotation-1"><i class="fa fa-check"></i><b>11.2.4</b> Text annotation</a></li>
 <li class="chapter" data-level="11.2.5" data-path="other-tricks.html"><a href="other-tricks.html#legend"><i class="fa fa-check"></i><b>11.2.5</b> Legend</a></li>
 </ul></li>
 </ul></li>
@@ -270,27 +297,31 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="heatmap-decoration" class="section level1">
 <h1><span class="header-section-number">Chapter 6</span> Heatmap Decoration</h1>
-<p>The plotting region for each heatmap component is still kept after the heatmaps are made, so it is possible to go back to the original places to add more graphics there. First let’s generate a figure that almost contains all types of heatmap components. <code>list_components()</code> lists the names of the heatmap/annotation components (or the name of the viewport).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
-mat =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">80</span>, <span class="dv">2</span>), <span class="dv">8</span>, <span class="dv">10</span>)
-mat =<span class="st"> </span><span class="kw">rbind</span>(mat, <span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">40</span>, <span class="op">-</span><span class="dv">2</span>), <span class="dv">4</span>, <span class="dv">10</span>))
-<span class="kw">rownames</span>(mat) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;R&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>)
-<span class="kw">colnames</span>(mat) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;C&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)
-
-ha_column1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">points =</span> <span class="kw">anno_points</span>(<span class="kw">rnorm</span>(<span class="dv">10</span>)), 
-    <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>)
-ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;ht1&quot;</span>, <span class="dt">km =</span> <span class="dv">2</span>, <span class="dt">column_title =</span> <span class="st">&quot;Heatmap 1&quot;</span>, 
-    <span class="dt">top_annotation =</span> ha_column1, <span class="dt">row_names_side =</span> <span class="st">&quot;left&quot;</span>)
-
-ha_column2 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">type =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;a&quot;</span>, <span class="dv">5</span>), <span class="kw">rep</span>(<span class="st">&quot;b&quot;</span>, <span class="dv">5</span>)),
-    <span class="dt">col =</span> <span class="kw">list</span>(<span class="dt">type =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span> =<span class="st"> &quot;red&quot;</span>, <span class="st">&quot;b&quot;</span> =<span class="st"> &quot;blue&quot;</span>)))
-ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;ht2&quot;</span>, <span class="dt">row_title =</span> <span class="st">&quot;Heatmap 2&quot;</span>, <span class="dt">column_title =</span> <span class="st">&quot;Heatmap 2&quot;</span>,
-    <span class="dt">bottom_annotation =</span> ha_column2, <span class="dt">column_km =</span> <span class="dv">2</span>)
-
-ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_barplot</span>(<span class="kw">rowMeans</span>(mat), <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)))
-<span class="kw">draw</span>(ht_list, <span class="dt">row_title =</span> <span class="st">&quot;Heatmap list&quot;</span>, <span class="dt">column_title =</span> <span class="st">&quot;Heatmap list&quot;</span>)
-<span class="kw">list_components</span>()</code></pre></div>
+<p>The plotting region for each heatmap component is still kept after the
+heatmaps are made, so it is possible to go back to the original places to add
+more graphics there. First let’s generate a figure that almost contains all
+types of heatmap components. <code>list_components()</code> lists the names of the
+heatmap/annotation components (or the name of the viewport).</p>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb424-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">123</span>)</a>
+<a class="sourceLine" id="cb424-2" data-line-number="2">mat =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">80</span>, <span class="dv">2</span>), <span class="dv">8</span>, <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb424-3" data-line-number="3">mat =<span class="st"> </span><span class="kw">rbind</span>(mat, <span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">40</span>, <span class="dv">-2</span>), <span class="dv">4</span>, <span class="dv">10</span>))</a>
+<a class="sourceLine" id="cb424-4" data-line-number="4"><span class="kw">rownames</span>(mat) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;R&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>)</a>
+<a class="sourceLine" id="cb424-5" data-line-number="5"><span class="kw">colnames</span>(mat) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;C&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb424-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb424-7" data-line-number="7">ha_column1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">points =</span> <span class="kw">anno_points</span>(<span class="kw">rnorm</span>(<span class="dv">10</span>)), </a>
+<a class="sourceLine" id="cb424-8" data-line-number="8">    <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>)</a>
+<a class="sourceLine" id="cb424-9" data-line-number="9">ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;ht1&quot;</span>, <span class="dt">km =</span> <span class="dv">2</span>, <span class="dt">column_title =</span> <span class="st">&quot;Heatmap 1&quot;</span>, </a>
+<a class="sourceLine" id="cb424-10" data-line-number="10">    <span class="dt">top_annotation =</span> ha_column1, <span class="dt">row_names_side =</span> <span class="st">&quot;left&quot;</span>)</a>
+<a class="sourceLine" id="cb424-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb424-12" data-line-number="12">ha_column2 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">type =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;a&quot;</span>, <span class="dv">5</span>), <span class="kw">rep</span>(<span class="st">&quot;b&quot;</span>, <span class="dv">5</span>)),</a>
+<a class="sourceLine" id="cb424-13" data-line-number="13">    <span class="dt">col =</span> <span class="kw">list</span>(<span class="dt">type =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span> =<span class="st"> &quot;red&quot;</span>, <span class="st">&quot;b&quot;</span> =<span class="st"> &quot;blue&quot;</span>)))</a>
+<a class="sourceLine" id="cb424-14" data-line-number="14">ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;ht2&quot;</span>, <span class="dt">row_title =</span> <span class="st">&quot;Heatmap 2&quot;</span>, <span class="dt">column_title =</span> <span class="st">&quot;Heatmap 2&quot;</span>,</a>
+<a class="sourceLine" id="cb424-15" data-line-number="15">    <span class="dt">bottom_annotation =</span> ha_column2, <span class="dt">column_km =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb424-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb424-17" data-line-number="17">ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb424-18" data-line-number="18"><span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_barplot</span>(<span class="kw">rowMeans</span>(mat), <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)))</a>
+<a class="sourceLine" id="cb424-19" data-line-number="19"><span class="kw">draw</span>(ht_list, <span class="dt">row_title =</span> <span class="st">&quot;Heatmap list&quot;</span>, <span class="dt">column_title =</span> <span class="st">&quot;Heatmap list&quot;</span>)</a>
+<a class="sourceLine" id="cb424-20" data-line-number="20"><span class="kw">list_components</span>()</a></code></pre></div>
 <pre><code>##  [1] &quot;ROOT&quot;                           &quot;global&quot;                        
 ##  [3] &quot;global_layout&quot;                  &quot;global-heatmaplist&quot;            
 ##  [5] &quot;main_heatmap_list&quot;              &quot;heatmap_ht1&quot;                   
@@ -314,10 +345,14 @@ ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st">
 ## [41] &quot;heatmap_legend&quot;                 &quot;global-annotation_legend_right&quot;
 ## [43] &quot;annotation_legend&quot;</code></pre>
 <p><img src="06-heatmap_decoration_files/figure-html/access_components-1.png" width="960" style="display: block; margin: auto;" /></p>
-<p>Basically the red regions in above plot can be revisited by <code>decorate_*()</code> functions.</p>
+<p>Basically the red regions in above plot can be revisited by <code>decorate_*()</code>
+functions.</p>
 <div id="decoration-functions" class="section level2">
 <h2><span class="header-section-number">6.1</span> Decoration functions</h2>
-<p>Since you can get the viewport name by <code>list_components()</code>, actually you can directly go to the viewport by <code>seekViewport()</code>. To get rid of the complicated viewport names, the <code>decorate_*()</code> functions provide a more friendly way to do it.</p>
+<p>Since you can get the viewport name by <code>list_components()</code>, actually you can
+directly go to the viewport by <code>seekViewport()</code>. To get rid of the complicated
+viewport names, the <code>decorate_*()</code> functions provide a more friendly way to do
+it.</p>
 <p>There are following decoration functions in <strong>ComplexHeatmap</strong> package:</p>
 <ul>
 <li><code>decorate_heatmap_body()</code></li>
@@ -333,95 +368,113 @@ ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st">
 <li><code>decorate_column_title()</code>, identical to <code>decorate_title(..., which = &quot;column&quot;)</code>.</li>
 </ul>
 <p>Among them, <code>decorate_heatmap_body()</code> and <code>decorate_annotation()</code> are more often used.</p>
-<p>For all these functions, they need a heatmap or annotation name, index for the row/column slices if the heatmap is split and a code block which defines how to add graphics. Check following example.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht_list =<span class="st"> </span><span class="kw">draw</span>(ht_list, <span class="dt">row_title =</span> <span class="st">&quot;Heatmap list&quot;</span>, <span class="dt">column_title =</span> <span class="st">&quot;Heatmap list&quot;</span>, 
-    <span class="dt">heatmap_legend_side =</span> <span class="st">&quot;right&quot;</span>, <span class="dt">annotation_legend_side =</span> <span class="st">&quot;left&quot;</span>)
-
-<span class="kw">decorate_heatmap_body</span>(<span class="st">&quot;ht1&quot;</span>, {
-    <span class="kw">grid.text</span>(<span class="st">&quot;outlier&quot;</span>, <span class="fl">1.5</span><span class="op">/</span><span class="dv">10</span>, <span class="fl">2.5</span><span class="op">/</span><span class="dv">4</span>, <span class="dt">default.units =</span> <span class="st">&quot;npc&quot;</span>)
-    <span class="kw">grid.lines</span>(<span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">lwd =</span> <span class="dv">2</span>))
-}, <span class="dt">slice =</span> <span class="dv">2</span>)
-
-<span class="kw">decorate_column_dend</span>(<span class="st">&quot;ht1&quot;</span>, {
-    tree =<span class="st"> </span><span class="kw">column_dend</span>(ht_list)<span class="op">$</span>ht1[[<span class="dv">1</span>]]
-    ind =<span class="st"> </span><span class="kw">cutree</span>(<span class="kw">as.hclust</span>(tree), <span class="dt">k =</span> <span class="dv">2</span>)[<span class="kw">order.dendrogram</span>(tree)]
-
-    first_index =<span class="st"> </span><span class="cf">function</span>(l) <span class="kw">which</span>(l)[<span class="dv">1</span>]
-    last_index =<span class="st"> </span><span class="cf">function</span>(l) { x =<span class="st"> </span><span class="kw">which</span>(l); x[<span class="kw">length</span>(x)] }
-    x1 =<span class="st"> </span><span class="kw">c</span>(<span class="kw">first_index</span>(ind <span class="op">==</span><span class="st"> </span><span class="dv">1</span>), <span class="kw">first_index</span>(ind <span class="op">==</span><span class="st"> </span><span class="dv">2</span>)) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>
-    x2 =<span class="st"> </span><span class="kw">c</span>(<span class="kw">last_index</span>(ind <span class="op">==</span><span class="st"> </span><span class="dv">1</span>), <span class="kw">last_index</span>(ind <span class="op">==</span><span class="st"> </span><span class="dv">2</span>))
-    <span class="kw">grid.rect</span>(<span class="dt">x =</span> x1<span class="op">/</span><span class="kw">length</span>(ind), <span class="dt">width =</span> (x2 <span class="op">-</span><span class="st"> </span>x1)<span class="op">/</span><span class="kw">length</span>(ind), <span class="dt">just =</span> <span class="st">&quot;left&quot;</span>,
-        <span class="dt">default.units =</span> <span class="st">&quot;npc&quot;</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="kw">c</span>(<span class="st">&quot;#FF000040&quot;</span>, <span class="st">&quot;#00FF0040&quot;</span>), <span class="dt">col =</span> <span class="ot">NA</span>))
-})
-
-<span class="kw">decorate_row_names</span>(<span class="st">&quot;ht1&quot;</span>, {
-    <span class="kw">grid.rect</span>(<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;#FF000040&quot;</span>))
-}, <span class="dt">slice =</span> <span class="dv">2</span>)
-
-<span class="kw">decorate_row_title</span>(<span class="st">&quot;ht1&quot;</span>, {
-    <span class="kw">grid.rect</span>(<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;#00FF0040&quot;</span>))
-}, <span class="dt">slice =</span> <span class="dv">1</span>)
-
-<span class="kw">decorate_annotation</span>(<span class="st">&quot;points&quot;</span>, {
-    <span class="kw">grid.lines</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="st">&quot;native&quot;</span>), <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>))
-})</code></pre></div>
+<p>For all these functions, they need a heatmap or annotation name, index for the
+row/column slices if the heatmap is split and a code block which defines how
+to add graphics. Check following example.</p>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb426-1" data-line-number="1">ht_list =<span class="st"> </span><span class="kw">draw</span>(ht_list, <span class="dt">row_title =</span> <span class="st">&quot;Heatmap list&quot;</span>, <span class="dt">column_title =</span> <span class="st">&quot;Heatmap list&quot;</span>, </a>
+<a class="sourceLine" id="cb426-2" data-line-number="2">    <span class="dt">heatmap_legend_side =</span> <span class="st">&quot;right&quot;</span>, <span class="dt">annotation_legend_side =</span> <span class="st">&quot;left&quot;</span>)</a>
+<a class="sourceLine" id="cb426-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb426-4" data-line-number="4"><span class="kw">decorate_heatmap_body</span>(<span class="st">&quot;ht1&quot;</span>, {</a>
+<a class="sourceLine" id="cb426-5" data-line-number="5">    <span class="kw">grid.text</span>(<span class="st">&quot;outlier&quot;</span>, <span class="fl">1.5</span><span class="op">/</span><span class="dv">10</span>, <span class="fl">2.5</span><span class="op">/</span><span class="dv">4</span>, <span class="dt">default.units =</span> <span class="st">&quot;npc&quot;</span>)</a>
+<a class="sourceLine" id="cb426-6" data-line-number="6">    <span class="kw">grid.lines</span>(<span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">lwd =</span> <span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb426-7" data-line-number="7">}, <span class="dt">slice =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb426-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb426-9" data-line-number="9"><span class="kw">decorate_column_dend</span>(<span class="st">&quot;ht1&quot;</span>, {</a>
+<a class="sourceLine" id="cb426-10" data-line-number="10">    tree =<span class="st"> </span><span class="kw">column_dend</span>(ht_list)<span class="op">$</span>ht1[[<span class="dv">1</span>]]</a>
+<a class="sourceLine" id="cb426-11" data-line-number="11">    ind =<span class="st"> </span><span class="kw">cutree</span>(<span class="kw">as.hclust</span>(tree), <span class="dt">k =</span> <span class="dv">2</span>)[<span class="kw">order.dendrogram</span>(tree)]</a>
+<a class="sourceLine" id="cb426-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb426-13" data-line-number="13">    first_index =<span class="st"> </span><span class="cf">function</span>(l) <span class="kw">which</span>(l)[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb426-14" data-line-number="14">    last_index =<span class="st"> </span><span class="cf">function</span>(l) { x =<span class="st"> </span><span class="kw">which</span>(l); x[<span class="kw">length</span>(x)] }</a>
+<a class="sourceLine" id="cb426-15" data-line-number="15">    x1 =<span class="st"> </span><span class="kw">c</span>(<span class="kw">first_index</span>(ind <span class="op">==</span><span class="st"> </span><span class="dv">1</span>), <span class="kw">first_index</span>(ind <span class="op">==</span><span class="st"> </span><span class="dv">2</span>)) <span class="op">-</span><span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb426-16" data-line-number="16">    x2 =<span class="st"> </span><span class="kw">c</span>(<span class="kw">last_index</span>(ind <span class="op">==</span><span class="st"> </span><span class="dv">1</span>), <span class="kw">last_index</span>(ind <span class="op">==</span><span class="st"> </span><span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb426-17" data-line-number="17">    <span class="kw">grid.rect</span>(<span class="dt">x =</span> x1<span class="op">/</span><span class="kw">length</span>(ind), <span class="dt">width =</span> (x2 <span class="op">-</span><span class="st"> </span>x1)<span class="op">/</span><span class="kw">length</span>(ind), <span class="dt">just =</span> <span class="st">&quot;left&quot;</span>,</a>
+<a class="sourceLine" id="cb426-18" data-line-number="18">        <span class="dt">default.units =</span> <span class="st">&quot;npc&quot;</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="kw">c</span>(<span class="st">&quot;#FF000040&quot;</span>, <span class="st">&quot;#00FF0040&quot;</span>), <span class="dt">col =</span> <span class="ot">NA</span>))</a>
+<a class="sourceLine" id="cb426-19" data-line-number="19">})</a>
+<a class="sourceLine" id="cb426-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb426-21" data-line-number="21"><span class="kw">decorate_row_names</span>(<span class="st">&quot;ht1&quot;</span>, {</a>
+<a class="sourceLine" id="cb426-22" data-line-number="22">    <span class="kw">grid.rect</span>(<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;#FF000040&quot;</span>))</a>
+<a class="sourceLine" id="cb426-23" data-line-number="23">}, <span class="dt">slice =</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb426-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb426-25" data-line-number="25"><span class="kw">decorate_row_title</span>(<span class="st">&quot;ht1&quot;</span>, {</a>
+<a class="sourceLine" id="cb426-26" data-line-number="26">    <span class="kw">grid.rect</span>(<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;#00FF0040&quot;</span>))</a>
+<a class="sourceLine" id="cb426-27" data-line-number="27">}, <span class="dt">slice =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb426-28" data-line-number="28"></a>
+<a class="sourceLine" id="cb426-29" data-line-number="29"><span class="kw">decorate_annotation</span>(<span class="st">&quot;points&quot;</span>, {</a>
+<a class="sourceLine" id="cb426-30" data-line-number="30">    <span class="kw">grid.lines</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="st">&quot;native&quot;</span>), <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>))</a>
+<a class="sourceLine" id="cb426-31" data-line-number="31">})</a></code></pre></div>
 <p><img src="06-heatmap_decoration_files/figure-html/components-1.png" width="960" style="display: block; margin: auto;" /></p>
-<p>For annotations which are created by <code>anno_points()</code>, <code>anno_barplot()</code> and <code>anno_boxplot()</code>, “native” unit can be used in the decoration code.</p>
+<p>For annotations which are created by <code>anno_points()</code>, <code>anno_barplot()</code> and
+<code>anno_boxplot()</code>, “native” unit can be used in the decoration code.</p>
 </div>
 <div id="decoration-examples" class="section level2">
 <h2><span class="header-section-number">6.2</span> Examples</h2>
 <div id="barplot-for-single-column-heatmap" class="section level3">
 <h3><span class="header-section-number">6.2.1</span> Barplot for single-column heatmap</h3>
-<p>In Section <a href="heatmap-annotations.html#summary-annotation">3.16</a>, we introduced adding barplots as annotations for single-column heatmap. In that case the heatmap contains discrete values where the barplots show the frequency of each level. In following example, we show another scenario of using barplot as annotation but for a continuous heatmap.</p>
-<p>Imagining we are analyzing a set of genomic regions (e.g. differentially methylated regions, DMRs) and we have a single-column heatmap which shows the overlap to e.g. genes (measured by the fraction of a DMR covered by genes, value between 0 and 1, e.g. a value of 0.5 means 50% of this DMR overlaps to the genes). If we denote the width of DMRs as <span class="math inline">\(w\)</span> and the fraction as <span class="math inline">\(p\)</span>, on top of the fraction heatmap, we want to add barplots to show, on average, how much of the DMRs are covered by genes. In this case, we need to calcualte the mean fraction weighted by the width of DMRs (<span class="math inline">\(\sum{(w \cdot p)}/\sum{w}\)</span>).</p>
-<p>In following code, we randomly generated a fraction vector and split it into two groups. We first use <code>anno_empty()</code> to allocate empty plotting region on top of the heatmap and later we use <code>decorate_annotation()</code> to add the barplots into it.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(circlize)
-<span class="co"># DMRs</span>
-bed =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">1000</span>)
-<span class="co"># fractions</span>
-frac =<span class="st"> </span><span class="kw">c</span>(<span class="kw">runif</span>(<span class="dv">400</span>, <span class="dt">min =</span> <span class="fl">0.4</span>, <span class="dt">max =</span> <span class="dv">1</span>), <span class="kw">runif</span>(<span class="kw">nrow</span>(bed) <span class="op">-</span><span class="st"> </span><span class="dv">400</span>, <span class="dt">min =</span> <span class="fl">0.2</span>, <span class="dt">max =</span> <span class="fl">0.6</span>))
-col_fun =<span class="st"> </span><span class="kw">colorRamp2</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="kw">c</span>(<span class="st">&quot;white&quot;</span>, <span class="st">&quot;orange&quot;</span>))
-<span class="co"># two groups</span>
-split =<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;group1&quot;</span>, <span class="dv">400</span>), <span class="kw">rep</span>(<span class="st">&quot;group2&quot;</span>, <span class="kw">nrow</span>(bed) <span class="op">-</span><span class="st"> </span><span class="dv">400</span>))
-<span class="co"># draw the fraction heatmap with an empty annotation</span>
-ht =<span class="st"> </span><span class="kw">Heatmap</span>(frac, <span class="dt">name =</span> <span class="st">&quot;fraction&quot;</span>, <span class="dt">col =</span> col_fun, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>),
-    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">barplot =</span> <span class="kw">anno_empty</span>(<span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))))
-ht =<span class="st"> </span><span class="kw">draw</span>(ht, <span class="dt">row_split =</span> split)
-<span class="co"># get the row indices in the two row-groups</span>
-ro =<span class="st"> </span><span class="kw">row_order</span>(ht)
-w =<span class="st"> </span>bed[, <span class="dv">3</span>] <span class="op">-</span><span class="st"> </span>bed[, <span class="dv">2</span>]
-<span class="co"># the mean weighted fraction in the two groups</span>
-p =<span class="st"> </span><span class="kw">sapply</span>(ro, <span class="cf">function</span>(index) {
-    <span class="kw">sum</span>(w[index]<span class="op">*</span>frac[index])<span class="op">/</span><span class="kw">sum</span>(w[index])
-})
-<span class="co"># add two bars of `p`</span>
-<span class="kw">decorate_annotation</span>(<span class="st">&quot;barplot&quot;</span>, {
-    <span class="kw">pushViewport</span>(<span class="kw">viewport</span>(<span class="dt">xscale =</span> <span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">2.5</span>), <span class="dt">yscale =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(p)<span class="op">*</span><span class="fl">1.1</span>)))
-    <span class="kw">grid.rect</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">y =</span> <span class="dv">0</span>, <span class="dt">width =</span> <span class="fl">0.8</span>, <span class="dt">height =</span> p, <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>,
-        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;orange&quot;</span>), <span class="dt">default.units =</span> <span class="st">&quot;native&quot;</span>)
-    <span class="kw">grid.yaxis</span>()
-    <span class="kw">grid.text</span>(<span class="st">&quot;mean fraction&quot;</span>, <span class="dt">x =</span> <span class="kw">unit</span>(<span class="op">-</span><span class="fl">1.5</span>, <span class="st">&quot;cm&quot;</span>),<span class="dt">rot =</span> <span class="dv">90</span>, <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>)
-    <span class="kw">popViewport</span>()
-})</code></pre></div>
-<p><img src="06-heatmap_decoration_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>In Section <a href="heatmap-annotations.html#summary-annotation">3.16</a>, we introduced adding barplots as
+annotations for single-column heatmap. In that case the heatmap contains
+discrete values where the barplots show the frequency of each level. In
+following example, we show another scenario of using barplot as annotation but
+for a continuous heatmap.</p>
+<p>Imagining we are analyzing a set of genomic regions (e.g. differentially
+methylated regions, DMRs) and we have a single-column heatmap which shows the
+overlap to e.g. genes (measured by the fraction of a DMR covered by genes,
+value between 0 and 1, e.g. a value of 0.5 means 50% of this DMR overlaps to
+the genes). If we denote the width of DMRs as <span class="math inline">\(w\)</span> and the fraction as <span class="math inline">\(p\)</span>, on
+top of the fraction heatmap, we want to add barplots to show, on average, how
+much of the DMRs are covered by genes. In this case, we need to calcualte the
+mean fraction weighted by the width of DMRs (<span class="math inline">\(\sum{(w \cdot p)}/\sum{w}\)</span>).</p>
+<p>In following code, we randomly generated a fraction vector and split it into
+two groups. We first use <code>anno_empty()</code> to allocate empty plotting region on
+top of the heatmap and later we use <code>decorate_annotation()</code> to add the
+barplots into it.</p>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb427-1" data-line-number="1"><span class="kw">library</span>(circlize)</a>
+<a class="sourceLine" id="cb427-2" data-line-number="2"><span class="co"># DMRs</span></a>
+<a class="sourceLine" id="cb427-3" data-line-number="3">bed =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">1000</span>)</a>
+<a class="sourceLine" id="cb427-4" data-line-number="4"><span class="co"># fractions</span></a>
+<a class="sourceLine" id="cb427-5" data-line-number="5">frac =<span class="st"> </span><span class="kw">c</span>(<span class="kw">runif</span>(<span class="dv">400</span>, <span class="dt">min =</span> <span class="fl">0.4</span>, <span class="dt">max =</span> <span class="dv">1</span>), <span class="kw">runif</span>(<span class="kw">nrow</span>(bed) <span class="op">-</span><span class="st"> </span><span class="dv">400</span>, <span class="dt">min =</span> <span class="fl">0.2</span>, <span class="dt">max =</span> <span class="fl">0.6</span>))</a>
+<a class="sourceLine" id="cb427-6" data-line-number="6">col_fun =<span class="st"> </span><span class="kw">colorRamp2</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="kw">c</span>(<span class="st">&quot;white&quot;</span>, <span class="st">&quot;orange&quot;</span>))</a>
+<a class="sourceLine" id="cb427-7" data-line-number="7"><span class="co"># two groups</span></a>
+<a class="sourceLine" id="cb427-8" data-line-number="8">split =<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;group1&quot;</span>, <span class="dv">400</span>), <span class="kw">rep</span>(<span class="st">&quot;group2&quot;</span>, <span class="kw">nrow</span>(bed) <span class="op">-</span><span class="st"> </span><span class="dv">400</span>))</a>
+<a class="sourceLine" id="cb427-9" data-line-number="9"><span class="co"># draw the fraction heatmap with an empty annotation</span></a>
+<a class="sourceLine" id="cb427-10" data-line-number="10">ht =<span class="st"> </span><span class="kw">Heatmap</span>(frac, <span class="dt">name =</span> <span class="st">&quot;fraction&quot;</span>, <span class="dt">col =</span> col_fun, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>),</a>
+<a class="sourceLine" id="cb427-11" data-line-number="11">    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">barplot =</span> <span class="kw">anno_empty</span>(<span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))))</a>
+<a class="sourceLine" id="cb427-12" data-line-number="12">ht =<span class="st"> </span><span class="kw">draw</span>(ht, <span class="dt">row_split =</span> split)</a>
+<a class="sourceLine" id="cb427-13" data-line-number="13"><span class="co"># get the row indices in the two row-groups</span></a>
+<a class="sourceLine" id="cb427-14" data-line-number="14">ro =<span class="st"> </span><span class="kw">row_order</span>(ht)</a>
+<a class="sourceLine" id="cb427-15" data-line-number="15">w =<span class="st"> </span>bed[, <span class="dv">3</span>] <span class="op">-</span><span class="st"> </span>bed[, <span class="dv">2</span>]</a>
+<a class="sourceLine" id="cb427-16" data-line-number="16"><span class="co"># the mean weighted fraction in the two groups</span></a>
+<a class="sourceLine" id="cb427-17" data-line-number="17">p =<span class="st"> </span><span class="kw">sapply</span>(ro, <span class="cf">function</span>(index) {</a>
+<a class="sourceLine" id="cb427-18" data-line-number="18">    <span class="kw">sum</span>(w[index]<span class="op">*</span>frac[index])<span class="op">/</span><span class="kw">sum</span>(w[index])</a>
+<a class="sourceLine" id="cb427-19" data-line-number="19">})</a>
+<a class="sourceLine" id="cb427-20" data-line-number="20"><span class="co"># add two bars of `p`</span></a>
+<a class="sourceLine" id="cb427-21" data-line-number="21"><span class="kw">decorate_annotation</span>(<span class="st">&quot;barplot&quot;</span>, {</a>
+<a class="sourceLine" id="cb427-22" data-line-number="22">    <span class="kw">pushViewport</span>(<span class="kw">viewport</span>(<span class="dt">xscale =</span> <span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">2.5</span>), <span class="dt">yscale =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(p)<span class="op">*</span><span class="fl">1.1</span>)))</a>
+<a class="sourceLine" id="cb427-23" data-line-number="23">    <span class="kw">grid.rect</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">y =</span> <span class="dv">0</span>, <span class="dt">width =</span> <span class="fl">0.8</span>, <span class="dt">height =</span> p, <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>,</a>
+<a class="sourceLine" id="cb427-24" data-line-number="24">        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;orange&quot;</span>), <span class="dt">default.units =</span> <span class="st">&quot;native&quot;</span>)</a>
+<a class="sourceLine" id="cb427-25" data-line-number="25">    <span class="kw">grid.yaxis</span>()</a>
+<a class="sourceLine" id="cb427-26" data-line-number="26">    <span class="kw">grid.text</span>(<span class="st">&quot;mean fraction&quot;</span>, <span class="dt">x =</span> <span class="kw">unit</span>(<span class="op">-</span><span class="fl">1.5</span>, <span class="st">&quot;cm&quot;</span>),<span class="dt">rot =</span> <span class="dv">90</span>, <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>)</a>
+<a class="sourceLine" id="cb427-27" data-line-number="27">    <span class="kw">popViewport</span>()</a>
+<a class="sourceLine" id="cb427-28" data-line-number="28">})</a></code></pre></div>
+<p><img src="06-heatmap_decoration_files/figure-html/unnamed-chunk-2-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="add-titles-for-row-annotations" class="section level3">
 <h3><span class="header-section-number">6.2.2</span> Add titles for row annotations</h3>
-<p>Row annotations can be concatenated to the heatmap list. Sometimes we need a title for the row annotation. It is easy to implement it by decorations.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ht_list =<span class="st"> </span><span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>), <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">show_column_dend =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))) <span class="op">+</span>
-<span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_boxplot</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>)), <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))
-<span class="kw">draw</span>(ht_list, <span class="dt">padding =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">2</span>), <span class="st">&quot;mm&quot;</span>)) <span class="co"># add space for titles</span>
-<span class="kw">decorate_annotation</span>(<span class="st">&quot;foo&quot;</span>, { 
-    <span class="kw">grid.text</span>(<span class="st">&quot;title for barplot&quot;</span>, <span class="dt">y =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>) 
-})
-<span class="kw">decorate_annotation</span>(<span class="st">&quot;bar&quot;</span>, { 
-    <span class="kw">grid.text</span>(<span class="st">&quot;title for boxplot&quot;</span>, <span class="dt">y =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>) 
-})
-<span class="kw">decorate_heatmap_body</span>(<span class="st">&quot;mat&quot;</span>, {
-    <span class="kw">grid.text</span>(<span class="st">&quot;title for the heatmap&quot;</span>, <span class="dt">y =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>)
-})</code></pre></div>
-<p><img src="06-heatmap_decoration_files/figure-html/unnamed-chunk-2-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p>Row annotations can be concatenated to the heatmap list. Sometimes we need a
+title for the row annotation. It is easy to implement it by decorations.</p>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb428-1" data-line-number="1">ht_list =<span class="st"> </span><span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>), <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">show_column_dend =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb428-2" data-line-number="2"><span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))) <span class="op">+</span></a>
+<a class="sourceLine" id="cb428-3" data-line-number="3"><span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_boxplot</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>)), <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))</a>
+<a class="sourceLine" id="cb428-4" data-line-number="4"><span class="kw">draw</span>(ht_list, <span class="dt">padding =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">2</span>), <span class="st">&quot;mm&quot;</span>)) <span class="co"># add space for titles</span></a>
+<a class="sourceLine" id="cb428-5" data-line-number="5"><span class="kw">decorate_annotation</span>(<span class="st">&quot;foo&quot;</span>, { </a>
+<a class="sourceLine" id="cb428-6" data-line-number="6">    <span class="kw">grid.text</span>(<span class="st">&quot;title for barplot&quot;</span>, <span class="dt">y =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>) </a>
+<a class="sourceLine" id="cb428-7" data-line-number="7">})</a>
+<a class="sourceLine" id="cb428-8" data-line-number="8"><span class="kw">decorate_annotation</span>(<span class="st">&quot;bar&quot;</span>, { </a>
+<a class="sourceLine" id="cb428-9" data-line-number="9">    <span class="kw">grid.text</span>(<span class="st">&quot;title for boxplot&quot;</span>, <span class="dt">y =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>) </a>
+<a class="sourceLine" id="cb428-10" data-line-number="10">})</a>
+<a class="sourceLine" id="cb428-11" data-line-number="11"><span class="kw">decorate_heatmap_body</span>(<span class="st">&quot;mat&quot;</span>, {</a>
+<a class="sourceLine" id="cb428-12" data-line-number="12">    <span class="kw">grid.text</span>(<span class="st">&quot;title for the heatmap&quot;</span>, <span class="dt">y =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>)</a>
+<a class="sourceLine" id="cb428-13" data-line-number="13">})</a></code></pre></div>
+<p><img src="06-heatmap_decoration_files/figure-html/unnamed-chunk-3-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>This is basically the way we use in Section <a href="other-high-level-plots.html#stacked-summary-plot">10.2</a>.</p>
 </div>
 <div id="other-possible-use-of-decorations" class="section level3">
@@ -497,7 +550,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

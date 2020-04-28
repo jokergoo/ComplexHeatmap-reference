@@ -1101,6 +1101,550 @@ Heatmap(mat, name = "mat", row_split = 2, column_split = 3)
 
 <img src="02-single_heatmap_files/figure-html/split_dendrogram-1.png" width="672" style="display: block; margin: auto;" />
 
+```
+## Called from: make_cluster(object, "row")
+## debug: if (which == "row") {
+##     reorder = -rowMeans(mat, na.rm = TRUE)
+## } else {
+##     reorder = -colMeans(mat, na.rm = TRUE)
+## }
+## debug: reorder = -rowMeans(mat, na.rm = TRUE)
+## debug: if (do_reorder) {
+##     if (which == "row") {
+##         if (length(reorder) != nrow(mat)) {
+##             stop_wrap("weight of reordering should have same length as number of rows.\n")
+##         }
+##     }
+##     else {
+##         if (length(reorder) != ncol(mat)) {
+##             stop_wrap("weight of reordering should have same length as number of columns\n")
+##         }
+##     }
+##     for (i in seq_along(dend_list)) {
+##         if (length(order_list[[i]]) > 1) {
+##             sub_ind = sort(order_list[[i]])
+##             dend_list[[i]] = reorder(dend_list[[i]], reorder[sub_ind], 
+##                 mean)
+##             order_list[[i]] = order.dendrogram(dend_list[[i]])
+##         }
+##     }
+## }
+## debug: if (which == "row") {
+##     if (length(reorder) != nrow(mat)) {
+##         stop_wrap("weight of reordering should have same length as number of rows.\n")
+##     }
+## } else {
+##     if (length(reorder) != ncol(mat)) {
+##         stop_wrap("weight of reordering should have same length as number of columns\n")
+##     }
+## }
+## debug: if (length(reorder) != nrow(mat)) {
+##     stop_wrap("weight of reordering should have same length as number of rows.\n")
+## }
+## debug: for (i in seq_along(dend_list)) {
+##     if (length(order_list[[i]]) > 1) {
+##         sub_ind = sort(order_list[[i]])
+##         dend_list[[i]] = reorder(dend_list[[i]], reorder[sub_ind], 
+##             mean)
+##         order_list[[i]] = order.dendrogram(dend_list[[i]])
+##     }
+## }
+## debug: if (length(order_list[[i]]) > 1) {
+##     sub_ind = sort(order_list[[i]])
+##     dend_list[[i]] = reorder(dend_list[[i]], reorder[sub_ind], 
+##         mean)
+##     order_list[[i]] = order.dendrogram(dend_list[[i]])
+## }
+## debug: sub_ind = sort(order_list[[i]])
+## debug: dend_list[[i]] = reorder(dend_list[[i]], reorder[sub_ind], mean)
+## debug: order_list[[i]] = order.dendrogram(dend_list[[i]])
+## debug: if (length(order_list[[i]]) > 1) {
+##     sub_ind = sort(order_list[[i]])
+##     dend_list[[i]] = reorder(dend_list[[i]], reorder[sub_ind], 
+##         mean)
+##     order_list[[i]] = order.dendrogram(dend_list[[i]])
+## }
+## debug: sub_ind = sort(order_list[[i]])
+## debug: dend_list[[i]] = reorder(dend_list[[i]], reorder[sub_ind], mean)
+## debug: order_list[[i]] = order.dendrogram(dend_list[[i]])
+## debug: dend_list = lapply(dend_list, adjust_dend_by_x)
+## debug: slot(object, paste0(which, "_order")) = unlist(order_list)
+## debug: slot(object, paste0(which, "_order_list")) = order_list
+## debug: slot(object, paste0(which, "_dend_list")) = dend_list
+## debug: slot(object, paste0(which, "_dend_param")) = dend_param
+## debug: slot(object, paste0(which, "_dend_slice")) = dend_slice
+## debug: if (!is.null(split)) {
+##     split = data.frame(rep(seq_along(order_list), times = sapply(order_list, 
+##         length)))
+##     object@matrix_param[[paste0(which, "_split")]] = split
+##     for (i in seq_along(names_param$gp)) {
+##         if (length(names_param$gp[[i]]) == length(order_list)) {
+##             gp_temp = NULL
+##             for (j in seq_along(order_list)) {
+##                 gp_temp[order_list[[j]]] = names_param$gp[[i]][j]
+##             }
+##             names_param$gp[[i]] = gp_temp
+##         }
+##     }
+##     if (!is.null(names_param$anno)) {
+##         names_param$anno@var_env$gp = names_param$gp
+##     }
+##     slot(object, paste0(which, "_names_param")) = names_param
+##     n_slice = length(order_list)
+##     if (length(gap) == 1) {
+##         gap = rep(gap, n_slice)
+##     }
+##     else if (length(gap) == n_slice - 1) {
+##         gap = unit.c(gap, unit(0, "mm"))
+##     }
+##     else if (length(gap) != n_slice) {
+##         stop_wrap(qq("Length of `gap` should be 1 or number of @{which} slices."))
+##     }
+##     object@matrix_param[[paste0(which, "_gap")]] = gap
+##     title = slot(object, paste0(which, "_title"))
+##     if (!is.null(split)) {
+##         if (length(title) == 0 && !is.null(title)) {
+##             title = apply(unique(split), 1, paste, collapse = ",")
+##         }
+##         else if (length(title) == 1) {
+##             if (grepl("%s", title)) {
+##                 title = apply(unique(split), 1, function(x) {
+##                   lt = lapply(x, function(x) x)
+##                   lt$fmt = title
+##                   do.call(sprintf, lt)
+##                 })
+##             }
+##             else if (grepl("@\\{.+\\}", title)) {
+##                 title = apply(unique(split), 1, function(x) {
+##                   x = x
+##                   envir = environment()
+##                   title = get("title")
+##                   op = parent.env(envir)
+##                   calling_env = object@heatmap_param$calling_env
+##                   parent.env(envir) = calling_env
+##                   title = GetoptLong::qq(title, envir = envir)
+##                   parent.env(envir) = op
+##                   return(title)
+##                 })
+##             }
+##             else if (grepl("\\{.+\\}", title)) {
+##                 if (!requireNamespace("glue")) {
+##                   stop_wrap("You need to install glue package.")
+##                 }
+##                 title = apply(unique(split), 1, function(x) {
+##                   x = x
+##                   envir = environment()
+##                   title = get("title")
+##                   op = parent.env(envir)
+##                   calling_env = object@heatmap_param$calling_env
+##                   parent.env(envir) = calling_env
+##                   title = glue::glue(title, envir = calling_env)
+##                   parent.env(envir) = op
+##                   return(title)
+##                 })
+##             }
+##         }
+##     }
+##     slot(object, paste0(which, "_title")) = title
+## }
+## debug: split = data.frame(rep(seq_along(order_list), times = sapply(order_list, 
+##     length)))
+## debug: object@matrix_param[[paste0(which, "_split")]] = split
+## debug: for (i in seq_along(names_param$gp)) {
+##     if (length(names_param$gp[[i]]) == length(order_list)) {
+##         gp_temp = NULL
+##         for (j in seq_along(order_list)) {
+##             gp_temp[order_list[[j]]] = names_param$gp[[i]][j]
+##         }
+##         names_param$gp[[i]] = gp_temp
+##     }
+## }
+## debug: if (length(names_param$gp[[i]]) == length(order_list)) {
+##     gp_temp = NULL
+##     for (j in seq_along(order_list)) {
+##         gp_temp[order_list[[j]]] = names_param$gp[[i]][j]
+##     }
+##     names_param$gp[[i]] = gp_temp
+## }
+## debug: if (!is.null(names_param$anno)) {
+##     names_param$anno@var_env$gp = names_param$gp
+## }
+## debug: names_param$anno@var_env$gp = names_param$gp
+## debug: slot(object, paste0(which, "_names_param")) = names_param
+## debug: n_slice = length(order_list)
+## debug: if (length(gap) == 1) {
+##     gap = rep(gap, n_slice)
+## } else if (length(gap) == n_slice - 1) {
+##     gap = unit.c(gap, unit(0, "mm"))
+## } else if (length(gap) != n_slice) {
+##     stop_wrap(qq("Length of `gap` should be 1 or number of @{which} slices."))
+## }
+## debug: gap = rep(gap, n_slice)
+## debug: object@matrix_param[[paste0(which, "_gap")]] = gap
+## debug: title = slot(object, paste0(which, "_title"))
+## debug: if (!is.null(split)) {
+##     if (length(title) == 0 && !is.null(title)) {
+##         title = apply(unique(split), 1, paste, collapse = ",")
+##     }
+##     else if (length(title) == 1) {
+##         if (grepl("%s", title)) {
+##             title = apply(unique(split), 1, function(x) {
+##                 lt = lapply(x, function(x) x)
+##                 lt$fmt = title
+##                 do.call(sprintf, lt)
+##             })
+##         }
+##         else if (grepl("@\\{.+\\}", title)) {
+##             title = apply(unique(split), 1, function(x) {
+##                 x = x
+##                 envir = environment()
+##                 title = get("title")
+##                 op = parent.env(envir)
+##                 calling_env = object@heatmap_param$calling_env
+##                 parent.env(envir) = calling_env
+##                 title = GetoptLong::qq(title, envir = envir)
+##                 parent.env(envir) = op
+##                 return(title)
+##             })
+##         }
+##         else if (grepl("\\{.+\\}", title)) {
+##             if (!requireNamespace("glue")) {
+##                 stop_wrap("You need to install glue package.")
+##             }
+##             title = apply(unique(split), 1, function(x) {
+##                 x = x
+##                 envir = environment()
+##                 title = get("title")
+##                 op = parent.env(envir)
+##                 calling_env = object@heatmap_param$calling_env
+##                 parent.env(envir) = calling_env
+##                 title = glue::glue(title, envir = calling_env)
+##                 parent.env(envir) = op
+##                 return(title)
+##             })
+##         }
+##     }
+## }
+## debug: if (length(title) == 0 && !is.null(title)) {
+##     title = apply(unique(split), 1, paste, collapse = ",")
+## } else if (length(title) == 1) {
+##     if (grepl("%s", title)) {
+##         title = apply(unique(split), 1, function(x) {
+##             lt = lapply(x, function(x) x)
+##             lt$fmt = title
+##             do.call(sprintf, lt)
+##         })
+##     }
+##     else if (grepl("@\\{.+\\}", title)) {
+##         title = apply(unique(split), 1, function(x) {
+##             x = x
+##             envir = environment()
+##             title = get("title")
+##             op = parent.env(envir)
+##             calling_env = object@heatmap_param$calling_env
+##             parent.env(envir) = calling_env
+##             title = GetoptLong::qq(title, envir = envir)
+##             parent.env(envir) = op
+##             return(title)
+##         })
+##     }
+##     else if (grepl("\\{.+\\}", title)) {
+##         if (!requireNamespace("glue")) {
+##             stop_wrap("You need to install glue package.")
+##         }
+##         title = apply(unique(split), 1, function(x) {
+##             x = x
+##             envir = environment()
+##             title = get("title")
+##             op = parent.env(envir)
+##             calling_env = object@heatmap_param$calling_env
+##             parent.env(envir) = calling_env
+##             title = glue::glue(title, envir = calling_env)
+##             parent.env(envir) = op
+##             return(title)
+##         })
+##     }
+## }
+## debug: title = apply(unique(split), 1, paste, collapse = ",")
+## debug: slot(object, paste0(which, "_title")) = title
+## debug: return(object)
+## Called from: make_cluster(object, "column")
+## debug: if (which == "row") {
+##     reorder = -rowMeans(mat, na.rm = TRUE)
+## } else {
+##     reorder = -colMeans(mat, na.rm = TRUE)
+## }
+## debug: reorder = -colMeans(mat, na.rm = TRUE)
+## debug: if (do_reorder) {
+##     if (which == "row") {
+##         if (length(reorder) != nrow(mat)) {
+##             stop_wrap("weight of reordering should have same length as number of rows.\n")
+##         }
+##     }
+##     else {
+##         if (length(reorder) != ncol(mat)) {
+##             stop_wrap("weight of reordering should have same length as number of columns\n")
+##         }
+##     }
+##     for (i in seq_along(dend_list)) {
+##         if (length(order_list[[i]]) > 1) {
+##             sub_ind = sort(order_list[[i]])
+##             dend_list[[i]] = reorder(dend_list[[i]], reorder[sub_ind], 
+##                 mean)
+##             order_list[[i]] = order.dendrogram(dend_list[[i]])
+##         }
+##     }
+## }
+## debug: if (which == "row") {
+##     if (length(reorder) != nrow(mat)) {
+##         stop_wrap("weight of reordering should have same length as number of rows.\n")
+##     }
+## } else {
+##     if (length(reorder) != ncol(mat)) {
+##         stop_wrap("weight of reordering should have same length as number of columns\n")
+##     }
+## }
+## debug: if (length(reorder) != ncol(mat)) {
+##     stop_wrap("weight of reordering should have same length as number of columns\n")
+## }
+## debug: for (i in seq_along(dend_list)) {
+##     if (length(order_list[[i]]) > 1) {
+##         sub_ind = sort(order_list[[i]])
+##         dend_list[[i]] = reorder(dend_list[[i]], reorder[sub_ind], 
+##             mean)
+##         order_list[[i]] = order.dendrogram(dend_list[[i]])
+##     }
+## }
+## debug: if (length(order_list[[i]]) > 1) {
+##     sub_ind = sort(order_list[[i]])
+##     dend_list[[i]] = reorder(dend_list[[i]], reorder[sub_ind], 
+##         mean)
+##     order_list[[i]] = order.dendrogram(dend_list[[i]])
+## }
+## debug: sub_ind = sort(order_list[[i]])
+## debug: dend_list[[i]] = reorder(dend_list[[i]], reorder[sub_ind], mean)
+## debug: order_list[[i]] = order.dendrogram(dend_list[[i]])
+## debug: if (length(order_list[[i]]) > 1) {
+##     sub_ind = sort(order_list[[i]])
+##     dend_list[[i]] = reorder(dend_list[[i]], reorder[sub_ind], 
+##         mean)
+##     order_list[[i]] = order.dendrogram(dend_list[[i]])
+## }
+## debug: sub_ind = sort(order_list[[i]])
+## debug: dend_list[[i]] = reorder(dend_list[[i]], reorder[sub_ind], mean)
+## debug: order_list[[i]] = order.dendrogram(dend_list[[i]])
+## debug: if (length(order_list[[i]]) > 1) {
+##     sub_ind = sort(order_list[[i]])
+##     dend_list[[i]] = reorder(dend_list[[i]], reorder[sub_ind], 
+##         mean)
+##     order_list[[i]] = order.dendrogram(dend_list[[i]])
+## }
+## debug: sub_ind = sort(order_list[[i]])
+## debug: dend_list[[i]] = reorder(dend_list[[i]], reorder[sub_ind], mean)
+## debug: order_list[[i]] = order.dendrogram(dend_list[[i]])
+## debug: dend_list = lapply(dend_list, adjust_dend_by_x)
+## debug: slot(object, paste0(which, "_order")) = unlist(order_list)
+## debug: slot(object, paste0(which, "_order_list")) = order_list
+## debug: slot(object, paste0(which, "_dend_list")) = dend_list
+## debug: slot(object, paste0(which, "_dend_param")) = dend_param
+## debug: slot(object, paste0(which, "_dend_slice")) = dend_slice
+## debug: if (!is.null(split)) {
+##     split = data.frame(rep(seq_along(order_list), times = sapply(order_list, 
+##         length)))
+##     object@matrix_param[[paste0(which, "_split")]] = split
+##     for (i in seq_along(names_param$gp)) {
+##         if (length(names_param$gp[[i]]) == length(order_list)) {
+##             gp_temp = NULL
+##             for (j in seq_along(order_list)) {
+##                 gp_temp[order_list[[j]]] = names_param$gp[[i]][j]
+##             }
+##             names_param$gp[[i]] = gp_temp
+##         }
+##     }
+##     if (!is.null(names_param$anno)) {
+##         names_param$anno@var_env$gp = names_param$gp
+##     }
+##     slot(object, paste0(which, "_names_param")) = names_param
+##     n_slice = length(order_list)
+##     if (length(gap) == 1) {
+##         gap = rep(gap, n_slice)
+##     }
+##     else if (length(gap) == n_slice - 1) {
+##         gap = unit.c(gap, unit(0, "mm"))
+##     }
+##     else if (length(gap) != n_slice) {
+##         stop_wrap(qq("Length of `gap` should be 1 or number of @{which} slices."))
+##     }
+##     object@matrix_param[[paste0(which, "_gap")]] = gap
+##     title = slot(object, paste0(which, "_title"))
+##     if (!is.null(split)) {
+##         if (length(title) == 0 && !is.null(title)) {
+##             title = apply(unique(split), 1, paste, collapse = ",")
+##         }
+##         else if (length(title) == 1) {
+##             if (grepl("%s", title)) {
+##                 title = apply(unique(split), 1, function(x) {
+##                   lt = lapply(x, function(x) x)
+##                   lt$fmt = title
+##                   do.call(sprintf, lt)
+##                 })
+##             }
+##             else if (grepl("@\\{.+\\}", title)) {
+##                 title = apply(unique(split), 1, function(x) {
+##                   x = x
+##                   envir = environment()
+##                   title = get("title")
+##                   op = parent.env(envir)
+##                   calling_env = object@heatmap_param$calling_env
+##                   parent.env(envir) = calling_env
+##                   title = GetoptLong::qq(title, envir = envir)
+##                   parent.env(envir) = op
+##                   return(title)
+##                 })
+##             }
+##             else if (grepl("\\{.+\\}", title)) {
+##                 if (!requireNamespace("glue")) {
+##                   stop_wrap("You need to install glue package.")
+##                 }
+##                 title = apply(unique(split), 1, function(x) {
+##                   x = x
+##                   envir = environment()
+##                   title = get("title")
+##                   op = parent.env(envir)
+##                   calling_env = object@heatmap_param$calling_env
+##                   parent.env(envir) = calling_env
+##                   title = glue::glue(title, envir = calling_env)
+##                   parent.env(envir) = op
+##                   return(title)
+##                 })
+##             }
+##         }
+##     }
+##     slot(object, paste0(which, "_title")) = title
+## }
+## debug: split = data.frame(rep(seq_along(order_list), times = sapply(order_list, 
+##     length)))
+## debug: object@matrix_param[[paste0(which, "_split")]] = split
+## debug: for (i in seq_along(names_param$gp)) {
+##     if (length(names_param$gp[[i]]) == length(order_list)) {
+##         gp_temp = NULL
+##         for (j in seq_along(order_list)) {
+##             gp_temp[order_list[[j]]] = names_param$gp[[i]][j]
+##         }
+##         names_param$gp[[i]] = gp_temp
+##     }
+## }
+## debug: if (length(names_param$gp[[i]]) == length(order_list)) {
+##     gp_temp = NULL
+##     for (j in seq_along(order_list)) {
+##         gp_temp[order_list[[j]]] = names_param$gp[[i]][j]
+##     }
+##     names_param$gp[[i]] = gp_temp
+## }
+## debug: if (!is.null(names_param$anno)) {
+##     names_param$anno@var_env$gp = names_param$gp
+## }
+## debug: names_param$anno@var_env$gp = names_param$gp
+## debug: slot(object, paste0(which, "_names_param")) = names_param
+## debug: n_slice = length(order_list)
+## debug: if (length(gap) == 1) {
+##     gap = rep(gap, n_slice)
+## } else if (length(gap) == n_slice - 1) {
+##     gap = unit.c(gap, unit(0, "mm"))
+## } else if (length(gap) != n_slice) {
+##     stop_wrap(qq("Length of `gap` should be 1 or number of @{which} slices."))
+## }
+## debug: gap = rep(gap, n_slice)
+## debug: object@matrix_param[[paste0(which, "_gap")]] = gap
+## debug: title = slot(object, paste0(which, "_title"))
+## debug: if (!is.null(split)) {
+##     if (length(title) == 0 && !is.null(title)) {
+##         title = apply(unique(split), 1, paste, collapse = ",")
+##     }
+##     else if (length(title) == 1) {
+##         if (grepl("%s", title)) {
+##             title = apply(unique(split), 1, function(x) {
+##                 lt = lapply(x, function(x) x)
+##                 lt$fmt = title
+##                 do.call(sprintf, lt)
+##             })
+##         }
+##         else if (grepl("@\\{.+\\}", title)) {
+##             title = apply(unique(split), 1, function(x) {
+##                 x = x
+##                 envir = environment()
+##                 title = get("title")
+##                 op = parent.env(envir)
+##                 calling_env = object@heatmap_param$calling_env
+##                 parent.env(envir) = calling_env
+##                 title = GetoptLong::qq(title, envir = envir)
+##                 parent.env(envir) = op
+##                 return(title)
+##             })
+##         }
+##         else if (grepl("\\{.+\\}", title)) {
+##             if (!requireNamespace("glue")) {
+##                 stop_wrap("You need to install glue package.")
+##             }
+##             title = apply(unique(split), 1, function(x) {
+##                 x = x
+##                 envir = environment()
+##                 title = get("title")
+##                 op = parent.env(envir)
+##                 calling_env = object@heatmap_param$calling_env
+##                 parent.env(envir) = calling_env
+##                 title = glue::glue(title, envir = calling_env)
+##                 parent.env(envir) = op
+##                 return(title)
+##             })
+##         }
+##     }
+## }
+## debug: if (length(title) == 0 && !is.null(title)) {
+##     title = apply(unique(split), 1, paste, collapse = ",")
+## } else if (length(title) == 1) {
+##     if (grepl("%s", title)) {
+##         title = apply(unique(split), 1, function(x) {
+##             lt = lapply(x, function(x) x)
+##             lt$fmt = title
+##             do.call(sprintf, lt)
+##         })
+##     }
+##     else if (grepl("@\\{.+\\}", title)) {
+##         title = apply(unique(split), 1, function(x) {
+##             x = x
+##             envir = environment()
+##             title = get("title")
+##             op = parent.env(envir)
+##             calling_env = object@heatmap_param$calling_env
+##             parent.env(envir) = calling_env
+##             title = GetoptLong::qq(title, envir = envir)
+##             parent.env(envir) = op
+##             return(title)
+##         })
+##     }
+##     else if (grepl("\\{.+\\}", title)) {
+##         if (!requireNamespace("glue")) {
+##             stop_wrap("You need to install glue package.")
+##         }
+##         title = apply(unique(split), 1, function(x) {
+##             x = x
+##             envir = environment()
+##             title = get("title")
+##             op = parent.env(envir)
+##             calling_env = object@heatmap_param$calling_env
+##             parent.env(envir) = calling_env
+##             title = glue::glue(title, envir = calling_env)
+##             parent.env(envir) = op
+##             return(title)
+##         })
+##     }
+## }
+## debug: title = apply(unique(split), 1, paste, collapse = ",")
+## debug: slot(object, paste0(which, "_title")) = title
+## debug: return(object)
+```
+
 ```r
 dend = hclust(dist(mat))
 dend = color_branches(dend, k = 2)
@@ -1240,6 +1784,351 @@ Heatmap(mat, name = "mat", row_split = 2, row_title = "cluster_%s")
 ```
 
 <img src="02-single_heatmap_files/figure-html/unnamed-chunk-51-1.png" width="672" style="display: block; margin: auto;" />
+
+```
+## Called from: make_cluster(object, "row")
+## debug: if (which == "row") {
+##     reorder = -rowMeans(mat, na.rm = TRUE)
+## } else {
+##     reorder = -colMeans(mat, na.rm = TRUE)
+## }
+## debug: reorder = -rowMeans(mat, na.rm = TRUE)
+## debug: if (do_reorder) {
+##     if (which == "row") {
+##         if (length(reorder) != nrow(mat)) {
+##             stop_wrap("weight of reordering should have same length as number of rows.\n")
+##         }
+##     }
+##     else {
+##         if (length(reorder) != ncol(mat)) {
+##             stop_wrap("weight of reordering should have same length as number of columns\n")
+##         }
+##     }
+##     for (i in seq_along(dend_list)) {
+##         if (length(order_list[[i]]) > 1) {
+##             sub_ind = sort(order_list[[i]])
+##             dend_list[[i]] = reorder(dend_list[[i]], reorder[sub_ind], 
+##                 mean)
+##             order_list[[i]] = order.dendrogram(dend_list[[i]])
+##         }
+##     }
+## }
+## debug: if (which == "row") {
+##     if (length(reorder) != nrow(mat)) {
+##         stop_wrap("weight of reordering should have same length as number of rows.\n")
+##     }
+## } else {
+##     if (length(reorder) != ncol(mat)) {
+##         stop_wrap("weight of reordering should have same length as number of columns\n")
+##     }
+## }
+## debug: if (length(reorder) != nrow(mat)) {
+##     stop_wrap("weight of reordering should have same length as number of rows.\n")
+## }
+## debug: for (i in seq_along(dend_list)) {
+##     if (length(order_list[[i]]) > 1) {
+##         sub_ind = sort(order_list[[i]])
+##         dend_list[[i]] = reorder(dend_list[[i]], reorder[sub_ind], 
+##             mean)
+##         order_list[[i]] = order.dendrogram(dend_list[[i]])
+##     }
+## }
+## debug: if (length(order_list[[i]]) > 1) {
+##     sub_ind = sort(order_list[[i]])
+##     dend_list[[i]] = reorder(dend_list[[i]], reorder[sub_ind], 
+##         mean)
+##     order_list[[i]] = order.dendrogram(dend_list[[i]])
+## }
+## debug: sub_ind = sort(order_list[[i]])
+## debug: dend_list[[i]] = reorder(dend_list[[i]], reorder[sub_ind], mean)
+## debug: order_list[[i]] = order.dendrogram(dend_list[[i]])
+## debug: if (length(order_list[[i]]) > 1) {
+##     sub_ind = sort(order_list[[i]])
+##     dend_list[[i]] = reorder(dend_list[[i]], reorder[sub_ind], 
+##         mean)
+##     order_list[[i]] = order.dendrogram(dend_list[[i]])
+## }
+## debug: sub_ind = sort(order_list[[i]])
+## debug: dend_list[[i]] = reorder(dend_list[[i]], reorder[sub_ind], mean)
+## debug: order_list[[i]] = order.dendrogram(dend_list[[i]])
+## debug: dend_list = lapply(dend_list, adjust_dend_by_x)
+## debug: slot(object, paste0(which, "_order")) = unlist(order_list)
+## debug: slot(object, paste0(which, "_order_list")) = order_list
+## debug: slot(object, paste0(which, "_dend_list")) = dend_list
+## debug: slot(object, paste0(which, "_dend_param")) = dend_param
+## debug: slot(object, paste0(which, "_dend_slice")) = dend_slice
+## debug: if (!is.null(split)) {
+##     split = data.frame(rep(seq_along(order_list), times = sapply(order_list, 
+##         length)))
+##     object@matrix_param[[paste0(which, "_split")]] = split
+##     for (i in seq_along(names_param$gp)) {
+##         if (length(names_param$gp[[i]]) == length(order_list)) {
+##             gp_temp = NULL
+##             for (j in seq_along(order_list)) {
+##                 gp_temp[order_list[[j]]] = names_param$gp[[i]][j]
+##             }
+##             names_param$gp[[i]] = gp_temp
+##         }
+##     }
+##     if (!is.null(names_param$anno)) {
+##         names_param$anno@var_env$gp = names_param$gp
+##     }
+##     slot(object, paste0(which, "_names_param")) = names_param
+##     n_slice = length(order_list)
+##     if (length(gap) == 1) {
+##         gap = rep(gap, n_slice)
+##     }
+##     else if (length(gap) == n_slice - 1) {
+##         gap = unit.c(gap, unit(0, "mm"))
+##     }
+##     else if (length(gap) != n_slice) {
+##         stop_wrap(qq("Length of `gap` should be 1 or number of @{which} slices."))
+##     }
+##     object@matrix_param[[paste0(which, "_gap")]] = gap
+##     title = slot(object, paste0(which, "_title"))
+##     if (!is.null(split)) {
+##         if (length(title) == 0 && !is.null(title)) {
+##             title = apply(unique(split), 1, paste, collapse = ",")
+##         }
+##         else if (length(title) == 1) {
+##             if (grepl("%s", title)) {
+##                 title = apply(unique(split), 1, function(x) {
+##                   lt = lapply(x, function(x) x)
+##                   lt$fmt = title
+##                   do.call(sprintf, lt)
+##                 })
+##             }
+##             else if (grepl("@\\{.+\\}", title)) {
+##                 title = apply(unique(split), 1, function(x) {
+##                   x = x
+##                   envir = environment()
+##                   title = get("title")
+##                   op = parent.env(envir)
+##                   calling_env = object@heatmap_param$calling_env
+##                   parent.env(envir) = calling_env
+##                   title = GetoptLong::qq(title, envir = envir)
+##                   parent.env(envir) = op
+##                   return(title)
+##                 })
+##             }
+##             else if (grepl("\\{.+\\}", title)) {
+##                 if (!requireNamespace("glue")) {
+##                   stop_wrap("You need to install glue package.")
+##                 }
+##                 title = apply(unique(split), 1, function(x) {
+##                   x = x
+##                   envir = environment()
+##                   title = get("title")
+##                   op = parent.env(envir)
+##                   calling_env = object@heatmap_param$calling_env
+##                   parent.env(envir) = calling_env
+##                   title = glue::glue(title, envir = calling_env)
+##                   parent.env(envir) = op
+##                   return(title)
+##                 })
+##             }
+##         }
+##     }
+##     slot(object, paste0(which, "_title")) = title
+## }
+## debug: split = data.frame(rep(seq_along(order_list), times = sapply(order_list, 
+##     length)))
+## debug: object@matrix_param[[paste0(which, "_split")]] = split
+## debug: for (i in seq_along(names_param$gp)) {
+##     if (length(names_param$gp[[i]]) == length(order_list)) {
+##         gp_temp = NULL
+##         for (j in seq_along(order_list)) {
+##             gp_temp[order_list[[j]]] = names_param$gp[[i]][j]
+##         }
+##         names_param$gp[[i]] = gp_temp
+##     }
+## }
+## debug: if (length(names_param$gp[[i]]) == length(order_list)) {
+##     gp_temp = NULL
+##     for (j in seq_along(order_list)) {
+##         gp_temp[order_list[[j]]] = names_param$gp[[i]][j]
+##     }
+##     names_param$gp[[i]] = gp_temp
+## }
+## debug: if (!is.null(names_param$anno)) {
+##     names_param$anno@var_env$gp = names_param$gp
+## }
+## debug: names_param$anno@var_env$gp = names_param$gp
+## debug: slot(object, paste0(which, "_names_param")) = names_param
+## debug: n_slice = length(order_list)
+## debug: if (length(gap) == 1) {
+##     gap = rep(gap, n_slice)
+## } else if (length(gap) == n_slice - 1) {
+##     gap = unit.c(gap, unit(0, "mm"))
+## } else if (length(gap) != n_slice) {
+##     stop_wrap(qq("Length of `gap` should be 1 or number of @{which} slices."))
+## }
+## debug: gap = rep(gap, n_slice)
+## debug: object@matrix_param[[paste0(which, "_gap")]] = gap
+## debug: title = slot(object, paste0(which, "_title"))
+## debug: if (!is.null(split)) {
+##     if (length(title) == 0 && !is.null(title)) {
+##         title = apply(unique(split), 1, paste, collapse = ",")
+##     }
+##     else if (length(title) == 1) {
+##         if (grepl("%s", title)) {
+##             title = apply(unique(split), 1, function(x) {
+##                 lt = lapply(x, function(x) x)
+##                 lt$fmt = title
+##                 do.call(sprintf, lt)
+##             })
+##         }
+##         else if (grepl("@\\{.+\\}", title)) {
+##             title = apply(unique(split), 1, function(x) {
+##                 x = x
+##                 envir = environment()
+##                 title = get("title")
+##                 op = parent.env(envir)
+##                 calling_env = object@heatmap_param$calling_env
+##                 parent.env(envir) = calling_env
+##                 title = GetoptLong::qq(title, envir = envir)
+##                 parent.env(envir) = op
+##                 return(title)
+##             })
+##         }
+##         else if (grepl("\\{.+\\}", title)) {
+##             if (!requireNamespace("glue")) {
+##                 stop_wrap("You need to install glue package.")
+##             }
+##             title = apply(unique(split), 1, function(x) {
+##                 x = x
+##                 envir = environment()
+##                 title = get("title")
+##                 op = parent.env(envir)
+##                 calling_env = object@heatmap_param$calling_env
+##                 parent.env(envir) = calling_env
+##                 title = glue::glue(title, envir = calling_env)
+##                 parent.env(envir) = op
+##                 return(title)
+##             })
+##         }
+##     }
+## }
+## debug: if (length(title) == 0 && !is.null(title)) {
+##     title = apply(unique(split), 1, paste, collapse = ",")
+## } else if (length(title) == 1) {
+##     if (grepl("%s", title)) {
+##         title = apply(unique(split), 1, function(x) {
+##             lt = lapply(x, function(x) x)
+##             lt$fmt = title
+##             do.call(sprintf, lt)
+##         })
+##     }
+##     else if (grepl("@\\{.+\\}", title)) {
+##         title = apply(unique(split), 1, function(x) {
+##             x = x
+##             envir = environment()
+##             title = get("title")
+##             op = parent.env(envir)
+##             calling_env = object@heatmap_param$calling_env
+##             parent.env(envir) = calling_env
+##             title = GetoptLong::qq(title, envir = envir)
+##             parent.env(envir) = op
+##             return(title)
+##         })
+##     }
+##     else if (grepl("\\{.+\\}", title)) {
+##         if (!requireNamespace("glue")) {
+##             stop_wrap("You need to install glue package.")
+##         }
+##         title = apply(unique(split), 1, function(x) {
+##             x = x
+##             envir = environment()
+##             title = get("title")
+##             op = parent.env(envir)
+##             calling_env = object@heatmap_param$calling_env
+##             parent.env(envir) = calling_env
+##             title = glue::glue(title, envir = calling_env)
+##             parent.env(envir) = op
+##             return(title)
+##         })
+##     }
+## }
+## debug: if (length(title) == 1) {
+##     if (grepl("%s", title)) {
+##         title = apply(unique(split), 1, function(x) {
+##             lt = lapply(x, function(x) x)
+##             lt$fmt = title
+##             do.call(sprintf, lt)
+##         })
+##     }
+##     else if (grepl("@\\{.+\\}", title)) {
+##         title = apply(unique(split), 1, function(x) {
+##             x = x
+##             envir = environment()
+##             title = get("title")
+##             op = parent.env(envir)
+##             calling_env = object@heatmap_param$calling_env
+##             parent.env(envir) = calling_env
+##             title = GetoptLong::qq(title, envir = envir)
+##             parent.env(envir) = op
+##             return(title)
+##         })
+##     }
+##     else if (grepl("\\{.+\\}", title)) {
+##         if (!requireNamespace("glue")) {
+##             stop_wrap("You need to install glue package.")
+##         }
+##         title = apply(unique(split), 1, function(x) {
+##             x = x
+##             envir = environment()
+##             title = get("title")
+##             op = parent.env(envir)
+##             calling_env = object@heatmap_param$calling_env
+##             parent.env(envir) = calling_env
+##             title = glue::glue(title, envir = calling_env)
+##             parent.env(envir) = op
+##             return(title)
+##         })
+##     }
+## }
+## debug: if (grepl("%s", title)) {
+##     title = apply(unique(split), 1, function(x) {
+##         lt = lapply(x, function(x) x)
+##         lt$fmt = title
+##         do.call(sprintf, lt)
+##     })
+## } else if (grepl("@\\{.+\\}", title)) {
+##     title = apply(unique(split), 1, function(x) {
+##         x = x
+##         envir = environment()
+##         title = get("title")
+##         op = parent.env(envir)
+##         calling_env = object@heatmap_param$calling_env
+##         parent.env(envir) = calling_env
+##         title = GetoptLong::qq(title, envir = envir)
+##         parent.env(envir) = op
+##         return(title)
+##     })
+## } else if (grepl("\\{.+\\}", title)) {
+##     if (!requireNamespace("glue")) {
+##         stop_wrap("You need to install glue package.")
+##     }
+##     title = apply(unique(split), 1, function(x) {
+##         x = x
+##         envir = environment()
+##         title = get("title")
+##         op = parent.env(envir)
+##         calling_env = object@heatmap_param$calling_env
+##         parent.env(envir) = calling_env
+##         title = glue::glue(title, envir = calling_env)
+##         parent.env(envir) = op
+##         return(title)
+##     })
+## }
+## debug: title = apply(unique(split), 1, function(x) {
+##     lt = lapply(x, function(x) x)
+##     lt$fmt = title
+##     do.call(sprintf, lt)
+## })
+## debug: slot(object, paste0(which, "_title")) = title
+## debug: return(object)
+```
 
 If you know the final number of row slices, you can directly set a vector of
 titles to `row_title`. Be careful the number of row slices is not always

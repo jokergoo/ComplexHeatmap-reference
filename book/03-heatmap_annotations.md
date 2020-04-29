@@ -76,9 +76,7 @@ column_ha
 ##   width: 1npc 
 ##   height: 15.3514598035146mm 
 ##   this object is subsetable
-##   0mm extension on the bottom 
 ##   5.92288888888889mm extension on the left 
-##   0mm extension on the top 
 ##   9.4709mm extension on the right 
 ## 
 ##  name   annotation_type color_mapping height
@@ -98,10 +96,7 @@ row_ha
 ##   width: 15.3514598035146mm 
 ##   height: 1npc 
 ##   this object is subsetable
-##   9.96242222222223mm extension on the bottom 
-##   0mm extension on the left 
-##   0mm extension on the top 
-##   0mm extension on the right 
+##   9.96242222222222mm extension on the bottom 
 ## 
 ##  name   annotation_type color_mapping width
 ##  foo2 continuous vector        random   5mm
@@ -1424,7 +1419,7 @@ to be understanded as to provide linking between subsets of rows and
 a list of graphic regions. Thus, there is an `anno_link()` function which is basically the same as `anno_zoom()`.
 The two functions are exactly the same, just with different names, depends
 how you understand. An example of using `anno_link()` is to correspond a list of text to a 
-subset of rows, see examples from https://github.com/jokergoo/simplifyGO.
+subset of rows, see examples from https://github.com/jokergoo/simplifyEnrichment.
 
 <img src='https://user-images.githubusercontent.com/449218/79051702-027a4d00-7c32-11ea-887e-ed3e171a03a0.png'><br>
 
@@ -1915,10 +1910,7 @@ anno_points(1:10)
 ##   imported variable: data_scale, axis_param, border, size, value, pch_as_image, axis, gp, axis_grob, pch 
 ##   subsetable variable: gp, value, size, pch 
 ##   this object is subsetable
-##   0mm extension on the bottom 
-##   5.13831111111111mm extension on the left 
-##   0mm extension on the top 
-##   0mm extension on the right
+##   5.13831111111111mm extension on the left
 ```
 
 In most cases, you don't need to manually construct your `AnnotationFunction`

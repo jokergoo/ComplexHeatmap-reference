@@ -1389,7 +1389,7 @@ to be understanded as to provide linking between subsets of rows and
 a list of graphic regions. Thus, there is an `anno_link()` function which is basically the same as `anno_zoom()`.
 The two functions are exactly the same, just with different names, depends
 how you understand. An example of using `anno_link()` is to correspond a list of text to a 
-subset of rows, see examples from https://github.com/jokergoo/simplifyGO.
+subset of rows, see examples from https://github.com/jokergoo/simplifyEnrichment.
 
 <img src='https://user-images.githubusercontent.com/449218/79051702-027a4d00-7c32-11ea-887e-ed3e171a03a0.png'><br>
 

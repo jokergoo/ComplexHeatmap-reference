@@ -1,7 +1,7 @@
 --- 
 title: "ComplexHeatmap Complete Reference"
 author: "Zuguang Gu"
-date: "last revised on 2020-04-28"
+date: "last revised on 2020-04-29"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
@@ -18,7 +18,7 @@ description: "Complex heatmaps are efficient to visualize associations between d
 
 This is the documentation of the
 [**ComplexHeatmap**](https://github.com/jokergoo/ComplexHeatmap) package. Examples in the book
-are generated under version 2.3.5.
+are generated under version 2.5.1.
 
 You can get a stable Bioconductor version from http://bioconductor.org/packages/release/bioc/html/ComplexHeatmap.html, but the most up-to-date version is always on Github and you can install it by:
 
@@ -55,13 +55,13 @@ sessionInfo()
 ```
 
 ```
-## R version 3.6.2 (2019-12-12)
-## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## R version 4.0.0 (2020-04-24)
+## Platform: x86_64-apple-darwin17.0 (64-bit)
 ## Running under: macOS Catalina 10.15.4
 ## 
 ## Matrix products: default
-## BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib
-## LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
+## BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
 ## 
 ## locale:
 ## [1] en_GB.UTF-8/en_GB.UTF-8/en_GB.UTF-8/C/en_GB.UTF-8/en_GB.UTF-8
@@ -72,24 +72,23 @@ sessionInfo()
 ## 
 ## other attached packages:
 ## [1] dendsort_0.3.3       dendextend_1.13.4    circlize_0.4.9      
-## [4] ComplexHeatmap_2.3.5
+## [4] ComplexHeatmap_2.5.1
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.4.6        compiler_3.6.2      pillar_1.4.3       
-##  [4] RColorBrewer_1.1-2  viridis_0.5.1       tools_3.6.2        
-##  [7] digest_0.6.25       evaluate_0.14       viridisLite_0.3.0  
-## [10] lifecycle_0.2.0     tibble_3.0.0        gtable_0.3.0       
-## [13] clue_0.3-57         pkgconfig_2.0.3     png_0.1-7          
-## [16] rlang_0.4.5         cli_2.0.2           yaml_2.2.1         
-## [19] parallel_3.6.2      xfun_0.13           gridExtra_2.3      
-## [22] stringr_1.4.0       dplyr_0.8.5         cluster_2.1.0      
-## [25] knitr_1.28          GlobalOptions_0.1.2 vctrs_0.2.4        
-## [28] tidyselect_1.0.0    glue_1.4.0          R6_2.4.1           
-## [31] GetoptLong_0.1.8    fansi_0.4.1         rmarkdown_2.1      
-## [34] bookdown_0.18       ggplot2_3.3.0       purrr_0.3.3        
-## [37] magrittr_1.5        htmltools_0.4.0     scales_1.1.0       
-## [40] ellipsis_0.3.0      assertthat_0.2.1    shape_1.4.4        
-## [43] colorspace_1.4-1    stringi_1.4.6       munsell_0.5.0      
-## [46] crayon_1.3.4        rjson_0.2.20
+##  [1] Rcpp_1.0.4.6        compiler_4.0.0      pillar_1.4.3       
+##  [4] RColorBrewer_1.1-2  viridis_0.5.1       tools_4.0.0        
+##  [7] digest_0.6.25       evaluate_0.14       lifecycle_0.2.0    
+## [10] tibble_3.0.1        gtable_0.3.0        clue_0.3-57        
+## [13] viridisLite_0.3.0   pkgconfig_2.0.3     png_0.1-7          
+## [16] rlang_0.4.5         yaml_2.2.1          parallel_4.0.0     
+## [19] xfun_0.13           gridExtra_2.3       stringr_1.4.0      
+## [22] dplyr_0.8.5         cluster_2.1.0       knitr_1.28         
+## [25] GlobalOptions_0.1.1 vctrs_0.2.4         tidyselect_1.0.0   
+## [28] glue_1.4.0          R6_2.4.1            GetoptLong_0.1.8   
+## [31] rmarkdown_2.1       bookdown_0.18       ggplot2_3.3.0      
+## [34] purrr_0.3.4         magrittr_1.5        htmltools_0.4.0    
+## [37] scales_1.1.0        ellipsis_0.3.0      assertthat_0.2.1   
+## [40] shape_1.4.4         colorspace_1.4-1    stringi_1.4.6      
+## [43] munsell_0.5.0       crayon_1.3.4        rjson_0.2.20
 ```
 

@@ -123,10 +123,10 @@ gt_render("foo", r = unit(2, "pt"), padding = unit(c(2, 2, 2, 2), "pt"))
 ## [1] "gridtext"
 ## attr(,"param")
 ## attr(,"param")$r
-## [1] 2pt
+## [1] 2points
 ## 
 ## attr(,"param")$padding
-## [1] 2pt 2pt 2pt 2pt
+## [1] 2points 2points 2points 2points
 ```
 
 For each heatmap element, e.g. column title, graphic parameters can be set by the companion argument, 

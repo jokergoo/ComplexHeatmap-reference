@@ -89,7 +89,7 @@ Section
 styles of the legend in following examples. Following is a simple example
 showing how to configure legends in the heatmap and heatmap annotation.
 
-```{r}
+```{r, fig.width = 5.2}
 Heatmap(matrix(rnorm(100), 10), 
     heatmap_legend_param = list(
         title = "rnorm", at = c(-2, 0, 2), 
@@ -203,6 +203,22 @@ Legend titles and labels can be set as mathematical formulas.
 ```{r}
 lgd = Legend(col_fun = col_fun, title = expression(hat(beta) == (X^t * X)^{-1} * X^t * y), 
     at = c(0, 0.25, 0.5, 0.75, 1), labels = expression(alpha, beta, gamma, delta, epsilon))
+```
+
+```{r, echo = FALSE, fig.width = legend_width(lgd), fig.height = legend_height(lgd)}
+draw(lgd, test = TRUE)
+```
+
+More complicated texts can be added by using the **gridtext** package (Section \@ref(gridtext-legends)).
+
+```{r}
+lgd = Legend(col_fun = col_fun, 
+    title = gt_render("<span style='color:orange'>**Legend title**</span>"), 
+    title_gp = gpar(box_fill = "grey"),
+    at = c(-3, 0, 3), 
+    labels = gt_render(c("<span style='color:blue'>*negative*</span> three", "zero", 
+                         "<span style='color:red'>*positive*</span> three"))
+)
 ```
 
 ```{r, echo = FALSE, fig.width = legend_width(lgd), fig.height = legend_height(lgd)}
@@ -452,6 +468,22 @@ lgd = Legend(labels = month.name[1:6], legend_gp = gpar(fill = 1:6), title = "fo
 draw(lgd, test = TRUE)
 ```
 
+Title and labels are be complicated texts by integrating **gridtext** package (Section \@ref(gridtext-legends)):
+
+```{r}
+lgd = Legend(
+    title = gt_render("<span style='color:orange'>**Legend title**</span>"), 
+    title_gp = gpar(box_fill = "grey"),
+    at = c(-3, 0, 3), 
+    labels = gt_render(c("**negative** three", "*zero*", "**positive** three")),
+    legend_gp = gpar(fill = 1:3)
+)
+```
+
+```{r, echo = FALSE, fig.width = legend_width(lgd), fig.height = legend_height(lgd)}
+draw(lgd, test = TRUE)
+```
+
 Borders of grids are controlled by `border`.
 
 ```{r}
@@ -498,11 +530,23 @@ lgd = Legend(labels = month.name[1:10], legend_gp = gpar(fill = 1:10), title = "
 draw(lgd, test = TRUE)
 ```
 
-The gap between two columns are controlled by `gap`.
+The gaps between two columns are controlled by `gap` or `column_gap`. These two arguments
+are treated the same.
 
 ```{r}
 lgd = Legend(labels = month.name[1:10], legend_gp = gpar(fill = 1:10), title = "foo", 
     ncol = 3, gap = unit(1, "cm"))
+```
+
+```{r, echo = FALSE, fig.width = legend_width(lgd), fig.height = legend_height(lgd)}
+draw(lgd, test = TRUE)
+```
+
+The gaps between rows are controlled by `row_gap`.
+
+```{r}
+lgd = Legend(labels = month.name[1:10], legend_gp = gpar(fill = 1:10), title = "foo", 
+    ncol = 3, row_gap = unit(5, "mm"))
 ```
 
 ```{r, echo = FALSE, fig.width = legend_width(lgd), fig.height = legend_height(lgd)}
@@ -601,7 +645,52 @@ lgd = Legend(labels = paste0("pch = ", 26:28), type = "points", pch = 26:28)
 draw(lgd, test = TRUE)
 ```
 
-If you want more legend styles to be supported, contact me.
+In all examples showed above, the labels are single lines. Multiple-line labels are also
+supported. As shown in the following example, legend grids for multiple-line labels are 
+automatically enlongated.
+
+```{r}
+lgd = Legend(labels = c("aaaaa\naaaaa", "bbbbb\nbbbbb", "c", "d"),
+    legend_gp = gpar(fill = 1:4))
+```
+
+```{r, echo = FALSE, fig.width = legend_width(lgd), fig.height = legend_height(lgd)}
+draw(lgd, test = TRUE)
+```
+
+If the legend is arranged in multiple rows or columns, the sizes of legend grids are adjusted
+to the label with the most number of lines.
+
+```{r}
+lgd = Legend(labels = c("aaaaa\naaaaa", "c", "d", "bbbbb\nbbbbb"),
+    legend_gp = gpar(fill = 1:4), nrow = 2)
+```
+
+```{r, echo = FALSE, fig.width = legend_width(lgd), fig.height = legend_height(lgd)}
+draw(lgd, test = TRUE)
+```
+
+The last useful argument `graphics` can be used to self-define the legend
+graphics. The value for `graphics` should be a list of functions with four
+arguments: `x` and `y`: the center of the legend grid, `w` and `h`: the width
+and height of the legend grid. Length of `graphics` should be the same as `at`
+or `labels.` If `graphics` is a named list where the names correspond to
+`labels`, then the order of the list of `graphics` is automatically adjusted.
+
+```{r}
+lgd = Legend(labels = letters[1:4],
+    graphics = list(
+        function(x, y, w, h) grid.rect(x, y, w*0.33, h, gp = gpar(fill = "red")),
+        function(x, y, w, h) grid.rect(x, y, w, h*0.33, gp = gpar(fill = "blue")),
+        function(x, y, w, h) grid.text("A", x, y, gp = gpar(col = "darkgreen")),
+        function(x, y, w, h) grid.points(x, y, gp = gpar(col = "orange"), pch = 16)
+    ))
+```
+
+```{r, echo = FALSE, fig.width = legend_width(lgd), fig.height = legend_height(lgd)}
+draw(lgd, test = TRUE)
+```
+
 
 ## A list of legends {#a-list-of-legends}
 
@@ -684,11 +773,12 @@ draw(pd, test = TRUE)
 The packed legends `pd` is also a `Legends` object, which means you can use
 `draw()` to draw it by specifying the positions.
 
-```{r, fig.width = 6}
+```{r, fig.width = 7}
 pd = packLegend(lgd1, lgd2, lgd3, direction = "horizontal")
 pushViewport(viewport(width = 0.8, height = 0.8))
 grid.rect()
 draw(pd, x = unit(1, "cm"), y = unit(1, "cm"), just = c("left", "bottom"))
+draw(pd, x = unit(1, "npc"), y = unit(1, "npc"), just = c("right", "top"))
 popViewport()
 ```
 
@@ -701,7 +791,7 @@ Settings for heatmap legend are controlled by `heatmap_legend_param` argument
 in `Heatmap()`. The value for `heatmap_legend_param` is a list of parameters
 which are supported in `Legend()`.
 
-```{r}
+```{r, fig.width = 5.2}
 m = matrix(rnorm(100), 10)
 Heatmap(m, name = "mat", heatmap_legend_param = list(
     at = c(-2, 0, 2),
@@ -716,7 +806,7 @@ Heatmap(m, name = "mat", heatmap_legend_param = list(
 `HeatmapAnnotation` may contain multiple annotations, the value of
 `annotation_legend_param` is a list of configurations of each annotation.
 
-```{r}
+```{r, fig.width = 5.2}
 ha = HeatmapAnnotation(foo = runif(10), bar = sample(c("f", "m"), 10, replace = TRUE),
     annotation_legend_param = list(
         foo = list(
@@ -749,7 +839,7 @@ Heatmap(m, name = "mat2", top_annotation = ha2)
 Similarlly, if the heatmaps are concatenated vertically, all heatmaps/column
 annotations are grouped and legends for all row annotations are grouped.
 
-```{r, fig.height = 8}
+```{r, fig.height = 8, fig.width = 5.2}
 ha1 = HeatmapAnnotation(foo1 = runif(10), bar1 = sample(c("f", "m"), 10, replace = TRUE), 
     annotation_name_side = "left")
 ha2 = HeatmapAnnotation(foo2 = runif(10), bar2 = sample(c("f", "m"), 10, replace = TRUE))
@@ -795,11 +885,19 @@ ht_list = Heatmap(m, name = "mat1", top_annotation = ha1) +
 draw(ht_list, merge_legend = TRUE)
 ```
 
-A continuous color mapping can have a
-discrete legend by setting `color_bar = "discrete")`, both work for heatmap
-legends and annotation legends.
+If you want the heatmap legends to be the "pure heatmap legends", you can set
+`legend_grouping = "original"` to enforce all annotation legends to be put together,
+no matter whether they are row annotation legends or column annotation legends.
 
 ```{r}
+draw(ht_list, legend_grouping = "original")
+```
+
+A continuous color mapping can have a
+discrete legend by setting `color_bar = "discrete"`, both work for heatmap
+legends and annotation legends.
+
+```{r, fig.width = 5.2}
 Heatmap(m, name = "mat", heatmap_legend_param = list(color_bar = "discrete"),
     top_annotation = HeatmapAnnotation(foo = 1:10,
         annotation_legend_param = list(
@@ -812,7 +910,7 @@ is a factor, the order of legend labels is `levels(value)`. Always remember the 
 fine-tuned by setting `at` and `labels` parameters in `heatmap_legend_param`/`annotation_legend_param`
 in `Heatmap()`/`HeamtapAnnotation()` functions respectively.
 
-```{r}
+```{r, fig.width = 5.2}
 chr = sample(letters[1:3], 10, replace = TRUE)
 chr
 fa1 = factor(chr)

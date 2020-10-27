@@ -92,7 +92,7 @@ functions automatically from `oncoPrint()`.
 
 Colors for different alterations are defined in `col`. It should be a named
 vector for which names correspond to alteration types. It is used to generate
-the barplots and the legends.
+the barplots.
 
 
 ```r
@@ -109,7 +109,7 @@ oncoPrint(mat,
 <img src="07-oncoprint_files/figure-html/unnamed-chunk-4-1.png" width="384" style="display: block; margin: auto;" />
 
 You can see the order in barplots also correspond to the order defined in
-`alter_fun`.
+`alter_fun`. The grahpics in legend are based on the functions defined in `alter_fun`.
 
 If you are confused of how to generated the matrix, there is a second way. The
 second type of input data is a list of matrix for which each matrix contains
@@ -413,18 +413,10 @@ and on the barplot annotation for genes and samples, only `snv` and `indel`
 are visualized (so the height for `snv` in the barplot corresponds the number
 of intronic snv plus exonic snv).
 
-In following code which draws the oncoPrint, we add another legend for the
-`intronic`/`exonic` types. note a `pch` value of 16 corresponds to a dot and a
-value of 28 corresponds to crossed diagonal lines (see the last plot in
-Section \@ref(discrete-legends) for `pch` 26, 27, 28).
-
 
 ```r
 # we only define color for snv and indel, so barplot annotations only show snv and indel
-ht = oncoPrint(m, alter_fun = alter_fun, col = c(snv = "red", indel = "blue"))
-draw(ht, heatmap_legend_list = list(
-	Legend(labels = c("intronic", "exonic"), type = "points", pch = c(16, 28))
-))
+oncoPrint(m, alter_fun = alter_fun, col = c(snv = "red", indel = "blue"))
 ```
 
 <img src="07-oncoprint_files/figure-html/unnamed-chunk-16-1.png" width="528" style="display: block; margin: auto;" />
@@ -693,7 +685,9 @@ alterations for every gene.
 The barplot annotation is implemented by `anno_oncoprint_barplot()` where you
 can set the the annotation there. Barplots by default draw for all alteration
 types, but you can also select subset of alterations to put on barplots by
-setting in `anno_oncoprint_barplot()`. See following example:
+setting in `anno_oncoprint_barplot()`. `anno_oncoprint_barplot()` is a simple
+wrapper around `anno_barplot()` where the frequency matrix in just interanlly
+calculated. See following example:
 
 
 ```r
@@ -701,16 +695,37 @@ oncoPrint(mat,
 	alter_fun = alter_fun, col = col, 
 	top_annotation = HeatmapAnnotation(
 		column_barplot = anno_oncoprint_barplot("MUT", border = TRUE, # only MUT
-			height = unit(4, "cm"))),
+			height = unit(4, "cm"))
+	),
 	right_annotation = rowAnnotation(
 		row_barplot = anno_oncoprint_barplot(c("AMP", "HOMDEL"),  # only AMP and HOMDEL
 			border = TRUE, height = unit(4, "cm"), 
-			axis_param = list(side = "bottom", labels_rot = 90))),
+			axis_param = list(side = "bottom", labels_rot = 90))
+	),
 	remove_empty_columns = TRUE, remove_empty_rows = TRUE,
 	column_title = column_title, heatmap_legend_param = heatmap_legend_param)
 ```
 
 <img src="07-oncoprint_files/figure-html/unnamed-chunk-29-1.png" width="1152" style="display: block; margin: auto;" />
+
+By default the barplot annotation shows the frequencies. The values can be changed
+to fraction by setting `show_fraction = TRUE` in `anno_oncoprint_barplot()`:
+
+
+```r
+oncoPrint(mat,
+	alter_fun = alter_fun, col = col, 
+	top_annotation = HeatmapAnnotation(
+		column_barplot = anno_oncoprint_barplot(show_fraction = TRUE)
+	),
+	right_annotation = rowAnnotation(
+		row_barplot = anno_oncoprint_barplot(show_fraction = TRUE)
+	),
+	remove_empty_columns = TRUE, remove_empty_rows = TRUE,
+	column_title = column_title, heatmap_legend_param = heatmap_legend_param)
+```
+
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-30-1.png" width="1152" style="display: block; margin: auto;" />
 
 The percent values and row names are internally constructed as text
 annotations. You can set `show_pct` and `show_row_names` to turn them on or
@@ -725,7 +740,7 @@ oncoPrint(mat,
 	column_title = column_title, heatmap_legend_param = heatmap_legend_param)
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-30-1.png" width="1152" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-31-1.png" width="1152" style="display: block; margin: auto;" />
 
 The barplot annotation for oncoPrint are essentially normal annotations, you
 can add more annotations in `HeatmapAnnotation()` or `rowAnnotation()` in the
@@ -738,13 +753,14 @@ oncoPrint(mat,
 	remove_empty_columns = TRUE, remove_empty_rows = TRUE,
 	top_annotation = HeatmapAnnotation(cbar = anno_oncoprint_barplot(),
 		foo1 = 1:172,
-		bar1 = anno_points(1:172)),
+		bar1 = anno_points(1:172)
+	),
 	left_annotation = rowAnnotation(foo2 = 1:26),
 	right_annotation = rowAnnotation(bar2 = anno_barplot(1:26)),
 	column_title = column_title, heatmap_legend_param = heatmap_legend_param)
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-31-1.png" width="1152" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-32-1.png" width="1152" style="display: block; margin: auto;" />
 
 As you see, the percent annotation, the row name annotation and the oncoPrint
 annotation are appended to the user-specified annotation by default. Also
@@ -769,7 +785,7 @@ Heatmap(matrix(rnorm(nrow(mat)*10), ncol = 10), name = "expr", width = unit(4, "
 draw(ht_list)
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-32-1.png" width="1152" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-33-1.png" width="1152" style="display: block; margin: auto;" />
 
 or add it vertically:
 
@@ -782,7 +798,7 @@ Heatmap(matrix(rnorm(ncol(mat)*10), nrow = 10), name = "expr", height = unit(4, 
 draw(ht_list)
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-33-1.png" width="1152" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-34-1.png" width="1152" style="display: block; margin: auto;" />
 
 Similar as normal heatmap list, you can split the heatmap list:
 
@@ -795,7 +811,7 @@ Heatmap(matrix(rnorm(nrow(mat)*10), ncol = 10), name = "expr", width = unit(4, "
 draw(ht_list, row_split = sample(c("a", "b"), nrow(mat), replace = TRUE))
 ```
 
-<img src="07-oncoprint_files/figure-html/unnamed-chunk-34-1.png" width="1152" style="display: block; margin: auto;" />
+<img src="07-oncoprint_files/figure-html/unnamed-chunk-35-1.png" width="1152" style="display: block; margin: auto;" />
 
 When `remove_empty_columns` or `remove_empty_rows` is set to `TRUE`, the
 number of genes or the samples may not be the original number. If the original

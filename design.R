@@ -51,8 +51,10 @@ for(i in 1:4) {
 popViewport()
 
 pushViewport(viewport(layout.pos.row = 2, layout.pos.col = 2))
-name = rbind(c("matrix, row slice 1\ncolumn slice1", "matrix, row slice 1\ncolumn slice2"), 
-	         c("matrix, row slice 2\ncolumn slice1", "matrix, row slice 2\ncolumn slice2"))
+name = matrix(c("matrix, row slice 2\ncolumn slice1", 
+	         	"matrix, row slice 2\ncolumn slice2",
+	         	"matrix, row slice 1\ncolumn slice1",
+	         	"matrix, row slice 1\ncolumn slice2"), nrow = 2)
 for(i in 1:2) {
 	for(j in 1:2) {
 		pushViewport(viewport(x = i/2, y = j/2, width = 1/2, height = 1/2, just = c("right", "top")))

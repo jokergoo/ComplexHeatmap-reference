@@ -116,6 +116,8 @@ draw(ht_list, row_title = "Three heatmaps, row title", row_title_gp = gpar(col =
     column_title = "Three heatmaps, column title", column_title_gp = gpar(fontsize = 16))
 ```
 
+You can use `gt_render()` to construct complicated text, see Section \@ref(gridtext).
+
 ## Size of heatmaps {#size-of-heatmaps}
 
 The width for some heatmaps can be set to absolute units. Note `width`
@@ -281,7 +283,7 @@ following example, the dendrogram for the second heatmap is adjusted. Note you
 still can change the size of simple annotation by setting `anno_simple_size`
 in `HeatmapAnnotation()` or globally set `ht_opt$anno_simple_size`.
 
-```{r, fig.height = 9}
+```{r}
 ha1 = HeatmapAnnotation(foo1 = 1:10, annotation_name_side = "left")
 ht1 = Heatmap(mat1, name = "rnorm", col = col_rnorm, top_annotation = ha1)
 ht2 = Heatmap(mat2, name = "runif", col = col_runif)
@@ -366,6 +368,24 @@ Heatmap(mat1, name = "rnorm", col = col_rnorm, row_km = 2) +
     rowAnnotation(bar = anno_barplot(1:12, width = unit(4, "cm")))
 ```
 
+You may wonder how to recover the row names of `mat1`. There are two ways. 
+
+1. you can set the row annotation as the "right annotation" of the heatmap and
+   put the heatmap as the last one.
+
+```{r}
+Heatmap(mat1, name = "rnorm", col = col_rnorm, row_km = 2, right_annotation = ha1)
+# or using the previous variable
+# attach_annotation(ht1, ha1, side = "right")
+```
+
+2. add the row names by adding a text annotation:
+
+```{r}
+ht1 + ha1 + rowAnnotation(rn = anno_text(rownames(mat1), 
+    location = unit(0, "npc"), just = "left"))
+```
+
 Basically heatmaps and row annotations can be concatenated arbitarily.
 
 ```{r, fig.width = 10}
@@ -420,7 +440,7 @@ vertically by the `%v%` operator. All the relatated settings and adjustments
 are very similar as the horizontal concatenation. Please check following
 examples.
 
-```{r}
+```{r, fig.width = 5.2}
 mat1t = t(mat1)
 mat2t = t(mat2)
 ht1 = Heatmap(mat1t, name = "rnorm", col = col_rnorm, row_title = "rnorm")
@@ -431,13 +451,13 @@ draw(ht_list)
 draw(ht_list, column_km = 2)
 ```
 
-```{r}
+```{r, fig.width = 5.2}
 ha = HeatmapAnnotation(foo = anno_barplot(1:12, height = unit(2, "cm")))
 ht_list = ht1 %v% ha %v% ht2 %v% ht3
 draw(ht_list, column_km = 2)
 ```
 
-```{r}
+```{r, fig.width = 5.2}
 ht1 = Heatmap(mat1t, name = "rnorm", col = col_rnorm, row_km = 2)
 ht2 = Heatmap(mat2t, name = "runif", col = col_runif, row_km = 2)
 ht3 = Heatmap(rbind(letters = le), name = "letters", col = col_letters)
@@ -450,7 +470,7 @@ For the vertical heatmap list, now row annotations should be the heatmap
 components (by `right_annotation` and `left_annotation`) and they are adjusted
 just like column annotations for the horizontal heatmap list.
 
-```{r}
+```{r, fig.width = 5.2}
 ht1 = Heatmap(mat1t, name = "rnorm", col = col_rnorm, row_km = 2,
     left_annotation = rowAnnotation(foo1 = 1:10, bar1 = anno_barplot(1:10)))
 ha = HeatmapAnnotation(foo = anno_barplot(1:12, height = unit(2, "cm"), 
@@ -477,7 +497,7 @@ around.
 
 In following we use horizontal heatmap list as example.
 
-```{r}
+```{r, fig.width = 5.2}
 ht1 = Heatmap(mat1, name = "rnorm", col = col_rnorm, 
     left_annotation = rowAnnotation(foo1 = 1:12, bar1 = anno_points(1:12)))
 ht2 = Heatmap(mat2, name = "runif", col = col_runif)

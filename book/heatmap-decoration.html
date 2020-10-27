@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Heatmap Decoration | ComplexHeatmap Complete Reference</title>
   <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
-  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Heatmap Decoration | ComplexHeatmap Complete Reference" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,7 @@
   
 <link rel="prev" href="legends.html"/>
 <link rel="next" href="oncoprint.html"/>
-<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +50,7 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
@@ -195,8 +196,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.17" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#zoom-annotation"><i class="fa fa-check"></i><b>3.17</b> Zoom/link annotation</a></li>
 <li class="chapter" data-level="3.18" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#multiple-annotations"><i class="fa fa-check"></i><b>3.18</b> Multiple annotations</a>
 <ul>
-<li class="chapter" data-level="3.18.1" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#size-of-annotations"><i class="fa fa-check"></i><b>3.18.1</b> Size of annotations</a></li>
-<li class="chapter" data-level="3.18.2" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#annotation-labels"><i class="fa fa-check"></i><b>3.18.2</b> Annotation labels</a></li>
+<li class="chapter" data-level="3.18.1" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#heatmap-annotation-general-settings"><i class="fa fa-check"></i><b>3.18.1</b> General settings</a></li>
+<li class="chapter" data-level="3.18.2" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#size-of-annotations"><i class="fa fa-check"></i><b>3.18.2</b> Size of annotations</a></li>
+<li class="chapter" data-level="3.18.3" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#annotation-labels"><i class="fa fa-check"></i><b>3.18.3</b> Annotation labels</a></li>
 </ul></li>
 <li class="chapter" data-level="3.19" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#heatmap-annotation-utility-function"><i class="fa fa-check"></i><b>3.19</b> Utility functions</a></li>
 <li class="chapter" data-level="3.20" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#implement-new-annotation-functions"><i class="fa fa-check"></i><b>3.20</b> Implement new annotation functions</a></li>
@@ -268,31 +270,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.7" data-path="upset-plot.html"><a href="upset-plot.html#example-with-the-movies-dataset"><i class="fa fa-check"></i><b>8.7</b> Example with the movies dataset</a></li>
 <li class="chapter" data-level="8.8" data-path="upset-plot.html"><a href="upset-plot.html#example-with-the-genomic-regions"><i class="fa fa-check"></i><b>8.8</b> Example with the genomic regions</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="more-examples.html"><a href="more-examples.html"><i class="fa fa-check"></i><b>9</b> More Examples</a>
+<li class="chapter" data-level="9" data-path="interactive.html"><a href="interactive.html"><i class="fa fa-check"></i><b>9</b> Interactive ComplexHeatmap</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="more-examples.html"><a href="more-examples.html#add-more-information-for-gene-expression-matrix"><i class="fa fa-check"></i><b>9.1</b> Add more information for gene expression matrix</a></li>
-<li class="chapter" data-level="9.2" data-path="more-examples.html"><a href="more-examples.html#the-measles-vaccine-heatmap"><i class="fa fa-check"></i><b>9.2</b> The measles vaccine heatmap</a></li>
-<li class="chapter" data-level="9.3" data-path="more-examples.html"><a href="more-examples.html#visualize-cell-heterogeneity-from-single-cell-rnaseq"><i class="fa fa-check"></i><b>9.3</b> Visualize Cell Heterogeneity from Single Cell RNASeq</a></li>
-<li class="chapter" data-level="9.4" data-path="more-examples.html"><a href="more-examples.html#correlations-between-methylation-expression-and-other-genomic-features"><i class="fa fa-check"></i><b>9.4</b> Correlations between methylation, expression and other genomic features</a></li>
-<li class="chapter" data-level="9.5" data-path="more-examples.html"><a href="more-examples.html#visualize-methylation-profile-with-complex-annotations"><i class="fa fa-check"></i><b>9.5</b> Visualize Methylation Profile with Complex Annotations</a></li>
-<li class="chapter" data-level="9.6" data-path="more-examples.html"><a href="more-examples.html#add-multiple-boxplots-for-single-row"><i class="fa fa-check"></i><b>9.6</b> Add multiple boxplots for single row</a></li>
+<li class="chapter" data-level="9.1" data-path="interactive.html"><a href="interactive.html#on-the-interactive-graphics-device"><i class="fa fa-check"></i><b>9.1</b> On the interactive graphics device</a></li>
+<li class="chapter" data-level="9.2" data-path="interactive.html"><a href="interactive.html#on-other-devices"><i class="fa fa-check"></i><b>9.2</b> On other devices</a></li>
+<li class="chapter" data-level="9.3" data-path="interactive.html"><a href="interactive.html#shiny-app"><i class="fa fa-check"></i><b>9.3</b> Shiny app</a></li>
+<li class="chapter" data-level="9.4" data-path="interactive.html"><a href="interactive.html#implement-a-shiny-app-from-scratch"><i class="fa fa-check"></i><b>9.4</b> Implement a Shiny app from scratch</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="other-high-level-plots.html"><a href="other-high-level-plots.html"><i class="fa fa-check"></i><b>10</b> Other High-level Plots</a>
+<li class="chapter" data-level="10" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html"><i class="fa fa-check"></i><b>10</b> Integrate with other packages</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="other-high-level-plots.html"><a href="other-high-level-plots.html#density-heatmap"><i class="fa fa-check"></i><b>10.1</b> Density heatmap</a></li>
-<li class="chapter" data-level="10.2" data-path="other-high-level-plots.html"><a href="other-high-level-plots.html#stacked-summary-plot"><i class="fa fa-check"></i><b>10.2</b> Stacked summary plot</a></li>
+<li class="chapter" data-level="10.1" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#pheatmap"><i class="fa fa-check"></i><b>10.1</b> pheatmap</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#examples"><i class="fa fa-check"></i><b>10.1.1</b> Examples</a></li>
+<li class="chapter" data-level="10.1.2" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#translation"><i class="fa fa-check"></i><b>10.1.2</b> Translation</a></li>
+<li class="chapter" data-level="10.1.3" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#comparisons"><i class="fa fa-check"></i><b>10.1.3</b> Comparisons</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="other-tricks.html"><a href="other-tricks.html"><i class="fa fa-check"></i><b>11</b> Other Tricks</a>
+<li class="chapter" data-level="10.2" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#cowplot"><i class="fa fa-check"></i><b>10.2</b> cowplot</a></li>
+<li class="chapter" data-level="10.3" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#gridtext"><i class="fa fa-check"></i><b>10.3</b> gridtext</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="other-tricks.html"><a href="other-tricks.html#set-the-same-cell-size-for-different-heatmaps-with-different-dimensions"><i class="fa fa-check"></i><b>11.1</b> Set the same cell size for different heatmaps with different dimensions</a></li>
-<li class="chapter" data-level="11.2" data-path="other-tricks.html"><a href="other-tricks.html#integrate-with-gridtext-package"><i class="fa fa-check"></i><b>11.2</b> Integrate with gridtext package</a>
-<ul>
-<li class="chapter" data-level="11.2.1" data-path="other-tricks.html"><a href="other-tricks.html#titles"><i class="fa fa-check"></i><b>11.2.1</b> Titles</a></li>
-<li class="chapter" data-level="11.2.2" data-path="other-tricks.html"><a href="other-tricks.html#rowcolumn-names"><i class="fa fa-check"></i><b>11.2.2</b> Row/column names</a></li>
-<li class="chapter" data-level="11.2.3" data-path="other-tricks.html"><a href="other-tricks.html#annotation-labels-1"><i class="fa fa-check"></i><b>11.2.3</b> Annotation labels</a></li>
-<li class="chapter" data-level="11.2.4" data-path="other-tricks.html"><a href="other-tricks.html#text-annotation-1"><i class="fa fa-check"></i><b>11.2.4</b> Text annotation</a></li>
-<li class="chapter" data-level="11.2.5" data-path="other-tricks.html"><a href="other-tricks.html#legend"><i class="fa fa-check"></i><b>11.2.5</b> Legend</a></li>
+<li class="chapter" data-level="10.3.1" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#gridtext-title"><i class="fa fa-check"></i><b>10.3.1</b> Titles</a></li>
+<li class="chapter" data-level="10.3.2" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#gridtext-dimnames"><i class="fa fa-check"></i><b>10.3.2</b> Row/column names</a></li>
+<li class="chapter" data-level="10.3.3" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#gridtext-annotations"><i class="fa fa-check"></i><b>10.3.3</b> Annotation labels</a></li>
+<li class="chapter" data-level="10.3.4" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#gridtext-anno-text"><i class="fa fa-check"></i><b>10.3.4</b> Text annotation</a></li>
+<li class="chapter" data-level="10.3.5" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#gridtext-legends"><i class="fa fa-check"></i><b>10.3.5</b> Legend</a></li>
 </ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="other-high-level-plots.html"><a href="other-high-level-plots.html"><i class="fa fa-check"></i><b>11</b> Other High-level Plots</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="other-high-level-plots.html"><a href="other-high-level-plots.html#density-heatmap"><i class="fa fa-check"></i><b>11.1</b> Density heatmap</a></li>
+<li class="chapter" data-level="11.2" data-path="other-high-level-plots.html"><a href="other-high-level-plots.html#stacked-summary-plot"><i class="fa fa-check"></i><b>11.2</b> Stacked summary plot</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="more-examples.html"><a href="more-examples.html"><i class="fa fa-check"></i><b>12</b> More Examples</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="more-examples.html"><a href="more-examples.html#add-more-information-for-gene-expression-matrix"><i class="fa fa-check"></i><b>12.1</b> Add more information for gene expression matrix</a></li>
+<li class="chapter" data-level="12.2" data-path="more-examples.html"><a href="more-examples.html#the-measles-vaccine-heatmap"><i class="fa fa-check"></i><b>12.2</b> The measles vaccine heatmap</a></li>
+<li class="chapter" data-level="12.3" data-path="more-examples.html"><a href="more-examples.html#visualize-cell-heterogeneity-from-single-cell-rnaseq"><i class="fa fa-check"></i><b>12.3</b> Visualize Cell Heterogeneity from Single Cell RNASeq</a></li>
+<li class="chapter" data-level="12.4" data-path="more-examples.html"><a href="more-examples.html#correlations-between-methylation-expression-and-other-genomic-features"><i class="fa fa-check"></i><b>12.4</b> Correlations between methylation, expression and other genomic features</a></li>
+<li class="chapter" data-level="12.5" data-path="more-examples.html"><a href="more-examples.html#visualize-methylation-profile-with-complex-annotations"><i class="fa fa-check"></i><b>12.5</b> Visualize Methylation Profile with Complex Annotations</a></li>
+<li class="chapter" data-level="12.6" data-path="more-examples.html"><a href="more-examples.html#add-multiple-boxplots-for-single-row"><i class="fa fa-check"></i><b>12.6</b> Add multiple boxplots for single row</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="other-tricks.html"><a href="other-tricks.html"><i class="fa fa-check"></i><b>13</b> Other Tricks</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="other-tricks.html"><a href="other-tricks.html#set-the-same-cell-size-for-different-heatmaps-with-different-dimensions"><i class="fa fa-check"></i><b>13.1</b> Set the same cell size for different heatmaps with different dimensions</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -321,26 +340,26 @@ heatmaps are made, so it is possible to go back to the original places to add
 more graphics there. First let’s generate a figure that almost contains all
 types of heatmap components. <code>list_components()</code> lists the names of the
 heatmap/annotation components (or the name of the viewport).</p>
-<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="heatmap-decoration.html#cb422-1"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb422-2"><a href="heatmap-decoration.html#cb422-2"></a>mat =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">80</span>, <span class="dv">2</span>), <span class="dv">8</span>, <span class="dv">10</span>)</span>
-<span id="cb422-3"><a href="heatmap-decoration.html#cb422-3"></a>mat =<span class="st"> </span><span class="kw">rbind</span>(mat, <span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">40</span>, <span class="dv">-2</span>), <span class="dv">4</span>, <span class="dv">10</span>))</span>
-<span id="cb422-4"><a href="heatmap-decoration.html#cb422-4"></a><span class="kw">rownames</span>(mat) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;R&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>)</span>
-<span id="cb422-5"><a href="heatmap-decoration.html#cb422-5"></a><span class="kw">colnames</span>(mat) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;C&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</span>
-<span id="cb422-6"><a href="heatmap-decoration.html#cb422-6"></a></span>
-<span id="cb422-7"><a href="heatmap-decoration.html#cb422-7"></a>ha_column1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">points =</span> <span class="kw">anno_points</span>(<span class="kw">rnorm</span>(<span class="dv">10</span>)), </span>
-<span id="cb422-8"><a href="heatmap-decoration.html#cb422-8"></a>    <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>)</span>
-<span id="cb422-9"><a href="heatmap-decoration.html#cb422-9"></a>ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;ht1&quot;</span>, <span class="dt">km =</span> <span class="dv">2</span>, <span class="dt">column_title =</span> <span class="st">&quot;Heatmap 1&quot;</span>, </span>
-<span id="cb422-10"><a href="heatmap-decoration.html#cb422-10"></a>    <span class="dt">top_annotation =</span> ha_column1, <span class="dt">row_names_side =</span> <span class="st">&quot;left&quot;</span>)</span>
-<span id="cb422-11"><a href="heatmap-decoration.html#cb422-11"></a></span>
-<span id="cb422-12"><a href="heatmap-decoration.html#cb422-12"></a>ha_column2 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">type =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;a&quot;</span>, <span class="dv">5</span>), <span class="kw">rep</span>(<span class="st">&quot;b&quot;</span>, <span class="dv">5</span>)),</span>
-<span id="cb422-13"><a href="heatmap-decoration.html#cb422-13"></a>    <span class="dt">col =</span> <span class="kw">list</span>(<span class="dt">type =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span> =<span class="st"> &quot;red&quot;</span>, <span class="st">&quot;b&quot;</span> =<span class="st"> &quot;blue&quot;</span>)))</span>
-<span id="cb422-14"><a href="heatmap-decoration.html#cb422-14"></a>ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;ht2&quot;</span>, <span class="dt">row_title =</span> <span class="st">&quot;Heatmap 2&quot;</span>, <span class="dt">column_title =</span> <span class="st">&quot;Heatmap 2&quot;</span>,</span>
-<span id="cb422-15"><a href="heatmap-decoration.html#cb422-15"></a>    <span class="dt">bottom_annotation =</span> ha_column2, <span class="dt">column_km =</span> <span class="dv">2</span>)</span>
-<span id="cb422-16"><a href="heatmap-decoration.html#cb422-16"></a></span>
-<span id="cb422-17"><a href="heatmap-decoration.html#cb422-17"></a>ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span></span>
-<span id="cb422-18"><a href="heatmap-decoration.html#cb422-18"></a><span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_barplot</span>(<span class="kw">rowMeans</span>(mat), <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)))</span>
-<span id="cb422-19"><a href="heatmap-decoration.html#cb422-19"></a><span class="kw">draw</span>(ht_list, <span class="dt">row_title =</span> <span class="st">&quot;Heatmap list&quot;</span>, <span class="dt">column_title =</span> <span class="st">&quot;Heatmap list&quot;</span>)</span>
-<span id="cb422-20"><a href="heatmap-decoration.html#cb422-20"></a><span class="kw">list_components</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="heatmap-decoration.html#cb452-1"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb452-2"><a href="heatmap-decoration.html#cb452-2"></a>mat =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">80</span>, <span class="dv">2</span>), <span class="dv">8</span>, <span class="dv">10</span>)</span>
+<span id="cb452-3"><a href="heatmap-decoration.html#cb452-3"></a>mat =<span class="st"> </span><span class="kw">rbind</span>(mat, <span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">40</span>, <span class="dv">-2</span>), <span class="dv">4</span>, <span class="dv">10</span>))</span>
+<span id="cb452-4"><a href="heatmap-decoration.html#cb452-4"></a><span class="kw">rownames</span>(mat) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;R&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>)</span>
+<span id="cb452-5"><a href="heatmap-decoration.html#cb452-5"></a><span class="kw">colnames</span>(mat) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;C&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</span>
+<span id="cb452-6"><a href="heatmap-decoration.html#cb452-6"></a></span>
+<span id="cb452-7"><a href="heatmap-decoration.html#cb452-7"></a>ha_column1 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">points =</span> <span class="kw">anno_points</span>(<span class="kw">rnorm</span>(<span class="dv">10</span>)), </span>
+<span id="cb452-8"><a href="heatmap-decoration.html#cb452-8"></a>    <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>)</span>
+<span id="cb452-9"><a href="heatmap-decoration.html#cb452-9"></a>ht1 =<span class="st"> </span><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;ht1&quot;</span>, <span class="dt">km =</span> <span class="dv">2</span>, <span class="dt">column_title =</span> <span class="st">&quot;Heatmap 1&quot;</span>, </span>
+<span id="cb452-10"><a href="heatmap-decoration.html#cb452-10"></a>    <span class="dt">top_annotation =</span> ha_column1, <span class="dt">row_names_side =</span> <span class="st">&quot;left&quot;</span>)</span>
+<span id="cb452-11"><a href="heatmap-decoration.html#cb452-11"></a></span>
+<span id="cb452-12"><a href="heatmap-decoration.html#cb452-12"></a>ha_column2 =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">type =</span> <span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;a&quot;</span>, <span class="dv">5</span>), <span class="kw">rep</span>(<span class="st">&quot;b&quot;</span>, <span class="dv">5</span>)),</span>
+<span id="cb452-13"><a href="heatmap-decoration.html#cb452-13"></a>    <span class="dt">col =</span> <span class="kw">list</span>(<span class="dt">type =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span> =<span class="st"> &quot;red&quot;</span>, <span class="st">&quot;b&quot;</span> =<span class="st"> &quot;blue&quot;</span>)))</span>
+<span id="cb452-14"><a href="heatmap-decoration.html#cb452-14"></a>ht2 =<span class="st"> </span><span class="kw">Heatmap</span>(mat, <span class="dt">name =</span> <span class="st">&quot;ht2&quot;</span>, <span class="dt">row_title =</span> <span class="st">&quot;Heatmap 2&quot;</span>, <span class="dt">column_title =</span> <span class="st">&quot;Heatmap 2&quot;</span>,</span>
+<span id="cb452-15"><a href="heatmap-decoration.html#cb452-15"></a>    <span class="dt">bottom_annotation =</span> ha_column2, <span class="dt">column_km =</span> <span class="dv">2</span>)</span>
+<span id="cb452-16"><a href="heatmap-decoration.html#cb452-16"></a></span>
+<span id="cb452-17"><a href="heatmap-decoration.html#cb452-17"></a>ht_list =<span class="st"> </span>ht1 <span class="op">+</span><span class="st"> </span>ht2 <span class="op">+</span><span class="st"> </span></span>
+<span id="cb452-18"><a href="heatmap-decoration.html#cb452-18"></a><span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_barplot</span>(<span class="kw">rowMeans</span>(mat), <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)))</span>
+<span id="cb452-19"><a href="heatmap-decoration.html#cb452-19"></a><span class="kw">draw</span>(ht_list, <span class="dt">row_title =</span> <span class="st">&quot;Heatmap list&quot;</span>, <span class="dt">column_title =</span> <span class="st">&quot;Heatmap list&quot;</span>)</span>
+<span id="cb452-20"><a href="heatmap-decoration.html#cb452-20"></a><span class="kw">list_components</span>()</span></code></pre></div>
 <pre><code>##  [1] &quot;ROOT&quot;                           &quot;global&quot;                        
 ##  [3] &quot;global_layout&quot;                  &quot;global-heatmaplist&quot;            
 ##  [5] &quot;main_heatmap_list&quot;              &quot;heatmap_ht1&quot;                   
@@ -360,7 +379,7 @@ heatmap/annotation components (or the name of the viewport).</p>
 ## [33] &quot;heatmap_heatmap_annotation_2&quot;   &quot;annotation_bar_1&quot;              
 ## [35] &quot;annotation_bar_2&quot;               &quot;global-column_title_top&quot;       
 ## [37] &quot;global_column_title&quot;            &quot;global-row_title_left&quot;         
-## [39] &quot;global_row_title&quot;               &quot;global-heamap_legend_right&quot;    
+## [39] &quot;global_row_title&quot;               &quot;global-heatmap_legend_right&quot;   
 ## [41] &quot;heatmap_legend&quot;                 &quot;global-annotation_legend_right&quot;
 ## [43] &quot;annotation_legend&quot;</code></pre>
 <p><img src="06-heatmap_decoration_files/figure-html/access_components-1.png" width="960" style="display: block; margin: auto;" /></p>
@@ -390,37 +409,37 @@ it.</p>
 <p>For all these functions, they need a heatmap or annotation name, index for the
 row/column slices if the heatmap is split and a code block which defines how
 to add graphics. Check following example.</p>
-<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="heatmap-decoration.html#cb424-1"></a>ht_list =<span class="st"> </span><span class="kw">draw</span>(ht_list, <span class="dt">row_title =</span> <span class="st">&quot;Heatmap list&quot;</span>, <span class="dt">column_title =</span> <span class="st">&quot;Heatmap list&quot;</span>, </span>
-<span id="cb424-2"><a href="heatmap-decoration.html#cb424-2"></a>    <span class="dt">heatmap_legend_side =</span> <span class="st">&quot;right&quot;</span>, <span class="dt">annotation_legend_side =</span> <span class="st">&quot;left&quot;</span>)</span>
-<span id="cb424-3"><a href="heatmap-decoration.html#cb424-3"></a></span>
-<span id="cb424-4"><a href="heatmap-decoration.html#cb424-4"></a><span class="kw">decorate_heatmap_body</span>(<span class="st">&quot;ht1&quot;</span>, {</span>
-<span id="cb424-5"><a href="heatmap-decoration.html#cb424-5"></a>    <span class="kw">grid.text</span>(<span class="st">&quot;outlier&quot;</span>, <span class="fl">1.5</span><span class="op">/</span><span class="dv">10</span>, <span class="fl">2.5</span><span class="op">/</span><span class="dv">4</span>, <span class="dt">default.units =</span> <span class="st">&quot;npc&quot;</span>)</span>
-<span id="cb424-6"><a href="heatmap-decoration.html#cb424-6"></a>    <span class="kw">grid.lines</span>(<span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">lwd =</span> <span class="dv">2</span>))</span>
-<span id="cb424-7"><a href="heatmap-decoration.html#cb424-7"></a>}, <span class="dt">slice =</span> <span class="dv">2</span>)</span>
-<span id="cb424-8"><a href="heatmap-decoration.html#cb424-8"></a></span>
-<span id="cb424-9"><a href="heatmap-decoration.html#cb424-9"></a><span class="kw">decorate_column_dend</span>(<span class="st">&quot;ht1&quot;</span>, {</span>
-<span id="cb424-10"><a href="heatmap-decoration.html#cb424-10"></a>    tree =<span class="st"> </span><span class="kw">column_dend</span>(ht_list)<span class="op">$</span>ht1[[<span class="dv">1</span>]]</span>
-<span id="cb424-11"><a href="heatmap-decoration.html#cb424-11"></a>    ind =<span class="st"> </span><span class="kw">cutree</span>(<span class="kw">as.hclust</span>(tree), <span class="dt">k =</span> <span class="dv">2</span>)[<span class="kw">order.dendrogram</span>(tree)]</span>
-<span id="cb424-12"><a href="heatmap-decoration.html#cb424-12"></a></span>
-<span id="cb424-13"><a href="heatmap-decoration.html#cb424-13"></a>    first_index =<span class="st"> </span><span class="cf">function</span>(l) <span class="kw">which</span>(l)[<span class="dv">1</span>]</span>
-<span id="cb424-14"><a href="heatmap-decoration.html#cb424-14"></a>    last_index =<span class="st"> </span><span class="cf">function</span>(l) { x =<span class="st"> </span><span class="kw">which</span>(l); x[<span class="kw">length</span>(x)] }</span>
-<span id="cb424-15"><a href="heatmap-decoration.html#cb424-15"></a>    x1 =<span class="st"> </span><span class="kw">c</span>(<span class="kw">first_index</span>(ind <span class="op">==</span><span class="st"> </span><span class="dv">1</span>), <span class="kw">first_index</span>(ind <span class="op">==</span><span class="st"> </span><span class="dv">2</span>)) <span class="op">-</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb424-16"><a href="heatmap-decoration.html#cb424-16"></a>    x2 =<span class="st"> </span><span class="kw">c</span>(<span class="kw">last_index</span>(ind <span class="op">==</span><span class="st"> </span><span class="dv">1</span>), <span class="kw">last_index</span>(ind <span class="op">==</span><span class="st"> </span><span class="dv">2</span>))</span>
-<span id="cb424-17"><a href="heatmap-decoration.html#cb424-17"></a>    <span class="kw">grid.rect</span>(<span class="dt">x =</span> x1<span class="op">/</span><span class="kw">length</span>(ind), <span class="dt">width =</span> (x2 <span class="op">-</span><span class="st"> </span>x1)<span class="op">/</span><span class="kw">length</span>(ind), <span class="dt">just =</span> <span class="st">&quot;left&quot;</span>,</span>
-<span id="cb424-18"><a href="heatmap-decoration.html#cb424-18"></a>        <span class="dt">default.units =</span> <span class="st">&quot;npc&quot;</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="kw">c</span>(<span class="st">&quot;#FF000040&quot;</span>, <span class="st">&quot;#00FF0040&quot;</span>), <span class="dt">col =</span> <span class="ot">NA</span>))</span>
-<span id="cb424-19"><a href="heatmap-decoration.html#cb424-19"></a>})</span>
-<span id="cb424-20"><a href="heatmap-decoration.html#cb424-20"></a></span>
-<span id="cb424-21"><a href="heatmap-decoration.html#cb424-21"></a><span class="kw">decorate_row_names</span>(<span class="st">&quot;ht1&quot;</span>, {</span>
-<span id="cb424-22"><a href="heatmap-decoration.html#cb424-22"></a>    <span class="kw">grid.rect</span>(<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;#FF000040&quot;</span>))</span>
-<span id="cb424-23"><a href="heatmap-decoration.html#cb424-23"></a>}, <span class="dt">slice =</span> <span class="dv">2</span>)</span>
-<span id="cb424-24"><a href="heatmap-decoration.html#cb424-24"></a></span>
-<span id="cb424-25"><a href="heatmap-decoration.html#cb424-25"></a><span class="kw">decorate_row_title</span>(<span class="st">&quot;ht1&quot;</span>, {</span>
-<span id="cb424-26"><a href="heatmap-decoration.html#cb424-26"></a>    <span class="kw">grid.rect</span>(<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;#00FF0040&quot;</span>))</span>
-<span id="cb424-27"><a href="heatmap-decoration.html#cb424-27"></a>}, <span class="dt">slice =</span> <span class="dv">1</span>)</span>
-<span id="cb424-28"><a href="heatmap-decoration.html#cb424-28"></a></span>
-<span id="cb424-29"><a href="heatmap-decoration.html#cb424-29"></a><span class="kw">decorate_annotation</span>(<span class="st">&quot;points&quot;</span>, {</span>
-<span id="cb424-30"><a href="heatmap-decoration.html#cb424-30"></a>    <span class="kw">grid.lines</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="st">&quot;native&quot;</span>), <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>))</span>
-<span id="cb424-31"><a href="heatmap-decoration.html#cb424-31"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="heatmap-decoration.html#cb454-1"></a>ht_list =<span class="st"> </span><span class="kw">draw</span>(ht_list, <span class="dt">row_title =</span> <span class="st">&quot;Heatmap list&quot;</span>, <span class="dt">column_title =</span> <span class="st">&quot;Heatmap list&quot;</span>, </span>
+<span id="cb454-2"><a href="heatmap-decoration.html#cb454-2"></a>    <span class="dt">heatmap_legend_side =</span> <span class="st">&quot;right&quot;</span>, <span class="dt">annotation_legend_side =</span> <span class="st">&quot;left&quot;</span>)</span>
+<span id="cb454-3"><a href="heatmap-decoration.html#cb454-3"></a></span>
+<span id="cb454-4"><a href="heatmap-decoration.html#cb454-4"></a><span class="kw">decorate_heatmap_body</span>(<span class="st">&quot;ht1&quot;</span>, {</span>
+<span id="cb454-5"><a href="heatmap-decoration.html#cb454-5"></a>    <span class="kw">grid.text</span>(<span class="st">&quot;outlier&quot;</span>, <span class="fl">1.5</span><span class="op">/</span><span class="dv">10</span>, <span class="fl">2.5</span><span class="op">/</span><span class="dv">4</span>, <span class="dt">default.units =</span> <span class="st">&quot;npc&quot;</span>)</span>
+<span id="cb454-6"><a href="heatmap-decoration.html#cb454-6"></a>    <span class="kw">grid.lines</span>(<span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">lty =</span> <span class="dv">2</span>, <span class="dt">lwd =</span> <span class="dv">2</span>))</span>
+<span id="cb454-7"><a href="heatmap-decoration.html#cb454-7"></a>}, <span class="dt">slice =</span> <span class="dv">2</span>)</span>
+<span id="cb454-8"><a href="heatmap-decoration.html#cb454-8"></a></span>
+<span id="cb454-9"><a href="heatmap-decoration.html#cb454-9"></a><span class="kw">decorate_column_dend</span>(<span class="st">&quot;ht1&quot;</span>, {</span>
+<span id="cb454-10"><a href="heatmap-decoration.html#cb454-10"></a>    tree =<span class="st"> </span><span class="kw">column_dend</span>(ht_list)<span class="op">$</span>ht1[[<span class="dv">1</span>]]</span>
+<span id="cb454-11"><a href="heatmap-decoration.html#cb454-11"></a>    ind =<span class="st"> </span><span class="kw">cutree</span>(<span class="kw">as.hclust</span>(tree), <span class="dt">k =</span> <span class="dv">2</span>)[<span class="kw">order.dendrogram</span>(tree)]</span>
+<span id="cb454-12"><a href="heatmap-decoration.html#cb454-12"></a></span>
+<span id="cb454-13"><a href="heatmap-decoration.html#cb454-13"></a>    first_index =<span class="st"> </span><span class="cf">function</span>(l) <span class="kw">which</span>(l)[<span class="dv">1</span>]</span>
+<span id="cb454-14"><a href="heatmap-decoration.html#cb454-14"></a>    last_index =<span class="st"> </span><span class="cf">function</span>(l) { x =<span class="st"> </span><span class="kw">which</span>(l); x[<span class="kw">length</span>(x)] }</span>
+<span id="cb454-15"><a href="heatmap-decoration.html#cb454-15"></a>    x1 =<span class="st"> </span><span class="kw">c</span>(<span class="kw">first_index</span>(ind <span class="op">==</span><span class="st"> </span><span class="dv">1</span>), <span class="kw">first_index</span>(ind <span class="op">==</span><span class="st"> </span><span class="dv">2</span>)) <span class="op">-</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb454-16"><a href="heatmap-decoration.html#cb454-16"></a>    x2 =<span class="st"> </span><span class="kw">c</span>(<span class="kw">last_index</span>(ind <span class="op">==</span><span class="st"> </span><span class="dv">1</span>), <span class="kw">last_index</span>(ind <span class="op">==</span><span class="st"> </span><span class="dv">2</span>))</span>
+<span id="cb454-17"><a href="heatmap-decoration.html#cb454-17"></a>    <span class="kw">grid.rect</span>(<span class="dt">x =</span> x1<span class="op">/</span><span class="kw">length</span>(ind), <span class="dt">width =</span> (x2 <span class="op">-</span><span class="st"> </span>x1)<span class="op">/</span><span class="kw">length</span>(ind), <span class="dt">just =</span> <span class="st">&quot;left&quot;</span>,</span>
+<span id="cb454-18"><a href="heatmap-decoration.html#cb454-18"></a>        <span class="dt">default.units =</span> <span class="st">&quot;npc&quot;</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="kw">c</span>(<span class="st">&quot;#FF000040&quot;</span>, <span class="st">&quot;#00FF0040&quot;</span>), <span class="dt">col =</span> <span class="ot">NA</span>))</span>
+<span id="cb454-19"><a href="heatmap-decoration.html#cb454-19"></a>})</span>
+<span id="cb454-20"><a href="heatmap-decoration.html#cb454-20"></a></span>
+<span id="cb454-21"><a href="heatmap-decoration.html#cb454-21"></a><span class="kw">decorate_row_names</span>(<span class="st">&quot;ht1&quot;</span>, {</span>
+<span id="cb454-22"><a href="heatmap-decoration.html#cb454-22"></a>    <span class="kw">grid.rect</span>(<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;#FF000040&quot;</span>))</span>
+<span id="cb454-23"><a href="heatmap-decoration.html#cb454-23"></a>}, <span class="dt">slice =</span> <span class="dv">2</span>)</span>
+<span id="cb454-24"><a href="heatmap-decoration.html#cb454-24"></a></span>
+<span id="cb454-25"><a href="heatmap-decoration.html#cb454-25"></a><span class="kw">decorate_row_title</span>(<span class="st">&quot;ht1&quot;</span>, {</span>
+<span id="cb454-26"><a href="heatmap-decoration.html#cb454-26"></a>    <span class="kw">grid.rect</span>(<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;#00FF0040&quot;</span>))</span>
+<span id="cb454-27"><a href="heatmap-decoration.html#cb454-27"></a>}, <span class="dt">slice =</span> <span class="dv">1</span>)</span>
+<span id="cb454-28"><a href="heatmap-decoration.html#cb454-28"></a></span>
+<span id="cb454-29"><a href="heatmap-decoration.html#cb454-29"></a><span class="kw">decorate_annotation</span>(<span class="st">&quot;points&quot;</span>, {</span>
+<span id="cb454-30"><a href="heatmap-decoration.html#cb454-30"></a>    <span class="kw">grid.lines</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="st">&quot;native&quot;</span>), <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>))</span>
+<span id="cb454-31"><a href="heatmap-decoration.html#cb454-31"></a>})</span></code></pre></div>
 <p><img src="06-heatmap_decoration_files/figure-html/components-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>For annotations which are created by <code>anno_points()</code>, <code>anno_barplot()</code> and
 <code>anno_boxplot()</code>, “native” unit can be used in the decoration code.</p>
@@ -446,63 +465,63 @@ mean fraction weighted by the width of DMRs (<span class="math inline">\(\sum{(w
 two groups. We first use <code>anno_empty()</code> to allocate empty plotting region on
 top of the heatmap and later we use <code>decorate_annotation()</code> to add the
 barplots into it.</p>
-<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="heatmap-decoration.html#cb425-1"></a><span class="kw">library</span>(circlize)</span>
-<span id="cb425-2"><a href="heatmap-decoration.html#cb425-2"></a><span class="co"># DMRs</span></span>
-<span id="cb425-3"><a href="heatmap-decoration.html#cb425-3"></a>bed =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">1000</span>)</span>
-<span id="cb425-4"><a href="heatmap-decoration.html#cb425-4"></a><span class="co"># fractions</span></span>
-<span id="cb425-5"><a href="heatmap-decoration.html#cb425-5"></a>frac =<span class="st"> </span><span class="kw">c</span>(<span class="kw">runif</span>(<span class="dv">400</span>, <span class="dt">min =</span> <span class="fl">0.4</span>, <span class="dt">max =</span> <span class="dv">1</span>), <span class="kw">runif</span>(<span class="kw">nrow</span>(bed) <span class="op">-</span><span class="st"> </span><span class="dv">400</span>, <span class="dt">min =</span> <span class="fl">0.2</span>, <span class="dt">max =</span> <span class="fl">0.6</span>))</span>
-<span id="cb425-6"><a href="heatmap-decoration.html#cb425-6"></a>col_fun =<span class="st"> </span><span class="kw">colorRamp2</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="kw">c</span>(<span class="st">&quot;white&quot;</span>, <span class="st">&quot;orange&quot;</span>))</span>
-<span id="cb425-7"><a href="heatmap-decoration.html#cb425-7"></a><span class="co"># two groups</span></span>
-<span id="cb425-8"><a href="heatmap-decoration.html#cb425-8"></a>split =<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;group1&quot;</span>, <span class="dv">400</span>), <span class="kw">rep</span>(<span class="st">&quot;group2&quot;</span>, <span class="kw">nrow</span>(bed) <span class="op">-</span><span class="st"> </span><span class="dv">400</span>))</span>
-<span id="cb425-9"><a href="heatmap-decoration.html#cb425-9"></a><span class="co"># draw the fraction heatmap with an empty annotation</span></span>
-<span id="cb425-10"><a href="heatmap-decoration.html#cb425-10"></a>ht =<span class="st"> </span><span class="kw">Heatmap</span>(frac, <span class="dt">name =</span> <span class="st">&quot;fraction&quot;</span>, <span class="dt">col =</span> col_fun, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>),</span>
-<span id="cb425-11"><a href="heatmap-decoration.html#cb425-11"></a>    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">barplot =</span> <span class="kw">anno_empty</span>(<span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))))</span>
-<span id="cb425-12"><a href="heatmap-decoration.html#cb425-12"></a>ht =<span class="st"> </span><span class="kw">draw</span>(ht, <span class="dt">row_split =</span> split)</span>
-<span id="cb425-13"><a href="heatmap-decoration.html#cb425-13"></a><span class="co"># get the row indices in the two row-groups</span></span>
-<span id="cb425-14"><a href="heatmap-decoration.html#cb425-14"></a>ro =<span class="st"> </span><span class="kw">row_order</span>(ht)</span>
-<span id="cb425-15"><a href="heatmap-decoration.html#cb425-15"></a>w =<span class="st"> </span>bed[, <span class="dv">3</span>] <span class="op">-</span><span class="st"> </span>bed[, <span class="dv">2</span>]</span>
-<span id="cb425-16"><a href="heatmap-decoration.html#cb425-16"></a><span class="co"># the mean weighted fraction in the two groups</span></span>
-<span id="cb425-17"><a href="heatmap-decoration.html#cb425-17"></a>p =<span class="st"> </span><span class="kw">sapply</span>(ro, <span class="cf">function</span>(index) {</span>
-<span id="cb425-18"><a href="heatmap-decoration.html#cb425-18"></a>    <span class="kw">sum</span>(w[index]<span class="op">*</span>frac[index])<span class="op">/</span><span class="kw">sum</span>(w[index])</span>
-<span id="cb425-19"><a href="heatmap-decoration.html#cb425-19"></a>})</span>
-<span id="cb425-20"><a href="heatmap-decoration.html#cb425-20"></a><span class="co"># add two bars of `p`</span></span>
-<span id="cb425-21"><a href="heatmap-decoration.html#cb425-21"></a><span class="kw">decorate_annotation</span>(<span class="st">&quot;barplot&quot;</span>, {</span>
-<span id="cb425-22"><a href="heatmap-decoration.html#cb425-22"></a>    <span class="kw">pushViewport</span>(<span class="kw">viewport</span>(<span class="dt">xscale =</span> <span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">2.5</span>), <span class="dt">yscale =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(p)<span class="op">*</span><span class="fl">1.1</span>)))</span>
-<span id="cb425-23"><a href="heatmap-decoration.html#cb425-23"></a>    <span class="kw">grid.rect</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">y =</span> <span class="dv">0</span>, <span class="dt">width =</span> <span class="fl">0.8</span>, <span class="dt">height =</span> p, <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>,</span>
-<span id="cb425-24"><a href="heatmap-decoration.html#cb425-24"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;orange&quot;</span>), <span class="dt">default.units =</span> <span class="st">&quot;native&quot;</span>)</span>
-<span id="cb425-25"><a href="heatmap-decoration.html#cb425-25"></a>    <span class="kw">grid.yaxis</span>()</span>
-<span id="cb425-26"><a href="heatmap-decoration.html#cb425-26"></a>    <span class="kw">grid.text</span>(<span class="st">&quot;mean fraction&quot;</span>, <span class="dt">x =</span> <span class="kw">unit</span>(<span class="op">-</span><span class="fl">1.5</span>, <span class="st">&quot;cm&quot;</span>),<span class="dt">rot =</span> <span class="dv">90</span>, <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>)</span>
-<span id="cb425-27"><a href="heatmap-decoration.html#cb425-27"></a>    <span class="kw">popViewport</span>()</span>
-<span id="cb425-28"><a href="heatmap-decoration.html#cb425-28"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="heatmap-decoration.html#cb455-1"></a><span class="kw">library</span>(circlize)</span>
+<span id="cb455-2"><a href="heatmap-decoration.html#cb455-2"></a><span class="co"># DMRs</span></span>
+<span id="cb455-3"><a href="heatmap-decoration.html#cb455-3"></a>bed =<span class="st"> </span><span class="kw">generateRandomBed</span>(<span class="dt">nr =</span> <span class="dv">1000</span>)</span>
+<span id="cb455-4"><a href="heatmap-decoration.html#cb455-4"></a><span class="co"># fractions</span></span>
+<span id="cb455-5"><a href="heatmap-decoration.html#cb455-5"></a>frac =<span class="st"> </span><span class="kw">c</span>(<span class="kw">runif</span>(<span class="dv">400</span>, <span class="dt">min =</span> <span class="fl">0.4</span>, <span class="dt">max =</span> <span class="dv">1</span>), <span class="kw">runif</span>(<span class="kw">nrow</span>(bed) <span class="op">-</span><span class="st"> </span><span class="dv">400</span>, <span class="dt">min =</span> <span class="fl">0.2</span>, <span class="dt">max =</span> <span class="fl">0.6</span>))</span>
+<span id="cb455-6"><a href="heatmap-decoration.html#cb455-6"></a>col_fun =<span class="st"> </span><span class="kw">colorRamp2</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="kw">c</span>(<span class="st">&quot;white&quot;</span>, <span class="st">&quot;orange&quot;</span>))</span>
+<span id="cb455-7"><a href="heatmap-decoration.html#cb455-7"></a><span class="co"># two groups</span></span>
+<span id="cb455-8"><a href="heatmap-decoration.html#cb455-8"></a>split =<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;group1&quot;</span>, <span class="dv">400</span>), <span class="kw">rep</span>(<span class="st">&quot;group2&quot;</span>, <span class="kw">nrow</span>(bed) <span class="op">-</span><span class="st"> </span><span class="dv">400</span>))</span>
+<span id="cb455-9"><a href="heatmap-decoration.html#cb455-9"></a><span class="co"># draw the fraction heatmap with an empty annotation</span></span>
+<span id="cb455-10"><a href="heatmap-decoration.html#cb455-10"></a>ht =<span class="st"> </span><span class="kw">Heatmap</span>(frac, <span class="dt">name =</span> <span class="st">&quot;fraction&quot;</span>, <span class="dt">col =</span> col_fun, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>),</span>
+<span id="cb455-11"><a href="heatmap-decoration.html#cb455-11"></a>    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">barplot =</span> <span class="kw">anno_empty</span>(<span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))))</span>
+<span id="cb455-12"><a href="heatmap-decoration.html#cb455-12"></a>ht =<span class="st"> </span><span class="kw">draw</span>(ht, <span class="dt">row_split =</span> split)</span>
+<span id="cb455-13"><a href="heatmap-decoration.html#cb455-13"></a><span class="co"># get the row indices in the two row-groups</span></span>
+<span id="cb455-14"><a href="heatmap-decoration.html#cb455-14"></a>ro =<span class="st"> </span><span class="kw">row_order</span>(ht)</span>
+<span id="cb455-15"><a href="heatmap-decoration.html#cb455-15"></a>w =<span class="st"> </span>bed[, <span class="dv">3</span>] <span class="op">-</span><span class="st"> </span>bed[, <span class="dv">2</span>]</span>
+<span id="cb455-16"><a href="heatmap-decoration.html#cb455-16"></a><span class="co"># the mean weighted fraction in the two groups</span></span>
+<span id="cb455-17"><a href="heatmap-decoration.html#cb455-17"></a>p =<span class="st"> </span><span class="kw">sapply</span>(ro, <span class="cf">function</span>(index) {</span>
+<span id="cb455-18"><a href="heatmap-decoration.html#cb455-18"></a>    <span class="kw">sum</span>(w[index]<span class="op">*</span>frac[index])<span class="op">/</span><span class="kw">sum</span>(w[index])</span>
+<span id="cb455-19"><a href="heatmap-decoration.html#cb455-19"></a>})</span>
+<span id="cb455-20"><a href="heatmap-decoration.html#cb455-20"></a><span class="co"># add two bars of `p`</span></span>
+<span id="cb455-21"><a href="heatmap-decoration.html#cb455-21"></a><span class="kw">decorate_annotation</span>(<span class="st">&quot;barplot&quot;</span>, {</span>
+<span id="cb455-22"><a href="heatmap-decoration.html#cb455-22"></a>    <span class="kw">pushViewport</span>(<span class="kw">viewport</span>(<span class="dt">xscale =</span> <span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">2.5</span>), <span class="dt">yscale =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(p)<span class="op">*</span><span class="fl">1.1</span>)))</span>
+<span id="cb455-23"><a href="heatmap-decoration.html#cb455-23"></a>    <span class="kw">grid.rect</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">y =</span> <span class="dv">0</span>, <span class="dt">width =</span> <span class="fl">0.8</span>, <span class="dt">height =</span> p, <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb455-24"><a href="heatmap-decoration.html#cb455-24"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;orange&quot;</span>), <span class="dt">default.units =</span> <span class="st">&quot;native&quot;</span>)</span>
+<span id="cb455-25"><a href="heatmap-decoration.html#cb455-25"></a>    <span class="kw">grid.yaxis</span>()</span>
+<span id="cb455-26"><a href="heatmap-decoration.html#cb455-26"></a>    <span class="kw">grid.text</span>(<span class="st">&quot;mean fraction&quot;</span>, <span class="dt">x =</span> <span class="kw">unit</span>(<span class="op">-</span><span class="fl">1.5</span>, <span class="st">&quot;cm&quot;</span>),<span class="dt">rot =</span> <span class="dv">90</span>, <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>)</span>
+<span id="cb455-27"><a href="heatmap-decoration.html#cb455-27"></a>    <span class="kw">popViewport</span>()</span>
+<span id="cb455-28"><a href="heatmap-decoration.html#cb455-28"></a>})</span></code></pre></div>
 <p><img src="06-heatmap_decoration_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="add-titles-for-row-annotations" class="section level3" number="6.2.2">
 <h3><span class="header-section-number">6.2.2</span> Add titles for row annotations</h3>
 <p>Row annotations can be concatenated to the heatmap list. Sometimes we need a
 title for the row annotation. It is easy to implement it by decorations.</p>
-<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="heatmap-decoration.html#cb426-1"></a>ht_list =<span class="st"> </span><span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>), <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">show_column_dend =</span> <span class="ot">FALSE</span>) <span class="op">+</span></span>
-<span id="cb426-2"><a href="heatmap-decoration.html#cb426-2"></a><span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))) <span class="op">+</span></span>
-<span id="cb426-3"><a href="heatmap-decoration.html#cb426-3"></a><span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_boxplot</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>)), <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))</span>
-<span id="cb426-4"><a href="heatmap-decoration.html#cb426-4"></a><span class="kw">draw</span>(ht_list, <span class="dt">padding =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">2</span>), <span class="st">&quot;mm&quot;</span>)) <span class="co"># add space for titles</span></span>
-<span id="cb426-5"><a href="heatmap-decoration.html#cb426-5"></a><span class="kw">decorate_annotation</span>(<span class="st">&quot;foo&quot;</span>, { </span>
-<span id="cb426-6"><a href="heatmap-decoration.html#cb426-6"></a>    <span class="kw">grid.text</span>(<span class="st">&quot;title for barplot&quot;</span>, <span class="dt">y =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>) </span>
-<span id="cb426-7"><a href="heatmap-decoration.html#cb426-7"></a>})</span>
-<span id="cb426-8"><a href="heatmap-decoration.html#cb426-8"></a><span class="kw">decorate_annotation</span>(<span class="st">&quot;bar&quot;</span>, { </span>
-<span id="cb426-9"><a href="heatmap-decoration.html#cb426-9"></a>    <span class="kw">grid.text</span>(<span class="st">&quot;title for boxplot&quot;</span>, <span class="dt">y =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>) </span>
-<span id="cb426-10"><a href="heatmap-decoration.html#cb426-10"></a>})</span>
-<span id="cb426-11"><a href="heatmap-decoration.html#cb426-11"></a><span class="kw">decorate_heatmap_body</span>(<span class="st">&quot;mat&quot;</span>, {</span>
-<span id="cb426-12"><a href="heatmap-decoration.html#cb426-12"></a>    <span class="kw">grid.text</span>(<span class="st">&quot;title for the heatmap&quot;</span>, <span class="dt">y =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>)</span>
-<span id="cb426-13"><a href="heatmap-decoration.html#cb426-13"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="heatmap-decoration.html#cb456-1"></a>ht_list =<span class="st"> </span><span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>), <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">show_column_dend =</span> <span class="ot">FALSE</span>) <span class="op">+</span></span>
+<span id="cb456-2"><a href="heatmap-decoration.html#cb456-2"></a><span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))) <span class="op">+</span></span>
+<span id="cb456-3"><a href="heatmap-decoration.html#cb456-3"></a><span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_boxplot</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>)), <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))</span>
+<span id="cb456-4"><a href="heatmap-decoration.html#cb456-4"></a><span class="kw">draw</span>(ht_list, <span class="dt">padding =</span> <span class="kw">unit</span>(<span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">2</span>), <span class="st">&quot;mm&quot;</span>)) <span class="co"># add space for titles</span></span>
+<span id="cb456-5"><a href="heatmap-decoration.html#cb456-5"></a><span class="kw">decorate_annotation</span>(<span class="st">&quot;foo&quot;</span>, { </span>
+<span id="cb456-6"><a href="heatmap-decoration.html#cb456-6"></a>    <span class="kw">grid.text</span>(<span class="st">&quot;title for barplot&quot;</span>, <span class="dt">y =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>) </span>
+<span id="cb456-7"><a href="heatmap-decoration.html#cb456-7"></a>})</span>
+<span id="cb456-8"><a href="heatmap-decoration.html#cb456-8"></a><span class="kw">decorate_annotation</span>(<span class="st">&quot;bar&quot;</span>, { </span>
+<span id="cb456-9"><a href="heatmap-decoration.html#cb456-9"></a>    <span class="kw">grid.text</span>(<span class="st">&quot;title for boxplot&quot;</span>, <span class="dt">y =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>) </span>
+<span id="cb456-10"><a href="heatmap-decoration.html#cb456-10"></a>})</span>
+<span id="cb456-11"><a href="heatmap-decoration.html#cb456-11"></a><span class="kw">decorate_heatmap_body</span>(<span class="st">&quot;mat&quot;</span>, {</span>
+<span id="cb456-12"><a href="heatmap-decoration.html#cb456-12"></a>    <span class="kw">grid.text</span>(<span class="st">&quot;title for the heatmap&quot;</span>, <span class="dt">y =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>)</span>
+<span id="cb456-13"><a href="heatmap-decoration.html#cb456-13"></a>})</span></code></pre></div>
 <p><img src="06-heatmap_decoration_files/figure-html/unnamed-chunk-2-1.png" width="768" style="display: block; margin: auto;" /></p>
-<p>This is basically the way we use in Section <a href="other-high-level-plots.html#stacked-summary-plot">10.2</a>.</p>
+<p>This is basically the way we use in Section <a href="other-high-level-plots.html#stacked-summary-plot">11.2</a>.</p>
 </div>
 <div id="other-possible-use-of-decorations" class="section level3" number="6.2.3">
 <h3><span class="header-section-number">6.2.3</span> Other possible use of decorations</h3>
 <p>There are some other examples where decoration is helpful:</p>
 <ul>
-<li>The quantile lines are added in <code>densityHeatmap()</code>, Section <a href="other-high-level-plots.html#density-heatmap">10.1</a>.</li>
-<li>Heatmap annotations are grouped by lines, Section <a href="more-examples.html#visualize-methylation-profile-with-complex-annotations">9.5</a>.</li>
-<li>Texts are added to heatmaps, Section <a href="more-examples.html#the-measles-vaccine-heatmap">9.2</a>.</li>
+<li>The quantile lines are added in <code>densityHeatmap()</code>, Section <a href="other-high-level-plots.html#density-heatmap">11.1</a>.</li>
+<li>Heatmap annotations are grouped by lines, Section <a href="more-examples.html#visualize-methylation-profile-with-complex-annotations">12.5</a>.</li>
+<li>Texts are added to heatmaps, Section <a href="more-examples.html#the-measles-vaccine-heatmap">12.2</a>.</li>
 </ul>
 
 </div>
@@ -556,9 +575,9 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["ComplexHeatmap-reference.epub"],
+"download": null,
 "toc": {
-"collapse": "subsection"
+"collapse": "none"
 }
 });
 });

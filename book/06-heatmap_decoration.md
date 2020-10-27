@@ -51,7 +51,7 @@ list_components()
 ## [33] "heatmap_heatmap_annotation_2"   "annotation_bar_1"              
 ## [35] "annotation_bar_2"               "global-column_title_top"       
 ## [37] "global_column_title"            "global-row_title_left"         
-## [39] "global_row_title"               "global-heamap_legend_right"    
+## [39] "global_row_title"               "global-heatmap_legend_right"   
 ## [41] "heatmap_legend"                 "global-annotation_legend_right"
 ## [43] "annotation_legend"
 ```

@@ -1166,7 +1166,7 @@ can be manually added by `decorate_annotation()` function. See following example
 ht = draw(UpSet(m))
 od = column_order(ht)
 cs = comb_size(m)
-decorate_annotation("Intersection\nsize", {
+decorate_annotation("intersection_size", {
     grid.text(cs[od], x = seq_along(cs), y = unit(cs[od], "native") + unit(2, "pt"), 
         default.units = "native", just = "bottom", gp = gpar(fontsize = 8))
 })
@@ -1589,13 +1589,13 @@ UpSet(m,
 	top_annotation = upset_top_annotation(
 		m,
 		axis_param = list(at = c(0, 1e7, 2e7),
-			labels = c("0MB", "10MB", "20MB")),
+			labels = c("0Mb", "10Mb", "20Mb")),
 		height = unit(4, "cm")
 	),
 	right_annotation = upset_right_annotation(
 		m,
 		axis_param = list(at = c(0, 2e7, 4e7, 6e7),
-			labels = c("0MB", "20MB", "40MB", "60MB"),
+			labels = c("0Mb", "20Mb", "40Mb", "60Mb"),
 			labels_rot = 0),
 		width = unit(4, "cm")
 	))
@@ -1626,13 +1626,13 @@ UpSet(m,
 	top_annotation = upset_top_annotation(
 		m,
 		axis_param = list(at = c(0, 1e7, 2e7),
-			labels = c("0MB", "10MB", "20MB")),
+			labels = c("0Mb", "10Mb", "20Mb")),
 		height = unit(4, "cm")
 	),
 	right_annotation = upset_right_annotation(
 		m,
 		axis_param = list(at = c(0, 2e7, 4e7, 6e7),
-			labels = c("0MB", "20MB", "40MB", "60MB"),
+			labels = c("0Mb", "20Mb", "40Mb", "60Mb"),
 			labels_rot = 0),
 		width = unit(4, "cm")
 	),

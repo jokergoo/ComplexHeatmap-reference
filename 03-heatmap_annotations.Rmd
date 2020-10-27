@@ -31,7 +31,7 @@ and should be constructed by `HeatmapAnnotation()` function, or by
 just a helper function which is identical to `HeatmapAnnotation(..., which =
 "row")`) A simple usage of heatmap annotations is as follows.
 
-```{r}
+```{r, fig.width = 5.2}
 set.seed(123)
 mat = matrix(rnorm(100), 10)
 rownames(mat) = paste0("R", 1:10)
@@ -43,7 +43,7 @@ Heatmap(mat, name = "mat", top_annotation = column_ha, right_annotation = row_ha
 
 Or assign as bottom annotation and left annotation.
 
-```{r}
+```{r, fig.width = 5.2}
 Heatmap(mat, name = "mat", bottom_annotation = column_ha, left_annotation = row_ha)
 ```
 
@@ -92,7 +92,7 @@ you want to try row annotation, just add `which = "row"` to
 A so-called _"simple annotation"_ is the most used style of annotations which
 is heatmap-like or grid-like graphics where colors are used to map to the
 anntation values. To generate a simple annotation, you just simply put the
-annotation vector in `HeatmapAnnotation()` with a specific name.
+annotation vector in `HeatmapAnnotation()` with a certain name.
 
 ```{r}
 ha = HeatmapAnnotation(foo = 1:10)
@@ -318,8 +318,8 @@ columns. `anno_*()` automatically detects whether it is a row annotation
 environment or a column annotation environment.
 
 The simple annotation shown in previous section is internally constructed by
-`anno_simple()` annotation function. Directly using `anno_simple()` will not
-automatically generate legends for the final plot, but, it can provide more
+`anno_simple()` annotation function. Directly using `anno_simple()` **will not
+automatically generate legends for the final plot**, but, it can provide more
 flexibility for more annotation graphics (note In Chapter
 \@ref(legends) we will show, although `anno_simple()` cannot automatically generate the
 legends, the legends can be controlled and added to the final plot manually).
@@ -431,7 +431,7 @@ example, we assume the simple annotations are kind of p-values and we add `*`
 for p-values less than 0.01.
 
 
-```{r}
+```{r, fig.width = 5.2}
 set.seed(123)
 pvalue = 10^-runif(10, min = 0, max = 3)
 is_sig = pvalue < 0.01
@@ -445,7 +445,7 @@ ha = HeatmapAnnotation(
 ht = Heatmap(matrix(rnorm(100), 10), name = "mat", top_annotation = ha)
 # now we generate two legends, one for the p-value
 # see how we define the legend for pvalue
-lgd_pvalue = Legend(title = "p-value", col = pvalue_col_fun, at = c(0, 1, 2, 3), 
+lgd_pvalue = Legend(title = "p-value", col_fun = pvalue_col_fun, at = c(0, 1, 2, 3), 
     labels = c("1", "0.1", "0.01", "0.001"))
 # and one for the significant p-values
 lgd_sig = Legend(pch = "*", type = "points", labels = "< 0.01")
@@ -517,7 +517,7 @@ In following example, since rows are split into four slices, the empty
 annotation is also split into four slices. Basically what we do is in each
 empty annotation slice, we add a colored segment and text.
 
-```{r}
+```{r, fig.width = 5.2}
 random_text = function(n) {
     sapply(1:n, function(i) {
         paste0(sample(letters, sample(4:10, 1)), collapse = "")
@@ -554,7 +554,7 @@ only thing that needs to be careful is the location on x-axis (y-axis if it is
 a row annotation) should correspond to the column index after column
 reordering.
 
-```{r}
+```{r, fig.width = 5.2}
 ha = HeatmapAnnotation(foo = anno_empty(border = TRUE, height = unit(3, "cm")))
 ht = Heatmap(matrix(rnorm(100), nrow = 10), name = "mat", top_annotation = ha)
 ht = draw(ht)
@@ -580,7 +580,7 @@ decorate_annotation("foo", {
 The block annotation is more like a color block which identifies groups when
 the rows or columns of the heatmap are split.
 
-```{r}
+```{r, fig.width = 5.2}
 Heatmap(matrix(rnorm(100), 10), name = "mat",
     top_annotation = HeatmapAnnotation(foo = anno_block(gp = gpar(fill = 2:4))),
     column_km = 3)
@@ -588,7 +588,7 @@ Heatmap(matrix(rnorm(100), 10), name = "mat",
 
 Labels can be added to each block.
 
-```{r}
+```{r, fig.width = 5.2}
 Heatmap(matrix(rnorm(100), 10), 
     top_annotation = HeatmapAnnotation(foo = anno_block(gp = gpar(fill = 2:4),
         labels = c("group1", "group2", "group3"), 
@@ -602,6 +602,158 @@ Heatmap(matrix(rnorm(100), 10),
 
 Note the length of `labels` or graphic parameters should have the same length
 as the number of slices.
+
+`anno_block()` function draws rectangles for row/column slices where one
+rectangle only corresponds to one single slice. Then what if we want to draw
+the rectangles over several slices to show they belong to certain groups, like
+in the following heatmap?
+
+
+```{r, fig.width = 5.2}
+set.seed(123)
+mat2 = matrix(rnorm(50*50), nrow = 50)
+ha = HeatmapAnnotation(foo = anno_block(gp = gpar(fill = 2:6), labels = LETTERS[1:5]))
+split = rep(1:5, each = 10)
+Heatmap(mat2, name = "mat2", column_split = split, top_annotation = ha, 
+    column_title = NULL)
+```
+
+Currently, it is difficult to directly support it in `anno_block()`, however,
+there is workaround for it. Actually, to draw rectangles across several
+slices, we need to know two things: 1. the positions of the slices in the
+plot, and 2. space to draw the rectangles. Luckily, the positions can be
+obtained by directly go to the correspoding viewport and the space can be
+allocated by `anno_empty()` function.
+
+In the following code, we use `anno_empty()` to create an empty annotation:
+
+```{r, fig.width = 5.2}
+ha = HeatmapAnnotation(
+    empty = anno_empty(border = FALSE),
+    foo = anno_block(gp = gpar(fill = 2:6), labels = LETTERS[1:5])
+)
+Heatmap(mat2, name = "mat2", column_split = split, top_annotation = ha, 
+    column_title = NULL)
+```
+
+Let's say, we want to put the first three column slices as a group and the last two
+slices as the second group.
+
+The positions of the first and the third slices for annotation `"empty"` can be obtained by:
+
+```{r, eval = FALSE}
+seekViewport("annotation_empty_1")
+loc1 = deviceLoc(x = unit(0, "npc"), y = unit(0, "npc"))
+seekViewport("annotation_empty_3")
+loc2 = deviceLoc(x = unit(1, "npc"), y = unit(1, "npc"))
+loc2
+```
+
+```{r, echo = FALSE, fig.width = 5.2}
+pdf(NULL)
+ha = HeatmapAnnotation(
+    empty = anno_empty(border = FALSE),
+    foo = anno_block(gp = gpar(fill = 2:6), labels = LETTERS[1:5])
+)
+Heatmap(mat2, name = "mat2", column_split = split, top_annotation = ha, 
+    column_title = NULL)
+seekViewport("annotation_empty_1")
+loc1 = deviceLoc(x = unit(0, "npc"), y = unit(0, "npc"))
+seekViewport("annotation_empty_3")
+loc2 = deviceLoc(x = unit(1, "npc"), y = unit(1, "npc"))
+invisible(dev.off())
+loc2
+```
+
+
+The viewport name `"annotation_empty_1"` correspond to the first slice for
+annotation `empty`, and we take the left bottom of the first "empty"
+annotation slice and the top right of the third slice, saved in `loc1` and
+`loc2` variables.
+
+Here what is important is the use of `grid::deviceLoc()` function. It directly
+converts a location measured in a certain viewport to the position in
+the graphics device.
+
+In the end, we go to the `"global"` viewport because the size of `"global"`
+viewport is the size of the graphics device, and draw the rectangle and add
+label.
+
+```{r, eval = FALSE}
+seekViewport("global")
+grid.rect(loc1$x, loc1$y, width = loc2$x - loc1$x, height = loc2$y - loc1$y, 
+    just = c("left", "bottom"), gp = gpar(fill = "red"))
+grid.text("group 1", x = (loc1$x + loc2$x)*0.5, y = (loc1$y + loc2$y)*0.5)
+```
+
+```{r, echo = FALSE, fig.width = 5.2}
+ha = HeatmapAnnotation(
+    empty = anno_empty(border = FALSE),
+    foo = anno_block(gp = gpar(fill = 2:6), labels = LETTERS[1:5])
+)
+Heatmap(mat2, name = "mat2", column_split = split, top_annotation = ha, 
+    column_title = NULL)
+seekViewport("annotation_empty_1")
+loc1 = deviceLoc(x = unit(0, "npc"), y = unit(0, "npc"))
+seekViewport("annotation_empty_3")
+loc2 = deviceLoc(x = unit(1, "npc"), y = unit(1, "npc"))
+seekViewport("global")
+grid.rect(loc1$x, loc1$y, width = loc2$x - loc1$x, height = loc2$y - loc1$y, 
+    just = c("left", "bottom"), gp = gpar(fill = "red"))
+grid.text("group 1", x = (loc1$x + loc2$x)*0.5, y = (loc1$y + loc2$y)*0.5)
+```
+
+The viewport names for the annotations are in a fixed format, which is
+`annotation_{annotation_name}_{slice_index}`. The full set of viewport names
+can be obtained by `list_components()` function.
+
+```{r, eval = FALSE}
+list_components()
+```
+
+```{r, echo = FALSE, fig.width = 5.2}
+pdf(NULL)
+ha = HeatmapAnnotation(
+    empty = anno_empty(border = FALSE),
+    foo = anno_block(gp = gpar(fill = 2:6), labels = LETTERS[1:5])
+)
+Heatmap(mat2, name = "mat2", column_split = split, top_annotation = ha, 
+    column_title = NULL)
+list_components()
+invisible(dev.off())
+```
+
+If more than one group-level rectangles are to be added, we can wrap the code
+into a simple function `group_block_anno()`:
+
+```{r, fig.width = 5.2}
+ha = HeatmapAnnotation(
+    empty = anno_empty(border = FALSE, height = unit(8, "mm")),
+    foo = anno_block(gp = gpar(fill = 2:6), labels = LETTERS[1:5])
+)
+Heatmap(mat2, name = "mat2", column_split = split, top_annotation = ha, 
+    column_title = NULL)
+
+library(GetoptLong)  # for the function qq()
+group_block_anno = function(group, empty_anno, gp = gpar(), 
+    label = NULL, label_gp = gpar()) {
+
+    seekViewport(qq("annotation_@{empty_anno}_@{min(group)}"))
+    loc1 = deviceLoc(x = unit(0, "npc"), y = unit(0, "npc"))
+    seekViewport(qq("annotation_@{empty_anno}_@{max(group)}"))
+    loc2 = deviceLoc(x = unit(1, "npc"), y = unit(1, "npc"))
+
+    seekViewport("global")
+    grid.rect(loc1$x, loc1$y, width = loc2$x - loc1$x, height = loc2$y - loc1$y, 
+        just = c("left", "bottom"), gp = gp)
+    if(!is.null(label)) {
+        grid.text(label, x = (loc1$x + loc2$x)*0.5, y = (loc1$y + loc2$y)*0.5, gp = label_gp)
+    }
+}
+
+group_block_anno(1:3, "empty", gp = gpar(fill = "red"), label = "group 1")
+group_block_anno(4:5, "empty", gp = gpar(fill = "blue"), label = "group 2")
+```
 
 ## Image annotation {#image-annotation}
 
@@ -753,8 +905,8 @@ ha = rowAnnotation(foo = anno_points(runif(10), ylim = c(0, 1),
 draw(ha, test = TRUE)
 ```
 
-The configuration of axis is same for other annotation functions which have
-axes.
+**The configuration of axis is same for other annotation functions which have
+axes.**
 
 The default size of the points annotation is 5mm. It can be controlled by
 `height`/`width` argument in `anno_points()`.
@@ -1248,6 +1400,26 @@ ha = rowAnnotation(foo = anno_text(month.name, location = 0.5, just = "center",
 draw(ha, test = TRUE)
 ```
 
+More complicated texts can be drawn by integrating with the **gridtext**
+package (Section \@ref(gridtext-annotations)). A quick example is as follows:
+
+```{r}
+text = sapply(LETTERS[1:10], function(x) {
+    qq("<span style='color:red'>**@{x}**<sub>@{x}</sub></span>_@{x}_<sup>@{x}</sup>")
+})
+ha = rowAnnotation(
+    foo = anno_text(gt_render(text, align_widths = TRUE, 
+                        r = unit(2, "pt"),
+                        padding = unit(c(2, 2, 2, 2), "pt")), 
+                    gp = gpar(box_col = "blue", box_lwd = 2), 
+                    just = "right", 
+                    location = unit(1, "npc")
+    ))
+```
+
+```{r, echo = FALSE, fig.width = annotation_width(ha), fig.height = annotation_height(ha)}
+draw(ha, test = TRUE)
+```
 
 ## Mark annotation {#mark-annotation}
 
@@ -1258,11 +1430,36 @@ connect to labels with lines.
 `anno_mark()` at least needs two arguments where `at` are the indices to the
 original matrix and `labels` are the corresponding text.
 
-```{r}
+```{r, eval = FALSE}
 m = matrix(rnorm(1000), nrow = 100)
+rownames(m) = 1:100
 ha = rowAnnotation(foo = anno_mark(at = c(1:4, 20, 60, 97:100), labels = month.name[1:10]))
-Heatmap(m, name = "mat", cluster_rows = FALSE, right_annotation = ha)
+Heatmap(m, name = "mat", cluster_rows = FALSE, right_annotation = ha,
+    row_names_side = "left", row_names_gp = gpar(fontsize = 4))
 ```
+
+```{r, echo = FALSE}
+m = matrix(rnorm(1000), nrow = 100)
+rownames(m) = 1:100
+ha = rowAnnotation(foo = anno_mark(at = c(1:4, 20, 60, 97:100), labels = month.name[1:10]))
+ht1 = Heatmap(m, name = "mat", cluster_rows = FALSE, right_annotation = ha,
+    row_names_side = "left", row_names_gp = gpar(fontsize = 4))
+
+ht2 = Heatmap(m, name = "mat", cluster_rows = FALSE, right_annotation = ha,
+    row_names_side = "left", row_names_gp = gpar(fontsize = 4), row_km = 4)
+grid.newpage()
+pushViewport(viewport(x = 0.25, width = 0.5))
+draw(ht1, newpage = FALSE)
+popViewport()
+pushViewport(viewport(x = 0.75, width = 0.5))
+draw(ht2, newpage = FALSE)
+popViewport()
+```
+
+The calculation of positions of texts depends on the absolute size of the graphic
+device. If you resize the current interactive device or you use `grid.grabExpr()` 
+to capture the current plot, you might see the positions of texts are all corrupt.
+Please refer to Section \@ref(cowplot) for a solution.
 
 ## Summary annotation {#summary-annotation}
 
@@ -1311,7 +1508,7 @@ In following, we show a simple example of a "main heatmap" with two one-column
 heatmaps. The functionality of heatmap concatenation will be introduced in
 Chapter \@ref(a-list-of-heatmaps).
 
-```{r}
+```{r, fig.width = 5.2}
 m = matrix(rnorm(50*10), nrow = 50)
 ht_list = Heatmap(m, name = "main_matrix")
 
@@ -1333,16 +1530,12 @@ draw(ht_list, row_split = split, ht_gap = unit(5, "mm"),
 
 ## Zoom/link annotation {#zoom-annotation}
 
-It is very common scenario that we want to annotate subsets of rows/columns in
-the heatmap. `anno_zoom()` helps to create plotting regions that correspond to
-the original subsets of rows/columns in the heatmap. Since the height/width
-are usually different from that from the orignal subsets in the heatmap, these
-plotting regions created by `anno_zoom()` can be thought as "zoomings" of the
-original heatmap.
+`anno_mark()` connects single row or column on the heatmap to a label, the
+next annotation function `anno_link()` connects subsets of rows or columns to
+plotting regions where more comprehensive graphics can be added there. 
+See following example where we make boxplot for every row group.
 
-Let's see following example where we make boxplot for each row group.
-
-```{r}
+```{r, fig.width = 5.2}
 set.seed(123)
 m = matrix(rnorm(100*10), nrow = 100)
 subgroup = sample(letters[1:3], 100, replace = TRUE, prob = c(1, 5, 10))
@@ -1354,7 +1547,7 @@ panel_fun = function(index, nm) {
     grid.boxplot(m[index, ], pos = 1, direction = "horizontal")
     popViewport()
 }
-anno = anno_zoom(align_to = subgroup, which = "row", panel_fun = panel_fun, 
+anno = anno_link(align_to = subgroup, which = "row", panel_fun = panel_fun, 
     size = unit(2, "cm"), gap = unit(1, "cm"), width = unit(4, "cm"))
 Heatmap(m, name = "mat", right_annotation = rowAnnotation(foo = anno), row_split = subgroup)
 ```
@@ -1379,21 +1572,22 @@ The important arguments for `anno_zoom()` are:
    `size` can also be absolute units.
 4. `gap`: Gaps between boxes. It should be a `unit` object.
 
-`anno_zoom()` also works for column annotations.
+`anno_link()` also works for column annotations.
 
-In previous example, box plots in the "zoom annotation" use the same data as in the
-heatmap (they share using the same values in the matrix). In some other cases, the annotations 
-do not have very strong relations to the matrix, except the information of which
-rows from the matrix. In this case, the functionality is more proper
-to be understanded as to provide linking between subsets of rows and
-a list of graphic regions. Thus, there is an `anno_link()` function which is basically the same as `anno_zoom()`.
-The two functions are exactly the same, just with different names, depends
-how you understand. An example of using `anno_link()` is to correspond a list of text to a 
-subset of rows, see examples from https://github.com/jokergoo/simplifyEnrichment.
+Another example of using `anno_link()` is to correspond a list of word clouds to 
+groups of rows, see the blog post [Word cloud as heatmap annotation](https://jokergoo.github.io/2020/05/31/word-cloud-as-heatmap-annotation/) to find out how to implement it with `anno_link()`.
 
 <img src='https://user-images.githubusercontent.com/449218/79051702-027a4d00-7c32-11ea-887e-ed3e171a03a0.png'><br>
 
+Similar as `anno_mark()`, the positions of the plotting regions also depends
+on the absolute size of the graphic device. If you resize the current
+interactive device or you use `grid.grabExpr()` to capture the current plot,
+you might see the positions of texts are all corrupt. Please refer to Section
+\@ref(cowplot) for a solution.
+
 ## Multiple annotations {#multiple-annotations}
+
+### General settings {#heatmap-annotation-general-settings}
 
 As mentioned before, to put multiple annotations in `HeatmapAnnotation()`,
 they just need to be specified as name-value pairs. In `HeatmapAnnotation()`,
@@ -1413,7 +1607,7 @@ the value of `show_legend` should be in one of the following formats:
 
 For customization on the annotation legends, please refer to Section \@ref(heatmap-and-annotation-legends).
 
-```{r}
+```{r, fig.width = 5.2}
 ha = HeatmapAnnotation(foo = 1:10, 
     bar = cbind(1:10, 10:1),
     pt = anno_points(1:10),
@@ -1644,7 +1838,51 @@ ha = HeatmapAnnotation(foo = 1:10,
     pt = anno_points(1:10),
     annotation_label = c("Annotation_foo", "Annotation_bar", "Annotation_pt")
 )
+```
+
+```{r, echo = FALSE, fig.width = annotation_width(ha), fig.height = annotation_height(ha)}
+draw(ha, test = TRUE)
+```
+
+Annotation labels can also be set with complicated text:
+
+```{r}
+ha = HeatmapAnnotation(foo = 1:10, 
+    bar = cbind(1:10, 10:1),
+    pt = anno_points(1:10),
+    annotation_label = gt_render(
+        c("**Annotation**_<span style='color:red'>foo</span>", 
+          "**Annotation**_<span style='color:blue'>bar</span>", 
+          "**Annotation**_<span style='color:green'>pt</span>"),
+        gp = gpar(box_fill = "grey")
+    )
+)
+```
+
+```{r, echo = FALSE, fig.width = annotation_width(ha), fig.height = annotation_height(ha)}
+draw(ha, test = TRUE)
+```
+
+From version 2.5.6, rotations of annotation names can be configured.
+
+```{r, fig.width = 5.2}
+ha = HeatmapAnnotation(foo = 1:10, 
+    bar = cbind(1:10, 10:1),
+    pt = anno_points(1:10),
+    annotation_name_rot = 45
+)
 Heatmap(matrix(rnorm(100), 10), name = "mat", top_annotation = ha)
+```
+
+Or on the rows:
+
+```{r, fig.width = 5.2}
+ha = rowAnnotation(foo = 1:10, 
+    bar = cbind(1:10, 10:1),
+    pt = anno_points(1:10),
+    annotation_name_rot = 45
+)
+Heatmap(matrix(rnorm(100), 10), name = "mat", left_annotation = ha)
 ```
 
 
@@ -1687,7 +1925,7 @@ names(ha)
 draw(ha, test = TRUE)
 ```
 
-`HeatmapAnnoation` object sometimes is subsettable. The row index corresponds
+`HeatmapAnnotation` object sometimes is subsettable. The row index corresponds
 to observations in the annotation and column index corresponds to the
 annotations. If the annotations are all simple annotations or the complex
 annotation created by `anno_*()` functions in **ComplexHeatmap** package, the
@@ -1700,6 +1938,18 @@ ha_subset
 
 ```{r, echo = FALSE, fig.width = annotation_width(ha_subset), fig.height = annotation_height(ha_subset)}
 draw(ha_subset, test = TRUE)
+```
+
+The construction of heatmaps and annotations can be separated, later the annotations
+can be filled into the heatmap objects by the `attach_annotation()` function.
+
+```{r, eval = FALSE}
+# code only for demonstration
+ha1 = HeatmapAnnotation(foo = 1:10)
+ha2 = rowAnnotation(bar = letters[1:10])
+ht = Heatmap(mat)
+ht = attach_annotation(ht, ha1, side = "top")
+ht = attach_annotation(ht, ha2, side = "left")
 ```
 
 ## Implement new annotation functions {#implement-new-annotation-functions}
@@ -1775,7 +2025,7 @@ Heatmap(m, top_annotation = HeatmapAnnotation(foo = anno1),
     column_split = rep(c("A", "B"), each = 5))
 ```
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, fig.width = 5.2}
 m = rbind(1:10, 11:20)
 pushViewport(viewport(y = 1, height = 0.5, just = "top"))
 draw(Heatmap(m, top_annotation = HeatmapAnnotation(foo = anno1)), newpage = FALSE)
@@ -1835,7 +2085,7 @@ can also use `anno_empty()` and `decorate_annotation()` to quickly add
 self-defined annotation graphics. E.g. we can re-implement previous heatmap
 as:
 
-```{r, fig.height = 5/2}
+```{r, fig.height = 5/2, fig.width = 5.2}
 ht = Heatmap(m, top_annotation = HeatmapAnnotation(foo = anno_empty(height = unit(2, "cm"))), 
     column_split = rep(c("A", "B"), each = 5))
 ht = draw(ht)

@@ -74,7 +74,7 @@ lm(y ~ x)
 ## 
 ## Coefficients:
 ## (Intercept)            x  
-##      1.3150       0.1969
+##      1.2257       0.1969
 ```
 
 This means the relation between the number of rows `x` and the height of the plot `y` is: `y = 0.1969*x + 1.3150`.
@@ -145,7 +145,7 @@ Graphic parameters can also be specified inside `gt_render()`. Following is the 
 ..., column_title = gt_render("foo", gp = gpar(col = "red", box_fill = "blue")), ...
 ```
 
-### Titles
+### Titles {#gridtext-title}
 
 
 ```r
@@ -173,7 +173,7 @@ Heatmap(mat,
 
 <img src="11-other-tricks_files/figure-html/unnamed-chunk-13-1.png" width="480" style="display: block; margin: auto;" />
 
-### Row/column names
+### Row/column names {#gridtext-dimnames}
 
 Rendered row/column names should be explicitly specified by `row_labels`/`column_labels`
 
@@ -186,7 +186,7 @@ Heatmap(mat,
 
 <img src="11-other-tricks_files/figure-html/unnamed-chunk-14-1.png" width="480" style="display: block; margin: auto;" />
 
-### Annotation labels
+### Annotation labels {#gridtext-annotations}
 
 `annotation_label` argument should be as rendered text.
 
@@ -201,7 +201,7 @@ Heatmap(mat, top_annotation = ha)
 
 <img src="11-other-tricks_files/figure-html/unnamed-chunk-15-1.png" width="480" style="display: block; margin: auto;" />
 
-### Text annotation
+### Text annotation {#gridtext-anno-text}
 
 
 ```r
@@ -215,7 +215,7 @@ rowAnnotation(
 
 <img src="11-other-tricks_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" />
 
-### Legend
+### Legend {#gridtext-legends}
 
 
 ```r

@@ -22,10 +22,9 @@ split according to the heatmap body.
 A heatmap list is concatenation of a list of heatmaps and heatmap annotations.
 Surrounding the heatmap list, there are global-level titles and legends.
 
-One important things for the heatmap list is that rows for all heatmaps and
-annotations (it is row annotation if the heatmap list is horizontal.) are all
-adusted so that the same row in all heatmaps and annotations corresponds to a
-same feature.
+One important thing for the heatmap list is that rows for all heatmaps and
+annotations are all adjusted so that the same row in all heatmaps and
+annotations corresponds to a same feature.
 
 <img src="01-introduction_files/figure-html/unnamed-chunk-4-1.png" width="384" style="display: block; margin: auto;" />
 
@@ -101,6 +100,15 @@ This chapter describes how to make enhanced UpSet plots.
 
 This chapter describes functions implemented in **ComplexHeatmap** for
 specific use, e.g. visualizing distributions.
+
+- [**Integrate with other packages**](integrate-with-other-packages.html)
+
+This chapter describes how other packages are integrated with **ComplexHeatmap**. Currently,
+we demonstrate the two packages of **gridtext** and **pheatmap**.
+
+- [**Interactive heatmap**](interactive.html)
+
+This chapter describes how to make heatmaps interactive.
 
 - [**More Examples**](more-examples.html)
 

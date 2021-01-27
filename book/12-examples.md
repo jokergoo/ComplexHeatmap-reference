@@ -653,7 +653,6 @@ makes it easy to draw boxplot under **grid** system.
 ```r
 m1 = matrix(sort(rnorm(100)), 10, byrow = TRUE)
 m2 = matrix(sort(rnorm(100), decreasing = TRUE), 10, byrow = TRUE)
-nr = nrow(m1)
 
 ht_list = Heatmap(m1, name = "m1") + Heatmap(m2, name = "m2")
 
@@ -661,6 +660,7 @@ rg = range(c(m1, m2))
 rg[1] = rg[1] - (rg[2] - rg[1])* 0.02
 rg[2] = rg[2] + (rg[2] - rg[1])* 0.02
 anno_multiple_boxplot = function(index) {
+    nr = length(index)
     pushViewport(viewport(xscale = rg, yscale = c(0.5, nr + 0.5)))
     for(i in seq_along(index)) {
         grid.rect(y = nr-i+1, height = 1, default.units = "native")

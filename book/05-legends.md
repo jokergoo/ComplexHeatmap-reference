@@ -241,7 +241,7 @@ The default style for horizontal legend:
 lgd = Legend(col_fun = col_fun, title = "foo", direction = "horizontal")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-28-1.png" width="148.558110236221" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-28-1.png" width="151.700157480315" style="display: block; margin: auto;" />
 
 Manually set `at`:
 
@@ -251,7 +251,7 @@ lgd = Legend(col_fun = col_fun, title = "foo", at = c(0, 0.25, 0.5, 0.75, 1),
     direction = "horizontal")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-30-1.png" width="142.99811023622" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-30-1.png" width="140.056482939633" style="display: block; margin: auto;" />
 
 Manually set `labels`:
 
@@ -261,7 +261,7 @@ lgd = Legend(col_fun = col_fun, title = "foo", at = c(0, 0.5, 1),
     labels = c("low", "median", "high"), direction = "horizontal")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-32-1.png" width="148.19811023622" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-32-1.png" width="127.649133858268" style="display: block; margin: auto;" />
 
 Set `legend_width`:
 
@@ -281,7 +281,7 @@ lgd = Legend(col_fun = col_fun, title = "foo", labels_gp = gpar(col = "red", fon
     direction = "horizontal")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-36-1.png" width="148.558110236221" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-36-1.png" width="151.700157480315" style="display: block; margin: auto;" />
 
 Set rotations of labels.
 
@@ -291,7 +291,7 @@ lgd = Legend(col_fun = col_fun, title = "foo", labels_rot = 45,
     direction = "horizontal")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-38-1.png" width="170.398759384786" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-38-1.png" width="166.260590246026" style="display: block; margin: auto;" />
 
 Title can be set as `topleft`, `topcenter` or `lefttop` and `leftcenter`.
 
@@ -301,7 +301,7 @@ lgd = Legend(col_fun = col_fun, title = "foooooooo", direction = "horizontal",
     title_position = "topcenter")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-40-1.png" width="148.558110236221" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-40-1.png" width="151.700157480315" style="display: block; margin: auto;" />
 
 
 ```r
@@ -309,7 +309,7 @@ lgd = Legend(col_fun = col_fun, title = "foooooooo", direction = "horizontal",
     title_position = "lefttop")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-42-1.png" width="225.463832020997" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-42-1.png" width="228.605879265092" style="display: block; margin: auto;" />
 
 In examples we showed above, the intervals between every two break values are
 equal. Actually `at` can also be set as break values with uneuqal intervals.
@@ -342,7 +342,7 @@ lgd = Legend(col_fun = col_fun, title = "foo", at = c(0, 0.1, 0.15, 0.5, 0.9, 0.
     direction = "horizontal")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-48-1.png" width="198.598110236221" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-48-1.png" width="192.997165354331" style="display: block; margin: auto;" />
 
 Set rotations of labels to 90 degree.
 
@@ -353,7 +353,7 @@ lgd = Legend(col_fun = col_fun, title = "foo", at = c(0, 0.1, 0.15, 0.5, 0.9, 0.
     direction = "horizontal", title_position = "lefttop", labels_rot = 90)
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-50-1.png" width="143.663832020997" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-50-1.png" width="165.716220472441" style="display: block; margin: auto;" />
 
 When the position of title is set to `lefttop`, the area below the title will
 also be taken into account when calculating the adjusted positions of labels.
@@ -365,7 +365,7 @@ lgd = Legend(col_fun = col_fun, title = "foo", at = c(0, 0.1, 0.5, 0.75, 1),
     direction = "horizontal", title_position = "lefttop")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-52-1.png" width="313.223832020997" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-52-1.png" width="262.882204724409" style="display: block; margin: auto;" />
 
 
 ## Discrete legends {#discrete-legends}
@@ -740,7 +740,7 @@ pd = packLegend(lgd1, lgd2, lgd3, lgd1, lgd2, lgd3, max_width = unit(10, "cm"),
     direction = "horizontal", column_gap = unit(5, "mm"), row_gap = unit(1, "cm"))
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-113-1.png" width="357.556850393701" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-113-1.png" width="354.615223097113" style="display: block; margin: auto;" />
 
 The packed legends `pd` is also a `Legends` object, which means you can use
 `draw()` to draw it by specifying the positions.
@@ -916,7 +916,7 @@ chr
 ```
 
 ```
-##  [1] "c" "c" "c" "c" "b" "b" "c" "b" "c" "a"
+##  [1] "a" "a" "a" "c" "b" "a" "c" "b" "c" "c"
 ```
 
 ```r

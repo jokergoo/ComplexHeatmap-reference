@@ -752,34 +752,35 @@ ht_opt
 ```
 
 ```
-##  Option                    Value             
-##  -------------------------:--------------------
-##  heatmap_row_names_gp      NULL              
-##  heatmap_column_names_gp   NULL              
-##  heatmap_row_title_gp      NULL              
-##  heatmap_column_title_gp   NULL              
-##  legend_title_gp           NULL              
-##  legend_title_position     NULL              
-##  legend_labels_gp          NULL              
-##  legend_grid_height        NULL              
-##  legend_grid_width         NULL              
-##  legend_border             NULL              
-##  legend_gap                4mm, 4mm          
-##  heatmap_border            NULL              
-##  annotation_border         NULL              
-##  fast_hclust               FALSE             
-##  show_parent_dend_line     TRUE              
-##  verbose                   FALSE             
-##  message                   TRUE              
-##  show_vp                   FALSE             
-##  simple_anno_size          5mm               
-##  DENDROGRAM_PADDING        0.5mm             
-##  DIMNAME_PADDING           1mm               
-##  TITLE_PADDING             8.5points, 0points
-##  COLUMN_ANNO_PADDING       1mm               
-##  ROW_ANNO_PADDING          1mm               
-##  HEATMAP_LEGEND_PADDING    2mm               
-##  ANNOTATION_LEGEND_PADDING 2mm
+##  Option                    Value   
+##  -------------------------:----------
+##  heatmap_row_names_gp      NULL    
+##  heatmap_column_names_gp   NULL    
+##  heatmap_row_title_gp      NULL    
+##  heatmap_column_title_gp   NULL    
+##  legend_title_gp           NULL    
+##  legend_title_position     NULL    
+##  legend_labels_gp          NULL    
+##  legend_grid_height        NULL    
+##  legend_grid_width         NULL    
+##  legend_border             NULL    
+##  legend_gap                4mm, 4mm
+##  heatmap_border            NULL    
+##  annotation_border         NULL    
+##  fast_hclust               FALSE   
+##  show_parent_dend_line     TRUE    
+##  verbose                   FALSE   
+##  message                   TRUE    
+##  show_vp                   FALSE   
+##  simple_anno_size          5mm     
+##  DENDROGRAM_PADDING        0.5mm   
+##  DIMNAME_PADDING           1mm     
+##  TITLE_PADDING             NULL    
+##  COLUMN_ANNO_PADDING       1mm     
+##  ROW_ANNO_PADDING          1mm     
+##  HEATMAP_LEGEND_PADDING    2mm     
+##  ANNOTATION_LEGEND_PADDING 2mm     
+##  save_last                 FALSE
 ```
 
 There are following parameters to control all heatmaps:

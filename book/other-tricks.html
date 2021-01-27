@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 13 Other Tricks | ComplexHeatmap Complete Reference</title>
   <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 13 Other Tricks | ComplexHeatmap Complete Reference" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,7 @@
   
 <link rel="prev" href="more-examples.html"/>
 
-<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,6 +51,8 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -270,13 +272,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.7" data-path="upset-plot.html"><a href="upset-plot.html#example-with-the-movies-dataset"><i class="fa fa-check"></i><b>8.7</b> Example with the movies dataset</a></li>
 <li class="chapter" data-level="8.8" data-path="upset-plot.html"><a href="upset-plot.html#example-with-the-genomic-regions"><i class="fa fa-check"></i><b>8.8</b> Example with the genomic regions</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="interactive.html"><a href="interactive.html"><i class="fa fa-check"></i><b>9</b> Interactive ComplexHeatmap</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="interactive.html"><a href="interactive.html#on-the-interactive-graphics-device"><i class="fa fa-check"></i><b>9.1</b> On the interactive graphics device</a></li>
-<li class="chapter" data-level="9.2" data-path="interactive.html"><a href="interactive.html#on-other-devices"><i class="fa fa-check"></i><b>9.2</b> On other devices</a></li>
-<li class="chapter" data-level="9.3" data-path="interactive.html"><a href="interactive.html#shiny-app"><i class="fa fa-check"></i><b>9.3</b> Shiny app</a></li>
-<li class="chapter" data-level="9.4" data-path="interactive.html"><a href="interactive.html#implement-a-shiny-app-from-scratch"><i class="fa fa-check"></i><b>9.4</b> Implement a Shiny app from scratch</a></li>
-</ul></li>
+<li class="chapter" data-level="9" data-path="interactive.html"><a href="interactive.html"><i class="fa fa-check"></i><b>9</b> Interactive ComplexHeatmap</a></li>
 <li class="chapter" data-level="10" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html"><i class="fa fa-check"></i><b>10</b> Integrate with other packages</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#pheatmap"><i class="fa fa-check"></i><b>10.1</b> pheatmap</a>
@@ -351,11 +347,11 @@ the number of rows.</p>
 and the number of rows in the heatmap. We first define a function which generates a
 10-column matrix with specific number of rows. Note the values in the matrix is of no importance
 in this demonstration.</p>
-<div class="sourceCode" id="cb741"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb741-1"><a href="other-tricks.html#cb741-1"></a>random_mat =<span class="st"> </span><span class="cf">function</span>(nr) {</span>
-<span id="cb741-2"><a href="other-tricks.html#cb741-2"></a>    m =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">10</span><span class="op">*</span>nr), <span class="dt">nc =</span> <span class="dv">10</span>)</span>
-<span id="cb741-3"><a href="other-tricks.html#cb741-3"></a>    <span class="kw">colnames</span>(m) =<span class="st"> </span>letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span>
-<span id="cb741-4"><a href="other-tricks.html#cb741-4"></a>    <span class="kw">return</span>(m)</span>
-<span id="cb741-5"><a href="other-tricks.html#cb741-5"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb712"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb712-1"><a href="other-tricks.html#cb712-1"></a>random_mat =<span class="st"> </span><span class="cf">function</span>(nr) {</span>
+<span id="cb712-2"><a href="other-tricks.html#cb712-2"></a>    m =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">10</span><span class="op">*</span>nr), <span class="dt">nc =</span> <span class="dv">10</span>)</span>
+<span id="cb712-3"><a href="other-tricks.html#cb712-3"></a>    <span class="kw">colnames</span>(m) =<span class="st"> </span>letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span>
+<span id="cb712-4"><a href="other-tricks.html#cb712-4"></a>    <span class="kw">return</span>(m)</span>
+<span id="cb712-5"><a href="other-tricks.html#cb712-5"></a>}</span></code></pre></div>
 <p>Since the relation is absolutely linear, we only need to test two heatmaps with different number of
 rows where the height of a single row is <code>unit(5, "mm")</code>. In the heatmap, there are also column title,
 column dendrogram, column annotation and the column names.</p>
@@ -370,36 +366,36 @@ there are <code>2mm</code> white borders.</li>
 <li><code>ht_height</code> needs to be converted to a simple unit in <code>cm</code> or <code>inch</code>.</li>
 </ol>
 <p>In following, <code>y</code> contains values which are measured in <code>inch</code> unit.</p>
-<div class="sourceCode" id="cb742"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb742-1"><a href="other-tricks.html#cb742-1"></a>y =<span class="st"> </span><span class="ot">NULL</span></span>
-<span id="cb742-2"><a href="other-tricks.html#cb742-2"></a><span class="cf">for</span>(nr <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>)) {</span>
-<span id="cb742-3"><a href="other-tricks.html#cb742-3"></a>    ht =<span class="st"> </span><span class="kw">draw</span>(<span class="kw">Heatmap</span>(<span class="kw">random_mat</span>(nr), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>)<span class="op">*</span>nr, </span>
-<span id="cb742-4"><a href="other-tricks.html#cb742-4"></a>        <span class="dt">column_title =</span> <span class="st">&quot;foo&quot;</span>, <span class="co"># one line text</span></span>
-<span id="cb742-5"><a href="other-tricks.html#cb742-5"></a>        <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">bar =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)))</span>
-<span id="cb742-6"><a href="other-tricks.html#cb742-6"></a>    ht_height =<span class="st"> </span><span class="kw">sum</span>(<span class="kw">component_height</span>(ht)) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;mm&quot;</span>)</span>
-<span id="cb742-7"><a href="other-tricks.html#cb742-7"></a>    ht_height =<span class="st"> </span><span class="kw">convertHeight</span>(ht_height, <span class="st">&quot;inch&quot;</span>, <span class="dt">valueOnly =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb742-8"><a href="other-tricks.html#cb742-8"></a>    y =<span class="st"> </span><span class="kw">c</span>(y, ht_height)</span>
-<span id="cb742-9"><a href="other-tricks.html#cb742-9"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb713"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb713-1"><a href="other-tricks.html#cb713-1"></a>y =<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb713-2"><a href="other-tricks.html#cb713-2"></a><span class="cf">for</span>(nr <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>)) {</span>
+<span id="cb713-3"><a href="other-tricks.html#cb713-3"></a>    ht =<span class="st"> </span><span class="kw">draw</span>(<span class="kw">Heatmap</span>(<span class="kw">random_mat</span>(nr), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>)<span class="op">*</span>nr, </span>
+<span id="cb713-4"><a href="other-tricks.html#cb713-4"></a>        <span class="dt">column_title =</span> <span class="st">&quot;foo&quot;</span>, <span class="co"># one line text</span></span>
+<span id="cb713-5"><a href="other-tricks.html#cb713-5"></a>        <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">bar =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)))</span>
+<span id="cb713-6"><a href="other-tricks.html#cb713-6"></a>    ht_height =<span class="st"> </span><span class="kw">sum</span>(<span class="kw">component_height</span>(ht)) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;mm&quot;</span>)</span>
+<span id="cb713-7"><a href="other-tricks.html#cb713-7"></a>    ht_height =<span class="st"> </span><span class="kw">convertHeight</span>(ht_height, <span class="st">&quot;inch&quot;</span>, <span class="dt">valueOnly =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb713-8"><a href="other-tricks.html#cb713-8"></a>    y =<span class="st"> </span><span class="kw">c</span>(y, ht_height)</span>
+<span id="cb713-9"><a href="other-tricks.html#cb713-9"></a>}</span></code></pre></div>
 <p>Then we can fit a linear relation between <code>y</code> and the number of rows:</p>
-<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb743-1"><a href="other-tricks.html#cb743-1"></a>x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>)</span>
-<span id="cb743-2"><a href="other-tricks.html#cb743-2"></a><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x)</span></code></pre></div>
+<div class="sourceCode" id="cb714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb714-1"><a href="other-tricks.html#cb714-1"></a>x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>)</span>
+<span id="cb714-2"><a href="other-tricks.html#cb714-2"></a><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = y ~ x)
 ## 
 ## Coefficients:
 ## (Intercept)            x  
-##      1.2257       0.1969</code></pre>
+##      1.2222       0.1969</code></pre>
 <p>This means the relation between the number of rows <code>x</code> and the height of the plot <code>y</code> is: <code>y = 0.1969*x + 1.3150</code>.</p>
 <p>You can test whether the height of single rows are the same for heatmaps with different rows by following code.
 Note all the heatmap configuations should be the same as the ones you prepare <code>y</code>.</p>
-<div class="sourceCode" id="cb745"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb745-1"><a href="other-tricks.html#cb745-1"></a><span class="cf">for</span>(nr <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>)) {</span>
-<span id="cb745-2"><a href="other-tricks.html#cb745-2"></a>    <span class="kw">png</span>(<span class="kw">paste0</span>(<span class="st">&quot;test_heatmap_nr_&quot;</span>, nr, <span class="st">&quot;.png&quot;</span>), <span class="dt">width =</span> <span class="dv">5</span>, <span class="dt">height =</span> <span class="fl">0.1969</span><span class="op">*</span>nr <span class="op">+</span><span class="st"> </span><span class="fl">1.3150</span>, </span>
-<span id="cb745-3"><a href="other-tricks.html#cb745-3"></a>        <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>, <span class="dt">res =</span> <span class="dv">100</span>)</span>
-<span id="cb745-4"><a href="other-tricks.html#cb745-4"></a>    <span class="kw">draw</span>(<span class="kw">Heatmap</span>(<span class="kw">random_mat</span>(nr), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>)<span class="op">*</span>nr, </span>
-<span id="cb745-5"><a href="other-tricks.html#cb745-5"></a>        <span class="dt">column_title =</span> <span class="st">&quot;foo&quot;</span>, <span class="co"># column title can be any one-line string</span></span>
-<span id="cb745-6"><a href="other-tricks.html#cb745-6"></a>        <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">bar =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)))</span>
-<span id="cb745-7"><a href="other-tricks.html#cb745-7"></a>    <span class="kw">dev.off</span>()</span>
-<span id="cb745-8"><a href="other-tricks.html#cb745-8"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb716-1"><a href="other-tricks.html#cb716-1"></a><span class="cf">for</span>(nr <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>)) {</span>
+<span id="cb716-2"><a href="other-tricks.html#cb716-2"></a>    <span class="kw">png</span>(<span class="kw">paste0</span>(<span class="st">&quot;test_heatmap_nr_&quot;</span>, nr, <span class="st">&quot;.png&quot;</span>), <span class="dt">width =</span> <span class="dv">5</span>, <span class="dt">height =</span> <span class="fl">0.1969</span><span class="op">*</span>nr <span class="op">+</span><span class="st"> </span><span class="fl">1.3150</span>, </span>
+<span id="cb716-3"><a href="other-tricks.html#cb716-3"></a>        <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>, <span class="dt">res =</span> <span class="dv">100</span>)</span>
+<span id="cb716-4"><a href="other-tricks.html#cb716-4"></a>    <span class="kw">draw</span>(<span class="kw">Heatmap</span>(<span class="kw">random_mat</span>(nr), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>)<span class="op">*</span>nr, </span>
+<span id="cb716-5"><a href="other-tricks.html#cb716-5"></a>        <span class="dt">column_title =</span> <span class="st">&quot;foo&quot;</span>, <span class="co"># column title can be any one-line string</span></span>
+<span id="cb716-6"><a href="other-tricks.html#cb716-6"></a>        <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">bar =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)))</span>
+<span id="cb716-7"><a href="other-tricks.html#cb716-7"></a>    <span class="kw">dev.off</span>()</span>
+<span id="cb716-8"><a href="other-tricks.html#cb716-8"></a>}</span></code></pre></div>
 <p><img src="13-other-tricks_files/figure-html/unnamed-chunk-7-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><img src="13-other-tricks_files/figure-html/unnamed-chunk-8-1.png" width="480" style="display: block; margin: auto;" /></p>
 
@@ -453,7 +449,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["ComplexHeatmap-reference.epub"],
 "toc": {
 "collapse": "none"
 }

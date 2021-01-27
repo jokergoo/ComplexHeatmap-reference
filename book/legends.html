@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Legends | ComplexHeatmap Complete Reference</title>
   <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Legends | ComplexHeatmap Complete Reference" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,7 @@
   
 <link rel="prev" href="a-list-of-heatmaps.html"/>
 <link rel="next" href="heatmap-decoration.html"/>
-<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,6 +51,8 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -270,13 +272,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.7" data-path="upset-plot.html"><a href="upset-plot.html#example-with-the-movies-dataset"><i class="fa fa-check"></i><b>8.7</b> Example with the movies dataset</a></li>
 <li class="chapter" data-level="8.8" data-path="upset-plot.html"><a href="upset-plot.html#example-with-the-genomic-regions"><i class="fa fa-check"></i><b>8.8</b> Example with the genomic regions</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="interactive.html"><a href="interactive.html"><i class="fa fa-check"></i><b>9</b> Interactive ComplexHeatmap</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="interactive.html"><a href="interactive.html#on-the-interactive-graphics-device"><i class="fa fa-check"></i><b>9.1</b> On the interactive graphics device</a></li>
-<li class="chapter" data-level="9.2" data-path="interactive.html"><a href="interactive.html#on-other-devices"><i class="fa fa-check"></i><b>9.2</b> On other devices</a></li>
-<li class="chapter" data-level="9.3" data-path="interactive.html"><a href="interactive.html#shiny-app"><i class="fa fa-check"></i><b>9.3</b> Shiny app</a></li>
-<li class="chapter" data-level="9.4" data-path="interactive.html"><a href="interactive.html#implement-a-shiny-app-from-scratch"><i class="fa fa-check"></i><b>9.4</b> Implement a Shiny app from scratch</a></li>
-</ul></li>
+<li class="chapter" data-level="9" data-path="interactive.html"><a href="interactive.html"><i class="fa fa-check"></i><b>9</b> Interactive ComplexHeatmap</a></li>
 <li class="chapter" data-level="10" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html"><i class="fa fa-check"></i><b>10</b> Integrate with other packages</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#pheatmap"><i class="fa fa-check"></i><b>10.1</b> pheatmap</a>
@@ -469,15 +465,15 @@ the title position can only be one of <code>topcenter</code>, <code>topleft</cod
 <code>leftcenter</code>.</p>
 <p>The default style for horizontal legend:</p>
 <div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="legends.html#cb389-1"></a>lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</span></code></pre></div>
-<p><img src="05-legends_files/figure-html/unnamed-chunk-28-1.png" width="148.558110236221" style="display: block; margin: auto;" /></p>
+<p><img src="05-legends_files/figure-html/unnamed-chunk-28-1.png" width="151.700157480315" style="display: block; margin: auto;" /></p>
 <p>Manually set <code>at</code>:</p>
 <div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="legends.html#cb390-1"></a>lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="dv">1</span>), </span>
 <span id="cb390-2"><a href="legends.html#cb390-2"></a>    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</span></code></pre></div>
-<p><img src="05-legends_files/figure-html/unnamed-chunk-30-1.png" width="142.99811023622" style="display: block; margin: auto;" /></p>
+<p><img src="05-legends_files/figure-html/unnamed-chunk-30-1.png" width="140.056482939633" style="display: block; margin: auto;" /></p>
 <p>Manually set <code>labels</code>:</p>
 <div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="legends.html#cb391-1"></a>lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>), </span>
 <span id="cb391-2"><a href="legends.html#cb391-2"></a>    <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;low&quot;</span>, <span class="st">&quot;median&quot;</span>, <span class="st">&quot;high&quot;</span>), <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</span></code></pre></div>
-<p><img src="05-legends_files/figure-html/unnamed-chunk-32-1.png" width="148.19811023622" style="display: block; margin: auto;" /></p>
+<p><img src="05-legends_files/figure-html/unnamed-chunk-32-1.png" width="127.649133858268" style="display: block; margin: auto;" /></p>
 <p>Set <code>legend_width</code>:</p>
 <div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="legends.html#cb392-1"></a>lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">legend_width =</span> <span class="kw">unit</span>(<span class="dv">6</span>, <span class="st">&quot;cm&quot;</span>), </span>
 <span id="cb392-2"><a href="legends.html#cb392-2"></a>    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</span></code></pre></div>
@@ -485,18 +481,18 @@ the title position can only be one of <code>topcenter</code>, <code>topleft</cod
 <p>Set graphic parameters for labels:</p>
 <div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="legends.html#cb393-1"></a>lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">labels_gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">font =</span> <span class="dv">3</span>), </span>
 <span id="cb393-2"><a href="legends.html#cb393-2"></a>    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</span></code></pre></div>
-<p><img src="05-legends_files/figure-html/unnamed-chunk-36-1.png" width="148.558110236221" style="display: block; margin: auto;" /></p>
+<p><img src="05-legends_files/figure-html/unnamed-chunk-36-1.png" width="151.700157480315" style="display: block; margin: auto;" /></p>
 <p>Set rotations of labels.</p>
 <div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="legends.html#cb394-1"></a>lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">labels_rot =</span> <span class="dv">45</span>, </span>
 <span id="cb394-2"><a href="legends.html#cb394-2"></a>    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</span></code></pre></div>
-<p><img src="05-legends_files/figure-html/unnamed-chunk-38-1.png" width="170.398759384786" style="display: block; margin: auto;" /></p>
+<p><img src="05-legends_files/figure-html/unnamed-chunk-38-1.png" width="166.260590246026" style="display: block; margin: auto;" /></p>
 <p>Title can be set as <code>topleft</code>, <code>topcenter</code> or <code>lefttop</code> and <code>leftcenter</code>.</p>
 <div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="legends.html#cb395-1"></a>lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foooooooo&quot;</span>, <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>, </span>
 <span id="cb395-2"><a href="legends.html#cb395-2"></a>    <span class="dt">title_position =</span> <span class="st">&quot;topcenter&quot;</span>)</span></code></pre></div>
-<p><img src="05-legends_files/figure-html/unnamed-chunk-40-1.png" width="148.558110236221" style="display: block; margin: auto;" /></p>
+<p><img src="05-legends_files/figure-html/unnamed-chunk-40-1.png" width="151.700157480315" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="legends.html#cb396-1"></a>lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foooooooo&quot;</span>, <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>, </span>
 <span id="cb396-2"><a href="legends.html#cb396-2"></a>    <span class="dt">title_position =</span> <span class="st">&quot;lefttop&quot;</span>)</span></code></pre></div>
-<p><img src="05-legends_files/figure-html/unnamed-chunk-42-1.png" width="225.463832020997" style="display: block; margin: auto;" /></p>
+<p><img src="05-legends_files/figure-html/unnamed-chunk-42-1.png" width="228.605879265092" style="display: block; margin: auto;" /></p>
 <p>In examples we showed above, the intervals between every two break values are
 equal. Actually <code>at</code> can also be set as break values with uneuqal intervals.
 In this scenario, the ticks on the legend are still at the original places
@@ -511,17 +507,17 @@ there are lines connecting the ticks and the labels.</p>
 <p>It is similar for the horizontal legends:</p>
 <div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="legends.html#cb399-1"></a>lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.1</span>, <span class="fl">0.15</span>, <span class="fl">0.5</span>, <span class="fl">0.9</span>, <span class="fl">0.95</span>, <span class="dv">1</span>),</span>
 <span id="cb399-2"><a href="legends.html#cb399-2"></a>    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</span></code></pre></div>
-<p><img src="05-legends_files/figure-html/unnamed-chunk-48-1.png" width="198.598110236221" style="display: block; margin: auto;" /></p>
+<p><img src="05-legends_files/figure-html/unnamed-chunk-48-1.png" width="192.997165354331" style="display: block; margin: auto;" /></p>
 <p>Set rotations of labels to 90 degree.</p>
 <div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="legends.html#cb400-1"></a>lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.1</span>, <span class="fl">0.15</span>, <span class="fl">0.5</span>, <span class="fl">0.9</span>, <span class="fl">0.95</span>, <span class="dv">1</span>),</span>
 <span id="cb400-2"><a href="legends.html#cb400-2"></a>    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>, <span class="dt">title_position =</span> <span class="st">&quot;lefttop&quot;</span>, <span class="dt">labels_rot =</span> <span class="dv">90</span>)</span></code></pre></div>
-<p><img src="05-legends_files/figure-html/unnamed-chunk-50-1.png" width="143.663832020997" style="display: block; margin: auto;" /></p>
+<p><img src="05-legends_files/figure-html/unnamed-chunk-50-1.png" width="165.716220472441" style="display: block; margin: auto;" /></p>
 <p>When the position of title is set to <code>lefttop</code>, the area below the title will
 also be taken into account when calculating the adjusted positions of labels.</p>
 <div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="legends.html#cb401-1"></a>lgd =<span class="st"> </span><span class="kw">Legend</span>(<span class="dt">col_fun =</span> col_fun, <span class="dt">title =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.1</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="dv">1</span>),</span>
 <span id="cb401-2"><a href="legends.html#cb401-2"></a>    <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;mininal&quot;</span>, <span class="st">&quot;q10&quot;</span>, <span class="st">&quot;median&quot;</span>, <span class="st">&quot;q75&quot;</span>, <span class="st">&quot;maximal&quot;</span>),</span>
 <span id="cb401-3"><a href="legends.html#cb401-3"></a>    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>, <span class="dt">title_position =</span> <span class="st">&quot;lefttop&quot;</span>)</span></code></pre></div>
-<p><img src="05-legends_files/figure-html/unnamed-chunk-52-1.png" width="313.223832020997" style="display: block; margin: auto;" /></p>
+<p><img src="05-legends_files/figure-html/unnamed-chunk-52-1.png" width="262.882204724409" style="display: block; margin: auto;" /></p>
 </div>
 <div id="discrete-legends" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Discrete legends</h2>
@@ -699,7 +695,7 @@ space between two columns.</p>
 <span id="cb435-5"><a href="legends.html#cb435-5"></a></span>
 <span id="cb435-6"><a href="legends.html#cb435-6"></a>pd =<span class="st"> </span><span class="kw">packLegend</span>(lgd1, lgd2, lgd3, lgd1, lgd2, lgd3, <span class="dt">max_width =</span> <span class="kw">unit</span>(<span class="dv">10</span>, <span class="st">&quot;cm&quot;</span>), </span>
 <span id="cb435-7"><a href="legends.html#cb435-7"></a>    <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>, <span class="dt">column_gap =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">row_gap =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>))</span></code></pre></div>
-<p><img src="05-legends_files/figure-html/unnamed-chunk-113-1.png" width="357.556850393701" style="display: block; margin: auto;" /></p>
+<p><img src="05-legends_files/figure-html/unnamed-chunk-113-1.png" width="354.615223097113" style="display: block; margin: auto;" /></p>
 <p>The packed legends <code>pd</code> is also a <code>Legends</code> object, which means you can use
 <code>draw()</code> to draw it by specifying the positions.</p>
 <div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="legends.html#cb436-1"></a>pd =<span class="st"> </span><span class="kw">packLegend</span>(lgd1, lgd2, lgd3, <span class="dt">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</span>
@@ -814,7 +810,7 @@ fine-tuned by setting <code>at</code> and <code>labels</code> parameters in <cod
 in <code>Heatmap()</code>/<code>HeamtapAnnotation()</code> functions respectively.</p>
 <div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="legends.html#cb445-1"></a>chr =<span class="st"> </span><span class="kw">sample</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
 <span id="cb445-2"><a href="legends.html#cb445-2"></a>chr</span></code></pre></div>
-<pre><code>##  [1] &quot;c&quot; &quot;c&quot; &quot;c&quot; &quot;c&quot; &quot;b&quot; &quot;b&quot; &quot;c&quot; &quot;b&quot; &quot;c&quot; &quot;a&quot;</code></pre>
+<pre><code>##  [1] &quot;a&quot; &quot;a&quot; &quot;a&quot; &quot;c&quot; &quot;b&quot; &quot;a&quot; &quot;c&quot; &quot;b&quot; &quot;c&quot; &quot;c&quot;</code></pre>
 <div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="legends.html#cb447-1"></a>fa1 =<span class="st"> </span><span class="kw">factor</span>(chr)</span>
 <span id="cb447-2"><a href="legends.html#cb447-2"></a>fa2 =<span class="st"> </span><span class="kw">factor</span>(chr, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;c&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>))</span>
 <span id="cb447-3"><a href="legends.html#cb447-3"></a><span class="kw">Heatmap</span>(m, <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">chr =</span> chr, <span class="dt">fa1 =</span> fa1, <span class="dt">fa2 =</span> fa2, <span class="dt">fa3 =</span> fa2,</span>
@@ -946,7 +942,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["ComplexHeatmap-reference.epub"],
 "toc": {
 "collapse": "none"
 }

@@ -74,7 +74,7 @@ lm(y ~ x)
 ## 
 ## Coefficients:
 ## (Intercept)            x  
-##      1.2257       0.1969
+##      1.2222       0.1969
 ```
 
 This means the relation between the number of rows `x` and the height of the plot `y` is: `y = 0.1969*x + 1.3150`.

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Heatmap Annotations | ComplexHeatmap Complete Reference</title>
   <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Heatmap Annotations | ComplexHeatmap Complete Reference" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,7 @@
   
 <link rel="prev" href="a-single-heatmap.html"/>
 <link rel="next" href="a-list-of-heatmaps.html"/>
-<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,6 +51,8 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -270,13 +272,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.7" data-path="upset-plot.html"><a href="upset-plot.html#example-with-the-movies-dataset"><i class="fa fa-check"></i><b>8.7</b> Example with the movies dataset</a></li>
 <li class="chapter" data-level="8.8" data-path="upset-plot.html"><a href="upset-plot.html#example-with-the-genomic-regions"><i class="fa fa-check"></i><b>8.8</b> Example with the genomic regions</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="interactive.html"><a href="interactive.html"><i class="fa fa-check"></i><b>9</b> Interactive ComplexHeatmap</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="interactive.html"><a href="interactive.html#on-the-interactive-graphics-device"><i class="fa fa-check"></i><b>9.1</b> On the interactive graphics device</a></li>
-<li class="chapter" data-level="9.2" data-path="interactive.html"><a href="interactive.html#on-other-devices"><i class="fa fa-check"></i><b>9.2</b> On other devices</a></li>
-<li class="chapter" data-level="9.3" data-path="interactive.html"><a href="interactive.html#shiny-app"><i class="fa fa-check"></i><b>9.3</b> Shiny app</a></li>
-<li class="chapter" data-level="9.4" data-path="interactive.html"><a href="interactive.html#implement-a-shiny-app-from-scratch"><i class="fa fa-check"></i><b>9.4</b> Implement a Shiny app from scratch</a></li>
-</ul></li>
+<li class="chapter" data-level="9" data-path="interactive.html"><a href="interactive.html"><i class="fa fa-check"></i><b>9</b> Interactive ComplexHeatmap</a></li>
 <li class="chapter" data-level="10" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html"><i class="fa fa-check"></i><b>10</b> Integrate with other packages</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#pheatmap"><i class="fa fa-check"></i><b>10.1</b> pheatmap</a>
@@ -1203,7 +1199,9 @@ original matrix and <code>labels</code> are the corresponding text.</p>
 <span id="cb265-2"><a href="heatmap-annotations.html#cb265-2"></a><span class="kw">rownames</span>(m) =<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">100</span></span>
 <span id="cb265-3"><a href="heatmap-annotations.html#cb265-3"></a>ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">foo =</span> <span class="kw">anno_mark</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dv">20</span>, <span class="dv">60</span>, <span class="dv">97</span><span class="op">:</span><span class="dv">100</span>), <span class="dt">labels =</span> month.name[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]))</span>
 <span id="cb265-4"><a href="heatmap-annotations.html#cb265-4"></a><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">cluster_rows =</span> <span class="ot">FALSE</span>, <span class="dt">right_annotation =</span> ha,</span>
-<span id="cb265-5"><a href="heatmap-annotations.html#cb265-5"></a>    <span class="dt">row_names_side =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">row_names_gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">4</span>))</span></code></pre></div>
+<span id="cb265-5"><a href="heatmap-annotations.html#cb265-5"></a>    <span class="dt">row_names_side =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">row_names_gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">4</span>))</span>
+<span id="cb265-6"><a href="heatmap-annotations.html#cb265-6"></a><span class="kw">Heatmap</span>(m, <span class="dt">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="dt">cluster_rows =</span> <span class="ot">FALSE</span>, <span class="dt">right_annotation =</span> ha,</span>
+<span id="cb265-7"><a href="heatmap-annotations.html#cb265-7"></a>    <span class="dt">row_names_side =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">row_names_gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">4</span>), <span class="dt">row_km =</span> <span class="dv">4</span>)</span></code></pre></div>
 <p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-161-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>The calculation of positions of texts depends on the absolute size of the graphic
 device. If you resize the current interactive device or you use <code>grid.grabExpr()</code>
@@ -1747,7 +1745,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["ComplexHeatmap-reference.epub"],
 "toc": {
 "collapse": "none"
 }

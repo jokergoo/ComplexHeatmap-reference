@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 7 OncoPrint | ComplexHeatmap Complete Reference</title>
   <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 7 OncoPrint | ComplexHeatmap Complete Reference" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,7 @@
   
 <link rel="prev" href="heatmap-decoration.html"/>
 <link rel="next" href="upset-plot.html"/>
-<script src="libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,6 +51,8 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -270,13 +272,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.7" data-path="upset-plot.html"><a href="upset-plot.html#example-with-the-movies-dataset"><i class="fa fa-check"></i><b>8.7</b> Example with the movies dataset</a></li>
 <li class="chapter" data-level="8.8" data-path="upset-plot.html"><a href="upset-plot.html#example-with-the-genomic-regions"><i class="fa fa-check"></i><b>8.8</b> Example with the genomic regions</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="interactive.html"><a href="interactive.html"><i class="fa fa-check"></i><b>9</b> Interactive ComplexHeatmap</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="interactive.html"><a href="interactive.html#on-the-interactive-graphics-device"><i class="fa fa-check"></i><b>9.1</b> On the interactive graphics device</a></li>
-<li class="chapter" data-level="9.2" data-path="interactive.html"><a href="interactive.html#on-other-devices"><i class="fa fa-check"></i><b>9.2</b> On other devices</a></li>
-<li class="chapter" data-level="9.3" data-path="interactive.html"><a href="interactive.html#shiny-app"><i class="fa fa-check"></i><b>9.3</b> Shiny app</a></li>
-<li class="chapter" data-level="9.4" data-path="interactive.html"><a href="interactive.html#implement-a-shiny-app-from-scratch"><i class="fa fa-check"></i><b>9.4</b> Implement a Shiny app from scratch</a></li>
-</ul></li>
+<li class="chapter" data-level="9" data-path="interactive.html"><a href="interactive.html"><i class="fa fa-check"></i><b>9</b> Interactive ComplexHeatmap</a></li>
 <li class="chapter" data-level="10" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html"><i class="fa fa-check"></i><b>10</b> Integrate with other packages</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#pheatmap"><i class="fa fa-check"></i><b>10.1</b> pheatmap</a>
@@ -398,12 +394,12 @@ vector for which names correspond to alteration types. It is used to generate
 the barplots.</p>
 <div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="oncoprint.html#cb463-1"></a>col =<span class="st"> </span><span class="kw">c</span>(<span class="dt">snv =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">indel =</span> <span class="st">&quot;blue&quot;</span>)</span>
 <span id="cb463-2"><a href="oncoprint.html#cb463-2"></a><span class="kw">oncoPrint</span>(mat,</span>
-<span id="cb463-3"><a href="oncoprint.html#cb463-3"></a>	<span class="dt">alter_fun =</span> <span class="kw">list</span>(</span>
-<span id="cb463-4"><a href="oncoprint.html#cb463-4"></a>		<span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, </span>
-<span id="cb463-5"><a href="oncoprint.html#cb463-5"></a>			<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>)),</span>
-<span id="cb463-6"><a href="oncoprint.html#cb463-6"></a>		<span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, </span>
-<span id="cb463-7"><a href="oncoprint.html#cb463-7"></a>			<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</span>
-<span id="cb463-8"><a href="oncoprint.html#cb463-8"></a>	), <span class="dt">col =</span> col)</span></code></pre></div>
+<span id="cb463-3"><a href="oncoprint.html#cb463-3"></a>    <span class="dt">alter_fun =</span> <span class="kw">list</span>(</span>
+<span id="cb463-4"><a href="oncoprint.html#cb463-4"></a>        <span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, </span>
+<span id="cb463-5"><a href="oncoprint.html#cb463-5"></a>            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>)),</span>
+<span id="cb463-6"><a href="oncoprint.html#cb463-6"></a>        <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, </span>
+<span id="cb463-7"><a href="oncoprint.html#cb463-7"></a>            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</span>
+<span id="cb463-8"><a href="oncoprint.html#cb463-8"></a>    ), <span class="dt">col =</span> col)</span></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-4-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>You can see the order in barplots also correspond to the order defined in
 <code>alter_fun</code>. The grahpics in legend are based on the functions defined in <code>alter_fun</code>.</p>
@@ -412,7 +408,7 @@ second type of input data is a list of matrix for which each matrix contains
 binary value representing whether the alteration is absent or present. The
 list should have names which correspond to the alteration types.</p>
 <div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="oncoprint.html#cb464-1"></a>mat_list =<span class="st"> </span><span class="kw">list</span>(<span class="dt">snv =</span> <span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="dt">nrow =</span> <span class="dv">3</span>),</span>
-<span id="cb464-2"><a href="oncoprint.html#cb464-2"></a>	            <span class="dt">indel =</span> <span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="dt">nrow =</span> <span class="dv">3</span>))</span>
+<span id="cb464-2"><a href="oncoprint.html#cb464-2"></a>                <span class="dt">indel =</span> <span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="dt">nrow =</span> <span class="dv">3</span>))</span>
 <span id="cb464-3"><a href="oncoprint.html#cb464-3"></a><span class="kw">rownames</span>(mat_list<span class="op">$</span>snv) =<span class="st"> </span><span class="kw">rownames</span>(mat_list<span class="op">$</span>indel) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;g1&quot;</span>, <span class="st">&quot;g2&quot;</span>, <span class="st">&quot;g3&quot;</span>)</span>
 <span id="cb464-4"><a href="oncoprint.html#cb464-4"></a><span class="kw">colnames</span>(mat_list<span class="op">$</span>snv) =<span class="st"> </span><span class="kw">colnames</span>(mat_list<span class="op">$</span>indel) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;s1&quot;</span>, <span class="st">&quot;s2&quot;</span>, <span class="st">&quot;s3&quot;</span>)</span>
 <span id="cb464-5"><a href="oncoprint.html#cb464-5"></a>mat_list</span></code></pre></div>
@@ -432,12 +428,12 @@ column names.</p>
 <p>Pass <code>mat_list</code> to <code>oncoPrint()</code>:</p>
 <div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="oncoprint.html#cb466-1"></a><span class="co"># now you don&#39;t need `get_type`</span></span>
 <span id="cb466-2"><a href="oncoprint.html#cb466-2"></a><span class="kw">oncoPrint</span>(mat_list,</span>
-<span id="cb466-3"><a href="oncoprint.html#cb466-3"></a>	<span class="dt">alter_fun =</span> <span class="kw">list</span>(</span>
-<span id="cb466-4"><a href="oncoprint.html#cb466-4"></a>		<span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, </span>
-<span id="cb466-5"><a href="oncoprint.html#cb466-5"></a>			<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>)),</span>
-<span id="cb466-6"><a href="oncoprint.html#cb466-6"></a>		<span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, </span>
-<span id="cb466-7"><a href="oncoprint.html#cb466-7"></a>			<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</span>
-<span id="cb466-8"><a href="oncoprint.html#cb466-8"></a>	), <span class="dt">col =</span> col)</span></code></pre></div>
+<span id="cb466-3"><a href="oncoprint.html#cb466-3"></a>    <span class="dt">alter_fun =</span> <span class="kw">list</span>(</span>
+<span id="cb466-4"><a href="oncoprint.html#cb466-4"></a>        <span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, </span>
+<span id="cb466-5"><a href="oncoprint.html#cb466-5"></a>            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>)),</span>
+<span id="cb466-6"><a href="oncoprint.html#cb466-6"></a>        <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, </span>
+<span id="cb466-7"><a href="oncoprint.html#cb466-7"></a>            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</span>
+<span id="cb466-8"><a href="oncoprint.html#cb466-8"></a>    ), <span class="dt">col =</span> col)</span></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-6-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>In following parts of this chapter, we still use the single matrix form <code>mat</code>
 to specify the input data.</p>
@@ -454,49 +450,49 @@ different alterations exist for current gene in current sample.</p>
 <pre><code>##   snv indel 
 ##  TRUE FALSE</code></pre>
 <div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="oncoprint.html#cb468-1"></a><span class="kw">oncoPrint</span>(mat,</span>
-<span id="cb468-2"><a href="oncoprint.html#cb468-2"></a>	<span class="dt">alter_fun =</span> <span class="cf">function</span>(x, y, w, h, v) {</span>
-<span id="cb468-3"><a href="oncoprint.html#cb468-3"></a>		<span class="cf">if</span>(v[<span class="st">&quot;snv&quot;</span>]) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, <span class="co"># v[&quot;snv&quot;] is a logical value</span></span>
-<span id="cb468-4"><a href="oncoprint.html#cb468-4"></a>			<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</span>
-<span id="cb468-5"><a href="oncoprint.html#cb468-5"></a>		<span class="cf">if</span>(v[<span class="st">&quot;indel&quot;</span>]) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, <span class="co"># v[&quot;indel&quot;] is a logical value</span></span>
-<span id="cb468-6"><a href="oncoprint.html#cb468-6"></a>			<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</span>
-<span id="cb468-7"><a href="oncoprint.html#cb468-7"></a>	}, <span class="dt">col =</span> col)</span></code></pre></div>
+<span id="cb468-2"><a href="oncoprint.html#cb468-2"></a>    <span class="dt">alter_fun =</span> <span class="cf">function</span>(x, y, w, h, v) {</span>
+<span id="cb468-3"><a href="oncoprint.html#cb468-3"></a>        <span class="cf">if</span>(v[<span class="st">&quot;snv&quot;</span>]) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, <span class="co"># v[&quot;snv&quot;] is a logical value</span></span>
+<span id="cb468-4"><a href="oncoprint.html#cb468-4"></a>            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</span>
+<span id="cb468-5"><a href="oncoprint.html#cb468-5"></a>        <span class="cf">if</span>(v[<span class="st">&quot;indel&quot;</span>]) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, <span class="co"># v[&quot;indel&quot;] is a logical value</span></span>
+<span id="cb468-6"><a href="oncoprint.html#cb468-6"></a>            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</span>
+<span id="cb468-7"><a href="oncoprint.html#cb468-7"></a>    }, <span class="dt">col =</span> col)</span></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-8-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>If <code>alter_fun</code> is set as a single function, customization can be more
 flexible. In following example, the blue rectangles can have different height
 in different grid.</p>
 <div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="oncoprint.html#cb469-1"></a><span class="kw">oncoPrint</span>(mat,</span>
 <span id="cb469-2"><a href="oncoprint.html#cb469-2"></a>    <span class="dt">alter_fun =</span> <span class="cf">function</span>(x, y, w, h, v) {</span>
-<span id="cb469-3"><a href="oncoprint.html#cb469-3"></a>		n =<span class="st"> </span><span class="kw">sum</span>(v)  <span class="co"># how many alterations for current gene in current sample</span></span>
-<span id="cb469-4"><a href="oncoprint.html#cb469-4"></a>		h =<span class="st"> </span>h<span class="op">*</span><span class="fl">0.9</span></span>
-<span id="cb469-5"><a href="oncoprint.html#cb469-5"></a>		<span class="co"># use `names(which(v))` to correctly map between `v` and `col`</span></span>
-<span id="cb469-6"><a href="oncoprint.html#cb469-6"></a>		<span class="cf">if</span>(n) <span class="kw">grid.rect</span>(x, y <span class="op">-</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.5</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span><span class="op">:</span>n<span class="op">/</span>n<span class="op">*</span>h, w<span class="op">*</span><span class="fl">0.9</span>, <span class="dv">1</span><span class="op">/</span>n<span class="op">*</span>h, </span>
-<span id="cb469-7"><a href="oncoprint.html#cb469-7"></a>			<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="kw">names</span>(<span class="kw">which</span>(v))], <span class="dt">col =</span> <span class="ot">NA</span>), <span class="dt">just =</span> <span class="st">&quot;top&quot;</span>)</span>
+<span id="cb469-3"><a href="oncoprint.html#cb469-3"></a>        n =<span class="st"> </span><span class="kw">sum</span>(v)  <span class="co"># how many alterations for current gene in current sample</span></span>
+<span id="cb469-4"><a href="oncoprint.html#cb469-4"></a>        h =<span class="st"> </span>h<span class="op">*</span><span class="fl">0.9</span></span>
+<span id="cb469-5"><a href="oncoprint.html#cb469-5"></a>        <span class="co"># use `names(which(v))` to correctly map between `v` and `col`</span></span>
+<span id="cb469-6"><a href="oncoprint.html#cb469-6"></a>        <span class="cf">if</span>(n) <span class="kw">grid.rect</span>(x, y <span class="op">-</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.5</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span><span class="op">:</span>n<span class="op">/</span>n<span class="op">*</span>h, w<span class="op">*</span><span class="fl">0.9</span>, <span class="dv">1</span><span class="op">/</span>n<span class="op">*</span>h, </span>
+<span id="cb469-7"><a href="oncoprint.html#cb469-7"></a>            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="kw">names</span>(<span class="kw">which</span>(v))], <span class="dt">col =</span> <span class="ot">NA</span>), <span class="dt">just =</span> <span class="st">&quot;top&quot;</span>)</span>
 <span id="cb469-8"><a href="oncoprint.html#cb469-8"></a>    }, <span class="dt">col =</span> col)</span></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-9-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Following is a complicated example for <code>alter_fun</code> where triangles are used:</p>
 <div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="oncoprint.html#cb470-1"></a><span class="kw">oncoPrint</span>(mat,</span>
 <span id="cb470-2"><a href="oncoprint.html#cb470-2"></a>    <span class="dt">alter_fun =</span> <span class="kw">list</span>(</span>
-<span id="cb470-3"><a href="oncoprint.html#cb470-3"></a>    	<span class="dt">background =</span> <span class="cf">function</span>(x, y, w, h) {</span>
-<span id="cb470-4"><a href="oncoprint.html#cb470-4"></a>    		<span class="kw">grid.polygon</span>(</span>
-<span id="cb470-5"><a href="oncoprint.html#cb470-5"></a>	        	<span class="kw">unit.c</span>(x <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w), </span>
-<span id="cb470-6"><a href="oncoprint.html#cb470-6"></a>	        	<span class="kw">unit.c</span>(y <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h),</span>
-<span id="cb470-7"><a href="oncoprint.html#cb470-7"></a>	            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>))</span>
-<span id="cb470-8"><a href="oncoprint.html#cb470-8"></a>        	<span class="kw">grid.polygon</span>(</span>
-<span id="cb470-9"><a href="oncoprint.html#cb470-9"></a>	        	<span class="kw">unit.c</span>(x <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w), </span>
-<span id="cb470-10"><a href="oncoprint.html#cb470-10"></a>	        	<span class="kw">unit.c</span>(y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h),</span>
-<span id="cb470-11"><a href="oncoprint.html#cb470-11"></a>	            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>))</span>
-<span id="cb470-12"><a href="oncoprint.html#cb470-12"></a>    	},</span>
+<span id="cb470-3"><a href="oncoprint.html#cb470-3"></a>        <span class="dt">background =</span> <span class="cf">function</span>(x, y, w, h) {</span>
+<span id="cb470-4"><a href="oncoprint.html#cb470-4"></a>            <span class="kw">grid.polygon</span>(</span>
+<span id="cb470-5"><a href="oncoprint.html#cb470-5"></a>                <span class="kw">unit.c</span>(x <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w), </span>
+<span id="cb470-6"><a href="oncoprint.html#cb470-6"></a>                <span class="kw">unit.c</span>(y <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h),</span>
+<span id="cb470-7"><a href="oncoprint.html#cb470-7"></a>                <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>))</span>
+<span id="cb470-8"><a href="oncoprint.html#cb470-8"></a>            <span class="kw">grid.polygon</span>(</span>
+<span id="cb470-9"><a href="oncoprint.html#cb470-9"></a>                <span class="kw">unit.c</span>(x <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w), </span>
+<span id="cb470-10"><a href="oncoprint.html#cb470-10"></a>                <span class="kw">unit.c</span>(y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h),</span>
+<span id="cb470-11"><a href="oncoprint.html#cb470-11"></a>                <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;grey&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>))</span>
+<span id="cb470-12"><a href="oncoprint.html#cb470-12"></a>        },</span>
 <span id="cb470-13"><a href="oncoprint.html#cb470-13"></a>        <span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) {</span>
-<span id="cb470-14"><a href="oncoprint.html#cb470-14"></a>        	<span class="kw">grid.polygon</span>(</span>
-<span id="cb470-15"><a href="oncoprint.html#cb470-15"></a>	        	<span class="kw">unit.c</span>(x <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w), </span>
-<span id="cb470-16"><a href="oncoprint.html#cb470-16"></a>	        	<span class="kw">unit.c</span>(y <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h),</span>
-<span id="cb470-17"><a href="oncoprint.html#cb470-17"></a>	            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>))</span>
+<span id="cb470-14"><a href="oncoprint.html#cb470-14"></a>            <span class="kw">grid.polygon</span>(</span>
+<span id="cb470-15"><a href="oncoprint.html#cb470-15"></a>                <span class="kw">unit.c</span>(x <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w), </span>
+<span id="cb470-16"><a href="oncoprint.html#cb470-16"></a>                <span class="kw">unit.c</span>(y <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h),</span>
+<span id="cb470-17"><a href="oncoprint.html#cb470-17"></a>                <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>))</span>
 <span id="cb470-18"><a href="oncoprint.html#cb470-18"></a>        },</span>
 <span id="cb470-19"><a href="oncoprint.html#cb470-19"></a>        <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) {</span>
-<span id="cb470-20"><a href="oncoprint.html#cb470-20"></a>        	<span class="kw">grid.polygon</span>(</span>
-<span id="cb470-21"><a href="oncoprint.html#cb470-21"></a>	        	<span class="kw">unit.c</span>(x <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w), </span>
-<span id="cb470-22"><a href="oncoprint.html#cb470-22"></a>	        	<span class="kw">unit.c</span>(y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h),</span>
-<span id="cb470-23"><a href="oncoprint.html#cb470-23"></a>	            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>))</span>
+<span id="cb470-20"><a href="oncoprint.html#cb470-20"></a>            <span class="kw">grid.polygon</span>(</span>
+<span id="cb470-21"><a href="oncoprint.html#cb470-21"></a>                <span class="kw">unit.c</span>(x <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w, x <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>w), </span>
+<span id="cb470-22"><a href="oncoprint.html#cb470-22"></a>                <span class="kw">unit.c</span>(y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">-</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h, y <span class="op">+</span><span class="st"> </span><span class="fl">0.5</span><span class="op">*</span>h),</span>
+<span id="cb470-23"><a href="oncoprint.html#cb470-23"></a>                <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>))</span>
 <span id="cb470-24"><a href="oncoprint.html#cb470-24"></a>        }</span>
 <span id="cb470-25"><a href="oncoprint.html#cb470-25"></a>    ), <span class="dt">col =</span> col)</span></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-10-1.png" width="384" style="display: block; margin: auto;" /></p>
@@ -505,20 +501,20 @@ If you are not sure about the visual effect of your <code>alter_fun</code>, you 
 <code>test_alter_fun()</code> to test your <code>alter_fun</code>. In following example, we defined
 seven alteration functions:</p>
 <div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="oncoprint.html#cb471-1"></a>alter_fun =<span class="st"> </span><span class="kw">list</span>(</span>
-<span id="cb471-2"><a href="oncoprint.html#cb471-2"></a>	<span class="dt">mut1 =</span> <span class="cf">function</span>(x, y, w, h) </span>
-<span id="cb471-3"><a href="oncoprint.html#cb471-3"></a>		<span class="kw">grid.rect</span>(x, y, w, h, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),</span>
-<span id="cb471-4"><a href="oncoprint.html#cb471-4"></a>	<span class="dt">mut2 =</span> <span class="cf">function</span>(x, y, w, h) </span>
-<span id="cb471-5"><a href="oncoprint.html#cb471-5"></a>		<span class="kw">grid.rect</span>(x, y, w, h, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),</span>
-<span id="cb471-6"><a href="oncoprint.html#cb471-6"></a>	<span class="dt">mut3 =</span> <span class="cf">function</span>(x, y, w, h) </span>
-<span id="cb471-7"><a href="oncoprint.html#cb471-7"></a>		<span class="kw">grid.rect</span>(x, y, w, h, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;yellow&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),</span>
-<span id="cb471-8"><a href="oncoprint.html#cb471-8"></a>	<span class="dt">mut4 =</span> <span class="cf">function</span>(x, y, w, h) </span>
-<span id="cb471-9"><a href="oncoprint.html#cb471-9"></a>		<span class="kw">grid.rect</span>(x, y, w, h, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;purple&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),</span>
-<span id="cb471-10"><a href="oncoprint.html#cb471-10"></a>	<span class="dt">mut5 =</span> <span class="cf">function</span>(x, y, w, h) </span>
-<span id="cb471-11"><a href="oncoprint.html#cb471-11"></a>		<span class="kw">grid.rect</span>(x, y, w, h, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="ot">NA</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)),</span>
-<span id="cb471-12"><a href="oncoprint.html#cb471-12"></a>	<span class="dt">mut6 =</span> <span class="cf">function</span>(x, y, w, h) </span>
-<span id="cb471-13"><a href="oncoprint.html#cb471-13"></a>		<span class="kw">grid.points</span>(x, y, <span class="dt">pch =</span> <span class="dv">16</span>),</span>
-<span id="cb471-14"><a href="oncoprint.html#cb471-14"></a>	<span class="dt">mut7 =</span> <span class="cf">function</span>(x, y, w, h) </span>
-<span id="cb471-15"><a href="oncoprint.html#cb471-15"></a>		<span class="kw">grid.segments</span>(x <span class="op">-</span><span class="st"> </span>w<span class="op">*</span><span class="fl">0.5</span>, y <span class="op">-</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.5</span>, x <span class="op">+</span><span class="st"> </span>w<span class="op">*</span><span class="fl">0.5</span>, y <span class="op">+</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.5</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">lwd =</span> <span class="dv">2</span>))</span>
+<span id="cb471-2"><a href="oncoprint.html#cb471-2"></a>    <span class="dt">mut1 =</span> <span class="cf">function</span>(x, y, w, h) </span>
+<span id="cb471-3"><a href="oncoprint.html#cb471-3"></a>        <span class="kw">grid.rect</span>(x, y, w, h, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),</span>
+<span id="cb471-4"><a href="oncoprint.html#cb471-4"></a>    <span class="dt">mut2 =</span> <span class="cf">function</span>(x, y, w, h) </span>
+<span id="cb471-5"><a href="oncoprint.html#cb471-5"></a>        <span class="kw">grid.rect</span>(x, y, w, h, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),</span>
+<span id="cb471-6"><a href="oncoprint.html#cb471-6"></a>    <span class="dt">mut3 =</span> <span class="cf">function</span>(x, y, w, h) </span>
+<span id="cb471-7"><a href="oncoprint.html#cb471-7"></a>        <span class="kw">grid.rect</span>(x, y, w, h, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;yellow&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),</span>
+<span id="cb471-8"><a href="oncoprint.html#cb471-8"></a>    <span class="dt">mut4 =</span> <span class="cf">function</span>(x, y, w, h) </span>
+<span id="cb471-9"><a href="oncoprint.html#cb471-9"></a>        <span class="kw">grid.rect</span>(x, y, w, h, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;purple&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),</span>
+<span id="cb471-10"><a href="oncoprint.html#cb471-10"></a>    <span class="dt">mut5 =</span> <span class="cf">function</span>(x, y, w, h) </span>
+<span id="cb471-11"><a href="oncoprint.html#cb471-11"></a>        <span class="kw">grid.rect</span>(x, y, w, h, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="ot">NA</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)),</span>
+<span id="cb471-12"><a href="oncoprint.html#cb471-12"></a>    <span class="dt">mut6 =</span> <span class="cf">function</span>(x, y, w, h) </span>
+<span id="cb471-13"><a href="oncoprint.html#cb471-13"></a>        <span class="kw">grid.points</span>(x, y, <span class="dt">pch =</span> <span class="dv">16</span>),</span>
+<span id="cb471-14"><a href="oncoprint.html#cb471-14"></a>    <span class="dt">mut7 =</span> <span class="cf">function</span>(x, y, w, h) </span>
+<span id="cb471-15"><a href="oncoprint.html#cb471-15"></a>        <span class="kw">grid.segments</span>(x <span class="op">-</span><span class="st"> </span>w<span class="op">*</span><span class="fl">0.5</span>, y <span class="op">-</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.5</span>, x <span class="op">+</span><span class="st"> </span>w<span class="op">*</span><span class="fl">0.5</span>, y <span class="op">+</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.5</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">lwd =</span> <span class="dv">2</span>))</span>
 <span id="cb471-16"><a href="oncoprint.html#cb471-16"></a>)</span>
 <span id="cb471-17"><a href="oncoprint.html#cb471-17"></a><span class="kw">test_alter_fun</span>(alter_fun)</span></code></pre></div>
 <pre><code>## `alter_fun` is defined as a list of functions.
@@ -538,26 +534,26 @@ defines how to draw background and it should be always put as the first
 element in the <code>alter_fun</code> list. In following example, backgrond color is
 changed to light green with borders.</p>
 <div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="oncoprint.html#cb473-1"></a><span class="kw">oncoPrint</span>(mat,</span>
-<span id="cb473-2"><a href="oncoprint.html#cb473-2"></a>	<span class="dt">alter_fun =</span> <span class="kw">list</span>(</span>
-<span id="cb473-3"><a href="oncoprint.html#cb473-3"></a>		<span class="dt">background =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w, h, </span>
-<span id="cb473-4"><a href="oncoprint.html#cb473-4"></a>			<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;#00FF0020&quot;</span>)),</span>
-<span id="cb473-5"><a href="oncoprint.html#cb473-5"></a>		<span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, </span>
-<span id="cb473-6"><a href="oncoprint.html#cb473-6"></a>			<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>)),</span>
-<span id="cb473-7"><a href="oncoprint.html#cb473-7"></a>		<span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, </span>
-<span id="cb473-8"><a href="oncoprint.html#cb473-8"></a>			<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</span>
-<span id="cb473-9"><a href="oncoprint.html#cb473-9"></a>	), <span class="dt">col =</span> col)</span></code></pre></div>
+<span id="cb473-2"><a href="oncoprint.html#cb473-2"></a>    <span class="dt">alter_fun =</span> <span class="kw">list</span>(</span>
+<span id="cb473-3"><a href="oncoprint.html#cb473-3"></a>        <span class="dt">background =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w, h, </span>
+<span id="cb473-4"><a href="oncoprint.html#cb473-4"></a>            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;#00FF0020&quot;</span>)),</span>
+<span id="cb473-5"><a href="oncoprint.html#cb473-5"></a>        <span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, </span>
+<span id="cb473-6"><a href="oncoprint.html#cb473-6"></a>            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>)),</span>
+<span id="cb473-7"><a href="oncoprint.html#cb473-7"></a>        <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, </span>
+<span id="cb473-8"><a href="oncoprint.html#cb473-8"></a>            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</span>
+<span id="cb473-9"><a href="oncoprint.html#cb473-9"></a>    ), <span class="dt">col =</span> col)</span></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-12-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Or just remove the background (don’t set it to <code>NULL</code>. Setting <code>background</code>
 directly to <code>NULL</code> means to use the default style of background whch is in
 grey):</p>
 <div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="oncoprint.html#cb474-1"></a><span class="kw">oncoPrint</span>(mat,</span>
-<span id="cb474-2"><a href="oncoprint.html#cb474-2"></a>	<span class="dt">alter_fun =</span> <span class="kw">list</span>(</span>
-<span id="cb474-3"><a href="oncoprint.html#cb474-3"></a>		<span class="dt">background =</span> <span class="cf">function</span>(...) <span class="ot">NULL</span>,</span>
-<span id="cb474-4"><a href="oncoprint.html#cb474-4"></a>		<span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, </span>
-<span id="cb474-5"><a href="oncoprint.html#cb474-5"></a>			<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>)),</span>
-<span id="cb474-6"><a href="oncoprint.html#cb474-6"></a>		<span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, </span>
-<span id="cb474-7"><a href="oncoprint.html#cb474-7"></a>			<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</span>
-<span id="cb474-8"><a href="oncoprint.html#cb474-8"></a>	), <span class="dt">col =</span> col)</span></code></pre></div>
+<span id="cb474-2"><a href="oncoprint.html#cb474-2"></a>    <span class="dt">alter_fun =</span> <span class="kw">list</span>(</span>
+<span id="cb474-3"><a href="oncoprint.html#cb474-3"></a>        <span class="dt">background =</span> <span class="cf">function</span>(...) <span class="ot">NULL</span>,</span>
+<span id="cb474-4"><a href="oncoprint.html#cb474-4"></a>        <span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, </span>
+<span id="cb474-5"><a href="oncoprint.html#cb474-5"></a>            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>)),</span>
+<span id="cb474-6"><a href="oncoprint.html#cb474-6"></a>        <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, </span>
+<span id="cb474-7"><a href="oncoprint.html#cb474-7"></a>            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</span>
+<span id="cb474-8"><a href="oncoprint.html#cb474-8"></a>    ), <span class="dt">col =</span> col)</span></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-13-1.png" width="384" style="display: block; margin: auto;" /></p>
 </div>
 <div id="complex-alteration-types" class="section level3" number="7.1.4">
@@ -596,8 +592,8 @@ this gene-related information (maybe it is an intergenic snv/indel).</p>
 <span id="cb475-8"><a href="oncoprint.html#cb475-8"></a>x4[x1 <span class="op">==</span><span class="st"> &quot;&quot;</span> <span class="op">&amp;</span><span class="st"> </span>x2 <span class="op">==</span><span class="st"> &quot;&quot;</span>] =<span class="st"> &quot;&quot;</span></span>
 <span id="cb475-9"><a href="oncoprint.html#cb475-9"></a>x4[x3 <span class="op">==</span><span class="st"> &quot;intronic&quot;</span>] =<span class="st"> &quot;&quot;</span></span>
 <span id="cb475-10"><a href="oncoprint.html#cb475-10"></a>x =<span class="st"> </span><span class="kw">apply</span>(<span class="kw">cbind</span>(x1, x2, x3, x4), <span class="dv">1</span>, <span class="cf">function</span>(x) {</span>
-<span id="cb475-11"><a href="oncoprint.html#cb475-11"></a>	x =<span class="st"> </span>x[x <span class="op">!=</span><span class="st"> &quot;&quot;</span>]</span>
-<span id="cb475-12"><a href="oncoprint.html#cb475-12"></a>	<span class="kw">paste</span>(x, <span class="dt">collapse =</span> <span class="st">&quot;;&quot;</span>)</span>
+<span id="cb475-11"><a href="oncoprint.html#cb475-11"></a>    x =<span class="st"> </span>x[x <span class="op">!=</span><span class="st"> &quot;&quot;</span>]</span>
+<span id="cb475-12"><a href="oncoprint.html#cb475-12"></a>    <span class="kw">paste</span>(x, <span class="dt">collapse =</span> <span class="st">&quot;;&quot;</span>)</span>
 <span id="cb475-13"><a href="oncoprint.html#cb475-13"></a>})</span>
 <span id="cb475-14"><a href="oncoprint.html#cb475-14"></a>m =<span class="st"> </span><span class="kw">matrix</span>(x, <span class="dt">nrow =</span> <span class="dv">10</span>, <span class="dt">ncol =</span> <span class="dv">10</span>, <span class="dt">dimnames =</span> <span class="kw">list</span>(<span class="kw">paste0</span>(<span class="st">&quot;g&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>), <span class="kw">paste0</span>(<span class="st">&quot;s&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)))</span>
 <span id="cb475-15"><a href="oncoprint.html#cb475-15"></a>m[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]</span></code></pre></div>
@@ -609,22 +605,22 @@ this gene-related information (maybe it is an intergenic snv/indel).</p>
 <p>Now in <code>m</code>, there are four different alteration types: <code>snv</code>, <code>indel</code>,
 <code>intronic</code> and <code>exonic</code>. Next we define <code>alter_fun</code> for the four alterations.</p>
 <div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="oncoprint.html#cb477-1"></a>alter_fun =<span class="st"> </span><span class="kw">list</span>(</span>
-<span id="cb477-2"><a href="oncoprint.html#cb477-2"></a>	<span class="dt">background =</span> <span class="cf">function</span>(x, y, w, h) </span>
-<span id="cb477-3"><a href="oncoprint.html#cb477-3"></a>		<span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;#CCCCCC&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),</span>
-<span id="cb477-4"><a href="oncoprint.html#cb477-4"></a>	<span class="co"># red rectangles</span></span>
-<span id="cb477-5"><a href="oncoprint.html#cb477-5"></a>	<span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) </span>
-<span id="cb477-6"><a href="oncoprint.html#cb477-6"></a>		<span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),</span>
-<span id="cb477-7"><a href="oncoprint.html#cb477-7"></a>	<span class="co"># blue rectangles</span></span>
-<span id="cb477-8"><a href="oncoprint.html#cb477-8"></a>	<span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) </span>
-<span id="cb477-9"><a href="oncoprint.html#cb477-9"></a>		<span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),</span>
-<span id="cb477-10"><a href="oncoprint.html#cb477-10"></a>	<span class="co"># dots</span></span>
-<span id="cb477-11"><a href="oncoprint.html#cb477-11"></a>	<span class="dt">intronic =</span> <span class="cf">function</span>(x, y, w, h) </span>
-<span id="cb477-12"><a href="oncoprint.html#cb477-12"></a>		<span class="kw">grid.points</span>(x, y, <span class="dt">pch =</span> <span class="dv">16</span>),</span>
-<span id="cb477-13"><a href="oncoprint.html#cb477-13"></a>	<span class="co"># crossed lines</span></span>
-<span id="cb477-14"><a href="oncoprint.html#cb477-14"></a>	<span class="dt">exonic =</span> <span class="cf">function</span>(x, y, w, h) {</span>
-<span id="cb477-15"><a href="oncoprint.html#cb477-15"></a>		<span class="kw">grid.segments</span>(x <span class="op">-</span><span class="st"> </span>w<span class="op">*</span><span class="fl">0.4</span>, y <span class="op">-</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.4</span>, x <span class="op">+</span><span class="st"> </span>w<span class="op">*</span><span class="fl">0.4</span>, y <span class="op">+</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.4</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">lwd =</span> <span class="dv">2</span>))</span>
-<span id="cb477-16"><a href="oncoprint.html#cb477-16"></a>		<span class="kw">grid.segments</span>(x <span class="op">+</span><span class="st"> </span>w<span class="op">*</span><span class="fl">0.4</span>, y <span class="op">-</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.4</span>, x <span class="op">-</span><span class="st"> </span>w<span class="op">*</span><span class="fl">0.4</span>, y <span class="op">+</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.4</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">lwd =</span> <span class="dv">2</span>))</span>
-<span id="cb477-17"><a href="oncoprint.html#cb477-17"></a>	}</span>
+<span id="cb477-2"><a href="oncoprint.html#cb477-2"></a>    <span class="dt">background =</span> <span class="cf">function</span>(x, y, w, h) </span>
+<span id="cb477-3"><a href="oncoprint.html#cb477-3"></a>        <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;#CCCCCC&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),</span>
+<span id="cb477-4"><a href="oncoprint.html#cb477-4"></a>    <span class="co"># red rectangles</span></span>
+<span id="cb477-5"><a href="oncoprint.html#cb477-5"></a>    <span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) </span>
+<span id="cb477-6"><a href="oncoprint.html#cb477-6"></a>        <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),</span>
+<span id="cb477-7"><a href="oncoprint.html#cb477-7"></a>    <span class="co"># blue rectangles</span></span>
+<span id="cb477-8"><a href="oncoprint.html#cb477-8"></a>    <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) </span>
+<span id="cb477-9"><a href="oncoprint.html#cb477-9"></a>        <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>)),</span>
+<span id="cb477-10"><a href="oncoprint.html#cb477-10"></a>    <span class="co"># dots</span></span>
+<span id="cb477-11"><a href="oncoprint.html#cb477-11"></a>    <span class="dt">intronic =</span> <span class="cf">function</span>(x, y, w, h) </span>
+<span id="cb477-12"><a href="oncoprint.html#cb477-12"></a>        <span class="kw">grid.points</span>(x, y, <span class="dt">pch =</span> <span class="dv">16</span>),</span>
+<span id="cb477-13"><a href="oncoprint.html#cb477-13"></a>    <span class="co"># crossed lines</span></span>
+<span id="cb477-14"><a href="oncoprint.html#cb477-14"></a>    <span class="dt">exonic =</span> <span class="cf">function</span>(x, y, w, h) {</span>
+<span id="cb477-15"><a href="oncoprint.html#cb477-15"></a>        <span class="kw">grid.segments</span>(x <span class="op">-</span><span class="st"> </span>w<span class="op">*</span><span class="fl">0.4</span>, y <span class="op">-</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.4</span>, x <span class="op">+</span><span class="st"> </span>w<span class="op">*</span><span class="fl">0.4</span>, y <span class="op">+</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.4</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">lwd =</span> <span class="dv">2</span>))</span>
+<span id="cb477-16"><a href="oncoprint.html#cb477-16"></a>        <span class="kw">grid.segments</span>(x <span class="op">+</span><span class="st"> </span>w<span class="op">*</span><span class="fl">0.4</span>, y <span class="op">-</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.4</span>, x <span class="op">-</span><span class="st"> </span>w<span class="op">*</span><span class="fl">0.4</span>, y <span class="op">+</span><span class="st"> </span>h<span class="op">*</span><span class="fl">0.4</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">lwd =</span> <span class="dv">2</span>))</span>
+<span id="cb477-17"><a href="oncoprint.html#cb477-17"></a>    }</span>
 <span id="cb477-18"><a href="oncoprint.html#cb477-18"></a>)</span></code></pre></div>
 <p>For the alteration types in the primary class (<code>snv</code> and <code>indel</code>), we use
 colorred rectangles to represent them because the rectangles are visually
@@ -656,10 +652,10 @@ can be simplied as:</p>
 <p>Column names are by default not drawn in the plot. It is can be turned on by
 setting <code>show_column_names = TRUE</code>.</p>
 <div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="oncoprint.html#cb480-1"></a>alter_fun =<span class="st"> </span><span class="kw">list</span>(</span>
-<span id="cb480-2"><a href="oncoprint.html#cb480-2"></a>	<span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, </span>
-<span id="cb480-3"><a href="oncoprint.html#cb480-3"></a>		<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>)),</span>
-<span id="cb480-4"><a href="oncoprint.html#cb480-4"></a>	<span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, </span>
-<span id="cb480-5"><a href="oncoprint.html#cb480-5"></a>		<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</span>
+<span id="cb480-2"><a href="oncoprint.html#cb480-2"></a>    <span class="dt">snv =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.9</span>, </span>
+<span id="cb480-3"><a href="oncoprint.html#cb480-3"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;snv&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>)),</span>
+<span id="cb480-4"><a href="oncoprint.html#cb480-4"></a>    <span class="dt">indel =</span> <span class="cf">function</span>(x, y, w, h) <span class="kw">grid.rect</span>(x, y, w<span class="op">*</span><span class="fl">0.9</span>, h<span class="op">*</span><span class="fl">0.4</span>, </span>
+<span id="cb480-5"><a href="oncoprint.html#cb480-5"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;indel&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</span>
 <span id="cb480-6"><a href="oncoprint.html#cb480-6"></a>)</span>
 <span id="cb480-7"><a href="oncoprint.html#cb480-7"></a><span class="kw">oncoPrint</span>(mat, <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, <span class="dt">show_column_names =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-18-1.png" width="384" style="display: block; margin: auto;" /></p>
@@ -668,31 +664,31 @@ and <code>show_row_names</code>. The side of both according to the oncoPrint is 
 by <code>pct_side</code> and <code>row_names_side</code>. Digits of the percent values are controlled
 by <code>pct_digits</code>.</p>
 <div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="oncoprint.html#cb481-1"></a><span class="kw">oncoPrint</span>(mat, <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </span>
-<span id="cb481-2"><a href="oncoprint.html#cb481-2"></a>	<span class="dt">row_names_side =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">pct_side =</span> <span class="st">&quot;right&quot;</span>, <span class="dt">pct_digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<span id="cb481-2"><a href="oncoprint.html#cb481-2"></a>    <span class="dt">row_names_side =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">pct_side =</span> <span class="st">&quot;right&quot;</span>, <span class="dt">pct_digits =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-19-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>The barplot annotations on the both side are controlled by
 <code>anno_oncoprint_barplot()</code> annotation function. Customization such as the size
 and the axes can be set directly in <code>anno_oncoprint_barplot()</code>. More examples
 of setting <code>anno_oncoprint_barplot()</code> can be found in Section <a href="oncoprint.html#oncoprint-annotations">7.2.3</a>.</p>
 <div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="oncoprint.html#cb482-1"></a><span class="kw">oncoPrint</span>(mat, <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </span>
-<span id="cb482-2"><a href="oncoprint.html#cb482-2"></a>	<span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(</span>
-<span id="cb482-3"><a href="oncoprint.html#cb482-3"></a>		<span class="dt">cbar =</span> <span class="kw">anno_oncoprint_barplot</span>(<span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>))),</span>
-<span id="cb482-4"><a href="oncoprint.html#cb482-4"></a>	<span class="dt">right_annotation =</span> <span class="kw">rowAnnotation</span>(</span>
-<span id="cb482-5"><a href="oncoprint.html#cb482-5"></a>		<span class="dt">rbar =</span> <span class="kw">anno_oncoprint_barplot</span>(</span>
-<span id="cb482-6"><a href="oncoprint.html#cb482-6"></a>			<span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>),</span>
-<span id="cb482-7"><a href="oncoprint.html#cb482-7"></a>			<span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>), </span>
-<span id="cb482-8"><a href="oncoprint.html#cb482-8"></a>				<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;zero&quot;</span>, <span class="st">&quot;two&quot;</span>, <span class="st">&quot;four&quot;</span>),</span>
-<span id="cb482-9"><a href="oncoprint.html#cb482-9"></a>				<span class="dt">side =</span> <span class="st">&quot;top&quot;</span>,</span>
-<span id="cb482-10"><a href="oncoprint.html#cb482-10"></a>				<span class="dt">labels_rot =</span> <span class="dv">0</span>))),</span>
-<span id="cb482-11"><a href="oncoprint.html#cb482-11"></a>	)</span></code></pre></div>
+<span id="cb482-2"><a href="oncoprint.html#cb482-2"></a>    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(</span>
+<span id="cb482-3"><a href="oncoprint.html#cb482-3"></a>        <span class="dt">cbar =</span> <span class="kw">anno_oncoprint_barplot</span>(<span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>))),</span>
+<span id="cb482-4"><a href="oncoprint.html#cb482-4"></a>    <span class="dt">right_annotation =</span> <span class="kw">rowAnnotation</span>(</span>
+<span id="cb482-5"><a href="oncoprint.html#cb482-5"></a>        <span class="dt">rbar =</span> <span class="kw">anno_oncoprint_barplot</span>(</span>
+<span id="cb482-6"><a href="oncoprint.html#cb482-6"></a>            <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>),</span>
+<span id="cb482-7"><a href="oncoprint.html#cb482-7"></a>            <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>), </span>
+<span id="cb482-8"><a href="oncoprint.html#cb482-8"></a>                <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;zero&quot;</span>, <span class="st">&quot;two&quot;</span>, <span class="st">&quot;four&quot;</span>),</span>
+<span id="cb482-9"><a href="oncoprint.html#cb482-9"></a>                <span class="dt">side =</span> <span class="st">&quot;top&quot;</span>,</span>
+<span id="cb482-10"><a href="oncoprint.html#cb482-10"></a>                <span class="dt">labels_rot =</span> <span class="dv">0</span>))),</span>
+<span id="cb482-11"><a href="oncoprint.html#cb482-11"></a>    )</span></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-20-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Some people might want to move the right barplots to the left of the oncoPrint:</p>
 <div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="oncoprint.html#cb483-1"></a><span class="kw">oncoPrint</span>(mat, <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </span>
-<span id="cb483-2"><a href="oncoprint.html#cb483-2"></a>	<span class="dt">left_annotation =</span>  <span class="kw">rowAnnotation</span>(</span>
-<span id="cb483-3"><a href="oncoprint.html#cb483-3"></a>		<span class="dt">rbar =</span> <span class="kw">anno_oncoprint_barplot</span>(</span>
-<span id="cb483-4"><a href="oncoprint.html#cb483-4"></a>			<span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">direction =</span> <span class="st">&quot;reverse&quot;</span>)</span>
-<span id="cb483-5"><a href="oncoprint.html#cb483-5"></a>	)),</span>
-<span id="cb483-6"><a href="oncoprint.html#cb483-6"></a>	<span class="dt">right_annotation =</span> <span class="ot">NULL</span>)</span></code></pre></div>
+<span id="cb483-2"><a href="oncoprint.html#cb483-2"></a>    <span class="dt">left_annotation =</span>  <span class="kw">rowAnnotation</span>(</span>
+<span id="cb483-3"><a href="oncoprint.html#cb483-3"></a>        <span class="dt">rbar =</span> <span class="kw">anno_oncoprint_barplot</span>(</span>
+<span id="cb483-4"><a href="oncoprint.html#cb483-4"></a>            <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">direction =</span> <span class="st">&quot;reverse&quot;</span>)</span>
+<span id="cb483-5"><a href="oncoprint.html#cb483-5"></a>    )),</span>
+<span id="cb483-6"><a href="oncoprint.html#cb483-6"></a>    <span class="dt">right_annotation =</span> <span class="ot">NULL</span>)</span></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-21-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>OncoPrints essentially are heatmaps, thus, there are many arguments set in
 <code>Heatmap()</code> can also be set in <code>oncoPrint()</code>. In following section, we use a
@@ -725,8 +721,8 @@ icon and click “<em>Sample order</em>”.</li>
 <p>The data is already in <strong>ComplexHeatmap</strong> package. First we read the data and
 make some pre-processing.</p>
 <div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="oncoprint.html#cb484-1"></a>mat =<span class="st"> </span><span class="kw">read.table</span>(<span class="kw">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;ComplexHeatmap&quot;</span>, </span>
-<span id="cb484-2"><a href="oncoprint.html#cb484-2"></a>	<span class="st">&quot;tcga_lung_adenocarcinoma_provisional_ras_raf_mek_jnk_signalling.txt&quot;</span>), </span>
-<span id="cb484-3"><a href="oncoprint.html#cb484-3"></a>	<span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb484-2"><a href="oncoprint.html#cb484-2"></a>    <span class="st">&quot;tcga_lung_adenocarcinoma_provisional_ras_raf_mek_jnk_signalling.txt&quot;</span>), </span>
+<span id="cb484-3"><a href="oncoprint.html#cb484-3"></a>    <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span>
 <span id="cb484-4"><a href="oncoprint.html#cb484-4"></a>mat[<span class="kw">is.na</span>(mat)] =<span class="st"> &quot;&quot;</span></span>
 <span id="cb484-5"><a href="oncoprint.html#cb484-5"></a><span class="kw">rownames</span>(mat) =<span class="st"> </span>mat[, <span class="dv">1</span>]</span>
 <span id="cb484-6"><a href="oncoprint.html#cb484-6"></a>mat =<span class="st"> </span>mat[, <span class="dv">-1</span>]</span>
@@ -741,42 +737,42 @@ make some pre-processing.</p>
 define how to add graphics for different alterations.</p>
 <div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="oncoprint.html#cb486-1"></a>col =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;HOMDEL&quot;</span> =<span class="st"> &quot;blue&quot;</span>, <span class="st">&quot;AMP&quot;</span> =<span class="st"> &quot;red&quot;</span>, <span class="st">&quot;MUT&quot;</span> =<span class="st"> &quot;#008000&quot;</span>)</span>
 <span id="cb486-2"><a href="oncoprint.html#cb486-2"></a>alter_fun =<span class="st"> </span><span class="kw">list</span>(</span>
-<span id="cb486-3"><a href="oncoprint.html#cb486-3"></a>	<span class="dt">background =</span> <span class="cf">function</span>(x, y, w, h) {</span>
-<span id="cb486-4"><a href="oncoprint.html#cb486-4"></a>		<span class="kw">grid.rect</span>(x, y, w<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), h<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), </span>
-<span id="cb486-5"><a href="oncoprint.html#cb486-5"></a>			<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;#CCCCCC&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>))</span>
-<span id="cb486-6"><a href="oncoprint.html#cb486-6"></a>	},</span>
-<span id="cb486-7"><a href="oncoprint.html#cb486-7"></a>	<span class="co"># big blue</span></span>
-<span id="cb486-8"><a href="oncoprint.html#cb486-8"></a>	<span class="dt">HOMDEL =</span> <span class="cf">function</span>(x, y, w, h) {</span>
-<span id="cb486-9"><a href="oncoprint.html#cb486-9"></a>		<span class="kw">grid.rect</span>(x, y, w<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), h<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), </span>
-<span id="cb486-10"><a href="oncoprint.html#cb486-10"></a>			<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;HOMDEL&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</span>
-<span id="cb486-11"><a href="oncoprint.html#cb486-11"></a>	},</span>
-<span id="cb486-12"><a href="oncoprint.html#cb486-12"></a>	<span class="co"># big red</span></span>
-<span id="cb486-13"><a href="oncoprint.html#cb486-13"></a>	<span class="dt">AMP =</span> <span class="cf">function</span>(x, y, w, h) {</span>
-<span id="cb486-14"><a href="oncoprint.html#cb486-14"></a>		<span class="kw">grid.rect</span>(x, y, w<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), h<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), </span>
-<span id="cb486-15"><a href="oncoprint.html#cb486-15"></a>			<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;AMP&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</span>
-<span id="cb486-16"><a href="oncoprint.html#cb486-16"></a>	},</span>
-<span id="cb486-17"><a href="oncoprint.html#cb486-17"></a>	<span class="co"># small green</span></span>
-<span id="cb486-18"><a href="oncoprint.html#cb486-18"></a>	<span class="dt">MUT =</span> <span class="cf">function</span>(x, y, w, h) {</span>
-<span id="cb486-19"><a href="oncoprint.html#cb486-19"></a>		<span class="kw">grid.rect</span>(x, y, w<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), h<span class="op">*</span><span class="fl">0.33</span>, </span>
-<span id="cb486-20"><a href="oncoprint.html#cb486-20"></a>			<span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;MUT&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</span>
-<span id="cb486-21"><a href="oncoprint.html#cb486-21"></a>	}</span>
+<span id="cb486-3"><a href="oncoprint.html#cb486-3"></a>    <span class="dt">background =</span> <span class="cf">function</span>(x, y, w, h) {</span>
+<span id="cb486-4"><a href="oncoprint.html#cb486-4"></a>        <span class="kw">grid.rect</span>(x, y, w<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), h<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), </span>
+<span id="cb486-5"><a href="oncoprint.html#cb486-5"></a>            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;#CCCCCC&quot;</span>, <span class="dt">col =</span> <span class="ot">NA</span>))</span>
+<span id="cb486-6"><a href="oncoprint.html#cb486-6"></a>    },</span>
+<span id="cb486-7"><a href="oncoprint.html#cb486-7"></a>    <span class="co"># big blue</span></span>
+<span id="cb486-8"><a href="oncoprint.html#cb486-8"></a>    <span class="dt">HOMDEL =</span> <span class="cf">function</span>(x, y, w, h) {</span>
+<span id="cb486-9"><a href="oncoprint.html#cb486-9"></a>        <span class="kw">grid.rect</span>(x, y, w<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), h<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), </span>
+<span id="cb486-10"><a href="oncoprint.html#cb486-10"></a>            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;HOMDEL&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</span>
+<span id="cb486-11"><a href="oncoprint.html#cb486-11"></a>    },</span>
+<span id="cb486-12"><a href="oncoprint.html#cb486-12"></a>    <span class="co"># big red</span></span>
+<span id="cb486-13"><a href="oncoprint.html#cb486-13"></a>    <span class="dt">AMP =</span> <span class="cf">function</span>(x, y, w, h) {</span>
+<span id="cb486-14"><a href="oncoprint.html#cb486-14"></a>        <span class="kw">grid.rect</span>(x, y, w<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), h<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), </span>
+<span id="cb486-15"><a href="oncoprint.html#cb486-15"></a>            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;AMP&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</span>
+<span id="cb486-16"><a href="oncoprint.html#cb486-16"></a>    },</span>
+<span id="cb486-17"><a href="oncoprint.html#cb486-17"></a>    <span class="co"># small green</span></span>
+<span id="cb486-18"><a href="oncoprint.html#cb486-18"></a>    <span class="dt">MUT =</span> <span class="cf">function</span>(x, y, w, h) {</span>
+<span id="cb486-19"><a href="oncoprint.html#cb486-19"></a>        <span class="kw">grid.rect</span>(x, y, w<span class="op">-</span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), h<span class="op">*</span><span class="fl">0.33</span>, </span>
+<span id="cb486-20"><a href="oncoprint.html#cb486-20"></a>            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> col[<span class="st">&quot;MUT&quot;</span>], <span class="dt">col =</span> <span class="ot">NA</span>))</span>
+<span id="cb486-21"><a href="oncoprint.html#cb486-21"></a>    }</span>
 <span id="cb486-22"><a href="oncoprint.html#cb486-22"></a>)</span></code></pre></div>
 <p>Just a note, since the graphics are all rectangles, they can be simplied by generating by <code>alter_graphic()</code>:</p>
 <div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="oncoprint.html#cb487-1"></a><span class="co"># just for demonstration</span></span>
 <span id="cb487-2"><a href="oncoprint.html#cb487-2"></a>alter_fun =<span class="st"> </span><span class="kw">list</span>(</span>
-<span id="cb487-3"><a href="oncoprint.html#cb487-3"></a>	<span class="dt">background =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;#CCCCCC&quot;</span>),	</span>
-<span id="cb487-4"><a href="oncoprint.html#cb487-4"></a>	<span class="dt">HOMDEL =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">fill =</span> col[<span class="st">&quot;HOMDEL&quot;</span>]),</span>
-<span id="cb487-5"><a href="oncoprint.html#cb487-5"></a>	<span class="dt">AMP =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">fill =</span> col[<span class="st">&quot;AMP&quot;</span>]),</span>
-<span id="cb487-6"><a href="oncoprint.html#cb487-6"></a>	<span class="dt">MUT =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">height =</span> <span class="fl">0.33</span>, <span class="dt">fill =</span> col[<span class="st">&quot;MUT&quot;</span>])</span>
+<span id="cb487-3"><a href="oncoprint.html#cb487-3"></a>    <span class="dt">background =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;#CCCCCC&quot;</span>),   </span>
+<span id="cb487-4"><a href="oncoprint.html#cb487-4"></a>    <span class="dt">HOMDEL =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">fill =</span> col[<span class="st">&quot;HOMDEL&quot;</span>]),</span>
+<span id="cb487-5"><a href="oncoprint.html#cb487-5"></a>    <span class="dt">AMP =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">fill =</span> col[<span class="st">&quot;AMP&quot;</span>]),</span>
+<span id="cb487-6"><a href="oncoprint.html#cb487-6"></a>    <span class="dt">MUT =</span> <span class="kw">alter_graphic</span>(<span class="st">&quot;rect&quot;</span>, <span class="dt">height =</span> <span class="fl">0.33</span>, <span class="dt">fill =</span> col[<span class="st">&quot;MUT&quot;</span>])</span>
 <span id="cb487-7"><a href="oncoprint.html#cb487-7"></a>)</span></code></pre></div>
 <p>Now we make the oncoPrint. We save <code>column_title</code> and <code>heatmap_legend_param</code>
 as varaibles because they are used multiple times in following code chunks.</p>
 <div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="oncoprint.html#cb488-1"></a>column_title =<span class="st"> &quot;OncoPrint for TCGA Lung Adenocarcinoma, genes in Ras Raf MEK JNK signalling&quot;</span></span>
 <span id="cb488-2"><a href="oncoprint.html#cb488-2"></a>heatmap_legend_param =<span class="st"> </span><span class="kw">list</span>(<span class="dt">title =</span> <span class="st">&quot;Alternations&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="st">&quot;HOMDEL&quot;</span>, <span class="st">&quot;AMP&quot;</span>, <span class="st">&quot;MUT&quot;</span>), </span>
-<span id="cb488-3"><a href="oncoprint.html#cb488-3"></a>		<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Deep deletion&quot;</span>, <span class="st">&quot;Amplification&quot;</span>, <span class="st">&quot;Mutation&quot;</span>))</span>
+<span id="cb488-3"><a href="oncoprint.html#cb488-3"></a>        <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Deep deletion&quot;</span>, <span class="st">&quot;Amplification&quot;</span>, <span class="st">&quot;Mutation&quot;</span>))</span>
 <span id="cb488-4"><a href="oncoprint.html#cb488-4"></a><span class="kw">oncoPrint</span>(mat,</span>
-<span id="cb488-5"><a href="oncoprint.html#cb488-5"></a>	<span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </span>
-<span id="cb488-6"><a href="oncoprint.html#cb488-6"></a>	<span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</span></code></pre></div>
+<span id="cb488-5"><a href="oncoprint.html#cb488-5"></a>    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </span>
+<span id="cb488-6"><a href="oncoprint.html#cb488-6"></a>    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</span></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-26-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>As you see, the genes and samples are reordered automatically. Rows are sorted
 based on the frequency of the alterations in all samples and columns are
@@ -789,9 +785,9 @@ reordering is based on the “memo sort” method, adapted from
 the heatmap, but you can set <code>remove_empty_columns</code> and <code>remove_empty_rows</code> to
 <code>TRUE</code> to remove them:</p>
 <div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="oncoprint.html#cb489-1"></a><span class="kw">oncoPrint</span>(mat,</span>
-<span id="cb489-2"><a href="oncoprint.html#cb489-2"></a>	<span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </span>
-<span id="cb489-3"><a href="oncoprint.html#cb489-3"></a>	<span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb489-4"><a href="oncoprint.html#cb489-4"></a>	<span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</span></code></pre></div>
+<span id="cb489-2"><a href="oncoprint.html#cb489-2"></a>    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </span>
+<span id="cb489-3"><a href="oncoprint.html#cb489-3"></a>    <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb489-4"><a href="oncoprint.html#cb489-4"></a>    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</span></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-27-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>The number of rows and columns may be reduced after empty rows and columns are
 removed. All the components of the oncoPrint are adjusted accordingly. When
@@ -812,10 +808,10 @@ cBio.</p>
 <div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="oncoprint.html#cb490-1"></a>sample_order =<span class="st"> </span><span class="kw">scan</span>(<span class="kw">paste0</span>(<span class="kw">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;ComplexHeatmap&quot;</span>), </span>
 <span id="cb490-2"><a href="oncoprint.html#cb490-2"></a>    <span class="st">&quot;/sample_order.txt&quot;</span>), <span class="dt">what =</span> <span class="st">&quot;character&quot;</span>)</span>
 <span id="cb490-3"><a href="oncoprint.html#cb490-3"></a><span class="kw">oncoPrint</span>(mat,</span>
-<span id="cb490-4"><a href="oncoprint.html#cb490-4"></a>	<span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </span>
-<span id="cb490-5"><a href="oncoprint.html#cb490-5"></a>	<span class="dt">row_order =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(mat), <span class="dt">column_order =</span> sample_order,</span>
-<span id="cb490-6"><a href="oncoprint.html#cb490-6"></a>	<span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb490-7"><a href="oncoprint.html#cb490-7"></a>	<span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</span></code></pre></div>
+<span id="cb490-4"><a href="oncoprint.html#cb490-4"></a>    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </span>
+<span id="cb490-5"><a href="oncoprint.html#cb490-5"></a>    <span class="dt">row_order =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(mat), <span class="dt">column_order =</span> sample_order,</span>
+<span id="cb490-6"><a href="oncoprint.html#cb490-6"></a>    <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb490-7"><a href="oncoprint.html#cb490-7"></a>    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</span></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-28-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>Again, <code>row_order</code> and <code>column_order</code> are automatically adjusted if
 <code>remove_empty_rows</code> and <code>remove_empty_columns</code> are set to <code>TRUE</code>.</p>
@@ -834,54 +830,54 @@ setting in <code>anno_oncoprint_barplot()</code>. <code>anno_oncoprint_barplot()
 wrapper around <code>anno_barplot()</code> where the frequency matrix in just interanlly
 calculated. See following example:</p>
 <div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="oncoprint.html#cb491-1"></a><span class="kw">oncoPrint</span>(mat,</span>
-<span id="cb491-2"><a href="oncoprint.html#cb491-2"></a>	<span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </span>
-<span id="cb491-3"><a href="oncoprint.html#cb491-3"></a>	<span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(</span>
-<span id="cb491-4"><a href="oncoprint.html#cb491-4"></a>		<span class="dt">column_barplot =</span> <span class="kw">anno_oncoprint_barplot</span>(<span class="st">&quot;MUT&quot;</span>, <span class="dt">border =</span> <span class="ot">TRUE</span>, <span class="co"># only MUT</span></span>
-<span id="cb491-5"><a href="oncoprint.html#cb491-5"></a>			<span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))</span>
-<span id="cb491-6"><a href="oncoprint.html#cb491-6"></a>	),</span>
-<span id="cb491-7"><a href="oncoprint.html#cb491-7"></a>	<span class="dt">right_annotation =</span> <span class="kw">rowAnnotation</span>(</span>
-<span id="cb491-8"><a href="oncoprint.html#cb491-8"></a>		<span class="dt">row_barplot =</span> <span class="kw">anno_oncoprint_barplot</span>(<span class="kw">c</span>(<span class="st">&quot;AMP&quot;</span>, <span class="st">&quot;HOMDEL&quot;</span>),  <span class="co"># only AMP and HOMDEL</span></span>
-<span id="cb491-9"><a href="oncoprint.html#cb491-9"></a>			<span class="dt">border =</span> <span class="ot">TRUE</span>, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>), </span>
-<span id="cb491-10"><a href="oncoprint.html#cb491-10"></a>			<span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">side =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">labels_rot =</span> <span class="dv">90</span>))</span>
-<span id="cb491-11"><a href="oncoprint.html#cb491-11"></a>	),</span>
-<span id="cb491-12"><a href="oncoprint.html#cb491-12"></a>	<span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb491-13"><a href="oncoprint.html#cb491-13"></a>	<span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</span></code></pre></div>
+<span id="cb491-2"><a href="oncoprint.html#cb491-2"></a>    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </span>
+<span id="cb491-3"><a href="oncoprint.html#cb491-3"></a>    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(</span>
+<span id="cb491-4"><a href="oncoprint.html#cb491-4"></a>        <span class="dt">column_barplot =</span> <span class="kw">anno_oncoprint_barplot</span>(<span class="st">&quot;MUT&quot;</span>, <span class="dt">border =</span> <span class="ot">TRUE</span>, <span class="co"># only MUT</span></span>
+<span id="cb491-5"><a href="oncoprint.html#cb491-5"></a>            <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))</span>
+<span id="cb491-6"><a href="oncoprint.html#cb491-6"></a>    ),</span>
+<span id="cb491-7"><a href="oncoprint.html#cb491-7"></a>    <span class="dt">right_annotation =</span> <span class="kw">rowAnnotation</span>(</span>
+<span id="cb491-8"><a href="oncoprint.html#cb491-8"></a>        <span class="dt">row_barplot =</span> <span class="kw">anno_oncoprint_barplot</span>(<span class="kw">c</span>(<span class="st">&quot;AMP&quot;</span>, <span class="st">&quot;HOMDEL&quot;</span>),  <span class="co"># only AMP and HOMDEL</span></span>
+<span id="cb491-9"><a href="oncoprint.html#cb491-9"></a>            <span class="dt">border =</span> <span class="ot">TRUE</span>, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>), </span>
+<span id="cb491-10"><a href="oncoprint.html#cb491-10"></a>            <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">side =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">labels_rot =</span> <span class="dv">90</span>))</span>
+<span id="cb491-11"><a href="oncoprint.html#cb491-11"></a>    ),</span>
+<span id="cb491-12"><a href="oncoprint.html#cb491-12"></a>    <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb491-13"><a href="oncoprint.html#cb491-13"></a>    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</span></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-29-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>By default the barplot annotation shows the frequencies. The values can be changed
 to fraction by setting <code>show_fraction = TRUE</code> in <code>anno_oncoprint_barplot()</code>:</p>
 <div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="oncoprint.html#cb492-1"></a><span class="kw">oncoPrint</span>(mat,</span>
-<span id="cb492-2"><a href="oncoprint.html#cb492-2"></a>	<span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </span>
-<span id="cb492-3"><a href="oncoprint.html#cb492-3"></a>	<span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(</span>
-<span id="cb492-4"><a href="oncoprint.html#cb492-4"></a>		<span class="dt">column_barplot =</span> <span class="kw">anno_oncoprint_barplot</span>(<span class="dt">show_fraction =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb492-5"><a href="oncoprint.html#cb492-5"></a>	),</span>
-<span id="cb492-6"><a href="oncoprint.html#cb492-6"></a>	<span class="dt">right_annotation =</span> <span class="kw">rowAnnotation</span>(</span>
-<span id="cb492-7"><a href="oncoprint.html#cb492-7"></a>		<span class="dt">row_barplot =</span> <span class="kw">anno_oncoprint_barplot</span>(<span class="dt">show_fraction =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb492-8"><a href="oncoprint.html#cb492-8"></a>	),</span>
-<span id="cb492-9"><a href="oncoprint.html#cb492-9"></a>	<span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb492-10"><a href="oncoprint.html#cb492-10"></a>	<span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</span></code></pre></div>
+<span id="cb492-2"><a href="oncoprint.html#cb492-2"></a>    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </span>
+<span id="cb492-3"><a href="oncoprint.html#cb492-3"></a>    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(</span>
+<span id="cb492-4"><a href="oncoprint.html#cb492-4"></a>        <span class="dt">column_barplot =</span> <span class="kw">anno_oncoprint_barplot</span>(<span class="dt">show_fraction =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb492-5"><a href="oncoprint.html#cb492-5"></a>    ),</span>
+<span id="cb492-6"><a href="oncoprint.html#cb492-6"></a>    <span class="dt">right_annotation =</span> <span class="kw">rowAnnotation</span>(</span>
+<span id="cb492-7"><a href="oncoprint.html#cb492-7"></a>        <span class="dt">row_barplot =</span> <span class="kw">anno_oncoprint_barplot</span>(<span class="dt">show_fraction =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb492-8"><a href="oncoprint.html#cb492-8"></a>    ),</span>
+<span id="cb492-9"><a href="oncoprint.html#cb492-9"></a>    <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb492-10"><a href="oncoprint.html#cb492-10"></a>    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</span></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-30-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>The percent values and row names are internally constructed as text
 annotations. You can set <code>show_pct</code> and <code>show_row_names</code> to turn them on or
 off. <code>pct_side</code> and <code>row_names_side</code> controls the sides where they are put.</p>
 <div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="oncoprint.html#cb493-1"></a><span class="kw">oncoPrint</span>(mat,</span>
-<span id="cb493-2"><a href="oncoprint.html#cb493-2"></a>	<span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </span>
-<span id="cb493-3"><a href="oncoprint.html#cb493-3"></a>	<span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb493-4"><a href="oncoprint.html#cb493-4"></a>	<span class="dt">pct_side =</span> <span class="st">&quot;right&quot;</span>, <span class="dt">row_names_side =</span> <span class="st">&quot;left&quot;</span>,</span>
-<span id="cb493-5"><a href="oncoprint.html#cb493-5"></a>	<span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</span></code></pre></div>
+<span id="cb493-2"><a href="oncoprint.html#cb493-2"></a>    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </span>
+<span id="cb493-3"><a href="oncoprint.html#cb493-3"></a>    <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb493-4"><a href="oncoprint.html#cb493-4"></a>    <span class="dt">pct_side =</span> <span class="st">&quot;right&quot;</span>, <span class="dt">row_names_side =</span> <span class="st">&quot;left&quot;</span>,</span>
+<span id="cb493-5"><a href="oncoprint.html#cb493-5"></a>    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</span></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-31-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>The barplot annotation for oncoPrint are essentially normal annotations, you
 can add more annotations in <code>HeatmapAnnotation()</code> or <code>rowAnnotation()</code> in the
 normal way:</p>
 <div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="oncoprint.html#cb494-1"></a><span class="kw">oncoPrint</span>(mat,</span>
-<span id="cb494-2"><a href="oncoprint.html#cb494-2"></a>	<span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </span>
-<span id="cb494-3"><a href="oncoprint.html#cb494-3"></a>	<span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb494-4"><a href="oncoprint.html#cb494-4"></a>	<span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">cbar =</span> <span class="kw">anno_oncoprint_barplot</span>(),</span>
-<span id="cb494-5"><a href="oncoprint.html#cb494-5"></a>		<span class="dt">foo1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">172</span>,</span>
-<span id="cb494-6"><a href="oncoprint.html#cb494-6"></a>		<span class="dt">bar1 =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">172</span>)</span>
-<span id="cb494-7"><a href="oncoprint.html#cb494-7"></a>	),</span>
-<span id="cb494-8"><a href="oncoprint.html#cb494-8"></a>	<span class="dt">left_annotation =</span> <span class="kw">rowAnnotation</span>(<span class="dt">foo2 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">26</span>),</span>
-<span id="cb494-9"><a href="oncoprint.html#cb494-9"></a>	<span class="dt">right_annotation =</span> <span class="kw">rowAnnotation</span>(<span class="dt">bar2 =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">26</span>)),</span>
-<span id="cb494-10"><a href="oncoprint.html#cb494-10"></a>	<span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</span></code></pre></div>
+<span id="cb494-2"><a href="oncoprint.html#cb494-2"></a>    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </span>
+<span id="cb494-3"><a href="oncoprint.html#cb494-3"></a>    <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb494-4"><a href="oncoprint.html#cb494-4"></a>    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">cbar =</span> <span class="kw">anno_oncoprint_barplot</span>(),</span>
+<span id="cb494-5"><a href="oncoprint.html#cb494-5"></a>        <span class="dt">foo1 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">172</span>,</span>
+<span id="cb494-6"><a href="oncoprint.html#cb494-6"></a>        <span class="dt">bar1 =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">172</span>)</span>
+<span id="cb494-7"><a href="oncoprint.html#cb494-7"></a>    ),</span>
+<span id="cb494-8"><a href="oncoprint.html#cb494-8"></a>    <span class="dt">left_annotation =</span> <span class="kw">rowAnnotation</span>(<span class="dt">foo2 =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">26</span>),</span>
+<span id="cb494-9"><a href="oncoprint.html#cb494-9"></a>    <span class="dt">right_annotation =</span> <span class="kw">rowAnnotation</span>(<span class="dt">bar2 =</span> <span class="kw">anno_barplot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">26</span>)),</span>
+<span id="cb494-10"><a href="oncoprint.html#cb494-10"></a>    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</span></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-32-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>As you see, the percent annotation, the row name annotation and the oncoPrint
 annotation are appended to the user-specified annotation by default. Also
@@ -896,22 +892,22 @@ complicated associations.</p>
 <p>Following example adds a heatmap horizontally. Remember you can always add row
 annotations to the heatmap list.</p>
 <div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="oncoprint.html#cb495-1"></a>ht_list =<span class="st"> </span><span class="kw">oncoPrint</span>(mat,</span>
-<span id="cb495-2"><a href="oncoprint.html#cb495-2"></a>	<span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </span>
-<span id="cb495-3"><a href="oncoprint.html#cb495-3"></a>	<span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param) <span class="op">+</span></span>
+<span id="cb495-2"><a href="oncoprint.html#cb495-2"></a>    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </span>
+<span id="cb495-3"><a href="oncoprint.html#cb495-3"></a>    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param) <span class="op">+</span></span>
 <span id="cb495-4"><a href="oncoprint.html#cb495-4"></a><span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="kw">nrow</span>(mat)<span class="op">*</span><span class="dv">10</span>), <span class="dt">ncol =</span> <span class="dv">10</span>), <span class="dt">name =</span> <span class="st">&quot;expr&quot;</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))</span>
 <span id="cb495-5"><a href="oncoprint.html#cb495-5"></a><span class="kw">draw</span>(ht_list)</span></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-33-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>or add it vertically:</p>
 <div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="oncoprint.html#cb496-1"></a>ht_list =<span class="st"> </span><span class="kw">oncoPrint</span>(mat,</span>
-<span id="cb496-2"><a href="oncoprint.html#cb496-2"></a>	<span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </span>
-<span id="cb496-3"><a href="oncoprint.html#cb496-3"></a>	<span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param) <span class="op">%v%</span></span>
+<span id="cb496-2"><a href="oncoprint.html#cb496-2"></a>    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </span>
+<span id="cb496-3"><a href="oncoprint.html#cb496-3"></a>    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param) <span class="op">%v%</span></span>
 <span id="cb496-4"><a href="oncoprint.html#cb496-4"></a><span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="kw">ncol</span>(mat)<span class="op">*</span><span class="dv">10</span>), <span class="dt">nrow =</span> <span class="dv">10</span>), <span class="dt">name =</span> <span class="st">&quot;expr&quot;</span>, <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))</span>
 <span id="cb496-5"><a href="oncoprint.html#cb496-5"></a><span class="kw">draw</span>(ht_list)</span></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-34-1.png" width="1152" style="display: block; margin: auto;" /></p>
 <p>Similar as normal heatmap list, you can split the heatmap list:</p>
 <div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="oncoprint.html#cb497-1"></a>ht_list =<span class="st"> </span><span class="kw">oncoPrint</span>(mat,</span>
-<span id="cb497-2"><a href="oncoprint.html#cb497-2"></a>	<span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </span>
-<span id="cb497-3"><a href="oncoprint.html#cb497-3"></a>	<span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param) <span class="op">+</span></span>
+<span id="cb497-2"><a href="oncoprint.html#cb497-2"></a>    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </span>
+<span id="cb497-3"><a href="oncoprint.html#cb497-3"></a>    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param) <span class="op">+</span></span>
 <span id="cb497-4"><a href="oncoprint.html#cb497-4"></a><span class="kw">Heatmap</span>(<span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="kw">nrow</span>(mat)<span class="op">*</span><span class="dv">10</span>), <span class="dt">ncol =</span> <span class="dv">10</span>), <span class="dt">name =</span> <span class="st">&quot;expr&quot;</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>))</span>
 <span id="cb497-5"><a href="oncoprint.html#cb497-5"></a><span class="kw">draw</span>(ht_list, <span class="dt">row_split =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>), <span class="kw">nrow</span>(mat), <span class="dt">replace =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
 <p><img src="07-oncoprint_files/figure-html/unnamed-chunk-35-1.png" width="1152" style="display: block; margin: auto;" /></p>
@@ -920,9 +916,9 @@ number of genes or the samples may not be the original number. If the original
 matrix has row names and column names. The subset of rows and columns can be
 get as follows:</p>
 <div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="oncoprint.html#cb498-1"></a>ht =<span class="st"> </span><span class="kw">oncoPrint</span>(mat,</span>
-<span id="cb498-2"><a href="oncoprint.html#cb498-2"></a>	<span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </span>
-<span id="cb498-3"><a href="oncoprint.html#cb498-3"></a>	<span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb498-4"><a href="oncoprint.html#cb498-4"></a>	<span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</span>
+<span id="cb498-2"><a href="oncoprint.html#cb498-2"></a>    <span class="dt">alter_fun =</span> alter_fun, <span class="dt">col =</span> col, </span>
+<span id="cb498-3"><a href="oncoprint.html#cb498-3"></a>    <span class="dt">remove_empty_columns =</span> <span class="ot">TRUE</span>, <span class="dt">remove_empty_rows =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb498-4"><a href="oncoprint.html#cb498-4"></a>    <span class="dt">column_title =</span> column_title, <span class="dt">heatmap_legend_param =</span> heatmap_legend_param)</span>
 <span id="cb498-5"><a href="oncoprint.html#cb498-5"></a><span class="kw">rownames</span>(ht<span class="op">@</span>matrix)</span></code></pre></div>
 <pre><code>##  [1] &quot;KRAS&quot;   &quot;HRAS&quot;   &quot;BRAF&quot;   &quot;RAF1&quot;   &quot;MAP3K1&quot; &quot;MAP3K2&quot; &quot;MAP3K3&quot; &quot;MAP3K4&quot;
 ##  [9] &quot;MAP3K5&quot; &quot;MAP2K1&quot; &quot;MAP2K2&quot; &quot;MAP2K3&quot; &quot;MAP2K4&quot; &quot;MAPK3&quot;  &quot;MAPK4&quot;  &quot;MAPK7&quot; 
@@ -1011,7 +1007,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["ComplexHeatmap-reference.epub"],
 "toc": {
 "collapse": "none"
 }

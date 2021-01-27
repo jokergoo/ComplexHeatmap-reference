@@ -1448,6 +1448,8 @@ rownames(m) = 1:100
 ha = rowAnnotation(foo = anno_mark(at = c(1:4, 20, 60, 97:100), labels = month.name[1:10]))
 Heatmap(m, name = "mat", cluster_rows = FALSE, right_annotation = ha,
     row_names_side = "left", row_names_gp = gpar(fontsize = 4))
+Heatmap(m, name = "mat", cluster_rows = FALSE, right_annotation = ha,
+    row_names_side = "left", row_names_gp = gpar(fontsize = 4), row_km = 4)
 ```
 
 <img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-161-1.png" width="672" style="display: block; margin: auto;" />

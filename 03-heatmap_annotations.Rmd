@@ -91,7 +91,7 @@ you want to try row annotation, just add `which = "row"` to
 
 A so-called _"simple annotation"_ is the most used style of annotations which
 is heatmap-like or grid-like graphics where colors are used to map to the
-anntation values. To generate a simple annotation, you just simply put the
+annotation values. To generate a simple annotation, you just simply put the
 annotation vector in `HeatmapAnnotation()` with a certain name.
 
 ```{r}

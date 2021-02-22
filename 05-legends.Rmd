@@ -377,6 +377,123 @@ lgd = Legend(col_fun = col_fun, title = "foo", at = c(0, 0.1, 0.5, 0.75, 1),
 draw(lgd, test = TRUE)
 ```
 
+If `at` is set in the decreasing order, the legend is reversed, _i.e._ the smallest value
+is on the top of the legend.
+
+```{r}
+lgd = Legend(col_fun = col_fun, title = "foo", at = c(1, 0.8, 0.6, 0.4, 0.2, 0))
+```
+
+```{r, echo = FALSE, fig.width = legend_width(lgd), fig.height = legend_height(lgd)}
+draw(lgd, test = TRUE)
+```
+
+Most continuous legends have legend breaks with equal distance, which I mean,
+_e.g._ the distance between the first and the second breaks are the same as the
+distance between the second and the third breaks. However, there are still special
+cases where users want to set legend breaks with unequal distances.
+
+In the following example, the color mapping function `col_fun_prop` visualizes
+proportion values with breaks in `c(0, 0.05, 0.1, 0.5, 1)`. The legend breaks
+with unequal distance might reflect the different importance of the values in `c(0, 1)`.
+For example, maybe we want to see more details in the interval `c(0, 0.1)`.
+
+Following is the default style of the legend where the breaks are selected from 0 to 1
+with equal distance.
+
+```{r}
+col_fun_prop = colorRamp2(c(0, 0.05, 0.1, 0.5, 1), 
+    c("green", "white", "red", "black", "blue"))
+lgd = Legend(col_fun = col_fun_prop, title = "Prop")
+```
+
+```{r, echo = FALSE, fig.width = legend_width(lgd), fig.height = legend_height(lgd)}
+draw(lgd, test = TRUE)
+```
+
+You cann't see the details in the interval `c(0, 0.1)`, right? This also reminds us that
+the breaks set in `colorRamp2()` only defines the color mapping while not determine
+the breaks in the legend.
+
+If we manually select the break values, the color bar keeps the same. The labels 
+are shifted and lines connect them to the original positions. In this case, the distance
+in the color bar is still proportional to the real difference in the break values, _i.e._,
+the distance between 0.5 and 1 is five times longer than 0 and 0.1.
+
+```{r}
+col_fun_prop = colorRamp2(c(0, 0.05, 0.1, 0.5, 1), 
+    c("green", "white", "red", "black", "blue"))
+lgd = Legend(col_fun = col_fun_prop, title = "Prop",
+    at = c(0, 0.05, 0.1, 0.5, 1))
+```
+
+```{r, echo = FALSE, fig.width = legend_width(lgd), fig.height = legend_height(lgd)}
+draw(lgd, test = TRUE)
+```
+
+From version 2.7.1, `Legend()` function has a new argument `break_dist` that
+controls the distance between two neighbouring break values in the legend.
+**It might be confusing, but from here, when I mention "break distance", it
+always means the visual distance in the legend.** 
+
+The value of `break_dist` should have length either one which means all break
+values have equal distance in the legend, or `length(at) - 1`.
+
+```{r}
+lgd = Legend(col_fun = col_fun_prop, title = "Prop", break_dist = 1)
+```
+
+```{r, echo = FALSE, fig.width = legend_width(lgd), fig.height = legend_height(lgd)}
+draw(lgd, test = TRUE)
+```
+
+And in the following example, the top two break intervals are three times longer than
+the bottom two intervals.
+
+```{r}
+lgd = Legend(col_fun = col_fun_prop, title = "Prop", break_dist = c(1, 1, 3, 3))
+```
+
+```{r, echo = FALSE, fig.width = legend_width(lgd), fig.height = legend_height(lgd)}
+draw(lgd, test = TRUE)
+```
+
+If we increase the legend height by `legend_height` argument, there will be enough space
+for the labels and their positions are not adjusted any more.
+
+```{r}
+lgd = Legend(col_fun = col_fun_prop, title = "Prop", break_dist = c(1, 1, 3, 3),
+    legend_height = unit(4, "cm"))
+```
+
+```{r, echo = FALSE, fig.width = legend_width(lgd), fig.height = legend_height(lgd)}
+draw(lgd, test = TRUE)
+```
+
+Imaging following user case, we want to use one color scheme for the values in
+`c(0, 0.1)` and a second color schema for the values in `c(0.1, 1)`, maybe for
+the reason that we want to emphasize the two intervals are very different. The
+color mapping can be defined as:
+
+```{r}
+col_fun2 = colorRamp2(c(0, 0.1, 0.1+1e-6, 1), c("white", "red", "yellow", "blue"))
+```
+
+So here I just added a tiny shift (`1e-6`) to 0.1 and set it as the lower bound for the
+second color scheme. The legend looks like:
+
+```{r}
+lgd = Legend(col_fun = col_fun2, title = "Prop", at = c(0, 0.05, 0.1, 0.5, 1),
+    break_dist = c(1, 1, 3, 3), legend_height = unit(4, "cm"))
+```
+
+```{r, echo = FALSE, fig.width = legend_width(lgd), fig.height = legend_height(lgd)}
+draw(lgd, test = TRUE)
+```
+
+Now you can see the colors are not changed smoothly from 0 to 1 and there are two disticnt
+color schemes.
+
 
 ## Discrete legends {#discrete-legends}
 

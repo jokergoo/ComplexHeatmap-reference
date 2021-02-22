@@ -367,6 +367,117 @@ lgd = Legend(col_fun = col_fun, title = "foo", at = c(0, 0.1, 0.5, 0.75, 1),
 
 <img src="05-legends_files/figure-html/unnamed-chunk-52-1.png" width="262.882204724409" style="display: block; margin: auto;" />
 
+If `at` is set in the decreasing order, the legend is reversed, _i.e._ the smallest value
+is on the top of the legend.
+
+
+```r
+lgd = Legend(col_fun = col_fun, title = "foo", at = c(1, 0.8, 0.6, 0.4, 0.2, 0))
+```
+
+<img src="05-legends_files/figure-html/unnamed-chunk-54-1.png" width="52.5490813648294" style="display: block; margin: auto;" />
+
+Most continuous legends have legend breaks with equal distance, which I mean,
+_e.g._ the distance between the first and the second breaks are the same as the
+distance between the second and the third breaks. However, there are still special
+cases where users want to set legend breaks with unequal distances.
+
+In the following example, the color mapping function `col_fun_prop` visualizes
+proportion values with breaks in `c(0, 0.05, 0.1, 0.5, 1)`. The legend breaks
+with unequal distance might reflect the different importance of the values in `c(0, 1)`.
+For example, maybe we want to see more details in the interval `c(0, 0.1)`.
+
+Following is the default style of the legend where the breaks are selected from 0 to 1
+with equal distance.
+
+
+```r
+col_fun_prop = colorRamp2(c(0, 0.05, 0.1, 0.5, 1), 
+    c("green", "white", "red", "black", "blue"))
+lgd = Legend(col_fun = col_fun_prop, title = "Prop")
+```
+
+<img src="05-legends_files/figure-html/unnamed-chunk-56-1.png" width="52.5490813648294" style="display: block; margin: auto;" />
+
+You cann't see the details in the interval `c(0, 0.1)`, right? This also reminds us that
+the breaks set in `colorRamp2()` only defines the color mapping while not determine
+the breaks in the legend.
+
+If we manually select the break values, the color bar keeps the same. The labels 
+are shifted and lines connect them to the original positions. In this case, the distance
+in the color bar is still proportional to the real difference in the break values, _i.e._,
+the distance between 0.5 and 1 is five times longer than 0 and 0.1.
+
+
+```r
+col_fun_prop = colorRamp2(c(0, 0.05, 0.1, 0.5, 1), 
+    c("green", "white", "red", "black", "blue"))
+lgd = Legend(col_fun = col_fun_prop, title = "Prop",
+    at = c(0, 0.05, 0.1, 0.5, 1))
+```
+
+<img src="05-legends_files/figure-html/unnamed-chunk-58-1.png" width="71.3009973753281" style="display: block; margin: auto;" />
+
+From version 2.7.1, `Legend()` function has a new argument `break_dist` that
+controls the distance between two neighbouring break values in the legend.
+**It might be confusing, but from here, when I mention "break distance", it
+always means the visual distance in the legend.** 
+
+The value of `break_dist` should have length either one which means all break
+values have equal distance in the legend, or `length(at) - 1`.
+
+
+```r
+lgd = Legend(col_fun = col_fun_prop, title = "Prop", break_dist = 1)
+```
+
+<img src="05-legends_files/figure-html/unnamed-chunk-60-1.png" width="59.9624146981627" style="display: block; margin: auto;" />
+
+And in the following example, the top two break intervals are three times longer than
+the bottom two intervals.
+
+
+```r
+lgd = Legend(col_fun = col_fun_prop, title = "Prop", break_dist = c(1, 1, 3, 3))
+```
+
+<img src="05-legends_files/figure-html/unnamed-chunk-62-1.png" width="71.3009973753281" style="display: block; margin: auto;" />
+
+If we increase the legend height by `legend_height` argument, there will be enough space
+for the labels and their positions are not adjusted any more.
+
+
+```r
+lgd = Legend(col_fun = col_fun_prop, title = "Prop", break_dist = c(1, 1, 3, 3),
+    legend_height = unit(4, "cm"))
+```
+
+<img src="05-legends_files/figure-html/unnamed-chunk-64-1.png" width="59.9624146981627" style="display: block; margin: auto;" />
+
+Imaging following user case, we want to use one color scheme for the values in
+`c(0, 0.1)` and a second color schema for the values in `c(0.1, 1)`, maybe for
+the reason that we want to emphasize the two intervals are very different. The
+color mapping can be defined as:
+
+
+```r
+col_fun2 = colorRamp2(c(0, 0.1, 0.1+1e-6, 1), c("white", "red", "yellow", "blue"))
+```
+
+So here I just added a tiny shift (`1e-6`) to 0.1 and set it as the lower bound for the
+second color scheme. The legend looks like:
+
+
+```r
+lgd = Legend(col_fun = col_fun2, title = "Prop", at = c(0, 0.05, 0.1, 0.5, 1),
+    break_dist = c(1, 1, 3, 3), legend_height = unit(4, "cm"))
+```
+
+<img src="05-legends_files/figure-html/unnamed-chunk-67-1.png" width="59.9624146981627" style="display: block; margin: auto;" />
+
+Now you can see the colors are not changed smoothly from 0 to 1 and there are two disticnt
+color schemes.
+
 
 ## Discrete legends {#discrete-legends}
 
@@ -382,14 +493,14 @@ You can either specify `at` or `labels`, but most probably you specify
 lgd = Legend(at = 1:6, title = "foo", legend_gp = gpar(fill = 1:6))
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-54-1.png" width="41.4290813648294" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-69-1.png" width="41.4290813648294" style="display: block; margin: auto;" />
 
 
 ```r
 lgd = Legend(labels = month.name[1:6], title = "foo", legend_gp = gpar(fill = 1:6))
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-56-1.png" width="87.5624146981627" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-71-1.png" width="87.5624146981627" style="display: block; margin: auto;" />
 
 The discrete legend for continuous color mapping:
 
@@ -399,7 +510,7 @@ at = seq(0, 1, by = 0.2)
 lgd = Legend(at = at, title = "foo", legend_gp = gpar(fill = col_fun(at)))
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-58-1.png" width="52.5490813648294" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-73-1.png" width="52.5490813648294" style="display: block; margin: auto;" />
 
 The position of title:
 
@@ -409,7 +520,7 @@ lgd = Legend(labels = month.name[1:6], title = "foo", legend_gp = gpar(fill = 1:
     title_position = "lefttop")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-60-1.png" width="115.58813648294" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-75-1.png" width="115.58813648294" style="display: block; margin: auto;" />
 
 
 ```r
@@ -417,7 +528,7 @@ lgd = Legend(labels = month.name[1:6], title = "foo", legend_gp = gpar(fill = 1:
     title_position = "leftcenter-rot")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-62-1.png" width="104.694803149606" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-77-1.png" width="104.694803149606" style="display: block; margin: auto;" />
 
 The size of grids are controlled by `grid_width` and `grid_height`.
 
@@ -427,7 +538,7 @@ lgd = Legend(at = 1:6, legend_gp = gpar(fill = 1:6), title = "foo",
     grid_height = unit(1, "cm"), grid_width = unit(5, "mm"))
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-64-1.png" width="45.2086089238845" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-79-1.png" width="45.2086089238845" style="display: block; margin: auto;" />
 
 The graphic parameters of labels are controlled by `labels_gp`.
 
@@ -437,7 +548,7 @@ lgd = Legend(labels = month.name[1:6], legend_gp = gpar(fill = 1:6), title = "fo
     labels_gp = gpar(col = "red", fontsize = 14))
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-66-1.png" width="108.981081364829" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-81-1.png" width="108.981081364829" style="display: block; margin: auto;" />
 
 The graphic parameters of the title are controlled by `title_gp`.
 
@@ -448,7 +559,7 @@ lgd = Legend(labels = month.name[1:6], legend_gp = gpar(fill = 1:6), title = "fo
     title_gp = gpar(col = "red", fontsize = 14))
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-68-1.png" width="87.5624146981627" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-83-1.png" width="87.5624146981627" style="display: block; margin: auto;" />
 
 Title and labels are be complicated texts by integrating **gridtext** package (Section \@ref(gridtext-legends)):
 
@@ -463,7 +574,7 @@ lgd = Legend(
 )
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-70-1.png" width="138.922414698163" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-85-1.png" width="138.922414698163" style="display: block; margin: auto;" />
 
 Borders of grids are controlled by `border`.
 
@@ -473,7 +584,7 @@ lgd = Legend(labels = month.name[1:6], legend_gp = gpar(fill = 1:6), title = "fo
     border = "red")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-72-1.png" width="87.5624146981627" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-87-1.png" width="87.5624146981627" style="display: block; margin: auto;" />
 
 One important thing for the discrete legend is you can arrange the grids into
 multiple rows or/and columns. If `ncol` is set to a number, the grids are
@@ -485,7 +596,7 @@ lgd = Legend(labels = month.name[1:10], legend_gp = gpar(fill = 1:10),
     title = "foo", ncol = 3)
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-74-1.png" width="246.795800524934" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-89-1.png" width="246.795800524934" style="display: block; margin: auto;" />
 
 Still the title position is calculated based on the multiplt-column legend.
 
@@ -495,7 +606,7 @@ lgd = Legend(labels = month.name[1:10], legend_gp = gpar(fill = 1:10), title = "
     ncol = 3, title_position = "topcenter")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-76-1.png" width="246.795800524934" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-91-1.png" width="246.795800524934" style="display: block; margin: auto;" />
 
 You can choose to list the legend levels by rows by setting `by_row = TRUE`.
 
@@ -505,7 +616,7 @@ lgd = Legend(labels = month.name[1:10], legend_gp = gpar(fill = 1:10), title = "
     ncol = 3, by_row = TRUE)
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-78-1.png" width="253.115800524934" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-93-1.png" width="253.115800524934" style="display: block; margin: auto;" />
 
 The gaps between two columns are controlled by `gap` or `column_gap`. These two arguments
 are treated the same.
@@ -516,7 +627,7 @@ lgd = Legend(labels = month.name[1:10], legend_gp = gpar(fill = 1:10), title = "
     ncol = 3, gap = unit(1, "cm"))
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-80-1.png" width="307.268241469816" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-95-1.png" width="307.268241469816" style="display: block; margin: auto;" />
 
 The gaps between rows are controlled by `row_gap`.
 
@@ -526,7 +637,7 @@ lgd = Legend(labels = month.name[1:10], legend_gp = gpar(fill = 1:10), title = "
     ncol = 3, row_gap = unit(5, "mm"))
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-82-1.png" width="246.795800524934" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-97-1.png" width="246.795800524934" style="display: block; margin: auto;" />
 
 Instead of `ncol`, you can also specify the layout by `nrow`. Note you cannot
 use `ncol` and `nrow` at a same time.
@@ -537,7 +648,7 @@ lgd = Legend(labels = month.name[1:10], legend_gp = gpar(fill = 1:10),
     title = "foo", nrow = 3)
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-84-1.png" width="308.21249343832" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-99-1.png" width="308.21249343832" style="display: block; margin: auto;" />
 
 One extreme case is when all levels are put in one row and the title are
 rotated by 90 degree. The height of the legend will be the height of the
@@ -549,7 +660,7 @@ lgd = Legend(labels = month.name[1:6], legend_gp = gpar(fill = 1:6), title = "fo
     nrow = 1, title_position = "lefttop-rot")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-86-1.png" width="401.738267716535" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-101-1.png" width="401.738267716535" style="display: block; margin: auto;" />
 
 Following style a lot of people might like:
 
@@ -559,7 +670,7 @@ lgd = Legend(labels = month.name[1:6], legend_gp = gpar(fill = 1:6), title = "fo
     nrow = 1, title_position = "leftcenter")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-88-1.png" width="445.218267716535" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-103-1.png" width="445.218267716535" style="display: block; margin: auto;" />
 
 
 `Legend()` also supports to use simple graphics (e.g. points, lines, boxplots) as
@@ -572,7 +683,7 @@ lgd = Legend(labels = month.name[1:6], title = "foo", type = "points",
     pch = 1:6, legend_gp = gpar(col = 1:6), background = "#FF8080")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-90-1.png" width="87.5624146981627" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-105-1.png" width="87.5624146981627" style="display: block; margin: auto;" />
 
 
 
@@ -581,7 +692,7 @@ lgd = Legend(labels = month.name[1:6], title = "foo", type = "points",
     pch = letters[1:6], legend_gp = gpar(col = 1:6), background = "white")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-92-1.png" width="87.5624146981627" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-107-1.png" width="87.5624146981627" style="display: block; margin: auto;" />
 
 Or set `type = "lines"`/`type = "l"` to use lines as legend:
 
@@ -591,7 +702,7 @@ lgd = Legend(labels = month.name[1:6], title = "foo", type = "lines",
     legend_gp = gpar(col = 1:6, lty = 1:6), grid_width = unit(1, "cm"))
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-94-1.png" width="110.239580052493" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-109-1.png" width="110.239580052493" style="display: block; margin: auto;" />
 
 Or set `type = "boxplot"`/`type = "box"` to use boxes as legends:
 
@@ -601,7 +712,7 @@ lgd = Legend(labels = month.name[1:6], title = "foo", type = "boxplot",
     legend_gp = gpar(fill = 1:6))
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-96-1.png" width="87.5624146981627" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-111-1.png" width="87.5624146981627" style="display: block; margin: auto;" />
 
 When `pch` is an integer number, the numbers in `26:28` correspond to following symbols:
 
@@ -610,7 +721,7 @@ When `pch` is an integer number, the numbers in `26:28` correspond to following 
 lgd = Legend(labels = paste0("pch = ", 26:28), type = "points", pch = 26:28)
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-98-1.png" width="85.5357480314961" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-113-1.png" width="85.5357480314961" style="display: block; margin: auto;" />
 
 In all examples showed above, the labels are single lines. Multiple-line labels are also
 supported. As shown in the following example, legend grids for multiple-line labels are 
@@ -622,7 +733,7 @@ lgd = Legend(labels = c("aaaaa\naaaaa", "bbbbb\nbbbbb", "c", "d"),
     legend_gp = gpar(fill = 1:4))
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-100-1.png" width="71.0824146981627" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-115-1.png" width="71.0824146981627" style="display: block; margin: auto;" />
 
 If the legend is arranged in multiple rows or columns, the sizes of legend grids are adjusted
 to the label with the most number of lines.
@@ -633,7 +744,7 @@ lgd = Legend(labels = c("aaaaa\naaaaa", "c", "d", "bbbbb\nbbbbb"),
     legend_gp = gpar(fill = 1:4), nrow = 2)
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-102-1.png" width="134.072440944882" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-117-1.png" width="134.072440944882" style="display: block; margin: auto;" />
 
 The last useful argument `graphics` can be used to self-define the legend
 graphics. The value for `graphics` should be a list of functions with four
@@ -653,7 +764,7 @@ lgd = Legend(labels = letters[1:4],
     ))
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-104-1.png" width="41.4290813648294" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-119-1.png" width="41.4290813648294" style="display: block; margin: auto;" />
 
 
 ## A list of legends {#a-list-of-legends}
@@ -678,7 +789,7 @@ pd = packLegend(lgd1, lgd2, lgd3)
 pd = packLegend(list = list(lgd1, lgd2, lgd3))
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-106-1.png" width="87.5624146981628" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-121-1.png" width="87.5624146981628" style="display: block; margin: auto;" />
 
 Simillar as single legend, you can draw the packed legends by `draw()`
 function. Also you can get the size of `pd` by `ComplexHeatmap:::width()` and
@@ -708,7 +819,7 @@ Horizontally arranging the legends simply by setting `direction = "horizontal"`.
 pd = packLegend(lgd1, lgd2, lgd3, direction = "horizontal")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-109-1.png" width="218.838635170604" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-124-1.png" width="218.838635170604" style="display: block; margin: auto;" />
 
 
 One feature of `packLegend()` is, e.g. if the packing is vertically and the
@@ -725,7 +836,7 @@ pd = packLegend(lgd1, lgd3, lgd2, lgd3, lgd2, lgd1, max_height = unit(10, "cm"),
     column_gap = unit(1, "cm"))
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-111-1.png" width="286.117270341207" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-126-1.png" width="286.117270341207" style="display: block; margin: auto;" />
 
 Similar for horizontal packing:
 
@@ -740,7 +851,7 @@ pd = packLegend(lgd1, lgd2, lgd3, lgd1, lgd2, lgd3, max_width = unit(10, "cm"),
     direction = "horizontal", column_gap = unit(5, "mm"), row_gap = unit(1, "cm"))
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-113-1.png" width="354.615223097113" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-128-1.png" width="354.615223097113" style="display: block; margin: auto;" />
 
 The packed legends `pd` is also a `Legends` object, which means you can use
 `draw()` to draw it by specifying the positions.
@@ -755,7 +866,7 @@ draw(pd, x = unit(1, "npc"), y = unit(1, "npc"), just = c("right", "top"))
 popViewport()
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-114-1.png" width="672" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-129-1.png" width="672" style="display: block; margin: auto;" />
 
 To be mentioned again, `packLegend()` is used internally to manage the list
 of heatmap and annotation legends.
@@ -778,7 +889,7 @@ Heatmap(m, name = "mat", heatmap_legend_param = list(
 ))
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-115-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-130-1.png" width="499.2" style="display: block; margin: auto;" />
 
 `annotation_legend_param` controls legends for annotations. Since a
 `HeatmapAnnotation` may contain multiple annotations, the value of
@@ -802,7 +913,7 @@ ha = HeatmapAnnotation(foo = runif(10), bar = sample(c("f", "m"), 10, replace = 
 Heatmap(m, name = "mat", top_annotation = ha)
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-116-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-131-1.png" width="499.2" style="display: block; margin: auto;" />
 
 If the heatmaps are concatenated horizontally, all heatmap and row annotation
 legends are grouped and all column annotation legends ae grouped. The reason
@@ -818,7 +929,7 @@ rowAnnotation(sth = runif(10)) +
 Heatmap(m, name = "mat2", top_annotation = ha2)
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-117-1.png" width="768" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-132-1.png" width="768" style="display: block; margin: auto;" />
 
 Similarlly, if the heatmaps are concatenated vertically, all heatmaps/column
 annotations are grouped and legends for all row annotations are grouped.
@@ -833,7 +944,7 @@ Heatmap(m, name = "mat2", top_annotation = ha2,
     right_annotation = rowAnnotation(sth = 1:10))
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-118-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-133-1.png" width="499.2" style="display: block; margin: auto;" />
 
 `show_legend` in `HeatmapAnnotation()` and `show_heatmap_legend` in
 `Heatmap()` controls whether show the legends. Note `show_legend` can be a
@@ -850,7 +961,7 @@ Heatmap(m, name = "mat1", top_annotation = ha) +
 Heatmap(m, name = "mat2", show_heatmap_legend = FALSE)
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-119-1.png" width="768" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-134-1.png" width="768" style="display: block; margin: auto;" />
 
 `merge_legend` in `draw()` function controlls whether to merge all the legends
 into a single group. Normally, when there are many annotations and heatmaps,
@@ -876,7 +987,7 @@ ht_list = Heatmap(m, name = "mat1", top_annotation = ha1) +
 draw(ht_list, merge_legend = TRUE)
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-120-1.png" width="768" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-135-1.png" width="768" style="display: block; margin: auto;" />
 
 If you want the heatmap legends to be the "pure heatmap legends", you can set
 `legend_grouping = "original"` to enforce all annotation legends to be put together,
@@ -887,7 +998,7 @@ no matter whether they are row annotation legends or column annotation legends.
 draw(ht_list, legend_grouping = "original")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-121-1.png" width="672" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-136-1.png" width="672" style="display: block; margin: auto;" />
 
 A continuous color mapping can have a
 discrete legend by setting `color_bar = "discrete"`, both work for heatmap
@@ -901,7 +1012,7 @@ Heatmap(m, name = "mat", heatmap_legend_param = list(color_bar = "discrete"),
             foo = list(color_bar = "discrete"))))
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-122-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-137-1.png" width="499.2" style="display: block; margin: auto;" />
 
 If the `value` is a character vector, no matter it is an annotation or the one-row/one-column
 matrix for the heatmap, the default order of legend labels is `sort(unique(value))` and if `value`
@@ -916,7 +1027,7 @@ chr
 ```
 
 ```
-##  [1] "a" "a" "a" "c" "b" "a" "c" "b" "c" "c"
+##  [1] "a" "c" "c" "c" "b" "a" "b" "c" "b" "a"
 ```
 
 ```r
@@ -926,7 +1037,7 @@ Heatmap(m, top_annotation = HeatmapAnnotation(chr = chr, fa1 = fa1, fa2 = fa2, f
     annotation_legend_param = list(fa3 = list(at = c("b", "c", "a")))))
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-123-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-138-1.png" width="499.2" style="display: block; margin: auto;" />
 
 ## Add customized legends {#add-customized-legends}
 
@@ -959,7 +1070,7 @@ ht_list = Heatmap(m, name = "mat1", top_annotation = ha1) +
 draw(ht_list, ht_gap = unit(7, "mm"), row_km = 2)
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-124-1.png" width="576" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-139-1.png" width="576" style="display: block; margin: auto;" />
 
 Next we construct legends for the points, the lines and the boxplots.
 
@@ -976,7 +1087,7 @@ lgd_list = list(
 draw(ht_list, ht_gap = unit(7, "mm"), row_km = 2, annotation_legend_list = lgd_list)
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-125-1.png" width="576" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-140-1.png" width="576" style="display: block; margin: auto;" />
 
 ## The side of legends
 
@@ -997,7 +1108,7 @@ ht_list = Heatmap(m, name = "mat1", top_annotation = ha1) +
 draw(ht_list, heatmap_legend_side = "left", annotation_legend_side = "bottom")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-126-1.png" width="768" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-141-1.png" width="768" style="display: block; margin: auto;" />
 
 When the legends are put at the bottom or on the top, the legends are arranged
 horizontally. We might also want to set every single legend as horizontal
@@ -1026,7 +1137,7 @@ draw(ht_list, merge_legend = TRUE, heatmap_legend_side = "bottom",
     annotation_legend_side = "bottom")
 ```
 
-<img src="05-legends_files/figure-html/unnamed-chunk-127-1.png" width="768" style="display: block; margin: auto;" />
+<img src="05-legends_files/figure-html/unnamed-chunk-142-1.png" width="768" style="display: block; margin: auto;" />
 
 
 

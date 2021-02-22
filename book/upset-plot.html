@@ -342,9 +342,9 @@ UpSet plots with the <strong>ComplexHeatmap</strong> package with some improveme
 <ol style="list-style-type: decimal">
 <li>A list of sets where each set is a vector, e.g.:</li>
 </ol>
-<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="upset-plot.html#cb502-1"></a><span class="kw">list</span>(<span class="dt">set1 =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>),</span>
-<span id="cb502-2"><a href="upset-plot.html#cb502-2"></a>     <span class="dt">set2 =</span> <span class="kw">c</span>(<span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>, <span class="st">&quot;e&quot;</span>),</span>
-<span id="cb502-3"><a href="upset-plot.html#cb502-3"></a>     ...)</span></code></pre></div>
+<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="upset-plot.html#cb510-1"></a><span class="kw">list</span>(<span class="dt">set1 =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>),</span>
+<span id="cb510-2"><a href="upset-plot.html#cb510-2"></a>     <span class="dt">set2 =</span> <span class="kw">c</span>(<span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>, <span class="st">&quot;e&quot;</span>),</span>
+<span id="cb510-3"><a href="upset-plot.html#cb510-3"></a>     ...)</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>A binary matrix/data frame where rows are elements and columns are sets,
 e.g.:</li>
@@ -362,9 +362,9 @@ in set <strong>set3</strong>. Note the matrix is also valid if it is a logical m
 the logical columns are only used.</p>
 <p>Both formats can be used for making UpSet plots, users can still use
 <code>list_to_matrix()</code> to convert from list to the binary matrix.</p>
-<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="upset-plot.html#cb504-1"></a>lt =<span class="st"> </span><span class="kw">list</span>(<span class="dt">set1 =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>),</span>
-<span id="cb504-2"><a href="upset-plot.html#cb504-2"></a>          <span class="dt">set2 =</span> <span class="kw">c</span>(<span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>, <span class="st">&quot;e&quot;</span>))</span>
-<span id="cb504-3"><a href="upset-plot.html#cb504-3"></a><span class="kw">list_to_matrix</span>(lt)</span></code></pre></div>
+<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="upset-plot.html#cb512-1"></a>lt =<span class="st"> </span><span class="kw">list</span>(<span class="dt">set1 =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>),</span>
+<span id="cb512-2"><a href="upset-plot.html#cb512-2"></a>          <span class="dt">set2 =</span> <span class="kw">c</span>(<span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>, <span class="st">&quot;e&quot;</span>))</span>
+<span id="cb512-3"><a href="upset-plot.html#cb512-3"></a><span class="kw">list_to_matrix</span>(lt)</span></code></pre></div>
 <pre><code>##   set1 set2
 ## a    1    0
 ## b    1    1
@@ -372,7 +372,7 @@ the logical columns are only used.</p>
 ## d    0    1
 ## e    0    1</code></pre>
 <p>You can also set the universal set in <code>list_to_matrix()</code>:</p>
-<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="upset-plot.html#cb506-1"></a><span class="kw">list_to_matrix</span>(lt, <span class="dt">universal =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="upset-plot.html#cb514-1"></a><span class="kw">list_to_matrix</span>(lt, <span class="dt">universal =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])</span></code></pre></div>
 <pre><code>##   set1 set2
 ## a    1    0
 ## b    1    1
@@ -386,7 +386,7 @@ the logical columns are only used.</p>
 ## j    0    0</code></pre>
 <p>If the universal set does not completely cover the input sets,
 those elements are not in the universal set are removed:</p>
-<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="upset-plot.html#cb508-1"></a><span class="kw">list_to_matrix</span>(lt, <span class="dt">universal =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="upset-plot.html#cb516-1"></a><span class="kw">list_to_matrix</span>(lt, <span class="dt">universal =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>])</span></code></pre></div>
 <pre><code>##   set1 set2
 ## a    1    0
 ## b    1    1
@@ -396,9 +396,9 @@ those elements are not in the universal set are removed:</p>
 <li>The set can be genomic intervals, then it can only be represented as a list
 of <code>GRanges</code>/<code>IRanges</code> objects.</li>
 </ol>
-<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="upset-plot.html#cb510-1"></a><span class="kw">list</span>(<span class="dt">set1 =</span> <span class="kw">GRanges</span>(...),</span>
-<span id="cb510-2"><a href="upset-plot.html#cb510-2"></a>     <span class="dt">set2 =</span> <span class="kw">GRanges</span>(...),</span>
-<span id="cb510-3"><a href="upset-plot.html#cb510-3"></a>     ...)</span></code></pre></div>
+<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="upset-plot.html#cb518-1"></a><span class="kw">list</span>(<span class="dt">set1 =</span> <span class="kw">GRanges</span>(...),</span>
+<span id="cb518-2"><a href="upset-plot.html#cb518-2"></a>     <span class="dt">set2 =</span> <span class="kw">GRanges</span>(...),</span>
+<span id="cb518-3"><a href="upset-plot.html#cb518-3"></a>     ...)</span></code></pre></div>
 </div>
 <div id="upset-mode" class="section level2" number="8.2">
 <h2><span class="header-section-number">8.2</span> Mode</h2>
@@ -443,12 +443,12 @@ overlap.</p></li>
 <p>The function <code>make_comb_mat()</code> generates the combination matrix as well as
 calculates the size of the sets and the combination sets. The input can be one
 single variable or name-value pairs:</p>
-<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="upset-plot.html#cb512-1"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb512-2"><a href="upset-plot.html#cb512-2"></a>lt =<span class="st"> </span><span class="kw">list</span>(<span class="dt">a =</span> <span class="kw">sample</span>(letters, <span class="dv">5</span>),</span>
-<span id="cb512-3"><a href="upset-plot.html#cb512-3"></a>          <span class="dt">b =</span> <span class="kw">sample</span>(letters, <span class="dv">10</span>),</span>
-<span id="cb512-4"><a href="upset-plot.html#cb512-4"></a>          <span class="dt">c =</span> <span class="kw">sample</span>(letters, <span class="dv">15</span>))</span>
-<span id="cb512-5"><a href="upset-plot.html#cb512-5"></a>m1 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt)</span>
-<span id="cb512-6"><a href="upset-plot.html#cb512-6"></a>m1</span></code></pre></div>
+<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="upset-plot.html#cb520-1"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb520-2"><a href="upset-plot.html#cb520-2"></a>lt =<span class="st"> </span><span class="kw">list</span>(<span class="dt">a =</span> <span class="kw">sample</span>(letters, <span class="dv">5</span>),</span>
+<span id="cb520-3"><a href="upset-plot.html#cb520-3"></a>          <span class="dt">b =</span> <span class="kw">sample</span>(letters, <span class="dv">10</span>),</span>
+<span id="cb520-4"><a href="upset-plot.html#cb520-4"></a>          <span class="dt">c =</span> <span class="kw">sample</span>(letters, <span class="dv">15</span>))</span>
+<span id="cb520-5"><a href="upset-plot.html#cb520-5"></a>m1 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt)</span>
+<span id="cb520-6"><a href="upset-plot.html#cb520-6"></a>m1</span></code></pre></div>
 <pre><code>## A combination matrix with 3 sets and 7 combinations.
 ##   ranges of combination set size: c(1, 8).
 ##   mode for the combination size: distinct.
@@ -469,26 +469,26 @@ single variable or name-value pairs:</p>
 ##     a    5
 ##     b   10
 ##     c   15</code></pre>
-<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="upset-plot.html#cb514-1"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(<span class="dt">a =</span> lt<span class="op">$</span>a, <span class="dt">b =</span> lt<span class="op">$</span>b, <span class="dt">c =</span> lt<span class="op">$</span>c)</span>
-<span id="cb514-2"><a href="upset-plot.html#cb514-2"></a>m3 =<span class="st"> </span><span class="kw">make_comb_mat</span>(<span class="kw">list_to_matrix</span>(lt))</span></code></pre></div>
+<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="upset-plot.html#cb522-1"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(<span class="dt">a =</span> lt<span class="op">$</span>a, <span class="dt">b =</span> lt<span class="op">$</span>b, <span class="dt">c =</span> lt<span class="op">$</span>c)</span>
+<span id="cb522-2"><a href="upset-plot.html#cb522-2"></a>m3 =<span class="st"> </span><span class="kw">make_comb_mat</span>(<span class="kw">list_to_matrix</span>(lt))</span></code></pre></div>
 <p><code>m1</code>, <code>m2</code> and <code>m3</code> are identical.</p>
 <p>The mode is controlled by the <code>mode</code> argument:</p>
-<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="upset-plot.html#cb515-1"></a>m1 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt) <span class="co"># the default mode is `distinct`</span></span>
-<span id="cb515-2"><a href="upset-plot.html#cb515-2"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;intersect&quot;</span>)</span>
-<span id="cb515-3"><a href="upset-plot.html#cb515-3"></a>m3 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;union&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="upset-plot.html#cb523-1"></a>m1 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt) <span class="co"># the default mode is `distinct`</span></span>
+<span id="cb523-2"><a href="upset-plot.html#cb523-2"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;intersect&quot;</span>)</span>
+<span id="cb523-3"><a href="upset-plot.html#cb523-3"></a>m3 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;union&quot;</span>)</span></code></pre></div>
 <p>The UpSet plots under different modes will be demonstrated in later sections.</p>
 <p>When there are too many sets, the sets can be pre-filtered by the set sizes.
 The <code>min_set_size</code> and <code>top_n_sets</code> are for this purpose. <code>min_set_size</code>
 controls the minimal size for the sets and <code>top_n_sets</code> controls the number of
 top sets with the largest sizes.</p>
-<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="upset-plot.html#cb516-1"></a>m1 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">min_set_size =</span> <span class="dv">6</span>)</span>
-<span id="cb516-2"><a href="upset-plot.html#cb516-2"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">top_n_sets =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="upset-plot.html#cb524-1"></a>m1 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">min_set_size =</span> <span class="dv">6</span>)</span>
+<span id="cb524-2"><a href="upset-plot.html#cb524-2"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">top_n_sets =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p>The subsetting of the sets affects the calculation of the sizes of the
 combination sets, that is why it needs to be controlled at the combination
 matrix generation step. The subsetting of combination sets can be directly
 performed by subsetting the matrix:</p>
-<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="upset-plot.html#cb517-1"></a>m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt)</span>
-<span id="cb517-2"><a href="upset-plot.html#cb517-2"></a>m[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="upset-plot.html#cb525-1"></a>m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt)</span>
+<span id="cb525-2"><a href="upset-plot.html#cb525-2"></a>m[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]</span></code></pre></div>
 <pre><code>## A combination matrix with 3 sets and 4 combinations.
 ##   ranges of combination set size: c(1, 4).
 ##   mode for the combination size: distinct.
@@ -508,8 +508,8 @@ performed by subsetting the matrix:</p>
 ##     c   15</code></pre>
 <p><code>make_comb_mat()</code> also allows to specify the universal set so that the complement
 set which contains elements not belonging to any set is also considered.</p>
-<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="upset-plot.html#cb519-1"></a>m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters)</span>
-<span id="cb519-2"><a href="upset-plot.html#cb519-2"></a>m</span></code></pre></div>
+<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="upset-plot.html#cb527-1"></a>m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters)</span>
+<span id="cb527-2"><a href="upset-plot.html#cb527-2"></a>m</span></code></pre></div>
 <pre><code>## A combination matrix with 3 sets and 8 combinations.
 ##   ranges of combination set size: c(1, 8).
 ##   mode for the combination size: distinct.
@@ -534,8 +534,8 @@ set which contains elements not belonging to any set is also considered.</p>
 ##   complement    6</code></pre>
 <p>The universal set can be smaller than the union of all sets, then for each
 set, only the intersection to universal set is considered.</p>
-<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="upset-plot.html#cb521-1"></a>m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])</span>
-<span id="cb521-2"><a href="upset-plot.html#cb521-2"></a>m</span></code></pre></div>
+<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="upset-plot.html#cb529-1"></a>m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])</span>
+<span id="cb529-2"><a href="upset-plot.html#cb529-2"></a>m</span></code></pre></div>
 <pre><code>## A combination matrix with 3 sets and 5 combinations.
 ##   ranges of combination set size: c(1, 3).
 ##   mode for the combination size: distinct.
@@ -557,8 +557,8 @@ set, only the intersection to universal set is considered.</p>
 ##   complement    3</code></pre>
 <p>If you already know the size of the complement size, you can directly set
 <code>complement_size</code> argument.</p>
-<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="upset-plot.html#cb523-1"></a>m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">complement_size =</span> <span class="dv">5</span>)</span>
-<span id="cb523-2"><a href="upset-plot.html#cb523-2"></a>m</span></code></pre></div>
+<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="upset-plot.html#cb531-1"></a>m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">complement_size =</span> <span class="dv">5</span>)</span>
+<span id="cb531-2"><a href="upset-plot.html#cb531-2"></a>m</span></code></pre></div>
 <pre><code>## A combination matrix with 3 sets and 8 combinations.
 ##   ranges of combination set size: c(1, 8).
 ##   mode for the combination size: distinct.
@@ -583,9 +583,9 @@ set, only the intersection to universal set is considered.</p>
 ##   complement    5</code></pre>
 <p>When the input is matrix and it contains elements that do not belong to any of
 the set, these elements are treated as complement set.</p>
-<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="upset-plot.html#cb525-1"></a>x =<span class="st"> </span><span class="kw">list_to_matrix</span>(lt, <span class="dt">universal_set =</span> letters)</span>
-<span id="cb525-2"><a href="upset-plot.html#cb525-2"></a>m =<span class="st"> </span><span class="kw">make_comb_mat</span>(x)</span>
-<span id="cb525-3"><a href="upset-plot.html#cb525-3"></a>m</span></code></pre></div>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="upset-plot.html#cb533-1"></a>x =<span class="st"> </span><span class="kw">list_to_matrix</span>(lt, <span class="dt">universal_set =</span> letters)</span>
+<span id="cb533-2"><a href="upset-plot.html#cb533-2"></a>m =<span class="st"> </span><span class="kw">make_comb_mat</span>(x)</span>
+<span id="cb533-3"><a href="upset-plot.html#cb533-3"></a>m</span></code></pre></div>
 <pre><code>## A combination matrix with 3 sets and 8 combinations.
 ##   ranges of combination set size: c(1, 8).
 ##   mode for the combination size: distinct.
@@ -612,14 +612,14 @@ the set, these elements are treated as complement set.</p>
 <strong>When the sets are genomic regions, the size is calculated as the sum of the
 width of regions in each set (or in other words, the total number of base
 pairs).</strong></p>
-<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="upset-plot.html#cb527-1"></a><span class="kw">library</span>(circlize)</span>
-<span id="cb527-2"><a href="upset-plot.html#cb527-2"></a><span class="kw">library</span>(GenomicRanges)</span>
-<span id="cb527-3"><a href="upset-plot.html#cb527-3"></a>lt2 =<span class="st"> </span><span class="kw">lapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="cf">function</span>(i) <span class="kw">generateRandomBed</span>())</span>
-<span id="cb527-4"><a href="upset-plot.html#cb527-4"></a>lt2 =<span class="st"> </span><span class="kw">lapply</span>(lt2, <span class="cf">function</span>(df) <span class="kw">GRanges</span>(<span class="dt">seqnames =</span> df[, <span class="dv">1</span>], </span>
-<span id="cb527-5"><a href="upset-plot.html#cb527-5"></a>    <span class="dt">ranges =</span> <span class="kw">IRanges</span>(df[, <span class="dv">2</span>], df[, <span class="dv">3</span>])))</span>
-<span id="cb527-6"><a href="upset-plot.html#cb527-6"></a><span class="kw">names</span>(lt2) =<span class="st"> </span>letters[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]</span>
-<span id="cb527-7"><a href="upset-plot.html#cb527-7"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt2)</span>
-<span id="cb527-8"><a href="upset-plot.html#cb527-8"></a>m2</span></code></pre></div>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="upset-plot.html#cb535-1"></a><span class="kw">library</span>(circlize)</span>
+<span id="cb535-2"><a href="upset-plot.html#cb535-2"></a><span class="kw">library</span>(GenomicRanges)</span>
+<span id="cb535-3"><a href="upset-plot.html#cb535-3"></a>lt2 =<span class="st"> </span><span class="kw">lapply</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="cf">function</span>(i) <span class="kw">generateRandomBed</span>())</span>
+<span id="cb535-4"><a href="upset-plot.html#cb535-4"></a>lt2 =<span class="st"> </span><span class="kw">lapply</span>(lt2, <span class="cf">function</span>(df) <span class="kw">GRanges</span>(<span class="dt">seqnames =</span> df[, <span class="dv">1</span>], </span>
+<span id="cb535-5"><a href="upset-plot.html#cb535-5"></a>    <span class="dt">ranges =</span> <span class="kw">IRanges</span>(df[, <span class="dv">2</span>], df[, <span class="dv">3</span>])))</span>
+<span id="cb535-6"><a href="upset-plot.html#cb535-6"></a><span class="kw">names</span>(lt2) =<span class="st"> </span>letters[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]</span>
+<span id="cb535-7"><a href="upset-plot.html#cb535-7"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt2)</span>
+<span id="cb535-8"><a href="upset-plot.html#cb535-8"></a>m2</span></code></pre></div>
 <pre><code>## A combination matrix with 4 sets and 15 combinations.
 ##   ranges of combination set size: c(184941701, 199900416).
 ##   mode for the combination size: distinct.
@@ -675,21 +675,21 @@ usage will be explained later.</li>
 <li>Functions for subsetting the matrix.</li>
 </ul>
 <p>Quick examples are:</p>
-<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="upset-plot.html#cb529-1"></a>m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt)</span>
-<span id="cb529-2"><a href="upset-plot.html#cb529-2"></a><span class="kw">set_name</span>(m)</span></code></pre></div>
+<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="upset-plot.html#cb537-1"></a>m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt)</span>
+<span id="cb537-2"><a href="upset-plot.html#cb537-2"></a><span class="kw">set_name</span>(m)</span></code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
-<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="upset-plot.html#cb531-1"></a><span class="kw">comb_name</span>(m)</span></code></pre></div>
+<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="upset-plot.html#cb539-1"></a><span class="kw">comb_name</span>(m)</span></code></pre></div>
 <pre><code>## [1] &quot;111&quot; &quot;110&quot; &quot;101&quot; &quot;011&quot; &quot;100&quot; &quot;010&quot; &quot;001&quot;</code></pre>
-<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="upset-plot.html#cb533-1"></a><span class="kw">set_size</span>(m)</span></code></pre></div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="upset-plot.html#cb541-1"></a><span class="kw">set_size</span>(m)</span></code></pre></div>
 <pre><code>##  a  b  c 
 ##  5 10 15</code></pre>
-<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="upset-plot.html#cb535-1"></a><span class="kw">comb_size</span>(m)</span></code></pre></div>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="upset-plot.html#cb543-1"></a><span class="kw">comb_size</span>(m)</span></code></pre></div>
 <pre><code>## 111 110 101 011 100 010 001 
 ##   2   1   1   4   1   3   8</code></pre>
-<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="upset-plot.html#cb537-1"></a><span class="kw">comb_degree</span>(m)</span></code></pre></div>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="upset-plot.html#cb545-1"></a><span class="kw">comb_degree</span>(m)</span></code></pre></div>
 <pre><code>## 111 110 101 011 100 010 001 
 ##   3   2   2   2   1   1   1</code></pre>
-<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="upset-plot.html#cb539-1"></a><span class="kw">t</span>(m)</span></code></pre></div>
+<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="upset-plot.html#cb547-1"></a><span class="kw">t</span>(m)</span></code></pre></div>
 <pre><code>## A combination matrix with 3 sets and 7 combinations.
 ##   ranges of combination set size: c(1, 8).
 ##   mode for the combination size: distinct.
@@ -713,21 +713,21 @@ usage will be explained later.</li>
 <p>For using <code>extract_comb()</code>, the valid combination set name should be from
 <code>comb_name()</code>. Note the elements in the combination sets depends on the “mode”
 set in <code>make_comb_mat()</code>.</p>
-<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="upset-plot.html#cb541-1"></a><span class="kw">extract_comb</span>(m, <span class="st">&quot;101&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="upset-plot.html#cb549-1"></a><span class="kw">extract_comb</span>(m, <span class="st">&quot;101&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;j&quot;</code></pre>
 <p>And the example for sets that are the genomic regions:</p>
-<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="upset-plot.html#cb543-1"></a><span class="co"># `lt2` was generated in the previous section </span></span>
-<span id="cb543-2"><a href="upset-plot.html#cb543-2"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt2)</span>
-<span id="cb543-3"><a href="upset-plot.html#cb543-3"></a><span class="kw">set_size</span>(m2)</span></code></pre></div>
+<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="upset-plot.html#cb551-1"></a><span class="co"># `lt2` was generated in the previous section </span></span>
+<span id="cb551-2"><a href="upset-plot.html#cb551-2"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt2)</span>
+<span id="cb551-3"><a href="upset-plot.html#cb551-3"></a><span class="kw">set_size</span>(m2)</span></code></pre></div>
 <pre><code>##          a          b          c          d 
 ## 1566783009 1535968265 1560549760 1552480645</code></pre>
-<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="upset-plot.html#cb545-1"></a><span class="kw">comb_size</span>(m2)</span></code></pre></div>
+<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="upset-plot.html#cb553-1"></a><span class="kw">comb_size</span>(m2)</span></code></pre></div>
 <pre><code>##      1111      1110      1101      1011      0111      1100      1010      1001 
 ## 197341532 197137160 194569926 198735008 191312455 192109618 192670258 194462988 
 ##      0110      0101      0011      1000      0100      0010      0001 
 ## 191359036 184941701 199900416 199756519 187196837 192093895 191216619</code></pre>
 <p>And now <code>extract_comb()</code> returns genomic regions that are in the corresponding combination set.</p>
-<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="upset-plot.html#cb547-1"></a><span class="kw">extract_comb</span>(m2, <span class="st">&quot;1010&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="upset-plot.html#cb555-1"></a><span class="kw">extract_comb</span>(m2, <span class="st">&quot;1010&quot;</span>)</span></code></pre></div>
 <pre><code>## GRanges object with 5063 ranges and 0 metadata columns:
 ##          seqnames            ranges strand
 ##             &lt;Rle&gt;         &lt;IRanges&gt;  &lt;Rle&gt;
@@ -745,9 +745,9 @@ set in <code>make_comb_mat()</code>.</p>
 ##   -------
 ##   seqinfo: 24 sequences from an unspecified genome; no seqlengths</code></pre>
 <p>With <code>comb_size()</code> and <code>comb_degree()</code>, we can filter the combination matrix as:</p>
-<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="upset-plot.html#cb549-1"></a>m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt)</span>
-<span id="cb549-2"><a href="upset-plot.html#cb549-2"></a><span class="co"># combination set size &gt;= 4</span></span>
-<span id="cb549-3"><a href="upset-plot.html#cb549-3"></a>m[<span class="kw">comb_size</span>(m) <span class="op">&gt;=</span><span class="st"> </span><span class="dv">4</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="upset-plot.html#cb557-1"></a>m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt)</span>
+<span id="cb557-2"><a href="upset-plot.html#cb557-2"></a><span class="co"># combination set size &gt;= 4</span></span>
+<span id="cb557-3"><a href="upset-plot.html#cb557-3"></a>m[<span class="kw">comb_size</span>(m) <span class="op">&gt;=</span><span class="st"> </span><span class="dv">4</span>]</span></code></pre></div>
 <pre><code>## A combination matrix with 3 sets and 2 combinations.
 ##   ranges of combination set size: c(4, 8).
 ##   mode for the combination size: distinct.
@@ -763,8 +763,8 @@ set in <code>make_comb_mat()</code>.</p>
 ##     a    5
 ##     b   10
 ##     c   15</code></pre>
-<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="upset-plot.html#cb551-1"></a><span class="co"># combination set degree == 2</span></span>
-<span id="cb551-2"><a href="upset-plot.html#cb551-2"></a>m[<span class="kw">comb_degree</span>(m) <span class="op">==</span><span class="st"> </span><span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="upset-plot.html#cb559-1"></a><span class="co"># combination set degree == 2</span></span>
+<span id="cb559-2"><a href="upset-plot.html#cb559-2"></a>m[<span class="kw">comb_degree</span>(m) <span class="op">==</span><span class="st"> </span><span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## A combination matrix with 3 sets and 3 combinations.
 ##   ranges of combination set size: c(1, 4).
 ##   mode for the combination size: distinct.
@@ -783,127 +783,127 @@ set in <code>make_comb_mat()</code>.</p>
 ##     c   15</code></pre>
 <p>For the complement set, the name for this special combination set is only
 composed of zeros.</p>
-<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="upset-plot.html#cb553-1"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters)</span>
-<span id="cb553-2"><a href="upset-plot.html#cb553-2"></a><span class="kw">comb_name</span>(m2) <span class="co"># see the first element</span></span></code></pre></div>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="upset-plot.html#cb561-1"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters)</span>
+<span id="cb561-2"><a href="upset-plot.html#cb561-2"></a><span class="kw">comb_name</span>(m2) <span class="co"># see the first element</span></span></code></pre></div>
 <pre><code>## [1] &quot;111&quot; &quot;110&quot; &quot;101&quot; &quot;011&quot; &quot;100&quot; &quot;010&quot; &quot;001&quot; &quot;000&quot;</code></pre>
-<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="upset-plot.html#cb555-1"></a><span class="kw">comb_degree</span>(m2)</span></code></pre></div>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="upset-plot.html#cb563-1"></a><span class="kw">comb_degree</span>(m2)</span></code></pre></div>
 <pre><code>## 111 110 101 011 100 010 001 000 
 ##   3   2   2   2   1   1   1   0</code></pre>
 <p>If <code>universal_set</code> was set in <code>make_comb_mat()</code>, <code>extract_comb()</code> can be
 applied to the complement set.</p>
-<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="upset-plot.html#cb557-1"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters)</span>
-<span id="cb557-2"><a href="upset-plot.html#cb557-2"></a><span class="kw">extract_comb</span>(m2, <span class="st">&quot;000&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="upset-plot.html#cb565-1"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters)</span>
+<span id="cb565-2"><a href="upset-plot.html#cb565-2"></a><span class="kw">extract_comb</span>(m2, <span class="st">&quot;000&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;f&quot; &quot;p&quot; &quot;u&quot; &quot;z&quot;</code></pre>
-<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="upset-plot.html#cb559-1"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])</span>
-<span id="cb559-2"><a href="upset-plot.html#cb559-2"></a><span class="kw">extract_comb</span>(m2, <span class="st">&quot;000&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="upset-plot.html#cb567-1"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])</span>
+<span id="cb567-2"><a href="upset-plot.html#cb567-2"></a><span class="kw">extract_comb</span>(m2, <span class="st">&quot;000&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;f&quot;</code></pre>
 <p>When <code>universal_set</code> was set, <code>extract_comb()</code> also works for genomic region sets.</p>
 <p>In previous examples, we demonstrated using “one-dimensional index” such as:</p>
-<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="upset-plot.html#cb561-1"></a>m[<span class="kw">comb_degree</span>(m) <span class="op">==</span><span class="st"> </span><span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="upset-plot.html#cb569-1"></a>m[<span class="kw">comb_degree</span>(m) <span class="op">==</span><span class="st"> </span><span class="dv">2</span>]</span></code></pre></div>
 <p>Since the combination matrix is natually a matrix, the indices can also be applied to
 the both dimensions. In the default settings, sets are on the rows and combination
 sets are on the columns, thus, indices on the first dimension of the matrix
 correspond to sets and indices on the second dimension correspond to combination sets:</p>
-<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="upset-plot.html#cb562-1"></a><span class="co"># by set names</span></span>
-<span id="cb562-2"><a href="upset-plot.html#cb562-2"></a>m[<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), ]</span>
-<span id="cb562-3"><a href="upset-plot.html#cb562-3"></a><span class="co"># by nummeric indicies</span></span>
-<span id="cb562-4"><a href="upset-plot.html#cb562-4"></a>m[<span class="dv">3</span><span class="op">:</span><span class="dv">1</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="upset-plot.html#cb570-1"></a><span class="co"># by set names</span></span>
+<span id="cb570-2"><a href="upset-plot.html#cb570-2"></a>m[<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), ]</span>
+<span id="cb570-3"><a href="upset-plot.html#cb570-3"></a><span class="co"># by nummeric indicies</span></span>
+<span id="cb570-4"><a href="upset-plot.html#cb570-4"></a>m[<span class="dv">3</span><span class="op">:</span><span class="dv">1</span>, ]</span></code></pre></div>
 <p><strong>New empty sets</strong> can be added to the combination matrix by:</p>
-<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="upset-plot.html#cb563-1"></a><span class="co"># `d` is the new empty set</span></span>
-<span id="cb563-2"><a href="upset-plot.html#cb563-2"></a>m[<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>), ]</span></code></pre></div>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="upset-plot.html#cb571-1"></a><span class="co"># `d` is the new empty set</span></span>
+<span id="cb571-2"><a href="upset-plot.html#cb571-2"></a>m[<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>), ]</span></code></pre></div>
 <p>Note when the indices specified do not cover all non-empty sets in the original
 combination matrix, the combination matrix will be re-calculated because it
 affects the values in the combination sets:</p>
-<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="upset-plot.html#cb564-1"></a><span class="co"># if `c` is a non-empty set</span></span>
-<span id="cb564-2"><a href="upset-plot.html#cb564-2"></a>m[<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>),]</span></code></pre></div>
+<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="upset-plot.html#cb572-1"></a><span class="co"># if `c` is a non-empty set</span></span>
+<span id="cb572-2"><a href="upset-plot.html#cb572-2"></a>m[<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>),]</span></code></pre></div>
 <p>Similar for subsetting on the second dimension which correspond to the combination
 sets:</p>
-<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="upset-plot.html#cb565-1"></a><span class="co"># reorder</span></span>
-<span id="cb565-2"><a href="upset-plot.html#cb565-2"></a>m[, <span class="dv">5</span><span class="op">:</span><span class="dv">1</span>]</span>
-<span id="cb565-3"><a href="upset-plot.html#cb565-3"></a><span class="co"># take a subset</span></span>
-<span id="cb565-4"><a href="upset-plot.html#cb565-4"></a>m[, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</span>
-<span id="cb565-5"><a href="upset-plot.html#cb565-5"></a><span class="co"># by charater indices</span></span>
-<span id="cb565-6"><a href="upset-plot.html#cb565-6"></a>m[, <span class="kw">c</span>(<span class="st">&quot;110&quot;</span>, <span class="st">&quot;101&quot;</span>, <span class="st">&quot;011&quot;</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="upset-plot.html#cb573-1"></a><span class="co"># reorder</span></span>
+<span id="cb573-2"><a href="upset-plot.html#cb573-2"></a>m[, <span class="dv">5</span><span class="op">:</span><span class="dv">1</span>]</span>
+<span id="cb573-3"><a href="upset-plot.html#cb573-3"></a><span class="co"># take a subset</span></span>
+<span id="cb573-4"><a href="upset-plot.html#cb573-4"></a>m[, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]</span>
+<span id="cb573-5"><a href="upset-plot.html#cb573-5"></a><span class="co"># by charater indices</span></span>
+<span id="cb573-6"><a href="upset-plot.html#cb573-6"></a>m[, <span class="kw">c</span>(<span class="st">&quot;110&quot;</span>, <span class="st">&quot;101&quot;</span>, <span class="st">&quot;011&quot;</span>)]</span></code></pre></div>
 <p>New empty combination sets can also be added by setting the character indices:</p>
-<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="upset-plot.html#cb566-1"></a>m[m, <span class="kw">c</span>(<span class="kw">comb_name</span>(m), <span class="st">&quot;100&quot;</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="upset-plot.html#cb574-1"></a>m[m, <span class="kw">c</span>(<span class="kw">comb_name</span>(m), <span class="st">&quot;100&quot;</span>)]</span></code></pre></div>
 <p>Indices can be set on both dimension simultaneously only when the set indices
 covers all non-empty sets:</p>
-<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="upset-plot.html#cb567-1"></a>m[<span class="dv">3</span><span class="op">:</span><span class="dv">1</span>, <span class="dv">5</span><span class="op">:</span><span class="dv">1</span>]</span>
-<span id="cb567-2"><a href="upset-plot.html#cb567-2"></a><span class="co"># this will throw an error because `c` is a non-empty set</span></span>
-<span id="cb567-3"><a href="upset-plot.html#cb567-3"></a>m[<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>), <span class="dv">5</span><span class="op">:</span><span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="upset-plot.html#cb575-1"></a>m[<span class="dv">3</span><span class="op">:</span><span class="dv">1</span>, <span class="dv">5</span><span class="op">:</span><span class="dv">1</span>]</span>
+<span id="cb575-2"><a href="upset-plot.html#cb575-2"></a><span class="co"># this will throw an error because `c` is a non-empty set</span></span>
+<span id="cb575-3"><a href="upset-plot.html#cb575-3"></a>m[<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>), <span class="dv">5</span><span class="op">:</span><span class="dv">1</span>]</span></code></pre></div>
 <p>If the combination matrix was transposed, the margin of the matrix where
 set indices and combination set indices should be switched.</p>
-<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="upset-plot.html#cb568-1"></a>tm =<span class="st"> </span><span class="kw">t</span>(m)</span>
-<span id="cb568-2"><a href="upset-plot.html#cb568-2"></a>tm[<span class="kw">reverse</span>(<span class="kw">comb_name</span>(tm)), <span class="kw">reverse</span>(<span class="kw">set_name</span>(tm))]</span></code></pre></div>
+<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="upset-plot.html#cb576-1"></a>tm =<span class="st"> </span><span class="kw">t</span>(m)</span>
+<span id="cb576-2"><a href="upset-plot.html#cb576-2"></a>tm[<span class="kw">reverse</span>(<span class="kw">comb_name</span>(tm)), <span class="kw">reverse</span>(<span class="kw">set_name</span>(tm))]</span></code></pre></div>
 <p>If only the indices for the combination sets are set as one-dimensional,
 it automatically works for both matrices that are transposed or not:</p>
-<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="upset-plot.html#cb569-1"></a>m[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</span>
-<span id="cb569-2"><a href="upset-plot.html#cb569-2"></a>tm[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="upset-plot.html#cb577-1"></a>m[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</span>
+<span id="cb577-2"><a href="upset-plot.html#cb577-2"></a>tm[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]</span></code></pre></div>
 </div>
 <div id="upset-making-the-plot" class="section level2" number="8.5">
 <h2><span class="header-section-number">8.5</span> Make the plot</h2>
 <p>Making the UpSet plot is very straightforward that users just send the
 combination matrix to <code>UpSet()</code> function:</p>
-<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="upset-plot.html#cb570-1"></a>m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt)</span>
-<span id="cb570-2"><a href="upset-plot.html#cb570-2"></a><span class="kw">UpSet</span>(m)</span></code></pre></div>
+<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="upset-plot.html#cb578-1"></a>m =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt)</span>
+<span id="cb578-2"><a href="upset-plot.html#cb578-2"></a><span class="kw">UpSet</span>(m)</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-33-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>By default the sets are ordered by the size and the combination sets are
 ordered by the degree (number of sets that are selected).</p>
 <p>The order is controlled by <code>set_order</code> and <code>comb_order</code>:</p>
-<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="upset-plot.html#cb571-1"></a><span class="kw">UpSet</span>(m, <span class="dt">set_order =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), <span class="dt">comb_order =</span> <span class="kw">order</span>(<span class="kw">comb_size</span>(m)))</span></code></pre></div>
+<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="upset-plot.html#cb579-1"></a><span class="kw">UpSet</span>(m, <span class="dt">set_order =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), <span class="dt">comb_order =</span> <span class="kw">order</span>(<span class="kw">comb_size</span>(m)))</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-34-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Color of dots, size of dots and line width of the segments are controlled by
 <code>pt_size</code>, <code>comb_col</code> and <code>lwd</code>. <code>comb_col</code> should be a vector corresponding
 to the combination sets. In following code, since <code>comb_degree(m)</code> returns a
 vector of integers, we just use it as index for the color vector.</p>
-<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="upset-plot.html#cb572-1"></a><span class="kw">UpSet</span>(m, <span class="dt">pt_size =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">lwd =</span> <span class="dv">3</span>,</span>
-<span id="cb572-2"><a href="upset-plot.html#cb572-2"></a>    <span class="dt">comb_col =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;black&quot;</span>)[<span class="kw">comb_degree</span>(m)])</span></code></pre></div>
+<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="upset-plot.html#cb580-1"></a><span class="kw">UpSet</span>(m, <span class="dt">pt_size =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">lwd =</span> <span class="dv">3</span>,</span>
+<span id="cb580-2"><a href="upset-plot.html#cb580-2"></a>    <span class="dt">comb_col =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;black&quot;</span>)[<span class="kw">comb_degree</span>(m)])</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-35-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Colors for the background (the rectangles and the dots representing the set is
 not selected) are controlled by <code>bg_col</code>, <code>bg_pt_col</code>. The length of <code>bg_col</code>
 can have length of one or two.</p>
-<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="upset-plot.html#cb573-1"></a><span class="kw">UpSet</span>(m, <span class="dt">comb_col =</span> <span class="st">&quot;#0000FF&quot;</span>, <span class="dt">bg_col =</span> <span class="st">&quot;#F0F0FF&quot;</span>, <span class="dt">bg_pt_col =</span> <span class="st">&quot;#CCCCFF&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="upset-plot.html#cb581-1"></a><span class="kw">UpSet</span>(m, <span class="dt">comb_col =</span> <span class="st">&quot;#0000FF&quot;</span>, <span class="dt">bg_col =</span> <span class="st">&quot;#F0F0FF&quot;</span>, <span class="dt">bg_pt_col =</span> <span class="st">&quot;#CCCCFF&quot;</span>)</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-36-1.png" width="480" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="upset-plot.html#cb574-1"></a><span class="kw">UpSet</span>(m, <span class="dt">comb_col =</span> <span class="st">&quot;#0000FF&quot;</span>, <span class="dt">bg_col =</span> <span class="kw">c</span>(<span class="st">&quot;#F0F0FF&quot;</span>, <span class="st">&quot;#FFF0F0&quot;</span>), <span class="dt">bg_pt_col =</span> <span class="st">&quot;#CCCCFF&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="upset-plot.html#cb582-1"></a><span class="kw">UpSet</span>(m, <span class="dt">comb_col =</span> <span class="st">&quot;#0000FF&quot;</span>, <span class="dt">bg_col =</span> <span class="kw">c</span>(<span class="st">&quot;#F0F0FF&quot;</span>, <span class="st">&quot;#FFF0F0&quot;</span>), <span class="dt">bg_pt_col =</span> <span class="st">&quot;#CCCCFF&quot;</span>)</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-36-2.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Transposing the combination matrix swtiches the sets to columns and
 combination sets to rows.</p>
-<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="upset-plot.html#cb575-1"></a><span class="kw">UpSet</span>(<span class="kw">t</span>(m))</span></code></pre></div>
+<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="upset-plot.html#cb583-1"></a><span class="kw">UpSet</span>(<span class="kw">t</span>(m))</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-37-1.png" width="288" style="display: block; margin: auto;" /></p>
 <p>As we have introduced, if do subsetting on the combination sets, the subset of
 the matrix can be visualized as well:</p>
-<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="upset-plot.html#cb576-1"></a><span class="kw">UpSet</span>(m[<span class="kw">comb_size</span>(m) <span class="op">&gt;=</span><span class="st"> </span><span class="dv">4</span>])</span>
-<span id="cb576-2"><a href="upset-plot.html#cb576-2"></a><span class="kw">UpSet</span>(m[<span class="kw">comb_degree</span>(m) <span class="op">==</span><span class="st"> </span><span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="upset-plot.html#cb584-1"></a><span class="kw">UpSet</span>(m[<span class="kw">comb_size</span>(m) <span class="op">&gt;=</span><span class="st"> </span><span class="dv">4</span>])</span>
+<span id="cb584-2"><a href="upset-plot.html#cb584-2"></a><span class="kw">UpSet</span>(m[<span class="kw">comb_degree</span>(m) <span class="op">==</span><span class="st"> </span><span class="dv">2</span>])</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-39-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Following compares the different mode in <code>make_comb_mat()</code>:</p>
-<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="upset-plot.html#cb577-1"></a>m1 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt) <span class="co"># the default mode is `distinct`</span></span>
-<span id="cb577-2"><a href="upset-plot.html#cb577-2"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;intersect&quot;</span>)</span>
-<span id="cb577-3"><a href="upset-plot.html#cb577-3"></a>m3 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;union&quot;</span>)</span>
-<span id="cb577-4"><a href="upset-plot.html#cb577-4"></a><span class="kw">UpSet</span>(m1)</span>
-<span id="cb577-5"><a href="upset-plot.html#cb577-5"></a><span class="kw">UpSet</span>(m2)</span>
-<span id="cb577-6"><a href="upset-plot.html#cb577-6"></a><span class="kw">UpSet</span>(m3)</span></code></pre></div>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="upset-plot.html#cb585-1"></a>m1 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt) <span class="co"># the default mode is `distinct`</span></span>
+<span id="cb585-2"><a href="upset-plot.html#cb585-2"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;intersect&quot;</span>)</span>
+<span id="cb585-3"><a href="upset-plot.html#cb585-3"></a>m3 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;union&quot;</span>)</span>
+<span id="cb585-4"><a href="upset-plot.html#cb585-4"></a><span class="kw">UpSet</span>(m1)</span>
+<span id="cb585-5"><a href="upset-plot.html#cb585-5"></a><span class="kw">UpSet</span>(m2)</span>
+<span id="cb585-6"><a href="upset-plot.html#cb585-6"></a><span class="kw">UpSet</span>(m3)</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-41-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>For the plot containing complement set, there is one additional column showing
 this complement set does not overlap to any of the sets (all dots are in grey).</p>
-<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="upset-plot.html#cb578-1"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters)</span>
-<span id="cb578-2"><a href="upset-plot.html#cb578-2"></a><span class="kw">UpSet</span>(m2)</span></code></pre></div>
+<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="upset-plot.html#cb586-1"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters)</span>
+<span id="cb586-2"><a href="upset-plot.html#cb586-2"></a><span class="kw">UpSet</span>(m2)</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-42-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Remember if you already know the size for the complement set, you can directly assign it
 by <code>complement_size</code> argument in <code>make_comb_mat()</code>.</p>
-<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="upset-plot.html#cb579-1"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">complement_size =</span> <span class="dv">10</span>)</span>
-<span id="cb579-2"><a href="upset-plot.html#cb579-2"></a><span class="kw">UpSet</span>(m2)</span></code></pre></div>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="upset-plot.html#cb587-1"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">complement_size =</span> <span class="dv">10</span>)</span>
+<span id="cb587-2"><a href="upset-plot.html#cb587-2"></a><span class="kw">UpSet</span>(m2)</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-43-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>For the case where the universal set is smaller than the union of all sets:</p>
-<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="upset-plot.html#cb580-1"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])</span>
-<span id="cb580-2"><a href="upset-plot.html#cb580-2"></a><span class="kw">UpSet</span>(m2)</span></code></pre></div>
+<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="upset-plot.html#cb588-1"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">universal_set =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])</span>
+<span id="cb588-2"><a href="upset-plot.html#cb588-2"></a><span class="kw">UpSet</span>(m2)</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-44-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>There are some cases that you may have complement set but you don’t want to show it,
 especially when the input for <code>make_comb_mat()</code> is a matrix which already contains
 complement set, you can filter by the combination degrees.</p>
-<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="upset-plot.html#cb581-1"></a>x =<span class="st"> </span><span class="kw">list_to_matrix</span>(lt, <span class="dt">universal_set =</span> letters)</span>
-<span id="cb581-2"><a href="upset-plot.html#cb581-2"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(x)</span>
-<span id="cb581-3"><a href="upset-plot.html#cb581-3"></a>m2 =<span class="st"> </span>m2[<span class="kw">comb_degree</span>(m2) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>]</span>
-<span id="cb581-4"><a href="upset-plot.html#cb581-4"></a><span class="kw">UpSet</span>(m2)</span></code></pre></div>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="upset-plot.html#cb589-1"></a>x =<span class="st"> </span><span class="kw">list_to_matrix</span>(lt, <span class="dt">universal_set =</span> letters)</span>
+<span id="cb589-2"><a href="upset-plot.html#cb589-2"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(x)</span>
+<span id="cb589-3"><a href="upset-plot.html#cb589-3"></a>m2 =<span class="st"> </span>m2[<span class="kw">comb_degree</span>(m2) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>]</span>
+<span id="cb589-4"><a href="upset-plot.html#cb589-4"></a><span class="kw">UpSet</span>(m2)</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-45-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="upset-plots-as-heatmaps" class="section level2" number="8.6">
@@ -914,35 +914,35 @@ sets, thus, it is quite straightforward to implement it as a “heatmap” where
 the heatmap is self-defined with dots and segments, and the two barplots are
 two barplot annotations constructed by <code>anno_barplot()</code>.</p>
 <p>The default top annotation is:</p>
-<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="upset-plot.html#cb582-1"></a><span class="kw">HeatmapAnnotation</span>(<span class="st">&quot;Intersection</span><span class="ch">\n</span><span class="st">size&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">comb_size</span>(m), </span>
-<span id="cb582-2"><a href="upset-plot.html#cb582-2"></a>        <span class="dt">border =</span> <span class="ot">FALSE</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">3</span>, <span class="st">&quot;cm&quot;</span>)), </span>
-<span id="cb582-3"><a href="upset-plot.html#cb582-3"></a>    <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">annotation_name_rot =</span> <span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="upset-plot.html#cb590-1"></a><span class="kw">HeatmapAnnotation</span>(<span class="st">&quot;Intersection</span><span class="ch">\n</span><span class="st">size&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">comb_size</span>(m), </span>
+<span id="cb590-2"><a href="upset-plot.html#cb590-2"></a>        <span class="dt">border =</span> <span class="ot">FALSE</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">3</span>, <span class="st">&quot;cm&quot;</span>)), </span>
+<span id="cb590-3"><a href="upset-plot.html#cb590-3"></a>    <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">annotation_name_rot =</span> <span class="dv">0</span>)</span></code></pre></div>
 <p>This top annotation is wrapped in <code>upset_top_annotation()</code> which only contais
 the upset top barplot annotation. Most of the arguments in
 <code>upset_top_annotation()</code> directly go to the <code>anno_barplot()</code>, e.g. to set
 the colors of bars:</p>
-<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="upset-plot.html#cb583-1"></a><span class="kw">UpSet</span>(m, <span class="dt">top_annotation =</span> <span class="kw">upset_top_annotation</span>(m, </span>
-<span id="cb583-2"><a href="upset-plot.html#cb583-2"></a>    <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="kw">comb_degree</span>(m))))</span></code></pre></div>
+<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="upset-plot.html#cb591-1"></a><span class="kw">UpSet</span>(m, <span class="dt">top_annotation =</span> <span class="kw">upset_top_annotation</span>(m, </span>
+<span id="cb591-2"><a href="upset-plot.html#cb591-2"></a>    <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">col =</span> <span class="kw">comb_degree</span>(m))))</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-47-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>To control the data range and axis:</p>
-<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="upset-plot.html#cb584-1"></a><span class="kw">UpSet</span>(m, <span class="dt">top_annotation =</span> <span class="kw">upset_top_annotation</span>(m, </span>
-<span id="cb584-2"><a href="upset-plot.html#cb584-2"></a>    <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">15</span>),</span>
-<span id="cb584-3"><a href="upset-plot.html#cb584-3"></a>    <span class="dt">bar_width =</span> <span class="dv">1</span>,</span>
-<span id="cb584-4"><a href="upset-plot.html#cb584-4"></a>    <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">side =</span> <span class="st">&quot;right&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>),</span>
-<span id="cb584-5"><a href="upset-plot.html#cb584-5"></a>        <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;zero&quot;</span>, <span class="st">&quot;five&quot;</span>, <span class="st">&quot;ten&quot;</span>, <span class="st">&quot;fifteen&quot;</span>))))</span></code></pre></div>
+<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="upset-plot.html#cb592-1"></a><span class="kw">UpSet</span>(m, <span class="dt">top_annotation =</span> <span class="kw">upset_top_annotation</span>(m, </span>
+<span id="cb592-2"><a href="upset-plot.html#cb592-2"></a>    <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">15</span>),</span>
+<span id="cb592-3"><a href="upset-plot.html#cb592-3"></a>    <span class="dt">bar_width =</span> <span class="dv">1</span>,</span>
+<span id="cb592-4"><a href="upset-plot.html#cb592-4"></a>    <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">side =</span> <span class="st">&quot;right&quot;</span>, <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>),</span>
+<span id="cb592-5"><a href="upset-plot.html#cb592-5"></a>        <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;zero&quot;</span>, <span class="st">&quot;five&quot;</span>, <span class="st">&quot;ten&quot;</span>, <span class="st">&quot;fifteen&quot;</span>))))</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-48-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>To control the annotation name:</p>
-<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="upset-plot.html#cb585-1"></a><span class="kw">UpSet</span>(m, <span class="dt">top_annotation =</span> <span class="kw">upset_top_annotation</span>(m, </span>
-<span id="cb585-2"><a href="upset-plot.html#cb585-2"></a>    <span class="dt">annotation_name_rot =</span> <span class="dv">90</span>,</span>
-<span id="cb585-3"><a href="upset-plot.html#cb585-3"></a>    <span class="dt">annotation_name_side =</span> <span class="st">&quot;right&quot;</span>,</span>
-<span id="cb585-4"><a href="upset-plot.html#cb585-4"></a>    <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">side =</span> <span class="st">&quot;right&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="upset-plot.html#cb593-1"></a><span class="kw">UpSet</span>(m, <span class="dt">top_annotation =</span> <span class="kw">upset_top_annotation</span>(m, </span>
+<span id="cb593-2"><a href="upset-plot.html#cb593-2"></a>    <span class="dt">annotation_name_rot =</span> <span class="dv">90</span>,</span>
+<span id="cb593-3"><a href="upset-plot.html#cb593-3"></a>    <span class="dt">annotation_name_side =</span> <span class="st">&quot;right&quot;</span>,</span>
+<span id="cb593-4"><a href="upset-plot.html#cb593-4"></a>    <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">side =</span> <span class="st">&quot;right&quot;</span>)))</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-49-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>The settings are very similar for the right annotation:</p>
-<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="upset-plot.html#cb586-1"></a><span class="kw">UpSet</span>(m, <span class="dt">right_annotation =</span> <span class="kw">upset_right_annotation</span>(m, </span>
-<span id="cb586-2"><a href="upset-plot.html#cb586-2"></a>    <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">30</span>),</span>
-<span id="cb586-3"><a href="upset-plot.html#cb586-3"></a>    <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;green&quot;</span>),</span>
-<span id="cb586-4"><a href="upset-plot.html#cb586-4"></a>    <span class="dt">annotation_name_side =</span> <span class="st">&quot;top&quot;</span>,</span>
-<span id="cb586-5"><a href="upset-plot.html#cb586-5"></a>    <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">side =</span> <span class="st">&quot;top&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="upset-plot.html#cb594-1"></a><span class="kw">UpSet</span>(m, <span class="dt">right_annotation =</span> <span class="kw">upset_right_annotation</span>(m, </span>
+<span id="cb594-2"><a href="upset-plot.html#cb594-2"></a>    <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">30</span>),</span>
+<span id="cb594-3"><a href="upset-plot.html#cb594-3"></a>    <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;green&quot;</span>),</span>
+<span id="cb594-4"><a href="upset-plot.html#cb594-4"></a>    <span class="dt">annotation_name_side =</span> <span class="st">&quot;top&quot;</span>,</span>
+<span id="cb594-5"><a href="upset-plot.html#cb594-5"></a>    <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">side =</span> <span class="st">&quot;top&quot;</span>)))</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-50-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><code>upset_top_annotation()</code> and <code>upset_right_annotation()</code> can automatically
 recognize whether sets are on rows or columns.</p>
@@ -950,110 +950,110 @@ recognize whether sets are on rows or columns.</p>
 barplot annotation. If users want to add more annotations, they need to
 manually construct a <code>HeatmapAnnotation</code> object with multiple annotations.</p>
 <p>To add more annotations on top:</p>
-<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="upset-plot.html#cb587-1"></a><span class="kw">UpSet</span>(m, <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(</span>
-<span id="cb587-2"><a href="upset-plot.html#cb587-2"></a>    <span class="dt">degree =</span> <span class="kw">as.character</span>(<span class="kw">comb_degree</span>(m)),</span>
-<span id="cb587-3"><a href="upset-plot.html#cb587-3"></a>    <span class="st">&quot;Intersection</span><span class="ch">\n</span><span class="st">size&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">comb_size</span>(m), </span>
-<span id="cb587-4"><a href="upset-plot.html#cb587-4"></a>        <span class="dt">border =</span> <span class="ot">FALSE</span>, </span>
-<span id="cb587-5"><a href="upset-plot.html#cb587-5"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), </span>
-<span id="cb587-6"><a href="upset-plot.html#cb587-6"></a>        <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)</span>
-<span id="cb587-7"><a href="upset-plot.html#cb587-7"></a>    ), </span>
-<span id="cb587-8"><a href="upset-plot.html#cb587-8"></a>    <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>, </span>
-<span id="cb587-9"><a href="upset-plot.html#cb587-9"></a>    <span class="dt">annotation_name_rot =</span> <span class="dv">0</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="upset-plot.html#cb595-1"></a><span class="kw">UpSet</span>(m, <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(</span>
+<span id="cb595-2"><a href="upset-plot.html#cb595-2"></a>    <span class="dt">degree =</span> <span class="kw">as.character</span>(<span class="kw">comb_degree</span>(m)),</span>
+<span id="cb595-3"><a href="upset-plot.html#cb595-3"></a>    <span class="st">&quot;Intersection</span><span class="ch">\n</span><span class="st">size&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">comb_size</span>(m), </span>
+<span id="cb595-4"><a href="upset-plot.html#cb595-4"></a>        <span class="dt">border =</span> <span class="ot">FALSE</span>, </span>
+<span id="cb595-5"><a href="upset-plot.html#cb595-5"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), </span>
+<span id="cb595-6"><a href="upset-plot.html#cb595-6"></a>        <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)</span>
+<span id="cb595-7"><a href="upset-plot.html#cb595-7"></a>    ), </span>
+<span id="cb595-8"><a href="upset-plot.html#cb595-8"></a>    <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>, </span>
+<span id="cb595-9"><a href="upset-plot.html#cb595-9"></a>    <span class="dt">annotation_name_rot =</span> <span class="dv">0</span>))</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-51-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>To add more annotation on the right:</p>
-<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="upset-plot.html#cb588-1"></a><span class="kw">UpSet</span>(m, <span class="dt">right_annotation =</span> <span class="kw">rowAnnotation</span>(</span>
-<span id="cb588-2"><a href="upset-plot.html#cb588-2"></a>    <span class="st">&quot;Set size&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">set_size</span>(m), </span>
-<span id="cb588-3"><a href="upset-plot.html#cb588-3"></a>        <span class="dt">border =</span> <span class="ot">FALSE</span>, </span>
-<span id="cb588-4"><a href="upset-plot.html#cb588-4"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), </span>
-<span id="cb588-5"><a href="upset-plot.html#cb588-5"></a>        <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)</span>
-<span id="cb588-6"><a href="upset-plot.html#cb588-6"></a>    ),</span>
-<span id="cb588-7"><a href="upset-plot.html#cb588-7"></a>    <span class="dt">group =</span> <span class="kw">c</span>(<span class="st">&quot;group1&quot;</span>, <span class="st">&quot;group1&quot;</span>, <span class="st">&quot;group2&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="upset-plot.html#cb596-1"></a><span class="kw">UpSet</span>(m, <span class="dt">right_annotation =</span> <span class="kw">rowAnnotation</span>(</span>
+<span id="cb596-2"><a href="upset-plot.html#cb596-2"></a>    <span class="st">&quot;Set size&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">set_size</span>(m), </span>
+<span id="cb596-3"><a href="upset-plot.html#cb596-3"></a>        <span class="dt">border =</span> <span class="ot">FALSE</span>, </span>
+<span id="cb596-4"><a href="upset-plot.html#cb596-4"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), </span>
+<span id="cb596-5"><a href="upset-plot.html#cb596-5"></a>        <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)</span>
+<span id="cb596-6"><a href="upset-plot.html#cb596-6"></a>    ),</span>
+<span id="cb596-7"><a href="upset-plot.html#cb596-7"></a>    <span class="dt">group =</span> <span class="kw">c</span>(<span class="st">&quot;group1&quot;</span>, <span class="st">&quot;group1&quot;</span>, <span class="st">&quot;group2&quot;</span>)))</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-52-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>To move the right annotation to the left of the combination matrix:</p>
-<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="upset-plot.html#cb589-1"></a><span class="kw">UpSet</span>(m, <span class="dt">left_annotation =</span> <span class="kw">rowAnnotation</span>(</span>
-<span id="cb589-2"><a href="upset-plot.html#cb589-2"></a>    <span class="st">&quot;Set size&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">set_size</span>(m), </span>
-<span id="cb589-3"><a href="upset-plot.html#cb589-3"></a>        <span class="dt">border =</span> <span class="ot">FALSE</span>, </span>
-<span id="cb589-4"><a href="upset-plot.html#cb589-4"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), </span>
-<span id="cb589-5"><a href="upset-plot.html#cb589-5"></a>        <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)</span>
-<span id="cb589-6"><a href="upset-plot.html#cb589-6"></a>    )), <span class="dt">right_annotation =</span> <span class="ot">NULL</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="upset-plot.html#cb597-1"></a><span class="kw">UpSet</span>(m, <span class="dt">left_annotation =</span> <span class="kw">rowAnnotation</span>(</span>
+<span id="cb597-2"><a href="upset-plot.html#cb597-2"></a>    <span class="st">&quot;Set size&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">set_size</span>(m), </span>
+<span id="cb597-3"><a href="upset-plot.html#cb597-3"></a>        <span class="dt">border =</span> <span class="ot">FALSE</span>, </span>
+<span id="cb597-4"><a href="upset-plot.html#cb597-4"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), </span>
+<span id="cb597-5"><a href="upset-plot.html#cb597-5"></a>        <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)</span>
+<span id="cb597-6"><a href="upset-plot.html#cb597-6"></a>    )), <span class="dt">right_annotation =</span> <span class="ot">NULL</span>)</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-53-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>To reverse the axis of the left annotation:</p>
-<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="upset-plot.html#cb590-1"></a><span class="kw">UpSet</span>(m, <span class="dt">left_annotation =</span> <span class="kw">rowAnnotation</span>(</span>
-<span id="cb590-2"><a href="upset-plot.html#cb590-2"></a>    <span class="st">&quot;Set size&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">set_size</span>(m), </span>
-<span id="cb590-3"><a href="upset-plot.html#cb590-3"></a>        <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">direction =</span> <span class="st">&quot;reverse&quot;</span>),</span>
-<span id="cb590-4"><a href="upset-plot.html#cb590-4"></a>        <span class="dt">border =</span> <span class="ot">FALSE</span>, </span>
-<span id="cb590-5"><a href="upset-plot.html#cb590-5"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), </span>
-<span id="cb590-6"><a href="upset-plot.html#cb590-6"></a>        <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)</span>
-<span id="cb590-7"><a href="upset-plot.html#cb590-7"></a>    )), <span class="dt">right_annotation =</span> <span class="ot">NULL</span>,</span>
-<span id="cb590-8"><a href="upset-plot.html#cb590-8"></a>    <span class="dt">row_names_side =</span> <span class="st">&quot;right&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="upset-plot.html#cb598-1"></a><span class="kw">UpSet</span>(m, <span class="dt">left_annotation =</span> <span class="kw">rowAnnotation</span>(</span>
+<span id="cb598-2"><a href="upset-plot.html#cb598-2"></a>    <span class="st">&quot;Set size&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">set_size</span>(m), </span>
+<span id="cb598-3"><a href="upset-plot.html#cb598-3"></a>        <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">direction =</span> <span class="st">&quot;reverse&quot;</span>),</span>
+<span id="cb598-4"><a href="upset-plot.html#cb598-4"></a>        <span class="dt">border =</span> <span class="ot">FALSE</span>, </span>
+<span id="cb598-5"><a href="upset-plot.html#cb598-5"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), </span>
+<span id="cb598-6"><a href="upset-plot.html#cb598-6"></a>        <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)</span>
+<span id="cb598-7"><a href="upset-plot.html#cb598-7"></a>    )), <span class="dt">right_annotation =</span> <span class="ot">NULL</span>,</span>
+<span id="cb598-8"><a href="upset-plot.html#cb598-8"></a>    <span class="dt">row_names_side =</span> <span class="st">&quot;right&quot;</span>)</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-54-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>The object returned by <code>UpSet()</code> is actually a <code>Heatmap</code> class object, thus,
 you can add to other heatmaps and annotations by <code>+</code> or <code>%v%</code>.</p>
-<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="upset-plot.html#cb591-1"></a>ht =<span class="st"> </span><span class="kw">UpSet</span>(m)</span>
-<span id="cb591-2"><a href="upset-plot.html#cb591-2"></a><span class="kw">class</span>(ht)</span></code></pre></div>
+<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="upset-plot.html#cb599-1"></a>ht =<span class="st"> </span><span class="kw">UpSet</span>(m)</span>
+<span id="cb599-2"><a href="upset-plot.html#cb599-2"></a><span class="kw">class</span>(ht)</span></code></pre></div>
 <pre><code>## [1] &quot;Heatmap&quot;
 ## attr(,&quot;package&quot;)
 ## [1] &quot;ComplexHeatmap&quot;</code></pre>
-<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="upset-plot.html#cb593-1"></a>ht <span class="op">+</span><span class="st"> </span><span class="kw">Heatmap</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">name =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb593-2"><a href="upset-plot.html#cb593-2"></a><span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="upset-plot.html#cb601-1"></a>ht <span class="op">+</span><span class="st"> </span><span class="kw">Heatmap</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">name =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb601-2"><a href="upset-plot.html#cb601-2"></a><span class="st">    </span><span class="kw">rowAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>))</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-55-1.png" width="576" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="upset-plot.html#cb594-1"></a>ht <span class="op">%v%</span><span class="st"> </span><span class="kw">Heatmap</span>(<span class="kw">rbind</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>), <span class="dt">name =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">row_names_side =</span> <span class="st">&quot;left&quot;</span>, </span>
-<span id="cb594-2"><a href="upset-plot.html#cb594-2"></a>        <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>)) <span class="op">%v%</span><span class="st"> </span></span>
-<span id="cb594-3"><a href="upset-plot.html#cb594-3"></a><span class="st">    </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>),</span>
-<span id="cb594-4"><a href="upset-plot.html#cb594-4"></a>        <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="upset-plot.html#cb602-1"></a>ht <span class="op">%v%</span><span class="st"> </span><span class="kw">Heatmap</span>(<span class="kw">rbind</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>), <span class="dt">name =</span> <span class="st">&quot;foo&quot;</span>, <span class="dt">row_names_side =</span> <span class="st">&quot;left&quot;</span>, </span>
+<span id="cb602-2"><a href="upset-plot.html#cb602-2"></a>        <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>)) <span class="op">%v%</span><span class="st"> </span></span>
+<span id="cb602-3"><a href="upset-plot.html#cb602-3"></a><span class="st">    </span><span class="kw">HeatmapAnnotation</span>(<span class="dt">bar =</span> <span class="kw">anno_points</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">7</span>),</span>
+<span id="cb602-4"><a href="upset-plot.html#cb602-4"></a>        <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>)</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-56-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Add multiple UpSet plots:</p>
-<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="upset-plot.html#cb595-1"></a>m1 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;distinct&quot;</span>)</span>
-<span id="cb595-2"><a href="upset-plot.html#cb595-2"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;intersect&quot;</span>)</span>
-<span id="cb595-3"><a href="upset-plot.html#cb595-3"></a>m3 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;union&quot;</span>)</span>
-<span id="cb595-4"><a href="upset-plot.html#cb595-4"></a><span class="kw">UpSet</span>(m1, <span class="dt">row_title =</span> <span class="st">&quot;distinct mode&quot;</span>) <span class="op">%v%</span></span>
-<span id="cb595-5"><a href="upset-plot.html#cb595-5"></a><span class="st">    </span><span class="kw">UpSet</span>(m2, <span class="dt">row_title =</span> <span class="st">&quot;intersect mode&quot;</span>) <span class="op">%v%</span></span>
-<span id="cb595-6"><a href="upset-plot.html#cb595-6"></a><span class="st">    </span><span class="kw">UpSet</span>(m3, <span class="dt">row_title =</span> <span class="st">&quot;union mode&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="upset-plot.html#cb603-1"></a>m1 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;distinct&quot;</span>)</span>
+<span id="cb603-2"><a href="upset-plot.html#cb603-2"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;intersect&quot;</span>)</span>
+<span id="cb603-3"><a href="upset-plot.html#cb603-3"></a>m3 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;union&quot;</span>)</span>
+<span id="cb603-4"><a href="upset-plot.html#cb603-4"></a><span class="kw">UpSet</span>(m1, <span class="dt">row_title =</span> <span class="st">&quot;distinct mode&quot;</span>) <span class="op">%v%</span></span>
+<span id="cb603-5"><a href="upset-plot.html#cb603-5"></a><span class="st">    </span><span class="kw">UpSet</span>(m2, <span class="dt">row_title =</span> <span class="st">&quot;intersect mode&quot;</span>) <span class="op">%v%</span></span>
+<span id="cb603-6"><a href="upset-plot.html#cb603-6"></a><span class="st">    </span><span class="kw">UpSet</span>(m3, <span class="dt">row_title =</span> <span class="st">&quot;union mode&quot;</span>)</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-57-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Or first transpose all the combination matrices and add them horizontally:</p>
-<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="upset-plot.html#cb596-1"></a>m1 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;distinct&quot;</span>)</span>
-<span id="cb596-2"><a href="upset-plot.html#cb596-2"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;intersect&quot;</span>)</span>
-<span id="cb596-3"><a href="upset-plot.html#cb596-3"></a>m3 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;union&quot;</span>)</span>
-<span id="cb596-4"><a href="upset-plot.html#cb596-4"></a><span class="kw">UpSet</span>(<span class="kw">t</span>(m1), <span class="dt">column_title =</span> <span class="st">&quot;distinct mode&quot;</span>) <span class="op">+</span></span>
-<span id="cb596-5"><a href="upset-plot.html#cb596-5"></a><span class="st">    </span><span class="kw">UpSet</span>(<span class="kw">t</span>(m2), <span class="dt">column_title =</span> <span class="st">&quot;intersect mode&quot;</span>) <span class="op">+</span></span>
-<span id="cb596-6"><a href="upset-plot.html#cb596-6"></a><span class="st">    </span><span class="kw">UpSet</span>(<span class="kw">t</span>(m3), <span class="dt">column_title =</span> <span class="st">&quot;union mode&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="upset-plot.html#cb604-1"></a>m1 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;distinct&quot;</span>)</span>
+<span id="cb604-2"><a href="upset-plot.html#cb604-2"></a>m2 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;intersect&quot;</span>)</span>
+<span id="cb604-3"><a href="upset-plot.html#cb604-3"></a>m3 =<span class="st"> </span><span class="kw">make_comb_mat</span>(lt, <span class="dt">mode =</span> <span class="st">&quot;union&quot;</span>)</span>
+<span id="cb604-4"><a href="upset-plot.html#cb604-4"></a><span class="kw">UpSet</span>(<span class="kw">t</span>(m1), <span class="dt">column_title =</span> <span class="st">&quot;distinct mode&quot;</span>) <span class="op">+</span></span>
+<span id="cb604-5"><a href="upset-plot.html#cb604-5"></a><span class="st">    </span><span class="kw">UpSet</span>(<span class="kw">t</span>(m2), <span class="dt">column_title =</span> <span class="st">&quot;intersect mode&quot;</span>) <span class="op">+</span></span>
+<span id="cb604-6"><a href="upset-plot.html#cb604-6"></a><span class="st">    </span><span class="kw">UpSet</span>(<span class="kw">t</span>(m3), <span class="dt">column_title =</span> <span class="st">&quot;union mode&quot;</span>)</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-58-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>The three combination matrices are actually the same and plotting them three
 times is redundant. With the functionality in <strong>ComplexHeatmap</strong> package, we
 can directly add three barplot annotations.</p>
-<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="upset-plot.html#cb597-1"></a>top_ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(</span>
-<span id="cb597-2"><a href="upset-plot.html#cb597-2"></a>    <span class="st">&quot;distict&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">comb_size</span>(m1), </span>
-<span id="cb597-3"><a href="upset-plot.html#cb597-3"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)), </span>
-<span id="cb597-4"><a href="upset-plot.html#cb597-4"></a>    <span class="st">&quot;intersect&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">comb_size</span>(m2), </span>
-<span id="cb597-5"><a href="upset-plot.html#cb597-5"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)), </span>
-<span id="cb597-6"><a href="upset-plot.html#cb597-6"></a>    <span class="st">&quot;union&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">comb_size</span>(m3), </span>
-<span id="cb597-7"><a href="upset-plot.html#cb597-7"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)), </span>
-<span id="cb597-8"><a href="upset-plot.html#cb597-8"></a>    <span class="dt">gap =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">annotation_name_rot =</span> <span class="dv">0</span>)</span>
-<span id="cb597-9"><a href="upset-plot.html#cb597-9"></a><span class="co"># the same for using m2 or m3</span></span>
-<span id="cb597-10"><a href="upset-plot.html#cb597-10"></a><span class="kw">UpSet</span>(m1, <span class="dt">top_annotation =</span> top_ha)</span></code></pre></div>
+<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="upset-plot.html#cb605-1"></a>top_ha =<span class="st"> </span><span class="kw">HeatmapAnnotation</span>(</span>
+<span id="cb605-2"><a href="upset-plot.html#cb605-2"></a>    <span class="st">&quot;distict&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">comb_size</span>(m1), </span>
+<span id="cb605-3"><a href="upset-plot.html#cb605-3"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)), </span>
+<span id="cb605-4"><a href="upset-plot.html#cb605-4"></a>    <span class="st">&quot;intersect&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">comb_size</span>(m2), </span>
+<span id="cb605-5"><a href="upset-plot.html#cb605-5"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)), </span>
+<span id="cb605-6"><a href="upset-plot.html#cb605-6"></a>    <span class="st">&quot;union&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">comb_size</span>(m3), </span>
+<span id="cb605-7"><a href="upset-plot.html#cb605-7"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)), </span>
+<span id="cb605-8"><a href="upset-plot.html#cb605-8"></a>    <span class="dt">gap =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>, <span class="dt">annotation_name_rot =</span> <span class="dv">0</span>)</span>
+<span id="cb605-9"><a href="upset-plot.html#cb605-9"></a><span class="co"># the same for using m2 or m3</span></span>
+<span id="cb605-10"><a href="upset-plot.html#cb605-10"></a><span class="kw">UpSet</span>(m1, <span class="dt">top_annotation =</span> top_ha)</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-59-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Similar when the combination matrix is transposed:</p>
-<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="upset-plot.html#cb598-1"></a>right_ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(</span>
-<span id="cb598-2"><a href="upset-plot.html#cb598-2"></a>    <span class="st">&quot;distict&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">comb_size</span>(m1), </span>
-<span id="cb598-3"><a href="upset-plot.html#cb598-3"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)), </span>
-<span id="cb598-4"><a href="upset-plot.html#cb598-4"></a>    <span class="st">&quot;intersect&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">comb_size</span>(m2), </span>
-<span id="cb598-5"><a href="upset-plot.html#cb598-5"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)), </span>
-<span id="cb598-6"><a href="upset-plot.html#cb598-6"></a>    <span class="st">&quot;union&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">comb_size</span>(m3), </span>
-<span id="cb598-7"><a href="upset-plot.html#cb598-7"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)), </span>
-<span id="cb598-8"><a href="upset-plot.html#cb598-8"></a>    <span class="dt">gap =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">annotation_name_side =</span> <span class="st">&quot;bottom&quot;</span>)</span>
-<span id="cb598-9"><a href="upset-plot.html#cb598-9"></a><span class="co"># the same for using m2 or m3</span></span>
-<span id="cb598-10"><a href="upset-plot.html#cb598-10"></a><span class="kw">UpSet</span>(<span class="kw">t</span>(m1), <span class="dt">right_annotation =</span> right_ha)</span></code></pre></div>
+<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="upset-plot.html#cb606-1"></a>right_ha =<span class="st"> </span><span class="kw">rowAnnotation</span>(</span>
+<span id="cb606-2"><a href="upset-plot.html#cb606-2"></a>    <span class="st">&quot;distict&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">comb_size</span>(m1), </span>
+<span id="cb606-3"><a href="upset-plot.html#cb606-3"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)), </span>
+<span id="cb606-4"><a href="upset-plot.html#cb606-4"></a>    <span class="st">&quot;intersect&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">comb_size</span>(m2), </span>
+<span id="cb606-5"><a href="upset-plot.html#cb606-5"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)), </span>
+<span id="cb606-6"><a href="upset-plot.html#cb606-6"></a>    <span class="st">&quot;union&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="kw">comb_size</span>(m3), </span>
+<span id="cb606-7"><a href="upset-plot.html#cb606-7"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)), </span>
+<span id="cb606-8"><a href="upset-plot.html#cb606-8"></a>    <span class="dt">gap =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>), <span class="dt">annotation_name_side =</span> <span class="st">&quot;bottom&quot;</span>)</span>
+<span id="cb606-9"><a href="upset-plot.html#cb606-9"></a><span class="co"># the same for using m2 or m3</span></span>
+<span id="cb606-10"><a href="upset-plot.html#cb606-10"></a><span class="kw">UpSet</span>(<span class="kw">t</span>(m1), <span class="dt">right_annotation =</span> right_ha)</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-60-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><a href="https://cran.r-project.org/web/packages/UpSetR/vignettes/basic.usage.html#example-2-choosing-the-top-largest-sets-and-plot-formatting">In the origial UpSet implementation</a>, the combination
 set sizes are also drawn on top of the barplots. Here, we don’t directly support it, but the sizes
 can be manually added by <code>decorate_annotation()</code> function. See following example:</p>
-<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="upset-plot.html#cb599-1"></a>ht =<span class="st"> </span><span class="kw">draw</span>(<span class="kw">UpSet</span>(m))</span>
-<span id="cb599-2"><a href="upset-plot.html#cb599-2"></a>od =<span class="st"> </span><span class="kw">column_order</span>(ht)</span>
-<span id="cb599-3"><a href="upset-plot.html#cb599-3"></a>cs =<span class="st"> </span><span class="kw">comb_size</span>(m)</span>
-<span id="cb599-4"><a href="upset-plot.html#cb599-4"></a><span class="kw">decorate_annotation</span>(<span class="st">&quot;intersection_size&quot;</span>, {</span>
-<span id="cb599-5"><a href="upset-plot.html#cb599-5"></a>    <span class="kw">grid.text</span>(cs[od], <span class="dt">x =</span> <span class="kw">seq_along</span>(cs), <span class="dt">y =</span> <span class="kw">unit</span>(cs[od], <span class="st">&quot;native&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), </span>
-<span id="cb599-6"><a href="upset-plot.html#cb599-6"></a>        <span class="dt">default.units =</span> <span class="st">&quot;native&quot;</span>, <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">8</span>))</span>
-<span id="cb599-7"><a href="upset-plot.html#cb599-7"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="upset-plot.html#cb607-1"></a>ht =<span class="st"> </span><span class="kw">draw</span>(<span class="kw">UpSet</span>(m))</span>
+<span id="cb607-2"><a href="upset-plot.html#cb607-2"></a>od =<span class="st"> </span><span class="kw">column_order</span>(ht)</span>
+<span id="cb607-3"><a href="upset-plot.html#cb607-3"></a>cs =<span class="st"> </span><span class="kw">comb_size</span>(m)</span>
+<span id="cb607-4"><a href="upset-plot.html#cb607-4"></a><span class="kw">decorate_annotation</span>(<span class="st">&quot;intersection_size&quot;</span>, {</span>
+<span id="cb607-5"><a href="upset-plot.html#cb607-5"></a>    <span class="kw">grid.text</span>(cs[od], <span class="dt">x =</span> <span class="kw">seq_along</span>(cs), <span class="dt">y =</span> <span class="kw">unit</span>(cs[od], <span class="st">&quot;native&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), </span>
+<span id="cb607-6"><a href="upset-plot.html#cb607-6"></a>        <span class="dt">default.units =</span> <span class="st">&quot;native&quot;</span>, <span class="dt">just =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">8</span>))</span>
+<span id="cb607-7"><a href="upset-plot.html#cb607-7"></a>})</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-61-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>There are several reasons that we don’t directly supported add the combination set size
 to the plot: 1. Add new text means to add several new arguments to the function, e.g., the
@@ -1067,9 +1067,9 @@ not only the size but also customized text can be added.</p>
 <h2><span class="header-section-number">8.7</span> Example with the movies dataset</h2>
 <p><a href="https://github.com/hms-dbmi/UpSetR">UpsetR package</a> also provides a <code>movies</code>
 dataset, which contains 17 genres for 3883 movies. First load the dataset.</p>
-<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="upset-plot.html#cb600-1"></a>movies =<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;movies.csv&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;UpSetR&quot;</span>), </span>
-<span id="cb600-2"><a href="upset-plot.html#cb600-2"></a>    <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;;&quot;</span>)</span>
-<span id="cb600-3"><a href="upset-plot.html#cb600-3"></a><span class="kw">head</span>(movies) <span class="co"># `make_comb_mat()` automatically ignores the first two columns</span></span></code></pre></div>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="upset-plot.html#cb608-1"></a>movies =<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;movies.csv&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;UpSetR&quot;</span>), </span>
+<span id="cb608-2"><a href="upset-plot.html#cb608-2"></a>    <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;;&quot;</span>)</span>
+<span id="cb608-3"><a href="upset-plot.html#cb608-3"></a><span class="kw">head</span>(movies) <span class="co"># `make_comb_mat()` automatically ignores the first two columns</span></span></code></pre></div>
 <pre><code>##                                 Name ReleaseDate Action Adventure Children
 ## 1                   Toy Story (1995)        1995      0         0        1
 ## 2                     Jumanji (1995)        1995      0         1        1
@@ -1092,8 +1092,8 @@ dataset, which contains 17 genres for 3883 movies. First load the dataset.</p>
 ## 5     0        0   0       0      3.01     296
 ## 6     0        1   0       0      3.88     940</code></pre>
 <p>To make a same UpSet plot as in <a href="https://cran.r-project.org/web/packages/UpSetR/vignettes/basic.usage.html#example-2-choosing-the-top-largest-sets-and-plot-formatting">this vignette</a>:</p>
-<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="upset-plot.html#cb602-1"></a>m =<span class="st"> </span><span class="kw">make_comb_mat</span>(movies, <span class="dt">top_n_sets =</span> <span class="dv">6</span>)</span>
-<span id="cb602-2"><a href="upset-plot.html#cb602-2"></a>m</span></code></pre></div>
+<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="upset-plot.html#cb610-1"></a>m =<span class="st"> </span><span class="kw">make_comb_mat</span>(movies, <span class="dt">top_n_sets =</span> <span class="dv">6</span>)</span>
+<span id="cb610-2"><a href="upset-plot.html#cb610-2"></a>m</span></code></pre></div>
 <pre><code>## A combination matrix with 6 sets and 39 combinations.
 ##   ranges of combination set size: c(1, 1028).
 ##   mode for the combination size: distinct.
@@ -1119,63 +1119,63 @@ dataset, which contains 17 genres for 3883 movies. First load the dataset.</p>
 ##      Romance  471
 ##     Thriller  492
 ##   complement    2</code></pre>
-<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="upset-plot.html#cb604-1"></a>m =<span class="st"> </span>m[<span class="kw">comb_degree</span>(m) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>]</span>
-<span id="cb604-2"><a href="upset-plot.html#cb604-2"></a><span class="kw">UpSet</span>(m)</span></code></pre></div>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="upset-plot.html#cb612-1"></a>m =<span class="st"> </span>m[<span class="kw">comb_degree</span>(m) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>]</span>
+<span id="cb612-2"><a href="upset-plot.html#cb612-2"></a><span class="kw">UpSet</span>(m)</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-63-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>Following code makes it look more similar as the orignal plot. The code is a
 little bit long, but most of the code mainly customize the annotations and
 row/column orders.</p>
-<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="upset-plot.html#cb605-1"></a>ss =<span class="st"> </span><span class="kw">set_size</span>(m)</span>
-<span id="cb605-2"><a href="upset-plot.html#cb605-2"></a>cs =<span class="st"> </span><span class="kw">comb_size</span>(m)</span>
-<span id="cb605-3"><a href="upset-plot.html#cb605-3"></a>ht =<span class="st"> </span><span class="kw">UpSet</span>(m, </span>
-<span id="cb605-4"><a href="upset-plot.html#cb605-4"></a>    <span class="dt">set_order =</span> <span class="kw">order</span>(ss),</span>
-<span id="cb605-5"><a href="upset-plot.html#cb605-5"></a>    <span class="dt">comb_order =</span> <span class="kw">order</span>(<span class="kw">comb_degree</span>(m), <span class="op">-</span>cs),</span>
-<span id="cb605-6"><a href="upset-plot.html#cb605-6"></a>    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(</span>
-<span id="cb605-7"><a href="upset-plot.html#cb605-7"></a>        <span class="st">&quot;Genre Intersections&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(cs, </span>
-<span id="cb605-8"><a href="upset-plot.html#cb605-8"></a>            <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(cs)<span class="op">*</span><span class="fl">1.1</span>),</span>
-<span id="cb605-9"><a href="upset-plot.html#cb605-9"></a>            <span class="dt">border =</span> <span class="ot">FALSE</span>, </span>
-<span id="cb605-10"><a href="upset-plot.html#cb605-10"></a>            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), </span>
-<span id="cb605-11"><a href="upset-plot.html#cb605-11"></a>            <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>)</span>
-<span id="cb605-12"><a href="upset-plot.html#cb605-12"></a>        ), </span>
-<span id="cb605-13"><a href="upset-plot.html#cb605-13"></a>        <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>, </span>
-<span id="cb605-14"><a href="upset-plot.html#cb605-14"></a>        <span class="dt">annotation_name_rot =</span> <span class="dv">90</span>),</span>
-<span id="cb605-15"><a href="upset-plot.html#cb605-15"></a>    <span class="dt">left_annotation =</span> <span class="kw">rowAnnotation</span>(</span>
-<span id="cb605-16"><a href="upset-plot.html#cb605-16"></a>        <span class="st">&quot;Movies Per Genre&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="op">-</span>ss, </span>
-<span id="cb605-17"><a href="upset-plot.html#cb605-17"></a>            <span class="dt">baseline =</span> <span class="dv">0</span>,</span>
-<span id="cb605-18"><a href="upset-plot.html#cb605-18"></a>            <span class="dt">axis_param =</span> <span class="kw">list</span>(</span>
-<span id="cb605-19"><a href="upset-plot.html#cb605-19"></a>                <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">-500</span>, <span class="dv">-1000</span>, <span class="dv">-1500</span>),</span>
-<span id="cb605-20"><a href="upset-plot.html#cb605-20"></a>                <span class="dt">labels =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">1500</span>),</span>
-<span id="cb605-21"><a href="upset-plot.html#cb605-21"></a>                <span class="dt">labels_rot =</span> <span class="dv">0</span>),</span>
-<span id="cb605-22"><a href="upset-plot.html#cb605-22"></a>            <span class="dt">border =</span> <span class="ot">FALSE</span>, </span>
-<span id="cb605-23"><a href="upset-plot.html#cb605-23"></a>            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), </span>
-<span id="cb605-24"><a href="upset-plot.html#cb605-24"></a>            <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>)</span>
-<span id="cb605-25"><a href="upset-plot.html#cb605-25"></a>        ),</span>
-<span id="cb605-26"><a href="upset-plot.html#cb605-26"></a>        <span class="dt">set_name =</span> <span class="kw">anno_text</span>(<span class="kw">set_name</span>(m), </span>
-<span id="cb605-27"><a href="upset-plot.html#cb605-27"></a>            <span class="dt">location =</span> <span class="fl">0.5</span>, </span>
-<span id="cb605-28"><a href="upset-plot.html#cb605-28"></a>            <span class="dt">just =</span> <span class="st">&quot;center&quot;</span>,</span>
-<span id="cb605-29"><a href="upset-plot.html#cb605-29"></a>            <span class="dt">width =</span> <span class="kw">max_text_width</span>(<span class="kw">set_name</span>(m)) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;mm&quot;</span>))</span>
-<span id="cb605-30"><a href="upset-plot.html#cb605-30"></a>    ), </span>
-<span id="cb605-31"><a href="upset-plot.html#cb605-31"></a>    <span class="dt">right_annotation =</span> <span class="ot">NULL</span>,</span>
-<span id="cb605-32"><a href="upset-plot.html#cb605-32"></a>    <span class="dt">show_row_names =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb605-33"><a href="upset-plot.html#cb605-33"></a>ht =<span class="st"> </span><span class="kw">draw</span>(ht)</span>
-<span id="cb605-34"><a href="upset-plot.html#cb605-34"></a>od =<span class="st"> </span><span class="kw">column_order</span>(ht)</span>
-<span id="cb605-35"><a href="upset-plot.html#cb605-35"></a><span class="kw">decorate_annotation</span>(<span class="st">&quot;Genre Intersections&quot;</span>, {</span>
-<span id="cb605-36"><a href="upset-plot.html#cb605-36"></a>    <span class="kw">grid.text</span>(cs[od], <span class="dt">x =</span> <span class="kw">seq_along</span>(cs), <span class="dt">y =</span> <span class="kw">unit</span>(cs[od], <span class="st">&quot;native&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), </span>
-<span id="cb605-37"><a href="upset-plot.html#cb605-37"></a>        <span class="dt">default.units =</span> <span class="st">&quot;native&quot;</span>, <span class="dt">just =</span> <span class="kw">c</span>(<span class="st">&quot;left&quot;</span>, <span class="st">&quot;bottom&quot;</span>), </span>
-<span id="cb605-38"><a href="upset-plot.html#cb605-38"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">6</span>, <span class="dt">col =</span> <span class="st">&quot;#404040&quot;</span>), <span class="dt">rot =</span> <span class="dv">45</span>)</span>
-<span id="cb605-39"><a href="upset-plot.html#cb605-39"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="upset-plot.html#cb613-1"></a>ss =<span class="st"> </span><span class="kw">set_size</span>(m)</span>
+<span id="cb613-2"><a href="upset-plot.html#cb613-2"></a>cs =<span class="st"> </span><span class="kw">comb_size</span>(m)</span>
+<span id="cb613-3"><a href="upset-plot.html#cb613-3"></a>ht =<span class="st"> </span><span class="kw">UpSet</span>(m, </span>
+<span id="cb613-4"><a href="upset-plot.html#cb613-4"></a>    <span class="dt">set_order =</span> <span class="kw">order</span>(ss),</span>
+<span id="cb613-5"><a href="upset-plot.html#cb613-5"></a>    <span class="dt">comb_order =</span> <span class="kw">order</span>(<span class="kw">comb_degree</span>(m), <span class="op">-</span>cs),</span>
+<span id="cb613-6"><a href="upset-plot.html#cb613-6"></a>    <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(</span>
+<span id="cb613-7"><a href="upset-plot.html#cb613-7"></a>        <span class="st">&quot;Genre Intersections&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(cs, </span>
+<span id="cb613-8"><a href="upset-plot.html#cb613-8"></a>            <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(cs)<span class="op">*</span><span class="fl">1.1</span>),</span>
+<span id="cb613-9"><a href="upset-plot.html#cb613-9"></a>            <span class="dt">border =</span> <span class="ot">FALSE</span>, </span>
+<span id="cb613-10"><a href="upset-plot.html#cb613-10"></a>            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), </span>
+<span id="cb613-11"><a href="upset-plot.html#cb613-11"></a>            <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>)</span>
+<span id="cb613-12"><a href="upset-plot.html#cb613-12"></a>        ), </span>
+<span id="cb613-13"><a href="upset-plot.html#cb613-13"></a>        <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>, </span>
+<span id="cb613-14"><a href="upset-plot.html#cb613-14"></a>        <span class="dt">annotation_name_rot =</span> <span class="dv">90</span>),</span>
+<span id="cb613-15"><a href="upset-plot.html#cb613-15"></a>    <span class="dt">left_annotation =</span> <span class="kw">rowAnnotation</span>(</span>
+<span id="cb613-16"><a href="upset-plot.html#cb613-16"></a>        <span class="st">&quot;Movies Per Genre&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(<span class="op">-</span>ss, </span>
+<span id="cb613-17"><a href="upset-plot.html#cb613-17"></a>            <span class="dt">baseline =</span> <span class="dv">0</span>,</span>
+<span id="cb613-18"><a href="upset-plot.html#cb613-18"></a>            <span class="dt">axis_param =</span> <span class="kw">list</span>(</span>
+<span id="cb613-19"><a href="upset-plot.html#cb613-19"></a>                <span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">-500</span>, <span class="dv">-1000</span>, <span class="dv">-1500</span>),</span>
+<span id="cb613-20"><a href="upset-plot.html#cb613-20"></a>                <span class="dt">labels =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">1500</span>),</span>
+<span id="cb613-21"><a href="upset-plot.html#cb613-21"></a>                <span class="dt">labels_rot =</span> <span class="dv">0</span>),</span>
+<span id="cb613-22"><a href="upset-plot.html#cb613-22"></a>            <span class="dt">border =</span> <span class="ot">FALSE</span>, </span>
+<span id="cb613-23"><a href="upset-plot.html#cb613-23"></a>            <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>), </span>
+<span id="cb613-24"><a href="upset-plot.html#cb613-24"></a>            <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>)</span>
+<span id="cb613-25"><a href="upset-plot.html#cb613-25"></a>        ),</span>
+<span id="cb613-26"><a href="upset-plot.html#cb613-26"></a>        <span class="dt">set_name =</span> <span class="kw">anno_text</span>(<span class="kw">set_name</span>(m), </span>
+<span id="cb613-27"><a href="upset-plot.html#cb613-27"></a>            <span class="dt">location =</span> <span class="fl">0.5</span>, </span>
+<span id="cb613-28"><a href="upset-plot.html#cb613-28"></a>            <span class="dt">just =</span> <span class="st">&quot;center&quot;</span>,</span>
+<span id="cb613-29"><a href="upset-plot.html#cb613-29"></a>            <span class="dt">width =</span> <span class="kw">max_text_width</span>(<span class="kw">set_name</span>(m)) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;mm&quot;</span>))</span>
+<span id="cb613-30"><a href="upset-plot.html#cb613-30"></a>    ), </span>
+<span id="cb613-31"><a href="upset-plot.html#cb613-31"></a>    <span class="dt">right_annotation =</span> <span class="ot">NULL</span>,</span>
+<span id="cb613-32"><a href="upset-plot.html#cb613-32"></a>    <span class="dt">show_row_names =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb613-33"><a href="upset-plot.html#cb613-33"></a>ht =<span class="st"> </span><span class="kw">draw</span>(ht)</span>
+<span id="cb613-34"><a href="upset-plot.html#cb613-34"></a>od =<span class="st"> </span><span class="kw">column_order</span>(ht)</span>
+<span id="cb613-35"><a href="upset-plot.html#cb613-35"></a><span class="kw">decorate_annotation</span>(<span class="st">&quot;Genre Intersections&quot;</span>, {</span>
+<span id="cb613-36"><a href="upset-plot.html#cb613-36"></a>    <span class="kw">grid.text</span>(cs[od], <span class="dt">x =</span> <span class="kw">seq_along</span>(cs), <span class="dt">y =</span> <span class="kw">unit</span>(cs[od], <span class="st">&quot;native&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;pt&quot;</span>), </span>
+<span id="cb613-37"><a href="upset-plot.html#cb613-37"></a>        <span class="dt">default.units =</span> <span class="st">&quot;native&quot;</span>, <span class="dt">just =</span> <span class="kw">c</span>(<span class="st">&quot;left&quot;</span>, <span class="st">&quot;bottom&quot;</span>), </span>
+<span id="cb613-38"><a href="upset-plot.html#cb613-38"></a>        <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fontsize =</span> <span class="dv">6</span>, <span class="dt">col =</span> <span class="st">&quot;#404040&quot;</span>), <span class="dt">rot =</span> <span class="dv">45</span>)</span>
+<span id="cb613-39"><a href="upset-plot.html#cb613-39"></a>})</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-64-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>In <code>movies</code> dataset, there is also one column <code>AvgRating</code> which gives the
 rating of each movie, we next split all the movies into five groups based on
 the ratings.</p>
-<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb606-1"><a href="upset-plot.html#cb606-1"></a>genre =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Action&quot;</span>, <span class="st">&quot;Romance&quot;</span>, <span class="st">&quot;Horror&quot;</span>, <span class="st">&quot;Children&quot;</span>, <span class="st">&quot;SciFi&quot;</span>, <span class="st">&quot;Documentary&quot;</span>)</span>
-<span id="cb606-2"><a href="upset-plot.html#cb606-2"></a>rating =<span class="st"> </span><span class="kw">cut</span>(movies<span class="op">$</span>AvgRating, <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>))</span>
-<span id="cb606-3"><a href="upset-plot.html#cb606-3"></a>m_list =<span class="st"> </span><span class="kw">tapply</span>(<span class="kw">seq_len</span>(<span class="kw">nrow</span>(movies)), rating, <span class="cf">function</span>(ind) {</span>
-<span id="cb606-4"><a href="upset-plot.html#cb606-4"></a>    m =<span class="st"> </span><span class="kw">make_comb_mat</span>(movies[ind, genre, <span class="dt">drop =</span> <span class="ot">FALSE</span>])</span>
-<span id="cb606-5"><a href="upset-plot.html#cb606-5"></a>    m[<span class="kw">comb_degree</span>(m) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>]</span>
-<span id="cb606-6"><a href="upset-plot.html#cb606-6"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="upset-plot.html#cb614-1"></a>genre =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Action&quot;</span>, <span class="st">&quot;Romance&quot;</span>, <span class="st">&quot;Horror&quot;</span>, <span class="st">&quot;Children&quot;</span>, <span class="st">&quot;SciFi&quot;</span>, <span class="st">&quot;Documentary&quot;</span>)</span>
+<span id="cb614-2"><a href="upset-plot.html#cb614-2"></a>rating =<span class="st"> </span><span class="kw">cut</span>(movies<span class="op">$</span>AvgRating, <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>))</span>
+<span id="cb614-3"><a href="upset-plot.html#cb614-3"></a>m_list =<span class="st"> </span><span class="kw">tapply</span>(<span class="kw">seq_len</span>(<span class="kw">nrow</span>(movies)), rating, <span class="cf">function</span>(ind) {</span>
+<span id="cb614-4"><a href="upset-plot.html#cb614-4"></a>    m =<span class="st"> </span><span class="kw">make_comb_mat</span>(movies[ind, genre, <span class="dt">drop =</span> <span class="ot">FALSE</span>])</span>
+<span id="cb614-5"><a href="upset-plot.html#cb614-5"></a>    m[<span class="kw">comb_degree</span>(m) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>]</span>
+<span id="cb614-6"><a href="upset-plot.html#cb614-6"></a>})</span></code></pre></div>
 <p>The combination matrices in <code>m_list</code> might have different combination sets:</p>
-<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="upset-plot.html#cb607-1"></a><span class="kw">sapply</span>(m_list, comb_size)</span></code></pre></div>
+<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="upset-plot.html#cb615-1"></a><span class="kw">sapply</span>(m_list, comb_size)</span></code></pre></div>
 <pre><code>## $`(0,1]`
 ## 010000 001000 000100 000001 
 ##      1      2      1      1 
@@ -1205,8 +1205,8 @@ the ratings.</p>
 the matrices to make them have same sets and same combination sets.
 <code>normalize_comb_mat()</code> basically adds zero to the new combination sets which
 were not there before.</p>
-<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="upset-plot.html#cb609-1"></a>m_list =<span class="st"> </span><span class="kw">normalize_comb_mat</span>(m_list)</span>
-<span id="cb609-2"><a href="upset-plot.html#cb609-2"></a><span class="kw">sapply</span>(m_list, comb_size)</span></code></pre></div>
+<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="upset-plot.html#cb617-1"></a>m_list =<span class="st"> </span><span class="kw">normalize_comb_mat</span>(m_list)</span>
+<span id="cb617-2"><a href="upset-plot.html#cb617-2"></a><span class="kw">sapply</span>(m_list, comb_size)</span></code></pre></div>
 <pre><code>##        (0,1] (1,2] (2,3] (3,4] (4,5]
 ## 110001     0     1     0     1     0
 ## 100101     0     1     4     6     1
@@ -1228,18 +1228,18 @@ were not there before.</p>
 ## 000010     1     7    99   276    38
 ## 000001     0     3    27    66    10</code></pre>
 <p>We calculate the range for the two barplots:</p>
-<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb611-1"><a href="upset-plot.html#cb611-1"></a>max_set_size =<span class="st"> </span><span class="kw">max</span>(<span class="kw">sapply</span>(m_list, set_size))</span>
-<span id="cb611-2"><a href="upset-plot.html#cb611-2"></a>max_comb_size =<span class="st"> </span><span class="kw">max</span>(<span class="kw">sapply</span>(m_list, comb_size))</span></code></pre></div>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="upset-plot.html#cb619-1"></a>max_set_size =<span class="st"> </span><span class="kw">max</span>(<span class="kw">sapply</span>(m_list, set_size))</span>
+<span id="cb619-2"><a href="upset-plot.html#cb619-2"></a>max_comb_size =<span class="st"> </span><span class="kw">max</span>(<span class="kw">sapply</span>(m_list, comb_size))</span></code></pre></div>
 <p>And finally we add the five UpSet plots vertically:</p>
-<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="upset-plot.html#cb612-1"></a>ht_list =<span class="st"> </span><span class="ot">NULL</span></span>
-<span id="cb612-2"><a href="upset-plot.html#cb612-2"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">seq_along</span>(m_list)) {</span>
-<span id="cb612-3"><a href="upset-plot.html#cb612-3"></a>    ht_list =<span class="st"> </span>ht_list <span class="op">%v%</span></span>
-<span id="cb612-4"><a href="upset-plot.html#cb612-4"></a><span class="st">        </span><span class="kw">UpSet</span>(m_list[[i]], <span class="dt">row_title =</span> <span class="kw">paste0</span>(<span class="st">&quot;rating in&quot;</span>, <span class="kw">names</span>(m_list)[i]),</span>
-<span id="cb612-5"><a href="upset-plot.html#cb612-5"></a>            <span class="dt">set_order =</span> <span class="ot">NULL</span>, <span class="dt">comb_order =</span> <span class="ot">NULL</span>,</span>
-<span id="cb612-6"><a href="upset-plot.html#cb612-6"></a>            <span class="dt">top_annotation =</span> <span class="kw">upset_top_annotation</span>(m_list[[i]], <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, max_comb_size)),</span>
-<span id="cb612-7"><a href="upset-plot.html#cb612-7"></a>            <span class="dt">right_annotation =</span> <span class="kw">upset_right_annotation</span>(m_list[[i]], <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, max_set_size)))</span>
-<span id="cb612-8"><a href="upset-plot.html#cb612-8"></a>}</span>
-<span id="cb612-9"><a href="upset-plot.html#cb612-9"></a>ht_list</span></code></pre></div>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb620-1"><a href="upset-plot.html#cb620-1"></a>ht_list =<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb620-2"><a href="upset-plot.html#cb620-2"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">seq_along</span>(m_list)) {</span>
+<span id="cb620-3"><a href="upset-plot.html#cb620-3"></a>    ht_list =<span class="st"> </span>ht_list <span class="op">%v%</span></span>
+<span id="cb620-4"><a href="upset-plot.html#cb620-4"></a><span class="st">        </span><span class="kw">UpSet</span>(m_list[[i]], <span class="dt">row_title =</span> <span class="kw">paste0</span>(<span class="st">&quot;rating in&quot;</span>, <span class="kw">names</span>(m_list)[i]),</span>
+<span id="cb620-5"><a href="upset-plot.html#cb620-5"></a>            <span class="dt">set_order =</span> <span class="ot">NULL</span>, <span class="dt">comb_order =</span> <span class="ot">NULL</span>,</span>
+<span id="cb620-6"><a href="upset-plot.html#cb620-6"></a>            <span class="dt">top_annotation =</span> <span class="kw">upset_top_annotation</span>(m_list[[i]], <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, max_comb_size)),</span>
+<span id="cb620-7"><a href="upset-plot.html#cb620-7"></a>            <span class="dt">right_annotation =</span> <span class="kw">upset_right_annotation</span>(m_list[[i]], <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, max_set_size)))</span>
+<span id="cb620-8"><a href="upset-plot.html#cb620-8"></a>}</span>
+<span id="cb620-9"><a href="upset-plot.html#cb620-9"></a>ht_list</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-69-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>After comparing the five UpSet plots, we can see most of the movies are rated
 between 2 and 4. Horror movies tend to have lower ratings and romance movies
@@ -1247,72 +1247,72 @@ tend to have higher ratings.</p>
 <p>Instead of directly comparing the size of the combination sets, we can also
 compare the relative fraction to the full sets. In following code, we remove
 the group of <code>c(0, 1]</code> because the number of movies are too few there.</p>
-<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb613-1"><a href="upset-plot.html#cb613-1"></a>m_list =<span class="st"> </span>m_list[<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb613-2"><a href="upset-plot.html#cb613-2"></a>max_set_size =<span class="st"> </span><span class="kw">max</span>(<span class="kw">sapply</span>(m_list, set_size))</span>
-<span id="cb613-3"><a href="upset-plot.html#cb613-3"></a>rel_comb_size =<span class="st"> </span><span class="kw">sapply</span>(m_list, <span class="cf">function</span>(m) {</span>
-<span id="cb613-4"><a href="upset-plot.html#cb613-4"></a>    s =<span class="st"> </span><span class="kw">comb_size</span>(m)</span>
-<span id="cb613-5"><a href="upset-plot.html#cb613-5"></a>    <span class="co"># because the combination matrix is generated under &quot;distinct&quot; mode</span></span>
-<span id="cb613-6"><a href="upset-plot.html#cb613-6"></a>    <span class="co"># the sum of `s` is the size of the full set</span></span>
-<span id="cb613-7"><a href="upset-plot.html#cb613-7"></a>    s<span class="op">/</span><span class="kw">sum</span>(s)</span>
-<span id="cb613-8"><a href="upset-plot.html#cb613-8"></a>})</span>
-<span id="cb613-9"><a href="upset-plot.html#cb613-9"></a>ht_list =<span class="st"> </span><span class="ot">NULL</span></span>
-<span id="cb613-10"><a href="upset-plot.html#cb613-10"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">seq_along</span>(m_list)) {</span>
-<span id="cb613-11"><a href="upset-plot.html#cb613-11"></a>    ht_list =<span class="st"> </span>ht_list <span class="op">%v%</span></span>
-<span id="cb613-12"><a href="upset-plot.html#cb613-12"></a><span class="st">        </span><span class="kw">UpSet</span>(m_list[[i]], <span class="dt">row_title =</span> <span class="kw">paste0</span>(<span class="st">&quot;rating in&quot;</span>, <span class="kw">names</span>(m_list)[i]),</span>
-<span id="cb613-13"><a href="upset-plot.html#cb613-13"></a>            <span class="dt">set_order =</span> <span class="ot">NULL</span>, <span class="dt">comb_order =</span> <span class="ot">NULL</span>,</span>
-<span id="cb613-14"><a href="upset-plot.html#cb613-14"></a>            <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(</span>
-<span id="cb613-15"><a href="upset-plot.html#cb613-15"></a>                <span class="st">&quot;Relative</span><span class="ch">\n</span><span class="st">fraction&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(</span>
-<span id="cb613-16"><a href="upset-plot.html#cb613-16"></a>                    rel_comb_size[, i],</span>
-<span id="cb613-17"><a href="upset-plot.html#cb613-17"></a>                    <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>),</span>
-<span id="cb613-18"><a href="upset-plot.html#cb613-18"></a>                    <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>),</span>
-<span id="cb613-19"><a href="upset-plot.html#cb613-19"></a>                    <span class="dt">border =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb613-20"><a href="upset-plot.html#cb613-20"></a>                    <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>),</span>
-<span id="cb613-21"><a href="upset-plot.html#cb613-21"></a>                ), </span>
-<span id="cb613-22"><a href="upset-plot.html#cb613-22"></a>                <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>,</span>
-<span id="cb613-23"><a href="upset-plot.html#cb613-23"></a>                <span class="dt">annotation_name_rot =</span> <span class="dv">0</span>),</span>
-<span id="cb613-24"><a href="upset-plot.html#cb613-24"></a>            <span class="dt">right_annotation =</span> <span class="kw">upset_right_annotation</span>(m_list[[i]], </span>
-<span id="cb613-25"><a href="upset-plot.html#cb613-25"></a>                <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, max_set_size))</span>
-<span id="cb613-26"><a href="upset-plot.html#cb613-26"></a>        )</span>
-<span id="cb613-27"><a href="upset-plot.html#cb613-27"></a>}</span>
-<span id="cb613-28"><a href="upset-plot.html#cb613-28"></a>ht_list</span></code></pre></div>
+<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="upset-plot.html#cb621-1"></a>m_list =<span class="st"> </span>m_list[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb621-2"><a href="upset-plot.html#cb621-2"></a>max_set_size =<span class="st"> </span><span class="kw">max</span>(<span class="kw">sapply</span>(m_list, set_size))</span>
+<span id="cb621-3"><a href="upset-plot.html#cb621-3"></a>rel_comb_size =<span class="st"> </span><span class="kw">sapply</span>(m_list, <span class="cf">function</span>(m) {</span>
+<span id="cb621-4"><a href="upset-plot.html#cb621-4"></a>    s =<span class="st"> </span><span class="kw">comb_size</span>(m)</span>
+<span id="cb621-5"><a href="upset-plot.html#cb621-5"></a>    <span class="co"># because the combination matrix is generated under &quot;distinct&quot; mode</span></span>
+<span id="cb621-6"><a href="upset-plot.html#cb621-6"></a>    <span class="co"># the sum of `s` is the size of the full set</span></span>
+<span id="cb621-7"><a href="upset-plot.html#cb621-7"></a>    s<span class="op">/</span><span class="kw">sum</span>(s)</span>
+<span id="cb621-8"><a href="upset-plot.html#cb621-8"></a>})</span>
+<span id="cb621-9"><a href="upset-plot.html#cb621-9"></a>ht_list =<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb621-10"><a href="upset-plot.html#cb621-10"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">seq_along</span>(m_list)) {</span>
+<span id="cb621-11"><a href="upset-plot.html#cb621-11"></a>    ht_list =<span class="st"> </span>ht_list <span class="op">%v%</span></span>
+<span id="cb621-12"><a href="upset-plot.html#cb621-12"></a><span class="st">        </span><span class="kw">UpSet</span>(m_list[[i]], <span class="dt">row_title =</span> <span class="kw">paste0</span>(<span class="st">&quot;rating in&quot;</span>, <span class="kw">names</span>(m_list)[i]),</span>
+<span id="cb621-13"><a href="upset-plot.html#cb621-13"></a>            <span class="dt">set_order =</span> <span class="ot">NULL</span>, <span class="dt">comb_order =</span> <span class="ot">NULL</span>,</span>
+<span id="cb621-14"><a href="upset-plot.html#cb621-14"></a>            <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(</span>
+<span id="cb621-15"><a href="upset-plot.html#cb621-15"></a>                <span class="st">&quot;Relative</span><span class="ch">\n</span><span class="st">fraction&quot;</span> =<span class="st"> </span><span class="kw">anno_barplot</span>(</span>
+<span id="cb621-16"><a href="upset-plot.html#cb621-16"></a>                    rel_comb_size[, i],</span>
+<span id="cb621-17"><a href="upset-plot.html#cb621-17"></a>                    <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>),</span>
+<span id="cb621-18"><a href="upset-plot.html#cb621-18"></a>                    <span class="dt">gp =</span> <span class="kw">gpar</span>(<span class="dt">fill =</span> <span class="st">&quot;black&quot;</span>),</span>
+<span id="cb621-19"><a href="upset-plot.html#cb621-19"></a>                    <span class="dt">border =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb621-20"><a href="upset-plot.html#cb621-20"></a>                    <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>),</span>
+<span id="cb621-21"><a href="upset-plot.html#cb621-21"></a>                ), </span>
+<span id="cb621-22"><a href="upset-plot.html#cb621-22"></a>                <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>,</span>
+<span id="cb621-23"><a href="upset-plot.html#cb621-23"></a>                <span class="dt">annotation_name_rot =</span> <span class="dv">0</span>),</span>
+<span id="cb621-24"><a href="upset-plot.html#cb621-24"></a>            <span class="dt">right_annotation =</span> <span class="kw">upset_right_annotation</span>(m_list[[i]], </span>
+<span id="cb621-25"><a href="upset-plot.html#cb621-25"></a>                <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, max_set_size))</span>
+<span id="cb621-26"><a href="upset-plot.html#cb621-26"></a>        )</span>
+<span id="cb621-27"><a href="upset-plot.html#cb621-27"></a>}</span>
+<span id="cb621-28"><a href="upset-plot.html#cb621-28"></a>ht_list</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-70-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Now the trend is more clear that horror movies are rated low and documentaries
 are rated high.</p>
 <p>Next we split the movies by years:</p>
-<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="upset-plot.html#cb614-1"></a>year =<span class="st"> </span><span class="kw">floor</span>(movies<span class="op">$</span>ReleaseDate<span class="op">/</span><span class="dv">10</span>)<span class="op">*</span><span class="dv">10</span></span>
-<span id="cb614-2"><a href="upset-plot.html#cb614-2"></a>m_list =<span class="st"> </span><span class="kw">tapply</span>(<span class="kw">seq_len</span>(<span class="kw">nrow</span>(movies)), year, <span class="cf">function</span>(ind) {</span>
-<span id="cb614-3"><a href="upset-plot.html#cb614-3"></a>    m =<span class="st"> </span><span class="kw">make_comb_mat</span>(movies[ind, genre, <span class="dt">drop =</span> <span class="ot">FALSE</span>])</span>
-<span id="cb614-4"><a href="upset-plot.html#cb614-4"></a>    m[<span class="kw">comb_degree</span>(m) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>]</span>
-<span id="cb614-5"><a href="upset-plot.html#cb614-5"></a>})</span>
-<span id="cb614-6"><a href="upset-plot.html#cb614-6"></a>m_list =<span class="st"> </span><span class="kw">normalize_comb_mat</span>(m_list)</span>
-<span id="cb614-7"><a href="upset-plot.html#cb614-7"></a>max_set_size =<span class="st"> </span><span class="kw">max</span>(<span class="kw">sapply</span>(m_list, set_size))</span>
-<span id="cb614-8"><a href="upset-plot.html#cb614-8"></a>max_comb_size =<span class="st"> </span><span class="kw">max</span>(<span class="kw">sapply</span>(m_list, comb_size))</span>
-<span id="cb614-9"><a href="upset-plot.html#cb614-9"></a>ht_list1 =<span class="st"> </span><span class="ot">NULL</span></span>
-<span id="cb614-10"><a href="upset-plot.html#cb614-10"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>) {</span>
-<span id="cb614-11"><a href="upset-plot.html#cb614-11"></a>    ht_list1 =<span class="st"> </span>ht_list1 <span class="op">%v%</span></span>
-<span id="cb614-12"><a href="upset-plot.html#cb614-12"></a><span class="st">        </span><span class="kw">UpSet</span>(m_list[[i]], <span class="dt">row_title =</span> <span class="kw">paste0</span>(<span class="kw">names</span>(m_list)[i], <span class="st">&quot;s&quot;</span>),</span>
-<span id="cb614-13"><a href="upset-plot.html#cb614-13"></a>            <span class="dt">set_order =</span> <span class="ot">NULL</span>, <span class="dt">comb_order =</span> <span class="ot">NULL</span>,</span>
-<span id="cb614-14"><a href="upset-plot.html#cb614-14"></a>            <span class="dt">top_annotation =</span> <span class="kw">upset_top_annotation</span>(m_list[[i]], <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, max_comb_size),</span>
-<span id="cb614-15"><a href="upset-plot.html#cb614-15"></a>                <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)),</span>
-<span id="cb614-16"><a href="upset-plot.html#cb614-16"></a>            <span class="dt">right_annotation =</span> <span class="kw">upset_right_annotation</span>(m_list[[i]], <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, max_set_size)))</span>
-<span id="cb614-17"><a href="upset-plot.html#cb614-17"></a>}</span>
-<span id="cb614-18"><a href="upset-plot.html#cb614-18"></a></span>
-<span id="cb614-19"><a href="upset-plot.html#cb614-19"></a>ht_list2 =<span class="st"> </span><span class="ot">NULL</span></span>
-<span id="cb614-20"><a href="upset-plot.html#cb614-20"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">6</span><span class="op">:</span><span class="dv">10</span>) {</span>
-<span id="cb614-21"><a href="upset-plot.html#cb614-21"></a>    ht_list2 =<span class="st"> </span>ht_list2 <span class="op">%v%</span></span>
-<span id="cb614-22"><a href="upset-plot.html#cb614-22"></a><span class="st">        </span><span class="kw">UpSet</span>(m_list[[i]], <span class="dt">row_title =</span> <span class="kw">paste0</span>(<span class="kw">names</span>(m_list)[i], <span class="st">&quot;s&quot;</span>),</span>
-<span id="cb614-23"><a href="upset-plot.html#cb614-23"></a>            <span class="dt">set_order =</span> <span class="ot">NULL</span>, <span class="dt">comb_order =</span> <span class="ot">NULL</span>,</span>
-<span id="cb614-24"><a href="upset-plot.html#cb614-24"></a>            <span class="dt">top_annotation =</span> <span class="kw">upset_top_annotation</span>(m_list[[i]], <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, max_comb_size),</span>
-<span id="cb614-25"><a href="upset-plot.html#cb614-25"></a>                <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)),</span>
-<span id="cb614-26"><a href="upset-plot.html#cb614-26"></a>            <span class="dt">right_annotation =</span> <span class="kw">upset_right_annotation</span>(m_list[[i]], <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, max_set_size)))</span>
-<span id="cb614-27"><a href="upset-plot.html#cb614-27"></a>}</span>
-<span id="cb614-28"><a href="upset-plot.html#cb614-28"></a><span class="kw">grid.newpage</span>()</span>
-<span id="cb614-29"><a href="upset-plot.html#cb614-29"></a><span class="kw">pushViewport</span>(<span class="kw">viewport</span>(<span class="dt">x =</span> <span class="dv">0</span>, <span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">just =</span> <span class="st">&quot;left&quot;</span>))</span>
-<span id="cb614-30"><a href="upset-plot.html#cb614-30"></a><span class="kw">draw</span>(ht_list1, <span class="dt">newpage =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb614-31"><a href="upset-plot.html#cb614-31"></a><span class="kw">popViewport</span>()</span>
-<span id="cb614-32"><a href="upset-plot.html#cb614-32"></a><span class="kw">pushViewport</span>(<span class="kw">viewport</span>(<span class="dt">x =</span> <span class="fl">0.5</span>, <span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">just =</span> <span class="st">&quot;left&quot;</span>))</span>
-<span id="cb614-33"><a href="upset-plot.html#cb614-33"></a><span class="kw">draw</span>(ht_list2, <span class="dt">newpage =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb614-34"><a href="upset-plot.html#cb614-34"></a><span class="kw">popViewport</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="upset-plot.html#cb622-1"></a>year =<span class="st"> </span><span class="kw">floor</span>(movies<span class="op">$</span>ReleaseDate<span class="op">/</span><span class="dv">10</span>)<span class="op">*</span><span class="dv">10</span></span>
+<span id="cb622-2"><a href="upset-plot.html#cb622-2"></a>m_list =<span class="st"> </span><span class="kw">tapply</span>(<span class="kw">seq_len</span>(<span class="kw">nrow</span>(movies)), year, <span class="cf">function</span>(ind) {</span>
+<span id="cb622-3"><a href="upset-plot.html#cb622-3"></a>    m =<span class="st"> </span><span class="kw">make_comb_mat</span>(movies[ind, genre, <span class="dt">drop =</span> <span class="ot">FALSE</span>])</span>
+<span id="cb622-4"><a href="upset-plot.html#cb622-4"></a>    m[<span class="kw">comb_degree</span>(m) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>]</span>
+<span id="cb622-5"><a href="upset-plot.html#cb622-5"></a>})</span>
+<span id="cb622-6"><a href="upset-plot.html#cb622-6"></a>m_list =<span class="st"> </span><span class="kw">normalize_comb_mat</span>(m_list)</span>
+<span id="cb622-7"><a href="upset-plot.html#cb622-7"></a>max_set_size =<span class="st"> </span><span class="kw">max</span>(<span class="kw">sapply</span>(m_list, set_size))</span>
+<span id="cb622-8"><a href="upset-plot.html#cb622-8"></a>max_comb_size =<span class="st"> </span><span class="kw">max</span>(<span class="kw">sapply</span>(m_list, comb_size))</span>
+<span id="cb622-9"><a href="upset-plot.html#cb622-9"></a>ht_list1 =<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb622-10"><a href="upset-plot.html#cb622-10"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>) {</span>
+<span id="cb622-11"><a href="upset-plot.html#cb622-11"></a>    ht_list1 =<span class="st"> </span>ht_list1 <span class="op">%v%</span></span>
+<span id="cb622-12"><a href="upset-plot.html#cb622-12"></a><span class="st">        </span><span class="kw">UpSet</span>(m_list[[i]], <span class="dt">row_title =</span> <span class="kw">paste0</span>(<span class="kw">names</span>(m_list)[i], <span class="st">&quot;s&quot;</span>),</span>
+<span id="cb622-13"><a href="upset-plot.html#cb622-13"></a>            <span class="dt">set_order =</span> <span class="ot">NULL</span>, <span class="dt">comb_order =</span> <span class="ot">NULL</span>,</span>
+<span id="cb622-14"><a href="upset-plot.html#cb622-14"></a>            <span class="dt">top_annotation =</span> <span class="kw">upset_top_annotation</span>(m_list[[i]], <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, max_comb_size),</span>
+<span id="cb622-15"><a href="upset-plot.html#cb622-15"></a>                <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)),</span>
+<span id="cb622-16"><a href="upset-plot.html#cb622-16"></a>            <span class="dt">right_annotation =</span> <span class="kw">upset_right_annotation</span>(m_list[[i]], <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, max_set_size)))</span>
+<span id="cb622-17"><a href="upset-plot.html#cb622-17"></a>}</span>
+<span id="cb622-18"><a href="upset-plot.html#cb622-18"></a></span>
+<span id="cb622-19"><a href="upset-plot.html#cb622-19"></a>ht_list2 =<span class="st"> </span><span class="ot">NULL</span></span>
+<span id="cb622-20"><a href="upset-plot.html#cb622-20"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">6</span><span class="op">:</span><span class="dv">10</span>) {</span>
+<span id="cb622-21"><a href="upset-plot.html#cb622-21"></a>    ht_list2 =<span class="st"> </span>ht_list2 <span class="op">%v%</span></span>
+<span id="cb622-22"><a href="upset-plot.html#cb622-22"></a><span class="st">        </span><span class="kw">UpSet</span>(m_list[[i]], <span class="dt">row_title =</span> <span class="kw">paste0</span>(<span class="kw">names</span>(m_list)[i], <span class="st">&quot;s&quot;</span>),</span>
+<span id="cb622-23"><a href="upset-plot.html#cb622-23"></a>            <span class="dt">set_order =</span> <span class="ot">NULL</span>, <span class="dt">comb_order =</span> <span class="ot">NULL</span>,</span>
+<span id="cb622-24"><a href="upset-plot.html#cb622-24"></a>            <span class="dt">top_annotation =</span> <span class="kw">upset_top_annotation</span>(m_list[[i]], <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, max_comb_size),</span>
+<span id="cb622-25"><a href="upset-plot.html#cb622-25"></a>                <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)),</span>
+<span id="cb622-26"><a href="upset-plot.html#cb622-26"></a>            <span class="dt">right_annotation =</span> <span class="kw">upset_right_annotation</span>(m_list[[i]], <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>, max_set_size)))</span>
+<span id="cb622-27"><a href="upset-plot.html#cb622-27"></a>}</span>
+<span id="cb622-28"><a href="upset-plot.html#cb622-28"></a><span class="kw">grid.newpage</span>()</span>
+<span id="cb622-29"><a href="upset-plot.html#cb622-29"></a><span class="kw">pushViewport</span>(<span class="kw">viewport</span>(<span class="dt">x =</span> <span class="dv">0</span>, <span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">just =</span> <span class="st">&quot;left&quot;</span>))</span>
+<span id="cb622-30"><a href="upset-plot.html#cb622-30"></a><span class="kw">draw</span>(ht_list1, <span class="dt">newpage =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb622-31"><a href="upset-plot.html#cb622-31"></a><span class="kw">popViewport</span>()</span>
+<span id="cb622-32"><a href="upset-plot.html#cb622-32"></a><span class="kw">pushViewport</span>(<span class="kw">viewport</span>(<span class="dt">x =</span> <span class="fl">0.5</span>, <span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">just =</span> <span class="st">&quot;left&quot;</span>))</span>
+<span id="cb622-33"><a href="upset-plot.html#cb622-33"></a><span class="kw">draw</span>(ht_list2, <span class="dt">newpage =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb622-34"><a href="upset-plot.html#cb622-34"></a><span class="kw">popViewport</span>()</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-71-1.png" width="1344" style="display: block; margin: auto;" /></p>
 <p>Now we can see most of the movies were produces in 1990s and the two major
 genres are actions and romance.</p>
@@ -1321,17 +1321,17 @@ full sets (code not shown):</p>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-72-1.png" width="1344" style="display: block; margin: auto;" /></p>
 <p>Finally we can add the statistics of years, ratings and number of watches for
 each combination set as boxplot annotations to the right of the UpSet plot.</p>
-<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="upset-plot.html#cb615-1"></a>m =<span class="st"> </span><span class="kw">make_comb_mat</span>(movies[, genre])</span>
-<span id="cb615-2"><a href="upset-plot.html#cb615-2"></a>m =<span class="st"> </span>m[<span class="kw">comb_degree</span>(m) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>]</span>
-<span id="cb615-3"><a href="upset-plot.html#cb615-3"></a>comb_elements =<span class="st"> </span><span class="kw">lapply</span>(<span class="kw">comb_name</span>(m), <span class="cf">function</span>(nm) <span class="kw">extract_comb</span>(m, nm))</span>
-<span id="cb615-4"><a href="upset-plot.html#cb615-4"></a>years =<span class="st"> </span><span class="kw">lapply</span>(comb_elements, <span class="cf">function</span>(ind) movies<span class="op">$</span>ReleaseDate[ind])</span>
-<span id="cb615-5"><a href="upset-plot.html#cb615-5"></a>rating =<span class="st"> </span><span class="kw">lapply</span>(comb_elements, <span class="cf">function</span>(ind) movies<span class="op">$</span>AvgRating[ind])</span>
-<span id="cb615-6"><a href="upset-plot.html#cb615-6"></a>watches =<span class="st"> </span><span class="kw">lapply</span>(comb_elements, <span class="cf">function</span>(ind) movies<span class="op">$</span>Watches[ind])</span>
-<span id="cb615-7"><a href="upset-plot.html#cb615-7"></a></span>
-<span id="cb615-8"><a href="upset-plot.html#cb615-8"></a><span class="kw">UpSet</span>(<span class="kw">t</span>(m)) <span class="op">+</span><span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">years =</span> <span class="kw">anno_boxplot</span>(years),</span>
-<span id="cb615-9"><a href="upset-plot.html#cb615-9"></a>    <span class="dt">rating =</span> <span class="kw">anno_boxplot</span>(rating),</span>
-<span id="cb615-10"><a href="upset-plot.html#cb615-10"></a>    <span class="dt">watches =</span> <span class="kw">anno_boxplot</span>(watches),</span>
-<span id="cb615-11"><a href="upset-plot.html#cb615-11"></a>    <span class="dt">gap =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="upset-plot.html#cb623-1"></a>m =<span class="st"> </span><span class="kw">make_comb_mat</span>(movies[, genre])</span>
+<span id="cb623-2"><a href="upset-plot.html#cb623-2"></a>m =<span class="st"> </span>m[<span class="kw">comb_degree</span>(m) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>]</span>
+<span id="cb623-3"><a href="upset-plot.html#cb623-3"></a>comb_elements =<span class="st"> </span><span class="kw">lapply</span>(<span class="kw">comb_name</span>(m), <span class="cf">function</span>(nm) <span class="kw">extract_comb</span>(m, nm))</span>
+<span id="cb623-4"><a href="upset-plot.html#cb623-4"></a>years =<span class="st"> </span><span class="kw">lapply</span>(comb_elements, <span class="cf">function</span>(ind) movies<span class="op">$</span>ReleaseDate[ind])</span>
+<span id="cb623-5"><a href="upset-plot.html#cb623-5"></a>rating =<span class="st"> </span><span class="kw">lapply</span>(comb_elements, <span class="cf">function</span>(ind) movies<span class="op">$</span>AvgRating[ind])</span>
+<span id="cb623-6"><a href="upset-plot.html#cb623-6"></a>watches =<span class="st"> </span><span class="kw">lapply</span>(comb_elements, <span class="cf">function</span>(ind) movies<span class="op">$</span>Watches[ind])</span>
+<span id="cb623-7"><a href="upset-plot.html#cb623-7"></a></span>
+<span id="cb623-8"><a href="upset-plot.html#cb623-8"></a><span class="kw">UpSet</span>(<span class="kw">t</span>(m)) <span class="op">+</span><span class="st"> </span><span class="kw">rowAnnotation</span>(<span class="dt">years =</span> <span class="kw">anno_boxplot</span>(years),</span>
+<span id="cb623-9"><a href="upset-plot.html#cb623-9"></a>    <span class="dt">rating =</span> <span class="kw">anno_boxplot</span>(rating),</span>
+<span id="cb623-10"><a href="upset-plot.html#cb623-10"></a>    <span class="dt">watches =</span> <span class="kw">anno_boxplot</span>(watches),</span>
+<span id="cb623-11"><a href="upset-plot.html#cb623-11"></a>    <span class="dt">gap =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">&quot;mm&quot;</span>))</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-73-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>We can see the movies with genre “Scifi + Children” were produced quite old
 but the ratings are not bad. The movies with genre “Action + Children” have
@@ -1350,79 +1350,79 @@ visualized by UpSet plot. The six samples are:</p>
 <li><a href="https://egg2.wustl.edu/roadmap/data/byFileType/peaks/consolidated/narrowPeak/E104-H3K4me3.narrowPeak.gz">Heart, E104</a></li>
 </ul>
 <p>First read the files and convert to <code>GRanges</code> objects.</p>
-<div class="sourceCode" id="cb616"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb616-1"><a href="upset-plot.html#cb616-1"></a>file_list =<span class="st"> </span><span class="kw">c</span>(</span>
-<span id="cb616-2"><a href="upset-plot.html#cb616-2"></a>    <span class="st">&quot;ESC&quot;</span> =<span class="st"> &quot;data/E016-H3K4me3.narrowPeak.gz&quot;</span>,</span>
-<span id="cb616-3"><a href="upset-plot.html#cb616-3"></a>    <span class="st">&quot;ES-deriv1&quot;</span> =<span class="st"> &quot;data/E004-H3K4me3.narrowPeak.gz&quot;</span>,</span>
-<span id="cb616-4"><a href="upset-plot.html#cb616-4"></a>    <span class="st">&quot;ES-deriv2&quot;</span> =<span class="st"> &quot;data/E006-H3K4me3.narrowPeak.gz&quot;</span>,</span>
-<span id="cb616-5"><a href="upset-plot.html#cb616-5"></a>    <span class="st">&quot;Brain&quot;</span> =<span class="st"> &quot;data/E071-H3K4me3.narrowPeak.gz&quot;</span>,</span>
-<span id="cb616-6"><a href="upset-plot.html#cb616-6"></a>    <span class="st">&quot;Muscle&quot;</span> =<span class="st"> &quot;data/E100-H3K4me3.narrowPeak.gz&quot;</span>,</span>
-<span id="cb616-7"><a href="upset-plot.html#cb616-7"></a>    <span class="st">&quot;Heart&quot;</span> =<span class="st"> &quot;data/E104-H3K4me3.narrowPeak.gz&quot;</span></span>
-<span id="cb616-8"><a href="upset-plot.html#cb616-8"></a>)</span>
-<span id="cb616-9"><a href="upset-plot.html#cb616-9"></a><span class="kw">library</span>(GenomicRanges)</span>
-<span id="cb616-10"><a href="upset-plot.html#cb616-10"></a>peak_list =<span class="st"> </span><span class="kw">lapply</span>(file_list, <span class="cf">function</span>(f) {</span>
-<span id="cb616-11"><a href="upset-plot.html#cb616-11"></a>    df =<span class="st"> </span><span class="kw">read.table</span>(f)</span>
-<span id="cb616-12"><a href="upset-plot.html#cb616-12"></a>    <span class="kw">GRanges</span>(<span class="dt">seqnames =</span> df[, <span class="dv">1</span>], <span class="dt">ranges =</span> <span class="kw">IRanges</span>(df[, <span class="dv">2</span>], df [, <span class="dv">3</span>]))</span>
-<span id="cb616-13"><a href="upset-plot.html#cb616-13"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="upset-plot.html#cb624-1"></a>file_list =<span class="st"> </span><span class="kw">c</span>(</span>
+<span id="cb624-2"><a href="upset-plot.html#cb624-2"></a>    <span class="st">&quot;ESC&quot;</span> =<span class="st"> &quot;data/E016-H3K4me3.narrowPeak.gz&quot;</span>,</span>
+<span id="cb624-3"><a href="upset-plot.html#cb624-3"></a>    <span class="st">&quot;ES-deriv1&quot;</span> =<span class="st"> &quot;data/E004-H3K4me3.narrowPeak.gz&quot;</span>,</span>
+<span id="cb624-4"><a href="upset-plot.html#cb624-4"></a>    <span class="st">&quot;ES-deriv2&quot;</span> =<span class="st"> &quot;data/E006-H3K4me3.narrowPeak.gz&quot;</span>,</span>
+<span id="cb624-5"><a href="upset-plot.html#cb624-5"></a>    <span class="st">&quot;Brain&quot;</span> =<span class="st"> &quot;data/E071-H3K4me3.narrowPeak.gz&quot;</span>,</span>
+<span id="cb624-6"><a href="upset-plot.html#cb624-6"></a>    <span class="st">&quot;Muscle&quot;</span> =<span class="st"> &quot;data/E100-H3K4me3.narrowPeak.gz&quot;</span>,</span>
+<span id="cb624-7"><a href="upset-plot.html#cb624-7"></a>    <span class="st">&quot;Heart&quot;</span> =<span class="st"> &quot;data/E104-H3K4me3.narrowPeak.gz&quot;</span></span>
+<span id="cb624-8"><a href="upset-plot.html#cb624-8"></a>)</span>
+<span id="cb624-9"><a href="upset-plot.html#cb624-9"></a><span class="kw">library</span>(GenomicRanges)</span>
+<span id="cb624-10"><a href="upset-plot.html#cb624-10"></a>peak_list =<span class="st"> </span><span class="kw">lapply</span>(file_list, <span class="cf">function</span>(f) {</span>
+<span id="cb624-11"><a href="upset-plot.html#cb624-11"></a>    df =<span class="st"> </span><span class="kw">read.table</span>(f)</span>
+<span id="cb624-12"><a href="upset-plot.html#cb624-12"></a>    <span class="kw">GRanges</span>(<span class="dt">seqnames =</span> df[, <span class="dv">1</span>], <span class="dt">ranges =</span> <span class="kw">IRanges</span>(df[, <span class="dv">2</span>], df [, <span class="dv">3</span>]))</span>
+<span id="cb624-13"><a href="upset-plot.html#cb624-13"></a>})</span></code></pre></div>
 <p>Make the combination matrix. Note now the size of the sets and the combination
 sets are <strong>total base pairs or the sum of width of the regions</strong>. We only keep
 the combination sets with more than 500kb.</p>
-<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="upset-plot.html#cb617-1"></a>m =<span class="st"> </span><span class="kw">make_comb_mat</span>(peak_list)</span>
-<span id="cb617-2"><a href="upset-plot.html#cb617-2"></a>m =<span class="st"> </span>m[<span class="kw">comb_size</span>(m) <span class="op">&gt;</span><span class="st"> </span><span class="dv">500000</span>]</span>
-<span id="cb617-3"><a href="upset-plot.html#cb617-3"></a><span class="kw">UpSet</span>(m)</span></code></pre></div>
+<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb625-1"><a href="upset-plot.html#cb625-1"></a>m =<span class="st"> </span><span class="kw">make_comb_mat</span>(peak_list)</span>
+<span id="cb625-2"><a href="upset-plot.html#cb625-2"></a>m =<span class="st"> </span>m[<span class="kw">comb_size</span>(m) <span class="op">&gt;</span><span class="st"> </span><span class="dv">500000</span>]</span>
+<span id="cb625-3"><a href="upset-plot.html#cb625-3"></a><span class="kw">UpSet</span>(m)</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-75-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>We can nicely format the axis labels by setting <code>axis_param</code>:</p>
-<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb618-1"><a href="upset-plot.html#cb618-1"></a><span class="kw">UpSet</span>(m, </span>
-<span id="cb618-2"><a href="upset-plot.html#cb618-2"></a>    <span class="dt">top_annotation =</span> <span class="kw">upset_top_annotation</span>(</span>
-<span id="cb618-3"><a href="upset-plot.html#cb618-3"></a>        m,</span>
-<span id="cb618-4"><a href="upset-plot.html#cb618-4"></a>        <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">1e7</span>, <span class="fl">2e7</span>),</span>
-<span id="cb618-5"><a href="upset-plot.html#cb618-5"></a>            <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;0Mb&quot;</span>, <span class="st">&quot;10Mb&quot;</span>, <span class="st">&quot;20Mb&quot;</span>)),</span>
-<span id="cb618-6"><a href="upset-plot.html#cb618-6"></a>        <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>)</span>
-<span id="cb618-7"><a href="upset-plot.html#cb618-7"></a>    ),</span>
-<span id="cb618-8"><a href="upset-plot.html#cb618-8"></a>    <span class="dt">right_annotation =</span> <span class="kw">upset_right_annotation</span>(</span>
-<span id="cb618-9"><a href="upset-plot.html#cb618-9"></a>        m,</span>
-<span id="cb618-10"><a href="upset-plot.html#cb618-10"></a>        <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">2e7</span>, <span class="fl">4e7</span>, <span class="fl">6e7</span>),</span>
-<span id="cb618-11"><a href="upset-plot.html#cb618-11"></a>            <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;0Mb&quot;</span>, <span class="st">&quot;20Mb&quot;</span>, <span class="st">&quot;40Mb&quot;</span>, <span class="st">&quot;60Mb&quot;</span>),</span>
-<span id="cb618-12"><a href="upset-plot.html#cb618-12"></a>            <span class="dt">labels_rot =</span> <span class="dv">0</span>),</span>
-<span id="cb618-13"><a href="upset-plot.html#cb618-13"></a>        <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>)</span>
-<span id="cb618-14"><a href="upset-plot.html#cb618-14"></a>    ))</span></code></pre></div>
+<div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb626-1"><a href="upset-plot.html#cb626-1"></a><span class="kw">UpSet</span>(m, </span>
+<span id="cb626-2"><a href="upset-plot.html#cb626-2"></a>    <span class="dt">top_annotation =</span> <span class="kw">upset_top_annotation</span>(</span>
+<span id="cb626-3"><a href="upset-plot.html#cb626-3"></a>        m,</span>
+<span id="cb626-4"><a href="upset-plot.html#cb626-4"></a>        <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">1e7</span>, <span class="fl">2e7</span>),</span>
+<span id="cb626-5"><a href="upset-plot.html#cb626-5"></a>            <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;0Mb&quot;</span>, <span class="st">&quot;10Mb&quot;</span>, <span class="st">&quot;20Mb&quot;</span>)),</span>
+<span id="cb626-6"><a href="upset-plot.html#cb626-6"></a>        <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>)</span>
+<span id="cb626-7"><a href="upset-plot.html#cb626-7"></a>    ),</span>
+<span id="cb626-8"><a href="upset-plot.html#cb626-8"></a>    <span class="dt">right_annotation =</span> <span class="kw">upset_right_annotation</span>(</span>
+<span id="cb626-9"><a href="upset-plot.html#cb626-9"></a>        m,</span>
+<span id="cb626-10"><a href="upset-plot.html#cb626-10"></a>        <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">2e7</span>, <span class="fl">4e7</span>, <span class="fl">6e7</span>),</span>
+<span id="cb626-11"><a href="upset-plot.html#cb626-11"></a>            <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;0Mb&quot;</span>, <span class="st">&quot;20Mb&quot;</span>, <span class="st">&quot;40Mb&quot;</span>, <span class="st">&quot;60Mb&quot;</span>),</span>
+<span id="cb626-12"><a href="upset-plot.html#cb626-12"></a>            <span class="dt">labels_rot =</span> <span class="dv">0</span>),</span>
+<span id="cb626-13"><a href="upset-plot.html#cb626-13"></a>        <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>)</span>
+<span id="cb626-14"><a href="upset-plot.html#cb626-14"></a>    ))</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-76-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>With each set of genomic regions, we can associate more information to it,
 such as the mean methylation or the distance to nearest TSS.</p>
-<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="upset-plot.html#cb619-1"></a>subgroup =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;ESC&quot;</span> =<span class="st"> &quot;group1&quot;</span>,</span>
-<span id="cb619-2"><a href="upset-plot.html#cb619-2"></a>    <span class="st">&quot;ES-deriv1&quot;</span> =<span class="st"> &quot;group1&quot;</span>,</span>
-<span id="cb619-3"><a href="upset-plot.html#cb619-3"></a>    <span class="st">&quot;ES-deriv2&quot;</span> =<span class="st"> &quot;group1&quot;</span>,</span>
-<span id="cb619-4"><a href="upset-plot.html#cb619-4"></a>    <span class="st">&quot;Brain&quot;</span> =<span class="st"> &quot;group2&quot;</span>,</span>
-<span id="cb619-5"><a href="upset-plot.html#cb619-5"></a>    <span class="st">&quot;Muscle&quot;</span> =<span class="st"> &quot;group2&quot;</span>,</span>
-<span id="cb619-6"><a href="upset-plot.html#cb619-6"></a>    <span class="st">&quot;Heart&quot;</span> =<span class="st"> &quot;group2&quot;</span></span>
-<span id="cb619-7"><a href="upset-plot.html#cb619-7"></a>)</span>
-<span id="cb619-8"><a href="upset-plot.html#cb619-8"></a>comb_sets =<span class="st"> </span><span class="kw">lapply</span>(<span class="kw">comb_name</span>(m), <span class="cf">function</span>(nm) <span class="kw">extract_comb</span>(m, nm))</span>
-<span id="cb619-9"><a href="upset-plot.html#cb619-9"></a>comb_sets =<span class="st"> </span><span class="kw">lapply</span>(comb_sets, <span class="cf">function</span>(gr) {</span>
-<span id="cb619-10"><a href="upset-plot.html#cb619-10"></a>    <span class="co"># we just randomly generate dist_to_tss and mean_meth</span></span>
-<span id="cb619-11"><a href="upset-plot.html#cb619-11"></a>    gr<span class="op">$</span>dist_to_tss =<span class="st"> </span><span class="kw">abs</span>(<span class="kw">rnorm</span>(<span class="kw">length</span>(gr), <span class="dt">mean =</span> <span class="kw">runif</span>(<span class="dv">1</span>, <span class="dt">min =</span> <span class="dv">500</span>, <span class="dt">max =</span> <span class="dv">2000</span>), <span class="dt">sd =</span> <span class="dv">1000</span>))</span>
-<span id="cb619-12"><a href="upset-plot.html#cb619-12"></a>    gr<span class="op">$</span>mean_meth =<span class="st"> </span><span class="kw">abs</span>(<span class="kw">rnorm</span>(<span class="kw">length</span>(gr), <span class="dt">mean =</span> <span class="fl">0.1</span>, <span class="dt">sd =</span> <span class="fl">0.1</span>))</span>
-<span id="cb619-13"><a href="upset-plot.html#cb619-13"></a>    gr</span>
-<span id="cb619-14"><a href="upset-plot.html#cb619-14"></a>})</span>
-<span id="cb619-15"><a href="upset-plot.html#cb619-15"></a><span class="kw">UpSet</span>(m, </span>
-<span id="cb619-16"><a href="upset-plot.html#cb619-16"></a>    <span class="dt">top_annotation =</span> <span class="kw">upset_top_annotation</span>(</span>
-<span id="cb619-17"><a href="upset-plot.html#cb619-17"></a>        m,</span>
-<span id="cb619-18"><a href="upset-plot.html#cb619-18"></a>        <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">1e7</span>, <span class="fl">2e7</span>),</span>
-<span id="cb619-19"><a href="upset-plot.html#cb619-19"></a>            <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;0Mb&quot;</span>, <span class="st">&quot;10Mb&quot;</span>, <span class="st">&quot;20Mb&quot;</span>)),</span>
-<span id="cb619-20"><a href="upset-plot.html#cb619-20"></a>        <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>)</span>
-<span id="cb619-21"><a href="upset-plot.html#cb619-21"></a>    ),</span>
-<span id="cb619-22"><a href="upset-plot.html#cb619-22"></a>    <span class="dt">right_annotation =</span> <span class="kw">upset_right_annotation</span>(</span>
-<span id="cb619-23"><a href="upset-plot.html#cb619-23"></a>        m,</span>
-<span id="cb619-24"><a href="upset-plot.html#cb619-24"></a>        <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">2e7</span>, <span class="fl">4e7</span>, <span class="fl">6e7</span>),</span>
-<span id="cb619-25"><a href="upset-plot.html#cb619-25"></a>            <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;0Mb&quot;</span>, <span class="st">&quot;20Mb&quot;</span>, <span class="st">&quot;40Mb&quot;</span>, <span class="st">&quot;60Mb&quot;</span>),</span>
-<span id="cb619-26"><a href="upset-plot.html#cb619-26"></a>            <span class="dt">labels_rot =</span> <span class="dv">0</span>),</span>
-<span id="cb619-27"><a href="upset-plot.html#cb619-27"></a>        <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>)</span>
-<span id="cb619-28"><a href="upset-plot.html#cb619-28"></a>    ),</span>
-<span id="cb619-29"><a href="upset-plot.html#cb619-29"></a>    <span class="dt">left_annotation =</span> <span class="kw">rowAnnotation</span>(<span class="dt">group =</span> subgroup[<span class="kw">set_name</span>(m)], <span class="dt">show_annotation_name =</span> <span class="ot">FALSE</span>),</span>
-<span id="cb619-30"><a href="upset-plot.html#cb619-30"></a>    <span class="dt">bottom_annotation =</span> <span class="kw">HeatmapAnnotation</span>(</span>
-<span id="cb619-31"><a href="upset-plot.html#cb619-31"></a>        <span class="dt">dist_to_tss =</span> <span class="kw">anno_boxplot</span>(<span class="kw">lapply</span>(comb_sets, <span class="cf">function</span>(gr) gr<span class="op">$</span>dist_to_tss), <span class="dt">outline =</span> <span class="ot">FALSE</span>),</span>
-<span id="cb619-32"><a href="upset-plot.html#cb619-32"></a>        <span class="dt">mean_meth =</span> <span class="kw">sapply</span>(comb_sets, <span class="cf">function</span>(gr) <span class="kw">mean</span>(gr<span class="op">$</span>mean_meth)),</span>
-<span id="cb619-33"><a href="upset-plot.html#cb619-33"></a>        <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span></span>
-<span id="cb619-34"><a href="upset-plot.html#cb619-34"></a>    )</span>
-<span id="cb619-35"><a href="upset-plot.html#cb619-35"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb627-1"><a href="upset-plot.html#cb627-1"></a>subgroup =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;ESC&quot;</span> =<span class="st"> &quot;group1&quot;</span>,</span>
+<span id="cb627-2"><a href="upset-plot.html#cb627-2"></a>    <span class="st">&quot;ES-deriv1&quot;</span> =<span class="st"> &quot;group1&quot;</span>,</span>
+<span id="cb627-3"><a href="upset-plot.html#cb627-3"></a>    <span class="st">&quot;ES-deriv2&quot;</span> =<span class="st"> &quot;group1&quot;</span>,</span>
+<span id="cb627-4"><a href="upset-plot.html#cb627-4"></a>    <span class="st">&quot;Brain&quot;</span> =<span class="st"> &quot;group2&quot;</span>,</span>
+<span id="cb627-5"><a href="upset-plot.html#cb627-5"></a>    <span class="st">&quot;Muscle&quot;</span> =<span class="st"> &quot;group2&quot;</span>,</span>
+<span id="cb627-6"><a href="upset-plot.html#cb627-6"></a>    <span class="st">&quot;Heart&quot;</span> =<span class="st"> &quot;group2&quot;</span></span>
+<span id="cb627-7"><a href="upset-plot.html#cb627-7"></a>)</span>
+<span id="cb627-8"><a href="upset-plot.html#cb627-8"></a>comb_sets =<span class="st"> </span><span class="kw">lapply</span>(<span class="kw">comb_name</span>(m), <span class="cf">function</span>(nm) <span class="kw">extract_comb</span>(m, nm))</span>
+<span id="cb627-9"><a href="upset-plot.html#cb627-9"></a>comb_sets =<span class="st"> </span><span class="kw">lapply</span>(comb_sets, <span class="cf">function</span>(gr) {</span>
+<span id="cb627-10"><a href="upset-plot.html#cb627-10"></a>    <span class="co"># we just randomly generate dist_to_tss and mean_meth</span></span>
+<span id="cb627-11"><a href="upset-plot.html#cb627-11"></a>    gr<span class="op">$</span>dist_to_tss =<span class="st"> </span><span class="kw">abs</span>(<span class="kw">rnorm</span>(<span class="kw">length</span>(gr), <span class="dt">mean =</span> <span class="kw">runif</span>(<span class="dv">1</span>, <span class="dt">min =</span> <span class="dv">500</span>, <span class="dt">max =</span> <span class="dv">2000</span>), <span class="dt">sd =</span> <span class="dv">1000</span>))</span>
+<span id="cb627-12"><a href="upset-plot.html#cb627-12"></a>    gr<span class="op">$</span>mean_meth =<span class="st"> </span><span class="kw">abs</span>(<span class="kw">rnorm</span>(<span class="kw">length</span>(gr), <span class="dt">mean =</span> <span class="fl">0.1</span>, <span class="dt">sd =</span> <span class="fl">0.1</span>))</span>
+<span id="cb627-13"><a href="upset-plot.html#cb627-13"></a>    gr</span>
+<span id="cb627-14"><a href="upset-plot.html#cb627-14"></a>})</span>
+<span id="cb627-15"><a href="upset-plot.html#cb627-15"></a><span class="kw">UpSet</span>(m, </span>
+<span id="cb627-16"><a href="upset-plot.html#cb627-16"></a>    <span class="dt">top_annotation =</span> <span class="kw">upset_top_annotation</span>(</span>
+<span id="cb627-17"><a href="upset-plot.html#cb627-17"></a>        m,</span>
+<span id="cb627-18"><a href="upset-plot.html#cb627-18"></a>        <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">1e7</span>, <span class="fl">2e7</span>),</span>
+<span id="cb627-19"><a href="upset-plot.html#cb627-19"></a>            <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;0Mb&quot;</span>, <span class="st">&quot;10Mb&quot;</span>, <span class="st">&quot;20Mb&quot;</span>)),</span>
+<span id="cb627-20"><a href="upset-plot.html#cb627-20"></a>        <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>)</span>
+<span id="cb627-21"><a href="upset-plot.html#cb627-21"></a>    ),</span>
+<span id="cb627-22"><a href="upset-plot.html#cb627-22"></a>    <span class="dt">right_annotation =</span> <span class="kw">upset_right_annotation</span>(</span>
+<span id="cb627-23"><a href="upset-plot.html#cb627-23"></a>        m,</span>
+<span id="cb627-24"><a href="upset-plot.html#cb627-24"></a>        <span class="dt">axis_param =</span> <span class="kw">list</span>(<span class="dt">at =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">2e7</span>, <span class="fl">4e7</span>, <span class="fl">6e7</span>),</span>
+<span id="cb627-25"><a href="upset-plot.html#cb627-25"></a>            <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;0Mb&quot;</span>, <span class="st">&quot;20Mb&quot;</span>, <span class="st">&quot;40Mb&quot;</span>, <span class="st">&quot;60Mb&quot;</span>),</span>
+<span id="cb627-26"><a href="upset-plot.html#cb627-26"></a>            <span class="dt">labels_rot =</span> <span class="dv">0</span>),</span>
+<span id="cb627-27"><a href="upset-plot.html#cb627-27"></a>        <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;cm&quot;</span>)</span>
+<span id="cb627-28"><a href="upset-plot.html#cb627-28"></a>    ),</span>
+<span id="cb627-29"><a href="upset-plot.html#cb627-29"></a>    <span class="dt">left_annotation =</span> <span class="kw">rowAnnotation</span>(<span class="dt">group =</span> subgroup[<span class="kw">set_name</span>(m)], <span class="dt">show_annotation_name =</span> <span class="ot">FALSE</span>),</span>
+<span id="cb627-30"><a href="upset-plot.html#cb627-30"></a>    <span class="dt">bottom_annotation =</span> <span class="kw">HeatmapAnnotation</span>(</span>
+<span id="cb627-31"><a href="upset-plot.html#cb627-31"></a>        <span class="dt">dist_to_tss =</span> <span class="kw">anno_boxplot</span>(<span class="kw">lapply</span>(comb_sets, <span class="cf">function</span>(gr) gr<span class="op">$</span>dist_to_tss), <span class="dt">outline =</span> <span class="ot">FALSE</span>),</span>
+<span id="cb627-32"><a href="upset-plot.html#cb627-32"></a>        <span class="dt">mean_meth =</span> <span class="kw">sapply</span>(comb_sets, <span class="cf">function</span>(gr) <span class="kw">mean</span>(gr<span class="op">$</span>mean_meth)),</span>
+<span id="cb627-33"><a href="upset-plot.html#cb627-33"></a>        <span class="dt">annotation_name_side =</span> <span class="st">&quot;left&quot;</span></span>
+<span id="cb627-34"><a href="upset-plot.html#cb627-34"></a>    )</span>
+<span id="cb627-35"><a href="upset-plot.html#cb627-35"></a>)</span></code></pre></div>
 <p><img src="08-upset_files/figure-html/unnamed-chunk-77-1.png" width="960" style="display: block; margin: auto;" /></p>
 
 </div>

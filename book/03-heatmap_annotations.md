@@ -118,7 +118,7 @@ you want to try row annotation, just add `which = "row"` to
 
 A so-called _"simple annotation"_ is the most used style of annotations which
 is heatmap-like or grid-like graphics where colors are used to map to the
-anntation values. To generate a simple annotation, you just simply put the
+annotation values. To generate a simple annotation, you just simply put the
 annotation vector in `HeatmapAnnotation()` with a certain name.
 
 
@@ -1976,7 +1976,7 @@ ha_subset
 ##   width: 1npc 
 ##   height: 15.3514598035146mm 
 ##   this object is subsetable
-##   5.21733333333333mm extension on the left 
+##   7.57106666666667mm extension on the left 
 ##   6.75733333333333mm extension on the right 
 ## 
 ##  name   annotation_type color_mapping height

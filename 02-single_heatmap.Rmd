@@ -87,7 +87,7 @@ Heatmap(mat, name = "mat", col = col_fun)
 As you can see, the color mapping function exactly maps negative values to
 green and positive values to red, even when the distribution of negative
 values and positive values are not centric to zero. Also this color mapping
-function is not affected by outliers. In following plot, the clustering is
+function is **not affected by outliers**. In following plot, the clustering is
 heavily affected by the outlier (see the dendrogram) but not the color mapping.
 
 ```{r, fig.width = 5.2}
@@ -268,12 +268,12 @@ for the default color mapping (by `ComplexHeatmap:::default_col()`):
     * If the fraction of positive values in $M$ is between 25% and 75%, colors
       are mapped to blue, white and red by linearly interpolating to $-q$, 0
       and $q$, where $q$ is the maximum of $|M|$ if the number of unique
-      values is less than 100, or $q$ is the 99^th percentile of $|M|$. This
+      values is less than 100, or $q$ is the 99th percentile of $|M|$. This
       color mapping is centric to zero.
     * Or else the colors are mapped to blue, white and red by linearly
       interpolating to $q_1$, $(q_1 + q_2)/2$ and $q_2$, where $q_1$ and $q_2$
       are mininum and maxinum if the number of unique values is $M$ is less
-      than 100, or $q1$ is the 1^th percentile and $q2$ is the 99^th
+      than 100, or $q_1$ is the 1st percentile and $q_2$ is the 99th
       percentile in $M$.
 
 `rect_gp` allows a non-standard parameter `type`. If it is set to `"none"`,

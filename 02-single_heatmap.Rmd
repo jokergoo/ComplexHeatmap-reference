@@ -163,8 +163,11 @@ distance metric for two character vectors, see example in Section
 \@ref(distance-methods)).
 
 ``NA`` is allowed in the matrix. You can control the color of `NA` by `na_col`
-argument (by default it is grey for `NA`). **The matrix that contains `NA` can
-be clustered by `Heatmap()`.**
+argument (by default it is grey for `NA`). **A matrix that contains `NA` can
+be clustered by `Heatmap()`** as long as there is no `NA` distances between 
+any of the rows or columns respectively. Usually these cases correspond to 
+sparse matrices (filled with a lot of `NA` values), and indicate that the 
+unknown values should be predicted via other methods first.
 
 Note the `NA` value is not presented in the legend.
 

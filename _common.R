@@ -5,7 +5,8 @@ knitr::opts_chunk$set(
   fig.align = 'center',
   fig.width = 5,
   fig.height = 5,
-  message = FALSE
+  message = FALSE,
+  warning = FALSE
 )
 
 library(dendextend)

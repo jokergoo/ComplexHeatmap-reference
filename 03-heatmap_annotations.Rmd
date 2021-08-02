@@ -755,6 +755,34 @@ group_block_anno(1:3, "empty", gp = gpar(fill = "red"), label = "group 1")
 group_block_anno(4:5, "empty", gp = gpar(fill = "blue"), label = "group 2")
 ```
 
+When heatmap is split, each block in block annotation can be thought as a
+virtual plotting region. `anno_block()` allows a new argument `graphics` which
+accepts a self-defined function that draws graphics in each slice. It must
+have two arguments: 
+
+1. row/column indices for the current slice (let's call it `index`),
+2. a vector of levels from the split variable that correspond to current slice (let's call it `level`). When e.g. `row_km` is 
+   only set or `row_split` is only set to one categorical variable, then `level` is a vector of length one. If there are multiple
+   categorical variables set with `row_km` and `row_split`, `level` is a vector of which the length is the same as the number 
+   of categorical variables.
+
+When graphics is set, all other graphics parameters in anno_block are ignored. See the following example:
+
+```{r, fig.width = 7}
+col = c("1" = "red", "2" = "blue", "A" = "green", "B" = "orange")
+Heatmap(matrix(rnorm(100), 10), row_km = 2, row_split = sample(c("A", "B"), 10, replace = TRUE)) + 
+rowAnnotation(foo = anno_block(
+    graphics = function(index, levels) {
+        grid.rect(gp = gpar(fill = col[levels[2]], col = "black"))
+        txt = paste(levels, collapse = ",")
+        txt = paste0(txt, "\n", length(index), " rows")
+        grid.text(txt, 0.5, 0.5, rot = 0,
+            gp = gpar(col = col[levels[1]]))
+    },
+    width = unit(3, "cm")
+))
+```
+
 ## Image annotation {#image-annotation}
 
 Images can be added as annotations. `anno_image()` supports image in `png`,
@@ -1419,6 +1447,16 @@ ha = rowAnnotation(
 
 ```{r, echo = FALSE, fig.width = annotation_width(ha), fig.height = annotation_height(ha)}
 draw(ha, test = TRUE)
+```
+
+Unlike other annotations, by default there is no annotation title for text annotation. The title
+can be added by setting `show_name = TRUE` in `anno_text()`:
+
+```{r}
+m = matrix(rnorm(100), 10)
+Heatmap(m) + rowAnnotation(month = anno_text(month.name[1:10], just = "center", 
+        location = unit(0.5, "npc"), show_name = TRUE), 
+    annotation_name_rot = 0)
 ```
 
 ## Mark annotation {#mark-annotation}

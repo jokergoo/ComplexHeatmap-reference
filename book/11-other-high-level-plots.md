@@ -99,6 +99,14 @@ Heatmap(matrix(rnorm(20*20), ncol = 20), name = "mat", height = unit(6, "cm"))
 
 <img src="11-other-high-level-plots_files/figure-html/unnamed-chunk-8-1.png" width="499.2" style="display: block; margin: auto;" />
 
+There is also a function `frequencyHeatmap()` which is like a histogram-version
+of density heatmap. The usage is similar as `densityHeatmap()`:
+
+
+```r
+frequencyHeatmap(m)
+```
+
 ## Stacked summary plot {#stacked-summary-plot}
 
 Multiple annotations and heatmaps can be used to visualize multiple summary statistics for a same
@@ -241,7 +249,7 @@ for(an in names(ht_title)) {
 }
 ```
 
-<img src="11-other-high-level-plots_files/figure-html/unnamed-chunk-14-1.png" width="1344" style="display: block; margin: auto;" />
+<img src="11-other-high-level-plots_files/figure-html/unnamed-chunk-15-1.png" width="1344" style="display: block; margin: auto;" />
 
 Similarlly, the multiple statistics can also be arranged vertically.
 In following example, we visualize several statistics for a list of genomic regions in 40 samples,
@@ -283,7 +291,7 @@ HeatmapAnnotation(group = group)
 draw(ht_list, column_title = "Statistics for a list of genomic regions")
 ```
 
-<img src="11-other-high-level-plots_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" />
+<img src="11-other-high-level-plots_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" />
 
 For concatenation of multiple annotations, individual annotations can also be put into one single
 `HeatmapAnnotation()`. E.g. previous code is almost exactly the same as following code:

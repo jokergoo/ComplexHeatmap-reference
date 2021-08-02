@@ -120,6 +120,10 @@ gridtext-legends
 other-high-level-plots
 density-heatmap
 stacked-summary-plot
+three-dimensional-complexheatmap-3d-heatmap
+motivation
+implementation-of-3d-heatmap
+genome-level-heatmap
 more-examples
 add-more-information-for-gene-expression-matrix
 the-measles-vaccine-heatmap

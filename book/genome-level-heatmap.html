@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 13 Genome-level heatmap | ComplexHeatmap Complete Reference</title>
+  <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 13 Genome-level heatmap | ComplexHeatmap Complete Reference" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://jokergoo.github.io/ComplexHeatmap-reference/book" />
+  <meta property="og:image" content="https://jokergoo.github.io/ComplexHeatmap-reference/book/complexheatmap-cover.jpg" />
+  <meta property="og:description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
+  <meta name="github-repo" content="jokergoo/ComplexHeatmap-reference" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 13 Genome-level heatmap | ComplexHeatmap Complete Reference" />
+  
+  <meta name="twitter:description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
+  <meta name="twitter:image" content="https://jokergoo.github.io/ComplexHeatmap-reference/book/complexheatmap-cover.jpg" />
+
+<meta name="author" content="Zuguang Gu" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="three-dimensional-complexheatmap-3d-heatmap.html"/>
+<link rel="next" href="more-examples.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">ComplexHeatmap Complete Reference</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#general-design"><i class="fa fa-check"></i><b>1.1</b> General design</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#a-brief-description-of-following-chapters"><i class="fa fa-check"></i><b>1.2</b> A brief description of following chapters</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html"><i class="fa fa-check"></i><b>2</b> A Single Heatmap</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#colors"><i class="fa fa-check"></i><b>2.1</b> Colors</a></li>
+<li class="chapter" data-level="2.2" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#heatmap-titles"><i class="fa fa-check"></i><b>2.2</b> Titles</a></li>
+<li class="chapter" data-level="2.3" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#clustering"><i class="fa fa-check"></i><b>2.3</b> Clustering</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#distance-methods"><i class="fa fa-check"></i><b>2.3.1</b> Distance methods</a></li>
+<li class="chapter" data-level="2.3.2" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#clustering-methods"><i class="fa fa-check"></i><b>2.3.2</b> Clustering methods</a></li>
+<li class="chapter" data-level="2.3.3" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#render-dendrograms"><i class="fa fa-check"></i><b>2.3.3</b> Render dendrograms</a></li>
+<li class="chapter" data-level="2.3.4" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#reorder-dendrograms"><i class="fa fa-check"></i><b>2.3.4</b> Reorder dendrograms</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#row-and_column_orders"><i class="fa fa-check"></i><b>2.4</b> Set row and column orders</a></li>
+<li class="chapter" data-level="2.5" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#heatmap-seriation"><i class="fa fa-check"></i><b>2.5</b> Seriation</a></li>
+<li class="chapter" data-level="2.6" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#dimension-names"><i class="fa fa-check"></i><b>2.6</b> Dimension names</a></li>
+<li class="chapter" data-level="2.7" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#heatmap-split"><i class="fa fa-check"></i><b>2.7</b> Heatmap split</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#split-by-kmeans-clustering"><i class="fa fa-check"></i><b>2.7.1</b> Split by k-means clustering</a></li>
+<li class="chapter" data-level="2.7.2" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#split-by-categorical-variables"><i class="fa fa-check"></i><b>2.7.2</b> Split by categorical variables</a></li>
+<li class="chapter" data-level="2.7.3" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#spilt-by-dendrogram"><i class="fa fa-check"></i><b>2.7.3</b> Split by dendrogram</a></li>
+<li class="chapter" data-level="2.7.4" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#order-of-slices"><i class="fa fa-check"></i><b>2.7.4</b> Order of slices</a></li>
+<li class="chapter" data-level="2.7.5" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#titles-for-splitting"><i class="fa fa-check"></i><b>2.7.5</b> Titles for splitting</a></li>
+<li class="chapter" data-level="2.7.6" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#graphic-parameters-for-splitting"><i class="fa fa-check"></i><b>2.7.6</b> Graphic parameters for splitting</a></li>
+<li class="chapter" data-level="2.7.7" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#gaps-between-slices"><i class="fa fa-check"></i><b>2.7.7</b> Gaps between slices</a></li>
+<li class="chapter" data-level="2.7.8" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#split-heatmap-annotations"><i class="fa fa-check"></i><b>2.7.8</b> Split heatmap annotations</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#heatmap-as-raster-image"><i class="fa fa-check"></i><b>2.8</b> Heatmap as raster image</a></li>
+<li class="chapter" data-level="2.9" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#customize-the-heatmap-body"><i class="fa fa-check"></i><b>2.9</b> Customize the heatmap body</a>
+<ul>
+<li class="chapter" data-level="2.9.1" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#cell-fun"><i class="fa fa-check"></i><b>2.9.1</b> cell_fun</a></li>
+<li class="chapter" data-level="2.9.2" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#layer-fun"><i class="fa fa-check"></i><b>2.9.2</b> layer_fun</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#size-of-the-heatmap"><i class="fa fa-check"></i><b>2.10</b> Size of the heatmap</a></li>
+<li class="chapter" data-level="2.11" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#plot-the-heatmap"><i class="fa fa-check"></i><b>2.11</b> Plot the heatmap</a></li>
+<li class="chapter" data-level="2.12" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#get-orders-and-dendrograms-from-heatmap"><i class="fa fa-check"></i><b>2.12</b> Get orders and dendrograms</a></li>
+<li class="chapter" data-level="2.13" data-path="a-single-heatmap.html"><a href="a-single-heatmap.html#subset-a-heatmap"><i class="fa fa-check"></i><b>2.13</b> Subset a heatmap</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html"><i class="fa fa-check"></i><b>3</b> Heatmap Annotations</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#simple-annotation"><i class="fa fa-check"></i><b>3.1</b> Simple annotation</a></li>
+<li class="chapter" data-level="3.2" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#simple-annotation-as-an-annotation-function"><i class="fa fa-check"></i><b>3.2</b> Simple annotation as an annotation function</a></li>
+<li class="chapter" data-level="3.3" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#empty-annotation"><i class="fa fa-check"></i><b>3.3</b> Empty annotation</a></li>
+<li class="chapter" data-level="3.4" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#block-annotation"><i class="fa fa-check"></i><b>3.4</b> Block annotation</a></li>
+<li class="chapter" data-level="3.5" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#image-annotation"><i class="fa fa-check"></i><b>3.5</b> Image annotation</a></li>
+<li class="chapter" data-level="3.6" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#points-annotation"><i class="fa fa-check"></i><b>3.6</b> Points annotation</a></li>
+<li class="chapter" data-level="3.7" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#lines-annotation"><i class="fa fa-check"></i><b>3.7</b> Lines annotation</a></li>
+<li class="chapter" data-level="3.8" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#barplot_annotation"><i class="fa fa-check"></i><b>3.8</b> Barplot annotation</a></li>
+<li class="chapter" data-level="3.9" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#box-annotation"><i class="fa fa-check"></i><b>3.9</b> Boxplot annotation</a></li>
+<li class="chapter" data-level="3.10" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#histogram-annotation"><i class="fa fa-check"></i><b>3.10</b> Histogram annotation</a></li>
+<li class="chapter" data-level="3.11" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#density-annotation"><i class="fa fa-check"></i><b>3.11</b> Density annotation</a></li>
+<li class="chapter" data-level="3.12" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#joyplot-annotation"><i class="fa fa-check"></i><b>3.12</b> Joyplot annotation</a></li>
+<li class="chapter" data-level="3.13" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#horizon-chart-annotation"><i class="fa fa-check"></i><b>3.13</b> Horizon chart annotation</a></li>
+<li class="chapter" data-level="3.14" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#text-annotation"><i class="fa fa-check"></i><b>3.14</b> Text annotation</a></li>
+<li class="chapter" data-level="3.15" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#mark-annotation"><i class="fa fa-check"></i><b>3.15</b> Mark annotation</a></li>
+<li class="chapter" data-level="3.16" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#summary-annotation"><i class="fa fa-check"></i><b>3.16</b> Summary annotation</a></li>
+<li class="chapter" data-level="3.17" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#zoom-annotation"><i class="fa fa-check"></i><b>3.17</b> Zoom/link annotation</a></li>
+<li class="chapter" data-level="3.18" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#multiple-annotations"><i class="fa fa-check"></i><b>3.18</b> Multiple annotations</a>
+<ul>
+<li class="chapter" data-level="3.18.1" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#heatmap-annotation-general-settings"><i class="fa fa-check"></i><b>3.18.1</b> General settings</a></li>
+<li class="chapter" data-level="3.18.2" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#size-of-annotations"><i class="fa fa-check"></i><b>3.18.2</b> Size of annotations</a></li>
+<li class="chapter" data-level="3.18.3" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#annotation-labels"><i class="fa fa-check"></i><b>3.18.3</b> Annotation labels</a></li>
+</ul></li>
+<li class="chapter" data-level="3.19" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#heatmap-annotation-utility-function"><i class="fa fa-check"></i><b>3.19</b> Utility functions</a></li>
+<li class="chapter" data-level="3.20" data-path="heatmap-annotations.html"><a href="heatmap-annotations.html#implement-new-annotation-functions"><i class="fa fa-check"></i><b>3.20</b> Implement new annotation functions</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="a-list-of-heatmaps.html"><a href="a-list-of-heatmaps.html"><i class="fa fa-check"></i><b>4</b> A List of Heatmaps</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="a-list-of-heatmaps.html"><a href="a-list-of-heatmaps.html#heatmap-list-titles"><i class="fa fa-check"></i><b>4.1</b> Titles</a></li>
+<li class="chapter" data-level="4.2" data-path="a-list-of-heatmaps.html"><a href="a-list-of-heatmaps.html#size-of-heatmaps"><i class="fa fa-check"></i><b>4.2</b> Size of heatmaps</a></li>
+<li class="chapter" data-level="4.3" data-path="a-list-of-heatmaps.html"><a href="a-list-of-heatmaps.html#gap-between-heatmaps"><i class="fa fa-check"></i><b>4.3</b> Gap between heatmaps</a></li>
+<li class="chapter" data-level="4.4" data-path="a-list-of-heatmaps.html"><a href="a-list-of-heatmaps.html#automatic-adjustment-to-the-main-heatmap"><i class="fa fa-check"></i><b>4.4</b> Automatic adjustment to the main heatmap</a></li>
+<li class="chapter" data-level="4.5" data-path="a-list-of-heatmaps.html"><a href="a-list-of-heatmaps.html#control-main-heatmap-in-draw-function"><i class="fa fa-check"></i><b>4.5</b> Control main heatmap in draw() function</a></li>
+<li class="chapter" data-level="4.6" data-path="a-list-of-heatmaps.html"><a href="a-list-of-heatmaps.html#annotations-as-components-are-adjusted"><i class="fa fa-check"></i><b>4.6</b> Annotations as components are adjusted</a></li>
+<li class="chapter" data-level="4.7" data-path="a-list-of-heatmaps.html"><a href="a-list-of-heatmaps.html#concatenate-with-annotations"><i class="fa fa-check"></i><b>4.7</b> Concatenate with annotations</a></li>
+<li class="chapter" data-level="4.8" data-path="a-list-of-heatmaps.html"><a href="a-list-of-heatmaps.html#concatenate-only-the-annotations"><i class="fa fa-check"></i><b>4.8</b> Concatenate only the annotations</a></li>
+<li class="chapter" data-level="4.9" data-path="a-list-of-heatmaps.html"><a href="a-list-of-heatmaps.html#vertical-concatenation"><i class="fa fa-check"></i><b>4.9</b> Vertical concatenation</a></li>
+<li class="chapter" data-level="4.10" data-path="a-list-of-heatmaps.html"><a href="a-list-of-heatmaps.html#subset-heatmap-list"><i class="fa fa-check"></i><b>4.10</b> Subset the heatmap list</a></li>
+<li class="chapter" data-level="4.11" data-path="a-list-of-heatmaps.html"><a href="a-list-of-heatmaps.html#plot-the-heamtap-list"><i class="fa fa-check"></i><b>4.11</b> Plot the heatmap list</a></li>
+<li class="chapter" data-level="4.12" data-path="a-list-of-heatmaps.html"><a href="a-list-of-heatmaps.html#get-orders-and-dendrograms-from-a-list-of-heatmaps"><i class="fa fa-check"></i><b>4.12</b> Get orders and dendrograms</a></li>
+<li class="chapter" data-level="4.13" data-path="a-list-of-heatmaps.html"><a href="a-list-of-heatmaps.html#change-parameters-globally"><i class="fa fa-check"></i><b>4.13</b> Change parameters globally</a></li>
+<li class="chapter" data-level="4.14" data-path="a-list-of-heatmaps.html"><a href="a-list-of-heatmaps.html#adjust-blank-space-caused-by-annotations"><i class="fa fa-check"></i><b>4.14</b> Adjust blank space caused by annotations</a></li>
+<li class="chapter" data-level="4.15" data-path="a-list-of-heatmaps.html"><a href="a-list-of-heatmaps.html#manually-increase-space-around-the-plot"><i class="fa fa-check"></i><b>4.15</b> Manually increase space around the plot</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="legends.html"><a href="legends.html"><i class="fa fa-check"></i><b>5</b> Legends</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="legends.html"><a href="legends.html#continuous-legends"><i class="fa fa-check"></i><b>5.1</b> Continuous legends</a></li>
+<li class="chapter" data-level="5.2" data-path="legends.html"><a href="legends.html#discrete-legends"><i class="fa fa-check"></i><b>5.2</b> Discrete legends</a></li>
+<li class="chapter" data-level="5.3" data-path="legends.html"><a href="legends.html#a-list-of-legends"><i class="fa fa-check"></i><b>5.3</b> A list of legends</a></li>
+<li class="chapter" data-level="5.4" data-path="legends.html"><a href="legends.html#heatmap-and-annotation-legends"><i class="fa fa-check"></i><b>5.4</b> Heatmap and annotation legends</a></li>
+<li class="chapter" data-level="5.5" data-path="legends.html"><a href="legends.html#add-customized-legends"><i class="fa fa-check"></i><b>5.5</b> Add customized legends</a></li>
+<li class="chapter" data-level="5.6" data-path="legends.html"><a href="legends.html#the-side-of-legends"><i class="fa fa-check"></i><b>5.6</b> The side of legends</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="heatmap-decoration.html"><a href="heatmap-decoration.html"><i class="fa fa-check"></i><b>6</b> Heatmap Decoration</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="heatmap-decoration.html"><a href="heatmap-decoration.html#decoration-functions"><i class="fa fa-check"></i><b>6.1</b> Decoration functions</a></li>
+<li class="chapter" data-level="6.2" data-path="heatmap-decoration.html"><a href="heatmap-decoration.html#decoration-examples"><i class="fa fa-check"></i><b>6.2</b> Examples</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="heatmap-decoration.html"><a href="heatmap-decoration.html#barplot-for-single-column-heatmap"><i class="fa fa-check"></i><b>6.2.1</b> Barplot for single-column heatmap</a></li>
+<li class="chapter" data-level="6.2.2" data-path="heatmap-decoration.html"><a href="heatmap-decoration.html#add-titles-for-row-annotations"><i class="fa fa-check"></i><b>6.2.2</b> Add titles for row annotations</a></li>
+<li class="chapter" data-level="6.2.3" data-path="heatmap-decoration.html"><a href="heatmap-decoration.html#other-possible-use-of-decorations"><i class="fa fa-check"></i><b>6.2.3</b> Other possible use of decorations</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="oncoprint.html"><a href="oncoprint.html"><i class="fa fa-check"></i><b>7</b> OncoPrint</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="oncoprint.html"><a href="oncoprint.html#oncoprint-general-settings"><i class="fa fa-check"></i><b>7.1</b> General settings</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="oncoprint.html"><a href="oncoprint.html#input-data-format"><i class="fa fa-check"></i><b>7.1.1</b> Input data format</a></li>
+<li class="chapter" data-level="7.1.2" data-path="oncoprint.html"><a href="oncoprint.html#define-the-alter-fun"><i class="fa fa-check"></i><b>7.1.2</b> Define the alter_fun()</a></li>
+<li class="chapter" data-level="7.1.3" data-path="oncoprint.html"><a href="oncoprint.html#oncoprint-background"><i class="fa fa-check"></i><b>7.1.3</b> Background</a></li>
+<li class="chapter" data-level="7.1.4" data-path="oncoprint.html"><a href="oncoprint.html#complex-alteration-types"><i class="fa fa-check"></i><b>7.1.4</b> Complex alteration types</a></li>
+<li class="chapter" data-level="7.1.5" data-path="oncoprint.html"><a href="oncoprint.html#simplify-alter_fun"><i class="fa fa-check"></i><b>7.1.5</b> Simplify alter_fun</a></li>
+<li class="chapter" data-level="7.1.6" data-path="oncoprint.html"><a href="oncoprint.html#other-heatmap-related-settings"><i class="fa fa-check"></i><b>7.1.6</b> Other heatmap-related settings</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="oncoprint.html"><a href="oncoprint.html#apply-to-cbioportal-dataset"><i class="fa fa-check"></i><b>7.2</b> Apply to cBioPortal dataset</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="oncoprint.html"><a href="oncoprint.html#remove-empty-rows-and-columns"><i class="fa fa-check"></i><b>7.2.1</b> Remove empty rows and columns</a></li>
+<li class="chapter" data-level="7.2.2" data-path="oncoprint.html"><a href="oncoprint.html#reorder-the-oncoprint"><i class="fa fa-check"></i><b>7.2.2</b> Reorder the oncoPrint</a></li>
+<li class="chapter" data-level="7.2.3" data-path="oncoprint.html"><a href="oncoprint.html#oncoprint-annotations"><i class="fa fa-check"></i><b>7.2.3</b> OncoPrint annotations</a></li>
+<li class="chapter" data-level="7.2.4" data-path="oncoprint.html"><a href="oncoprint.html#oncoprint-as-a-heatmap"><i class="fa fa-check"></i><b>7.2.4</b> oncoPrint as a Heatmap</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="upset-plot.html"><a href="upset-plot.html"><i class="fa fa-check"></i><b>8</b> UpSet plot</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="upset-plot.html"><a href="upset-plot.html#input-data"><i class="fa fa-check"></i><b>8.1</b> Input data</a></li>
+<li class="chapter" data-level="8.2" data-path="upset-plot.html"><a href="upset-plot.html#upset-mode"><i class="fa fa-check"></i><b>8.2</b> Mode</a></li>
+<li class="chapter" data-level="8.3" data-path="upset-plot.html"><a href="upset-plot.html#make-the-combination-matrix"><i class="fa fa-check"></i><b>8.3</b> Make the combination matrix</a></li>
+<li class="chapter" data-level="8.4" data-path="upset-plot.html"><a href="upset-plot.html#upset-utility-functions"><i class="fa fa-check"></i><b>8.4</b> Utility functions</a></li>
+<li class="chapter" data-level="8.5" data-path="upset-plot.html"><a href="upset-plot.html#upset-making-the-plot"><i class="fa fa-check"></i><b>8.5</b> Make the plot</a></li>
+<li class="chapter" data-level="8.6" data-path="upset-plot.html"><a href="upset-plot.html#upset-plots-as-heatmaps"><i class="fa fa-check"></i><b>8.6</b> UpSet plots as heatmaps</a></li>
+<li class="chapter" data-level="8.7" data-path="upset-plot.html"><a href="upset-plot.html#example-with-the-movies-dataset"><i class="fa fa-check"></i><b>8.7</b> Example with the movies dataset</a></li>
+<li class="chapter" data-level="8.8" data-path="upset-plot.html"><a href="upset-plot.html#example-with-the-genomic-regions"><i class="fa fa-check"></i><b>8.8</b> Example with the genomic regions</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="interactive.html"><a href="interactive.html"><i class="fa fa-check"></i><b>9</b> Interactive ComplexHeatmap</a></li>
+<li class="chapter" data-level="10" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html"><i class="fa fa-check"></i><b>10</b> Integrate with other packages</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#pheatmap"><i class="fa fa-check"></i><b>10.1</b> pheatmap</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#examples"><i class="fa fa-check"></i><b>10.1.1</b> Examples</a></li>
+<li class="chapter" data-level="10.1.2" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#translation"><i class="fa fa-check"></i><b>10.1.2</b> Translation</a></li>
+<li class="chapter" data-level="10.1.3" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#comparisons"><i class="fa fa-check"></i><b>10.1.3</b> Comparisons</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#cowplot"><i class="fa fa-check"></i><b>10.2</b> cowplot</a></li>
+<li class="chapter" data-level="10.3" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#gridtext"><i class="fa fa-check"></i><b>10.3</b> gridtext</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#gridtext-title"><i class="fa fa-check"></i><b>10.3.1</b> Titles</a></li>
+<li class="chapter" data-level="10.3.2" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#gridtext-dimnames"><i class="fa fa-check"></i><b>10.3.2</b> Row/column names</a></li>
+<li class="chapter" data-level="10.3.3" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#gridtext-annotations"><i class="fa fa-check"></i><b>10.3.3</b> Annotation labels</a></li>
+<li class="chapter" data-level="10.3.4" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#gridtext-anno-text"><i class="fa fa-check"></i><b>10.3.4</b> Text annotation</a></li>
+<li class="chapter" data-level="10.3.5" data-path="integrate-with-other-packages.html"><a href="integrate-with-other-packages.html#gridtext-legends"><i class="fa fa-check"></i><b>10.3.5</b> Legend</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="other-high-level-plots.html"><a href="other-high-level-plots.html"><i class="fa fa-check"></i><b>11</b> Other High-level Plots</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="other-high-level-plots.html"><a href="other-high-level-plots.html#density-heatmap"><i class="fa fa-check"></i><b>11.1</b> Density heatmap</a></li>
+<li class="chapter" data-level="11.2" data-path="other-high-level-plots.html"><a href="other-high-level-plots.html#stacked-summary-plot"><i class="fa fa-check"></i><b>11.2</b> Stacked summary plot</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="three-dimensional-complexheatmap-3d-heatmap.html"><a href="three-dimensional-complexheatmap-3d-heatmap.html"><i class="fa fa-check"></i><b>12</b> Three-dimensional ComplexHeatmap {#3d-heatmap}</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="three-dimensional-complexheatmap-3d-heatmap.html"><a href="three-dimensional-complexheatmap-3d-heatmap.html#motivation"><i class="fa fa-check"></i><b>12.1</b> Motivation</a></li>
+<li class="chapter" data-level="12.2" data-path="three-dimensional-complexheatmap-3d-heatmap.html"><a href="three-dimensional-complexheatmap-3d-heatmap.html#implementation-of-3d-heatmap"><i class="fa fa-check"></i><b>12.2</b> Implementation of 3D heatmap</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="genome-level-heatmap.html"><a href="genome-level-heatmap.html"><i class="fa fa-check"></i><b>13</b> Genome-level heatmap</a></li>
+<li class="chapter" data-level="14" data-path="more-examples.html"><a href="more-examples.html"><i class="fa fa-check"></i><b>14</b> More Examples</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="more-examples.html"><a href="more-examples.html#add-more-information-for-gene-expression-matrix"><i class="fa fa-check"></i><b>14.1</b> Add more information for gene expression matrix</a></li>
+<li class="chapter" data-level="14.2" data-path="more-examples.html"><a href="more-examples.html#the-measles-vaccine-heatmap"><i class="fa fa-check"></i><b>14.2</b> The measles vaccine heatmap</a></li>
+<li class="chapter" data-level="14.3" data-path="more-examples.html"><a href="more-examples.html#visualize-cell-heterogeneity-from-single-cell-rnaseq"><i class="fa fa-check"></i><b>14.3</b> Visualize Cell Heterogeneity from Single Cell RNASeq</a></li>
+<li class="chapter" data-level="14.4" data-path="more-examples.html"><a href="more-examples.html#correlations-between-methylation-expression-and-other-genomic-features"><i class="fa fa-check"></i><b>14.4</b> Correlations between methylation, expression and other genomic features</a></li>
+<li class="chapter" data-level="14.5" data-path="more-examples.html"><a href="more-examples.html#visualize-methylation-profile-with-complex-annotations"><i class="fa fa-check"></i><b>14.5</b> Visualize Methylation Profile with Complex Annotations</a></li>
+<li class="chapter" data-level="14.6" data-path="more-examples.html"><a href="more-examples.html#add-multiple-boxplots-for-single-row"><i class="fa fa-check"></i><b>14.6</b> Add multiple boxplots for single row</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="other-tricks.html"><a href="other-tricks.html"><i class="fa fa-check"></i><b>15</b> Other Tricks</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="other-tricks.html"><a href="other-tricks.html#set-the-same-cell-size-for-different-heatmaps-with-different-dimensions"><i class="fa fa-check"></i><b>15.1</b> Set the same cell size for different heatmaps with different dimensions</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ComplexHeatmap Complete Reference</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="genome-level-heatmap" class="section level1" number="13">
+<h1><span class="header-section-number">Chapter 13</span> Genome-level heatmap</h1>
+<p>Many people are interested in making genome-scale heatmap with multiple
+tracks, like examples <a href="https://github.com/jokergoo/gtrellis/issues/4">here</a>
+and
+<a href="https://www.biorxiv.org/content/biorxiv/early/2019/03/30/594267/F4.medium.gif">here</a>.
+In this chapter, I will demonstrate how to implement it with
+<strong>ComplexHeatmap</strong>.</p>
+<p>To make genome-scale plot, we first need the ranges on chromosome-level. There
+are many ways to obtain this information. In following, I use
+<code>circlize::read.chromInfo()</code> function.</p>
+<div class="sourceCode" id="cb705"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb705-1"><a href="genome-level-heatmap.html#cb705-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(circlize)</span>
+<span id="cb705-2"><a href="genome-level-heatmap.html#cb705-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GenomicRanges)</span>
+<span id="cb705-3"><a href="genome-level-heatmap.html#cb705-3" aria-hidden="true" tabindex="-1"></a>chr_df <span class="ot">=</span> <span class="fu">read.chromInfo</span>()<span class="sc">$</span>df</span>
+<span id="cb705-4"><a href="genome-level-heatmap.html#cb705-4" aria-hidden="true" tabindex="-1"></a>chr_df <span class="ot">=</span> chr_df[chr_df<span class="sc">$</span>chr <span class="sc">%in%</span> <span class="fu">paste0</span>(<span class="st">&quot;chr&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">22</span>), ]</span>
+<span id="cb705-5"><a href="genome-level-heatmap.html#cb705-5" aria-hidden="true" tabindex="-1"></a>chr_gr <span class="ot">=</span> <span class="fu">GRanges</span>(<span class="at">seqnames =</span> chr_df[, <span class="dv">1</span>], <span class="at">ranges =</span> <span class="fu">IRanges</span>(chr_df[, <span class="dv">2</span>] <span class="sc">+</span> <span class="dv">1</span>, chr_df[, <span class="dv">3</span>]))</span>
+<span id="cb705-6"><a href="genome-level-heatmap.html#cb705-6" aria-hidden="true" tabindex="-1"></a>chr_gr</span></code></pre></div>
+<pre><code>## GRanges object with 22 ranges and 0 metadata columns:
+##        seqnames      ranges strand
+##           &lt;Rle&gt;   &lt;IRanges&gt;  &lt;Rle&gt;
+##    [1]     chr1 1-249250621      *
+##    [2]     chr2 1-243199373      *
+##    [3]     chr3 1-198022430      *
+##    [4]     chr4 1-191154276      *
+##    [5]     chr5 1-180915260      *
+##    ...      ...         ...    ...
+##   [18]    chr18  1-78077248      *
+##   [19]    chr19  1-59128983      *
+##   [20]    chr20  1-63025520      *
+##   [21]    chr21  1-48129895      *
+##   [22]    chr22  1-51304566      *
+##   -------
+##   seqinfo: 22 sequences from an unspecified genome; no seqlengths</code></pre>
+<p>In the final heatmap, each row (if the genomic direction is vertical) or each
+column (if the genomic direction is horizontal) actually represents a genomic
+window, thus we need to split the genome with equal-width windows. Here I use
+<code>EnrichedHeatmap::makeWindows()</code> function to split the genome by 1MB window
+(The two meta-columns in <code>chr_window</code> can be ignored here).</p>
+<div class="sourceCode" id="cb707"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb707-1"><a href="genome-level-heatmap.html#cb707-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(EnrichedHeatmap)</span>
+<span id="cb707-2"><a href="genome-level-heatmap.html#cb707-2" aria-hidden="true" tabindex="-1"></a>chr_window <span class="ot">=</span> <span class="fu">makeWindows</span>(chr_gr, <span class="at">w =</span> <span class="fl">1e6</span>)</span>
+<span id="cb707-3"><a href="genome-level-heatmap.html#cb707-3" aria-hidden="true" tabindex="-1"></a>chr_window</span></code></pre></div>
+<pre><code>## GRanges object with 2875 ranges and 2 metadata columns:
+##          seqnames            ranges strand |  .i_query .i_window
+##             &lt;Rle&gt;         &lt;IRanges&gt;  &lt;Rle&gt; | &lt;integer&gt; &lt;integer&gt;
+##      [1]     chr1         1-1000000      * |         1         1
+##      [2]     chr1   1000001-2000000      * |         1         2
+##      [3]     chr1   2000001-3000000      * |         1         3
+##      [4]     chr1   3000001-4000000      * |         1         4
+##      [5]     chr1   4000001-5000000      * |         1         5
+##      ...      ...               ...    ... .       ...       ...
+##   [2871]    chr22 46000001-47000000      * |        22        47
+##   [2872]    chr22 47000001-48000000      * |        22        48
+##   [2873]    chr22 48000001-49000000      * |        22        49
+##   [2874]    chr22 49000001-50000000      * |        22        50
+##   [2875]    chr22 50000001-51000000      * |        22        51
+##   -------
+##   seqinfo: 22 sequences from an unspecified genome; no seqlengths</code></pre>
+<p>To visualize genome-scale signals as a heatmap as well as other tracks, now
+the task is to calculate the average signals in the 1MB windows by overlapping
+the genomic windows and the genomic signals. Here I implement a function
+<code>average_in_window()</code>. This function is adapted from <a href="https://bioconductor.org/packages/HilbertCurve/"><strong>HilbertCurve</strong>
+package</a> since there is
+similar task there.</p>
+<div class="sourceCode" id="cb709"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb709-1"><a href="genome-level-heatmap.html#cb709-1" aria-hidden="true" tabindex="-1"></a>average_in_window <span class="ot">=</span> <span class="cf">function</span>(window, gr, v, <span class="at">method =</span> <span class="st">&quot;weighted&quot;</span>, <span class="at">empty_v =</span> <span class="cn">NA</span>) {</span>
+<span id="cb709-2"><a href="genome-level-heatmap.html#cb709-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb709-3"><a href="genome-level-heatmap.html#cb709-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="fu">missing</span>(v)) v <span class="ot">=</span> <span class="fu">rep</span>(<span class="dv">1</span>, <span class="fu">length</span>(gr))</span>
+<span id="cb709-4"><a href="genome-level-heatmap.html#cb709-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="fu">is.null</span>(v)) v <span class="ot">=</span> <span class="fu">rep</span>(<span class="dv">1</span>, <span class="fu">length</span>(gr))</span>
+<span id="cb709-5"><a href="genome-level-heatmap.html#cb709-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="fu">is.atomic</span>(v) <span class="sc">&amp;&amp;</span> <span class="fu">is.vector</span>(v)) v <span class="ot">=</span> <span class="fu">cbind</span>(v)</span>
+<span id="cb709-6"><a href="genome-level-heatmap.html#cb709-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb709-7"><a href="genome-level-heatmap.html#cb709-7" aria-hidden="true" tabindex="-1"></a>    v <span class="ot">=</span> <span class="fu">as.matrix</span>(v)</span>
+<span id="cb709-8"><a href="genome-level-heatmap.html#cb709-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="fu">is.character</span>(v) <span class="sc">&amp;&amp;</span> <span class="fu">ncol</span>(v) <span class="sc">&gt;</span> <span class="dv">1</span>) {</span>
+<span id="cb709-9"><a href="genome-level-heatmap.html#cb709-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">stop</span>(<span class="st">&quot;`v` can only be a character vector.&quot;</span>)</span>
+<span id="cb709-10"><a href="genome-level-heatmap.html#cb709-10" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb709-11"><a href="genome-level-heatmap.html#cb709-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb709-12"><a href="genome-level-heatmap.html#cb709-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="fu">length</span>(empty_v) <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb709-13"><a href="genome-level-heatmap.html#cb709-13" aria-hidden="true" tabindex="-1"></a>        empty_v <span class="ot">=</span> <span class="fu">rep</span>(empty_v, <span class="fu">ncol</span>(v))</span>
+<span id="cb709-14"><a href="genome-level-heatmap.html#cb709-14" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb709-15"><a href="genome-level-heatmap.html#cb709-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb709-16"><a href="genome-level-heatmap.html#cb709-16" aria-hidden="true" tabindex="-1"></a>    u <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">rep</span>(empty_v, <span class="at">each =</span> <span class="fu">length</span>(window)), <span class="at">nrow =</span> <span class="fu">length</span>(window), <span class="at">ncol =</span> <span class="fu">ncol</span>(v))</span>
+<span id="cb709-17"><a href="genome-level-heatmap.html#cb709-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb709-18"><a href="genome-level-heatmap.html#cb709-18" aria-hidden="true" tabindex="-1"></a>    mtch <span class="ot">=</span> <span class="fu">as.matrix</span>(<span class="fu">findOverlaps</span>(window, gr))</span>
+<span id="cb709-19"><a href="genome-level-heatmap.html#cb709-19" aria-hidden="true" tabindex="-1"></a>    intersect <span class="ot">=</span> <span class="fu">pintersect</span>(window[mtch[,<span class="dv">1</span>]], gr[mtch[,<span class="dv">2</span>]])</span>
+<span id="cb709-20"><a href="genome-level-heatmap.html#cb709-20" aria-hidden="true" tabindex="-1"></a>    w <span class="ot">=</span> <span class="fu">width</span>(intersect)</span>
+<span id="cb709-21"><a href="genome-level-heatmap.html#cb709-21" aria-hidden="true" tabindex="-1"></a>    v <span class="ot">=</span> v[mtch[,<span class="dv">2</span>], , drop <span class="ot">=</span> <span class="cn">FALSE</span>]</span>
+<span id="cb709-22"><a href="genome-level-heatmap.html#cb709-22" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">=</span> <span class="fu">nrow</span>(v)</span>
+<span id="cb709-23"><a href="genome-level-heatmap.html#cb709-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb709-24"><a href="genome-level-heatmap.html#cb709-24" aria-hidden="true" tabindex="-1"></a>    ind_list <span class="ot">=</span> <span class="fu">split</span>(<span class="fu">seq_len</span>(n), mtch[, <span class="dv">1</span>])</span>
+<span id="cb709-25"><a href="genome-level-heatmap.html#cb709-25" aria-hidden="true" tabindex="-1"></a>    window_index <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">names</span>(ind_list))</span>
+<span id="cb709-26"><a href="genome-level-heatmap.html#cb709-26" aria-hidden="true" tabindex="-1"></a>    window_w <span class="ot">=</span> <span class="fu">width</span>(window)</span>
+<span id="cb709-27"><a href="genome-level-heatmap.html#cb709-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb709-28"><a href="genome-level-heatmap.html#cb709-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="fu">is.character</span>(v)) {</span>
+<span id="cb709-29"><a href="genome-level-heatmap.html#cb709-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_along</span>(ind_list)) {</span>
+<span id="cb709-30"><a href="genome-level-heatmap.html#cb709-30" aria-hidden="true" tabindex="-1"></a>            ind <span class="ot">=</span> ind_list[[i]]</span>
+<span id="cb709-31"><a href="genome-level-heatmap.html#cb709-31" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span>(<span class="fu">is.function</span>(method)) {</span>
+<span id="cb709-32"><a href="genome-level-heatmap.html#cb709-32" aria-hidden="true" tabindex="-1"></a>                u[window_index[i], ] <span class="ot">=</span> <span class="fu">method</span>(v[ind], w[ind], window_w[i])</span>
+<span id="cb709-33"><a href="genome-level-heatmap.html#cb709-33" aria-hidden="true" tabindex="-1"></a>            } <span class="cf">else</span> {</span>
+<span id="cb709-34"><a href="genome-level-heatmap.html#cb709-34" aria-hidden="true" tabindex="-1"></a>                tb <span class="ot">=</span> <span class="fu">tapply</span>(w[ind], v[ind], sum)</span>
+<span id="cb709-35"><a href="genome-level-heatmap.html#cb709-35" aria-hidden="true" tabindex="-1"></a>                u[window_index[i], ] <span class="ot">=</span> <span class="fu">names</span>(tb[<span class="fu">which.max</span>(tb)])</span>
+<span id="cb709-36"><a href="genome-level-heatmap.html#cb709-36" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb709-37"><a href="genome-level-heatmap.html#cb709-37" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb709-38"><a href="genome-level-heatmap.html#cb709-38" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb709-39"><a href="genome-level-heatmap.html#cb709-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(method <span class="sc">==</span> <span class="st">&quot;w0&quot;</span>) {</span>
+<span id="cb709-40"><a href="genome-level-heatmap.html#cb709-40" aria-hidden="true" tabindex="-1"></a>            gr2 <span class="ot">=</span> <span class="fu">reduce</span>(gr, <span class="at">min.gapwidth =</span> <span class="dv">0</span>)</span>
+<span id="cb709-41"><a href="genome-level-heatmap.html#cb709-41" aria-hidden="true" tabindex="-1"></a>            mtch2 <span class="ot">=</span> <span class="fu">as.matrix</span>(<span class="fu">findOverlaps</span>(window, gr2))</span>
+<span id="cb709-42"><a href="genome-level-heatmap.html#cb709-42" aria-hidden="true" tabindex="-1"></a>            intersect2 <span class="ot">=</span> <span class="fu">pintersect</span>(window[mtch2[, <span class="dv">1</span>]], gr2[mtch2[, <span class="dv">2</span>]])</span>
+<span id="cb709-43"><a href="genome-level-heatmap.html#cb709-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb709-44"><a href="genome-level-heatmap.html#cb709-44" aria-hidden="true" tabindex="-1"></a>            width_intersect <span class="ot">=</span> <span class="fu">tapply</span>(<span class="fu">width</span>(intersect2), mtch2[, <span class="dv">1</span>], sum)</span>
+<span id="cb709-45"><a href="genome-level-heatmap.html#cb709-45" aria-hidden="true" tabindex="-1"></a>            ind <span class="ot">=</span> <span class="fu">unique</span>(mtch2[, <span class="dv">1</span>])</span>
+<span id="cb709-46"><a href="genome-level-heatmap.html#cb709-46" aria-hidden="true" tabindex="-1"></a>            width_setdiff <span class="ot">=</span> <span class="fu">width</span>(window[ind]) <span class="sc">-</span> width_intersect</span>
+<span id="cb709-47"><a href="genome-level-heatmap.html#cb709-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb709-48"><a href="genome-level-heatmap.html#cb709-48" aria-hidden="true" tabindex="-1"></a>            w2 <span class="ot">=</span> <span class="fu">width</span>(window[ind])</span>
+<span id="cb709-49"><a href="genome-level-heatmap.html#cb709-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb709-50"><a href="genome-level-heatmap.html#cb709-50" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_along</span>(ind_list)) {</span>
+<span id="cb709-51"><a href="genome-level-heatmap.html#cb709-51" aria-hidden="true" tabindex="-1"></a>                ind <span class="ot">=</span> ind_list[[i]]</span>
+<span id="cb709-52"><a href="genome-level-heatmap.html#cb709-52" aria-hidden="true" tabindex="-1"></a>                x <span class="ot">=</span> <span class="fu">colSums</span>(v[ind, , <span class="at">drop =</span> <span class="cn">FALSE</span>]<span class="sc">*</span>w[ind])<span class="sc">/</span><span class="fu">sum</span>(w[ind])</span>
+<span id="cb709-53"><a href="genome-level-heatmap.html#cb709-53" aria-hidden="true" tabindex="-1"></a>                u[window_index[i], ] <span class="ot">=</span> (x<span class="sc">*</span>width_intersect[i] <span class="sc">+</span> empty_v<span class="sc">*</span>width_setdiff[i])<span class="sc">/</span>w2[i]</span>
+<span id="cb709-54"><a href="genome-level-heatmap.html#cb709-54" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb709-55"><a href="genome-level-heatmap.html#cb709-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb709-56"><a href="genome-level-heatmap.html#cb709-56" aria-hidden="true" tabindex="-1"></a>        } <span class="cf">else</span> <span class="cf">if</span>(method <span class="sc">==</span> <span class="st">&quot;absolute&quot;</span>) {</span>
+<span id="cb709-57"><a href="genome-level-heatmap.html#cb709-57" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_along</span>(ind_list)) {</span>
+<span id="cb709-58"><a href="genome-level-heatmap.html#cb709-58" aria-hidden="true" tabindex="-1"></a>                u[window_index[i], ] <span class="ot">=</span> <span class="fu">colMeans</span>(v[ind_list[[i]], , <span class="at">drop =</span> <span class="cn">FALSE</span>])</span>
+<span id="cb709-59"><a href="genome-level-heatmap.html#cb709-59" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb709-60"><a href="genome-level-heatmap.html#cb709-60" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb709-61"><a href="genome-level-heatmap.html#cb709-61" aria-hidden="true" tabindex="-1"></a>        } <span class="cf">else</span> <span class="cf">if</span>(method <span class="sc">==</span> <span class="st">&quot;weighted&quot;</span>) {</span>
+<span id="cb709-62"><a href="genome-level-heatmap.html#cb709-62" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_along</span>(ind_list)) {</span>
+<span id="cb709-63"><a href="genome-level-heatmap.html#cb709-63" aria-hidden="true" tabindex="-1"></a>                ind <span class="ot">=</span> ind_list[[i]]</span>
+<span id="cb709-64"><a href="genome-level-heatmap.html#cb709-64" aria-hidden="true" tabindex="-1"></a>                u[window_index[i], ] <span class="ot">=</span> <span class="fu">colSums</span>(v[ind, , <span class="at">drop =</span> <span class="cn">FALSE</span>]<span class="sc">*</span>w[ind])<span class="sc">/</span><span class="fu">sum</span>(w[ind])</span>
+<span id="cb709-65"><a href="genome-level-heatmap.html#cb709-65" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb709-66"><a href="genome-level-heatmap.html#cb709-66" aria-hidden="true" tabindex="-1"></a>        } <span class="cf">else</span> {</span>
+<span id="cb709-67"><a href="genome-level-heatmap.html#cb709-67" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span>(<span class="fu">is.function</span>(method)) {</span>
+<span id="cb709-68"><a href="genome-level-heatmap.html#cb709-68" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span>(i <span class="cf">in</span> <span class="fu">seq_along</span>(ind_list)) {</span>
+<span id="cb709-69"><a href="genome-level-heatmap.html#cb709-69" aria-hidden="true" tabindex="-1"></a>                    ind <span class="ot">=</span> ind_list[[i]]</span>
+<span id="cb709-70"><a href="genome-level-heatmap.html#cb709-70" aria-hidden="true" tabindex="-1"></a>                    u[window_index[i], ] <span class="ot">=</span> <span class="fu">method</span>(v[ind], w[ind], window_w[i])</span>
+<span id="cb709-71"><a href="genome-level-heatmap.html#cb709-71" aria-hidden="true" tabindex="-1"></a>                }</span>
+<span id="cb709-72"><a href="genome-level-heatmap.html#cb709-72" aria-hidden="true" tabindex="-1"></a>            } <span class="cf">else</span> {</span>
+<span id="cb709-73"><a href="genome-level-heatmap.html#cb709-73" aria-hidden="true" tabindex="-1"></a>                <span class="fu">stop</span>(<span class="st">&quot;wrong method.&quot;</span>)</span>
+<span id="cb709-74"><a href="genome-level-heatmap.html#cb709-74" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb709-75"><a href="genome-level-heatmap.html#cb709-75" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb709-76"><a href="genome-level-heatmap.html#cb709-76" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb709-77"><a href="genome-level-heatmap.html#cb709-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb709-78"><a href="genome-level-heatmap.html#cb709-78" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(u)</span>
+<span id="cb709-79"><a href="genome-level-heatmap.html#cb709-79" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>In <code>average_in_window()</code> function, there are following arguments:</p>
+<ul>
+<li><code>window</code>: A <code>GRanges</code> object of the genomic windows.</li>
+<li><code>gr</code>: A <code>GRanges</code> object of the genomic signals.</li>
+<li><code>v</code>: A vector or a matrix. This is the value associated with <code>gr</code> and it should have
+the same length or <code>nrow</code> as <code>gr</code>. <code>v</code> can be numeric or character. If it is
+<code>missing</code> or <code>NULL</code>, a value of one is assign to every region in <code>gr</code>. If <code>v</code> is numeric,
+it can be a vector or a matrix, and if <code>v</code> is character, it can only be a vector.</li>
+<li><code>method</code>: Method to summarize the signals for every genomic window.</li>
+<li><code>empty_v</code>: The default value for the window if no region in <code>gr</code> overlaps to it.</li>
+</ul>
+<p>The function returns a matrix with the same row length and order as <code>window</code>.</p>
+<p>The overlapping model is illustrated in the following plot. The red line in
+the bottom represents a certain genomic window. Black lines on the top are the regions
+for genomic signals that overlap with the window. The thick lines indicate the
+intersected part between the signal regions and the window.</p>
+<p><img src="13-genome-level-heatmap_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>For a given window, <span class="math inline">\(n\)</span> is the number of signal regions which overlap with the
+window (it is 5 in the above plot), <span class="math inline">\(w_i\)</span> is the width of the intersected
+segments (black thick lines), and <span class="math inline">\(x_i\)</span> is the signal value associated with
+the original regions.</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>If the signals are numeric, either as a vector or a matrix</strong>, there are three pre-defined methods:</p>
+<p>The <strong>“absolute”</strong> method is denoted as <span class="math inline">\(v_a\)</span> and is simply calculated as the mean
+of all signal regions regardless of their width.</p>
+<p><span class="math display">\[ v_a = \frac{\sum_i^n{x_i}}{n} \]</span></p>
+<p>The <strong>“weighted”</strong> method is denoted as <span class="math inline">\(v_w\)</span> and is calculated as the mean of all
+signal regions weighted by the width of their intersections. This is the default
+method for numeric signals.</p>
+<p><span class="math display">\[ v_w = \frac{\sum_i^n{x_iw_i}}{\sum_i^n{w_i}} \]</span></p>
+<p>“Absolute” and “weighted” methods should be applied when background values
+should not be taken into consideration. For example, when summarizing the mean
+methylation in a small window, non-CpG background should be ignored, because
+methylation is only associated with CpG sites and not with other positions.</p>
+<p>The <strong>“w0”</strong> method is the weighted mean between the intersected parts and
+un-intersected parts.</p>
+<p><span class="math display">\[ v_{w0} = \frac{v_wW}{W+W&#39;} \]</span></p>
+<p><span class="math inline">\(W\)</span> is sum of width of the intersected parts (<span class="math inline">\(\sum_i^n{w_i}\)</span>) and <span class="math inline">\(W&#39;\)</span> is the
+sum of width for the non-intersected parts.</p></li>
+<li><p><strong>If the signals are as a character vector,</strong> denote all levels encoded in <span class="math inline">\(x_i\)</span>
+as <span class="math inline">\(A\)</span> and a certain level of <span class="math inline">\(A\)</span> is denoted as <span class="math inline">\(a\)</span>, the final value assigned to the
+window is the level of which the corresponding segments have the maximal sum of widths.</p>
+<p><span class="math display">\[\underset{a\in A}{\operatorname{arg\,max}}\sum_{i}^n I(x_i=a)\cdot w_i\]</span></p></li>
+</ol>
+<p>According to these rules, when the signal value <code>v</code> is numeric, the argumemt <code>method</code>
+can be one of <code>weighted</code> (default), <code>absolute</code> and <code>w0</code>, and when <code>v</code> is character,
+the value for <code>method</code> is ignored.</p>
+<p>Besides the pre-defined values, <code>method</code> can also be a user-defined function and it works
+both for numeric signals and character signals. The user-defined function should accept
+three arguments: <code>x</code>, <code>w</code> and <code>gw</code>. This function is applied to every genomic window.
+The three arguments are:</p>
+<ul>
+<li><code>x</code>: The signal values that fall in the genomic window (as shown in the previous plot).</li>
+<li><code>w</code>: The associated segment widths.</li>
+<li><code>gw</code>: The width of the current genomic window.</li>
+</ul>
+<p>The user-defined function should only return a scalar variable.</p>
+<p>OK, now with the function <code>average_in_window()</code>, I can convert the genomic
+signals to a window-based matrix. In the following example, I generate
+approximately 1000 random genomic regions with 10 columns of random values (to
+simulate 10 samples).</p>
+<div class="sourceCode" id="cb710"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb710-1"><a href="genome-level-heatmap.html#cb710-1" aria-hidden="true" tabindex="-1"></a>bed1 <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">1000</span>, <span class="at">nc =</span> <span class="dv">10</span>) <span class="co"># generateRandomBed() is from circlize package</span></span>
+<span id="cb710-2"><a href="genome-level-heatmap.html#cb710-2" aria-hidden="true" tabindex="-1"></a><span class="co"># convert to a GRanes object</span></span>
+<span id="cb710-3"><a href="genome-level-heatmap.html#cb710-3" aria-hidden="true" tabindex="-1"></a>gr1 <span class="ot">=</span> <span class="fu">GRanges</span>(<span class="at">seqnames =</span> bed1[, <span class="dv">1</span>], <span class="at">ranges =</span> <span class="fu">IRanges</span>(bed1[, <span class="dv">2</span>], bed1[, <span class="dv">3</span>]))</span>
+<span id="cb710-4"><a href="genome-level-heatmap.html#cb710-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb710-5"><a href="genome-level-heatmap.html#cb710-5" aria-hidden="true" tabindex="-1"></a>num_mat <span class="ot">=</span> <span class="fu">average_in_window</span>(chr_window, gr1, bed1[, <span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)])</span>
+<span id="cb710-6"><a href="genome-level-heatmap.html#cb710-6" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(num_mat)</span></code></pre></div>
+<pre><code>## [1] 2875   10</code></pre>
+<div class="sourceCode" id="cb712"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb712-1"><a href="genome-level-heatmap.html#cb712-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(num_mat)</span></code></pre></div>
+<pre><code>##            [,1]        [,2]       [,3]       [,4]       [,5]       [,6]
+## [1,]         NA          NA         NA         NA         NA         NA
+## [2,]  0.3413166  0.15275069 0.19701329 -0.1214450 -0.3107540 -0.1489571
+## [3,] -0.1351675  0.19905138 0.01566942 -0.1544065  0.5511997  0.7700131
+## [4,] -0.1351675  0.19905138 0.01566942 -0.1544065  0.5511997  0.7700131
+## [5,] -0.1351675  0.19905138 0.01566942 -0.1544065  0.5511997  0.7700131
+## [6,] -0.1194236 -0.01403104 0.05271567 -0.1145400  0.5035536  0.7021175
+##            [,7]        [,8]        [,9]      [,10]
+## [1,]         NA          NA          NA         NA
+## [2,]  0.1609441 -0.52637469 -0.08432468 -0.8291448
+## [3,] -0.2314901  0.08101522 -0.20757957  0.4115715
+## [4,] -0.2314901  0.08101522 -0.20757957  0.4115715
+## [5,] -0.2314901  0.08101522 -0.20757957  0.4115715
+## [6,] -0.1412650  0.05722741 -0.32152631  0.3933500</code></pre>
+<p>The first five genomic windows have no value associated because no region in
+<code>gr1</code> overlaps to them, thus, they take the value from <code>empty_v</code> which is by
+default <code>NA</code>.</p>
+<p>The second data to visualize is 10 lists of genomic regions with character
+signals (let’s assume they are copy number variation results from 10 samples).
+In each random regions, I additionally sample 20 from them, just to make them
+sparse in the genome.</p>
+<div class="sourceCode" id="cb714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb714-1"><a href="genome-level-heatmap.html#cb714-1" aria-hidden="true" tabindex="-1"></a>bed_list <span class="ot">=</span> <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cf">function</span>(i) {</span>
+<span id="cb714-2"><a href="genome-level-heatmap.html#cb714-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">1000</span>, <span class="at">nc =</span> <span class="dv">1</span>, </span>
+<span id="cb714-3"><a href="genome-level-heatmap.html#cb714-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">fun =</span> <span class="cf">function</span>(n) <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;gain&quot;</span>, <span class="st">&quot;loss&quot;</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb714-4"><a href="genome-level-heatmap.html#cb714-4" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb714-5"><a href="genome-level-heatmap.html#cb714-5" aria-hidden="true" tabindex="-1"></a>char_mat <span class="ot">=</span> <span class="cn">NULL</span></span>
+<span id="cb714-6"><a href="genome-level-heatmap.html#cb714-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
+<span id="cb714-7"><a href="genome-level-heatmap.html#cb714-7" aria-hidden="true" tabindex="-1"></a>    bed <span class="ot">=</span> bed_list[[i]]</span>
+<span id="cb714-8"><a href="genome-level-heatmap.html#cb714-8" aria-hidden="true" tabindex="-1"></a>    bed <span class="ot">=</span> bed[<span class="fu">sample</span>(<span class="fu">nrow</span>(bed), <span class="dv">20</span>), , drop <span class="ot">=</span> <span class="cn">FALSE</span>]</span>
+<span id="cb714-9"><a href="genome-level-heatmap.html#cb714-9" aria-hidden="true" tabindex="-1"></a>    gr_cnv <span class="ot">=</span> <span class="fu">GRanges</span>(<span class="at">seqnames =</span> bed[, <span class="dv">1</span>], <span class="at">ranges =</span> <span class="fu">IRanges</span>(bed[, <span class="dv">2</span>], bed[, <span class="dv">3</span>]))</span>
+<span id="cb714-10"><a href="genome-level-heatmap.html#cb714-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb714-11"><a href="genome-level-heatmap.html#cb714-11" aria-hidden="true" tabindex="-1"></a>    char_mat <span class="ot">=</span> <span class="fu">cbind</span>(char_mat, <span class="fu">average_in_window</span>(chr_window, gr_cnv, bed[, <span class="dv">4</span>]))</span>
+<span id="cb714-12"><a href="genome-level-heatmap.html#cb714-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>The third data to visualize is simply genomic regions with two numeric columns where both columns
+will be visualized as a point track and the first column will be visualized as a barplot track.</p>
+<div class="sourceCode" id="cb715"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb715-1"><a href="genome-level-heatmap.html#cb715-1" aria-hidden="true" tabindex="-1"></a>bed2 <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">100</span>, <span class="at">nc =</span> <span class="dv">2</span>)</span>
+<span id="cb715-2"><a href="genome-level-heatmap.html#cb715-2" aria-hidden="true" tabindex="-1"></a>gr2 <span class="ot">=</span> <span class="fu">GRanges</span>(<span class="at">seqnames =</span> bed2[, <span class="dv">1</span>], <span class="at">ranges =</span> <span class="fu">IRanges</span>(bed2[, <span class="dv">2</span>], bed2[, <span class="dv">3</span>]))</span>
+<span id="cb715-3"><a href="genome-level-heatmap.html#cb715-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb715-4"><a href="genome-level-heatmap.html#cb715-4" aria-hidden="true" tabindex="-1"></a>v <span class="ot">=</span> <span class="fu">average_in_window</span>(chr_window, gr2, bed2[, <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<p>The fourth data to visualize is a list of gene symbols that we want to mark in
+the plot. <code>gr3</code> contains genomic positions for the genes as well as their
+symbols. The variable <code>at</code> contains the row indice of the corresponding
+windows in <code>chr_window</code> and <code>labels</code> contains the gene names. As shown in the
+following code, I simply use <code>findOverlaps()</code> to associate gene regions to
+genomic windows.</p>
+<div class="sourceCode" id="cb716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb716-1"><a href="genome-level-heatmap.html#cb716-1" aria-hidden="true" tabindex="-1"></a>bed3 <span class="ot">=</span> <span class="fu">generateRandomBed</span>(<span class="at">nr =</span> <span class="dv">40</span>, <span class="at">nc =</span> <span class="dv">0</span>)</span>
+<span id="cb716-2"><a href="genome-level-heatmap.html#cb716-2" aria-hidden="true" tabindex="-1"></a>gr3 <span class="ot">=</span> <span class="fu">GRanges</span>(<span class="at">seqnames =</span> bed3[, <span class="dv">1</span>], <span class="at">ranges =</span> <span class="fu">IRanges</span>(bed3[, <span class="dv">2</span>], bed3[, <span class="dv">2</span>]))</span>
+<span id="cb716-3"><a href="genome-level-heatmap.html#cb716-3" aria-hidden="true" tabindex="-1"></a>gr3<span class="sc">$</span>gene <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&quot;gene_&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(gr3))</span>
+<span id="cb716-4"><a href="genome-level-heatmap.html#cb716-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb716-5"><a href="genome-level-heatmap.html#cb716-5" aria-hidden="true" tabindex="-1"></a>mtch <span class="ot">=</span> <span class="fu">as.matrix</span>(<span class="fu">findOverlaps</span>(chr_window, gr3))</span>
+<span id="cb716-6"><a href="genome-level-heatmap.html#cb716-6" aria-hidden="true" tabindex="-1"></a>at <span class="ot">=</span> mtch[, <span class="dv">1</span>]</span>
+<span id="cb716-7"><a href="genome-level-heatmap.html#cb716-7" aria-hidden="true" tabindex="-1"></a>labels <span class="ot">=</span> <span class="fu">mcols</span>(gr3)[mtch[, <span class="dv">2</span>], <span class="dv">1</span>]</span></code></pre></div>
+<p>Now I have all the variables and are ready for making the heatmaps. Before doing that,
+to better control the heatmap, I set <code>chr</code> as a factor to control the order of chromosomes
+in the final plot and I create a variable <code>subgroup</code> to simulate the 10 columns in the matrix
+for two subgroups.</p>
+<div class="sourceCode" id="cb717"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb717-1"><a href="genome-level-heatmap.html#cb717-1" aria-hidden="true" tabindex="-1"></a>chr <span class="ot">=</span> <span class="fu">as.vector</span>(<span class="fu">seqnames</span>(chr_window))</span>
+<span id="cb717-2"><a href="genome-level-heatmap.html#cb717-2" aria-hidden="true" tabindex="-1"></a>chr_level <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&quot;chr&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">22</span>)</span>
+<span id="cb717-3"><a href="genome-level-heatmap.html#cb717-3" aria-hidden="true" tabindex="-1"></a>chr <span class="ot">=</span> <span class="fu">factor</span>(chr, <span class="at">levels =</span> chr_level)</span>
+<span id="cb717-4"><a href="genome-level-heatmap.html#cb717-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb717-5"><a href="genome-level-heatmap.html#cb717-5" aria-hidden="true" tabindex="-1"></a>subgroup <span class="ot">=</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="at">each =</span> <span class="dv">5</span>)</span></code></pre></div>
+<p>The following code makes the heatmap with additional tracks. The plot is a combination
+of two heatmaps and three row annotations. Don’t be scared by the massive number
+of arguments. If you have been using <strong>ComplexHeatmap</strong> for more than a week, I believe
+you’ve already get used to it :).</p>
+<div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb718-1"><a href="genome-level-heatmap.html#cb718-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ComplexHeatmap)</span>
+<span id="cb718-2"><a href="genome-level-heatmap.html#cb718-2" aria-hidden="true" tabindex="-1"></a>ht_opt<span class="sc">$</span>TITLE_PADDING <span class="ot">=</span> <span class="fu">unit</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>), <span class="st">&quot;points&quot;</span>)</span>
+<span id="cb718-3"><a href="genome-level-heatmap.html#cb718-3" aria-hidden="true" tabindex="-1"></a>ht_list <span class="ot">=</span> <span class="fu">Heatmap</span>(num_mat, <span class="at">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="at">col =</span> <span class="fu">colorRamp2</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>)),</span>
+<span id="cb718-4"><a href="genome-level-heatmap.html#cb718-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">row_split =</span> chr, <span class="at">cluster_rows =</span> <span class="cn">FALSE</span>, <span class="at">show_column_dend =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb718-5"><a href="genome-level-heatmap.html#cb718-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">column_split =</span> subgroup, <span class="at">cluster_column_slices =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb718-6"><a href="genome-level-heatmap.html#cb718-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">column_title =</span> <span class="st">&quot;numeric matrix&quot;</span>,</span>
+<span id="cb718-7"><a href="genome-level-heatmap.html#cb718-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">top_annotation =</span> <span class="fu">HeatmapAnnotation</span>(<span class="at">subgroup =</span> subgroup, <span class="at">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>),</span>
+<span id="cb718-8"><a href="genome-level-heatmap.html#cb718-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">row_title_rot =</span> <span class="dv">0</span>, <span class="at">row_title_gp =</span> <span class="fu">gpar</span>(<span class="at">fontsize =</span> <span class="dv">10</span>), <span class="at">border =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb718-9"><a href="genome-level-heatmap.html#cb718-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">row_gap =</span> <span class="fu">unit</span>(<span class="dv">0</span>, <span class="st">&quot;points&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb718-10"><a href="genome-level-heatmap.html#cb718-10" aria-hidden="true" tabindex="-1"></a><span class="fu">Heatmap</span>(char_mat, <span class="at">name =</span> <span class="st">&quot;CNV&quot;</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;gain&quot;</span> <span class="ot">=</span> <span class="st">&quot;red&quot;</span>, <span class="st">&quot;loss&quot;</span> <span class="ot">=</span> <span class="st">&quot;blue&quot;</span>),</span>
+<span id="cb718-11"><a href="genome-level-heatmap.html#cb718-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">border =</span> <span class="cn">TRUE</span>, <span class="at">column_title =</span> <span class="st">&quot;character matrix&quot;</span>) <span class="sc">+</span></span>
+<span id="cb718-12"><a href="genome-level-heatmap.html#cb718-12" aria-hidden="true" tabindex="-1"></a><span class="fu">rowAnnotation</span>(<span class="at">label =</span> <span class="fu">anno_mark</span>(<span class="at">at =</span> at, <span class="at">labels =</span> labels)) <span class="sc">+</span></span>
+<span id="cb718-13"><a href="genome-level-heatmap.html#cb718-13" aria-hidden="true" tabindex="-1"></a><span class="fu">rowAnnotation</span>(<span class="at">pt =</span> <span class="fu">anno_points</span>(v, <span class="at">gp =</span> <span class="fu">gpar</span>(<span class="at">col =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>), <span class="at">pch =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">16</span>)), </span>
+<span id="cb718-14"><a href="genome-level-heatmap.html#cb718-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="fu">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb718-15"><a href="genome-level-heatmap.html#cb718-15" aria-hidden="true" tabindex="-1"></a><span class="fu">rowAnnotation</span>(<span class="at">bar =</span> <span class="fu">anno_barplot</span>(v[, <span class="dv">1</span>], <span class="at">gp =</span> <span class="fu">gpar</span>(<span class="at">col =</span> <span class="fu">ifelse</span>(v[ ,<span class="dv">1</span>] <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">3</span>))), </span>
+<span id="cb718-16"><a href="genome-level-heatmap.html#cb718-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="fu">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>))</span>
+<span id="cb718-17"><a href="genome-level-heatmap.html#cb718-17" aria-hidden="true" tabindex="-1"></a><span class="fu">draw</span>(ht_list, <span class="at">merge_legend =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="13-genome-level-heatmap_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>It is easy to make the arrangement of heatmaps vertical (use <code>%v%</code> to concatenate
+heatmaps!). Just carefully switch the row-related parameters and
+column-related parameters. Here I additinally adjust the legends to make them
+look nicer in the plot.</p>
+<p>Note I use a trick to arrange the chromosome names. Since the chromosome names will
+overlap for small chromosomes, I simply add <code>\n</code> before or after for the neighbour chromosome names
+(see how I set <code>column_title</code> argument in the first heatmap).</p>
+<div class="sourceCode" id="cb719"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb719-1"><a href="genome-level-heatmap.html#cb719-1" aria-hidden="true" tabindex="-1"></a>ht_list <span class="ot">=</span> <span class="fu">Heatmap</span>(<span class="fu">t</span>(num_mat), <span class="at">name =</span> <span class="st">&quot;mat&quot;</span>, <span class="at">col =</span> <span class="fu">colorRamp2</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;red&quot;</span>)),</span>
+<span id="cb719-2"><a href="genome-level-heatmap.html#cb719-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">column_split =</span> chr, <span class="at">cluster_columns =</span> <span class="cn">FALSE</span>, <span class="at">show_row_dend =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb719-3"><a href="genome-level-heatmap.html#cb719-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">row_split =</span> subgroup, <span class="at">cluster_row_slices =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb719-4"><a href="genome-level-heatmap.html#cb719-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">row_title =</span> <span class="st">&quot;numeric matrix&quot;</span>,</span>
+<span id="cb719-5"><a href="genome-level-heatmap.html#cb719-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">left_annotation =</span> <span class="fu">rowAnnotation</span>(<span class="at">subgroup =</span> subgroup, <span class="at">show_annotation_name =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb719-6"><a href="genome-level-heatmap.html#cb719-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">annotation_legend_param =</span> <span class="fu">list</span>(</span>
+<span id="cb719-7"><a href="genome-level-heatmap.html#cb719-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">subgroup =</span> <span class="fu">list</span>(<span class="at">direction =</span> <span class="st">&quot;horizontal&quot;</span>, <span class="at">title_position =</span> <span class="st">&quot;lefttop&quot;</span>, <span class="at">nrow =</span> <span class="dv">1</span>))),</span>
+<span id="cb719-8"><a href="genome-level-heatmap.html#cb719-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">column_title_gp =</span> <span class="fu">gpar</span>(<span class="at">fontsize =</span> <span class="dv">10</span>), <span class="at">border =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb719-9"><a href="genome-level-heatmap.html#cb719-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">column_gap =</span> <span class="fu">unit</span>(<span class="dv">0</span>, <span class="st">&quot;points&quot;</span>),</span>
+<span id="cb719-10"><a href="genome-level-heatmap.html#cb719-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">column_title =</span> <span class="fu">ifelse</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">22</span> <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>, <span class="fu">paste0</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>, chr_level), <span class="fu">paste0</span>(chr_level, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)),</span>
+<span id="cb719-11"><a href="genome-level-heatmap.html#cb719-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">heatmap_legend_param =</span> <span class="fu">list</span>(<span class="at">direction =</span> <span class="st">&quot;horizontal&quot;</span>, <span class="at">title_position =</span> <span class="st">&quot;lefttop&quot;</span>)) <span class="sc">%v%</span></span>
+<span id="cb719-12"><a href="genome-level-heatmap.html#cb719-12" aria-hidden="true" tabindex="-1"></a><span class="fu">Heatmap</span>(<span class="fu">t</span>(char_mat), <span class="at">name =</span> <span class="st">&quot;CNV&quot;</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;gain&quot;</span> <span class="ot">=</span> <span class="st">&quot;red&quot;</span>, <span class="st">&quot;loss&quot;</span> <span class="ot">=</span> <span class="st">&quot;blue&quot;</span>),</span>
+<span id="cb719-13"><a href="genome-level-heatmap.html#cb719-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">border =</span> <span class="cn">TRUE</span>, <span class="at">row_title =</span> <span class="st">&quot;character matrix&quot;</span>,</span>
+<span id="cb719-14"><a href="genome-level-heatmap.html#cb719-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">heatmap_legend_param =</span> <span class="fu">list</span>(<span class="at">direction =</span> <span class="st">&quot;horizontal&quot;</span>, <span class="at">title_position =</span> <span class="st">&quot;lefttop&quot;</span>, <span class="at">nrow =</span> <span class="dv">1</span>)) <span class="sc">%v%</span></span>
+<span id="cb719-15"><a href="genome-level-heatmap.html#cb719-15" aria-hidden="true" tabindex="-1"></a><span class="fu">HeatmapAnnotation</span>(<span class="at">label =</span> <span class="fu">anno_mark</span>(<span class="at">at =</span> at, <span class="at">labels =</span> labels, <span class="at">side =</span> <span class="st">&quot;bottom&quot;</span>)) <span class="sc">%v%</span></span>
+<span id="cb719-16"><a href="genome-level-heatmap.html#cb719-16" aria-hidden="true" tabindex="-1"></a><span class="fu">HeatmapAnnotation</span>(<span class="at">pt =</span> <span class="fu">anno_points</span>(v, <span class="at">gp =</span> <span class="fu">gpar</span>(<span class="at">col =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>), <span class="at">pch =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">16</span>)),</span>
+<span id="cb719-17"><a href="genome-level-heatmap.html#cb719-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>, <span class="at">height =</span> <span class="fu">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>)) <span class="sc">%v%</span></span>
+<span id="cb719-18"><a href="genome-level-heatmap.html#cb719-18" aria-hidden="true" tabindex="-1"></a><span class="fu">HeatmapAnnotation</span>(<span class="at">bar =</span> <span class="fu">anno_barplot</span>(v[, <span class="dv">1</span>], <span class="at">gp =</span> <span class="fu">gpar</span>(<span class="at">col =</span> <span class="fu">ifelse</span>(v[ ,<span class="dv">1</span>] <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">3</span>))), </span>
+<span id="cb719-19"><a href="genome-level-heatmap.html#cb719-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">annotation_name_side =</span> <span class="st">&quot;left&quot;</span>, <span class="at">height =</span> <span class="fu">unit</span>(<span class="dv">2</span>, <span class="st">&quot;cm&quot;</span>))</span>
+<span id="cb719-20"><a href="genome-level-heatmap.html#cb719-20" aria-hidden="true" tabindex="-1"></a><span class="fu">draw</span>(ht_list, <span class="at">heatmap_legend_side =</span> <span class="st">&quot;bottom&quot;</span>, <span class="at">merge_legend =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="13-genome-level-heatmap_files/figure-html/unnamed-chunk-11-1.png" width="960" style="display: block; margin: auto;" /></p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="three-dimensional-complexheatmap-3d-heatmap.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="more-examples.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/jokergoo/ComplexHeatmap-reference/edit/master/13-genome-level-heatmap.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["ComplexHeatmap-reference.epub"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -2191,12 +2191,6 @@ row_order(ht1)
 ```
 
 ```
-## Warning: The heatmap has not been initialized. You might have different results
-## if you repeatedly execute this function, e.g. when row_km/column_km was
-## set. It is more suggested to do as `ht = draw(ht); row_order(ht)`.
-```
-
-```
 ## [1] 5 7 2 4 9 6 8 1 3
 ```
 

@@ -4,22 +4,22 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 13 Other Tricks | ComplexHeatmap Complete Reference</title>
+  <title>Chapter 15 Other Tricks | ComplexHeatmap Complete Reference</title>
   <meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 13 Other Tricks | ComplexHeatmap Complete Reference" />
+  <meta property="og:title" content="Chapter 15 Other Tricks | ComplexHeatmap Complete Reference" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://jokergoo.github.io/ComplexHeatmap-reference/book" />
-  <meta property="og:image" content="https://jokergoo.github.io/ComplexHeatmap-reference/bookcomplexheatmap-cover.jpg" />
+  <meta property="og:image" content="https://jokergoo.github.io/ComplexHeatmap-reference/book/complexheatmap-cover.jpg" />
   <meta property="og:description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
   <meta name="github-repo" content="jokergoo/ComplexHeatmap-reference" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 13 Other Tricks | ComplexHeatmap Complete Reference" />
+  <meta name="twitter:title" content="Chapter 15 Other Tricks | ComplexHeatmap Complete Reference" />
   
   <meta name="twitter:description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
-  <meta name="twitter:image" content="https://jokergoo.github.io/ComplexHeatmap-reference/bookcomplexheatmap-cover.jpg" />
+  <meta name="twitter:image" content="https://jokergoo.github.io/ComplexHeatmap-reference/book/complexheatmap-cover.jpg" />
 
 <meta name="author" content="Zuguang Gu" />
 
@@ -32,7 +32,7 @@
   
 <link rel="prev" href="more-examples.html"/>
 
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,15 +50,15 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -118,6 +118,7 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -296,18 +297,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.1" data-path="other-high-level-plots.html"><a href="other-high-level-plots.html#density-heatmap"><i class="fa fa-check"></i><b>11.1</b> Density heatmap</a></li>
 <li class="chapter" data-level="11.2" data-path="other-high-level-plots.html"><a href="other-high-level-plots.html#stacked-summary-plot"><i class="fa fa-check"></i><b>11.2</b> Stacked summary plot</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="more-examples.html"><a href="more-examples.html"><i class="fa fa-check"></i><b>12</b> More Examples</a>
+<li class="chapter" data-level="12" data-path="three-dimensional-complexheatmap-3d-heatmap.html"><a href="three-dimensional-complexheatmap-3d-heatmap.html"><i class="fa fa-check"></i><b>12</b> Three-dimensional ComplexHeatmap {#3d-heatmap}</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="more-examples.html"><a href="more-examples.html#add-more-information-for-gene-expression-matrix"><i class="fa fa-check"></i><b>12.1</b> Add more information for gene expression matrix</a></li>
-<li class="chapter" data-level="12.2" data-path="more-examples.html"><a href="more-examples.html#the-measles-vaccine-heatmap"><i class="fa fa-check"></i><b>12.2</b> The measles vaccine heatmap</a></li>
-<li class="chapter" data-level="12.3" data-path="more-examples.html"><a href="more-examples.html#visualize-cell-heterogeneity-from-single-cell-rnaseq"><i class="fa fa-check"></i><b>12.3</b> Visualize Cell Heterogeneity from Single Cell RNASeq</a></li>
-<li class="chapter" data-level="12.4" data-path="more-examples.html"><a href="more-examples.html#correlations-between-methylation-expression-and-other-genomic-features"><i class="fa fa-check"></i><b>12.4</b> Correlations between methylation, expression and other genomic features</a></li>
-<li class="chapter" data-level="12.5" data-path="more-examples.html"><a href="more-examples.html#visualize-methylation-profile-with-complex-annotations"><i class="fa fa-check"></i><b>12.5</b> Visualize Methylation Profile with Complex Annotations</a></li>
-<li class="chapter" data-level="12.6" data-path="more-examples.html"><a href="more-examples.html#add-multiple-boxplots-for-single-row"><i class="fa fa-check"></i><b>12.6</b> Add multiple boxplots for single row</a></li>
+<li class="chapter" data-level="12.1" data-path="three-dimensional-complexheatmap-3d-heatmap.html"><a href="three-dimensional-complexheatmap-3d-heatmap.html#motivation"><i class="fa fa-check"></i><b>12.1</b> Motivation</a></li>
+<li class="chapter" data-level="12.2" data-path="three-dimensional-complexheatmap-3d-heatmap.html"><a href="three-dimensional-complexheatmap-3d-heatmap.html#implementation-of-3d-heatmap"><i class="fa fa-check"></i><b>12.2</b> Implementation of 3D heatmap</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="other-tricks.html"><a href="other-tricks.html"><i class="fa fa-check"></i><b>13</b> Other Tricks</a>
+<li class="chapter" data-level="13" data-path="genome-level-heatmap.html"><a href="genome-level-heatmap.html"><i class="fa fa-check"></i><b>13</b> Genome-level heatmap</a></li>
+<li class="chapter" data-level="14" data-path="more-examples.html"><a href="more-examples.html"><i class="fa fa-check"></i><b>14</b> More Examples</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="other-tricks.html"><a href="other-tricks.html#set-the-same-cell-size-for-different-heatmaps-with-different-dimensions"><i class="fa fa-check"></i><b>13.1</b> Set the same cell size for different heatmaps with different dimensions</a></li>
+<li class="chapter" data-level="14.1" data-path="more-examples.html"><a href="more-examples.html#add-more-information-for-gene-expression-matrix"><i class="fa fa-check"></i><b>14.1</b> Add more information for gene expression matrix</a></li>
+<li class="chapter" data-level="14.2" data-path="more-examples.html"><a href="more-examples.html#the-measles-vaccine-heatmap"><i class="fa fa-check"></i><b>14.2</b> The measles vaccine heatmap</a></li>
+<li class="chapter" data-level="14.3" data-path="more-examples.html"><a href="more-examples.html#visualize-cell-heterogeneity-from-single-cell-rnaseq"><i class="fa fa-check"></i><b>14.3</b> Visualize Cell Heterogeneity from Single Cell RNASeq</a></li>
+<li class="chapter" data-level="14.4" data-path="more-examples.html"><a href="more-examples.html#correlations-between-methylation-expression-and-other-genomic-features"><i class="fa fa-check"></i><b>14.4</b> Correlations between methylation, expression and other genomic features</a></li>
+<li class="chapter" data-level="14.5" data-path="more-examples.html"><a href="more-examples.html#visualize-methylation-profile-with-complex-annotations"><i class="fa fa-check"></i><b>14.5</b> Visualize Methylation Profile with Complex Annotations</a></li>
+<li class="chapter" data-level="14.6" data-path="more-examples.html"><a href="more-examples.html#add-multiple-boxplots-for-single-row"><i class="fa fa-check"></i><b>14.6</b> Add multiple boxplots for single row</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="other-tricks.html"><a href="other-tricks.html"><i class="fa fa-check"></i><b>15</b> Other Tricks</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="other-tricks.html"><a href="other-tricks.html#set-the-same-cell-size-for-different-heatmaps-with-different-dimensions"><i class="fa fa-check"></i><b>15.1</b> Set the same cell size for different heatmaps with different dimensions</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -329,10 +336,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="other-tricks" class="section level1" number="13">
-<h1><span class="header-section-number">Chapter 13</span> Other Tricks</h1>
-<div id="set-the-same-cell-size-for-different-heatmaps-with-different-dimensions" class="section level2" number="13.1">
-<h2><span class="header-section-number">13.1</span> Set the same cell size for different heatmaps with different dimensions</h2>
+<div id="other-tricks" class="section level1" number="15">
+<h1><span class="header-section-number">Chapter 15</span> Other Tricks</h1>
+<div id="set-the-same-cell-size-for-different-heatmaps-with-different-dimensions" class="section level2" number="15.1">
+<h2><span class="header-section-number">15.1</span> Set the same cell size for different heatmaps with different dimensions</h2>
 <p>Assume you have a list of heatmaps/oncoPrints that you want to save as different e.g. png or pdf files, one
 thing you might want to do is to make the size of each grid/cell in the heatmap identical across
 heatmaps, thus, you need to calculate the size of png/pdf file according to the number of rows or
@@ -347,11 +354,11 @@ the number of rows.</p>
 and the number of rows in the heatmap. We first define a function which generates a
 10-column matrix with specific number of rows. Note the values in the matrix is of no importance
 in this demonstration.</p>
-<div class="sourceCode" id="cb720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb720-1"><a href="other-tricks.html#cb720-1"></a>random_mat =<span class="st"> </span><span class="cf">function</span>(nr) {</span>
-<span id="cb720-2"><a href="other-tricks.html#cb720-2"></a>    m =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(<span class="dv">10</span><span class="op">*</span>nr), <span class="dt">nc =</span> <span class="dv">10</span>)</span>
-<span id="cb720-3"><a href="other-tricks.html#cb720-3"></a>    <span class="kw">colnames</span>(m) =<span class="st"> </span>letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span>
-<span id="cb720-4"><a href="other-tricks.html#cb720-4"></a>    <span class="kw">return</span>(m)</span>
-<span id="cb720-5"><a href="other-tricks.html#cb720-5"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb747"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb747-1"><a href="other-tricks.html#cb747-1" aria-hidden="true" tabindex="-1"></a>random_mat <span class="ot">=</span> <span class="cf">function</span>(nr) {</span>
+<span id="cb747-2"><a href="other-tricks.html#cb747-2" aria-hidden="true" tabindex="-1"></a>    m <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">10</span><span class="sc">*</span>nr), <span class="at">nc =</span> <span class="dv">10</span>)</span>
+<span id="cb747-3"><a href="other-tricks.html#cb747-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">colnames</span>(m) <span class="ot">=</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
+<span id="cb747-4"><a href="other-tricks.html#cb747-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(m)</span>
+<span id="cb747-5"><a href="other-tricks.html#cb747-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Since the relation is absolutely linear, we only need to test two heatmaps with different number of
 rows where the height of a single row is <code>unit(5, "mm")</code>. In the heatmap, there are also column title,
 column dendrogram, column annotation and the column names.</p>
@@ -366,18 +373,18 @@ there are <code>2mm</code> white borders.</li>
 <li><code>ht_height</code> needs to be converted to a simple unit in <code>cm</code> or <code>inch</code>.</li>
 </ol>
 <p>In following, <code>y</code> contains values which are measured in <code>inch</code> unit.</p>
-<div class="sourceCode" id="cb721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb721-1"><a href="other-tricks.html#cb721-1"></a>y =<span class="st"> </span><span class="ot">NULL</span></span>
-<span id="cb721-2"><a href="other-tricks.html#cb721-2"></a><span class="cf">for</span>(nr <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>)) {</span>
-<span id="cb721-3"><a href="other-tricks.html#cb721-3"></a>    ht =<span class="st"> </span><span class="kw">draw</span>(<span class="kw">Heatmap</span>(<span class="kw">random_mat</span>(nr), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>)<span class="op">*</span>nr, </span>
-<span id="cb721-4"><a href="other-tricks.html#cb721-4"></a>        <span class="dt">column_title =</span> <span class="st">&quot;foo&quot;</span>, <span class="co"># one line text</span></span>
-<span id="cb721-5"><a href="other-tricks.html#cb721-5"></a>        <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">bar =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)))</span>
-<span id="cb721-6"><a href="other-tricks.html#cb721-6"></a>    ht_height =<span class="st"> </span><span class="kw">sum</span>(<span class="kw">component_height</span>(ht)) <span class="op">+</span><span class="st"> </span><span class="kw">unit</span>(<span class="dv">4</span>, <span class="st">&quot;mm&quot;</span>)</span>
-<span id="cb721-7"><a href="other-tricks.html#cb721-7"></a>    ht_height =<span class="st"> </span><span class="kw">convertHeight</span>(ht_height, <span class="st">&quot;inch&quot;</span>, <span class="dt">valueOnly =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb721-8"><a href="other-tricks.html#cb721-8"></a>    y =<span class="st"> </span><span class="kw">c</span>(y, ht_height)</span>
-<span id="cb721-9"><a href="other-tricks.html#cb721-9"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb748"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb748-1"><a href="other-tricks.html#cb748-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="cn">NULL</span></span>
+<span id="cb748-2"><a href="other-tricks.html#cb748-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(nr <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>)) {</span>
+<span id="cb748-3"><a href="other-tricks.html#cb748-3" aria-hidden="true" tabindex="-1"></a>    ht <span class="ot">=</span> <span class="fu">draw</span>(<span class="fu">Heatmap</span>(<span class="fu">random_mat</span>(nr), <span class="at">height =</span> <span class="fu">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>)<span class="sc">*</span>nr, </span>
+<span id="cb748-4"><a href="other-tricks.html#cb748-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">column_title =</span> <span class="st">&quot;foo&quot;</span>, <span class="co"># one line text</span></span>
+<span id="cb748-5"><a href="other-tricks.html#cb748-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">top_annotation =</span> <span class="fu">HeatmapAnnotation</span>(<span class="at">bar =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)))</span>
+<span id="cb748-6"><a href="other-tricks.html#cb748-6" aria-hidden="true" tabindex="-1"></a>    ht_height <span class="ot">=</span> <span class="fu">sum</span>(<span class="fu">component_height</span>(ht)) <span class="sc">+</span> <span class="fu">unit</span>(<span class="dv">4</span>, <span class="st">&quot;mm&quot;</span>)</span>
+<span id="cb748-7"><a href="other-tricks.html#cb748-7" aria-hidden="true" tabindex="-1"></a>    ht_height <span class="ot">=</span> <span class="fu">convertHeight</span>(ht_height, <span class="st">&quot;inch&quot;</span>, <span class="at">valueOnly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb748-8"><a href="other-tricks.html#cb748-8" aria-hidden="true" tabindex="-1"></a>    y <span class="ot">=</span> <span class="fu">c</span>(y, ht_height)</span>
+<span id="cb748-9"><a href="other-tricks.html#cb748-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Then we can fit a linear relation between <code>y</code> and the number of rows:</p>
-<div class="sourceCode" id="cb722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb722-1"><a href="other-tricks.html#cb722-1"></a>x =<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>)</span>
-<span id="cb722-2"><a href="other-tricks.html#cb722-2"></a><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x)</span></code></pre></div>
+<div class="sourceCode" id="cb749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb749-1"><a href="other-tricks.html#cb749-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>)</span>
+<span id="cb749-2"><a href="other-tricks.html#cb749-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(y <span class="sc">~</span> x)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = y ~ x)
@@ -388,16 +395,16 @@ there are <code>2mm</code> white borders.</li>
 <p>This means the relation between the number of rows <code>x</code> and the height of the plot <code>y</code> is: <code>y = 0.1969*x + 1.3150</code>.</p>
 <p>You can test whether the height of single rows are the same for heatmaps with different rows by following code.
 Note all the heatmap configuations should be the same as the ones you prepare <code>y</code>.</p>
-<div class="sourceCode" id="cb724"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb724-1"><a href="other-tricks.html#cb724-1"></a><span class="cf">for</span>(nr <span class="cf">in</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>)) {</span>
-<span id="cb724-2"><a href="other-tricks.html#cb724-2"></a>    <span class="kw">png</span>(<span class="kw">paste0</span>(<span class="st">&quot;test_heatmap_nr_&quot;</span>, nr, <span class="st">&quot;.png&quot;</span>), <span class="dt">width =</span> <span class="dv">5</span>, <span class="dt">height =</span> <span class="fl">0.1969</span><span class="op">*</span>nr <span class="op">+</span><span class="st"> </span><span class="fl">1.3150</span>, </span>
-<span id="cb724-3"><a href="other-tricks.html#cb724-3"></a>        <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>, <span class="dt">res =</span> <span class="dv">100</span>)</span>
-<span id="cb724-4"><a href="other-tricks.html#cb724-4"></a>    <span class="kw">draw</span>(<span class="kw">Heatmap</span>(<span class="kw">random_mat</span>(nr), <span class="dt">height =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>)<span class="op">*</span>nr, </span>
-<span id="cb724-5"><a href="other-tricks.html#cb724-5"></a>        <span class="dt">column_title =</span> <span class="st">&quot;foo&quot;</span>, <span class="co"># column title can be any one-line string</span></span>
-<span id="cb724-6"><a href="other-tricks.html#cb724-6"></a>        <span class="dt">top_annotation =</span> <span class="kw">HeatmapAnnotation</span>(<span class="dt">bar =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)))</span>
-<span id="cb724-7"><a href="other-tricks.html#cb724-7"></a>    <span class="kw">dev.off</span>()</span>
-<span id="cb724-8"><a href="other-tricks.html#cb724-8"></a>}</span></code></pre></div>
-<p><img src="13-other-tricks_files/figure-html/unnamed-chunk-7-1.png" width="480" style="display: block; margin: auto;" /></p>
-<p><img src="13-other-tricks_files/figure-html/unnamed-chunk-8-1.png" width="480" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb751"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb751-1"><a href="other-tricks.html#cb751-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(nr <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>)) {</span>
+<span id="cb751-2"><a href="other-tricks.html#cb751-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">png</span>(<span class="fu">paste0</span>(<span class="st">&quot;test_heatmap_nr_&quot;</span>, nr, <span class="st">&quot;.png&quot;</span>), <span class="at">width =</span> <span class="dv">5</span>, <span class="at">height =</span> <span class="fl">0.1969</span><span class="sc">*</span>nr <span class="sc">+</span> <span class="fl">1.3150</span>, </span>
+<span id="cb751-3"><a href="other-tricks.html#cb751-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">units =</span> <span class="st">&quot;in&quot;</span>, <span class="at">res =</span> <span class="dv">100</span>)</span>
+<span id="cb751-4"><a href="other-tricks.html#cb751-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">draw</span>(<span class="fu">Heatmap</span>(<span class="fu">random_mat</span>(nr), <span class="at">height =</span> <span class="fu">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>)<span class="sc">*</span>nr, </span>
+<span id="cb751-5"><a href="other-tricks.html#cb751-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">column_title =</span> <span class="st">&quot;foo&quot;</span>, <span class="co"># column title can be any one-line string</span></span>
+<span id="cb751-6"><a href="other-tricks.html#cb751-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">top_annotation =</span> <span class="fu">HeatmapAnnotation</span>(<span class="at">bar =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)))</span>
+<span id="cb751-7"><a href="other-tricks.html#cb751-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dev.off</span>()</span>
+<span id="cb751-8"><a href="other-tricks.html#cb751-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><img src="15-other-tricks_files/figure-html/unnamed-chunk-7-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="15-other-tricks_files/figure-html/unnamed-chunk-8-1.png" width="480" style="display: block; margin: auto;" /></p>
 
 </div>
 </div>
@@ -430,6 +437,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -438,7 +446,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jokergoo/ComplexHeatmap-reference/edit/master/13-other-tricks.Rmd",
+"link": "https://github.com/jokergoo/ComplexHeatmap-reference/edit/master/15-other-tricks.Rmd",
 "text": "Edit"
 },
 "history": {

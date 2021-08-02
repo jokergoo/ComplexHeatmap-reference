@@ -780,7 +780,8 @@ ht_opt
 ##  ROW_ANNO_PADDING          1mm     
 ##  HEATMAP_LEGEND_PADDING    2mm     
 ##  ANNOTATION_LEGEND_PADDING 2mm     
-##  save_last                 FALSE
+##  save_last                 FALSE   
+##  validate_names            TRUE
 ```
 
 There are following parameters to control all heatmaps:

@@ -400,7 +400,7 @@ gset = getGEO("GSE36278")
 ```{r, echo = FALSE}
 library(GEOquery)
 # save(gset, file = "GSE36278_450K.RData")
-load("GSE36278_450K.RData")
+load("data/GSE36278_450K.RData")
 ```
 
 The methylation profiles have been measured by Illumina HumanMethylation450 BeadChip arrays.

@@ -77,6 +77,13 @@ HeatmapAnnotation(foo = anno_barplot(1:20)) %v%
 Heatmap(matrix(rnorm(20*20), ncol = 20), name = "mat", height = unit(6, "cm"))
 ```
 
+There is also a function `frequencyHeatmap()` which is like a histogram-version
+of density heatmap. The usage is similar as `densityHeatmap()`:
+
+```{r, eval = FALSE}
+frequencyHeatmap(m)
+```
+
 ## Stacked summary plot {#stacked-summary-plot}
 
 Multiple annotations and heatmaps can be used to visualize multiple summary statistics for a same

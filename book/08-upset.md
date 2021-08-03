@@ -978,7 +978,6 @@ UpSet(m, top_annotation = upset_top_annotation(m,
 The settings are very similar for the right annotation:
 
 
-
 ```r
 UpSet(m, right_annotation = upset_right_annotation(m, 
 	ylim = c(0, 30),
@@ -1029,32 +1028,21 @@ UpSet(m, right_annotation = rowAnnotation(
 
 <img src="08-upset_files/figure-html/unnamed-chunk-52-1.png" width="480" style="display: block; margin: auto;" />
 
-To move the right annotation to the left of the combination matrix:
+To move the right annotation to the left of the combination matrix, use `upset_left_annotation()`:
 
 
 ```r
-UpSet(m, left_annotation = rowAnnotation(
-	"Set size" = anno_barplot(set_size(m), 
-		border = FALSE, 
-		gp = gpar(fill = "black"), 
-		width = unit(2, "cm")
-	)), right_annotation = NULL)
+UpSet(m, left_annotation = upset_left_annotation(m))
 ```
 
 <img src="08-upset_files/figure-html/unnamed-chunk-53-1.png" width="480" style="display: block; margin: auto;" />
 
-To reverse the axis of the left annotation:
+To add numbers on top of the bars:
 
 
 ```r
-UpSet(m, left_annotation = rowAnnotation(
-	"Set size" = anno_barplot(set_size(m), 
-		axis_param = list(direction = "reverse"),
-		border = FALSE, 
-		gp = gpar(fill = "black"), 
-		width = unit(2, "cm")
-	)), right_annotation = NULL,
-	row_names_side = "right")
+UpSet(m, top_annotation = upset_top_annotation(m, add_numbers = TRUE),
+    right_annotation = upset_right_annotation(m, add_numbers = TRUE))
 ```
 
 <img src="08-upset_files/figure-html/unnamed-chunk-54-1.png" width="480" style="display: block; margin: auto;" />

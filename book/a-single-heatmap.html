@@ -409,7 +409,7 @@ less than -2 are all mapped to green.</p>
 <p>As you can see, the color mapping function exactly maps negative values to
 green and positive values to red, even when the distribution of negative
 values and positive values are not centric to zero. Also this color mapping
-function is not affected by outliers. In following plot, the clustering is
+function is <strong>not affected by outliers</strong>. In following plot, the clustering is
 heavily affected by the outlier (see the dendrogram) but not the color mapping.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="a-single-heatmap.html#cb10-1" aria-hidden="true" tabindex="-1"></a>mat2 <span class="ot">=</span> mat</span>
 <span id="cb10-2"><a href="a-single-heatmap.html#cb10-2" aria-hidden="true" tabindex="-1"></a>mat2[<span class="dv">1</span>, <span class="dv">1</span>] <span class="ot">=</span> <span class="dv">100000</span></span>
@@ -456,8 +456,11 @@ off (but you can still cluster a character matrix if you provide a proper
 distance metric for two character vectors, see example in Section
 <a href="a-single-heatmap.html#distance-methods">2.3.1</a>).</p>
 <p><code>NA</code> is allowed in the matrix. You can control the color of <code>NA</code> by <code>na_col</code>
-argument (by default it is grey for <code>NA</code>). <strong>The matrix that contains <code>NA</code> can
-be clustered by <code>Heatmap()</code>.</strong></p>
+argument (by default it is grey for <code>NA</code>). <strong>A matrix that contains <code>NA</code> can
+be clustered by <code>Heatmap()</code></strong> as long as there is no <code>NA</code> distances between
+any of the rows or columns respectively. Usually these cases correspond to
+sparse matrices (filled with a lot of <code>NA</code> values), and indicate that the
+unknown values should be predicted via other methods first.</p>
 <p>Note the <code>NA</code> value is not presented in the legend.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="a-single-heatmap.html#cb15-1" aria-hidden="true" tabindex="-1"></a>mat_with_na <span class="ot">=</span> mat</span>
 <span id="cb15-2"><a href="a-single-heatmap.html#cb15-2" aria-hidden="true" tabindex="-1"></a>na_index <span class="ot">=</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>), <span class="fu">nrow</span>(mat)<span class="sc">*</span><span class="fu">ncol</span>(mat), <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">9</span>))</span>
@@ -512,12 +515,12 @@ to the heatmap body:
 <li>If the fraction of positive values in <span class="math inline">\(M\)</span> is between 25% and 75%, colors
 are mapped to blue, white and red by linearly interpolating to <span class="math inline">\(-q\)</span>, 0
 and <span class="math inline">\(q\)</span>, where <span class="math inline">\(q\)</span> is the maximum of <span class="math inline">\(|M|\)</span> if the number of unique
-values is less than 100, or <span class="math inline">\(q\)</span> is the 99^th percentile of <span class="math inline">\(|M|\)</span>. This
+values is less than 100, or <span class="math inline">\(q\)</span> is the 99th percentile of <span class="math inline">\(|M|\)</span>. This
 color mapping is centric to zero.</li>
 <li>Or else the colors are mapped to blue, white and red by linearly
 interpolating to <span class="math inline">\(q_1\)</span>, <span class="math inline">\((q_1 + q_2)/2\)</span> and <span class="math inline">\(q_2\)</span>, where <span class="math inline">\(q_1\)</span> and <span class="math inline">\(q_2\)</span>
 are mininum and maxinum if the number of unique values is <span class="math inline">\(M\)</span> is less
-than 100, or <span class="math inline">\(q1\)</span> is the 1^th percentile and <span class="math inline">\(q2\)</span> is the 99^th
+than 100, or <span class="math inline">\(q_1\)</span> is the 1st percentile and <span class="math inline">\(q_2\)</span> is the 99th
 percentile in <span class="math inline">\(M\)</span>.</li>
 </ul></li>
 </ul>

@@ -1108,6 +1108,18 @@ draw(ha_list, ht_gap = unit(4, "mm"))
 `direction = "reverse"` also works for other annotation functions which have
 axes, but it is more commonly used for barplot annotations.
 
+Argument `add_numbers` can be set to `TRUE` so that numbers associated to bars are drawn on top of the bars.
+For column annotation, texts are by default with 45 degree rotation.
+
+```{r}
+ha = HeatmapAnnotation(foo = anno_barplot(1:10, add_numbers = TRUE, 
+    height = unit(1, "cm")))
+```
+
+```{r, echo = FALSE, fig.width = annotation_width(ha), fig.height = annotation_height(ha)}
+draw(ha, test = TRUE)
+```
+
 ## Boxplot annotation {#box-annotation}
 
 Boxplot annotation as well as the annotation functions which are introduced

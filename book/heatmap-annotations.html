@@ -1044,8 +1044,9 @@ is put on the left of the heatmap.</p>
 <p><code>direction = "reverse"</code> also works for other annotation functions which have
 axes, but it is more commonly used for barplot annotations.</p>
 <p>Argument <code>add_numbers</code> can be set to <code>TRUE</code> so that numbers associated to bars are drawn on top of the bars.
-For column annotation, texts are with 45 degree rotation.</p>
-<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="heatmap-annotations.html#cb242-1" aria-hidden="true" tabindex="-1"></a>ha <span class="ot">=</span> <span class="fu">HeatmapAnnotation</span>(<span class="at">foo =</span> <span class="fu">anno_barplot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">add_numbers =</span> <span class="cn">TRUE</span>), <span class="at">height =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>))</span></code></pre></div>
+For column annotation, texts are by default with 45 degree rotation.</p>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="heatmap-annotations.html#cb242-1" aria-hidden="true" tabindex="-1"></a>ha <span class="ot">=</span> <span class="fu">HeatmapAnnotation</span>(<span class="at">foo =</span> <span class="fu">anno_barplot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">add_numbers =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb242-2"><a href="heatmap-annotations.html#cb242-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">height =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>)))</span></code></pre></div>
 <p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-116-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 <div id="box-annotation" class="section level2" number="3.9">
@@ -1737,6 +1738,35 @@ as:</p>
 <span id="cb310-16"><a href="heatmap-annotations.html#cb310-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">popViewport</span>()</span>
 <span id="cb310-17"><a href="heatmap-annotations.html#cb310-17" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-215-1.png" width="499.2" style="display: block; margin: auto;" /></p>
+<p>To simplify the use of <code>AnnotationFunction()</code>, from version 2.9.3, it has a new argument <code>cell_fun</code> which accepts
+a self-defined function that only draws in a single “annotation cell.” See the following example:</p>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="heatmap-annotations.html#cb311-1" aria-hidden="true" tabindex="-1"></a>anno_pct <span class="ot">=</span> <span class="cf">function</span>(x) {</span>
+<span id="cb311-2"><a href="heatmap-annotations.html#cb311-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb311-3"><a href="heatmap-annotations.html#cb311-3" aria-hidden="true" tabindex="-1"></a>    max_x <span class="ot">=</span> <span class="fu">max</span>(x)</span>
+<span id="cb311-4"><a href="heatmap-annotations.html#cb311-4" aria-hidden="true" tabindex="-1"></a>    text <span class="ot">=</span> <span class="fu">paste0</span>(<span class="fu">sprintf</span>(<span class="st">&quot;%.2f&quot;</span>, x<span class="sc">*</span><span class="dv">100</span>), <span class="st">&quot;%&quot;</span>)</span>
+<span id="cb311-5"><a href="heatmap-annotations.html#cb311-5" aria-hidden="true" tabindex="-1"></a>    cell_fun_pct <span class="ot">=</span> <span class="cf">function</span>(i) {</span>
+<span id="cb311-6"><a href="heatmap-annotations.html#cb311-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">pushViewport</span>(<span class="fu">viewport</span>(<span class="at">xscale =</span> <span class="fu">c</span>(<span class="dv">0</span>, max_x)))</span>
+<span id="cb311-7"><a href="heatmap-annotations.html#cb311-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">grid.roundrect</span>(<span class="at">x =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>), <span class="at">width =</span> <span class="fu">unit</span>(x[i], <span class="st">&quot;native&quot;</span>), <span class="at">height =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>) <span class="sc">-</span> <span class="fu">unit</span>(<span class="dv">4</span>, <span class="st">&quot;pt&quot;</span>), </span>
+<span id="cb311-8"><a href="heatmap-annotations.html#cb311-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">just =</span> <span class="st">&quot;right&quot;</span>, <span class="at">gp =</span> <span class="fu">gpar</span>(<span class="at">fill =</span> <span class="st">&quot;#0000FF80&quot;</span>, <span class="at">col =</span> <span class="cn">NA</span>))</span>
+<span id="cb311-9"><a href="heatmap-annotations.html#cb311-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">grid.text</span>(text[i], <span class="at">x =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">&quot;npc&quot;</span>), <span class="at">just =</span> <span class="st">&quot;right&quot;</span>)</span>
+<span id="cb311-10"><a href="heatmap-annotations.html#cb311-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">popViewport</span>()</span>
+<span id="cb311-11"><a href="heatmap-annotations.html#cb311-11" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb311-12"><a href="heatmap-annotations.html#cb311-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb311-13"><a href="heatmap-annotations.html#cb311-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">AnnotationFunction</span>(</span>
+<span id="cb311-14"><a href="heatmap-annotations.html#cb311-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">cell_fun =</span> cell_fun_pct,</span>
+<span id="cb311-15"><a href="heatmap-annotations.html#cb311-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">var_import =</span> <span class="fu">list</span>(max_x, x, text), </span>
+<span id="cb311-16"><a href="heatmap-annotations.html#cb311-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">which =</span> <span class="st">&quot;row&quot;</span>,</span>
+<span id="cb311-17"><a href="heatmap-annotations.html#cb311-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">width =</span> <span class="fu">max_text_width</span>(text)<span class="sc">*</span><span class="fl">1.25</span></span>
+<span id="cb311-18"><a href="heatmap-annotations.html#cb311-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb311-19"><a href="heatmap-annotations.html#cb311-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb311-20"><a href="heatmap-annotations.html#cb311-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb311-21"><a href="heatmap-annotations.html#cb311-21" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">10</span>)</span>
+<span id="cb311-22"><a href="heatmap-annotations.html#cb311-22" aria-hidden="true" tabindex="-1"></a>ha <span class="ot">=</span> <span class="fu">rowAnnotation</span>(<span class="at">foo =</span> <span class="fu">anno_pct</span>(x), <span class="at">annotation_name_rot =</span> <span class="dv">0</span>)</span>
+<span id="cb311-23"><a href="heatmap-annotations.html#cb311-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb311-24"><a href="heatmap-annotations.html#cb311-24" aria-hidden="true" tabindex="-1"></a>m <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>), <span class="dv">10</span>)</span>
+<span id="cb311-25"><a href="heatmap-annotations.html#cb311-25" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(m) <span class="ot">=</span> x</span>
+<span id="cb311-26"><a href="heatmap-annotations.html#cb311-26" aria-hidden="true" tabindex="-1"></a>ha <span class="sc">+</span> <span class="fu">Heatmap</span>(m)</span></code></pre></div>
+<p><img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-216-1.png" width="480" style="display: block; margin: auto;" /></p>
 
 </div>
 </div>

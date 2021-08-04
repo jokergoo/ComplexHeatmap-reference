@@ -354,11 +354,11 @@ the number of rows.</p>
 and the number of rows in the heatmap. We first define a function which generates a
 10-column matrix with specific number of rows. Note the values in the matrix is of no importance
 in this demonstration.</p>
-<div class="sourceCode" id="cb748"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb748-1"><a href="other-tricks.html#cb748-1" aria-hidden="true" tabindex="-1"></a>random_mat <span class="ot">=</span> <span class="cf">function</span>(nr) {</span>
-<span id="cb748-2"><a href="other-tricks.html#cb748-2" aria-hidden="true" tabindex="-1"></a>    m <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">10</span><span class="sc">*</span>nr), <span class="at">nc =</span> <span class="dv">10</span>)</span>
-<span id="cb748-3"><a href="other-tricks.html#cb748-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">colnames</span>(m) <span class="ot">=</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
-<span id="cb748-4"><a href="other-tricks.html#cb748-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(m)</span>
-<span id="cb748-5"><a href="other-tricks.html#cb748-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb749-1"><a href="other-tricks.html#cb749-1" aria-hidden="true" tabindex="-1"></a>random_mat <span class="ot">=</span> <span class="cf">function</span>(nr) {</span>
+<span id="cb749-2"><a href="other-tricks.html#cb749-2" aria-hidden="true" tabindex="-1"></a>    m <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">10</span><span class="sc">*</span>nr), <span class="at">nc =</span> <span class="dv">10</span>)</span>
+<span id="cb749-3"><a href="other-tricks.html#cb749-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">colnames</span>(m) <span class="ot">=</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
+<span id="cb749-4"><a href="other-tricks.html#cb749-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(m)</span>
+<span id="cb749-5"><a href="other-tricks.html#cb749-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Since the relation is absolutely linear, we only need to test two heatmaps with different number of
 rows where the height of a single row is <code>unit(5, "mm")</code>. In the heatmap, there are also column title,
 column dendrogram, column annotation and the column names.</p>
@@ -373,18 +373,18 @@ there are <code>2mm</code> white borders.</li>
 <li><code>ht_height</code> needs to be converted to a simple unit in <code>cm</code> or <code>inch</code>.</li>
 </ol>
 <p>In following, <code>y</code> contains values which are measured in <code>inch</code> unit.</p>
-<div class="sourceCode" id="cb749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb749-1"><a href="other-tricks.html#cb749-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="cn">NULL</span></span>
-<span id="cb749-2"><a href="other-tricks.html#cb749-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(nr <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>)) {</span>
-<span id="cb749-3"><a href="other-tricks.html#cb749-3" aria-hidden="true" tabindex="-1"></a>    ht <span class="ot">=</span> <span class="fu">draw</span>(<span class="fu">Heatmap</span>(<span class="fu">random_mat</span>(nr), <span class="at">height =</span> <span class="fu">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>)<span class="sc">*</span>nr, </span>
-<span id="cb749-4"><a href="other-tricks.html#cb749-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">column_title =</span> <span class="st">&quot;foo&quot;</span>, <span class="co"># one line text</span></span>
-<span id="cb749-5"><a href="other-tricks.html#cb749-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">top_annotation =</span> <span class="fu">HeatmapAnnotation</span>(<span class="at">bar =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)))</span>
-<span id="cb749-6"><a href="other-tricks.html#cb749-6" aria-hidden="true" tabindex="-1"></a>    ht_height <span class="ot">=</span> <span class="fu">sum</span>(<span class="fu">component_height</span>(ht)) <span class="sc">+</span> <span class="fu">unit</span>(<span class="dv">4</span>, <span class="st">&quot;mm&quot;</span>)</span>
-<span id="cb749-7"><a href="other-tricks.html#cb749-7" aria-hidden="true" tabindex="-1"></a>    ht_height <span class="ot">=</span> <span class="fu">convertHeight</span>(ht_height, <span class="st">&quot;inch&quot;</span>, <span class="at">valueOnly =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb749-8"><a href="other-tricks.html#cb749-8" aria-hidden="true" tabindex="-1"></a>    y <span class="ot">=</span> <span class="fu">c</span>(y, ht_height)</span>
-<span id="cb749-9"><a href="other-tricks.html#cb749-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb750-1"><a href="other-tricks.html#cb750-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="cn">NULL</span></span>
+<span id="cb750-2"><a href="other-tricks.html#cb750-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(nr <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>)) {</span>
+<span id="cb750-3"><a href="other-tricks.html#cb750-3" aria-hidden="true" tabindex="-1"></a>    ht <span class="ot">=</span> <span class="fu">draw</span>(<span class="fu">Heatmap</span>(<span class="fu">random_mat</span>(nr), <span class="at">height =</span> <span class="fu">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>)<span class="sc">*</span>nr, </span>
+<span id="cb750-4"><a href="other-tricks.html#cb750-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">column_title =</span> <span class="st">&quot;foo&quot;</span>, <span class="co"># one line text</span></span>
+<span id="cb750-5"><a href="other-tricks.html#cb750-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">top_annotation =</span> <span class="fu">HeatmapAnnotation</span>(<span class="at">bar =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)))</span>
+<span id="cb750-6"><a href="other-tricks.html#cb750-6" aria-hidden="true" tabindex="-1"></a>    ht_height <span class="ot">=</span> <span class="fu">sum</span>(<span class="fu">component_height</span>(ht)) <span class="sc">+</span> <span class="fu">unit</span>(<span class="dv">4</span>, <span class="st">&quot;mm&quot;</span>)</span>
+<span id="cb750-7"><a href="other-tricks.html#cb750-7" aria-hidden="true" tabindex="-1"></a>    ht_height <span class="ot">=</span> <span class="fu">convertHeight</span>(ht_height, <span class="st">&quot;inch&quot;</span>, <span class="at">valueOnly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb750-8"><a href="other-tricks.html#cb750-8" aria-hidden="true" tabindex="-1"></a>    y <span class="ot">=</span> <span class="fu">c</span>(y, ht_height)</span>
+<span id="cb750-9"><a href="other-tricks.html#cb750-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Then we can fit a linear relation between <code>y</code> and the number of rows:</p>
-<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb750-1"><a href="other-tricks.html#cb750-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>)</span>
-<span id="cb750-2"><a href="other-tricks.html#cb750-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(y <span class="sc">~</span> x)</span></code></pre></div>
+<div class="sourceCode" id="cb751"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb751-1"><a href="other-tricks.html#cb751-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>)</span>
+<span id="cb751-2"><a href="other-tricks.html#cb751-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(y <span class="sc">~</span> x)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = y ~ x)
@@ -395,14 +395,14 @@ there are <code>2mm</code> white borders.</li>
 <p>This means the relation between the number of rows <code>x</code> and the height of the plot <code>y</code> is: <code>y = 0.1969*x + 1.3150</code>.</p>
 <p>You can test whether the height of single rows are the same for heatmaps with different rows by following code.
 Note all the heatmap configuations should be the same as the ones you prepare <code>y</code>.</p>
-<div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb752-1"><a href="other-tricks.html#cb752-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(nr <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>)) {</span>
-<span id="cb752-2"><a href="other-tricks.html#cb752-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">png</span>(<span class="fu">paste0</span>(<span class="st">&quot;test_heatmap_nr_&quot;</span>, nr, <span class="st">&quot;.png&quot;</span>), <span class="at">width =</span> <span class="dv">5</span>, <span class="at">height =</span> <span class="fl">0.1969</span><span class="sc">*</span>nr <span class="sc">+</span> <span class="fl">1.3150</span>, </span>
-<span id="cb752-3"><a href="other-tricks.html#cb752-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">units =</span> <span class="st">&quot;in&quot;</span>, <span class="at">res =</span> <span class="dv">100</span>)</span>
-<span id="cb752-4"><a href="other-tricks.html#cb752-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">draw</span>(<span class="fu">Heatmap</span>(<span class="fu">random_mat</span>(nr), <span class="at">height =</span> <span class="fu">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>)<span class="sc">*</span>nr, </span>
-<span id="cb752-5"><a href="other-tricks.html#cb752-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">column_title =</span> <span class="st">&quot;foo&quot;</span>, <span class="co"># column title can be any one-line string</span></span>
-<span id="cb752-6"><a href="other-tricks.html#cb752-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">top_annotation =</span> <span class="fu">HeatmapAnnotation</span>(<span class="at">bar =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)))</span>
-<span id="cb752-7"><a href="other-tricks.html#cb752-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dev.off</span>()</span>
-<span id="cb752-8"><a href="other-tricks.html#cb752-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb753"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb753-1"><a href="other-tricks.html#cb753-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(nr <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>)) {</span>
+<span id="cb753-2"><a href="other-tricks.html#cb753-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">png</span>(<span class="fu">paste0</span>(<span class="st">&quot;test_heatmap_nr_&quot;</span>, nr, <span class="st">&quot;.png&quot;</span>), <span class="at">width =</span> <span class="dv">5</span>, <span class="at">height =</span> <span class="fl">0.1969</span><span class="sc">*</span>nr <span class="sc">+</span> <span class="fl">1.3150</span>, </span>
+<span id="cb753-3"><a href="other-tricks.html#cb753-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">units =</span> <span class="st">&quot;in&quot;</span>, <span class="at">res =</span> <span class="dv">100</span>)</span>
+<span id="cb753-4"><a href="other-tricks.html#cb753-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">draw</span>(<span class="fu">Heatmap</span>(<span class="fu">random_mat</span>(nr), <span class="at">height =</span> <span class="fu">unit</span>(<span class="dv">5</span>, <span class="st">&quot;mm&quot;</span>)<span class="sc">*</span>nr, </span>
+<span id="cb753-5"><a href="other-tricks.html#cb753-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">column_title =</span> <span class="st">&quot;foo&quot;</span>, <span class="co"># column title can be any one-line string</span></span>
+<span id="cb753-6"><a href="other-tricks.html#cb753-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">top_annotation =</span> <span class="fu">HeatmapAnnotation</span>(<span class="at">bar =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)))</span>
+<span id="cb753-7"><a href="other-tricks.html#cb753-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dev.off</span>()</span>
+<span id="cb753-8"><a href="other-tricks.html#cb753-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p><img src="15-other-tricks_files/figure-html/unnamed-chunk-7-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><img src="15-other-tricks_files/figure-html/unnamed-chunk-8-1.png" width="480" style="display: block; margin: auto;" /></p>
 

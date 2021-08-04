@@ -2156,3 +2156,35 @@ decorate_annotation("foo", slice = 2, {
     popViewport()
 })
 ```
+
+To simplify the use of `AnnotationFunction()`, from version 2.9.3, it has a new argument `cell_fun` which accepts
+a self-defined function that only draws in a single "annotation cell". See the following example:
+
+```{r, fig.width = 5, fig.height = 5}
+anno_pct = function(x) {
+
+    max_x = max(x)
+    text = paste0(sprintf("%.2f", x*100), "%")
+    cell_fun_pct = function(i) {
+        pushViewport(viewport(xscale = c(0, max_x)))
+        grid.roundrect(x = unit(1, "npc"), width = unit(x[i], "native"), height = unit(1, "npc") - unit(4, "pt"), 
+            just = "right", gp = gpar(fill = "#0000FF80", col = NA))
+        grid.text(text[i], x = unit(1, "npc"), just = "right")
+        popViewport()
+    }
+
+    AnnotationFunction(
+        cell_fun = cell_fun_pct,
+        var_import = list(max_x, x, text), 
+        which = "row",
+        width = max_text_width(text)*1.25
+    )
+}
+
+x = runif(10)
+ha = rowAnnotation(foo = anno_pct(x), annotation_name_rot = 0)
+
+m = matrix(rnorm(100), 10)
+rownames(m) = x
+ha + Heatmap(m)
+```

@@ -1146,11 +1146,12 @@ draw(ha_list, ht_gap = unit(4, "mm"))
 axes, but it is more commonly used for barplot annotations.
 
 Argument `add_numbers` can be set to `TRUE` so that numbers associated to bars are drawn on top of the bars.
-For column annotation, texts are with 45 degree rotation.
+For column annotation, texts are by default with 45 degree rotation.
 
 
 ```r
-ha = HeatmapAnnotation(foo = anno_barplot(1:10, add_numbers = TRUE), height = unit(1, "cm"))
+ha = HeatmapAnnotation(foo = anno_barplot(1:10, add_numbers = TRUE, 
+    height = unit(1, "cm")))
 ```
 
 <img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-116-1.png" width="576" style="display: block; margin: auto;" />
@@ -2228,3 +2229,38 @@ decorate_annotation("foo", slice = 2, {
 ```
 
 <img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-215-1.png" width="499.2" style="display: block; margin: auto;" />
+
+To simplify the use of `AnnotationFunction()`, from version 2.9.3, it has a new argument `cell_fun` which accepts
+a self-defined function that only draws in a single "annotation cell". See the following example:
+
+
+```r
+anno_pct = function(x) {
+
+    max_x = max(x)
+    text = paste0(sprintf("%.2f", x*100), "%")
+    cell_fun_pct = function(i) {
+        pushViewport(viewport(xscale = c(0, max_x)))
+        grid.roundrect(x = unit(1, "npc"), width = unit(x[i], "native"), height = unit(1, "npc") - unit(4, "pt"), 
+            just = "right", gp = gpar(fill = "#0000FF80", col = NA))
+        grid.text(text[i], x = unit(1, "npc"), just = "right")
+        popViewport()
+    }
+
+    AnnotationFunction(
+        cell_fun = cell_fun_pct,
+        var_import = list(max_x, x, text), 
+        which = "row",
+        width = max_text_width(text)*1.25
+    )
+}
+
+x = runif(10)
+ha = rowAnnotation(foo = anno_pct(x), annotation_name_rot = 0)
+
+m = matrix(rnorm(100), 10)
+rownames(m) = x
+ha + Heatmap(m)
+```
+
+<img src="03-heatmap_annotations_files/figure-html/unnamed-chunk-216-1.png" width="480" style="display: block; margin: auto;" />

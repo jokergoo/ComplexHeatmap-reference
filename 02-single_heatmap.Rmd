@@ -1008,7 +1008,7 @@ as a complete one and there is no parent dendrogram or children dendrograms.)
 
 ```{r split_dendrogram, fig.width = 5.2}
 Heatmap(mat, name = "mat", row_split = 2, column_split = 3)
-dend = hclust(dist(mat))
+dend = as.dendrogram(hclust(dist(mat)))
 dend = color_branches(dend, k = 2)
 Heatmap(mat, name = "mat", cluster_rows = dend, row_split = 2)
 ```

@@ -547,20 +547,20 @@ simulate 10 samples).</p>
 <span id="cb712-6"><a href="genome-level-heatmap.html#cb712-6" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(num_mat)</span></code></pre></div>
 <pre><code>## [1] 2875   10</code></pre>
 <div class="sourceCode" id="cb714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb714-1"><a href="genome-level-heatmap.html#cb714-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(num_mat)</span></code></pre></div>
-<pre><code>##            [,1]      [,2]      [,3]       [,4]     [,5]       [,6]       [,7]
-## [1,]         NA        NA        NA         NA       NA         NA         NA
-## [2,]         NA        NA        NA         NA       NA         NA         NA
-## [3,]         NA        NA        NA         NA       NA         NA         NA
-## [4,]         NA        NA        NA         NA       NA         NA         NA
-## [5,] 0.08286603 0.5313502 0.6355849 -0.4581772 0.501167 -0.6138796 0.03924021
-## [6,] 0.08286603 0.5313502 0.6355849 -0.4581772 0.501167 -0.6138796 0.03924021
-##            [,8]       [,9]     [,10]
-## [1,]         NA         NA        NA
-## [2,]         NA         NA        NA
-## [3,]         NA         NA        NA
-## [4,]         NA         NA        NA
-## [5,] -0.2078216 -0.1393835 -0.640936
-## [6,] -0.2078216 -0.1393835 -0.640936</code></pre>
+<pre><code>##            [,1]       [,2]      [,3]       [,4]       [,5]        [,6]
+## [1,] 0.17092940 -0.4323175 0.5814975  0.5419019 -1.3986643 -0.73240405
+## [2,] 0.17092940 -0.4323175 0.5814975  0.5419019 -1.3986643 -0.73240405
+## [3,] 0.17092940 -0.4323175 0.5814975  0.5419019 -1.3986643 -0.73240405
+## [4,] 0.17092940 -0.4323175 0.5814975  0.5419019 -1.3986643 -0.73240405
+## [5,] 0.17092940 -0.4323175 0.5814975  0.5419019 -1.3986643 -0.73240405
+## [6,] 0.06902516 -0.6065132 0.5130708 -0.0876663  0.4215547 -0.08663985
+##            [,7]        [,8]       [,9]      [,10]
+## [1,]  0.8572341  0.04271758 -0.6805558  1.1822941
+## [2,]  0.8572341  0.04271758 -0.6805558  1.1822941
+## [3,]  0.8572341  0.04271758 -0.6805558  1.1822941
+## [4,]  0.8572341  0.04271758 -0.6805558  1.1822941
+## [5,]  0.8572341  0.04271758 -0.6805558  1.1822941
+## [6,] -1.0614186 -0.10839748  0.3643813 -0.2047742</code></pre>
 <p>The first five genomic windows have no value associated because no region in
 <code>gr1</code> overlaps to them, thus, they take the value from <code>empty_v</code> which is by
 default <code>NA</code>.</p>

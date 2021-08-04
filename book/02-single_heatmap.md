@@ -1164,7 +1164,7 @@ Heatmap(mat, name = "mat", row_split = 2, column_split = 3)
 <img src="02-single_heatmap_files/figure-html/split_dendrogram-1.png" width="499.2" style="display: block; margin: auto;" />
 
 ```r
-dend = hclust(dist(mat))
+dend = as.dendrogram(hclust(dist(mat)))
 dend = color_branches(dend, k = 2)
 Heatmap(mat, name = "mat", cluster_rows = dend, row_split = 2)
 ```

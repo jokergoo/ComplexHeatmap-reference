@@ -1,4 +1,4 @@
-# Three-dimensional ComplexHeatmap {#3d-heatmap}
+# Three-dimensional ComplexHeatmap {#three-d-heatmap}
 
 
 ## Motivation

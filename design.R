@@ -11,7 +11,7 @@ pushViewport(viewport(layout = grid.layout(nr = 3, nc = 3,
 	width = unit(1, "npc") - unit(4, "mm"),
 	height = unit(1, "npc") - unit(4, "mm")))
 pushViewport(viewport(layout.pos.row = 1, layout.pos.col = 2))
-name = c("column annotations", "column names", "dendrogram", "title")
+name = c("column annotations", "column names/labels", "dendrogram", "title")
 for(i in 1:4) {
 	pushViewport(viewport(y = i/4, height = 1/4, just = "top"))
 	grid.rect()
@@ -21,7 +21,7 @@ for(i in 1:4) {
 popViewport()
 
 pushViewport(viewport(layout.pos.row = 3, layout.pos.col = 2))
-name = rev(c("column annotations", "column names", "dendrogram", "title"))
+name = rev(c("column annotations", "column names/labels", "dendrogram", "title"))
 for(i in 1:4) {
 	pushViewport(viewport(y = i/4, height = 1/4, just = "top"))
 	grid.rect()
@@ -31,7 +31,7 @@ for(i in 1:4) {
 popViewport()
 
 pushViewport(viewport(layout.pos.row = 2, layout.pos.col = 1))
-name = rev(c("row annotations", "row names", "dendrogram", "title"))
+name = rev(c("row annotations", "row names/labels", "dendrogram", "title"))
 for(i in 1:4) {
 	pushViewport(viewport(x = i/4, width = 1/4, just = "right"))
 	grid.rect()
@@ -41,7 +41,7 @@ for(i in 1:4) {
 popViewport()
 
 pushViewport(viewport(layout.pos.row = 2, layout.pos.col = 3))
-name = c("row annotations", "row names", "dendrogram", "title")
+name = c("row annotations", "row names/labels", "dendrogram", "title")
 for(i in 1:4) {
 	pushViewport(viewport(x = i/4, width = 1/4, just = "right"))
 	grid.rect()

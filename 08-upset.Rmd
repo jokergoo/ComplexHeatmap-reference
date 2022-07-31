@@ -695,28 +695,6 @@ right_ha = rowAnnotation(
 UpSet(t(m1), right_annotation = right_ha)
 ```
 
-[In the origial UpSet implementation](https://cran.r-project.org/web/packages/UpSetR/vignettes/basic.usage.html#example-2-choosing-the-top-largest-sets-and-plot-formatting), the combination
-set sizes are also drawn on top of the barplots. Here, we don't directly support it, but the sizes
-can be manually added by `decorate_annotation()` function. See following example:
-
-```{r, fig.width = 5, fig.height = 3}
-ht = draw(UpSet(m))
-od = column_order(ht)
-cs = comb_size(m)
-decorate_annotation("intersection_size", {
-    grid.text(cs[od], x = seq_along(cs), y = unit(cs[od], "native") + unit(2, "pt"), 
-        default.units = "native", just = "bottom", gp = gpar(fontsize = 8))
-})
-```
-
-There are several reasons that we don't directly supported add the combination set size
-to the plot: 1. Add new text means to add several new arguments to the function, e.g., the
-arguments for graphic parameters, the rotations, the positions, the margin to the bars, 
-which will make the function heavy. 
-2. Need to properly calculate the ylim for the barplot annotation to let the text not
-exceed the annotation region. 3. Using `decoration_annotation()` is more flexible to use that
-not only the size but also customized text can be added.
-
 ## Example with the movies dataset
 
 [UpsetR package](https://github.com/hms-dbmi/UpSetR) also provides a `movies`

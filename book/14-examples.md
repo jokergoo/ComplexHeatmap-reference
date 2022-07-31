@@ -115,7 +115,7 @@ decorate_heatmap_body("cases", {
 In this example, single cell RNA-Seq data for mouse T-cells is visualized to show the heterogeneity
 of cells. The data (`mouse_scRNAseq_corrected.txt`) is from [Buettner et al.,
 2015](http://www.nature.com/nbt/journal/v33/n2/full/nbt.3102.html), supplementary data 1, sheet
-"**Cell-cycle corrected gene expr**". You can get `mouse_scRNAseq_corrected.txt` [here](https://jokergoo.github.io/ComplexHeatmap-reference/data/mouse_scRNAseq_corrected).
+"**Cell-cycle corrected gene expr**". You can get `mouse_scRNAseq_corrected.txt` [here](https://jokergoo.github.io/ComplexHeatmap-reference/data/mouse_scRNAseq_corrected.txt).
 
 In following code, duplicated genes are removed.
 
@@ -143,7 +143,7 @@ variably expressed between cells and correlate to other genes.
 get_correlated_variable_genes = function(mat, n = nrow(mat), cor_cutoff = 0, n_cutoff = 0) {
     ind = order(apply(mat, 1, function(x) {
             q = quantile(x, c(0.1, 0.9))
-            x = x[x < q[1] & x > q[2]]
+            x = x[x > q[1] & x < q[2]]
             var(x)/mean(x)
         }), decreasing = TRUE)[1:n]
     mat2 = mat[ind, , drop = FALSE]

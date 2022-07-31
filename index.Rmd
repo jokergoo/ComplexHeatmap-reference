@@ -20,7 +20,9 @@ This is the documentation of the
 [**ComplexHeatmap**](https://github.com/jokergoo/ComplexHeatmap) package. Examples in the book
 are generated under version `r installed.packages()["ComplexHeatmap", "Version"]`.
 
-You can get a stable Bioconductor version from http://bioconductor.org/packages/release/bioc/html/ComplexHeatmap.html, but the most up-to-date version is always on Github and you can install it by:
+You can get a stable Bioconductor version from
+http://bioconductor.org/packages/release/bioc/html/ComplexHeatmap.html, but
+the most up-to-date version is always on Github and you can install it by:
 
 ```{r, eval = FALSE}
 library(devtools)
@@ -28,9 +30,9 @@ install_github("jokergoo/ComplexHeatmap")
 ```
 
 The [development branch on Bioconductor](http://bioconductor.org/packages/devel/bioc/html/ComplexHeatmap.html) is
-basically synchronized to Github repository. 
+basically synchronized to the Github repository. 
 
-The **ComplexHeatmap** package is inspired from the [**pheatmap**](https://CRAN.R-project.org/package=pheatmap) package. You can find many arguments in **ComplexHeatmap** have the same names as in **pheatmap**. Also you
+The **ComplexHeatmap** package is inspired by the [**pheatmap**](https://CRAN.R-project.org/package=pheatmap) package. You can find many arguments in **ComplexHeatmap** have the same names as in **pheatmap**. Also you
 can find [this old package](https://github.com/jokergoo/pheatmap2) that I tried to develop by modifying **pheatmap**.
 
 **Please note, this documentation is not completely compatible with older versions (< 1.99.0, before

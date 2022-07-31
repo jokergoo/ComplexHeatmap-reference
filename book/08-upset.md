@@ -1145,31 +1145,6 @@ UpSet(t(m1), right_annotation = right_ha)
 
 <img src="08-upset_files/figure-html/unnamed-chunk-60-1.png" width="480" style="display: block; margin: auto;" />
 
-[In the origial UpSet implementation](https://cran.r-project.org/web/packages/UpSetR/vignettes/basic.usage.html#example-2-choosing-the-top-largest-sets-and-plot-formatting), the combination
-set sizes are also drawn on top of the barplots. Here, we don't directly support it, but the sizes
-can be manually added by `decorate_annotation()` function. See following example:
-
-
-```r
-ht = draw(UpSet(m))
-od = column_order(ht)
-cs = comb_size(m)
-decorate_annotation("intersection_size", {
-    grid.text(cs[od], x = seq_along(cs), y = unit(cs[od], "native") + unit(2, "pt"), 
-        default.units = "native", just = "bottom", gp = gpar(fontsize = 8))
-})
-```
-
-<img src="08-upset_files/figure-html/unnamed-chunk-61-1.png" width="480" style="display: block; margin: auto;" />
-
-There are several reasons that we don't directly supported add the combination set size
-to the plot: 1. Add new text means to add several new arguments to the function, e.g., the
-arguments for graphic parameters, the rotations, the positions, the margin to the bars, 
-which will make the function heavy. 
-2. Need to properly calculate the ylim for the barplot annotation to let the text not
-exceed the annotation region. 3. Using `decoration_annotation()` is more flexible to use that
-not only the size but also customized text can be added.
-
 ## Example with the movies dataset
 
 [UpsetR package](https://github.com/hms-dbmi/UpSetR) also provides a `movies`
@@ -1247,7 +1222,7 @@ m = m[comb_degree(m) > 0]
 UpSet(m)
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-63-1.png" width="960" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-62-1.png" width="960" style="display: block; margin: auto;" />
 
 Following code makes it look more similar as the orignal plot. The code is a
 little bit long, but most of the code mainly customize the annotations and
@@ -1296,7 +1271,7 @@ decorate_annotation("Genre Intersections", {
 })
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-64-1.png" width="960" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-63-1.png" width="960" style="display: block; margin: auto;" />
 
 In `movies` dataset, there is also one column `AvgRating` which gives the
 rating of each movie, we next split all the movies into five groups based on
@@ -1404,7 +1379,7 @@ for(i in seq_along(m_list)) {
 ht_list
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-69-1.png" width="672" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-68-1.png" width="672" style="display: block; margin: auto;" />
 
 After comparing the five UpSet plots, we can see most of the movies are rated
 between 2 and 4. Horror movies tend to have lower ratings and romance movies
@@ -1446,7 +1421,7 @@ for(i in seq_along(m_list)) {
 ht_list
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-70-1.png" width="672" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-69-1.png" width="672" style="display: block; margin: auto;" />
 
 Now the trend is more clear that horror movies are rated low and documentaries
 are rated high.
@@ -1491,7 +1466,7 @@ draw(ht_list2, newpage = FALSE)
 popViewport()
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-71-1.png" width="1344" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-70-1.png" width="1344" style="display: block; margin: auto;" />
 
 Now we can see most of the movies were produces in 1990s and the two major
 genres are actions and romance.
@@ -1499,7 +1474,7 @@ genres are actions and romance.
 Similarly, if we change the top annotation to the relative fraction to the
 full sets (code not shown):
 
-<img src="08-upset_files/figure-html/unnamed-chunk-72-1.png" width="1344" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-71-1.png" width="1344" style="display: block; margin: auto;" />
 
 Finally we can add the statistics of years, ratings and number of watches for
 each combination set as boxplot annotations to the right of the UpSet plot.
@@ -1519,7 +1494,7 @@ UpSet(t(m)) + rowAnnotation(years = anno_boxplot(years),
     gap = unit(2, "mm"))
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-73-1.png" width="576" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-72-1.png" width="576" style="display: block; margin: auto;" />
 
 We can see the movies with genre "Scifi + Children" were produced quite old
 but the ratings are not bad. The movies with genre "Action + Children" have
@@ -1567,7 +1542,7 @@ m = m[comb_size(m) > 500000]
 UpSet(m)
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-75-1.png" width="768" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-74-1.png" width="768" style="display: block; margin: auto;" />
 
 We can nicely format the axis labels by setting `axis_param`:
 
@@ -1589,7 +1564,7 @@ UpSet(m,
 	))
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-76-1.png" width="768" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-75-1.png" width="768" style="display: block; margin: auto;" />
 
 With each set of genomic regions, we can associate more information to it,
 such as the mean methylation or the distance to nearest TSS.
@@ -1633,4 +1608,4 @@ UpSet(m,
 )
 ```
 
-<img src="08-upset_files/figure-html/unnamed-chunk-77-1.png" width="960" style="display: block; margin: auto;" />
+<img src="08-upset_files/figure-html/unnamed-chunk-76-1.png" width="960" style="display: block; margin: auto;" />

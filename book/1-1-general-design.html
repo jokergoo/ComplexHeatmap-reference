@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="1.1 General design | ComplexHeatmap Complete Reference" />
+<meta property="og:type" content="book" />
+<meta property="og:url" content="https://jokergoo.github.io/ComplexHeatmap-reference/book" />
+<meta property="og:image" content="https://jokergoo.github.io/ComplexHeatmap-reference/book/complexheatmap-cover.jpg" />
+<meta property="og:description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge." />
+<meta name="github-repo" content="jokergoo/ComplexHeatmap-reference" />
+
+<meta name="author" content="Zuguang Gu" />
+
+
+
+<meta name="description" content="Complex heatmaps are efficient to visualize associations between different sources of data sets and reveal potential patterns. Here the ComplexHeatmap R package provides a highly flexible way to arrange multiple heatmaps and supports various annotation graphics. This book is the complete reference to ComplexHeatmap pacakge.">
+
+<title>1.1 General design | ComplexHeatmap Complete Reference</title>
+
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+/* show arrow before summary tag as in bootstrap
+TODO: remove if boostrap in updated in html_document (rmarkdown#1485) */
+details > summary {
+  display: list-item;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul>
+<li><a href="index.html#about">About</a></li>
+<li><a href="1-introduction.html#introduction"><span class="toc-section-number">1</span> Introduction</a>
+<ul>
+<li><a href="1-1-general-design.html#general-design"><span class="toc-section-number">1.1</span> General design</a></li>
+<li><a href="1-2-a-brief-description-of-following-chapters.html#a-brief-description-of-following-chapters"><span class="toc-section-number">1.2</span> A brief description of following chapters</a></li>
+</ul></li>
+<li><a href="2-a-single-heatmap.html#a-single-heatmap"><span class="toc-section-number">2</span> A Single Heatmap</a>
+<ul>
+<li><a href="2-1-colors.html#colors"><span class="toc-section-number">2.1</span> Colors</a></li>
+<li><a href="2-2-heatmap-titles.html#heatmap-titles"><span class="toc-section-number">2.2</span> Titles</a></li>
+<li><a href="2-3-clustering.html#clustering"><span class="toc-section-number">2.3</span> Clustering</a>
+<ul>
+<li><a href="2-3-clustering.html#distance-methods"><span class="toc-section-number">2.3.1</span> Distance methods</a></li>
+<li><a href="2-3-clustering.html#clustering-methods"><span class="toc-section-number">2.3.2</span> Clustering methods</a></li>
+<li><a href="2-3-clustering.html#render-dendrograms"><span class="toc-section-number">2.3.3</span> Render dendrograms</a></li>
+<li><a href="2-3-clustering.html#reorder-dendrograms"><span class="toc-section-number">2.3.4</span> Reorder dendrograms</a></li>
+</ul></li>
+<li><a href="2-4-row-and-column-orders.html#row-and_column_orders"><span class="toc-section-number">2.4</span> Set row and column orders</a></li>
+<li><a href="2-5-heatmap-seriation.html#heatmap-seriation"><span class="toc-section-number">2.5</span> Seriation</a></li>
+<li><a href="2-6-dimension-names.html#dimension-names"><span class="toc-section-number">2.6</span> Dimension names</a></li>
+<li><a href="2-7-heatmap-split.html#heatmap-split"><span class="toc-section-number">2.7</span> Heatmap split</a>
+<ul>
+<li><a href="2-7-heatmap-split.html#split-by-kmeans-clustering"><span class="toc-section-number">2.7.1</span> Split by k-means clustering</a></li>
+<li><a href="2-7-heatmap-split.html#split-by-categorical-variables"><span class="toc-section-number">2.7.2</span> Split by categorical variables</a></li>
+<li><a href="2-7-heatmap-split.html#spilt-by-dendrogram"><span class="toc-section-number">2.7.3</span> Split by dendrogram</a></li>
+<li><a href="2-7-heatmap-split.html#order-of-slices"><span class="toc-section-number">2.7.4</span> Order of slices</a></li>
+<li><a href="2-7-heatmap-split.html#titles-for-splitting"><span class="toc-section-number">2.7.5</span> Titles for splitting</a></li>
+<li><a href="2-7-heatmap-split.html#graphic-parameters-for-splitting"><span class="toc-section-number">2.7.6</span> Graphic parameters for splitting</a></li>
+<li><a href="2-7-heatmap-split.html#gaps-between-slices"><span class="toc-section-number">2.7.7</span> Gaps between slices</a></li>
+<li><a href="2-7-heatmap-split.html#split-heatmap-annotations"><span class="toc-section-number">2.7.8</span> Split heatmap annotations</a></li>
+</ul></li>
+<li><a href="2-8-heatmap-as-raster-image.html#heatmap-as-raster-image"><span class="toc-section-number">2.8</span> Heatmap as raster image</a></li>
+<li><a href="2-9-customize-the-heatmap-body.html#customize-the-heatmap-body"><span class="toc-section-number">2.9</span> Customize the heatmap body</a>
+<ul>
+<li><a href="2-9-customize-the-heatmap-body.html#cell-fun"><span class="toc-section-number">2.9.1</span> cell_fun</a></li>
+<li><a href="2-9-customize-the-heatmap-body.html#layer-fun"><span class="toc-section-number">2.9.2</span> layer_fun</a></li>
+</ul></li>
+<li><a href="2-10-size-of-the-heatmap.html#size-of-the-heatmap"><span class="toc-section-number">2.10</span> Size of the heatmap</a></li>
+<li><a href="2-11-plot-the-heatmap.html#plot-the-heatmap"><span class="toc-section-number">2.11</span> Plot the heatmap</a></li>
+<li><a href="2-12-get-orders-and-dendrograms-from-heatmap.html#get-orders-and-dendrograms-from-heatmap"><span class="toc-section-number">2.12</span> Get orders and dendrograms</a></li>
+<li><a href="2-13-subset-a-heatmap.html#subset-a-heatmap"><span class="toc-section-number">2.13</span> Subset a heatmap</a></li>
+</ul></li>
+<li><a href="3-heatmap-annotations.html#heatmap-annotations"><span class="toc-section-number">3</span> Heatmap Annotations</a>
+<ul>
+<li><a href="3-1-simple-annotation.html#simple-annotation"><span class="toc-section-number">3.1</span> Simple annotation</a></li>
+<li><a href="3-2-simple-annotation-as-an-annotation-function.html#simple-annotation-as-an-annotation-function"><span class="toc-section-number">3.2</span> Simple annotation as an annotation function</a></li>
+<li><a href="3-3-empty-annotation.html#empty-annotation"><span class="toc-section-number">3.3</span> Empty annotation</a></li>
+<li><a href="3-4-block-annotation.html#block-annotation"><span class="toc-section-number">3.4</span> Block annotation</a></li>
+<li><a href="3-5-image-annotation.html#image-annotation"><span class="toc-section-number">3.5</span> Image annotation</a></li>
+<li><a href="3-6-points-annotation.html#points-annotation"><span class="toc-section-number">3.6</span> Points annotation</a></li>
+<li><a href="3-7-lines-annotation.html#lines-annotation"><span class="toc-section-number">3.7</span> Lines annotation</a></li>
+<li><a href="3-8-barplot-annotation.html#barplot_annotation"><span class="toc-section-number">3.8</span> Barplot annotation</a></li>
+<li><a href="3-9-box-annotation.html#box-annotation"><span class="toc-section-number">3.9</span> Boxplot annotation</a></li>
+<li><a href="3-10-histogram-annotation.html#histogram-annotation"><span class="toc-section-number">3.10</span> Histogram annotation</a></li>
+<li><a href="3-11-density-annotation.html#density-annotation"><span class="toc-section-number">3.11</span> Density annotation</a></li>
+<li><a href="3-12-joyplot-annotation.html#joyplot-annotation"><span class="toc-section-number">3.12</span> Joyplot annotation</a></li>
+<li><a href="3-13-horizon-chart-annotation.html#horizon-chart-annotation"><span class="toc-section-number">3.13</span> Horizon chart annotation</a></li>
+<li><a href="3-14-text-annotation.html#text-annotation"><span class="toc-section-number">3.14</span> Text annotation</a></li>
+<li><a href="3-15-mark-annotation.html#mark-annotation"><span class="toc-section-number">3.15</span> Mark annotation</a></li>
+<li><a href="3-16-summary-annotation.html#summary-annotation"><span class="toc-section-number">3.16</span> Summary annotation</a></li>
+<li><a href="3-17-zoom-annotation.html#zoom-annotation"><span class="toc-section-number">3.17</span> Zoom/link annotation</a></li>
+<li><a href="3-18-multiple-annotations.html#multiple-annotations"><span class="toc-section-number">3.18</span> Multiple annotations</a>
+<ul>
+<li><a href="3-18-multiple-annotations.html#heatmap-annotation-general-settings"><span class="toc-section-number">3.18.1</span> General settings</a></li>
+<li><a href="3-18-multiple-annotations.html#size-of-annotations"><span class="toc-section-number">3.18.2</span> Size of annotations</a></li>
+<li><a href="3-18-multiple-annotations.html#annotation-labels"><span class="toc-section-number">3.18.3</span> Annotation labels</a></li>
+</ul></li>
+<li><a href="3-19-heatmap-annotation-utility-function.html#heatmap-annotation-utility-function"><span class="toc-section-number">3.19</span> Utility functions</a></li>
+<li><a href="3-20-implement-new-annotation-functions.html#implement-new-annotation-functions"><span class="toc-section-number">3.20</span> Implement new annotation functions</a></li>
+</ul></li>
+<li><a href="4-a-list-of-heatmaps.html#a-list-of-heatmaps"><span class="toc-section-number">4</span> A List of Heatmaps</a>
+<ul>
+<li><a href="4-1-heatmap-list-titles.html#heatmap-list-titles"><span class="toc-section-number">4.1</span> Titles</a></li>
+<li><a href="4-2-size-of-heatmaps.html#size-of-heatmaps"><span class="toc-section-number">4.2</span> Size of heatmaps</a></li>
+<li><a href="4-3-gap-between-heatmaps.html#gap-between-heatmaps"><span class="toc-section-number">4.3</span> Gap between heatmaps</a></li>
+<li><a href="4-4-automatic-adjustment-to-the-main-heatmap.html#automatic-adjustment-to-the-main-heatmap"><span class="toc-section-number">4.4</span> Automatic adjustment to the main heatmap</a></li>
+<li><a href="4-5-control-main-heatmap-in-draw-function.html#control-main-heatmap-in-draw-function"><span class="toc-section-number">4.5</span> Control main heatmap in draw() function</a></li>
+<li><a href="4-6-annotations-as-components-are-adjusted.html#annotations-as-components-are-adjusted"><span class="toc-section-number">4.6</span> Annotations as components are adjusted</a></li>
+<li><a href="4-7-concatenate-with-annotations.html#concatenate-with-annotations"><span class="toc-section-number">4.7</span> Concatenate with annotations</a></li>
+<li><a href="4-8-concatenate-only-the-annotations.html#concatenate-only-the-annotations"><span class="toc-section-number">4.8</span> Concatenate only the annotations</a></li>
+<li><a href="4-9-vertical-concatenation.html#vertical-concatenation"><span class="toc-section-number">4.9</span> Vertical concatenation</a></li>
+<li><a href="4-10-subset-heatmap-list.html#subset-heatmap-list"><span class="toc-section-number">4.10</span> Subset the heatmap list</a></li>
+<li><a href="4-11-plot-the-heamtap-list.html#plot-the-heamtap-list"><span class="toc-section-number">4.11</span> Plot the heatmap list</a></li>
+<li><a href="4-12-get-orders-and-dendrograms-from-a-list-of-heatmaps.html#get-orders-and-dendrograms-from-a-list-of-heatmaps"><span class="toc-section-number">4.12</span> Get orders and dendrograms</a></li>
+<li><a href="4-13-change-parameters-globally.html#change-parameters-globally"><span class="toc-section-number">4.13</span> Change parameters globally</a></li>
+<li><a href="4-14-adjust-blank-space-caused-by-annotations.html#adjust-blank-space-caused-by-annotations"><span class="toc-section-number">4.14</span> Adjust blank space caused by annotations</a></li>
+<li><a href="4-15-manually-increase-space-around-the-plot.html#manually-increase-space-around-the-plot"><span class="toc-section-number">4.15</span> Manually increase space around the plot</a></li>
+</ul></li>
+<li><a href="5-legends.html#legends"><span class="toc-section-number">5</span> Legends</a>
+<ul>
+<li><a href="5-1-continuous-legends.html#continuous-legends"><span class="toc-section-number">5.1</span> Continuous legends</a></li>
+<li><a href="5-2-discrete-legends.html#discrete-legends"><span class="toc-section-number">5.2</span> Discrete legends</a></li>
+<li><a href="5-3-a-list-of-legends.html#a-list-of-legends"><span class="toc-section-number">5.3</span> A list of legends</a></li>
+<li><a href="5-4-heatmap-and-annotation-legends.html#heatmap-and-annotation-legends"><span class="toc-section-number">5.4</span> Heatmap and annotation legends</a></li>
+<li><a href="5-5-add-customized-legends.html#add-customized-legends"><span class="toc-section-number">5.5</span> Add customized legends</a></li>
+<li><a href="5-6-the-side-of-legends.html#the-side-of-legends"><span class="toc-section-number">5.6</span> The side of legends</a></li>
+</ul></li>
+<li><a href="6-heatmap-decoration.html#heatmap-decoration"><span class="toc-section-number">6</span> Heatmap Decoration</a>
+<ul>
+<li><a href="6-1-decoration-functions.html#decoration-functions"><span class="toc-section-number">6.1</span> Decoration functions</a></li>
+<li><a href="6-2-decoration-examples.html#decoration-examples"><span class="toc-section-number">6.2</span> Examples</a>
+<ul>
+<li><a href="6-2-decoration-examples.html#barplot-for-single-column-heatmap"><span class="toc-section-number">6.2.1</span> Barplot for single-column heatmap</a></li>
+<li><a href="6-2-decoration-examples.html#add-titles-for-row-annotations"><span class="toc-section-number">6.2.2</span> Add titles for row annotations</a></li>
+<li><a href="6-2-decoration-examples.html#other-possible-use-of-decorations"><span class="toc-section-number">6.2.3</span> Other possible use of decorations</a></li>
+</ul></li>
+</ul></li>
+<li><a href="7-oncoprint.html#oncoprint"><span class="toc-section-number">7</span> OncoPrint</a>
+<ul>
+<li><a href="7-1-oncoprint-general-settings.html#oncoprint-general-settings"><span class="toc-section-number">7.1</span> General settings</a>
+<ul>
+<li><a href="7-1-oncoprint-general-settings.html#input-data-format"><span class="toc-section-number">7.1.1</span> Input data format</a></li>
+<li><a href="7-1-oncoprint-general-settings.html#define-the-alter-fun"><span class="toc-section-number">7.1.2</span> Define the alter_fun()</a></li>
+<li><a href="7-1-oncoprint-general-settings.html#oncoprint-background"><span class="toc-section-number">7.1.3</span> Background</a></li>
+<li><a href="7-1-oncoprint-general-settings.html#complex-alteration-types"><span class="toc-section-number">7.1.4</span> Complex alteration types</a></li>
+<li><a href="7-1-oncoprint-general-settings.html#simplify-alter_fun"><span class="toc-section-number">7.1.5</span> Simplify alter_fun</a></li>
+<li><a href="7-1-oncoprint-general-settings.html#other-heatmap-related-settings"><span class="toc-section-number">7.1.6</span> Other heatmap-related settings</a></li>
+</ul></li>
+<li><a href="7-2-apply-to-cbioportal-dataset.html#apply-to-cbioportal-dataset"><span class="toc-section-number">7.2</span> Apply to cBioPortal dataset</a>
+<ul>
+<li><a href="7-2-apply-to-cbioportal-dataset.html#remove-empty-rows-and-columns"><span class="toc-section-number">7.2.1</span> Remove empty rows and columns</a></li>
+<li><a href="7-2-apply-to-cbioportal-dataset.html#reorder-the-oncoprint"><span class="toc-section-number">7.2.2</span> Reorder the oncoPrint</a></li>
+<li><a href="7-2-apply-to-cbioportal-dataset.html#oncoprint-annotations"><span class="toc-section-number">7.2.3</span> OncoPrint annotations</a></li>
+<li><a href="7-2-apply-to-cbioportal-dataset.html#oncoprint-as-a-heatmap"><span class="toc-section-number">7.2.4</span> oncoPrint as a Heatmap</a></li>
+</ul></li>
+</ul></li>
+<li><a href="8-upset-plot.html#upset-plot"><span class="toc-section-number">8</span> UpSet plot</a>
+<ul>
+<li><a href="8-1-input-data.html#input-data"><span class="toc-section-number">8.1</span> Input data</a></li>
+<li><a href="8-2-upset-mode.html#upset-mode"><span class="toc-section-number">8.2</span> Mode</a></li>
+<li><a href="8-3-make-the-combination-matrix.html#make-the-combination-matrix"><span class="toc-section-number">8.3</span> Make the combination matrix</a></li>
+<li><a href="8-4-upset-utility-functions.html#upset-utility-functions"><span class="toc-section-number">8.4</span> Utility functions</a></li>
+<li><a href="8-5-upset-making-the-plot.html#upset-making-the-plot"><span class="toc-section-number">8.5</span> Make the plot</a></li>
+<li><a href="8-6-upset-plots-as-heatmaps.html#upset-plots-as-heatmaps"><span class="toc-section-number">8.6</span> UpSet plots as heatmaps</a></li>
+<li><a href="8-7-example-with-the-movies-dataset.html#example-with-the-movies-dataset"><span class="toc-section-number">8.7</span> Example with the movies dataset</a></li>
+<li><a href="8-8-example-with-the-genomic-regions.html#example-with-the-genomic-regions"><span class="toc-section-number">8.8</span> Example with the genomic regions</a></li>
+</ul></li>
+<li><a href="9-interactive.html#interactive"><span class="toc-section-number">9</span> Interactive ComplexHeatmap</a></li>
+<li><a href="10-integrate-with-other-packages.html#integrate-with-other-packages"><span class="toc-section-number">10</span> Integrate with other packages</a>
+<ul>
+<li><a href="10-1-pheatmap.html#pheatmap"><span class="toc-section-number">10.1</span> pheatmap</a>
+<ul>
+<li><a href="10-1-pheatmap.html#examples"><span class="toc-section-number">10.1.1</span> Examples</a></li>
+<li><a href="10-1-pheatmap.html#translation"><span class="toc-section-number">10.1.2</span> Translation</a></li>
+<li><a href="10-1-pheatmap.html#comparisons"><span class="toc-section-number">10.1.3</span> Comparisons</a></li>
+</ul></li>
+<li><a href="10-2-cowplot.html#cowplot"><span class="toc-section-number">10.2</span> cowplot</a></li>
+<li><a href="10-3-gridtext.html#gridtext"><span class="toc-section-number">10.3</span> gridtext</a>
+<ul>
+<li><a href="10-3-gridtext.html#gridtext-title"><span class="toc-section-number">10.3.1</span> Titles</a></li>
+<li><a href="10-3-gridtext.html#gridtext-dimnames"><span class="toc-section-number">10.3.2</span> Row/column names</a></li>
+<li><a href="10-3-gridtext.html#gridtext-annotations"><span class="toc-section-number">10.3.3</span> Annotation labels</a></li>
+<li><a href="10-3-gridtext.html#gridtext-anno-text"><span class="toc-section-number">10.3.4</span> Text annotation</a></li>
+<li><a href="10-3-gridtext.html#gridtext-legends"><span class="toc-section-number">10.3.5</span> Legend</a></li>
+</ul></li>
+</ul></li>
+<li><a href="11-other-high-level-plots.html#other-high-level-plots"><span class="toc-section-number">11</span> Other High-level Plots</a>
+<ul>
+<li><a href="11-1-density-heatmap.html#density-heatmap"><span class="toc-section-number">11.1</span> Density heatmap</a></li>
+<li><a href="11-2-stacked-summary-plot.html#stacked-summary-plot"><span class="toc-section-number">11.2</span> Stacked summary plot</a></li>
+</ul></li>
+<li><a href="12-three-dimensional-complexheatmap-3d-heatmap.html#three-dimensional-complexheatmap-3d-heatmap"><span class="toc-section-number">12</span> Three-dimensional ComplexHeatmap {#3d-heatmap}</a>
+<ul>
+<li><a href="12-1-motivation.html#motivation"><span class="toc-section-number">12.1</span> Motivation</a></li>
+<li><a href="12-2-implementation-of-3d-heatmap.html#implementation-of-3d-heatmap"><span class="toc-section-number">12.2</span> Implementation of 3D heatmap</a></li>
+</ul></li>
+<li><a href="13-genome-level-heatmap.html#genome-level-heatmap"><span class="toc-section-number">13</span> Genome-level heatmap</a></li>
+<li><a href="14-more-examples.html#more-examples"><span class="toc-section-number">14</span> More Examples</a>
+<ul>
+<li><a href="14-1-add-more-information-for-gene-expression-matrix.html#add-more-information-for-gene-expression-matrix"><span class="toc-section-number">14.1</span> Add more information for gene expression matrix</a></li>
+<li><a href="14-2-the-measles-vaccine-heatmap.html#the-measles-vaccine-heatmap"><span class="toc-section-number">14.2</span> The measles vaccine heatmap</a></li>
+<li><a href="14-3-visualize-cell-heterogeneity-from-single-cell-rnaseq.html#visualize-cell-heterogeneity-from-single-cell-rnaseq"><span class="toc-section-number">14.3</span> Visualize Cell Heterogeneity from Single Cell RNASeq</a></li>
+<li><a href="14-4-correlations-between-methylation-expression-and-other-genomic-features.html#correlations-between-methylation-expression-and-other-genomic-features"><span class="toc-section-number">14.4</span> Correlations between methylation, expression and other genomic features</a></li>
+<li><a href="14-5-visualize-methylation-profile-with-complex-annotations.html#visualize-methylation-profile-with-complex-annotations"><span class="toc-section-number">14.5</span> Visualize Methylation Profile with Complex Annotations</a></li>
+<li><a href="14-6-add-multiple-boxplots-for-single-row.html#add-multiple-boxplots-for-single-row"><span class="toc-section-number">14.6</span> Add multiple boxplots for single row</a></li>
+</ul></li>
+<li><a href="15-other-tricks.html#other-tricks"><span class="toc-section-number">15</span> Other Tricks</a>
+<ul>
+<li><a href="15-1-set-the-same-cell-size-for-different-heatmaps-with-different-dimensions.html#set-the-same-cell-size-for-different-heatmaps-with-different-dimensions"><span class="toc-section-number">15.1</span> Set the same cell size for different heatmaps with different dimensions</a></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="general-design" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> General design</h2>
+<p>A single heatmap is composed of the heatmap body and the heatmap components.
+The heatmap body can be split by rows and columns. The heatmap components are
+titles, dendrograms, matrix names and heatmap annotations, which are put on
+the four sides of the heamap body. The heatmap components are reordered or
+split according to the heatmap body.</p>
+<p><img src="01-introduction_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>A heatmap list is concatenation of a list of heatmaps and heatmap annotations.
+Surrounding the heatmap list, there are global-level titles and legends.</p>
+<p>One important thing for the heatmap list is that rows for all heatmaps and
+annotations are all adjusted so that the same row in all heatmaps and
+annotations corresponds to a same feature.</p>
+<p><img src="01-introduction_files/figure-html/unnamed-chunk-4-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>The heatmaps and annotations (now it is column annotation) can also be
+arranged vertically.</p>
+<p><img src="01-introduction_files/figure-html/unnamed-chunk-5-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p>And the heatmap list can also be split by rows and by columns.</p>
+<p>The <strong>ComplexHeatmap</strong> package is implemented in an object-oriented way. To
+describe a heatmap list, there are following classes:</p>
+<ul>
+<li><code>Heatmap</code> class: a single heatmap containing heatmap body, row/column names,
+titles, dendrograms and row/column annotations.</li>
+<li><code>HeatmapList</code> class: a list of heatmaps and heatmap annotations.</li>
+<li><code>HeatmapAnnotation</code> class: defines a list of row annotations and column
+annotations. The heatmap annotations can be components of heatmap, also they
+can be independent as heatmaps.</li>
+</ul>
+<p>There are also several internal classes:</p>
+<ul>
+<li><code>SingleAnnotation</code> class: defines a single row annotation or column
+annotation. The <code>HeatmapAnnotation</code> object contains a list of
+<code>SingleAnnotation</code> objects.</li>
+<li><code>ColorMapping</code> class: mapping from values to colors. The color mappings of
+the main matrix and the annotations are controlled by <code>ColorMapping</code> class.</li>
+<li><code>AnnotationFunction</code> class: constructs user-defined annotations. This is the
+base of creating user-defined annotation graphics.</li>
+</ul>
+<p><strong>ComplexHeatmap</strong> is implemented under <strong>grid</strong> system, so users need to know
+basic <strong>grid</strong> functionality to get full use of the package.</p>
+</div>
+<p style="text-align: center;">
+<a href="1-introduction.html"><button class="btn btn-default">Previous</button></a>
+<a href="1-2-a-brief-description-of-following-chapters.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>

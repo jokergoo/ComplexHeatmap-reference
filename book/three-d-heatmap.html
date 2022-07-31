@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 12 Three-dimensional ComplexHeatmap | ComplexHeatmap Complete Reference</title>
+<meta name="author" content="Zuguang Gu">
+<meta name="description" content="12.1 Motivation ComplexHeatmap has a densityHeatmap() to visualize a list of density distributions, such as in the following example: library(ComplexHeatmap) set.seed(123) mat = matrix(rnorm(500),...">
+<meta name="generator" content="bookdown 0.27 with bs4_book()">
+<meta property="og:title" content="Chapter 12 Three-dimensional ComplexHeatmap | ComplexHeatmap Complete Reference">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://jokergoo.github.io/ComplexHeatmap-reference/book/three-d-heatmap.html">
+<meta property="og:image" content="https://jokergoo.github.io/ComplexHeatmap-reference/book/complexheatmap-cover.jpg">
+<meta property="og:description" content="12.1 Motivation ComplexHeatmap has a densityHeatmap() to visualize a list of density distributions, such as in the following example: library(ComplexHeatmap) set.seed(123) mat = matrix(rnorm(500),...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 12 Three-dimensional ComplexHeatmap | ComplexHeatmap Complete Reference">
+<meta name="twitter:description" content="12.1 Motivation ComplexHeatmap has a densityHeatmap() to visualize a list of density distributions, such as in the following example: library(ComplexHeatmap) set.seed(123) mat = matrix(rnorm(500),...">
+<meta name="twitter:image" content="https://jokergoo.github.io/ComplexHeatmap-reference/book/complexheatmap-cover.jpg">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><style>
+    #content {
+    	font-size: 0.95rem;
+    }
+    </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">ComplexHeatmap Complete Reference</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="a-single-heatmap.html"><span class="header-section-number">2</span> A Single Heatmap</a></li>
+<li><a class="" href="heatmap-annotations.html"><span class="header-section-number">3</span> Heatmap Annotations</a></li>
+<li><a class="" href="a-list-of-heatmaps.html"><span class="header-section-number">4</span> A List of Heatmaps</a></li>
+<li><a class="" href="legends.html"><span class="header-section-number">5</span> Legends</a></li>
+<li><a class="" href="heatmap-decoration.html"><span class="header-section-number">6</span> Heatmap Decoration</a></li>
+<li><a class="" href="oncoprint.html"><span class="header-section-number">7</span> OncoPrint</a></li>
+<li><a class="" href="upset-plot.html"><span class="header-section-number">8</span> UpSet plot</a></li>
+<li><a class="" href="interactive.html"><span class="header-section-number">9</span> Interactive ComplexHeatmap</a></li>
+<li><a class="" href="integrate-with-other-packages.html"><span class="header-section-number">10</span> Integrate with other packages</a></li>
+<li><a class="" href="other-high-level-plots.html"><span class="header-section-number">11</span> Other High-level Plots</a></li>
+<li><a class="active" href="three-d-heatmap.html"><span class="header-section-number">12</span> Three-dimensional ComplexHeatmap</a></li>
+<li><a class="" href="genome-level-heatmap.html"><span class="header-section-number">13</span> Genome-level heatmap</a></li>
+<li><a class="" href="more-examples.html"><span class="header-section-number">14</span> More Examples</a></li>
+<li><a class="" href="other-tricks.html"><span class="header-section-number">15</span> Other Tricks</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jokergoo/ComplexHeatmap">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="three-d-heatmap" class="section level1" number="12">
+<h1>
+<span class="header-section-number">12</span> Three-dimensional ComplexHeatmap<a class="anchor" aria-label="anchor" href="#three-d-heatmap"><i class="fas fa-link"></i></a>
+</h1>
+<div id="motivation" class="section level2" number="12.1">
+<h2>
+<span class="header-section-number">12.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>ComplexHeatmap</strong> has a <code><a href="https://rdrr.io/pkg/ComplexHeatmap/man/densityHeatmap.html">densityHeatmap()</a></code> to visualize a list of density
+distributions, such as in the following example:</p>
+<div class="sourceCode" id="cb747"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jokergoo/ComplexHeatmap">ComplexHeatmap</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span>
+<span class="va">mat</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">500</span><span class="op">)</span>, ncol <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/BiocGenerics/man/row_colnames.html">colnames</a></span><span class="op">(</span><span class="va">mat</span><span class="op">)</span> <span class="op">=</span> <span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span>
+<span class="fu"><a href="https://rdrr.io/pkg/ComplexHeatmap/man/densityHeatmap.html">densityHeatmap</a></span><span class="op">(</span><span class="va">mat</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="12-3d-heatmap_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>In basic R graphics, since distributions can also be visualized by histograms, from <strong>ComplexHeatmap</strong>
+version 2.7.9, I added a new function <code><a href="https://rdrr.io/pkg/ComplexHeatmap/man/frequencyHeatmap.html">frequencyHeatmap()</a></code> which is like a histogram-version
+of density heatmap. The usage is similar as <code><a href="https://rdrr.io/pkg/ComplexHeatmap/man/densityHeatmap.html">densityHeatmap()</a></code>:</p>
+<div class="sourceCode" id="cb748"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/ComplexHeatmap/man/frequencyHeatmap.html">frequencyHeatmap</a></span><span class="op">(</span><span class="va">mat</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="12-3d-heatmap_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>In the previous example, the frequency matrix is visualized as a heatmap. Note you can use different statistic
+in <code><a href="https://rdrr.io/pkg/ComplexHeatmap/man/frequencyHeatmap.html">frequencyHeatmap()</a></code>, <em>i.e.</em>, <code>"count"</code>, <code>"proportion"</code> or <code>"density"</code>.</p>
+<p>Well, the frequency heatmap claims to be a histogram-version of density heatmap, but it does not
+look like histograms at all. Maybe a 3D heatmap with 3D bars is more proper.
+This can be done by setting argument <code>use_3d = TRUE</code> in <code><a href="https://rdrr.io/pkg/ComplexHeatmap/man/frequencyHeatmap.html">frequencyHeatmap()</a></code>.</p>
+<div class="sourceCode" id="cb749"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/ComplexHeatmap/man/frequencyHeatmap.html">frequencyHeatmap</a></span><span class="op">(</span><span class="va">mat</span>, use_3d <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="12-3d-heatmap_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>This looks nicer! In the next section I will explain how the 3D Heatmap is implemented.</p>
+</div>
+<div id="implementation-of-3d-heatmap" class="section level2" number="12.2">
+<h2>
+<span class="header-section-number">12.2</span> Implementation of 3D heatmap<a class="anchor" aria-label="anchor" href="#implementation-of-3d-heatmap"><i class="fas fa-link"></i></a>
+</h2>
+<p>First, we need to draw 3D bars. This can be done by the new function <code><a href="https://rdrr.io/pkg/ComplexHeatmap/man/bar3D.html">bar3D()</a></code>. The usage is as follows:</p>
+<div class="sourceCode" id="cb750"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/ComplexHeatmap/man/bar3D.html">bar3D</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0.5</span>, y <span class="op">=</span> <span class="fl">0.5</span>, w <span class="op">=</span> <span class="fl">0.2</span>, h <span class="op">=</span> <span class="fl">0.2</span>, l <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">1</span>, <span class="st">"cm"</span><span class="op">)</span>, theta <span class="op">=</span> <span class="fl">60</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="12-3d-heatmap_files/figure-html/unnamed-chunk-4-1.png" width="96" style="display: block; margin: auto;"></div>
+<p>The arguments are:</p>
+<ul>
+<li>
+<code>x</code>: x coordinate of the center point in the bottom face. Value should be a <code>unit</code> object. If it is numeric, the default unit is <code>npc</code>.</li>
+<li>
+<code>y</code>: y coordinate of the center point in the bottom face.</li>
+<li>
+<code>w</code>: Width of the bar (in the x direction). See the following figure.</li>
+<li>
+<code>h</code>: Height of the bar (in the y direction). See the following figure.</li>
+<li>
+<code>l</code>: Length of the bar (in the z direction). See the following figure.</li>
+<li>
+<code>theta</code>: Angle for the projection. See the following figure. Note <code>theta</code> can only take value between 0 and 90.</li>
+</ul>
+<div class="inline-figure"><img src="12-3d-heatmap_files/figure-html/unnamed-chunk-5-1.png" width="192" style="display: block; margin: auto;"></div>
+<p><code>fill</code> argument sets the color. To enhance the visual effect of 3D visualization, the three faces actually have slighly different brightness.</p>
+<div class="sourceCode" id="cb751"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/ComplexHeatmap/man/bar3D.html">bar3D</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.8</span>, length <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>, y <span class="op">=</span> <span class="fl">0.5</span>, w <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">5</span>, <span class="st">"mm"</span><span class="op">)</span>, h <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">5</span>, <span class="st">"mm"</span><span class="op">)</span>, 
+    l <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">1</span>, <span class="st">"cm"</span><span class="op">)</span>, fill <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Vector-class.html">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>, <span class="st">"purple"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="12-3d-heatmap_files/figure-html/unnamed-chunk-6-1.png" width="576" style="display: block; margin: auto;"></div>
+<p><code>theta</code> argument sets the angle of the projection. Since I am a right-hand
+person, my left hand is more free so that it feels like it’s giving invisible
+force to push the bars to the right, thus, <code>theta</code> can only take value between
+0 and 90. :)</p>
+<div class="sourceCode" id="cb752"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/ComplexHeatmap/man/bar3D.html">bar3D</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0.2</span>, <span class="fl">0.8</span>, length <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>, y <span class="op">=</span> <span class="fl">0.5</span>, w <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">5</span>, <span class="st">"mm"</span><span class="op">)</span>, h <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">5</span>, <span class="st">"mm"</span><span class="op">)</span>, 
+    l <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">1</span>, <span class="st">"cm"</span><span class="op">)</span>, theta <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Vector-class.html">c</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">40</span>, <span class="fl">60</span>, <span class="fl">80</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="12-3d-heatmap_files/figure-html/unnamed-chunk-7-1.png" width="576" style="display: block; margin: auto;"></div>
+<p>To add bars to heatmap cells, we can simply implement <code><a href="https://rdrr.io/pkg/ComplexHeatmap/man/bar3D.html">bar3D()</a></code> in <code>cell_fun</code>
+or <code>layer_fun</code> where we add each bar to each cell. Here we have a new function
+<code><a href="https://rdrr.io/pkg/ComplexHeatmap/man/Heatmap3D.html">Heatmap3D()</a></code> which simplifies this. <code><a href="https://rdrr.io/pkg/ComplexHeatmap/man/Heatmap3D.html">Heatmap3D()</a></code> accepts almost all the arguments
+in <code><a href="https://rdrr.io/pkg/ComplexHeatmap/man/Heatmap.html">Heatmap()</a></code> and the only difference is each cell has a 3D bar of which the
+height corresponds to its value.</p>
+<p><code><a href="https://rdrr.io/pkg/ComplexHeatmap/man/Heatmap3D.html">Heatmap3D()</a></code> only allows non-negative matrix as input. Also default values
+are changes for some arguments, such as row names are put on the left side of heatmap,
+and clusterings are still applied but the dendrograms are not drawn by default.</p>
+<p>Following is a demonstration of the usage of <code><a href="https://rdrr.io/pkg/ComplexHeatmap/man/Heatmap3D.html">Heatmap3D()</a></code>:</p>
+<div class="sourceCode" id="cb753"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">7</span><span class="op">)</span>
+<span class="va">mat</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>, <span class="fl">10</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/BiocGenerics/man/row_colnames.html">rownames</a></span><span class="op">(</span><span class="va">mat</span><span class="op">)</span> <span class="op">=</span> <span class="va">LETTERS</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span>
+<span class="fu"><a href="https://rdrr.io/pkg/BiocGenerics/man/row_colnames.html">colnames</a></span><span class="op">(</span><span class="va">mat</span><span class="op">)</span> <span class="op">=</span> <span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span>
+<span class="fu"><a href="https://rdrr.io/pkg/ComplexHeatmap/man/Heatmap3D.html">Heatmap3D</a></span><span class="op">(</span><span class="va">mat</span>, name <span class="op">=</span> <span class="st">"mat"</span>, column_title <span class="op">=</span> <span class="st">"This is a 3D heatmap"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="12-3d-heatmap_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>In the previous example, if bars close to the top of the heatmap or to the right of the
+heatmap have too large length, they will overlap to the heatmap title or the legend, in
+this case, we need to manually adjust the space between, <em>e.g.</em>, title and
+the heatmap body.</p>
+<p>In <strong>ComplexHeatmap</strong>, there are several global options that control the
+spaces between heatmap components. To solve the problem in the previous example,
+we can manually set a proper value for <code>ht_opt$HEATMAP_LEGEND_PADDING</code> and
+<code>ht_opt$TITLE_PADDING</code>.</p>
+<div class="sourceCode" id="cb754"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">ht_opt</span><span class="op">$</span><span class="va">HEATMAP_LEGEND_PADDING</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">5</span>, <span class="st">"mm"</span><span class="op">)</span>
+<span class="va">ht_opt</span><span class="op">$</span><span class="va">TITLE_PADDING</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Vector-class.html">c</a></span><span class="op">(</span><span class="fl">9</span>, <span class="fl">2</span><span class="op">)</span>, <span class="st">"mm"</span><span class="op">)</span> <span class="co"># bottom and top padding</span>
+<span class="fu"><a href="https://rdrr.io/pkg/ComplexHeatmap/man/Heatmap3D.html">Heatmap3D</a></span><span class="op">(</span><span class="va">mat</span>, name <span class="op">=</span> <span class="st">"mat"</span>, column_title <span class="op">=</span> <span class="st">"This is a 3D heatmap"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="12-3d-heatmap_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;"></div>
+<p>Reset the global options by <code>ht_opt(RESET = TRUE)</code>:</p>
+<div class="sourceCode" id="cb755"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/ComplexHeatmap/man/ht_opt.html">ht_opt</a></span><span class="op">(</span>RESET <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<p>Next I demonstrate another example which is applied to the well-known measles vaccine dataset. First I show
+the “normal 2D heatmap.” Code for generating the heatmap can be found <a href="https://jokergoo.github.io/ComplexHeatmap-reference/book/more-examples.html#the-measles-vaccine-heatmap">here</a>.</p>
+<div class="inline-figure"><img src="https://jokergoo.github.io/ComplexHeatmap-reference/book/12-examples_files/figure-html/unnamed-chunk-2-1.png" width="100%"></div>
+<p>To change it to 3D visualization, simply replace <code><a href="https://rdrr.io/pkg/ComplexHeatmap/man/Heatmap.html">Heatmap()</a></code> with
+<code><a href="https://rdrr.io/pkg/ComplexHeatmap/man/Heatmap3D.html">Heatmap3D()</a></code> and most of the original arguments for <code><a href="https://rdrr.io/pkg/ComplexHeatmap/man/Heatmap.html">Heatmap()</a></code> can still be
+put there. For simplicity, in the 3D heatmap, I removed the top annotation and
+the right annotation.</p>
+<div class="sourceCode" id="cb756"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mat</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"measles.rds"</span>, package <span class="op">=</span> <span class="st">"ComplexHeatmap"</span><span class="op">)</span><span class="op">)</span>
+<span class="va">year_text</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/BiocGenerics/man/row_colnames.html">colnames</a></span><span class="op">(</span><span class="va">mat</span><span class="op">)</span><span class="op">)</span>
+<span class="va">year_text</span><span class="op">[</span><span class="va">year_text</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span> <span class="fl">10</span> <span class="op">!=</span> <span class="fl">0</span><span class="op">]</span> <span class="op">=</span> <span class="st">""</span>
+<span class="va">ha_column</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/ComplexHeatmap/man/HeatmapAnnotation.html">HeatmapAnnotation</a></span><span class="op">(</span>
+    year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/ComplexHeatmap/man/anno_text.html">anno_text</a></span><span class="op">(</span><span class="va">year_text</span>, rot <span class="op">=</span> <span class="fl">0</span>, location <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">1</span>, <span class="st">"npc"</span><span class="op">)</span>, just <span class="op">=</span> <span class="st">"top"</span><span class="op">)</span>
+<span class="op">)</span>
+<span class="va">col_fun</span> <span class="op">=</span> <span class="fu">circlize</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/circlize/man/colorRamp2.html">colorRamp2</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Vector-class.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">800</span>, <span class="fl">1000</span>, <span class="fl">127000</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Vector-class.html">c</a></span><span class="op">(</span><span class="st">"white"</span>, <span class="st">"cornflowerblue"</span>, <span class="st">"yellow"</span>, <span class="st">"red"</span><span class="op">)</span><span class="op">)</span>
+<span class="va">ht_opt</span><span class="op">$</span><span class="va">TITLE_PADDING</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Vector-class.html">c</a></span><span class="op">(</span><span class="fl">15</span>, <span class="fl">2</span><span class="op">)</span>, <span class="st">"mm"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/ComplexHeatmap/man/Heatmap3D.html">Heatmap3D</a></span><span class="op">(</span><span class="va">mat</span>, name <span class="op">=</span> <span class="st">"cases"</span>, col <span class="op">=</span> <span class="va">col_fun</span>,
+    cluster_columns <span class="op">=</span> <span class="cn">FALSE</span>, show_row_dend <span class="op">=</span> <span class="cn">FALSE</span>, 
+    show_column_names <span class="op">=</span> <span class="cn">FALSE</span>,
+    row_names_side <span class="op">=</span> <span class="st">"left"</span>, row_names_gp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/gpar.html">gpar</a></span><span class="op">(</span>fontsize <span class="op">=</span> <span class="fl">8</span><span class="op">)</span>,
+    column_title <span class="op">=</span> <span class="st">'Measles cases in US states 1930-2001\nVaccine introduced 1961'</span>,
+    bottom_annotation <span class="op">=</span> <span class="va">ha_column</span>,
+    heatmap_legend_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>at <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Vector-class.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">5e4</span>, <span class="fl">1e5</span>, <span class="fl">1.5e5</span><span class="op">)</span>, 
+        labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/S4Vectors/man/Vector-class.html">c</a></span><span class="op">(</span><span class="st">"0"</span>, <span class="st">"50k"</span>, <span class="st">"100k"</span>, <span class="st">"150k"</span><span class="op">)</span><span class="op">)</span>,
+    <span class="co"># new arguments for Heatmap3D()</span>
+    bar_rel_width <span class="op">=</span> <span class="fl">1</span>, bar_rel_height <span class="op">=</span> <span class="fl">1</span>, bar_max_length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fl">2</span>, <span class="st">"cm"</span><span class="op">)</span>
+<span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="12-3d-heatmap_files/figure-html/unnamed-chunk-11-1.png" width="100%" style="display: block; margin: auto;"></div>
+<p>By the way, it is also possible to turn the static 3D heatmap to an
+interactive Shiny application by package <strong>InteractiveComplexHeatmap</strong>. See the
+following figure:</p>
+<div class="inline-figure"><img src="https://user-images.githubusercontent.com/449218/112438755-8e548e80-8d48-11eb-972b-f3b0a41a1de2.png" width="100%"></div>
+<p><code><a href="https://rdrr.io/pkg/ComplexHeatmap/man/Heatmap3D.html">Heatmap3D()</a></code> can do a lot of things that are the same as <code><a href="https://rdrr.io/pkg/ComplexHeatmap/man/Heatmap.html">Heatmap()</a></code>, such as adding
+annotations, splitting the heatmap or concatenating more heatmaps by <code>+</code>/<code>%v%</code>. But since 3D
+visualization is in general not a good idea and it actually won’t give you
+more information than what you can get from 2D visualization, thus, if you
+want to use <code><a href="https://rdrr.io/pkg/ComplexHeatmap/man/Heatmap3D.html">Heatmap3D()</a></code>, you better keep it as simple as possible. Also, please
+apply it to small matrices, it will take long time to generate for large matrices.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="other-high-level-plots.html"><span class="header-section-number">11</span> Other High-level Plots</a></div>
+<div class="next"><a href="genome-level-heatmap.html"><span class="header-section-number">13</span> Genome-level heatmap</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#three-d-heatmap"><span class="header-section-number">12</span> Three-dimensional ComplexHeatmap</a></li>
+<li><a class="nav-link" href="#motivation"><span class="header-section-number">12.1</span> Motivation</a></li>
+<li><a class="nav-link" href="#implementation-of-3d-heatmap"><span class="header-section-number">12.2</span> Implementation of 3D heatmap</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jokergoo/ComplexHeatmap/blob/master/12-3d-heatmap.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jokergoo/ComplexHeatmap/edit/master/12-3d-heatmap.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>ComplexHeatmap Complete Reference</strong>" was written by Zuguang Gu. It was last built on last revised on 2022-07-31.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

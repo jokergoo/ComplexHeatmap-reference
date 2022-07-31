@@ -11,9 +11,9 @@ heatmaps and supports self-defined annotation graphics.
 
 
 
-A single heatmap is composed of the heatmap body and the heatmap components.
+A single heatmap is composed by the heatmap body and the heatmap components.
 The heatmap body can be split by rows and columns. The heatmap components are
-titles, dendrograms, matrix names and heatmap annotations, which are put on
+titles, dendrograms, row/column names/labels and heatmap annotations, which are put on
 the four sides of the heamap body. The heatmap components are reordered or
 split according to the heatmap body.
 

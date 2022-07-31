@@ -1,7 +1,7 @@
 
 # A Single Heatmap {#a-single-heatmap}
 
-A single heatmap is the most used approach for visualizing the data. Although
+A single heatmap is the most used approach for visualizing data. Although
 "the shining point" of the **ComplexHeatmap** package is that it can visualize a
 list of heatmaps in parallel, however, as the basic unit of the heatmap list, it is
 still very important to have the single heatmap well configured.
@@ -47,12 +47,12 @@ The title for the legend is taken from the "name" of the heatmap by default.
 Each heatmap has a name which is like a unique identifier for the heatmap and
 it is important when you have a list of heatmaps. In later chapters, you will
 find the heatmap name is used for setting the "main heatmap" and is used for
-decoration of heatmaps. If the name is not assigned, an internal name is
-assigned to the heatmap in a form of `matrix_%d`. In following examples in
+decoration on heatmaps. If the name is not assigned, an internal name is
+assigned to the heatmap in a form of `matrix_%d`. In the following examples in
 this chapter, we give the name `mat` to the heatmap (for which you will see
-the change of legend in the next plot).
+the change of legend title in the next plot).
 
-If you put `Heatmap()` inside a function or a `for`/`if`/`while` chunk, you
+If you put `Heatmap()` inside a function or a `for`/`if`/`while` chunk, or the R script is run under command-line, you
 won't see the heatmap after executing `Heatmap()`. In this case, you need to
 use `draw()` function explicitly as follows. We will explain this point in
 more detail in Section \@ref(plot-the-heatmap).
@@ -127,7 +127,7 @@ Heatmap(mat/4, name = "mat", col = col_fun, column_title = "mat/4")
 Heatmap(abs(mat), name = "mat", col = col_fun, column_title = "abs(mat)")
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-5-1.png" width="960" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-5-1.png" width="100%" style="display: block; margin: auto;" />
 
 If the matrix is continuous, you can also simply provide a vector of colors
 and colors will be linearly interpolated. But remember this method is not
@@ -145,12 +145,12 @@ Heatmap(mat, name = "mat", col = rev(rainbow(10)),
 
 If the matrix contains discrete values (either numeric or character), colors
 should be specified as a named vector to make it possible for the mapping from
-discrete values to colors. If there is no name for the color, the order of
+discrete values to colors. If there is no name for the color vector, the order of
 colors corresponds to the order of `unique(mat)`. Note now the legend is
-generated from the color mapping vector.
+generated from the color mapping vector and it is a "discrete legend".
 
-Following sets colors for a discrete numeric matrix (you don't need to convert
-it to a character matrix).
+In the following example, we set colors for a discrete numeric matrix. You don't need to convert
+it to a character matrix, just set the numbers as "names" of the color vector.
 
 
 ```r
@@ -162,7 +162,7 @@ Heatmap(discrete_mat, name = "mat", col = colors,
 
 <img src="02-single_heatmap_files/figure-html/unnamed-chunk-7-1.png" width="499.2" style="display: block; margin: auto;" />
 
-Or a character matrix:
+For a character matrix, it is straightforward.
 
 
 ```r
@@ -174,9 +174,9 @@ Heatmap(discrete_mat, name = "mat", col = colors,
 
 <img src="02-single_heatmap_files/figure-html/discrete_character_matrix-1.png" width="499.2" style="display: block; margin: auto;" />
 
-As you see in the two examples above, for the numeric matrix (no matter the
+As you can see in the two examples above, for the numeric matrix (no matter the
 color is continuous mapping or discrete mapping), by default clustering is
-applied on both dimensions while for character matrix, clustering is turned
+applied on both dimensions, while for character matrix, clustering is turned
 off (but you can still cluster a character matrix if you provide a proper
 distance metric for two character vectors, see example in Section
 \@ref(distance-methods)).
@@ -215,14 +215,14 @@ Heatmap(mat, name = "mat1", col = f1, column_title = "LAB color space")
 Heatmap(mat, name = "mat2", col = f2, column_title = "RGB color space")
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-10-1.png" width="960" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-10-1.png" width="100%" style="display: block; margin: auto;" />
 
 In following plots, corresponding values change evenly on the folded lines,
 you can see how colors change under different color spaces (top plots:
 green-black-red, bottom plots: blue-white-red. The plot is made by
-[**HilbertCurve**package](https://bioconductor.org/packages/release/bioc/html/HilbertCurve.html)).
+[**HilbertCurve** package](https://bioconductor.org/packages/release/bioc/html/HilbertCurve.html)).
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-11-1.png" width="1344" style="display: block; margin: auto;" /><img src="02-single_heatmap_files/figure-html/unnamed-chunk-11-2.png" width="1344" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-11-1.png" width="100%" style="display: block; margin: auto;" /><img src="02-single_heatmap_files/figure-html/unnamed-chunk-11-2.png" width="100%" style="display: block; margin: auto;" />
 
 Last but not the least, colors for the heatmap borders can be set by the
 `border`/`border_gp` and `rect_gp` arguments. `border`/`border_gp` controls
@@ -235,7 +235,7 @@ reason, here you can also set `border_gp` argument which should be a `gpar` obje
 
 `rect_gp` is a `gpar` object which means you can only set it by
 `grid::gpar()`. Since the filled color is already controlled by the heatmap
-color mapping, you can only set the `col` parameter in `gpar()` to control the
+color mapping, you can only set the `col`/`lwd`/`lty` parameters in `gpar()` to control the
 border of the heatmap grids.
 
 
@@ -262,23 +262,22 @@ for the default color mapping (by `ComplexHeatmap:::default_col()`):
 - If the values are from the heatmap annotation and are numeric, colors are
   mapped between white and one random color by linearly interpolating to the
   mininum and maxinum.
-- If the values are from the matrix (let's denote it as $M$) which corresponds
-  to the heatmap body:
+- If the values are from the matrix (let's denote it as $M$):
     * If the fraction of positive values in $M$ is between 25% and 75%, colors
       are mapped to blue, white and red by linearly interpolating to $-q$, 0
       and $q$, where $q$ is the maximum of $|M|$ if the number of unique
-      values is less than 100, or $q$ is the 99th percentile of $|M|$. This
+      values is less than 100, or $q$ is the 99th percentile of $|M|$ if there are more than 100 values in teh matrix. This
       color mapping is centric to zero.
     * Or else the colors are mapped to blue, white and red by linearly
       interpolating to $q_1$, $(q_1 + q_2)/2$ and $q_2$, where $q_1$ and $q_2$
       are mininum and maxinum if the number of unique values is $M$ is less
-      than 100, or $q_1$ is the 1st percentile and $q_2$ is the 99th
+      than 100. If there are more than 100 values in the matrix, $q_1$ is the 1st percentile and $q_2$ is the 99th
       percentile in $M$.
 
 `rect_gp` allows a non-standard parameter `type`. If it is set to `"none"`,
 the clustering is still applied but nothing in drawn on the heatmap body. The
-customized graphics on heatmap body can be added via a self-defined `cell_fun`
-or `layer_fun` (see Section \@ref(customize-the-heatmap-body)).
+customized graphics on heatmap body can be later added via a self-defined `cell_fun`
+or `layer_fun` (explained in Section \@ref(customize-the-heatmap-body)).
 
 
 ```r
@@ -296,7 +295,7 @@ by the column. Note at a same time you can only put e.g. column title either
 on the top or at the bottom of the heatmap.
 
 The graphic parameters can be set by `row_title_gp` and `column_title_gp`
-respectively. Please remember you should use `gpar()` to specify graphic
+respectively. Please remember you should use `gpar()` to specify graphics
 parameters.
 
 
@@ -356,7 +355,9 @@ Heatmap(mat, name = "mat", column_title = "I am a column title",
 <img src="02-single_heatmap_files/figure-html/unnamed-chunk-15-1.png" width="499.2" style="display: block; margin: auto;" />
 
 You might have found there is no space on the top of the column title when the background
-is colored. This can be solved by setting the global parameter `ht_opt$TITLE_PADDING`.
+is colored. This is mainly for being consistent to the figure titles of ggplot2 figures (when you make a multiple-panel figure mixed
+with ComplexHeatmap and ggplot2 plots).
+This can be adjusted by setting the global parameter `ht_opt$TITLE_PADDING`.
 The use for `ht_opt()` will be introduced in Section \@ref(change-parameters-globally).
 
 
@@ -372,7 +373,7 @@ Heatmap(mat, name = "mat", column_title = "I am a column title",
 ht_opt(RESET = TRUE)
 ```
 
-If the graphic elements are texts, they can be set as mathematical formulas.
+Title can be set as mathematical formulas.
 
 
 ```r
@@ -383,8 +384,22 @@ Heatmap(mat, name = "mat",
 <img src="02-single_heatmap_files/figure-html/unnamed-chunk-17-1.png" width="499.2" style="display: block; margin: auto;" />
 
 More complicated text can be drawn as the heatmap title by using the
-**gridtext** package. See Section \@ref(gridtext-title) for more examples.
+**gridtext** package. Following plot fives a quick example. See Section \@ref(gridtext-title) for more examples.
 
+
+```r
+Heatmap(mat, name = "mat",
+    column_title = gt_render(
+        paste0("Some <span style='color:blue'>blue text **in bold.**</span><br>",
+            "And *italics text.*<br>And some ",
+            "<span style='font-size:18pt; color:black'>large</span> text."), 
+        r = unit(2, "pt"), 
+        padding = unit(c(2, 2, 2, 2), "pt")
+    )
+)
+```
+
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-18-1.png" width="499.2" style="display: block; margin: auto;" />
 
 ## Clustering {#clustering}
 
@@ -503,7 +518,7 @@ Heatmap(mat_with_outliers, name = "mat",
     column_title = "robust_dist")
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-19-1.png" width="960" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-20-1.png" width="100%" style="display: block; margin: auto;" />
 
 If there are proper distance methods (like methods in [**stringdist**
 package](https://cran.r-project.org/web/packages/stringdist/)), you can also
@@ -520,7 +535,8 @@ dist_letters = function(x, y) {
     sqrt(sum((x - y)^2))
 }
 Heatmap(mat_letters, name = "letters", col = structure(2:5, names = letters[1:4]),
-    clustering_distance_rows = dist_letters, clustering_distance_columns = dist_letters,
+    clustering_distance_rows = dist_letters, 
+    clustering_distance_columns = dist_letters,
     cell_fun = function(j, i, x, y, w, h, col) { # add text to each grid
         grid.text(mat_letters[i, j], x, y)
     })
@@ -618,7 +634,7 @@ group = kmeans(t(mat), centers = 3)$cluster
 Heatmap(mat, name = "mat", cluster_columns = cluster_within_group(mat, group))
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-23-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-24-1.png" width="499.2" style="display: block; margin: auto;" />
 
 In above example, columns in a same group are still clustered, but the
 dendrogram is degenerated as a flat line. The dendrogram on columns shows the
@@ -643,16 +659,17 @@ Heatmap(mat, name = "mat", cluster_rows = row_dend)
 
 <img src="02-single_heatmap_files/figure-html/cluster_dendextend-1.png" width="499.2" style="display: block; margin: auto;" />
 
-`row_dend_gp` and `column_dend_gp` control the global graphic setting for
-dendrograms. Note e.g. graphic settings in `row_dend` will be overwritten by
+`row_dend_gp` and `column_dend_gp` control the global graphics setting for
+dendrograms. Note e.g. graphics settings in `row_dend` will be overwritten by
 `row_dend_gp`.
 
 
 ```r
-Heatmap(mat, name = "mat", cluster_rows = row_dend, row_dend_gp = gpar(col = "red"))
+Heatmap(mat, name = "mat", cluster_rows = row_dend, 
+    row_dend_gp = gpar(col = "red"))
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-24-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-25-1.png" width="499.2" style="display: block; margin: auto;" />
 
 From version 2.5.6, you can also add graphics on the nodes of the dendrogram by setting
 a proper `nodePar`.
@@ -666,7 +683,7 @@ row_dend = dendrapply(row_dend, function(d) {
 Heatmap(mat, name = "mat", cluster_rows = row_dend, row_dend_width = unit(2, "cm"))
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-25-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-26-1.png" width="499.2" style="display: block; margin: auto;" />
 
 Currently, only points can be added on the nodes, however, if you have the need to add
 more types of graphics, especially the self-defined graphics, just send me a message and I
@@ -699,12 +716,12 @@ Heatmap(m2, name = "mat", row_dend_reorder = FALSE, column_title = "no reorderin
 Heatmap(m2, name = "mat", row_dend_reorder = TRUE, column_title = "apply reordering")
 ```
 
-<img src="02-single_heatmap_files/figure-html/cluster_dendsort-1.png" width="960" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/cluster_dendsort-1.png" width="100%" style="display: block; margin: auto;" />
 
 There are many other methods for reordering dendrograms, e.g. the **dendsort**
 package. Basically, all these methods still return a dendrogram that has been
 reordered, thus, we can firstly generate the row or column dendrogram based on
-the data matrix, reorder it by some method, and assign it back to
+the data matrix, reorder it by a certain method, and assign it back to
 `cluster_rows` or `cluster_columns`.
 
 Compare following two reorderings on both dimensions. Can you tell which is better?
@@ -720,7 +737,7 @@ Heatmap(mat, name = "mat", cluster_rows = row_dend, cluster_columns = col_dend,
     column_title = "reorder by dendsort")
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-28-1.png" width="960" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-29-1.png" width="100%" style="display: block; margin: auto;" />
 
 ## Set row and column orders {#row-and_column_orders}
 
@@ -730,7 +747,8 @@ e.g. `row_order` is set, row clustering is turned off by default.
 
 
 ```r
-Heatmap(mat, name = "mat", row_order = order(as.numeric(gsub("row", "", rownames(mat)))), 
+Heatmap(mat, name = "mat", 
+    row_order = order(as.numeric(gsub("row", "", rownames(mat)))), 
     column_order = order(as.numeric(gsub("column", "", colnames(mat)))),
     column_title = "reorder matrix")
 ```
@@ -746,14 +764,14 @@ Heatmap(mat, name = "mat", row_order = sort(rownames(mat)),
     column_title = "reorder matrix by row/column names")
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-29-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-30-1.png" width="499.2" style="display: block; margin: auto;" />
 
 Note `row_dend_reorder` and `row_order` are two different things.
 `row_dend_reorder` is applied on the dendrogram. For any node in the
 dendrogram, rotating its two branches actually gives an identical dendrogram,
 thus, reordering the dendrogram by automatically rotating sub-dendrogram at
 every node can help to separate features further from each other which show
-more difference. As a comparison, `row_order` is simply applied on the matrix
+more difference. As a comparison, `row_order` is simply applied to the matrix
 and normally dendrograms should be turned off.
 
 ## Seriation {#heatmap-seriation}
@@ -767,7 +785,7 @@ row orders and column orders from the object returned by the core function
 `seriate()` from **seriation** package, they can be directly assigned to
 `row_order` and `column_order` to make the heatmap.
 
-The first example demonstrates to directly apply `seriate()` on the matrix.
+The first example demonstrates directly applying `seriate()` on the matrix.
 Since the `"BEA_TSP"` method only allows a non-negative matrix, we modify the
 matrix to `max(mat) - mat`.
 
@@ -780,7 +798,7 @@ Heatmap(max(mat) - mat, name = "mat",
     column_title = "seriation by BEA_TSP method")
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-30-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-31-1.png" width="499.2" style="display: block; margin: auto;" />
 
 Or you can apply `seriate()` to the distance matrix. Now the order for rows
 and columns needs to be calcualted separatedly because the distance matrix
@@ -794,7 +812,7 @@ Heatmap(mat, name = "mat", row_order = get_order(o1), column_order = get_order(o
     column_title = "seriation from the distance matrix")
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-31-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-32-1.png" width="499.2" style="display: block; margin: auto;" />
 
 Some seriation methods also contain the hierarchical clustering information.
 Let's try:
@@ -824,7 +842,7 @@ o1[[1]]$order
 ```
 
 ```
-##  [1]  5  2 10 17  4 16 18  7 15 14 11  8  1  3 12  6 13  9
+##  [1]  5  2  4 17 16  7 18 10 14 15  1  3  8 11  9 13  6 12
 ```
 
 ```r
@@ -833,7 +851,7 @@ get_order(o1)
 ```
 
 ```
-##  [1]  5  2 10 17  4 16 18  7 15 14 11  8  1  3 12  6 13  9
+##  [1]  5  2  4 17 16  7 18 10 14 15  1  3  8 11  9 13  6 12
 ```
 
 And we can add the dendrograms to the heatmap.
@@ -844,15 +862,15 @@ Heatmap(mat, name = "mat", cluster_rows = as.dendrogram(o1[[1]]),
     cluster_columns = as.dendrogram(o2[[1]]))
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-35-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-36-1.png" width="499.2" style="display: block; margin: auto;" />
 
 For more use of the `seriate()` function, please refer to the [**seriation**
 package](https://cran.r-project.org/web/packages/seriation/index.html).
 
-## Dimension names {#dimension-names}
+## Dimension labels {#dimension-names}
 
 The row names and column names are drawn on the right and bottom sides of the
-heatmap by default. Side, visibility and graphic parameters for dimension
+heatmap by default. Side, visibility and graphics parameters for dimension
 names can be set as follows:
 
 
@@ -876,13 +894,15 @@ Heatmap(mat, name = "mat", row_names_gp = gpar(fontsize = 20))
 <img src="02-single_heatmap_files/figure-html/dimension_name-3.png" width="499.2" style="display: block; margin: auto;" />
 
 ```r
-Heatmap(mat, name = "mat", row_names_gp = gpar(col = c(rep("red", 10), rep("blue", 8))))
+Heatmap(mat, name = "mat", 
+    row_names_gp = gpar(col = c(rep("red", 10), rep("blue", 8))))
 ```
 
 <img src="02-single_heatmap_files/figure-html/dimension_name-4.png" width="499.2" style="display: block; margin: auto;" />
 
 ```r
-Heatmap(mat, name = "mat", row_names_centered = TRUE, column_names_centered = TRUE)
+Heatmap(mat, name = "mat", 
+    row_names_centered = TRUE, column_names_centered = TRUE)
 ```
 
 <img src="02-single_heatmap_files/figure-html/dimension_name-5.png" width="499.2" style="display: block; margin: auto;" />
@@ -896,7 +916,7 @@ Heatmap(mat, name = "mat", column_names_rot = 45, column_names_side = "top",
     column_dend_side = "bottom")
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-37-1.png" width="960" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-38-1.png" width="100%" style="display: block; margin: auto;" />
 
 If you have row names or column names which are too long,
 `row_names_max_width` or `column_names_max_height` can be used to set the
@@ -916,7 +936,7 @@ Heatmap(mat2, name = "mat", row_title = "row_names_max_width as length of a*",
     ))
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-39-1.png" width="672" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-40-1.png" width="672" style="display: block; margin: auto;" />
 
 Instead of directly using the row/column names from the matrix, you can also
 provide another character vector which corresponds to the rows or columns and
@@ -961,25 +981,36 @@ Heatmap(mat, name = "mat", row_labels = row_labels[rownames(mat)],
     column_labels = column_labels[colnames(mat)])
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-40-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-41-1.png" width="499.2" style="display: block; margin: auto;" />
 
 The third advantage is mathematical expression can be used as row names in the
 heatmap.
 
 
 ```r
-Heatmap(mat, name = "mat", row_labels = expression(alpha, beta, gamma, delta, epsilon, 
-    zeta, eta, theta, iota, kappa, lambda, mu, nu, xi, omicron, pi, rho, sigma))
+Heatmap(mat, name = "mat", row_labels = expression(alpha, beta, gamma, 
+    delta, epsilon, zeta, eta, theta, iota, kappa, lambda, mu, nu, xi, 
+    omicron, pi, rho, sigma)
+)
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-41-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-42-1.png" width="499.2" style="display: block; margin: auto;" />
+
+The fourth advantage is that you can construct complicated labels with **gridtext** package. 
+The following is a quick example. More examples can be found in Section \@ref(gridtext-title).
+
+
+```r
+Heatmap(mat, name = "mat",
+    row_labels = gt_render(letters[1:18], padding = unit(c(2, 10, 2, 10), "pt")),
+    row_names_gp = gpar(box_col = rep(c("red", "green"), times = 9)))
+```
+
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-43-1.png" width="499.2" style="display: block; margin: auto;" />
 
 Internally, row names and columns names are actually implemented by the
 `anno_text()` function (Section \@ref(text-annotation)), in other words, they
 are treated as special cases for text annotations.
-
-Complicated styles of row/column names can be implemented by integrating the
-**gridtext** package. Check Section \@ref(gridtext-dimnames) for more examples.
 
 ## Heatmap split {#heatmap-split}
 
@@ -1015,7 +1046,7 @@ Row splitting and column splitting can be performed simultaneously.
 Heatmap(mat, name = "mat", row_km = 2, column_km = 3)
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-42-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-44-1.png" width="499.2" style="display: block; margin: auto;" />
 
 You might notice there are dashed lines in the row and column dendrograms,
 it will be explained in Section \@ref(split-by-categorical-variables) (the last paragraph).
@@ -1029,11 +1060,21 @@ form consensus k-means might be smaller than the number set in `row_km` and
 `column_km`.
 
 
+
 ```r
 # of course, it will be a little bit slower
 Heatmap(mat, name = "mat", 
     row_km = 2, row_km_repeats = 100,
     column_km = 3, column_km_repeats = 100)
+```
+
+Note if you want the k-means clustering completely reproducible, you must explicitly
+set the same random seed:
+
+
+```r
+set.seed(123)
+Heatmap(..., row_km = ..., column_km = ...)
 ```
 
 ### Split by categorical variables {#split-by-categorical-variables}
@@ -1077,7 +1118,7 @@ mixed with `row_split` and `column_split`.
 Heatmap(mat, name = "mat", row_split = rep(c("A", "B"), 9), row_km = 2)
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-44-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-47-1.png" width="499.2" style="display: block; margin: auto;" />
 
 which is the same as:
 
@@ -1126,27 +1167,27 @@ If `row_km`/`column_km` is set or `row_split`/`column_split` is set as a
 vector or a data frame, hierarchical clustering is first applied to each slice
 which generates `k` dendrograms, then a parent dendrogram is generated based
 on the mean values of each slice. **The height of the parent dendrogram is
-adjusted by adding the maximal height of the dendrograms in all children
-slices and the parent dendrogram is added on top of the children dendrograms
+adjusted by adding the maximal height of the dendrograms in all child
+slices and the parent dendrogram is added on top of the child dendrograms
 to form a single global dendrogram.** This is why you see dashed lines in the
 dendrograms in previous heatmaps. They are used to discriminate the parent dendrogram
-and the children dendrograms, and alert users they are calculated in different
+and the child dendrograms, and alert users they are calculated in different
 ways. These dashed lines can be removed by setting `show_parent_dend_line =
 FALSE` in `Heatmap()`, or set it as a global option:
-`ht_opt$show_parent_dend_line = FALSE`.
+`ht_opt$show_parent_dend_line = FALSE`, but we are not suggested to do so.
 
 
 ```r
-Heatmap(mat, name = "mat", row_km = 2, column_km = 3, show_parent_dend_line = FALSE)
+Heatmap(mat, name = "mat", row_km = 2, column_km = 3, 
+    show_parent_dend_line = FALSE)
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-46-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-49-1.png" width="499.2" style="display: block; margin: auto;" />
 
 ### Split by dendrogram {#spilt-by-dendrogram}
 
 A second scenario for splitting is that users may still want to keep the
-global dendrogram **which is generated from the complete matrix** while not
-split it in the first place. In this case, `row_split`/`column_split` can be
+global dendrogram **which is generated from the complete matrix**. In this case, `row_split`/`column_split` can be
 set to a single number which will apply `cutree()` on the row/column
 dendrogram. This works when `cluster_rows`/`cluster_columns` is set to `TRUE`
 or is assigned with a `hclust`/`dendrogram` object.
@@ -1154,7 +1195,7 @@ or is assigned with a `hclust`/`dendrogram` object.
 For this case, the dendrogram is still as same as the original one, except that the
 positions of dendrogram leaves are slightly adjusted by the gaps between
 slices. (There is no dashed lines, because here the dendrogram is calcualted
-as a complete one and there is no parent dendrogram or children dendrograms.)
+as a complete one and there is no parent dendrogram or child dendrograms.)
 
 
 ```r
@@ -1172,7 +1213,7 @@ Heatmap(mat, name = "mat", cluster_rows = dend, row_split = 2)
 <img src="02-single_heatmap_files/figure-html/split_dendrogram-2.png" width="499.2" style="display: block; margin: auto;" />
 
 If you want to combine splitting from `cutree()` and other categorical
-variables, you need to generate the classes from `cutree()` in the first
+variables, you need to generate the partitions from `cutree()` in the first
 place, append to e.g. `row_split` as a data frame and then send it to
 `row_split` argument.
 
@@ -1187,7 +1228,7 @@ Heatmap(mat, name = "mat", row_split = split)
 
 When `row_split`/`column_split` is set as a categorical variable (a vector or a
 data frame) or `row_km`/`column_km` is set, by default, there is an additional
-clustering applied to the mean of slices to show the hierarchy in the slice
+clustering applied to the mean of slices to show the hierarchy on the slice
 level. Under this scenario, you cannot precisely control the order of slices
 because it is controlled by the clustering of slices.
 
@@ -1204,31 +1245,34 @@ heatmaps:
 
 ```r
 Heatmap(mat, name = "mat", 
-  row_split = rep(LETTERS[1:3], 6),
-    column_split = rep(letters[1:6], 4))
+    row_split = rep(LETTERS[1:3], 6), column_split = rep(letters[1:6], 4))
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-48-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-51-1.png" width="499.2" style="display: block; margin: auto;" />
 
 ```r
-# clustering is similar as previous heatmap with branches in some nodes in the dendrogram flipped
+# clustering is similar as previous heatmap with branches 
+# in some nodes in the dendrogram flipped
 Heatmap(mat, name = "mat", 
-  row_split = factor(rep(LETTERS[1:3], 6), levels = LETTERS[3:1]),
+    row_split = factor(rep(LETTERS[1:3], 6), levels = LETTERS[3:1]),
     column_split = factor(rep(letters[1:6], 4), levels = letters[6:1]))
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-48-2.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-51-2.png" width="499.2" style="display: block; margin: auto;" />
 
 ```r
 # now the order is exactly what we set
 Heatmap(mat, name = "mat", 
-  row_split = factor(rep(LETTERS[1:3], 6), levels = LETTERS[3:1]),
+    row_split = factor(rep(LETTERS[1:3], 6), levels = LETTERS[3:1]),
     column_split = factor(rep(letters[1:6], 4), levels = letters[6:1]),
     cluster_row_slices = FALSE, 
     cluster_column_slices = FALSE)
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-48-3.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-51-3.png" width="499.2" style="display: block; margin: auto;" />
+
+Also you can see in the third heatmap, when `cluster_row_slices` and `cluster_column_slices`
+are set to `FALSE`, there is no dendrogram on slice level.
 
 
 ### Titles for splitting {#titles-for-splitting} 
@@ -1243,8 +1287,8 @@ template".
 
 **ComplexHeatmap** supports three types of templates. The first one is by
 `sprintf()` where the `%s` is replaced by the corresponding level. In
-following example, since all combinations of `split` are `A,C`, `A,D`, `B,C`
-and `B,D`, if `row_title` is set to `%s|%s`, the four row titles will be
+following example, since all combinations of `split` are `c("A", "C")`, `c("A", "D")`, `c("B", "C")`
+and `c("B", "D")`, if `row_title` is set to `%s|%s`, the four row titles will be
 `A|C`, `A|D`, `B|C`, `B|D`.
 
 
@@ -1253,13 +1297,13 @@ split = data.frame(rep(c("A", "B"), 9), rep(c("C", "D"), each = 9))
 Heatmap(mat, name = "mat", row_split = split, row_title = "%s|%s")
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-49-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-52-1.png" width="499.2" style="display: block; margin: auto;" />
 
 For the `sprintf()` template, you can only put the levels which are `A,B,C,D`
 in the title, and `C,D` is always after `A,B` (i.e. it always `A,C` and
 `A,D`). However, when making the heatmap, you might want to put more
 meaningful text instead of the internal levels. Once you know how to
-correspond the text to the level, you can add it by following two template
+correspond the text to the level, you can add it by the following two other template
 methods.
 
 In the following two template methods, special marks are used to mark the R
@@ -1278,21 +1322,24 @@ templates. `x` is just a simple vector which contains current category levels
 ```r
 # We only run the code for the first heatmap
 map = c("A" = "aaa", "B" = "bbb", "C" = "333", "D" = "444")
-Heatmap(mat, name = "mat", row_split = split, row_title = "@{map[ x[1] ]}|@{map[ x[2] ]}")
-Heatmap(mat, name = "mat", row_split = split, row_title = "{map[ x[1] ]}|{map[ x[2] ]}")
+Heatmap(mat, name = "mat", row_split = split, 
+    row_title = "@{map[ x[1] ]}|@{map[ x[2] ]}")
+Heatmap(mat, name = "mat", row_split = split, 
+    row_title = "{map[ x[1] ]}|{map[ x[2] ]}")
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-51-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-54-1.png" width="499.2" style="display: block; margin: auto;" />
 
 The row title is rotated by default, you can set `row_title_rot = 0` to make
 it horizontal:
 
 
 ```r
-Heatmap(mat, name = "mat", row_split = split, row_title = "%s|%s", row_title_rot = 0)
+Heatmap(mat, name = "mat", row_split = split, row_title = "%s|%s", 
+    row_title_rot = 0)
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-52-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-55-1.png" width="499.2" style="display: block; margin: auto;" />
 
 When `row_split`/`column_split` is set as a number, you can also use template
 to adjust the titles for slices.
@@ -1302,11 +1349,11 @@ to adjust the titles for slices.
 Heatmap(mat, name = "mat", row_split = 2, row_title = "cluster_%s")
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-53-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-56-1.png" width="499.2" style="display: block; margin: auto;" />
 
 If you know the final number of row slices, you can directly set a vector of
 titles to `row_title`. Be careful the number of row slices is not always
-identical to `nlevel_1*nlevel_2*...`.
+identical to `n_level_1 * n_level_2 * ...`.
 
 
 ```r
@@ -1316,7 +1363,7 @@ Heatmap(mat, name = "mat", row_split = split,
     row_title_rot = 0)
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-54-1.png" width="672" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-57-1.png" width="672" style="display: block; margin: auto;" />
 
 If the length of `row_title` is specified as a single string, it will be like
 a single title for all slices.
@@ -1327,7 +1374,7 @@ a single title for all slices.
 Heatmap(mat, name = "mat", row_split = split, row_title = "there are four slices")
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-55-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-58-1.png" width="499.2" style="display: block; margin: auto;" />
 
 If you still want titles for each slice, but also a global title, you can do
 as follows.
@@ -1339,10 +1386,10 @@ ht = Heatmap(mat, name = "mat", row_split = split, row_title = "%s|%s")
 draw(ht, row_title = "I am a row title")
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-56-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-59-1.png" width="499.2" style="display: block; margin: auto;" />
 
 Actually the `row_title` used in `draw()` function is the row title of the
-heatmap list, although in the example there is only one heatmap. The `draw()`
+heatmap list (although in the example there is only one heatmap). The `draw()`
 function and the heatmap list will be introduced in Chapter
 \@ref(a-list-of-heatmaps).
 
@@ -1353,7 +1400,7 @@ If `row_title` is set to `NULL`, no row title is drawn.
 Heatmap(mat, name = "mat", row_split = split, row_title = NULL)
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-57-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-60-1.png" width="499.2" style="display: block; margin: auto;" />
 
 All these rules also work for column titles for slices.
 
@@ -1369,10 +1416,14 @@ slices.
 # it can be reset by `ht_opt(RESET = TRUE)`
 ht_opt$TITLE_PADDING = unit(c(4, 4), "points")
 Heatmap(mat, name = "mat", 
-    row_km = 2, row_title_gp = gpar(col = c("red", "blue"), font = 1:2),
+    row_km = 2, 
+    row_title_gp = gpar(col = c("red", "blue"), font = 1:2),
     row_names_gp = gpar(col = c("green", "orange"), fontsize = c(10, 14)),
-    column_km = 3, column_title_gp = gpar(fill = c("red", "blue", "green"), font = 1:3),
-    column_names_gp = gpar(col = c("green", "orange", "purple"), fontsize = c(10, 14, 8)))
+    column_km = 3, 
+    column_title_gp = gpar(fill = c("red", "blue", "green"), font = 1:3),
+    column_names_gp = gpar(col = c("green", "orange", "purple"), 
+        fontsize = c(10, 14, 8))
+)
 ```
 
 <img src="02-single_heatmap_files/figure-html/split_graphical_parameter-1.png" width="499.2" style="display: block; margin: auto;" />
@@ -1412,7 +1463,7 @@ slice is added.
 Heatmap(mat, name = "mat", row_km = 2, column_km = 3, border = TRUE)
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-59-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-62-1.png" width="499.2" style="display: block; margin: auto;" />
 
 If you set gap size to zero, the heatmap will look like it is partitioned by
 vertical and horizontal lines.
@@ -1423,7 +1474,7 @@ Heatmap(mat, name = "mat", row_km = 2, column_km = 3,
     row_gap = unit(0, "mm"), column_gap = unit(0, "mm"), border = TRUE)
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-60-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-63-1.png" width="499.2" style="display: block; margin: auto;" />
 
 ### Split heatmap annotations {#split-heatmap-annotations}
 
@@ -1439,7 +1490,7 @@ Heatmap(mat, name = "mat", row_km = 2, column_km = 3,
 )
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-61-1.png" width="576" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-64-1.png" width="576" style="display: block; margin: auto;" />
 
 ## Heatmap as raster image {#heatmap-as-raster-image}
 
@@ -1458,7 +1509,7 @@ In this case, an image is represented as a matrix of RGB values, which is
 called a [raster image](https://en.wikipedia.org/wiki/Raster_graphics). If the
 heatmap is larger than the size of the screen or the pixels that current
 graphics devices can support, we can convert the heatmap and reduce it, by
-saving it in a form of a color matrix with the same dimension as the device.
+saving it in a form of a color matrix with the same dimension as on the device.
 
 Let's assume a matrix has $n_r$ rows and $n_c$ columns. When it is drawn on a
 certain graphics device, _e.g._ an on-screen device, the corresponding heatmap
@@ -1471,13 +1522,13 @@ To make it simple, I assume both $n_r > p_r$ and $n_c > p_c$. The
 principle is basically the same for the scenarios where only one dimension of
 the matrix is larger than the device.
 
-In **ComplexHeatmap** version 2.5.4, there are following implementations for
+From **ComplexHeatmap** version 2.5.4, there are following three implementations for
 image rasterization. Note the implementation is a little bit different from
 the earlier versions (of course, better than the earlier versions).
 
 1. First an image
    (in a specific format, _e.g._ png or jpeg) with $(p_r \cdot a) \times (p_c
-   \cdot a)$ resolution is saved into a temporary file where $a$ is a zooming
+   \cdot a)$ resolution is saved into a temporary file (e.g., by `png()` or `jpeg()`) where $a$ is a zooming
    factor, next it is read back as a `raster` object by _e.g._
    `png::readPNG()` or `jpeg::readJPEG()`, and later the raster object is
    filled into the heatmap body by `grid::grid.raster()`. So we can say, the 
@@ -1517,7 +1568,7 @@ Heatmap(..., use_raster = TRUE, raster_resize_mat = max)
 Heatmap(..., use_raster = TRUE, raster_resize_mat = function(x) sample(x, 1))
 ```
 
-3. A temporary image with resolution $n_r \times n_c$ is first generated, here
+3. A temporary image with complete resolution $n_r \times n_c$ is first generated, here
    `magick::image_resize()` is used to reduce the image to size $p_r \times
    p_c$. Finally the reduced image is read as a `raster` object and filled into
    the heatmap body. **magick** provides a lot of methods for
@@ -1537,47 +1588,43 @@ Heatmap(..., use_raster = TRUE, raster_by_magick = TRUE, raster_magick_filter = 
 
 The type of temporary image is controlled by `raster_device` argument. All supported
 "raster devices" are: `png`, `CairoPNG`, `agg_png`, `jpeg`, `tiff`, `CairoJPEG` and 
-`CairoTIFF`. `CairoPNG` is taken as the default raster device because the previously
+`CairoTIFF`. `CairoPNG` is taken as the default raster device (If **Cairo** package is installed) because the previously
 default device `png` occasionally produces white vertical and horizontal lines in the
 raster image.
 
 In **ComplexHeatmap**, `use_raster` is by default turned on if the number of
 rows or columns is more than 2000 in the matrix.
 
-In the following parts of this post, I compare the visual difference
-between different image rasterization methods.
-
-
-The following example is from [Guillaume Devailly's simulated
+In the following parts of this section, we compare the visual difference
+between different image rasterization methods. The following example is from [Guillaume Devailly's simulated
 data](https://gdevailly.netlify.app/post/plotting-big-matrices-in-r/) but with
-small adaptation. This example shows an enrichment pattern to the top center of the plot.
+small adaptations. This example shows an enrichment pattern to the top center of the plot.
 
 
 
-In the folowing examples, I won't show the code for making heatmaps because there are too many heatmaps
-and the specific settings is already written as the row title of each heatmap.
+In the folowing examples, We won't show the code for making heatmaps because
+there are too many heatmaps and the specific settings is already written as the
+row title of each heatmap. We set the same color mapping for all heatmaps, so
+that you can see how different rasterizations change the original patterns.
 
-I set the same color mapping for all heatmaps, so that you can see how different rasterizations change
-the original patterns.
+For the comparison, we generated many heatmaps. They can be categoried into three groups, as corresponded to the 
+three rasterization methods mentioned previously.
 
-For the comparison, I generated many heatmaps. They can be categoried into three groups, as corresponded to the 
-three rasterization methods I mentioned previously.
-
-- by `png()`/`CairoPNG()`/`agg_png()`/`jpeg()`/`tiff()`: Rasterization method 1. First row in the following heatmaps.
+- by `png()`/`CairoPNG()`/`agg_png()`/`jpeg()`: Rasterization method 1. First row in the following heatmaps.
 - `raster_resize_mat = *`: Rasterization method 2, with different summary methods. Second row in the following heatmaps.
 - `filter = *`: Rasterization method 3, with different filterring method. The string `filter`
   should be `raster_magick_filter`. It is truncated so that the row title won't be cut by the plot regions.
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-67-1.png" width="100%" style="display: block; margin: auto auto auto 0;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-70-1.png" width="100%" style="display: block; margin: auto auto auto 0;" />
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-68-1.png" width="100%" style="display: block; margin: auto auto auto 0;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-71-1.png" width="100%" style="display: block; margin: auto auto auto 0;" />
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-69-1.png" width="100%" style="display: block; margin: auto auto auto 0;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-72-1.png" width="100%" style="display: block; margin: auto auto auto 0;" />
 
 More examples on image rasteration can be found in this blog post: [Rasterization in ComplexHeatmap
 ](https://jokergoo.github.io/2020/06/30/rasterization-in-complexheatmap/).
 
-According to the examples that have been shown, I would say
+According to the examples that have been shown, we would say
 rasterization by **magick** package performs better, thus, by default, in
 **ComplexHeatmap**, the rasterization is done by **magick** (with `"Lanczos"`
 as the default filter method) and if **magick** is not installed, it uses
@@ -1597,8 +1644,7 @@ ht = Heatmap(mat2, cluster_rows = FALSE, cluster_columns = FALSE, use_raster = F
 draw(ht)
 dev.off()
 
-# Here I removed CairoTIFF because it is not working on my laptop
-all_devices = c("png", "CairoPNG", "agg_png", "jpeg", "CairoJPEG", "tiff")
+all_devices = c("png", "CairoPNG", "agg_png", "jpeg", "CairoJPEG")
 for(device in all_devices) {
     pdf(qq("heatmap_@{device}.pdf"), width = 8, height = 8)
     ht = Heatmap(mat2, cluster_rows = FALSE, cluster_columns = FALSE, use_raster = TRUE, 
@@ -1619,18 +1665,16 @@ sapply(fs, function(x) paste(round(x/1024), "KB"))
 
 ```
 ## heatmap_no_rasteration.pdf            heatmap_png.pdf 
-##                  "6356 KB"                   "175 KB" 
+##                  "6394 KB"                   "175 KB" 
 ##       heatmap_CairoPNG.pdf        heatmap_agg_png.pdf 
-##                   "177 KB"                   "175 KB" 
+##                   "177 KB"                   "308 KB" 
 ##           heatmap_jpeg.pdf      heatmap_CairoJPEG.pdf 
-##                   "667 KB"                   "677 KB" 
-##           heatmap_tiff.pdf 
-##                   "175 KB"
+##                   "667 KB"                   "677 KB"
 ```
 
 
 
-`CairoPNG` generates smaller file size, thus it is used as the default raster device.
+We can see `png`-family methods generate smaller file size.
 
 ## Customize the heatmap body {#customize-the-heatmap-body}
 
@@ -1641,6 +1685,9 @@ here) with different filled colors. However, it is also possible to add more
 graphics or symbols as additional layers on the heatmap. There are two
 arguments `cell_fun` and `layer_fun` which both should be user-defined
 functions.
+
+In later chapter, we will introduce OncoPrint (Chapter \@ref(oncoprint)), UpSet plot (Chapter \@ref(upset-plot))
+and 3D heatmap (Chapter \@ref(three-d-heatmap)). They are all implemented with `cell_fun`/`layer_fun`.
 
 ### cell_fun {#cell-fun}
 
@@ -1680,7 +1727,7 @@ Heatmap(small_mat, name = "mat", col = col_fun,
 })
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-73-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-76-1.png" width="499.2" style="display: block; margin: auto;" />
 
 and we can also choose only to add text for the cells with positive values:
 
@@ -1693,7 +1740,7 @@ Heatmap(small_mat, name = "mat",  col = col_fun,
 })
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-74-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-77-1.png" width="499.2" style="display: block; margin: auto;" />
 
 You can split the heatmap without doing anything extra to `cell_fun`:
 
@@ -1706,7 +1753,7 @@ Heatmap(small_mat, name = "mat", col = col_fun,
 })
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-75-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-78-1.png" width="499.2" style="display: block; margin: auto;" />
 
 In following example, we make a heatmap which shows correlation matrix similar
 as the **corrplot** package:
@@ -1776,6 +1823,8 @@ str = "B[cp];W[pq];B[dc];W[qd];B[eq];W[od];B[de];W[jc];B[qk];W[qn]
 ;B[in];W[ih];B[ae];W[so];B[af]"
 ```
 
+
+
 We convert it into a matrix:
 
 
@@ -1807,7 +1856,7 @@ Black and white stones are put based on the values in the matrix:
 
 
 ```r
-Heatmap(go_mat, name = "go", rect_gp = gpar(type = "none"),
+ht = Heatmap(go_mat, name = "go", rect_gp = gpar(type = "none"),
     cell_fun = function(j, i, x, y, w, h, col) {
         grid.rect(x, y, w, h, gp = gpar(fill = "#dcb35c", col = NA))
         if(i == 1) {
@@ -1840,14 +1889,24 @@ Heatmap(go_mat, name = "go", rect_gp = gpar(type = "none"),
     col = c("B" = "black", "W" = "white"),
     show_row_names = FALSE, show_column_names = FALSE,
     column_title = "One famous GO game",
-    heatmap_legend_param = list(title = "Player", at = c("B", "W"), 
-        labels = c("player1", "player2"), border = "black")
+    show_heatmap_legend = FALSE
 )
+lgd = Legend(title = "Players", labels = c("player1", "player2"),
+    type = "points", legend_gp = gpar(col = c("black", "white")),
+    size = unit(0.45, "snpc"), background = "#dcb35c")
+draw(ht, heatmap_legend_list = lgd)
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-78-1.png" width="576" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-82-1.png" width="576" style="display: block; margin: auto;" />
+
+In the Go game example, we actually self-defined a legend. This will be introduced in Section \@ref(legends) in more details.
 
 ### layer_fun {#layer-fun}
+
+If you tried out the previous code for the Go game, you might see the generation of
+the plot is a little bit slow that fragments in the plot come one after other other.
+This is because `cell_fun` is applied in every cell separately. In this section, 
+we will introduce `layer_fun` which is a vectorized version of `cell_fun`.
 
 `cell_fun` adds graphics cell by cell, while `layer_fun` adds graphics in a
 block-wise manner. Similar as `cell_fun`, `layer_fun` also needs seven
@@ -1859,16 +1918,15 @@ ninth arguments which is introduced later in this section):
 # code only for demonstration
 Heatmap(..., layer_fun = function(j, i, x, y, w, h, fill) {...})
 # or you can capitalize the arguments to mark they are vectors,
-# the names of the argumetn do not matter
+# the names of the argument do not matter
 Heatmap(..., layer_fun = function(J, I, X, Y, W, H, F) {...})
 ```
 
 ``j`` and ``i`` still contain the column and row indices corresponding to the
-original matrix, but since now `layer_fun` applies to a block of cells (or a
-block of heatmap if the heatmap is split), ``j`` and ``i`` are vectors for all
-the cells in the current heatmap slice. Similarlly, `x`, `y`, `w`, `h` and
-`fill` are all vectors corresponding to all cells in the current heatmap
-slice.
+original matrix, but since now `layer_fun` is applied to a heatmap slice which
+contains a block of cells, ``j`` and ``i`` are vectors for all the cells in the
+current heatmap slice. Similarlly, `x`, `y`, `w`, `h` and `fill` are all vectors
+corresponding to all cells in the current heatmap slice.
 
 Since `j` and `i` now are vectors, to get corresponding values in the matrix, we
 cannot use the form as `mat[j, i]` because it gives you a sub-matrix with
@@ -1906,11 +1964,12 @@ col_fun = colorRamp2(c(-2, 0, 2), c("green", "white", "red"))
 Heatmap(small_mat, name = "mat", col = col_fun,
     layer_fun = function(j, i, x, y, width, height, fill) {
         # since grid.text can also be vectorized
-        grid.text(sprintf("%.1f", pindex(small_mat, i, j)), x, y, gp = gpar(fontsize = 10))
+        grid.text(sprintf("%.1f", pindex(small_mat, i, j)), x, y, 
+            gp = gpar(fontsize = 10))
 })
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-81-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-85-1.png" width="499.2" style="display: block; margin: auto;" />
 
 And only add text to cells with positive values:
 
@@ -1924,7 +1983,7 @@ Heatmap(small_mat, name = "mat", col = col_fun,
 })
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-82-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-86-1.png" width="499.2" style="display: block; margin: auto;" />
 
 When the heatmap is split, `layer_fun` is applied in every slice.
 
@@ -1941,7 +2000,7 @@ Heatmap(small_mat, name = "mat", col = col_fun,
 })
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-83-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-87-1.png" width="499.2" style="display: block; margin: auto;" />
 
 `layer_fun` can also have two more arguments which are the index for the
 current row slice and column slice. E.g. we want to add borders for the top
@@ -1960,15 +2019,16 @@ Heatmap(small_mat, name = "mat", col = col_fun,
 })
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-84-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-88-1.png" width="499.2" style="display: block; margin: auto;" />
 
 The advantage of `layer_fun` is that it is not only fast to add graphics, but
-also it provides more possibilities to customize the heatmap. Consider
-following visualization: For each row in the heatmap, if values in the
-neighbouring two columns have the same sign, we add a red line or a green line
-depending on the sign of the two values. Since now graphics in a cell depend
-on other cells, it is only possible to implement it via `layer_fun`. (Don't be
-frightened by following code. They are explained after the code.)
+also it provides more possibilities to customize the heatmap, e.g. you can
+interact between cells in a heatmap slice. Consider following visualization: For
+each row in the heatmap, if values in the neighbouring two columns have the same
+sign, we add a red line or a green line depending on the sign of the two values.
+Since now graphics in a cell depend on other cells, it is only possible to
+implement it via `layer_fun`. (Don't be frightened by following code. They are
+explained after the code.)
 
 
 ```r
@@ -1997,10 +2057,10 @@ Heatmap(small_mat, name = "mat", col = col_fun,
 )
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-85-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-89-1.png" width="499.2" style="display: block; margin: auto;" />
 
 The values that are sent to `layer_fun` are all vectors (for the vectorization
-of the **grid** graphic functions), however, the heatmap slice where
+of the **grid** graphics functions), however, the heatmap slice where
 `layer_fun` is applied to, is still represented by a matrix, thus, it would be
 very convinient if all the arguments in `layer_fun` can be converted to the
 sub-matrix for the current slice. Here, as shown in above example,
@@ -2060,7 +2120,7 @@ Heatmap(small_mat, name = "mat", col = col_fun,
 )
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-88-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-92-1.png" width="499.2" style="display: block; margin: auto;" />
 
 ## Size of the heatmap {#size-of-the-heatmap}
 
@@ -2081,13 +2141,14 @@ arguments can be set as absolute units.
 Heatmap(mat, name = "mat", width = unit(8, "cm"), height = unit(8, "cm"))
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-89-1.png" width="672" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-93-1.png" width="672" style="display: block; margin: auto;" />
 
 ```r
-Heatmap(mat, name = "mat", heatmap_width = unit(8, "cm"), heatmap_height = unit(8, "cm"))
+Heatmap(mat, name = "mat", heatmap_width = unit(8, "cm"), 
+    heatmap_height = unit(8, "cm"))
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-89-2.png" width="672" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-93-2.png" width="672" style="display: block; margin: auto;" />
 
 These four arguments are more important when adjust the size in a list of
 heatmaps (see Section
@@ -2145,7 +2206,7 @@ has exactly the same size as the heatmap.
 all the data and configurations into the object in the `Heatmap` class. The
 clustering will only be performed when the `draw()` method is called. Under
 interactive mode (e.g. the interactive R terminal where you can type your R
-code line by line), directly calling `Heatmap()` without returning to any
+code line by line), directly calling `Heatmap()` without assigning to any
 object prints the object and the print method (or the S4 `show()` method) for
 the `Heatmap` class object calls `draw()` internally. So if you type
 `Heatmap(...)` in your R terminal, it looks like it is a plotting function
@@ -2171,7 +2232,7 @@ The `draw()` function actually is applied to a list of heatmaps in
 `HeatmapList` class. The `draw()` method for the single `Heatmap` class
 constructs a `HeatmapList` with only one heatmap and call `draw()` method of
 the `HeatmapList` class. The `draw()` function accpets a lot of more arguments
-which e.g. controls the legends. It will be discussed in Chapter
+which e.g. control the legends. It will be discussed in Chapter
 \@ref(a-list-of-heatmaps).
 
 
@@ -2179,7 +2240,7 @@ which e.g. controls the legends. It will be discussed in Chapter
 draw(ht, heatmap_legend_side, padding, ...)
 ```
 
-## Get orders and dendrograms {#get-orders-and-dendrograms-from-heatmap}
+## Extract orders and dendrograms {#get-orders-and-dendrograms-from-heatmap}
 
 The row/column orders of the heatmap can be obtained by
 `row_order()`/`column_order()` functions. You can directly apply to the
@@ -2326,7 +2387,7 @@ dim(ht)
 ht[1:10, 1:10]
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-98-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-102-1.png" width="499.2" style="display: block; margin: auto;" />
 
 The annotations are subsetted accordingly as well.
 
@@ -2340,7 +2401,7 @@ ht = Heatmap(mat, name = "mat", row_km = 2, column_km = 3,
 ht[1:9*2 - 1, 1:12*2] # odd rows, even columns
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-99-1.png" width="672" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-103-1.png" width="672" style="display: block; margin: auto;" />
 
 The heatmap components are subsetted if they are vector-like. Some
 configurations in the heatmap keep the same when subsetting, e.g. if `row_km`
@@ -2355,7 +2416,7 @@ ht2 = ht[1:10, 1:10]
 ht2
 ```
 
-<img src="02-single_heatmap_files/figure-html/unnamed-chunk-100-1.png" width="499.2" style="display: block; margin: auto;" />
+<img src="02-single_heatmap_files/figure-html/unnamed-chunk-104-1.png" width="499.2" style="display: block; margin: auto;" />
 
 **The implementation of subsetting heatmaps is very experimental.** It is not
 always working, e.g. if `cell_fun` is defined and uses an external matrix, or
